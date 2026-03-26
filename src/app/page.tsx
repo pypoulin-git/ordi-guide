@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import AnalogyToggle from '@/components/AnalogyToggle'
+import SearchBar from '@/components/SearchBar'
 import { useAnalogy } from '@/contexts/AnalogyContext'
 
 const features = [
@@ -122,6 +123,19 @@ export default function HomePage() {
               )
             })}
           </div>
+        </div>
+      </section>
+
+      {/* ── AI Search ─────────────────────────────────────────────── */}
+      <section className="section" style={{ background: 'white' }}>
+        <div className="container max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-2" style={{ color: '#0f172a' }}>
+            🔍 Décris ton besoin, on s&apos;occupe du reste
+          </h2>
+          <p className="text-center text-sm mb-6" style={{ color: '#64748b' }}>
+            Dis-nous ce que tu cherches en une phrase — notre IA te donne une recommandation instantanée
+          </p>
+          <SearchBar />
         </div>
       </section>
 

@@ -1,0 +1,84 @@
+import { NextRequest, NextResponse } from 'next/server'
+
+const SYSTEM_PROMPT = `Tu es l'assistant de recherche de Shop Compy, un site québécois d'aide à l'achat d'ordinateurs.
+
+L'utilisateur te pose une question en langage naturel sur quel ordinateur choisir. Tu dois :
+1. Comprendre son besoin réel derrière la question
+2. Extraire les critères techniques implicites
+3. Donner une recommandation claire et vulgarisée
+
+RÈGLES :
+- Réponds TOUJOURS en français québécois naturel (pas de France)
+- Zéro jargon technique non expliqué
+- Utilise des analogies simples (corps humain ou automobile)
+- Sois concis : maximum 4-5 phrases de réponse
+- Termine par une suggestion de spécifications minimum
+- Si la question n'est pas liée aux ordinateurs, dis-le gentiment et redirige
+
+FORMAT DE RÉPONSE (JSON strict) :
+{
+  "answer": "Ta réponse vulgarisée ici (4-5 phrases max)",
+  "specs": {
+    "cpu": "ex: Intel Core i5 ou AMD Ryzen 5 (minimum)",
+    "ram": "ex: 16 Go recommandé",
+    "ssd": "ex: SSD 512 Go",
+    "gpu": "ex: Intégré suffit / Carte dédiée recommandée",
+    "budget": "ex: 700-1000 $ CAD"
+  },
+  "archetype": "minimalist|athlete|geek|none",
+  "usage_detected": ["web", "bureautique", "video", "gaming", "etudes", "creation"]
+}`
+
+export async function POST(req: NextRequest) {
+  try {
+    const { query } = await req.json()
+
+    if (!query || typeof query !== 'string' || query.trim().length < 3) {
+      return NextResponse.json({ error: 'Question trop courte' }, { status: 400 })
+    }
+
+    const apiKey = process.env.GOOGLE_API_KEY
+    if (!apiKey) {
+      return NextResponse.json({ error: 'Service de recherche non configuré' }, { status: 503 })
+    }
+
+    // Call Gemini Flash via Google Generative AI REST API
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [
+            { role: 'user', parts: [{ text: SYSTEM_PROMPT + '\n\nQuestion utilisateur : ' + query.trim() }] },
+          ],
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 600,
+            responseMimeType: 'application/json',
+          },
+        }),
+      }
+    )
+
+    if (!response.ok) {
+      const err = await response.text()
+      console.error('Gemini API error:', response.status, err)
+      return NextResponse.json({ error: 'Erreur du service IA' }, { status: 502 })
+    }
+
+    const data = await response.json()
+    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text
+
+    if (!text) {
+      return NextResponse.json({ error: 'Pas de réponse du modèle' }, { status: 502 })
+    }
+
+    // Parse the JSON response from Gemini
+    const parsed = JSON.parse(text)
+    return NextResponse.json(parsed)
+  } catch (error) {
+    console.error('Search API error:', error)
+    return NextResponse.json({ error: 'Erreur interne' }, { status: 500 })
+  }
+}

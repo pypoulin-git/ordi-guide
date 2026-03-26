@@ -6,6 +6,7 @@ import AnalogyToggle from './AnalogyToggle'
 const NAV = [
   { href: '/guide',       label: 'Le guide' },
   { href: '/comparateur', label: 'M\'aider à choisir' },
+  { href: '/blog',        label: 'Le Décodeur' },
   { href: '/glossaire',   label: 'Lexique' },
 ]
 
