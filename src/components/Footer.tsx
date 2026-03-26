@@ -7,10 +7,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2 font-bold text-[--text] mb-3">
-              <span className="text-xl">🖥️</span> OrdiBien
+              <span className="text-xl">🖥️</span> Shop Compy
             </div>
             <p className="text-sm text-[--text-subtle] leading-relaxed">
               Un guide simple et honnête pour t&apos;aider à choisir ton prochain ordinateur, sans jargon inutile.
+            </p>
+            <p className="text-xs text-[--text-muted] mt-2">
+              shopcompy.ca
             </p>
           </div>
           <div>
@@ -37,7 +40,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-[--border] mt-8 pt-6 text-xs text-[--text-muted] text-center">
-          © {new Date().getFullYear()} OrdiBien — Tous droits réservés
+          © {new Date().getFullYear()} Shop Compy — Tous droits réservés
         </div>
       </div>
     </footer>

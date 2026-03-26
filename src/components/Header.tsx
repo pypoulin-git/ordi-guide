@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import AnalogyToggle from './AnalogyToggle'
 
 const NAV = [
   { href: '/guide',       label: 'Le guide' },
@@ -18,7 +19,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 font-bold text-lg text-[--text] hover:text-[--accent] transition-colors">
             <span className="text-2xl">🖥️</span>
-            <span>OrdiBien</span>
+            <span>Shop Compy</span>
           </Link>
 
           {/* Desktop nav */}
@@ -29,8 +30,11 @@ export default function Header() {
                 {n.label}
               </Link>
             ))}
+            <div className="ml-2 mr-2">
+              <AnalogyToggle variant="pill" />
+            </div>
             <Link href="/comparateur"
-              className="ml-2 btn-primary text-sm py-2 px-4">
+              className="ml-1 btn-primary text-sm py-2 px-4">
               Commencer →
             </Link>
           </nav>
@@ -55,6 +59,9 @@ export default function Header() {
                 {n.label}
               </Link>
             ))}
+            <div className="px-3 py-2">
+              <AnalogyToggle variant="pill" />
+            </div>
             <div className="pt-2">
               <Link href="/comparateur" onClick={() => setOpen(false)}
                 className="btn-primary w-full justify-center text-sm">

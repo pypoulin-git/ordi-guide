@@ -1,4 +1,7 @@
+'use client'
 import Link from 'next/link'
+import AnalogyToggle from '@/components/AnalogyToggle'
+import { useAnalogy } from '@/contexts/AnalogyContext'
 
 const features = [
   {
@@ -57,6 +60,8 @@ const faqs = [
 ]
 
 export default function HomePage() {
+  const { a, mode } = useAnalogy()
+
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
@@ -81,6 +86,41 @@ export default function HomePage() {
             <Link href="/guide" className="btn-outline text-base py-3 px-8">
               📖 Lire le guide
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Analogy chooser ────────────────────────────────────────── */}
+      <section className="section" style={{ paddingTop: '2rem', paddingBottom: '2rem', background: '#f8fafc' }}>
+        <div className="container max-w-2xl mx-auto text-center">
+          <h2 className="text-lg font-bold mb-1" style={{ color: '#0f172a' }}>Comment veux-tu qu&apos;on t&apos;explique ?</h2>
+          <p className="text-sm mb-4" style={{ color: '#64748b' }}>
+            Choisis ton style d&apos;analogies — ça change les explications sur tout le site
+          </p>
+          <AnalogyToggle variant="card" />
+          <p className="text-xs mt-3" style={{ color: '#94a3b8' }}>
+            Tu peux changer à tout moment via le toggle dans le menu
+          </p>
+        </div>
+      </section>
+
+      {/* ── Analogy preview (clin d'oeil) ───────────────────────────── */}
+      <section className="section" style={{ paddingTop: '1rem', paddingBottom: '2rem' }}>
+        <div className="container max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {(['cpu', 'ram', 'ssd', 'gpu', 'battery', 'screen'] as const).map(comp => {
+              const analogy = a(comp)
+              return (
+                <div key={comp} className="card text-center" style={{ padding: '1rem' }}>
+                  <div className="text-2xl mb-1">{analogy.icon}</div>
+                  <div className="font-semibold text-xs" style={{ color: '#0f172a' }}>{analogy.name}</div>
+                  <div className="text-xs" style={{ color: '#64748b' }}>{analogy.short}</div>
+                  <div className="text-[10px] uppercase tracking-wider mt-1" style={{ color: '#94a3b8' }}>
+                    {comp === 'ssd' ? 'Stockage' : comp === 'battery' ? 'Batterie' : comp === 'screen' ? 'Écran' : comp.toUpperCase()}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
