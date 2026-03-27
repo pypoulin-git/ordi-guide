@@ -3,17 +3,20 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import AnalogyToggle from './AnalogyToggle'
-
-const NAV = [
-  { href: '/guide',       label: 'Le guide' },
-  { href: '/comparateur', label: 'M\'aider à choisir' },
-  { href: '/blog',        label: 'Le Décodeur' },
-  { href: '/catalogue',   label: 'Catalogue' },
-  { href: '/about',       label: 'À propos' },
-]
+import { useTranslation } from '@/i18n/DictionaryContext'
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const { t, locale } = useTranslation()
+
+  const NAV = [
+    { href: `/${locale}/guide`,       label: t.nav.guide },
+    { href: `/${locale}/comparateur`, label: t.nav.comparator },
+    { href: `/${locale}/blog`,        label: t.nav.blog },
+    { href: `/${locale}/catalogue`,   label: t.nav.catalogue },
+    { href: `/${locale}/about`,       label: t.nav.about },
+  ]
 
   return (
     <header className="sticky top-0 z-50 shadow-sm" style={{ background: 'white' }}>
@@ -24,14 +27,14 @@ export default function Header() {
           <div className="flex items-center justify-between h-14">
 
             {/* Logo */}
-            <Link href="/"
+            <Link href={`/${locale}`}
               className="flex items-center gap-2 font-bold text-lg hover:text-[--accent] transition-colors"
               style={{ color: '#0f172a', whiteSpace: 'nowrap' }}>
               <Image src="/logo-compy.svg" alt="" width={32} height={32} className="shrink-0" />
               Shop Compy
             </Link>
 
-            {/* Desktop nav — tous les liens sur une ligne */}
+            {/* Desktop nav */}
             <nav className="hidden md:flex items-center gap-0.5">
               {NAV.map(n => (
                 <Link key={n.href} href={n.href}
@@ -40,6 +43,7 @@ export default function Header() {
                   {n.label}
                 </Link>
               ))}
+              <LanguageSwitcher />
             </nav>
 
             {/* Burger mobile */}
@@ -61,14 +65,14 @@ export default function Header() {
           <div className="flex items-center justify-between h-10">
             <div className="flex items-center gap-2">
               <span className="text-xs font-medium" style={{ color: '#94a3b8' }}>
-                Mode d&apos;explication
+                {t.nav.explanationMode}
               </span>
               <AnalogyToggle variant="pill" />
             </div>
-            <Link href="/comparateur"
+            <Link href={`/${locale}/comparateur`}
               className="btn-primary"
               style={{ padding: '0.35rem 1rem', fontSize: '0.8125rem' }}>
-              Commencer →
+              {t.nav.start}
             </Link>
           </div>
         </div>
@@ -87,10 +91,13 @@ export default function Header() {
             ))}
             <div className="flex items-center justify-between px-3 pt-3 mt-2"
               style={{ borderTop: '1px solid #f1f5f9' }}>
-              <AnalogyToggle variant="pill" />
-              <Link href="/comparateur" onClick={() => setOpen(false)}
+              <div className="flex items-center gap-3">
+                <AnalogyToggle variant="pill" />
+                <LanguageSwitcher />
+              </div>
+              <Link href={`/${locale}/comparateur`} onClick={() => setOpen(false)}
                 className="btn-primary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.875rem' }}>
-                Commencer →
+                {t.nav.start}
               </Link>
             </div>
           </nav>
