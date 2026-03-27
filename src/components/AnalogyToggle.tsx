@@ -1,15 +1,11 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import { useAnalogy, type AnalogyMode } from '@/contexts/AnalogyContext'
+import { useTranslation } from '@/i18n/DictionaryContext'
 
 interface Props {
   /** 'pill' = compact inline toggle, 'card' = large card with descriptions */
   variant?: 'pill' | 'card'
-}
-
-const TOAST_LABELS: Record<AnalogyMode, string> = {
-  body: 'Toutes les explications seront basées sur l\u2019analogie du corps humain',
-  car: 'Toutes les explications seront basées sur l\u2019analogie de l\u2019automobile',
 }
 
 /* ── SVG illustration for body mode ──────────────────────────── */
@@ -106,6 +102,14 @@ function CarIcon() {
 
 export default function AnalogyToggle({ variant = 'pill' }: Props) {
   const { mode, setMode } = useAnalogy()
+  const { t } = useTranslation()
+  const ta = t.analogy
+
+  const TOAST_LABELS: Record<AnalogyMode, string> = {
+    body: ta.bodyToast,
+    car: ta.carToast,
+  }
+
   const [toast, setToast] = useState<string | null>(null)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const isFirstRender = useRef(true)
@@ -120,6 +124,7 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
     if (timerRef.current) clearTimeout(timerRef.current)
     timerRef.current = setTimeout(() => setToast(null), 5000)
     return () => { if (timerRef.current) clearTimeout(timerRef.current) }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode])
 
   if (variant === 'card') {
@@ -143,15 +148,15 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
         >
           <BodyIllustration size={72} />
           <span className="font-bold text-base" style={{ color: mode === 'body' ? '#1e40af' : '#64748b' }}>
-            Corps humain
+            {ta.bodyLabel}
           </span>
           <span className="text-xs leading-snug" style={{ color: mode === 'body' ? '#3b82f6' : '#94a3b8' }}>
-            Cerveau, poumons, yeux…
+            {ta.bodyDesc}
           </span>
           {mode === 'body' && (
             <span className="mt-1 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full"
               style={{ background: '#2563eb', color: 'white' }}>
-              ✓ Actif
+              {ta.active}
             </span>
           )}
         </button>
@@ -174,15 +179,15 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
         >
           <CarIllustration size={72} />
           <span className="font-bold text-base" style={{ color: mode === 'car' ? '#92400e' : '#64748b' }}>
-            Automobile
+            {ta.carLabel}
           </span>
           <span className="text-xs leading-snug" style={{ color: mode === 'car' ? '#d97706' : '#94a3b8' }}>
-            Moteur, coffre, turbo…
+            {ta.carDesc}
           </span>
           {mode === 'car' && (
             <span className="mt-1 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full"
               style={{ background: '#d97706', color: 'white' }}>
-              ✓ Actif
+              {ta.active}
             </span>
           )}
         </button>
@@ -234,9 +239,9 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
             transition: 'color 0.2s ease',
             background: 'transparent',
           }}
-          title="Explications avec analogies du corps humain"
+          title={ta.bodyTitle}
         >
-          <BodyIcon /> <span className="hidden sm:inline">Corps</span>
+          <BodyIcon /> <span className="hidden sm:inline">{ta.bodyShort}</span>
         </button>
         <button
           onClick={() => setMode('car')}
@@ -246,9 +251,9 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
             transition: 'color 0.2s ease',
             background: 'transparent',
           }}
-          title="Explications avec analogies automobiles"
+          title={ta.carTitle}
         >
-          <CarIcon /> <span className="hidden sm:inline">Auto</span>
+          <CarIcon /> <span className="hidden sm:inline">{ta.carShort}</span>
         </button>
       </div>
 

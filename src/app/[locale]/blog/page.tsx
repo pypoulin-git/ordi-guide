@@ -3,12 +3,25 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { articles, CATEGORIES, getAllTags } from '@/content/articles'
 import TechIllustration from '@/components/TechIllustration'
+import { useTranslation } from '@/i18n/DictionaryContext'
 
 const allTags = getAllTags(articles)
+
+// Map category IDs to translation keys
+const CAT_LABEL_KEYS: Record<string, string> = {
+  'all': 'catAll',
+  'Les bases': 'catBasics',
+  'Comparatifs': 'catComparisons',
+  'Connectique': 'catConnectors',
+  'Tendances': 'catTrends',
+  'Achat malin': 'catSmart',
+}
 
 export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState('all')
   const [activeTag, setActiveTag] = useState<string | null>(null)
+  const { t } = useTranslation()
+  const b = t.blog
 
   const filtered = articles.filter(a => {
     if (activeCategory !== 'all' && a.category !== activeCategory) return false
@@ -57,14 +70,13 @@ export default function BlogPage() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-3"
                 style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                {articles.length} articles · Shop Compy
+                {b.articleCount.replace('{count}', String(articles.length))}
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
-                Le Décodeur
+                {b.heroTitle}
               </h1>
               <p className="text-base md:text-lg text-white/60 max-w-lg leading-relaxed">
-                La tech expliquée simplement. Des articles courts pour comprendre
-                sans diplôme en informatique.
+                {b.heroSubtitle}
               </p>
             </div>
           </div>
@@ -84,6 +96,8 @@ export default function BlogPage() {
           <div className="flex items-center gap-2.5 overflow-x-auto pb-1 scrollbar-none">
             {CATEGORIES.map(cat => {
               const isActive = activeCategory === cat.id
+              const labelKey = CAT_LABEL_KEYS[cat.id]
+              const label = labelKey ? (b as Record<string, string>)[labelKey] ?? cat.label : cat.label
               return (
                 <button key={cat.id}
                   onClick={() => { setActiveCategory(cat.id); setActiveTag(null) }}
@@ -95,7 +109,7 @@ export default function BlogPage() {
                     boxShadow: isActive ? `0 2px 8px ${cat.color}30` : 'none',
                   }}>
                   <span className="text-base">{cat.icon}</span>
-                  {cat.label}
+                  {label}
                 </button>
               )
             })}
@@ -104,7 +118,7 @@ export default function BlogPage() {
           {/* ── Tag pills ──────────────────────────────────────── */}
           <div className="flex items-center gap-2 mt-3 overflow-x-auto pb-1 scrollbar-none">
             <span className="text-xs uppercase tracking-wider font-semibold shrink-0" style={{ color: '#94a3b8' }}>
-              Tags :
+              {b.tags}
             </span>
             {allTags.map(tag => {
               const isActive = activeTag === tag
@@ -128,10 +142,14 @@ export default function BlogPage() {
       {(activeCategory !== 'all' || activeTag) && (
         <div className="container" style={{ padding: '0.75rem 0 0' }}>
           <div className="flex items-center gap-2 text-sm" style={{ color: '#64748b' }}>
-            <span>{filtered.length} article{filtered.length > 1 ? 's' : ''} trouvé{filtered.length > 1 ? 's' : ''}</span>
+            <span>
+              {b.found
+                .replace('{count}', String(filtered.length))
+                .replace(/\{plural\}/g, filtered.length > 1 ? 's' : '')}
+            </span>
             <button onClick={clearFilters}
               className="underline hover:text-[--accent]">
-              Réinitialiser
+              {b.reset}
             </button>
           </div>
         </div>
@@ -143,11 +161,11 @@ export default function BlogPage() {
           {filtered.length === 0 ? (
             <div className="text-center py-16">
               <div className="text-5xl mb-4">🔍</div>
-              <p className="text-lg font-semibold" style={{ color: '#0f172a' }}>Aucun article ne correspond</p>
-              <p className="text-base mt-1" style={{ color: '#64748b' }}>Essaie une autre catégorie ou un autre tag</p>
+              <p className="text-lg font-semibold" style={{ color: '#0f172a' }}>{b.noResults}</p>
+              <p className="text-base mt-1" style={{ color: '#64748b' }}>{b.noResultsHint}</p>
               <button onClick={clearFilters}
                 className="btn-outline mt-4">
-                Voir tous les articles
+                {b.viewAll}
               </button>
             </div>
           ) : (
@@ -196,7 +214,7 @@ export default function BlogPage() {
                         ))}
                       </div>
                       <span className="text-sm font-semibold text-blue-400 group-hover:text-blue-300 transition-colors">
-                        Lire →
+                        {b.read}
                       </span>
                     </div>
                   </div>
@@ -207,12 +225,12 @@ export default function BlogPage() {
               <div className="lg:col-span-2 space-y-3">
                 <h3 className="text-sm font-bold uppercase tracking-wider pb-2"
                   style={{ color: '#94a3b8', borderBottom: '2px solid #e2e8f0' }}>
-                  {rest.length > 0 ? 'Autres articles' : 'À venir'}
+                  {rest.length > 0 ? b.otherArticles : b.comingSoon}
                 </h3>
 
                 {rest.length === 0 && (
                   <p className="text-base py-4" style={{ color: '#94a3b8' }}>
-                    D&apos;autres articles arrivent bientôt…
+                    {b.comingSoonText}
                   </p>
                 )}
 
@@ -261,14 +279,14 @@ export default function BlogPage() {
       <section style={{ background: '#0f172a', padding: '3.5rem 0' }}>
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-4 text-white">
-            Prêt à passer à l&apos;action ?
+            {b.ctaTitle}
           </h2>
           <p className="mb-6 text-white/60 text-base max-w-md mx-auto">
-            Maintenant que tu comprends les bases, trouvons l&apos;ordinateur qui te correspond.
+            {b.ctaSubtitle}
           </p>
           <Link href="/comparateur"
             className="inline-flex items-center gap-2 bg-[#2563eb] text-white font-semibold py-3.5 px-8 rounded-xl text-base transition-transform hover:-translate-y-0.5">
-            M&apos;aider à choisir →
+            {b.ctaButton}
           </Link>
         </div>
       </section>

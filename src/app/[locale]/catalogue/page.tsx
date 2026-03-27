@@ -5,10 +5,12 @@ import path from 'path'
 import type { CatalogueData } from '@/types/catalogue'
 import CatalogueFilters from '@/components/CatalogueFilters'
 import PageHero from '@/components/PageHero'
+import { getDictionary } from '@/i18n/get-dictionary'
+import type { Locale } from '@/i18n/config'
 
 export const metadata: Metadata = {
   title: 'Catalogue — Shop Compy',
-  description: 'Notre sélection d\'ordinateurs triés sur le volet, organisés par profil et budget.',
+  description: 'Our curated selection of computers, organized by profile and budget.',
 }
 
 async function getCatalogue(): Promise<CatalogueData> {
@@ -17,16 +19,26 @@ async function getCatalogue(): Promise<CatalogueData> {
   return JSON.parse(raw)
 }
 
-export default async function CataloguePage() {
+export default async function CataloguePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const t = await getDictionary(locale as Locale)
+  const cat = t.catalogue
+
   const catalogue = await getCatalogue()
   const products = catalogue.products.sort((a, b) => b.aiScore - a.aiScore)
+
+  const isFr = locale === 'fr'
 
   return (
     <>
       {/* Hero */}
       <PageHero
-        title="Nos recommandations"
-        subtitle={`${products.length} ordinateurs sélectionnés et notés par notre IA. Filtre par profil, budget ou catégorie pour trouver le tien.`}
+        title={cat.heroTitle}
+        subtitle={cat.heroSubtitleTemplate.replace('{count}', String(products.length))}
         gradient="linear-gradient(135deg, #064e3b 0%, #059669 50%, #34d399 100%)"
         accentColor="#059669"
       />
@@ -43,15 +55,20 @@ export default async function CataloguePage() {
         <div className="container max-w-3xl mx-auto">
           <div className="card text-center" style={{ padding: '2.5rem', border: '1.5px solid #bfdbfe' }}>
             <h2 className="text-xl font-bold mb-3" style={{ color: '#0f172a' }}>
-              Pas certain de ton choix ?
+              {isFr ? 'Pas certain de ton choix ?' : 'Not sure which one to pick?'}
             </h2>
             <p className="mb-6" style={{ color: '#475569' }}>
-              Notre outil comparateur te donne une recommandation personnalisée
-              en moins de deux minutes. Réponds à 5 questions simples.
+              {isFr
+                ? 'Notre outil comparateur te donne une recommandation personnalisée en moins de deux minutes. Réponds à 5 questions simples.'
+                : 'Our recommendation tool gives you a personalized suggestion in under two minutes. Answer 5 simple questions.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/comparateur" className="btn-primary">M&apos;aider à choisir →</Link>
-              <Link href="/guide" className="btn-outline">Lire le guide</Link>
+              <Link href="/comparateur" className="btn-primary">
+                {isFr ? 'M\'aider à choisir →' : 'Help me choose →'}
+              </Link>
+              <Link href="/guide" className="btn-outline">
+                {isFr ? 'Lire le guide' : 'Read the guide'}
+              </Link>
             </div>
           </div>
         </div>

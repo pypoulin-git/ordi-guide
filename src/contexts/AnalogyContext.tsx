@@ -1,5 +1,6 @@
 'use client'
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react'
+import { useTranslation } from '@/i18n/DictionaryContext'
 
 export type AnalogyMode = 'body' | 'car'
 
@@ -9,6 +10,47 @@ interface Analogy {
   short: string
 }
 
+const ICONS: Record<string, Record<AnalogyMode, string>> = {
+  cpu:     { body: '🧠', car: '🏎️' },
+  ram:     { body: '🫁', car: '⚙️' },
+  ssd:     { body: '🧬', car: '🧳' },
+  gpu:     { body: '👁️', car: '💨' },
+  battery: { body: '🏃', car: '⛽' },
+  screen:  { body: '👀', car: '🪟' },
+}
+
+/* Build ANALOGIES from dictionary translations */
+function buildAnalogies(t: ReturnType<typeof useTranslation>['t']): Record<string, Record<AnalogyMode, Analogy>> {
+  const ta = t.analogy
+  return {
+    cpu: {
+      body: { name: ta.cpuBody, icon: '🧠', short: ta.cpuBodyShort },
+      car:  { name: ta.cpuCar, icon: '🏎️', short: ta.cpuCarShort },
+    },
+    ram: {
+      body: { name: ta.ramBody, icon: '🫁', short: ta.ramBodyShort },
+      car:  { name: ta.ramCar, icon: '⚙️', short: ta.ramCarShort },
+    },
+    ssd: {
+      body: { name: ta.ssdBody, icon: '🧬', short: ta.ssdBodyShort },
+      car:  { name: ta.ssdCar, icon: '🧳', short: ta.ssdCarShort },
+    },
+    gpu: {
+      body: { name: ta.gpuBody, icon: '👁️', short: ta.gpuBodyShort },
+      car:  { name: ta.gpuCar, icon: '💨', short: ta.gpuCarShort },
+    },
+    battery: {
+      body: { name: ta.batteryBody, icon: '🏃', short: ta.batteryBodyShort },
+      car:  { name: ta.batteryCar, icon: '⛽', short: ta.batteryCarShort },
+    },
+    screen: {
+      body: { name: ta.screenBody, icon: '👀', short: ta.screenBodyShort },
+      car:  { name: ta.screenCar, icon: '🪟', short: ta.screenCarShort },
+    },
+  }
+}
+
+/* Keep a static ANALOGIES export for backwards compat (French fallback) */
 export const ANALOGIES: Record<string, Record<AnalogyMode, Analogy>> = {
   cpu: {
     body: { name: 'Le cerveau', icon: '🧠', short: 'la capacité de décision' },
@@ -55,6 +97,9 @@ const Ctx = createContext<AnalogyCtx>({
 export function AnalogyProvider({ children }: { children: ReactNode }) {
   const [mode, setModeState] = useState<AnalogyMode>('body')
   const [loaded, setLoaded] = useState(false)
+  const { t } = useTranslation()
+
+  const analogies = buildAnalogies(t)
 
   useEffect(() => {
     const stored = localStorage.getItem('shopcompy-analogy') as AnalogyMode | null
@@ -68,10 +113,10 @@ export function AnalogyProvider({ children }: { children: ReactNode }) {
   }
 
   function a(component: string): Analogy {
-    return ANALOGIES[component]?.[mode] ?? { name: component, icon: '❓', short: '' }
+    return analogies[component]?.[mode] ?? { name: component, icon: '❓', short: '' }
   }
 
-  const modeLabel = mode === 'body' ? 'Corps humain' : 'Automobile'
+  const modeLabel = mode === 'body' ? t.analogy.bodyLabel : t.analogy.carLabel
   const modeIcon = mode === 'body' ? '🧠' : '🚗'
 
   // Avoid hydration mismatch by rendering children only after loading localStorage

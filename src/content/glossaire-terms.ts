@@ -1,0 +1,283 @@
+export type GlossaryTerm = {
+  term: string;
+  full: string;
+  fr: string;
+  def: string;
+  example: string;
+};
+
+const termsFr: GlossaryTerm[] = [
+  {
+    term: "CPU",
+    full: "Central Processing Unit",
+    fr: "Processeur",
+    def: "Le cerveau de l'ordinateur. Il ex\u00e9cute toutes les instructions des programmes. Plus il est rapide (mesur\u00e9 en GHz) et plus il a de \u00ab c\u0153urs \u00bb, plus l'ordinateur peut faire de choses \u00e0 la fois rapidement.",
+    example: "Intel Core i5-1335U, AMD Ryzen 5 7530U, Apple M3",
+  },
+  {
+    term: "RAM",
+    full: "Random Access Memory",
+    fr: "M\u00e9moire vive",
+    def: "La m\u00e9moire de travail de l'ordinateur. Elle stocke temporairement les donn\u00e9es des programmes en cours d'utilisation. Quand tu fermes un programme, les donn\u00e9es disparaissent de la RAM. Plus tu en as, plus tu peux ouvrir de programmes en m\u00eame temps.",
+    example: "8 Go, 16 Go, 32 Go",
+  },
+  {
+    term: "SSD",
+    full: "Solid State Drive",
+    fr: "Disque \u00e0 \u00e9tat solide",
+    def: "Un disque de stockage sans pi\u00e8ce mobile, beaucoup plus rapide qu'un disque dur classique. Ton ordinateur d\u00e9marre en secondes, les programmes s'ouvrent presque instantan\u00e9ment. Recommand\u00e9 pour tout ordinateur achet\u00e9 en 2024.",
+    example: "SSD 512 Go, SSD NVMe 1 To",
+  },
+  {
+    term: "HDD",
+    full: "Hard Disk Drive",
+    fr: "Disque dur",
+    def: "L'ancien type de stockage avec un plateau qui tourne m\u00e9caniquement. Moins cher que le SSD pour la m\u00eame capacit\u00e9, mais beaucoup plus lent. On le retrouve encore dans certains ordinateurs de bureau pour stocker de grandes quantit\u00e9s de donn\u00e9es.",
+    example: "HDD 1 To, HDD 2 To",
+  },
+  {
+    term: "GPU",
+    full: "Graphics Processing Unit",
+    fr: "Processeur graphique / Carte graphique",
+    def: "Le composant qui g\u00e8re l'affichage, les graphismes et les vid\u00e9os. Pour un usage courant, le GPU int\u00e9gr\u00e9 au processeur suffit. Pour les jeux vid\u00e9o ou le montage vid\u00e9o professionnel, une carte graphique d\u00e9di\u00e9e est recommand\u00e9e.",
+    example: "NVIDIA GeForce RTX 4060, AMD Radeon RX 7600",
+  },
+  {
+    term: "GHz",
+    full: "Gigahertz",
+    fr: "Gigahertz",
+    def: "L'unit\u00e9 de mesure de la vitesse d'un processeur. Un processeur \u00e0 3,5 GHz effectue 3,5 milliards d'op\u00e9rations par seconde. Plus le chiffre est \u00e9lev\u00e9, plus le processeur est rapide \u2014 mais la g\u00e9n\u00e9ration compte aussi beaucoup.",
+    example: "2,4 GHz, 3,5 GHz, 5,0 GHz",
+  },
+  {
+    term: "Go",
+    full: "Gigaoctet",
+    fr: "Gigaoctet",
+    def: "Unit\u00e9 de mesure de la m\u00e9moire et du stockage. 1 Go = 1 milliard d'octets. Une chanson MP3 prend environ 5 Mo (0,005 Go), un film en HD environ 4 Go, une photo 3-10 Mo. Ne pas confondre avec Gb (gigabit) qui est 8 fois moins.",
+    example: "16 Go de RAM, 512 Go de stockage",
+  },
+  {
+    term: "To",
+    full: "T\u00e9raoctet",
+    fr: "T\u00e9raoctet",
+    def: "1 To = 1 000 Go. Les disques durs de grande capacit\u00e9 se mesurent souvent en t\u00e9raoctets. Un To peut contenir environ 250 000 photos, 250 heures de vid\u00e9o HD ou 200 000 chansons.",
+    example: "SSD 1 To, HDD 2 To",
+  },
+  {
+    term: "NVMe",
+    full: "Non-Volatile Memory Express",
+    fr: "Interface de stockage rapide",
+    def: "Un type de connexion pour les SSD qui les rend encore plus rapides. Un SSD NVMe est 5 \u00e0 7 fois plus rapide qu'un SSD classique (SATA). C'est la norme sur les ordinateurs r\u00e9cents de milieu et haut de gamme.",
+    example: "SSD NVMe M.2 512 Go",
+  },
+  {
+    term: "OS",
+    full: "Operating System",
+    fr: "Syst\u00e8me d'exploitation",
+    def: "Le logiciel de base qui fait fonctionner l'ordinateur et permet d'utiliser tous les autres programmes. Les trois principaux sont Windows (Microsoft), macOS (Apple) et Linux (gratuit et open source).",
+    example: "Windows 11, macOS Sonoma, Ubuntu",
+  },
+  {
+    term: "Full HD",
+    full: "1920 \u00d7 1080 pixels",
+    fr: "Haute d\u00e9finition compl\u00e8te",
+    def: "Une r\u00e9solution d'\u00e9cran standard offrant 1920 pixels en largeur et 1080 en hauteur (aussi appel\u00e9 1080p). C'est la r\u00e9solution minimale recommand\u00e9e pour un ordinateur en 2024. Suffisant pour les \u00e9crans jusqu'\u00e0 24-27 pouces.",
+    example: "\u00c9cran 15\" Full HD, moniteur 24\" 1080p",
+  },
+  {
+    term: "4K",
+    full: "3840 \u00d7 2160 pixels",
+    fr: "Ultra haute d\u00e9finition",
+    def: "Une r\u00e9solution 4 fois plus pr\u00e9cise que le Full HD. L'image est tr\u00e8s nette, particuli\u00e8rement sur les grands \u00e9crans (27\" et plus). Utile pour les photographes, les monteurs vid\u00e9o et ceux qui veulent le plus bel affichage possible.",
+    example: "Moniteur 27\" 4K, MacBook Pro Retina",
+  },
+  {
+    term: "Core i5 / i7",
+    full: "Intel Core i5, Core i7",
+    fr: "Gammes de processeurs Intel",
+    def: "Les gammes de processeurs d'Intel. L'i3 est entr\u00e9e de gamme, l'i5 milieu de gamme (excellent rapport qualit\u00e9/prix), l'i7 haut de gamme pour les usages exigeants, l'i9 pour les professionnels. Le num\u00e9ro apr\u00e8s (ex: i5-1235U) indique la g\u00e9n\u00e9ration.",
+    example: "Intel Core i5-1335U, Core i7-1355U",
+  },
+  {
+    term: "Ryzen",
+    full: "AMD Ryzen",
+    fr: "Gamme de processeurs AMD",
+    def: "La gamme de processeurs d'AMD, concurrent direct d'Intel. Ryzen 3 = entr\u00e9e de gamme, Ryzen 5 = milieu de gamme, Ryzen 7 = haut de gamme, Ryzen 9 = professionnel. Souvent plus avantageux en rapport performance/prix.",
+    example: "AMD Ryzen 5 7530U, Ryzen 7 7735U",
+  },
+  {
+    term: "M1 / M2 / M3 / M4",
+    full: "Apple Silicon M-series",
+    fr: "Puces Apple Silicon",
+    def: "Les processeurs con\u00e7us par Apple pour ses Mac. Remarquables pour leur efficacit\u00e9 \u00e9nerg\u00e9tique (longue autonomie), leur performance et leur silence. Chaque nouvelle g\u00e9n\u00e9ration (M1, M2, M3, M4) apporte des am\u00e9liorations significatives.",
+    example: "MacBook Air M3, MacBook Pro M4 Pro",
+  },
+  {
+    term: "Wi-Fi 6",
+    full: "IEEE 802.11ax",
+    fr: "Wi-Fi 6e g\u00e9n\u00e9ration",
+    def: "La derni\u00e8re g\u00e9n\u00e9ration de Wi-Fi, plus rapide et plus stable, particuli\u00e8rement dans les environnements avec beaucoup d'appareils connect\u00e9s. La plupart des ordinateurs r\u00e9cents l'incluent. Wi-Fi 6E ajoute la bande 6 GHz pour encore plus de performance.",
+    example: "Wi-Fi 6 (802.11ax), Wi-Fi 6E",
+  },
+  {
+    term: "USB-C",
+    full: "Universal Serial Bus Type-C",
+    fr: "Port USB-C",
+    def: "Un connecteur moderne, petit et r\u00e9versible (tu ne peux pas te tromper de sens !). Il peut transf\u00e9rer des donn\u00e9es, charger l'appareil et envoyer un signal vid\u00e9o vers un \u00e9cran externe \u2014 tout par le m\u00eame c\u00e2ble. De plus en plus standard sur les portables r\u00e9cents.",
+    example: "Thunderbolt 4, USB 3.2 Gen 2",
+  },
+  {
+    term: "Thunderbolt",
+    full: "Thunderbolt 3 / 4 / 5",
+    fr: "Thunderbolt",
+    def: "Un port USB-C avec des capacit\u00e9s suppl\u00e9mentaires : transfert de donn\u00e9es tr\u00e8s rapide, connexion \u00e0 plusieurs \u00e9crans 4K, charge rapide. D\u00e9velopp\u00e9 par Intel en partenariat avec Apple. Tous les MacBook r\u00e9cents l'ont. Identifi\u00e9 par un logo \u00e9clair.",
+    example: "Thunderbolt 4, identifi\u00e9 par \u26a1",
+  },
+  {
+    term: "mAh / Wh",
+    full: "Milliamp\u00e8re-heure / Watt-heure",
+    fr: "Capacit\u00e9 de batterie",
+    def: "Unit\u00e9s qui mesurent la capacit\u00e9 d'une batterie. Plus le chiffre est \u00e9lev\u00e9, plus la batterie dure longtemps en th\u00e9orie. Les Wh sont plus pr\u00e9cis pour comparer des batteries. Une bonne batterie de portable offre 50-70 Wh.",
+    example: "70 Wh, 6000 mAh",
+  },
+];
+
+const termsEn: GlossaryTerm[] = [
+  {
+    term: "CPU",
+    full: "Central Processing Unit",
+    fr: "Processor",
+    def: "The brain of the computer. It executes all program instructions. The faster it is (measured in GHz) and the more cores it has, the more things the computer can do simultaneously and quickly.",
+    example: "Intel Core i5-1335U, AMD Ryzen 5 7530U, Apple M3",
+  },
+  {
+    term: "RAM",
+    full: "Random Access Memory",
+    fr: "Working memory",
+    def: "The computer's working memory. It temporarily stores data from programs currently in use. When you close a program, the data disappears from RAM. The more you have, the more programs you can open at the same time.",
+    example: "8 GB, 16 GB, 32 GB",
+  },
+  {
+    term: "SSD",
+    full: "Solid State Drive",
+    fr: "Solid state drive",
+    def: "A storage drive with no moving parts, much faster than a traditional hard drive. Your computer boots in seconds and programs open almost instantly. Recommended for any computer purchased in 2024.",
+    example: "SSD 512 GB, SSD NVMe 1 TB",
+  },
+  {
+    term: "HDD",
+    full: "Hard Disk Drive",
+    fr: "Hard drive",
+    def: "The older type of storage with a mechanically spinning platter. Cheaper than SSDs for the same capacity, but much slower. Still found in some desktop computers for storing large amounts of data.",
+    example: "HDD 1 TB, HDD 2 TB",
+  },
+  {
+    term: "GPU",
+    full: "Graphics Processing Unit",
+    fr: "Graphics processor / Graphics card",
+    def: "The component that handles display, graphics, and video. For everyday use, the GPU integrated into the processor is sufficient. For gaming or professional video editing, a dedicated graphics card is recommended.",
+    example: "NVIDIA GeForce RTX 4060, AMD Radeon RX 7600",
+  },
+  {
+    term: "GHz",
+    full: "Gigahertz",
+    fr: "Gigahertz",
+    def: "The unit of measurement for processor speed. A 3.5 GHz processor performs 3.5 billion operations per second. The higher the number, the faster the processor \u2014 but the generation matters a lot too.",
+    example: "2.4 GHz, 3.5 GHz, 5.0 GHz",
+  },
+  {
+    term: "GB",
+    full: "Gigabyte",
+    fr: "Gigabyte",
+    def: "A unit of measurement for memory and storage. 1 GB = 1 billion bytes. An MP3 song takes about 5 MB (0.005 GB), an HD movie about 4 GB, a photo 3\u201310 MB. Not to be confused with Gb (gigabit), which is 8 times smaller.",
+    example: "16 GB of RAM, 512 GB of storage",
+  },
+  {
+    term: "TB",
+    full: "Terabyte",
+    fr: "Terabyte",
+    def: "1 TB = 1,000 GB. Large-capacity hard drives are often measured in terabytes. One TB can hold approximately 250,000 photos, 250 hours of HD video, or 200,000 songs.",
+    example: "SSD 1 TB, HDD 2 TB",
+  },
+  {
+    term: "NVMe",
+    full: "Non-Volatile Memory Express",
+    fr: "Fast storage interface",
+    def: "A connection type for SSDs that makes them even faster. An NVMe SSD is 5 to 7 times faster than a standard (SATA) SSD. It is the standard on recent mid-range and high-end computers.",
+    example: "NVMe M.2 SSD 512 GB",
+  },
+  {
+    term: "OS",
+    full: "Operating System",
+    fr: "Operating system",
+    def: "The fundamental software that runs the computer and allows you to use all other programs. The three main ones are Windows (Microsoft), macOS (Apple), and Linux (free and open source).",
+    example: "Windows 11, macOS Sonoma, Ubuntu",
+  },
+  {
+    term: "Full HD",
+    full: "1920 \u00d7 1080 pixels",
+    fr: "Full high definition",
+    def: "A standard screen resolution offering 1,920 pixels in width and 1,080 in height (also called 1080p). It is the minimum recommended resolution for a computer in 2024. Sufficient for screens up to 24\u201327 inches.",
+    example: "15\" Full HD display, 24\" 1080p monitor",
+  },
+  {
+    term: "4K",
+    full: "3840 \u00d7 2160 pixels",
+    fr: "Ultra high definition",
+    def: "A resolution 4 times sharper than Full HD. The image is very crisp, especially on large screens (27\" and above). Useful for photographers, video editors, and anyone who wants the best possible display.",
+    example: "27\" 4K monitor, MacBook Pro Retina",
+  },
+  {
+    term: "Core i5 / i7",
+    full: "Intel Core i5, Core i7",
+    fr: "Intel processor tiers",
+    def: "Intel's processor tiers. The i3 is entry-level, the i5 is mid-range (excellent value for money), the i7 is high-end for demanding tasks, and the i9 is for professionals. The number after (e.g., i5-1235U) indicates the generation.",
+    example: "Intel Core i5-1335U, Core i7-1355U",
+  },
+  {
+    term: "Ryzen",
+    full: "AMD Ryzen",
+    fr: "AMD processor line",
+    def: "AMD's processor line, a direct competitor to Intel. Ryzen 3 = entry-level, Ryzen 5 = mid-range, Ryzen 7 = high-end, Ryzen 9 = professional. Often more competitive in terms of performance per dollar.",
+    example: "AMD Ryzen 5 7530U, Ryzen 7 7735U",
+  },
+  {
+    term: "M1 / M2 / M3 / M4",
+    full: "Apple Silicon M-series",
+    fr: "Apple Silicon chips",
+    def: "Processors designed by Apple for its Mac computers. Remarkable for their energy efficiency (long battery life), performance, and quiet operation. Each new generation (M1, M2, M3, M4) brings significant improvements.",
+    example: "MacBook Air M3, MacBook Pro M4 Pro",
+  },
+  {
+    term: "Wi-Fi 6",
+    full: "IEEE 802.11ax",
+    fr: "Wi-Fi 6th generation",
+    def: "The latest generation of Wi-Fi, faster and more stable, especially in environments with many connected devices. Most recent computers include it. Wi-Fi 6E adds the 6 GHz band for even more performance.",
+    example: "Wi-Fi 6 (802.11ax), Wi-Fi 6E",
+  },
+  {
+    term: "USB-C",
+    full: "Universal Serial Bus Type-C",
+    fr: "USB-C port",
+    def: "A modern, small, and reversible connector (you can't plug it in the wrong way!). It can transfer data, charge the device, and send a video signal to an external display \u2014 all through the same cable. Increasingly standard on recent laptops.",
+    example: "Thunderbolt 4, USB 3.2 Gen 2",
+  },
+  {
+    term: "Thunderbolt",
+    full: "Thunderbolt 3 / 4 / 5",
+    fr: "Thunderbolt",
+    def: "A USB-C port with additional capabilities: very fast data transfer, connection to multiple 4K displays, and fast charging. Developed by Intel in partnership with Apple. All recent MacBooks have it. Identified by a lightning bolt logo.",
+    example: "Thunderbolt 4, identified by \u26a1",
+  },
+  {
+    term: "mAh / Wh",
+    full: "Milliampere-hour / Watt-hour",
+    fr: "Battery capacity",
+    def: "Units that measure a battery's capacity. The higher the number, the longer the battery lasts in theory. Wh is more accurate for comparing batteries. A good laptop battery offers 50\u201370 Wh.",
+    example: "70 Wh, 6000 mAh",
+  },
+];
+
+export function getGlossaryTerms(locale: string): GlossaryTerm[] {
+  return locale === "fr" ? termsFr : termsEn;
+}
