@@ -73,10 +73,10 @@ export default function ArticlePage({ params }: Props) {
       <section className="section" style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>
         <div className="container max-w-3xl mx-auto">
           <div className="p-5 rounded-xl" style={{ background: '#eff6ff', border: '1px solid #bfdbfe' }}>
-            <div className="flex items-center gap-2 font-semibold text-sm mb-2" style={{ color: '#1d4ed8' }}>
+            <div className="flex items-center gap-2 font-semibold text-base mb-2" style={{ color: '#1d4ed8' }}>
               ⚡ TL;DR — L&apos;essentiel en 30 secondes
             </div>
-            <p className="text-sm leading-relaxed" style={{ color: '#1e40af' }}>
+            <p className="text-base leading-relaxed" style={{ color: '#1e40af' }}>
               {article.tldr}
             </p>
           </div>
@@ -88,12 +88,12 @@ export default function ArticlePage({ params }: Props) {
         <div className="space-y-10">
           {article.sections.map((section, i) => (
             <section key={i}>
-              <h2 className="text-xl font-bold mb-4" style={{ color: '#0f172a' }}>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: '#0f172a' }}>
                 {section.title}
               </h2>
               <div className="space-y-4">
                 {section.paragraphs.map((p, j) => (
-                  <p key={j} className="text-sm leading-relaxed" style={{ color: '#475569' }}>
+                  <p key={j} className="text-base leading-relaxed" style={{ color: '#475569' }}>
                     {p}
                   </p>
                 ))}

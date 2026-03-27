@@ -64,6 +64,15 @@ const steps: Step[] = [
 
 type Answers = Record<string, string>
 
+type Archetype = 'minimalist' | 'athlete' | 'geek' | 'douchebag'
+
+const ARCHETYPE_INFO: Record<Archetype, { label: string; color: string; desc: string }> = {
+  minimalist: { label: 'Le Minimaliste', color: '#7c3aed', desc: 'Léger et efficace pour les tâches de base' },
+  athlete:    { label: 'Le Performant',  color: '#0891b2', desc: 'Équilibre parfait entre puissance et polyvalence' },
+  geek:       { label: 'Le Passionné',   color: '#1e40af', desc: 'Puissance de calcul brute pour les pros' },
+  douchebag:  { label: 'Le Frimeur',     color: '#d97706', desc: 'Specs déséquilibrées — gros GPU mais le reste ne suit pas' },
+}
+
 function getRecommendation(answers: Answers) {
   const { usage, budget, mobility, brand } = answers
   const isPortable = mobility === 'yes' || mobility === 'sometimes'
@@ -72,6 +81,7 @@ function getRecommendation(answers: Answers) {
 
   if (usage === 'gaming') {
     if (budget === 'low') return {
+      archetype: 'athlete' as Archetype,
       title: 'PC de bureau gaming entrée de gamme',
       summary: 'Pour jouer à petit budget, un PC de bureau Windows est la meilleure option.',
       specs: ['Processeur : AMD Ryzen 5 ou Intel Core i5', 'RAM : 16 Go', 'Stockage : SSD 512 Go', 'Carte graphique : NVIDIA RTX 3060 ou AMD RX 6600'],
@@ -79,6 +89,7 @@ function getRecommendation(answers: Answers) {
       link: '/guide#budget',
     }
     return {
+      archetype: 'geek' as Archetype,
       title: 'PC de bureau gaming',
       summary: 'Pour le jeu vidéo, un PC de bureau Windows offre le meilleur rapport performance/prix.',
       specs: ['Processeur : Intel Core i5/i7 ou AMD Ryzen 5/7', 'RAM : 16 à 32 Go', 'Stockage : SSD NVMe 1 To', 'Carte graphique : NVIDIA RTX 4070 ou supérieur'],
@@ -89,6 +100,7 @@ function getRecommendation(answers: Answers) {
 
   if (usage === 'creative') {
     if (isMac || !isWindows) return {
+      archetype: 'geek' as Archetype,
       title: 'MacBook Pro ou Mac Studio',
       summary: 'Pour la création professionnelle, les Mac avec puce M sont exceptionnels.',
       specs: ['Puce Apple M3 Pro ou M4 Pro', 'RAM : 18 à 36 Go', 'Stockage : SSD 512 Go à 1 To', 'Écran Retina haute résolution'],
@@ -96,6 +108,7 @@ function getRecommendation(answers: Answers) {
       link: '/guide#processeur',
     }
     return {
+      archetype: 'geek' as Archetype,
       title: 'PC haute performance pour la création',
       summary: 'Pour le montage et le graphisme, il te faut un PC bien équipé.',
       specs: ['Processeur : Intel Core i7 ou AMD Ryzen 7', 'RAM : 32 Go', 'Stockage : SSD NVMe 1 To', 'Carte graphique dédiée recommandée'],
@@ -106,6 +119,7 @@ function getRecommendation(answers: Answers) {
 
   if (usage === 'basic' && budget === 'low') {
     if (isMac) return {
+      archetype: 'minimalist' as Archetype,
       title: 'MacBook Air M1 reconditionné',
       summary: 'Un MacBook Air M1 d\'occasion reste une excellente option pour un usage basique.',
       specs: ['Puce Apple M1', 'RAM : 8 Go', 'Stockage : SSD 256 Go', 'Autonomie exceptionnelle (15 à 18 h)'],
@@ -113,6 +127,7 @@ function getRecommendation(answers: Answers) {
       link: '/guide#portable-vs-bureau',
     }
     return {
+      archetype: 'minimalist' as Archetype,
       title: 'PC portable entrée de gamme Windows',
       summary: 'Pour la navigation et les courriels, un PC simple fera très bien le travail.',
       specs: ['Processeur : Intel Core i3 ou AMD Ryzen 3', 'RAM : 8 Go minimum', 'Stockage : SSD 256 Go', 'Écran : 15 pouces Full HD'],
@@ -122,6 +137,7 @@ function getRecommendation(answers: Answers) {
   }
 
   if ((isMac || !isWindows) && isPortable && (budget === 'mid' || budget === 'high')) return {
+    archetype: 'athlete' as Archetype,
     title: 'MacBook Air M3',
     summary: 'Le MacBook Air M3 est la référence pour la mobilité et la polyvalence.',
     specs: ['Puce Apple M3', 'RAM : 8 à 16 Go', 'Stockage : SSD 256 à 512 Go', 'Écran Liquid Retina 13" ou 15"', 'Autonomie : 15 à 18 heures'],
@@ -130,6 +146,7 @@ function getRecommendation(answers: Answers) {
   }
 
   if (isPortable && !isMac) return {
+    archetype: 'athlete' as Archetype,
     title: 'PC portable Windows polyvalent',
     summary: 'Un bon portable Windows milieu de gamme couvre parfaitement le travail et les études.',
     specs: ['Processeur : Intel Core i5 ou AMD Ryzen 5', 'RAM : 16 Go', 'Stockage : SSD 512 Go', 'Écran : 14 à 15 pouces Full HD', 'Marques recommandées : Dell, Lenovo, HP, ASUS'],
@@ -138,6 +155,7 @@ function getRecommendation(answers: Answers) {
   }
 
   return {
+    archetype: 'athlete' as Archetype,
     title: 'Ordinateur de bureau Windows',
     summary: 'Tu n\'as pas besoin de mobilité ? Un bureau te donnera plus de puissance pour le même prix.',
     specs: ['Processeur : Intel Core i5 ou AMD Ryzen 5', 'RAM : 16 Go', 'Stockage : SSD 512 Go + HDD optionnel', 'Écran externe : 24 à 27 pouces Full HD recommandé'],
@@ -181,6 +199,18 @@ export default function ComparateurPage() {
           </div>
 
           <div className="card mb-6" style={{ border: '2px solid #2563eb' }}>
+            {rec.archetype && ARCHETYPE_INFO[rec.archetype] && (() => {
+              const arch = ARCHETYPE_INFO[rec.archetype]
+              return (
+                <div className="mb-3">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold"
+                    style={{ background: arch.color + '15', color: arch.color }}>
+                    Profil : {arch.label}
+                  </div>
+                  <p className="text-xs mt-1.5" style={{ color: arch.color + 'cc' }}>{arch.desc}</p>
+                </div>
+              )
+            })()}
             <h2 className="text-2xl font-bold mb-3" style={{ color: '#0f172a' }}>{rec.title}</h2>
             <p className="mb-4" style={{ color: '#475569' }}>{rec.summary}</p>
             <ul className="space-y-2 mb-4">

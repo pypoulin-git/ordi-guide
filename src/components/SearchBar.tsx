@@ -19,10 +19,11 @@ interface SearchResult {
   error?: string
 }
 
-const ARCHETYPE_LABELS: Record<string, { label: string; color: string }> = {
-  minimalist: { label: 'Le Minimaliste', color: '#7c3aed' },
-  athlete:    { label: 'Le Performant',  color: '#0891b2' },
-  geek:       { label: 'Le Passionné',   color: '#1e40af' },
+const ARCHETYPE_LABELS: Record<string, { label: string; color: string; desc: string }> = {
+  minimalist: { label: 'Le Minimaliste', color: '#7c3aed', desc: 'Léger et efficace pour les tâches de base' },
+  athlete:    { label: 'Le Performant',  color: '#0891b2', desc: 'Équilibre parfait entre puissance et polyvalence' },
+  geek:       { label: 'Le Passionné',   color: '#1e40af', desc: 'Puissance de calcul brute pour les pros' },
+  douchebag:  { label: 'Le Frimeur',     color: '#d97706', desc: 'Attention : specs déséquilibrées — gros GPU mais le reste ne suit pas' },
 }
 
 const EXAMPLES = [
@@ -131,9 +132,12 @@ export default function SearchBar() {
           {/* Answer */}
           <div className="card" style={{ border: '2px solid #2563eb', padding: '1.5rem' }}>
             {arch && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold mb-3"
-                style={{ background: arch.color + '15', color: arch.color }}>
-                Profil : {arch.label}
+              <div className="mb-3">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold"
+                  style={{ background: arch.color + '15', color: arch.color }}>
+                  Profil : {arch.label}
+                </div>
+                <p className="text-xs mt-1.5" style={{ color: arch.color + 'cc' }}>{arch.desc}</p>
               </div>
             )}
             <p style={{ color: '#0f172a', fontSize: '1rem', lineHeight: 1.7 }}>

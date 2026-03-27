@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { CatalogueProduct } from '@/types/catalogue'
 import { SOURCE_LABELS, PROFILE_LABELS } from '@/types/catalogue'
 
@@ -5,7 +6,7 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
   const source = SOURCE_LABELS[product.source]
 
   return (
-    <div className="card flex flex-col" style={{ padding: 0, overflow: 'hidden' }}>
+    <Link href={`/catalogue/${product.id}`} className="card flex flex-col transition-all hover:-translate-y-0.5 hover:shadow-md" style={{ padding: 0, overflow: 'hidden', textDecoration: 'none', color: 'inherit' }}>
 
       {/* Header : badge rabais + source */}
       <div className="flex items-center justify-between px-5 pt-4 pb-0">
@@ -103,13 +104,12 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
               </span>
             )}
           </div>
-          <a href={product.url} target="_blank" rel="noopener noreferrer"
-            className="btn-primary"
+          <span className="btn-primary"
             style={{ padding: '0.5rem 1rem', fontSize: '0.8125rem' }}>
-            Voir le prix →
-          </a>
+            Voir détails →
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

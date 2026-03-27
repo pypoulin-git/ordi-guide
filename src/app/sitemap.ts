@@ -1,9 +1,12 @@
 import type { MetadataRoute } from 'next'
 import { articles } from '@/content/articles'
+import { promises as fs } from 'fs'
+import path from 'path'
+import type { CatalogueData } from '@/types/catalogue'
 
 const BASE = 'https://ordi-guide.vercel.app'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString()
 
   const staticPages: MetadataRoute.Sitemap = [
@@ -23,5 +26,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...staticPages, ...blogPages]
+  let productPages: MetadataRoute.Sitemap = []
+  try {
+    const catRaw = await fs.readFile(path.join(process.cwd(), 'data', 'catalogue.json'), 'utf-8')
+    const catalogue: CatalogueData = JSON.parse(catRaw)
+    productPages = catalogue.products.map(p => ({
+      url: `${BASE}/catalogue/${p.id}`,
+      lastModified: p.lastVerified || now,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }))
+  } catch { /* catalogue unavailable — skip */ }
+
+  return [...staticPages, ...blogPages, ...productPages]
 }
