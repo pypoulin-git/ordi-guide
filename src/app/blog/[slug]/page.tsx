@@ -96,10 +96,10 @@ export default function ArticlePage({ params }: Props) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/comparateur" className="btn-primary">
-              🎯 M&apos;aider à choisir →
+              M&apos;aider à choisir →
             </Link>
             <Link href="/blog" className="btn-outline">
-              📰 Lire d&apos;autres articles
+              Lire d&apos;autres articles
             </Link>
           </div>
         </div>

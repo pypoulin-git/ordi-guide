@@ -34,11 +34,16 @@
 /* ── Base ───────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 
+html {
+  font-size: 112.5%; /* 18 px — lisibilité améliorée pour tous les âges */
+}
+
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-inter), system-ui, sans-serif;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -58,10 +63,10 @@ body {
   gap: 0.5rem;
   background: var(--accent);
   color: #fff;
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 1.75rem;
   border-radius: var(--radius);
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   text-decoration: none;
   transition: background 0.15s, transform 0.1s;
   border: none;
@@ -75,10 +80,10 @@ body {
   gap: 0.5rem;
   background: transparent;
   color: var(--accent);
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 1.75rem;
   border-radius: var(--radius);
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   text-decoration: none;
   border: 2px solid var(--accent);
   transition: background 0.15s;

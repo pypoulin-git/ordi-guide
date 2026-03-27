@@ -159,7 +159,7 @@ export default function GlossairePage() {
         <div className="container max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
             style={{ background: '#f5f3ff', color: '#7c3aed', border: '1px solid #ddd6fe' }}>
-            📚 {terms.length} termes expliqués
+            {terms.length} termes expliqués
           </div>
           <h1 className="text-4xl font-bold mb-4" style={{ color: '#0f172a' }}>
             Lexique informatique
@@ -226,7 +226,7 @@ export default function GlossairePage() {
             Utilise notre outil d&apos;aide au choix pour obtenir une recommandation personnalisée.
           </p>
           <a href="/comparateur" className="btn-primary">
-            🎯 M&apos;aider à choisir →
+            M&apos;aider à choisir →
           </a>
         </div>
       </section>

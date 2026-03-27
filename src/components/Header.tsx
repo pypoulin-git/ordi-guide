@@ -19,7 +19,6 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 font-bold text-lg text-[--text] hover:text-[--accent] transition-colors">
-            <span className="text-2xl">🖥️</span>
             <span>Shop Compy</span>
           </Link>
 

@@ -235,7 +235,7 @@ export default function BlogPage() {
           </p>
           <Link href="/comparateur"
             className="inline-flex items-center gap-2 bg-[#2563eb] text-white font-semibold py-3 px-8 rounded-xl text-sm transition-transform hover:-translate-y-0.5">
-            🎯 M&apos;aider à choisir →
+            M&apos;aider à choisir →
           </Link>
         </div>
       </section>

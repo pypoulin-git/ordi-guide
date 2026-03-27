@@ -53,8 +53,8 @@ const sections: Section[] = [
     id: 'processeur',
     component: 'cpu',
     title: {
-      body: 'Le processeur (CPU) — le cerveau de l\'ordi',
-      car: 'Le processeur (CPU) — le moteur de l\'ordi',
+      body: 'Le processeur (CPU), cerveau de l\'ordinateur',
+      car: 'Le processeur (CPU), moteur de l\'ordinateur',
     },
     content: [
       {
@@ -76,8 +76,8 @@ const sections: Section[] = [
     id: 'ram',
     component: 'ram',
     title: {
-      body: 'La mémoire vive (RAM) — les poumons de l\'ordi',
-      car: 'La mémoire vive (RAM) — la transmission de l\'ordi',
+      body: 'La mémoire vive (RAM), espace de travail de l\'ordinateur',
+      car: 'La mémoire vive (RAM), transmission de l\'ordinateur',
     },
     content: [
       {
@@ -99,8 +99,8 @@ const sections: Section[] = [
     id: 'stockage',
     component: 'ssd',
     title: {
-      body: 'Le stockage — la mémoire long terme',
-      car: 'Le stockage — le coffre de l\'ordi',
+      body: 'Le stockage, mémoire à long terme',
+      car: 'Le stockage, coffre de l\'ordinateur',
     },
     content: [
       {
@@ -122,8 +122,8 @@ const sections: Section[] = [
     id: 'ecran',
     component: 'screen',
     title: {
-      body: 'L\'écran — tes yeux sur le monde numérique',
-      car: 'L\'écran — le pare-brise de l\'ordi',
+      body: 'L\'écran, ta fenêtre sur le monde numérique',
+      car: 'L\'écran, le pare-brise de l\'ordinateur',
     },
     content: [
       {
@@ -144,8 +144,8 @@ const sections: Section[] = [
   {
     id: 'budget',
     title: {
-      body: 'Le budget — combien prévoir ?',
-      car: 'Le budget — combien prévoir ?',
+      body: 'Le budget : combien prévoir ?',
+      car: 'Le budget : combien prévoir ?',
     },
     content: [
       {
@@ -166,13 +166,9 @@ const sections: Section[] = [
 
 /* ── Icons per section ─────────────────────────────────────────── */
 function sectionIcon(s: Section, mode: AnalogyMode): string {
-  if (!s.component) {
-    if (s.id === 'portable-vs-bureau') return '💼'
-    if (s.id === 'budget') return '💰'
-    return '📌'
-  }
+  if (!s.component) return ''
   const { ANALOGIES } = require('@/contexts/AnalogyContext')
-  return ANALOGIES[s.component]?.[mode]?.icon ?? '📌'
+  return ANALOGIES[s.component]?.[mode]?.icon ?? ''
 }
 
 /* ── Component ─────────────────────────────────────────────────── */
@@ -186,7 +182,7 @@ export default function GuidePage() {
         <div className="container max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
             style={{ background: '#eff6ff', color: '#2563eb', border: '1px solid #bfdbfe' }}>
-            📖 Guide complet · Lecture ~10 min
+            Guide complet · Lecture 10 min
           </div>
           <h1 className="text-4xl font-bold mb-4" style={{ color: '#0f172a' }}>
             Les bases pour bien choisir ton ordinateur
@@ -231,7 +227,9 @@ export default function GuidePage() {
         {sections.map((s, i) => (
           <section key={s.id} id={s.id} className="scroll-mt-20">
             <div className="flex items-center gap-3 mb-5">
-              <span className="text-3xl">{sectionIcon(s, mode)}</span>
+              {sectionIcon(s, mode) && (
+                <span className="text-3xl">{sectionIcon(s, mode)}</span>
+              )}
               <h2 className="text-2xl font-bold" style={{ color: '#0f172a' }}>
                 {i + 1}. {s.title[mode]}
               </h2>
@@ -245,9 +243,9 @@ export default function GuidePage() {
                   </p>
                 </div>
               ))}
-              <div className="flex gap-3 p-4 rounded-xl" style={{ background: '#eff6ff', border: '1px solid #bfdbfe' }}>
-                <span className="text-xl shrink-0">💡</span>
-                <p className="text-sm leading-relaxed" style={{ color: '#1d4ed8' }}>{s.tip[mode]}</p>
+              <div className="p-4 rounded-xl" style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderLeft: '4px solid #2563eb' }}>
+                <p className="font-semibold text-xs uppercase tracking-wide mb-1" style={{ color: '#2563eb' }}>À retenir</p>
+                <p className="leading-relaxed" style={{ color: '#1d4ed8', fontSize: '0.9375rem' }}>{s.tip[mode]}</p>
               </div>
             </div>
           </section>
@@ -264,7 +262,7 @@ export default function GuidePage() {
             Réponds à 5 questions et reçois une recommandation personnalisée.
           </p>
           <Link href="/comparateur" className="btn-primary">
-            🎯 M&apos;aider à choisir →
+            M&apos;aider à choisir →
           </Link>
         </div>
       </section>
