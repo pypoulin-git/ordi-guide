@@ -1,6 +1,8 @@
 'use client'
 import { useState, useRef } from 'react'
 import Link from 'next/link'
+import { SOURCE_LABELS, PROFILE_LABELS } from '@/types/catalogue'
+import type { CatalogueProduct } from '@/types/catalogue'
 
 interface SearchResult {
   answer: string
@@ -13,6 +15,7 @@ interface SearchResult {
   }
   archetype: string
   usage_detected: string[]
+  recommended_product?: CatalogueProduct
   error?: string
 }
 
@@ -159,6 +162,73 @@ export default function SearchBar() {
               </div>
             </div>
           )}
+
+          {/* Recommended product */}
+          {result.recommended_product && (() => {
+            const p = result.recommended_product!
+            const source = SOURCE_LABELS[p.source]
+            return (
+              <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid #0891b2' }}>
+                <div className="px-5 pt-4 pb-1 flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-wide" style={{ color: '#0891b2' }}>
+                    Produit recommandé
+                  </span>
+                  <div className="flex items-center gap-2">
+                    {p.isOnSale && p.originalPrice && (
+                      <span className="text-xs font-bold px-2 py-0.5 rounded-full text-white"
+                        style={{ background: '#2563eb' }}>
+                        -{Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100)} %
+                      </span>
+                    )}
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                      style={{ background: source.color + '15', color: source.color }}>
+                      {source.label}
+                    </span>
+                  </div>
+                </div>
+                <div className="px-5 pt-2 pb-4">
+                  <p className="text-xs font-medium mb-0.5" style={{ color: '#94a3b8' }}>{p.brand}</p>
+                  <h4 className="font-bold mb-3" style={{ color: '#0f172a', fontSize: '1rem', lineHeight: 1.3 }}>
+                    {p.name}
+                  </h4>
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-1 mb-3 text-sm">
+                    {p.specs.cpu && <div><span className="font-medium" style={{ color: '#0f172a' }}>CPU</span> <span style={{ color: '#64748b' }}>{p.specs.cpu}</span></div>}
+                    {p.specs.ram && <div><span className="font-medium" style={{ color: '#0f172a' }}>RAM</span> <span style={{ color: '#64748b' }}>{p.specs.ram}</span></div>}
+                    {p.specs.storage && <div><span className="font-medium" style={{ color: '#0f172a' }}>Stockage</span> <span style={{ color: '#64748b' }}>{p.specs.storage}</span></div>}
+                    {p.specs.gpu && <div><span className="font-medium" style={{ color: '#0f172a' }}>GPU</span> <span style={{ color: '#64748b' }}>{p.specs.gpu}</span></div>}
+                  </div>
+                  <div className="p-3 rounded-lg mb-3" style={{ background: '#f0fdfa', borderLeft: '3px solid #0891b2' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: '#475569' }}>{p.aiRationale}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {p.profiles.map(pr => (
+                      <span key={pr} className="text-xs px-2 py-0.5 rounded-full"
+                        style={{ background: '#eff6ff', color: '#2563eb' }}>
+                        {PROFILE_LABELS[pr].label}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-end justify-between pt-2" style={{ borderTop: '1px solid #f1f5f9' }}>
+                    <div>
+                      <span className="text-2xl font-bold" style={{ color: '#0f172a' }}>
+                        {p.price.toLocaleString('fr-CA')} $
+                      </span>
+                      {p.isOnSale && p.originalPrice && (
+                        <span className="ml-2 text-sm line-through" style={{ color: '#94a3b8' }}>
+                          {p.originalPrice.toLocaleString('fr-CA')} $
+                        </span>
+                      )}
+                    </div>
+                    <a href={p.url} target="_blank" rel="noopener noreferrer"
+                      className="btn-primary"
+                      style={{ padding: '0.5rem 1rem', fontSize: '0.8125rem' }}>
+                      Voir le prix →
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )
+          })()}
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-3">

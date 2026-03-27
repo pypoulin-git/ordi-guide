@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { promises as fs } from 'fs'
+import path from 'path'
 
 const SYSTEM_PROMPT = `Tu es l'assistant de recherche de Shop Compy, un site québécois d'aide à l'achat d'ordinateurs.
 
@@ -97,6 +99,62 @@ export async function POST(req: NextRequest) {
       console.error('JSON parse failed:', text.slice(start, start + 300))
       return NextResponse.json({ error: 'Réponse IA mal formatée. Réessaie.' }, { status: 502 })
     }
+    // ── Match best product from catalogue ────────────────────────
+    try {
+      const catPath = path.join(process.cwd(), 'data', 'catalogue.json')
+      const catRaw = await fs.readFile(catPath, 'utf-8')
+      const catalogue = JSON.parse(catRaw)
+      const products = catalogue.products ?? []
+
+      if (products.length > 0 && parsed.specs) {
+        // Parse budget range from specs (e.g. "700-1000 $ CAD" or "700$-1000$")
+        const budgetStr = parsed.specs.budget || ''
+        const nums = budgetStr.match(/\d[\d\s]*\d|\d+/g)?.map((n: string) => parseInt(n.replace(/\s/g, ''), 10)) || []
+        const budgetMin = nums.length >= 1 ? nums[0] : 0
+        const budgetMax = nums.length >= 2 ? nums[1] : nums.length === 1 ? nums[0] * 1.3 : Infinity
+
+        // Map usage_detected to profile tags
+        const usageToProfile: Record<string, string> = {
+          web: 'basic', bureautique: 'work', etudes: 'student',
+          video: 'creative', creation: 'creative', gaming: 'gaming',
+        }
+        const targetProfiles = (parsed.usage_detected || [])
+          .map((u: string) => usageToProfile[u]).filter(Boolean)
+
+        // Score each product
+        const scored = products.map((p: { price: number; profiles: string[]; aiScore: number; specs?: { gpu?: string } }) => {
+          let score = 0
+
+          // Budget proximity (0-40 pts): within range = 40, close = 20, far = 0
+          if (p.price >= budgetMin * 0.8 && p.price <= budgetMax * 1.2) score += 40
+          else if (p.price >= budgetMin * 0.5 && p.price <= budgetMax * 1.5) score += 20
+
+          // Profile match (0-30 pts)
+          const profileMatches = targetProfiles.filter((tp: string) => p.profiles.includes(tp)).length
+          if (targetProfiles.length > 0) score += Math.min(30, (profileMatches / targetProfiles.length) * 30)
+          else score += 15 // neutral
+
+          // GPU match for gaming/creative
+          const needsGpu = (parsed.usage_detected || []).some((u: string) => ['gaming', 'video', 'creation'].includes(u))
+          if (needsGpu && p.specs?.gpu) score += 15
+          if (!needsGpu && !p.specs?.gpu) score += 5
+
+          // AI score bonus (0-15 pts)
+          score += (p.aiScore / 100) * 15
+
+          return { product: p, score }
+        })
+
+        scored.sort((a: { score: number }, b: { score: number }) => b.score - a.score)
+        if (scored[0]) {
+          parsed.recommended_product = scored[0].product
+        }
+      }
+    } catch (catErr) {
+      // Non-blocking: if catalogue fails, just return without product
+      console.error('Catalogue match error:', catErr)
+    }
+
     return NextResponse.json(parsed)
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : String(error)
