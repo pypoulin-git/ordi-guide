@@ -79,10 +79,18 @@ export async function POST(req: NextRequest) {
 
     // Strip markdown code fences if present (```json ... ```)
     const clean = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim()
-    const parsed = JSON.parse(clean)
+
+    let parsed
+    try {
+      parsed = JSON.parse(clean)
+    } catch {
+      console.error('JSON parse failed, raw text:', text.slice(0, 300))
+      return NextResponse.json({ error: 'Réponse IA mal formatée. Réessaie.' }, { status: 502 })
+    }
     return NextResponse.json(parsed)
-  } catch (error) {
-    console.error('Search API error:', error)
-    return NextResponse.json({ error: 'Erreur interne' }, { status: 500 })
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : String(error)
+    console.error('Search API error:', msg)
+    return NextResponse.json({ error: 'Erreur interne : ' + msg.slice(0, 100) }, { status: 500 })
   }
 }
