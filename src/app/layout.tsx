@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -11,6 +12,15 @@ const inter = Inter({
 })
 
 const BASE_URL = 'https://ordi-guide.vercel.app'
+
+export const metadata: Metadata = {
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/favicon.svg',
+  },
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
