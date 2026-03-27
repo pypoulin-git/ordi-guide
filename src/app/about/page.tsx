@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
   title: 'À propos — Shop Compy',
@@ -10,17 +11,11 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="section" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%)' }}>
-        <div className="container max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-4" style={{ color: '#0f172a' }}>
-            L&apos;humain derrière la machine
-          </h1>
-          <p className="text-xl leading-relaxed" style={{ color: '#475569' }}>
-            Shop Compy n&apos;est pas une grande entreprise. C&apos;est une idée née derrière un comptoir,
-            avec des gens ordinaires qui méritaient de meilleures explications.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="L'humain derrière la machine"
+        subtitle="Shop Compy n'est pas une grande entreprise. C'est une idée née derrière un comptoir, avec des gens ordinaires qui méritaient de meilleures explications."
+        gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%)"
+      />
 
       {/* Histoire 1 : Dell */}
       <section className="section">

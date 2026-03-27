@@ -62,8 +62,27 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
   // Pill variant (compact for header)
   const bodyActive = mode === 'body'
 
+  // Track the displayed text separately for fade-out (show old text while fading)
+  const [displayedToast, setDisplayedToast] = useState<string | null>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    if (toast) {
+      setDisplayedToast(toast)
+      // Small delay to trigger CSS transition after mount
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setVisible(true))
+      })
+    } else {
+      setVisible(false)
+      // Keep text visible during fade-out, then clear
+      const t = setTimeout(() => setDisplayedToast(null), 400)
+      return () => clearTimeout(t)
+    }
+  }, [toast])
+
   return (
-    <div className="inline-flex items-center gap-2">
+    <div className="relative inline-flex flex-wrap items-center gap-2">
       <div className="relative inline-flex items-center rounded-full p-0.5" style={{ background: '#e2e8f0' }}>
         {/* Sliding highlight */}
         <div
@@ -102,18 +121,32 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
         </button>
       </div>
 
-      {/* Toast message */}
-      <span
-        className="text-xs whitespace-nowrap overflow-hidden"
-        style={{
-          color: '#64748b',
-          maxWidth: toast ? '24rem' : '0',
-          opacity: toast ? 1 : 0,
-          transition: 'opacity 0.3s ease, max-width 0.3s ease',
-        }}
-      >
-        {toast}
-      </span>
+      {/* Toast — fixed top-center, portal-style, never clipped */}
+      {displayedToast && (
+        <div
+          className="fixed left-1/2 z-[9999]"
+          style={{
+            top: '5rem',
+            transform: 'translateX(-50%)',
+            pointerEvents: 'none',
+          }}
+        >
+          <div
+            className="text-sm leading-snug whitespace-nowrap rounded-full px-4 py-2 font-medium"
+            style={{
+              color: '#1e40af',
+              background: '#eff6ff',
+              border: '1px solid #bfdbfe',
+              boxShadow: '0 4px 12px rgba(37,99,235,0.15)',
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0) scale(1)' : 'translateY(-8px) scale(0.97)',
+              transition: 'opacity 0.35s ease, transform 0.35s ease',
+            }}
+          >
+            {mode === 'body' ? '🧠' : '🚗'} {displayedToast}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

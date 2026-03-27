@@ -2,6 +2,8 @@
 import Link from 'next/link'
 import { useAnalogy, type AnalogyMode } from '@/contexts/AnalogyContext'
 import AnalogyToggle from '@/components/AnalogyToggle'
+import PageHero from '@/components/PageHero'
+import TechIllustration, { getAnalogyVariant } from '@/components/TechIllustration'
 
 /* ── Section data with dual analogies ─────────────────────────── */
 
@@ -171,6 +173,13 @@ function sectionIcon(s: Section, mode: AnalogyMode): string {
   return ANALOGIES[s.component]?.[mode]?.icon ?? ''
 }
 
+function SectionSvgIcon({ component, mode, size = 40 }: { component?: string; mode: AnalogyMode; size?: number }) {
+  if (!component) return null
+  const variant = getAnalogyVariant(component, mode)
+  if (!variant) return null
+  return <TechIllustration variant={variant} size={size} />
+}
+
 /* ── Component ─────────────────────────────────────────────────── */
 export default function GuidePage() {
   const { mode, a, modeLabel, modeIcon } = useAnalogy()
@@ -178,21 +187,12 @@ export default function GuidePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="section" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%)', paddingTop: '1.5rem', paddingBottom: '1.25rem' }}>
-        <div className="container max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
-            style={{ background: '#eff6ff', color: '#2563eb', border: '1px solid #bfdbfe' }}>
-            Guide complet · Lecture 10 min
-          </div>
-          <h1 className="text-4xl font-bold mb-3" style={{ color: '#0f172a' }}>
-            Les bases pour bien choisir ton ordinateur
-          </h1>
-          <p className="text-lg leading-relaxed" style={{ color: '#475569' }}>
-            Pas de jargon inutile. On t&apos;explique chaque composante en langage simple,
-            avec des exemples concrets pour que tu saches exactement quoi regarder.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Les bases pour bien choisir ton ordinateur"
+        subtitle="Pas de jargon inutile. On t'explique chaque composante en langage simple, avec des exemples concrets pour que tu saches exactement quoi regarder."
+        badge="Guide complet · Lecture 10 min"
+        gradient="linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%)"
+      />
 
       {/* ── Table of contents ────────────────────────────────────── */}
       <section className="section" style={{ paddingTop: '1.25rem', paddingBottom: '1.5rem' }}>
@@ -211,9 +211,11 @@ export default function GuidePage() {
             <div className="grid gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
               {sections.map((s, i) => (
                 <a key={s.id} href={`#${s.id}`}
-                  className="flex items-center gap-2 rounded-lg px-3 py-2.5 font-medium transition-colors hover:opacity-80"
+                  className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 font-medium transition-colors hover:opacity-80"
                   style={{ background: '#eff6ff', border: '1px solid #bfdbfe', color: '#2563eb', fontSize: '0.9375rem', lineHeight: '1.4' }}>
-                  {sectionIcon(s, mode) && <span className="text-lg shrink-0">{sectionIcon(s, mode)}</span>}
+                  <span className="shrink-0">
+                    <SectionSvgIcon component={s.component} mode={mode} size={28} />
+                  </span>
                   <span>{i + 1}. {s.title[mode]}</span>
                 </a>
               ))}
@@ -227,9 +229,7 @@ export default function GuidePage() {
         {sections.map((s, i) => (
           <section key={s.id} id={s.id} className="scroll-mt-20">
             <div className="flex items-center gap-3 mb-5">
-              {sectionIcon(s, mode) && (
-                <span className="text-3xl">{sectionIcon(s, mode)}</span>
-              )}
+              <SectionSvgIcon component={s.component} mode={mode} size={44} />
               <h2 className="text-2xl font-bold" style={{ color: '#0f172a' }}>
                 {i + 1}. {s.title[mode]}
               </h2>

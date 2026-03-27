@@ -3,6 +3,7 @@ import Link from 'next/link'
 import AnalogyToggle from '@/components/AnalogyToggle'
 import SearchBar from '@/components/SearchBar'
 import { useAnalogy } from '@/contexts/AnalogyContext'
+import TechIllustration, { getAnalogyVariant } from '@/components/TechIllustration'
 
 const COMP_LABELS: Record<string, string> = {
   cpu:     'Processeur',
@@ -188,7 +189,12 @@ export default function HomePage() {
                     const analogy = a(comp)
                     return (
                       <li key={comp} className="flex items-start gap-3">
-                        <span className="text-2xl w-8 text-center shrink-0 mt-0.5">{analogy.icon}</span>
+                        <span className="w-9 shrink-0 mt-0.5 flex justify-center">
+                          {(() => {
+                            const v = getAnalogyVariant(comp, mode)
+                            return v ? <TechIllustration variant={v} size={32} /> : <span className="text-2xl">{analogy.icon}</span>
+                          })()}
+                        </span>
                         <div className="flex-1 min-w-0">
                           <div className="font-semibold" style={{ color: '#0f172a', fontSize: '0.9375rem' }}>
                             {analogy.name}

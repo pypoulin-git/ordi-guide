@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import JsonLd from '@/components/JsonLd'
+import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
   title: 'Lexique informatique — Termes expliqués simplement',
@@ -170,21 +171,13 @@ export default function GlossairePage() {
     <>
       <JsonLd data={faqSchema} />
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="section" style={{ background: 'linear-gradient(135deg, #f5f3ff 0%, #f8fafc 100%)' }}>
-        <div className="container max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
-            style={{ background: '#f5f3ff', color: '#7c3aed', border: '1px solid #ddd6fe' }}>
-            {terms.length} termes expliqués
-          </div>
-          <h1 className="text-4xl font-bold mb-4" style={{ color: '#0f172a' }}>
-            Lexique informatique
-          </h1>
-          <p className="text-lg leading-relaxed" style={{ color: '#475569' }}>
-            Tous les termes techniques que tu vas croiser en cherchant un ordinateur —
-            expliqués en langage de tous les jours.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Lexique informatique"
+        subtitle="Tous les termes techniques que tu vas croiser en cherchant un ordinateur — expliqués en langage de tous les jours."
+        badge={`${terms.length} termes expliqués`}
+        gradient="linear-gradient(135deg, #312e81 0%, #7c3aed 50%, #8b5cf6 100%)"
+        accentColor="#7c3aed"
+      />
 
       {/* ── Quick nav ────────────────────────────────────────────── */}
       <section style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0', padding: '1rem 0' }}>

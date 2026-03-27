@@ -4,6 +4,7 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import type { CatalogueData } from '@/types/catalogue'
 import CatalogueFilters from '@/components/CatalogueFilters'
+import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
   title: 'Catalogue — Shop Compy',
@@ -23,17 +24,12 @@ export default async function CataloguePage() {
   return (
     <>
       {/* Hero */}
-      <section className="section" style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
-        <div className="container max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-4" style={{ color: '#0f172a' }}>
-            Nos recommandations
-          </h1>
-          <p className="text-lg leading-relaxed" style={{ color: '#475569', maxWidth: '40rem', margin: '0 auto' }}>
-            {products.length} ordinateurs sélectionnés et notés par notre IA.
-            Filtre par profil, budget ou catégorie pour trouver le tien.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Nos recommandations"
+        subtitle={`${products.length} ordinateurs sélectionnés et notés par notre IA. Filtre par profil, budget ou catégorie pour trouver le tien.`}
+        gradient="linear-gradient(135deg, #064e3b 0%, #059669 50%, #34d399 100%)"
+        accentColor="#059669"
+      />
 
       {/* Filters + Grid */}
       <section className="section">
