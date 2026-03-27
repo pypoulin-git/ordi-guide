@@ -180,24 +180,24 @@ export default function HomePage() {
 
               {/* Colonne droite : 6 dimensions verticales */}
               <div className="px-8 py-6">
-                <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: '#94a3b8' }}>
-                  {modeIcon} Mode {modeLabel} — aperçu des explications
+                <p className="text-xs font-semibold uppercase tracking-wider mb-5" style={{ color: '#94a3b8' }}>
+                  {modeIcon} Mode {modeLabel}
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-5">
                   {(['cpu', 'ram', 'ssd', 'gpu', 'battery', 'screen'] as const).map(comp => {
                     const analogy = a(comp)
                     return (
-                      <li key={comp} className="flex items-center gap-3">
-                        <span className="text-xl w-8 text-center shrink-0">{analogy.icon}</span>
-                        <div className="flex items-baseline gap-2 min-w-0">
-                          <span className="font-semibold shrink-0" style={{ color: '#0f172a', fontSize: '0.9375rem' }}>
+                      <li key={comp} className="flex items-start gap-3">
+                        <span className="text-2xl w-8 text-center shrink-0 mt-0.5">{analogy.icon}</span>
+                        <div className="flex-1 min-w-0">
+                          <div className="font-semibold" style={{ color: '#0f172a', fontSize: '0.9375rem' }}>
                             {analogy.name}
-                          </span>
-                          <span className="text-sm truncate" style={{ color: '#64748b' }}>
+                          </div>
+                          <div className="text-sm" style={{ color: '#64748b', lineHeight: 1.4 }}>
                             {analogy.short}
-                          </span>
+                          </div>
                         </div>
-                        <span className="ml-auto shrink-0 text-xs px-2 py-0.5 rounded-full"
+                        <span className="shrink-0 text-xs px-2 py-0.5 rounded-full mt-0.5"
                           style={{ background: '#f1f5f9', color: '#94a3b8', whiteSpace: 'nowrap' }}>
                           {COMP_LABELS[comp]}
                         </span>

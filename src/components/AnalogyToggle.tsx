@@ -14,31 +14,25 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
       <div className="flex flex-col sm:flex-row gap-3">
         <button
           onClick={() => setMode('body')}
-          className="flex-1 flex items-center gap-3 p-4 rounded-xl border-2 transition-all text-left"
+          className="flex-1 flex items-center justify-center gap-3 p-4 rounded-xl border-2 transition-all"
           style={{
             borderColor: mode === 'body' ? '#2563eb' : '#e2e8f0',
             background: mode === 'body' ? '#eff6ff' : 'white',
           }}
         >
           <span className="text-3xl">🧠</span>
-          <div>
-            <div className="font-semibold text-sm" style={{ color: '#0f172a' }}>Corps humain</div>
-            <div className="text-xs" style={{ color: '#64748b' }}>CPU = cerveau, RAM = poumons…</div>
-          </div>
+          <span className="font-semibold" style={{ color: '#0f172a' }}>Corps humain</span>
         </button>
         <button
           onClick={() => setMode('car')}
-          className="flex-1 flex items-center gap-3 p-4 rounded-xl border-2 transition-all text-left"
+          className="flex-1 flex items-center justify-center gap-3 p-4 rounded-xl border-2 transition-all"
           style={{
             borderColor: mode === 'car' ? '#2563eb' : '#e2e8f0',
             background: mode === 'car' ? '#eff6ff' : 'white',
           }}
         >
           <span className="text-3xl">🚗</span>
-          <div>
-            <div className="font-semibold text-sm" style={{ color: '#0f172a' }}>Automobile</div>
-            <div className="text-xs" style={{ color: '#64748b' }}>CPU = moteur, RAM = transmission…</div>
-          </div>
+          <span className="font-semibold" style={{ color: '#0f172a' }}>Automobile</span>
         </button>
       </div>
     )
