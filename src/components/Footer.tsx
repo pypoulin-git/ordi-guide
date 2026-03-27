@@ -20,9 +20,12 @@ export default function Footer() {
             <h3 className="font-semibold text-[--text] mb-3 text-sm uppercase tracking-wider">Explorer</h3>
             <ul className="space-y-2">
               {[
-                { href: '/guide', label: 'Le guide complet' },
+                { href: '/guide',       label: 'Le guide complet' },
                 { href: '/comparateur', label: 'M\'aider à choisir' },
-                { href: '/glossaire', label: 'Lexique des termes' },
+                { href: '/blog',        label: 'Le Décodeur' },
+                { href: '/catalogue',   label: 'Catalogue' },
+                { href: '/glossaire',   label: 'Lexique des termes' },
+                { href: '/about',       label: 'À propos' },
               ].map(l => (
                 <li key={l.href}>
                   <Link href={l.href} className="text-sm text-[--text-subtle] hover:text-[--accent] transition-colors">

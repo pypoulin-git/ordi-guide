@@ -8,6 +8,8 @@ const NAV = [
   { href: '/comparateur', label: 'M\'aider à choisir' },
   { href: '/blog',        label: 'Le Décodeur' },
   { href: '/glossaire',   label: 'Lexique' },
+  { href: '/catalogue',   label: 'Catalogue' },
+  { href: '/about',       label: 'À propos' },
 ]
 
 export default function Header() {
