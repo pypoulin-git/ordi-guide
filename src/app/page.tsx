@@ -261,6 +261,13 @@ export default function HomePage() {
               </details>
             ))}
           </div>
+          <p className="text-center mt-6 text-sm" style={{ color: '#94a3b8' }}>
+            Perdu dans le jargon ? Consulte notre{' '}
+            <Link href="/glossaire" className="underline" style={{ color: '#2563eb' }}>
+              lexique des termes informatiques
+            </Link>{' '}
+            pour tout comprendre en langage simple.
+          </p>
         </div>
       </section>
 

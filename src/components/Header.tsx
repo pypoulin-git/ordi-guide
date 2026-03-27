@@ -7,7 +7,6 @@ const NAV = [
   { href: '/guide',       label: 'Le guide' },
   { href: '/comparateur', label: 'M\'aider à choisir' },
   { href: '/blog',        label: 'Le Décodeur' },
-  { href: '/glossaire',   label: 'Lexique' },
   { href: '/catalogue',   label: 'Catalogue' },
   { href: '/about',       label: 'À propos' },
 ]
@@ -55,8 +54,8 @@ export default function Header() {
       </div>
 
       {/* ── Ligne 2 : Sous-menu — Toggle + CTA (desktop uniquement) ── */}
-      <div className="hidden md:block" style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
-        <div className="container">
+      <div className="hidden md:block relative" style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0', overflow: 'visible' }}>
+        <div className="container" style={{ overflow: 'visible' }}>
           <div className="flex items-center justify-between h-10">
             <div className="flex items-center gap-2">
               <span className="text-xs font-medium" style={{ color: '#94a3b8' }}>

@@ -7,6 +7,7 @@ import type { Metadata } from 'next'
 import type { CatalogueData, CatalogueProduct } from '@/types/catalogue'
 import { SOURCE_LABELS, PROFILE_LABELS, CATEGORY_LABELS, BUDGET_LABELS } from '@/types/catalogue'
 import JsonLd from '@/components/JsonLd'
+import SpecTooltip from '@/components/SpecTooltip'
 
 async function getCatalogue(): Promise<CatalogueData> {
   const filePath = path.join(process.cwd(), 'data', 'catalogue.json')
@@ -154,16 +155,16 @@ export default function ProductPage({ params }: Props) {
                 </h2>
                 <div className="divide-y" style={{ borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
                   {[
-                    { label: 'Processeur', value: product.specs.cpu },
-                    { label: 'Mémoire vive', value: product.specs.ram },
-                    { label: 'Stockage', value: product.specs.storage },
-                    { label: 'Carte graphique', value: product.specs.gpu },
-                    { label: 'Écran', value: product.specs.display },
-                    { label: 'Batterie', value: product.specs.battery },
+                    { label: 'Processeur', key: 'cpu', value: product.specs.cpu },
+                    { label: 'Mémoire vive', key: 'ram', value: product.specs.ram },
+                    { label: 'Stockage', key: 'storage', value: product.specs.storage },
+                    { label: 'Carte graphique', key: 'gpu', value: product.specs.gpu },
+                    { label: 'Écran', key: 'display', value: product.specs.display },
+                    { label: 'Batterie', key: 'battery', value: product.specs.battery },
                   ].filter(s => s.value).map(s => (
                     <div key={s.label} className="flex items-center py-3 gap-4">
-                      <span className="text-sm font-medium shrink-0" style={{ color: '#0f172a', minWidth: '8rem' }}>
-                        {s.label}
+                      <span className="text-sm font-medium shrink-0 inline-flex items-center gap-1.5" style={{ color: '#0f172a', minWidth: '8rem' }}>
+                        {s.label} <SpecTooltip specKey={s.key} />
                       </span>
                       <span className="text-sm" style={{ color: '#475569' }}>{s.value}</span>
                     </div>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { CatalogueProduct } from '@/types/catalogue'
 import { SOURCE_LABELS, PROFILE_LABELS } from '@/types/catalogue'
+import SpecTooltip from './SpecTooltip'
 
 export default function ProductCard({ product }: { product: CatalogueProduct }) {
   const source = SOURCE_LABELS[product.source]
@@ -40,36 +41,20 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
 
         {/* Specs */}
         <div className="space-y-1 mb-4">
-          {product.specs.cpu && (
-            <div className="flex items-start gap-2 text-sm">
-              <span className="shrink-0 font-medium" style={{ color: '#0f172a', minWidth: '4rem' }}>CPU</span>
-              <span style={{ color: '#64748b' }}>{product.specs.cpu}</span>
+          {([
+            { key: 'cpu', label: 'CPU', value: product.specs.cpu },
+            { key: 'ram', label: 'RAM', value: product.specs.ram },
+            { key: 'storage', label: 'Stockage', value: product.specs.storage },
+            { key: 'gpu', label: 'GPU', value: product.specs.gpu?.toLowerCase().includes('intégré') ? undefined : product.specs.gpu },
+            { key: 'display', label: 'Écran', value: product.specs.display },
+          ] as const).filter(s => s.value).map(s => (
+            <div key={s.key} className="flex items-start gap-2 text-sm">
+              <span className="shrink-0 font-medium inline-flex items-center gap-1" style={{ color: '#0f172a', minWidth: '4rem' }}>
+                {s.label} <SpecTooltip specKey={s.key} />
+              </span>
+              <span style={{ color: '#64748b' }}>{s.value}</span>
             </div>
-          )}
-          {product.specs.ram && (
-            <div className="flex items-start gap-2 text-sm">
-              <span className="shrink-0 font-medium" style={{ color: '#0f172a', minWidth: '4rem' }}>RAM</span>
-              <span style={{ color: '#64748b' }}>{product.specs.ram}</span>
-            </div>
-          )}
-          {product.specs.storage && (
-            <div className="flex items-start gap-2 text-sm">
-              <span className="shrink-0 font-medium" style={{ color: '#0f172a', minWidth: '4rem' }}>Stockage</span>
-              <span style={{ color: '#64748b' }}>{product.specs.storage}</span>
-            </div>
-          )}
-          {product.specs.gpu && !product.specs.gpu.toLowerCase().includes('intégré') && (
-            <div className="flex items-start gap-2 text-sm">
-              <span className="shrink-0 font-medium" style={{ color: '#0f172a', minWidth: '4rem' }}>GPU</span>
-              <span style={{ color: '#64748b' }}>{product.specs.gpu}</span>
-            </div>
-          )}
-          {product.specs.display && (
-            <div className="flex items-start gap-2 text-sm">
-              <span className="shrink-0 font-medium" style={{ color: '#0f172a', minWidth: '4rem' }}>Écran</span>
-              <span style={{ color: '#64748b' }}>{product.specs.display}</span>
-            </div>
-          )}
+          ))}
         </div>
 
         {/* Avis IA */}

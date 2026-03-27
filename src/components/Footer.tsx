@@ -24,7 +24,6 @@ export default function Footer() {
                 { href: '/comparateur', label: 'M\'aider à choisir' },
                 { href: '/blog',        label: 'Le Décodeur' },
                 { href: '/catalogue',   label: 'Catalogue' },
-                { href: '/glossaire',   label: 'Lexique des termes' },
                 { href: '/about',       label: 'À propos' },
               ].map(l => (
                 <li key={l.href}>
