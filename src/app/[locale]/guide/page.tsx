@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useAnalogy, type AnalogyMode } from '@/contexts/AnalogyContext'
 import AnalogyToggle from '@/components/AnalogyToggle'
 import PageHero from '@/components/PageHero'
@@ -208,17 +209,32 @@ export default function GuidePage() {
                 <AnalogyToggle variant="pill" />
               </div>
             </div>
-            <div className="grid gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
-              {sections.map((s, i) => (
-                <a key={s.id} href={`#${s.id}`}
-                  className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 font-medium transition-colors hover:opacity-80"
-                  style={{ background: '#eff6ff', border: '1px solid #bfdbfe', color: '#2563eb', fontSize: '0.9375rem', lineHeight: '1.4' }}>
-                  <span className="shrink-0">
-                    <SectionSvgIcon component={s.component} mode={mode} size={28} />
-                  </span>
-                  <span>{i + 1}. {s.title[mode]}</span>
-                </a>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {sections.map((s) => {
+                // Extract the bold component name from the title
+                const title = s.title[mode]
+                // Match patterns like "Le processeur (CPU), cerveau de l'ordinateur"
+                const componentMatch = title.match(/^(.*?)(,\s*.*)$/)
+                return (
+                  <a key={s.id} href={`#${s.id}`}
+                    className="flex items-center gap-3 rounded-xl px-4 py-3 transition-all hover:shadow-md hover:-translate-y-0.5"
+                    style={{ background: '#eff6ff', border: '1px solid #bfdbfe', color: '#2563eb' }}>
+                    <span className="shrink-0">
+                      <SectionSvgIcon component={s.component} mode={mode} size={36} />
+                    </span>
+                    <span style={{ fontSize: '0.9375rem', lineHeight: '1.4' }}>
+                      {componentMatch ? (
+                        <>
+                          <strong>{componentMatch[1]}</strong>
+                          <span className="font-normal">{componentMatch[2]}</span>
+                        </>
+                      ) : (
+                        <strong>{title}</strong>
+                      )}
+                    </span>
+                  </a>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -226,12 +242,12 @@ export default function GuidePage() {
 
       {/* ── Sections ─────────────────────────────────────────────── */}
       <div className="container max-w-3xl mx-auto pb-16 space-y-20">
-        {sections.map((s, i) => (
+        {sections.map((s) => (
           <section key={s.id} id={s.id} className="scroll-mt-20">
             <div className="flex items-center gap-3 mb-5">
               <SectionSvgIcon component={s.component} mode={mode} size={44} />
               <h2 className="text-2xl font-bold" style={{ color: '#0f172a' }}>
-                {i + 1}. {s.title[mode]}
+                {s.title[mode]}
               </h2>
             </div>
             <div className="space-y-4">
@@ -243,9 +259,16 @@ export default function GuidePage() {
                   </p>
                 </div>
               ))}
-              <div className="p-4 rounded-xl" style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderLeft: '4px solid #2563eb' }}>
-                <p className="font-semibold text-xs uppercase tracking-wide mb-1" style={{ color: '#2563eb' }}>À retenir</p>
-                <p className="leading-relaxed" style={{ color: '#1d4ed8', fontSize: '0.9375rem' }}>{s.tip[mode]}</p>
+              {/* À retenir — avec Compy */}
+              <div className="flex gap-4 items-start p-4 rounded-xl" style={{ background: '#eff6ff', border: '1px solid #bfdbfe' }}>
+                <Image src="/logo-compy.svg" alt="Compy" width={52} height={52}
+                  className="shrink-0 mt-0.5" style={{ filter: 'drop-shadow(0 2px 4px rgba(37,99,235,0.15))' }} />
+                <div className="flex-1 min-w-0">
+                  <p className="font-bold text-xs uppercase tracking-wide mb-1" style={{ color: '#2563eb' }}>
+                    Compy te dit&hellip;
+                  </p>
+                  <p className="leading-relaxed" style={{ color: '#1d4ed8', fontSize: '0.9375rem' }}>{s.tip[mode]}</p>
+                </div>
               </div>
             </div>
           </section>
