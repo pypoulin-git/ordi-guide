@@ -42,9 +42,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Service de recherche non configuré' }, { status: 503 })
     }
 
-    // Call Gemini 1.5 Flash via Google Generative AI REST API
+    // Call Gemini 2.5 Flash via Google Generative AI REST API
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
