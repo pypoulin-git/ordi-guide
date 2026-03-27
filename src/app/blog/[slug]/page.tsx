@@ -3,6 +3,7 @@ import { articles, getArticleBySlug } from '@/content/articles'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { use } from 'react'
+import JsonLd from '@/components/JsonLd'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -27,8 +28,22 @@ export default function ArticlePage({ params }: Props) {
   const article = getArticleBySlug(slug)
   if (!article) notFound()
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    datePublished: article.date,
+    author: { '@type': 'Organization', name: 'Shop Compy' },
+    publisher: { '@type': 'Organization', name: 'Shop Compy', url: 'https://ordi-guide.vercel.app' },
+    mainEntityOfPage: `https://ordi-guide.vercel.app/blog/${article.slug}`,
+    articleSection: article.category,
+    inLanguage: 'fr-CA',
+  }
+
   return (
     <>
+      <JsonLd data={articleSchema} />
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="section" style={{ background: 'linear-gradient(135deg, #ecfeff 0%, #f8fafc 100%)' }}>
         <div className="container max-w-3xl mx-auto">

@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import JsonLd from '@/components/JsonLd'
 
 export const metadata: Metadata = {
   title: 'Lexique informatique — Termes expliqués simplement',
@@ -152,8 +153,22 @@ const grouped = terms.reduce<Record<string, typeof terms>>((acc, t) => {
 const letters = Object.keys(grouped).sort()
 
 export default function GlossairePage() {
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: terms.map(t => ({
+      '@type': 'Question',
+      name: `Qu'est-ce que ${t.term} (${t.fr}) ?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: t.def,
+      },
+    })),
+  }
+
   return (
     <>
+      <JsonLd data={faqSchema} />
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="section" style={{ background: 'linear-gradient(135deg, #f5f3ff 0%, #f8fafc 100%)' }}>
         <div className="container max-w-3xl mx-auto text-center">
