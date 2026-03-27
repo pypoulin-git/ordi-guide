@@ -178,36 +178,36 @@ export default function GuidePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="section" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%)', paddingTop: '2rem', paddingBottom: '2rem' }}>
+      <section className="section" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%)', paddingTop: '1.5rem', paddingBottom: '1.25rem' }}>
         <div className="container max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
             style={{ background: '#eff6ff', color: '#2563eb', border: '1px solid #bfdbfe' }}>
             Guide complet · Lecture 10 min
           </div>
-          <h1 className="text-4xl font-bold mb-4" style={{ color: '#0f172a' }}>
+          <h1 className="text-4xl font-bold mb-3" style={{ color: '#0f172a' }}>
             Les bases pour bien choisir ton ordinateur
           </h1>
-          <p className="text-lg leading-relaxed mb-6" style={{ color: '#475569' }}>
+          <p className="text-lg leading-relaxed" style={{ color: '#475569' }}>
             Pas de jargon inutile. On t&apos;explique chaque composante en langage simple,
             avec des exemples concrets pour que tu saches exactement quoi regarder.
           </p>
-
-          {/* Mode indicator */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm"
-            style={{ background: '#f1f5f9', color: '#475569' }}>
-            <span>{modeIcon}</span>
-            <span>Mode <strong>{modeLabel}</strong> activé</span>
-            <span className="text-[--text-muted]">·</span>
-            <AnalogyToggle variant="pill" />
-          </div>
         </div>
       </section>
 
       {/* ── Table of contents ────────────────────────────────────── */}
-      <section className="section" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
+      <section className="section" style={{ paddingTop: '1.25rem', paddingBottom: '1.5rem' }}>
         <div className="container max-w-3xl mx-auto">
           <div className="card">
-            <h2 className="font-semibold mb-4" style={{ color: '#0f172a', fontSize: '1rem' }}>Dans ce guide :</h2>
+            <div className="flex items-center justify-between gap-4 mb-4">
+              <h2 className="font-semibold" style={{ color: '#0f172a', fontSize: '1rem' }}>Dans ce guide :</h2>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm shrink-0"
+                style={{ background: '#f1f5f9', color: '#475569' }}>
+                <span>{modeIcon}</span>
+                <span>Mode <strong>{modeLabel}</strong></span>
+                <span style={{ color: '#cbd5e1' }}>·</span>
+                <AnalogyToggle variant="pill" />
+              </div>
+            </div>
             <div className="grid gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
               {sections.map((s, i) => (
                 <a key={s.id} href={`#${s.id}`}
