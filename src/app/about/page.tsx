@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
@@ -125,6 +126,8 @@ export default function AboutPage() {
       {/* Citation finale */}
       <section className="section" style={{ background: '#1e3a8a' }}>
         <div className="container max-w-2xl mx-auto text-center">
+          <Image src="/logo-compy.svg" alt="Shop Compy" width={80} height={80}
+            className="mx-auto mb-6" style={{ filter: 'brightness(1.3) saturate(0.7)' }} />
           <p className="text-2xl leading-relaxed text-white/90 mb-6" style={{ fontStyle: 'italic' }}>
             &laquo;&nbsp;L&apos;informatique ne devrait pas être une langue étrangère.
             Pour tout le monde, elle devrait être une question de bon sens.&nbsp;&raquo;

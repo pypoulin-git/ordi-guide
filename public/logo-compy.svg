@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" fill="none">
+  <!--
+    Shop Compy Logo — Robot with laptop body, "Shop Compy" on chest screen
+    Teal/steel blue palette matching the user's brand image
+  -->
+
+  <!-- ═══ LAPTOP BASE (trapezoid — perspective keyboard) ═══ -->
+  <path d="M90 400 L310 400 L360 450 L40 450 Z" fill="#a3d4e0" />
+  <path d="M100 400 L300 400 L340 440 L60 440 Z" fill="#8ec5d4" opacity="0.5"/>
+
+  <!-- ═══ BODY (rounded rectangle — laptop screen as chest) ═══ -->
+  <rect x="110" y="230" width="180" height="170" rx="14" fill="#3d8a9e"/>
+
+  <!-- Chest screen with "Shop Compy" -->
+  <rect x="128" y="252" width="144" height="90" rx="10" fill="#2e7a8e"/>
+  <text x="200" y="293" text-anchor="middle" fill="white" font-size="36" font-weight="bold" font-family="system-ui, -apple-system, sans-serif" letter-spacing="0.5">Shop</text>
+  <text x="200" y="330" text-anchor="middle" fill="white" font-size="36" font-weight="bold" font-family="system-ui, -apple-system, sans-serif" letter-spacing="0.5">Compy</text>
+
+  <!-- ═══ NECK (connector) ═══ -->
+  <rect x="172" y="205" width="56" height="30" rx="8" fill="#3d8a9e"/>
+
+  <!-- ═══ HEAD (rounded monitor shape) ═══ -->
+  <rect x="120" y="55" width="160" height="155" rx="24" fill="#5ca0b2"/>
+  <!-- Inner face area -->
+  <rect x="136" y="70" width="128" height="120" rx="16" fill="#4a8fa2"/>
+
+  <!-- Eyes -->
+  <ellipse cx="172" cy="118" rx="16" ry="18" fill="#2e7a8e"/>
+  <ellipse cx="228" cy="118" rx="16" ry="18" fill="#2e7a8e"/>
+  <!-- Eye highlights -->
+  <circle cx="177" cy="112" r="5" fill="#8ec5d4"/>
+  <circle cx="233" cy="112" r="5" fill="#8ec5d4"/>
+  <!-- Pupils -->
+  <circle cx="172" cy="120" r="6" fill="#1a5a6e"/>
+  <circle cx="228" cy="120" r="6" fill="#1a5a6e"/>
+
+  <!-- Subtle smile -->
+  <path d="M180 152 Q200 168 220 152" stroke="#2e7a8e" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+  <!-- ═══ EARS (side indicators) ═══ -->
+  <rect x="104" y="105" width="18" height="36" rx="9" fill="#5ca0b2"/>
+  <rect x="278" y="105" width="18" height="36" rx="9" fill="#5ca0b2"/>
+
+  <!-- ═══ ARMS (rounded stubs) ═══ -->
+  <!-- Left arm -->
+  <rect x="68" y="262" width="42" height="22" rx="11" fill="#5ca0b2"/>
+  <circle cx="74" cy="273" r="11" fill="#5ca0b2"/>
+  <!-- Right arm -->
+  <rect x="290" y="262" width="42" height="22" rx="11" fill="#5ca0b2"/>
+  <circle cx="326" cy="273" r="11" fill="#5ca0b2"/>
+
+  <!-- ═══ ANTENNA ═══ -->
+  <rect x="191" y="28" width="18" height="30" rx="9" fill="#5ca0b2"/>
+  <circle cx="200" cy="22" r="14" fill="#3d8a9e"/>
+  <circle cx="200" cy="22" r="7" fill="#8ec5d4"/>
+</svg>

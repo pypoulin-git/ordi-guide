@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -6,7 +7,8 @@ export default function Footer() {
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <div className="flex items-center gap-2 font-bold text-[--text] mb-3">
+            <div className="flex items-center gap-2.5 font-bold text-[--text] mb-3">
+              <Image src="/logo-compy.svg" alt="Shop Compy" width={36} height={36} />
               Shop Compy
             </div>
             <p className="text-sm text-[--text-subtle] leading-relaxed">

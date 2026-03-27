@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import AnalogyToggle from './AnalogyToggle'
 
@@ -24,8 +25,9 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/"
-              className="font-bold text-lg hover:text-[--accent] transition-colors"
+              className="flex items-center gap-2 font-bold text-lg hover:text-[--accent] transition-colors"
               style={{ color: '#0f172a', whiteSpace: 'nowrap' }}>
+              <Image src="/logo-compy.svg" alt="" width={32} height={32} className="shrink-0" />
               Shop Compy
             </Link>
 
