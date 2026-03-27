@@ -241,38 +241,86 @@ export default function GuidePage() {
       </section>
 
       {/* ── Sections ─────────────────────────────────────────────── */}
-      <div className="container max-w-3xl mx-auto pb-16 space-y-20">
-        {sections.map((s) => (
-          <section key={s.id} id={s.id} className="scroll-mt-20">
-            <div className="flex items-center gap-3 mb-5">
-              <SectionSvgIcon component={s.component} mode={mode} size={44} />
-              <h2 className="text-2xl font-bold" style={{ color: '#0f172a' }}>
-                {s.title[mode]}
-              </h2>
+      <div className="container max-w-3xl mx-auto pb-16 space-y-6">
+        {sections.map((s, idx) => {
+          const isEven = idx % 2 === 0
+          const hasAltBg = idx % 3 === 1
+          return (
+          <section key={s.id} id={s.id} className="scroll-mt-20"
+            style={{
+              background: hasAltBg ? '#f8fafc' : 'transparent',
+              margin: hasAltBg ? '0 -1.5rem' : undefined,
+              padding: hasAltBg ? '2.5rem 1.5rem' : '2.5rem 0',
+              borderRadius: hasAltBg ? '1.5rem' : undefined,
+              borderTop: idx > 0 && !hasAltBg ? '1px solid #e2e8f0' : 'none',
+            }}>
+            {/* Section header with decorative accent */}
+            <div className="flex items-start gap-4 mb-6"
+              style={{ paddingLeft: isEven ? 0 : '1rem' }}>
+              {s.component && (
+                <div className="shrink-0 rounded-2xl p-2.5 shadow-sm"
+                  style={{
+                    background: isEven
+                      ? 'linear-gradient(135deg, #eff6ff, #dbeafe)'
+                      : 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
+                    border: `1px solid ${isEven ? '#bfdbfe' : '#bbf7d0'}`,
+                  }}>
+                  <SectionSvgIcon component={s.component} mode={mode} size={48} />
+                </div>
+              )}
+              <div>
+                <h2 className="text-2xl font-bold leading-tight" style={{ color: '#0f172a' }}>
+                  {s.title[mode]}
+                </h2>
+                {s.component && (
+                  <div className="mt-1.5 h-1 rounded-full" style={{
+                    width: '3rem',
+                    background: isEven
+                      ? 'linear-gradient(90deg, #2563eb, #60a5fa)'
+                      : 'linear-gradient(90deg, #16a34a, #4ade80)',
+                  }} />
+                )}
+              </div>
             </div>
-            <div className="space-y-4">
-              {s.content.map(c => (
-                <div key={c.subtitle} className="card">
+
+            {/* Content blocks with varied layout */}
+            <div className="space-y-4" style={{ paddingLeft: isEven ? '0.5rem' : '1.5rem' }}>
+              {s.content.map((c, ci) => (
+                <div key={c.subtitle} className="card"
+                  style={{
+                    borderLeft: ci === 0 && s.component
+                      ? `3px solid ${isEven ? '#93c5fd' : '#86efac'}`
+                      : undefined,
+                  }}>
                   <h3 className="font-semibold mb-2" style={{ color: '#0f172a' }}>{c.subtitle}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: '#475569' }}>
                     {isDual(c) ? c[mode] : c.text}
                   </p>
                 </div>
               ))}
-              {/* À retenir — avec Compy */}
-              <div className="flex gap-4 items-start p-4 rounded-xl" style={{ background: '#eff6ff', border: '1px solid #bfdbfe' }}>
-                <Image src="/logo-compy.svg" alt="Compy" width={52} height={52}
-                  className="shrink-0 mt-0.5" style={{ filter: 'drop-shadow(0 2px 4px rgba(37,99,235,0.15))' }} />
-                <div className="flex-1 min-w-0">
-                  <p className="font-bold text-xs uppercase tracking-wide mb-1" style={{ color: '#2563eb' }}>
-                    Compy te dit&hellip;
+
+              {/* À retenir — original style + Compy icon */}
+              <div className="flex gap-4 items-start">
+                <Image src="/compy-icon.svg" alt="Compy" width={44} height={44}
+                  className="shrink-0 mt-1 hidden sm:block"
+                  style={{ filter: 'drop-shadow(0 2px 6px rgba(37,99,235,0.18))' }} />
+                <div className="flex-1 min-w-0 p-4 rounded-xl" style={{
+                  background: '#eff6ff',
+                  border: '1px solid #bfdbfe',
+                  borderLeft: '4px solid #2563eb',
+                }}>
+                  <p className="font-semibold text-xs uppercase tracking-wide mb-1" style={{ color: '#2563eb' }}>
+                    À retenir
                   </p>
-                  <p className="leading-relaxed" style={{ color: '#1d4ed8', fontSize: '0.9375rem' }}>{s.tip[mode]}</p>
+                  <p className="leading-relaxed" style={{ color: '#1d4ed8', fontSize: '0.9375rem' }}>
+                    {s.tip[mode]}
+                  </p>
                 </div>
               </div>
             </div>
           </section>
-        ))}
+          )
+        })}
       </div>
 
       {/* ── Bottom CTA ───────────────────────────────────────────── */}
