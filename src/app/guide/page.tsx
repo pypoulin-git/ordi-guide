@@ -178,7 +178,7 @@ export default function GuidePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="section" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%)' }}>
+      <section className="section" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%)', paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div className="container max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
             style={{ background: '#eff6ff', color: '#2563eb', border: '1px solid #bfdbfe' }}>
@@ -204,26 +204,26 @@ export default function GuidePage() {
       </section>
 
       {/* ── Table of contents ────────────────────────────────────── */}
-      <section className="section" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
+      <section className="section" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
         <div className="container max-w-3xl mx-auto">
           <div className="card">
-            <h2 className="font-semibold mb-3" style={{ color: '#0f172a' }}>Dans ce guide :</h2>
-            <ol className="space-y-1">
+            <h2 className="font-semibold mb-4" style={{ color: '#0f172a', fontSize: '1rem' }}>Dans ce guide :</h2>
+            <div className="grid gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
               {sections.map((s, i) => (
-                <li key={s.id}>
-                  <a href={`#${s.id}`} className="text-sm hover:underline"
-                    style={{ color: '#2563eb' }}>
-                    {i + 1}. {sectionIcon(s, mode)} {s.title[mode]}
-                  </a>
-                </li>
+                <a key={s.id} href={`#${s.id}`}
+                  className="flex items-center gap-2 rounded-lg px-3 py-2.5 font-medium transition-colors hover:opacity-80"
+                  style={{ background: '#eff6ff', border: '1px solid #bfdbfe', color: '#2563eb', fontSize: '0.9375rem', lineHeight: '1.4' }}>
+                  {sectionIcon(s, mode) && <span className="text-lg shrink-0">{sectionIcon(s, mode)}</span>}
+                  <span>{i + 1}. {s.title[mode]}</span>
+                </a>
               ))}
-            </ol>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── Sections ─────────────────────────────────────────────── */}
-      <div className="container max-w-3xl mx-auto pb-16 space-y-12">
+      <div className="container max-w-3xl mx-auto pb-16 space-y-20">
         {sections.map((s, i) => (
           <section key={s.id} id={s.id} className="scroll-mt-20">
             <div className="flex items-center gap-3 mb-5">
