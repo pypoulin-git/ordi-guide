@@ -15,6 +15,42 @@ export interface Article {
   tldr: string
   sections: ArticleSection[]
   ctaText: string
+  tags: string[]
+  featured?: boolean
+  coverGradient?: string  // gradient for the featured card
+}
+
+/*
+ * CATÉGORIES & TAGS
+ *
+ * Catégories principales :
+ *   Les bases        — Fondamentaux, c'est quoi un CPU/RAM/SSD
+ *   Astuces          — Conseils pratiques, optimisation, entretien
+ *   Comparatifs      — Intel vs AMD, Mac vs Windows, SSD vs HDD
+ *   Tendances        — Nouvelles technos, AI PC, ARM, innovations
+ *   Achat malin      — Quand acheter, pièges à éviter, budget
+ *   Entretien        — Nettoyage, maintenance, longévité
+ *
+ * Tags (filtres # fins) :
+ *   #processeur #ram #stockage #ecran #gpu #batterie
+ *   #portable #bureau #mac #windows #budget
+ *   #debutant #etudiant #teletravail #gaming #creation
+ */
+
+export const CATEGORIES = [
+  { id: 'all',         label: 'Tout',          color: '#475569', icon: '📰' },
+  { id: 'Les bases',   label: 'Les bases',     color: '#2563eb', icon: '📖' },
+  { id: 'Astuces',     label: 'Astuces',       color: '#0891b2', icon: '💡' },
+  { id: 'Comparatifs', label: 'Comparatifs',   color: '#7c3aed', icon: '⚖️' },
+  { id: 'Tendances',   label: 'Tendances',     color: '#d97706', icon: '🔮' },
+  { id: 'Achat malin', label: 'Achat malin',   color: '#059669', icon: '🛒' },
+  { id: 'Entretien',   label: 'Entretien',     color: '#6366f1', icon: '🔧' },
+]
+
+export function getAllTags(articlesList: Article[]): string[] {
+  const set = new Set<string>()
+  articlesList.forEach(a => a.tags.forEach(t => set.add(t)))
+  return Array.from(set).sort()
 }
 
 export const articles: Article[] = [
@@ -27,6 +63,9 @@ export const articles: Article[] = [
     category: 'Les bases',
     categoryColor: '#2563eb',
     icon: '🧠',
+    tags: ['processeur', 'debutant', 'portable', 'bureau'],
+    featured: true,
+    coverGradient: 'linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #0891b2 100%)',
     tldr: 'Le processeur (CPU), c\'est ce qui fait \"réfléchir\" ton ordinateur. Pour la plupart des gens, un Intel Core i5 ou AMD Ryzen 5 récent suffit amplement. Ne te laisse pas impressionner par les gros chiffres — un modèle récent de milieu de gamme bat souvent un haut de gamme d\'il y a 3 ans.',
     sections: [
       {
@@ -74,6 +113,7 @@ export const articles: Article[] = [
     category: 'Les bases',
     categoryColor: '#2563eb',
     icon: '🫁',
+    tags: ['ram', 'debutant', 'budget'],
     tldr: 'La RAM, c\'est l\'espace de travail actif de ton ordinateur — pas le stockage permanent. 8 Go suffit pour les tâches de base, 16 Go est le standard recommandé en 2026, et 32 Go est réservé aux pros. Plus de RAM ≠ automatiquement plus rapide.',
     sections: [
       {
@@ -121,6 +161,7 @@ export const articles: Article[] = [
     category: 'Astuces',
     categoryColor: '#0891b2',
     icon: '💾',
+    tags: ['stockage', 'debutant', 'budget', 'entretien'],
     tldr: 'Si ton ordinateur met 2 minutes à démarrer, c\'est probablement à cause du disque dur (HDD). Le remplacer par un SSD est le meilleur investissement possible — ton ordi démarrera en 15 secondes et tout sera plus rapide. Un SSD de 512 Go coûte environ 50-70 $.',
     sections: [
       {
