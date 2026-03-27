@@ -1,10 +1,18 @@
-// ─── Catalogue Agent — Curateur IA (Gemini 2.0 Flash) ───────────
-//
-// Prend les résultats bruts de SearXNG et les transforme en
-// CatalogueProduct structurés avec score IA et avis.
+// ─── Phase 2 : Curateur IA ──────────────────────────────────────
+// Prend les scan results, curate via Gemini, vérifie les existants,
+// merge intelligemment, injecte les liens affiliés.
 
-import { geminiGenerate, withRetry, slugify, log } from './utils.js'
-import { CATEGORIES, PROFILES, BUDGET_TIERS, MIN_AI_SCORE, MAX_PRODUCTS } from './config.js'
+import { readFile, writeFile } from 'fs/promises'
+import {
+  CATALOGUE_PATH, CATEGORIES, PROFILES, BUDGET_TIERS,
+  MIN_AI_SCORE, MAX_PRODUCTS, MIN_PER_CATEGORY,
+} from './config.js'
+import {
+  geminiGenerate, withRetry, checkUrl, matchesCpuWhitelist,
+  injectAffiliateTag, mapWithConcurrency, slugify, log,
+} from './utils.js'
+
+// ── Gemini output schema ────────────────────────────────────────
 
 const PRODUCT_SCHEMA = {
   type: 'ARRAY',
@@ -19,6 +27,7 @@ const PRODUCT_SCHEMA = {
       price:         { type: 'NUMBER' },
       originalPrice: { type: 'NUMBER' },
       isOnSale:      { type: 'BOOLEAN' },
+      cpuModel:      { type: 'STRING' },
       specs: {
         type: 'OBJECT',
         properties: {
@@ -31,138 +40,266 @@ const PRODUCT_SCHEMA = {
         },
         required: ['cpu', 'ram', 'storage'],
       },
-      aiScore:      { type: 'INTEGER' },
-      aiRationale:  { type: 'STRING' },
+      aiScore:     { type: 'INTEGER' },
+      aiRationale: { type: 'STRING' },
     },
-    required: ['name', 'brand', 'category', 'profiles', 'budgetTier', 'price', 'isOnSale', 'specs', 'aiScore', 'aiRationale'],
+    required: ['name', 'brand', 'category', 'profiles', 'budgetTier', 'price',
+      'isOnSale', 'cpuModel', 'specs', 'aiScore', 'aiRationale'],
   },
 }
 
-/**
- * Envoie un lot de résultats bruts à Gemini pour extraction et notation.
- * Retourne un tableau de produits structurés.
- */
-export async function curateProducts(rawResults, source) {
-  if (rawResults.length === 0) return []
+// ── Main entry point ────────────────────────────────────────────
 
-  // Envoyer par lots de 15 pour éviter les limites de tokens
-  const BATCH_SIZE = 15
-  const allProducts = []
+export async function runCurator(scanResults) {
+  const stats = { kept: 0, replaced: 0, removedDead: 0, newAdded: 0 }
 
-  for (let i = 0; i < rawResults.length; i += BATCH_SIZE) {
-    const batch = rawResults.slice(i, i + BATCH_SIZE)
-    log(`  Curation ${source} lot ${Math.floor(i / BATCH_SIZE) + 1} (${batch.length} résultats)`)
+  // 1. Charger le catalogue existant
+  let existing = []
+  try {
+    const raw = await readFile(CATALOGUE_PATH, 'utf-8')
+    const data = JSON.parse(raw)
+    existing = data.products || []
+    log(`Catalogue existant : ${existing.length} produits`)
+  } catch {
+    log('Pas de catalogue existant')
+  }
 
-    const prompt = buildPrompt(batch, source)
+  // 2. Vérifier que les produits existants sont encore en ligne
+  log('Vérification URLs existantes...')
+  const verifiedExisting = []
+  const deadUrls = []
 
-    try {
-      const products = await withRetry(
-        () => geminiGenerate(prompt, PRODUCT_SCHEMA),
-        `curation-${source}-lot${i}`
-      )
+  await mapWithConcurrency(existing, async (product) => {
+    const alive = await checkUrl(product.url)
+    if (alive) {
+      verifiedExisting.push(product)
+    } else {
+      deadUrls.push(product)
+      log(`  ✗ URL morte : ${product.name.slice(0, 40)} → ${product.url.slice(0, 60)}`)
+    }
+  }, 5)
 
-      if (Array.isArray(products)) {
-        const enriched = products
-          .filter(p => p.aiScore >= MIN_AI_SCORE)
-          .map(p => ({
-            id: `${source}-${slugify(p.name)}`,
-            ...p,
-            url: findUrl(batch, p.name),
-            source,
-            addedAt: new Date().toISOString(),
-            lastVerified: new Date().toISOString(),
-          }))
-        allProducts.push(...enriched)
+  stats.removedDead = deadUrls.length
+  log(`URLs vérifiées : ${verifiedExisting.length} vivantes, ${deadUrls.length} mortes`)
+
+  // 3. Curate les nouveaux résultats via Gemini
+  log('Curation IA des scan results...')
+  const scanItems = scanResults.results || []
+  const allCurated = []
+
+  // Grouper par source pour des prompts cohérents
+  const bySource = {}
+  for (const item of scanItems) {
+    if (!bySource[item.source]) bySource[item.source] = []
+    bySource[item.source].push(item)
+  }
+
+  for (const [source, items] of Object.entries(bySource)) {
+    const BATCH_SIZE = 12
+    for (let i = 0; i < items.length; i += BATCH_SIZE) {
+      const batch = items.slice(i, i + BATCH_SIZE)
+      const batchNum = Math.floor(i / BATCH_SIZE) + 1
+      log(`  Curation ${source} lot ${batchNum} (${batch.length} items)`)
+
+      try {
+        const products = await withRetry(
+          () => geminiGenerate(buildPrompt(batch, source), PRODUCT_SCHEMA),
+          `curation-${source}-${batchNum}`
+        )
+
+        if (Array.isArray(products)) {
+          const enriched = products
+            .filter(p => {
+              // Filtre score
+              if (p.aiScore < MIN_AI_SCORE) return false
+              // Filtre CPU whitelist (dur)
+              if (!matchesCpuWhitelist(p.cpuModel || p.specs?.cpu || '')) {
+                log(`    ✗ CPU rejeté: ${p.cpuModel || p.specs?.cpu} — ${p.name?.slice(0, 40)}`)
+                return false
+              }
+              // Filtre prix
+              if (!p.price || p.price < 50 || p.price > 5000) return false
+              return true
+            })
+            .map(p => ({
+              id: `${source}-${slugify(p.name)}`,
+              name: p.name,
+              brand: p.brand,
+              category: p.category,
+              profiles: p.profiles,
+              budgetTier: p.budgetTier,
+              price: p.price,
+              originalPrice: p.originalPrice || 0,
+              isOnSale: p.isOnSale || false,
+              specs: p.specs,
+              aiScore: p.aiScore,
+              aiRationale: p.aiRationale,
+              url: injectAffiliateTag(findUrl(batch, p.name), source),
+              source,
+              addedAt: new Date().toISOString(),
+              lastVerified: new Date().toISOString(),
+            }))
+
+          allCurated.push(...enriched)
+        }
+      } catch (err) {
+        log(`  ✗ Curation ${source} lot ${batchNum} échouée: ${err.message}`)
       }
-    } catch (err) {
-      log(`  ✗ Curation ${source} lot ${Math.floor(i / BATCH_SIZE) + 1} échouée: ${err.message}`)
     }
   }
 
-  log(`  ${source}: ${allProducts.length} produits retenus après curation`)
-  return allProducts
+  log(`Total curated : ${allCurated.length} nouveaux produits`)
+
+  // 4. Merge : nouveaux vs existants
+  const finalProducts = mergeProducts(allCurated, verifiedExisting)
+  stats.kept = finalProducts.length
+  stats.newAdded = finalProducts.filter(p => !verifiedExisting.some(e => e.id === p.id)).length
+  stats.replaced = verifiedExisting.length - (stats.kept - stats.newAdded)
+
+  // 5. Injecter les liens affiliés sur les existants aussi
+  for (const p of finalProducts) {
+    p.url = injectAffiliateTag(p.url, p.source)
+    p.lastVerified = new Date().toISOString()
+  }
+
+  // 6. Écrire le catalogue
+  const catalogue = {
+    version: 2,
+    lastUpdated: new Date().toISOString(),
+    agentRun: {
+      scannedAt: scanResults.scannedAt,
+      completedAt: new Date().toISOString(),
+      totalScanned: scanResults.totalRaw,
+      productsKept: finalProducts.length,
+      productsNew: stats.newAdded,
+      productsReplaced: stats.replaced,
+      deadUrlsRemoved: stats.removedDead,
+    },
+    products: finalProducts,
+  }
+
+  await writeFile(CATALOGUE_PATH, JSON.stringify(catalogue, null, 2), 'utf-8')
+  log(`Catalogue écrit : ${finalProducts.length} produits`)
+
+  return stats
 }
 
-/**
- * Fusionne les produits de toutes les sources, élimine les doublons,
- * et sélectionne les meilleurs en respectant la distribution.
- */
-export function selectFinalCatalogue(allProducts, existingProducts = []) {
-  // Dédupliquer par nom normalisé
-  const nameMap = new Map()
-  for (const p of allProducts) {
-    const key = p.name.toLowerCase().replace(/[^a-z0-9]/g, '')
-    const existing = nameMap.get(key)
-    if (!existing || p.aiScore > existing.aiScore) {
-      nameMap.set(key, p)
+// ── Merge logic ─────────────────────────────────────────────────
+
+function mergeProducts(newProducts, existingProducts) {
+  const normalize = s => s.toLowerCase().replace(/[^a-z0-9]/g, '')
+
+  // Index existants par nom normalisé
+  const existingMap = new Map()
+  for (const p of existingProducts) {
+    existingMap.set(normalize(p.name), p)
+  }
+
+  // Appliquer les nouveaux
+  for (const np of newProducts) {
+    const key = normalize(np.name)
+    const existing = existingMap.get(key)
+
+    if (existing) {
+      // Remplacer si meilleur score OU prix plus bas avec score similaire
+      if (np.aiScore > existing.aiScore || (np.aiScore >= existing.aiScore - 5 && np.price < existing.price)) {
+        existingMap.set(key, np)
+      }
+    } else {
+      existingMap.set(key, np)
     }
   }
 
-  let products = [...nameMap.values()]
+  let products = [...existingMap.values()]
 
-  // Trier par score IA décroissant
+  // Tri par score décroissant
   products.sort((a, b) => b.aiScore - a.aiScore)
 
-  // Si pas assez de nouveaux produits, garder les existants comme fallback
-  if (products.length < 10) {
-    log(`  Seulement ${products.length} nouveaux produits. Conservation des existants comme fallback.`)
-    const existingMap = new Map(existingProducts.map(p => [p.id, p]))
-    for (const p of existingProducts) {
-      const key = p.name.toLowerCase().replace(/[^a-z0-9]/g, '')
-      if (!nameMap.has(key)) {
-        products.push({ ...p, lastVerified: new Date().toISOString() })
-      }
-    }
-    products.sort((a, b) => b.aiScore - a.aiScore)
+  // Assurer la distribution minimum par catégorie
+  const byCat = {}
+  for (const p of products) {
+    if (!byCat[p.category]) byCat[p.category] = []
+    byCat[p.category].push(p)
   }
 
-  // Limiter au max
-  if (products.length > MAX_PRODUCTS) {
-    products = products.slice(0, MAX_PRODUCTS)
+  // Assurer les minimums
+  const selected = []
+  for (const [cat, min] of Object.entries(MIN_PER_CATEGORY)) {
+    const catProducts = byCat[cat] || []
+    selected.push(...catProducts.slice(0, Math.max(min, 1)))
   }
 
-  return products
+  // Remplir avec le reste par score
+  const selectedIds = new Set(selected.map(p => p.id))
+  const remaining = products.filter(p => !selectedIds.has(p.id))
+  selected.push(...remaining)
+
+  // Dédupliquer et limiter
+  const seen = new Set()
+  const final = []
+  for (const p of selected) {
+    if (seen.has(p.id)) continue
+    seen.add(p.id)
+    final.push(p)
+    if (final.length >= MAX_PRODUCTS) break
+  }
+
+  return final
 }
 
+// ── Prompt builder ──────────────────────────────────────────────
+
 function buildPrompt(batch, source) {
-  const listings = batch.map((r, i) =>
-    `${i + 1}. "${r.title}"\n   URL: ${r.url}\n   Extrait: ${r.snippet}`
-  ).join('\n\n')
+  const listings = batch.map((r, i) => {
+    let entry = `${i + 1}. "${r.title}"\n   URL: ${r.url}\n   Extrait: ${r.snippet}`
+    if (r.pagePrice) entry += `\n   Prix détecté sur la page: ${r.pagePrice} $`
+    if (r.pageText) entry += `\n   Contenu page (extrait): ${r.pageText.slice(0, 500)}`
+    return entry
+  }).join('\n\n')
 
-  return `Tu es un expert en hardware informatique au Québec. Analyse ces résultats de recherche provenant de ${source} et extrais les ordinateurs disponibles à l'achat.
+  return `Tu es un expert hardware informatique au Québec. Analyse ces résultats de ${source} et extrais UNIQUEMENT les ordinateurs (laptop, desktop, MacBook, Chromebook) disponibles à l'achat au Canada.
 
-Pour chaque ordinateur trouvé, fournis :
+RÈGLES STRICTES :
+- UNIQUEMENT des CPU de génération récente : Intel 12th gen+ (i5-12xxx, Core Ultra), AMD Ryzen 5000+, Apple M2+, Snapdragon X
+- Si un CPU est Intel 11th gen ou plus vieux, Ryzen 3000/4000, ou Apple M1 → NE PAS INCLURE (aiScore = 0)
+- Le champ "cpuModel" doit contenir le modèle EXACT du CPU (ex: "Intel Core i7-14700H", "AMD Ryzen 7 8845HS", "Apple M4")
+- Si un "prix détecté sur la page" est fourni, utilise-le comme prix de référence. Sinon, extrais le prix du contenu.
+- Ignore les accessoires, écrans seuls, tablettes sans clavier, imprimantes.
+
+Pour chaque ordinateur :
 - name : nom complet du produit
-- brand : marque (Apple, Lenovo, HP, Dell, ASUS, Acer, etc.)
-- category : "laptop", "desktop", "apple" (pour les Mac), ou "chromebook"
-- profiles : tableau parmi ["basic", "work", "student", "creative", "gaming"] selon les usages appropriés
-- budgetTier : "under500" (<500$), "500to900", "900to1500", ou "over1500"
-- price : prix en dollars canadiens (nombre)
-- originalPrice : prix original si en solde (nombre, sinon 0)
+- brand : marque
+- category : "laptop", "desktop", "apple" (Mac), ou "chromebook"
+- profiles : parmi ["basic", "work", "student", "creative", "gaming"]
+- budgetTier : "under500" (<500$), "500to900", "900to1500", "over1500"
+- price : prix en $ CAD (nombre)
+- originalPrice : prix original si en solde (sinon 0)
 - isOnSale : true/false
-- specs : { cpu, ram, storage, display (optionnel), gpu (optionnel), battery (optionnel) }
-- aiScore : note de 0 à 100 basée sur le rapport qualité-prix pour le public québécois
-- aiRationale : 1-2 phrases en français québécois expliquant pourquoi ce produit est bon ou pas. Ton direct, pas de jargon inutile.
+- cpuModel : modèle exact du CPU
+- specs : { cpu, ram, storage, display?, gpu?, battery? }
+- aiScore : 0-100 (rapport qualité-prix pour un Québécois)
+- aiRationale : 1-2 phrases en français québécois, ton direct
 
-Critères de notation (aiScore) :
-- 90+ : Excellent rapport qualité-prix, impossible de se tromper
-- 80-89 : Très bon choix dans sa catégorie
-- 70-79 : Correct, quelques compromis
-- 65-69 : Acceptable mais on peut trouver mieux
+Scoring :
+- 90+ : Deal incroyable, rapport qualité-prix imbattable
+- 80-89 : Très bon choix solide
+- 70-79 : Correct avec compromis
+- 65-69 : Passable
 - <65 : Ne pas inclure
 
-Ignore les accessoires, les résultats qui ne sont pas des ordinateurs, et les annonces sans prix clair.
-
-Résultats à analyser :
+Résultats :
 
 ${listings}`
 }
 
+// ── URL matching ────────────────────────────────────────────────
+
 function findUrl(batch, productName) {
+  if (!productName) return batch[0]?.url || ''
   const nameLower = productName.toLowerCase()
   const match = batch.find(r =>
-    r.title.toLowerCase().includes(nameLower.slice(0, 20)) ||
-    nameLower.includes(r.title.toLowerCase().slice(0, 20))
+    r.title?.toLowerCase().includes(nameLower.slice(0, 20)) ||
+    nameLower.includes(r.title?.toLowerCase().slice(0, 20))
   )
   return match?.url || batch[0]?.url || ''
 }
