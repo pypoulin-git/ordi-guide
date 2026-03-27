@@ -71,20 +71,29 @@ export async function POST(req: NextRequest) {
     }
 
     const data = await response.json()
-    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text
+
+    // Gemini 2.5 Flash may return multiple parts (thinking + response) — grab the last text part
+    const parts = data?.candidates?.[0]?.content?.parts ?? []
+    const text = parts.filter((p: { text?: string }) => p.text).map((p: { text: string }) => p.text).pop()
 
     if (!text) {
+      console.error('No text in Gemini response, parts:', JSON.stringify(parts).slice(0, 300))
       return NextResponse.json({ error: 'Pas de réponse du modèle' }, { status: 502 })
     }
 
-    // Strip markdown code fences if present (```json ... ```)
-    const clean = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim()
+    // Extract JSON object robustly: find first { and last }
+    const start = text.indexOf('{')
+    const end = text.lastIndexOf('}')
+    if (start === -1 || end === -1 || end <= start) {
+      console.error('No JSON found in response:', text.slice(0, 300))
+      return NextResponse.json({ error: 'Réponse IA mal formatée. Réessaie.' }, { status: 502 })
+    }
 
     let parsed
     try {
-      parsed = JSON.parse(clean)
+      parsed = JSON.parse(text.slice(start, end + 1))
     } catch {
-      console.error('JSON parse failed, raw text:', text.slice(0, 300))
+      console.error('JSON parse failed:', text.slice(start, start + 300))
       return NextResponse.json({ error: 'Réponse IA mal formatée. Réessaie.' }, { status: 502 })
     }
     return NextResponse.json(parsed)
