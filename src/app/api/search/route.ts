@@ -42,15 +42,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Service de recherche non configuré' }, { status: 503 })
     }
 
-    // Call Gemini Flash via Google Generative AI REST API
+    // Call Gemini 1.5 Flash via Google Generative AI REST API
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          systemInstruction: {
+            parts: [{ text: SYSTEM_PROMPT }],
+          },
           contents: [
-            { role: 'user', parts: [{ text: SYSTEM_PROMPT + '\n\nQuestion utilisateur : ' + query.trim() }] },
+            { role: 'user', parts: [{ text: query.trim() }] },
           ],
           generationConfig: {
             temperature: 0.7,
@@ -64,7 +67,7 @@ export async function POST(req: NextRequest) {
     if (!response.ok) {
       const err = await response.text()
       console.error('Gemini API error:', response.status, err)
-      return NextResponse.json({ error: 'Erreur du service IA' }, { status: 502 })
+      return NextResponse.json({ error: 'Service IA temporairement indisponible. Réessaie dans un instant.' }, { status: 502 })
     }
 
     const data = await response.json()
@@ -74,8 +77,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Pas de réponse du modèle' }, { status: 502 })
     }
 
-    // Parse the JSON response from Gemini
-    const parsed = JSON.parse(text)
+    // Strip markdown code fences if present (```json ... ```)
+    const clean = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim()
+    const parsed = JSON.parse(clean)
     return NextResponse.json(parsed)
   } catch (error) {
     console.error('Search API error:', error)
