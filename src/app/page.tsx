@@ -167,15 +167,15 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: '280px' }}>
 
               {/* Colonne gauche : toggle */}
-              <div className="flex flex-col justify-center px-8 py-8"
+              <div className="flex flex-col justify-center px-8 py-6"
                 style={{ borderRight: '1px solid #e2e8f0' }}>
-                <p className="font-semibold mb-1" style={{ color: '#0f172a' }}>Ton style d&apos;analogies</p>
-                <p className="text-sm mb-5" style={{ color: '#64748b' }}>
-                  Chaque composante d&apos;un ordinateur sera expliquée selon ton univers préféré
+                <p className="font-bold text-lg mb-1" style={{ color: '#0f172a' }}>Ton style d&apos;analogies</p>
+                <p className="text-sm mb-4" style={{ color: '#64748b' }}>
+                  Chaque composante sera expliquée selon ton univers préféré
                 </p>
                 <AnalogyToggle variant="card" />
-                <p className="text-xs mt-4" style={{ color: '#94a3b8' }}>
-                  Accessible depuis le menu en tout temps
+                <p className="text-xs mt-3" style={{ color: '#94a3b8' }}>
+                  Modifiable en tout temps dans le menu
                 </p>
               </div>
 
