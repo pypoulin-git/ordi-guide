@@ -1,15 +1,43 @@
 {
   "version": 1,
-  "lastUpdated": "2026-03-27T03:18:33.691Z",
+  "lastUpdated": "2026-03-27T07:22:17.504Z",
   "agentRun": {
-    "startedAt": "2026-03-27T03:14:27.223Z",
-    "completedAt": "2026-03-27T03:18:33.691Z",
+    "startedAt": "2026-03-27T07:17:46.311Z",
+    "completedAt": "2026-03-27T07:22:17.504Z",
     "productsScanned": 0,
-    "productsKept": 14,
-    "productsReplaced": 10,
+    "productsKept": 19,
+    "productsReplaced": 0,
     "errors": []
   },
   "products": [
+    {
+      "id": "bestbuy-asus-rog-strix-g16-2024-gaming-laptop",
+      "name": "ASUS ROG Strix G16 (2024) Gaming Laptop",
+      "brand": "ASUS",
+      "category": "laptop",
+      "profiles": [
+        "gaming",
+        "creative",
+        "work"
+      ],
+      "budgetTier": "900to1500",
+      "price": 1399.99,
+      "isOnSale": true,
+      "specs": {
+        "cpu": "Intel Core i7-13650HX",
+        "ram": "32GB DDR5",
+        "storage": "1TB PCIe Gen4 SSD",
+        "display": "16” 16:10 FHD 165Hz Display",
+        "gpu": "NVIDIA GeForce RTX 4060"
+      },
+      "aiScore": 92,
+      "aiRationale": "Pour le prix, c'est un deal en or! Avec un i7 de 13e génération, 32 Go de RAM et une RTX 4060, tu vas pouvoir jouer à tout ce que tu veux et faire de la création sans problème. C'est un super choix pour les gamers et créateurs québécois.",
+      "originalPrice": 1499.99,
+      "url": "https://www.bestbuy.ca/fr-ca/collection/asus-rog-strix/215136",
+      "source": "bestbuy",
+      "addedAt": "2026-03-27T07:19:16.107Z",
+      "lastVerified": "2026-03-27T07:19:16.107Z"
+    },
     {
       "id": "bestbuy-macbook-air-de-13-6-po-avec-touch-id-d-apple-2025",
       "name": "MacBook Air de 13,6 po avec Touch ID d'Apple (2025)",
@@ -36,7 +64,7 @@
       "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-argente-m4-d-apple-ram-16-go-ssd-256-go-francais/19205113",
       "source": "bestbuy",
       "addedAt": "2026-03-27T03:15:23.698Z",
-      "lastVerified": "2026-03-27T03:15:23.698Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
     },
     {
       "id": "staples-asus-ordinateur-portable-gaming-rog-strix-g16-16-po",
@@ -63,7 +91,7 @@
       "url": "https://www.bureauengros.com/search?query=ordinateur+portable+i7",
       "source": "staples",
       "addedAt": "2026-03-27T03:18:08.913Z",
-      "lastVerified": "2026-03-27T03:18:08.913Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
     },
     {
       "id": "bestbuy-macbook-air-de-15-3-po-avec-touch-id-d-apple-2025",
@@ -90,7 +118,62 @@
       "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-15-3-po-avec-touch-id-d-apple-2025-comete-m4-d-apple-ram-16-go-ssd-256-go-anglais/19205147",
       "source": "bestbuy",
       "addedAt": "2026-03-27T03:15:23.698Z",
-      "lastVerified": "2026-03-27T03:15:23.698Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
+    },
+    {
+      "id": "bestbuy-portable-vivobook-copilot-pc-de-16-po-d-asus-bleu-calme",
+      "name": "Portable Vivobook Copilot+ PC de 16 po d'ASUS - Bleu calme",
+      "brand": "ASUS",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative",
+        "basic"
+      ],
+      "budgetTier": "900to1500",
+      "price": 1349.99,
+      "isOnSale": true,
+      "specs": {
+        "cpu": "Ryzen AI 7 350 d'AMD",
+        "ram": "16 Go",
+        "storage": "512 Go SSD",
+        "display": "16 po"
+      },
+      "aiScore": 89,
+      "aiRationale": "Un très bon portable avec le nouveau processeur Ryzen AI 7 d'AMD, parfait pour la productivité et les tâches créatives. L'écran de 16 pouces est un plus pour le confort visuel, et le rapport qualité-prix est solide pour cette nouvelle génération.",
+      "originalPrice": 1549.99,
+      "url": "https://www.bestbuy.ca/fr-ca/collection/portables-en-solde/46082",
+      "source": "bestbuy",
+      "addedAt": "2026-03-27T07:18:21.809Z",
+      "lastVerified": "2026-03-27T07:18:21.809Z"
+    },
+    {
+      "id": "bestbuy-portable-de-15-3-po-ideapad-slim-3x-copilot-pc-de-lenovo-gri",
+      "name": "Portable de 15,3 po IdeaPad Slim 3x Copilot+ PC de Lenovo - Gris luna",
+      "brand": "Lenovo",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "900to1500",
+      "price": 1299.99,
+      "isOnSale": true,
+      "specs": {
+        "cpu": "Snapdragon X",
+        "ram": "16 Go",
+        "storage": "512 Go SSD",
+        "display": "15.3 po"
+      },
+      "aiScore": 88,
+      "aiRationale": "C'est un excellent choix pour ceux qui veulent la dernière technologie Copilot+ PC avec une super autonomie. Le processeur Snapdragon X est prometteur pour la productivité et l'IA, même si la compatibilité logicielle est encore à surveiller.",
+      "originalPrice": 1499.99,
+      "url": "https://www.bestbuy.ca/fr-ca/collection/portables-en-solde/46082",
+      "source": "bestbuy",
+      "addedAt": "2026-03-27T07:18:21.809Z",
+      "lastVerified": "2026-03-27T07:18:21.809Z"
     },
     {
       "id": "bestbuy-ordinateur-tout-en-un-a-ecran-tactile-de-27-po-de-dell",
@@ -115,7 +198,7 @@
       "url": "https://www.bestbuy.ca/fr-ca/produit/ordinateur-tout-en-un-a-ecran-tactile-de-27-po-de-dell-blanc-core-7-150u-d-intel-memoire-vive-de-32-go-disque-ssd-de-2-to-windows-11/19285551",
       "source": "bestbuy",
       "addedAt": "2026-03-27T03:15:23.698Z",
-      "lastVerified": "2026-03-27T03:15:23.698Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
     },
     {
       "id": "bestbuy-asus-tuf-gaming-f16-16-gaming-laptop-mecha-grey-intel-core-5",
@@ -143,7 +226,7 @@
       "url": "https://www.bestbuy.ca/fr-ca/produit/chromebook-de-15-6-pouces-d-acer-avec-3-mois-de-forfait-google-ai-pro-argente-celeron-n4500-d-intel-128-go-ram-8-go-chromeos/17739396",
       "source": "bestbuy",
       "addedAt": "2026-03-27T03:15:50.908Z",
-      "lastVerified": "2026-03-27T03:15:50.908Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
     },
     {
       "id": "staples-lenovo-ordinateur-portable-thinkpad-x1-titanium-yoga-gen-1-1",
@@ -170,7 +253,7 @@
       "url": "https://www.bureauengros.com/search?query=ordinateur+portable+i7",
       "source": "staples",
       "addedAt": "2026-03-27T03:18:08.913Z",
-      "lastVerified": "2026-03-27T03:18:08.913Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
     },
     {
       "id": "amazon-asus-vivobook-go-15-ordinateur-portable-mince-et-leger-ecran",
@@ -188,16 +271,43 @@
       "specs": {
         "cpu": "AMD Ryzen 3 7320U",
         "ram": "8 Go de RAM",
-        "storage": "512 Go SSD",
-        "display": "15.6\" Full HD"
+        "storage": "SSD 512 Go",
+        "display": "écran Full HD de 15,6\""
       },
       "aiScore": 85,
-      "aiRationale": "Pour le prix, c'est un bon petit portable pour les études ou le travail léger. Le SSD de 512 Go est un gros plus et le Ryzen 3 est suffisant pour les tâches de tous les jours.",
+      "aiRationale": "Pour le prix, c'est un bon petit portable pour les études ou la bureautique. Le SSD de 512 Go et le Ryzen 3 sont des atouts pour cette gamme de prix.",
       "originalPrice": 0,
       "url": "https://www.amazon.ca/-/fr/Ordinateurs-Portables/b?node=677252011",
       "source": "amazon",
-      "addedAt": "2026-03-27T03:16:27.323Z",
-      "lastVerified": "2026-03-27T03:16:27.323Z"
+      "addedAt": "2026-03-27T07:20:26.848Z",
+      "lastVerified": "2026-03-27T07:20:26.848Z"
+    },
+    {
+      "id": "amazon-acemagic-mini-pc-k1-4300u",
+      "name": "ACEMAGIC Mini PC K1 4300U",
+      "brand": "ACEMAGIC",
+      "category": "desktop",
+      "profiles": [
+        "basic",
+        "work",
+        "student"
+      ],
+      "budgetTier": "under500",
+      "price": 399,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "4300U",
+        "ram": "16 Go DDR4 RAM",
+        "storage": "512 Go",
+        "display": "4K Dual Display"
+      },
+      "aiScore": 85,
+      "aiRationale": "Pour 399$, c'est un p'tit ordi de bureau super compact avec 16 Go de RAM et un bon SSD. Parfait pour la maison ou le bureau sans se ruiner.",
+      "originalPrice": 0,
+      "url": "https://www.amazon.ca/-/fr/Les-meilleures-ventes-Ordinateurs-de-bureau/zgbs/electronics/677250011",
+      "source": "amazon",
+      "addedAt": "2026-03-27T07:20:42.025Z",
+      "lastVerified": "2026-03-27T07:20:42.025Z"
     },
     {
       "id": "amazon-acemagic-mini-pc-k1",
@@ -223,7 +333,7 @@
       "url": "https://www.amazon.ca/-/fr/Ordinateurs-de-bureau-Core-i7-dIntel/s?rh=n%3A677250011%2Cp_n_g-1004198002091%3A7322347011",
       "source": "amazon",
       "addedAt": "2026-03-27T03:16:42.430Z",
-      "lastVerified": "2026-03-27T03:16:42.430Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
     },
     {
       "id": "bestbuy-open-box-premium-hp-chromebook-x360-14-touchscreen",
@@ -249,7 +359,7 @@
       "url": "https://www.bestbuy.ca/fr-ca/collection/ordinateurs-de-bureau-remis-a-neuf/82059",
       "source": "bestbuy",
       "addedAt": "2026-03-27T03:15:23.698Z",
-      "lastVerified": "2026-03-27T03:15:23.698Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
     },
     {
       "id": "bestbuy-mini-ordinateur-de-bureau-lenovo-thinkcentre-m700-tiny-compu",
@@ -274,7 +384,7 @@
       "url": "https://www.bestbuy.ca/fr-ca/produit/mini-ordinateur-de-bureau-lenovo-thinkcentre-m700-tiny-computer-pc-intel-core-i5-6500t-jusqu-a-3-1-ghz-8-go-de-ram-ddr3-256-go-ssd-adaptateur-hdmi-wifi-domestique-windows-10-remis-a-neuf/15255287",
       "source": "bestbuy",
       "addedAt": "2026-03-27T03:15:23.698Z",
-      "lastVerified": "2026-03-27T03:15:23.698Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
     },
     {
       "id": "staples-hp-tour-prodesk-600g2-intel-core-i7-6700-3-4-ghz-16-go-de-ra",
@@ -299,7 +409,33 @@
       "url": "https://www.bureauengros.com/collections/fr-portatifs-windows-91",
       "source": "staples",
       "addedAt": "2026-03-27T03:18:08.913Z",
-      "lastVerified": "2026-03-27T03:18:08.913Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
+    },
+    {
+      "id": "staples-hp-15-6-laptop-pc-intel-processor-n100-128-gb-ssd-4-gb-ram-w",
+      "name": "HP 15.6\" Laptop PC - Intel Processor N100 - 128 GB SSD - 4 GB RAM - Windows 11 Home S with 1-year of Microsoft 365",
+      "brand": "HP",
+      "category": "laptop",
+      "profiles": [
+        "basic",
+        "student"
+      ],
+      "budgetTier": "under500",
+      "price": 449.99,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Processor N100",
+        "ram": "4 GB RAM",
+        "storage": "128 GB SSD",
+        "display": "15.6\""
+      },
+      "aiScore": 72,
+      "aiRationale": "C'est un portable d'entrée de gamme, idéal pour les tâches de base comme naviguer sur le web ou faire des travaux scolaires légers. Le 4 Go de RAM est un peu juste pour du multitâche intense, mais pour le prix, c'est une option correcte, surtout avec le Microsoft 365 inclus.",
+      "originalPrice": 0,
+      "url": "https://www.staples.ca/a/contenu/intel-evo",
+      "source": "staples",
+      "addedAt": "2026-03-27T07:22:17.503Z",
+      "lastVerified": "2026-03-27T07:22:17.504Z"
     },
     {
       "id": "bestbuy-apple-macbook-air-13-3-po-avec-touch-id-ecran-retina-intel-c",
@@ -325,7 +461,7 @@
       "url": "https://www.bestbuy.ca/fr-ca/collection/ordinateurs-de-bureau-remis-a-neuf/82059",
       "source": "bestbuy",
       "addedAt": "2026-03-27T03:15:23.698Z",
-      "lastVerified": "2026-03-27T03:15:23.698Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
     },
     {
       "id": "amazon-lenovo-chromebook-500e-ordinateur-portable-hd-2-en-1-avec-ec",
@@ -351,33 +487,33 @@
       "url": "https://www.amazon.ca/-/fr/Ordinateurs-Portables/b?node=677252011",
       "source": "amazon",
       "addedAt": "2026-03-27T03:16:27.323Z",
-      "lastVerified": "2026-03-27T03:16:27.323Z"
+      "lastVerified": "2026-03-27T07:22:17.504Z"
     },
     {
-      "id": "staples-hp-15-6-laptop-pc-intel-processor-n100-128-gb-ssd-4-gb-ram-w",
-      "name": "HP 15.6\" Laptop PC - Intel Processor N100 - 128 GB SSD - 4 GB RAM - Windows 11 Home S with 1-year of Microsoft 365",
-      "brand": "HP",
-      "category": "laptop",
+      "id": "amazon-lenovo-chromebook-500e-ordinateur-portable-hd-2-en-1-avec-ec",
+      "name": "Lenovo Chromebook 500e Ordinateur portable HD 2 en 1 avec écran tactile 11,6\" Intel Celeron N3450U, 4 Go de RAM, 32 Go eMMC, Chrome OS",
+      "brand": "Lenovo",
+      "category": "chromebook",
       "profiles": [
-        "basic",
-        "student"
+        "student",
+        "basic"
       ],
       "budgetTier": "under500",
-      "price": 449.99,
+      "price": 180,
       "isOnSale": false,
       "specs": {
-        "cpu": "Intel Processor N100",
-        "ram": "4 GB RAM",
-        "storage": "128 GB SSD",
-        "display": "15.6\""
+        "cpu": "Intel Celeron N3450U",
+        "ram": "4 Go de RAM",
+        "storage": "32 Go eMMC",
+        "display": "écran tactile 11,6\" HD"
       },
       "aiScore": 68,
-      "aiRationale": "C'est un portable très abordable pour les tâches de base comme naviguer sur le web ou faire des travaux scolaires légers. Par contre, avec 4 Go de RAM et 128 Go de stockage, faut pas s'attendre à des miracles, c'est assez limité.",
+      "aiRationale": "C'est un Chromebook très de base, bon pour les tâches super légères. Faut pas s'attendre à des miracles avec le Celeron et le petit stockage.",
       "originalPrice": 0,
-      "url": "https://www.staples.ca/collections/surface-107",
-      "source": "staples",
-      "addedAt": "2026-03-27T03:18:33.690Z",
-      "lastVerified": "2026-03-27T03:18:33.690Z"
+      "url": "https://www.amazon.ca/-/fr/Ordinateurs-Portables/b?node=677252011",
+      "source": "amazon",
+      "addedAt": "2026-03-27T07:20:26.848Z",
+      "lastVerified": "2026-03-27T07:20:26.848Z"
     }
   ]
 }
