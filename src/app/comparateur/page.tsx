@@ -209,7 +209,7 @@ export default function ComparateurPage() {
           </div>
 
           <p className="text-center text-sm mt-6" style={{ color: '#94a3b8' }}>
-            Ce guide est indépendant et sans commission. Les recommandations sont basées uniquement sur tes besoins.
+            Nos recommandations sont basées sur tes besoins. Certains liens sont affiliés — tu ne payes rien de plus.
           </p>
         </div>
       </div>

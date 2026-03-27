@@ -38,7 +38,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-[--text] mb-3 text-sm uppercase tracking-wider">À propos</h3>
             <p className="text-sm text-[--text-subtle]">
-              Ce site est indépendant et sans publicité. Les recommandations sont basées sur la valeur pour l&apos;utilisateur, pas sur des commissions.
+              Certains liens vers des détaillants sont des liens affiliés : si tu achètes via ces liens, on reçoit une petite commission, sans frais supplémentaires pour toi. Nos recommandations restent basées sur la qualité et tes besoins, jamais sur les commissions.
             </p>
           </div>
         </div>

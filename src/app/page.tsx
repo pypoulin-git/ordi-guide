@@ -43,7 +43,7 @@ const features = [
 const reassurances = [
   { label: 'Explications simples', desc: 'Pas de jargon, pas de condescendance' },
   { label: 'Rapide à lire', desc: 'L\'essentiel en moins de 10 min' },
-  { label: 'Zéro publicité', desc: 'Aucun partenariat, aucune commission' },
+  { label: 'Transparent', desc: 'Liens affiliés identifiés, conseils impartiaux' },
   { label: 'Pour tous', desc: 'Que tu aies 15 ou 75 ans' },
 ]
 
@@ -98,7 +98,7 @@ export default function HomePage() {
             </h1>
             <p className="text-white/80 leading-relaxed mb-10"
               style={{ fontSize: '1.25rem', maxWidth: '36rem', margin: '0 auto 2.5rem' }}>
-              On t&apos;explique tout sans jargon, sans pression et sans publicité.
+              On t&apos;explique tout sans jargon et sans pression.
               Un guide honnête pour magasiner en confiance, que tu sois débutant ou pas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
