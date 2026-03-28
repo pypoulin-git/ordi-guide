@@ -273,7 +273,7 @@ export default function BlogClient() {
                       </span>
                     </div>
                     <div className="p-5 pt-3">
-                      <AdBanner format="rectangle" />
+                      <AdBanner slot="1456909323" format="rectangle" />
                     </div>
                   </div>
                 </div>

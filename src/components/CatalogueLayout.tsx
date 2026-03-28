@@ -201,14 +201,14 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
                 <ProductCard product={p} />
                 {i === 5 && filtered.length > 6 && (
                   <div className="col-span-full">
-                    <AdBanner format="in-feed" />
+                    <AdBanner slot="6409853100" format="in-feed" />
                   </div>
                 )}
               </React.Fragment>
             ))}
             {filtered.length <= 6 && filtered.length > 0 && (
               <div className="col-span-full">
-                <AdBanner format="in-feed" />
+                <AdBanner slot="6409853100" format="in-feed" />
               </div>
             )}
           </div>

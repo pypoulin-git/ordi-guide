@@ -336,7 +336,7 @@ export default function HomePage() {
               : 'Shop Compy is free and will stay free. Here\'s how you can support us.'}
           </p>
           <ActionCTA variant="inline" className="mb-6" />
-          <AdBanner format="horizontal" />
+          <AdBanner slot="9183250905" format="horizontal" />
         </div>
       </section>
 
