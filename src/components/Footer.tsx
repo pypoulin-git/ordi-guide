@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="border-t border-[var(--border)] bg-[var(--bg-subtle)] mt-auto">
       {/* Safety net section for lost users */}
       <div className="border-b border-[var(--border)] bg-[var(--accent-bg)]">
-        <div className="container py-8 text-center">
+        <div className="container py-12 text-center">
           <p className="text-lg font-semibold text-[var(--text)] mb-4">
             {t.footer.helpTitle}
           </p>
@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container py-16">
+      <div className="container py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <div className="flex items-center gap-2.5 font-bold text-lg text-[var(--text)] mb-3">
