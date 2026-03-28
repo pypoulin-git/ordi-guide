@@ -100,10 +100,8 @@ export default function GuideClient() {
               {s.component && (
                 <div className="shrink-0 rounded-2xl p-2.5 shadow-sm"
                   style={{
-                    background: isEven
-                      ? 'linear-gradient(135deg, #eff6ff, #dbeafe)'
-                      : 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
-                    border: `1px solid ${isEven ? '#bfdbfe' : '#bbf7d0'}`,
+                    background: 'var(--accent-bg)',
+                    border: '1px solid var(--border)',
                   }}>
                   <SectionSvgIcon component={s.component} mode={mode} size={64} />
                 </div>
@@ -115,9 +113,7 @@ export default function GuideClient() {
                 {s.component && (
                   <div className="mt-1.5 h-1 rounded-full" style={{
                     width: '3rem',
-                    background: isEven
-                      ? 'linear-gradient(90deg, #2563eb, #60a5fa)'
-                      : 'linear-gradient(90deg, #16a34a, #4ade80)',
+                    background: 'var(--accent)',
                   }} />
                 )}
               </div>
@@ -129,7 +125,7 @@ export default function GuideClient() {
                 <div key={c.subtitle} className="card"
                   style={{
                     borderLeft: ci === 0 && s.component
-                      ? `3px solid ${isEven ? '#93c5fd' : '#86efac'}`
+                      ? '3px solid var(--accent)'
                       : undefined,
                   }}>
                   <h3 className="font-semibold mb-2 text-[--text]">{c.subtitle}</h3>
@@ -142,8 +138,7 @@ export default function GuideClient() {
               {/* A retenir -- original style + Compy icon */}
               <div className="flex gap-4 items-start">
                 <Image src="/images/compy-logo.png" alt="Compy" width={44} height={44}
-                  className="shrink-0 mt-1 hidden sm:block"
-                  style={{ filter: 'drop-shadow(0 2px 6px rgba(37,99,235,0.18))' }} />
+                  className="shrink-0 mt-1 hidden sm:block compy-logo" />
                 <div className="flex-1 min-w-0 p-4 rounded-xl bg-[--accent-bg]" style={{
                   border: '1px solid var(--border)',
                   borderLeft: '4px solid var(--accent)',

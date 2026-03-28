@@ -169,7 +169,7 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
             padding: '1.5rem 1rem 1.25rem',
             border: `2.5px solid ${mode === 'car' ? '#d97706' : 'var(--border)'}`,
             background: mode === 'car'
-              ? 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)'
+              ? 'var(--accent-bg)'
               : 'var(--bg)',
             boxShadow: mode === 'car'
               ? '0 4px 16px rgba(217,119,6,0.15), inset 0 1px 0 rgba(255,255,255,0.8)'
@@ -270,12 +270,10 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
           <div
             className="text-sm leading-snug whitespace-nowrap rounded-full px-4 py-2 font-medium"
             style={{
-              color: mode === 'body' ? '#1e40af' : '#92400e',
-              background: mode === 'body' ? '#eff6ff' : '#fffbeb',
-              border: `1px solid ${mode === 'body' ? '#bfdbfe' : '#fde68a'}`,
-              boxShadow: mode === 'body'
-                ? '0 4px 12px rgba(37,99,235,0.15)'
-                : '0 4px 12px rgba(217,119,6,0.15)',
+              color: mode === 'body' ? 'var(--accent)' : 'var(--warn)',
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border)',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
               opacity: visible ? 1 : 0,
               transform: visible ? 'translateY(0) scale(1)' : 'translateY(-8px) scale(0.97)',
               transition: 'opacity 0.35s ease, transform 0.35s ease',

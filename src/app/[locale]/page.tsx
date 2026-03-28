@@ -214,8 +214,8 @@ export default function HomePage() {
           <p className="text-center mb-10 text-[--text-subtle]">{t.home.featuresSubtitle}</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map(f => (
-              <Link key={f.href} href={f.href} className="card block hover:no-underline dark:!border-[var(--border)]"
-                style={{ background: f.bg, borderColor: f.color + '30' }}>
+              <Link key={f.href} href={f.href} className="card block hover:no-underline"
+                style={{ background: 'var(--bg-card)', borderColor: f.color + '30' }}>
                 <h3 className="text-xl font-bold mb-3 text-[--text]">{f.title}</h3>
                 <p className="leading-relaxed mb-5 text-[--text-subtle]">{f.desc}</p>
                 <span className="font-semibold" style={{ color: f.color }}>{f.cta}</span>
@@ -243,12 +243,12 @@ export default function HomePage() {
       <section className="section bg-[--bg]">
         <div className="container max-w-4xl mx-auto">
           <div className="rounded-2xl overflow-hidden border border-[--border]"
-            style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #f0fdf4 50%, #fefce8 100%)' }}>
+            style={{ background: 'var(--bg-subtle)' }}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
               {/* Scene 1 */}
               <div className="flex flex-col items-center justify-center p-8 text-center border-b md:border-b-0 md:border-r border-[--border]">
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
-                  style={{ background: 'linear-gradient(135deg, #dbeafe, #bfdbfe)', fontSize: '2.5rem' }}>
+                  style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
                   👵
                 </div>
                 <p className="text-sm font-semibold text-[--text] mb-1">
@@ -263,7 +263,7 @@ export default function HomePage() {
               {/* Scene 2 */}
               <div className="flex flex-col items-center justify-center p-8 text-center border-b md:border-b-0 md:border-r border-[--border]">
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
-                  style={{ background: 'linear-gradient(135deg, #dcfce7, #bbf7d0)', fontSize: '2.5rem' }}>
+                  style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
                   👨‍👧
                 </div>
                 <p className="text-sm font-semibold text-[--text] mb-1">
@@ -278,7 +278,7 @@ export default function HomePage() {
               {/* Scene 3 */}
               <div className="flex flex-col items-center justify-center p-8 text-center">
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
-                  style={{ background: 'linear-gradient(135deg, #fef9c3, #fde68a)', fontSize: '2.5rem' }}>
+                  style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
                   😊
                 </div>
                 <p className="text-sm font-semibold text-[--text] mb-1">

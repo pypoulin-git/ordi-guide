@@ -121,13 +121,15 @@ export default function CompyBlogBar() {
 
       {/* Loading */}
       {loading && (
-        <div className="mt-4 flex items-center gap-3 text-sm text-[--text-muted]">
-          <div className="flex gap-1">
-            <span className="w-2 h-2 rounded-full bg-[--accent] animate-bounce" style={{ animationDelay: '0ms' }} />
-            <span className="w-2 h-2 rounded-full bg-[--accent] animate-bounce" style={{ animationDelay: '150ms' }} />
-            <span className="w-2 h-2 rounded-full bg-[--accent] animate-bounce" style={{ animationDelay: '300ms' }} />
-          </div>
-          {c.thinking}
+        <div className="mt-4 flex items-center gap-3">
+          <img
+            src="/images/VideoGIFCompySearching.gif"
+            alt="Compy searching"
+            width={48}
+            height={48}
+            className="rounded-lg"
+          />
+          <span className="text-sm font-medium text-[--text-muted] animate-pulse">{c.thinking}</span>
         </div>
       )}
 

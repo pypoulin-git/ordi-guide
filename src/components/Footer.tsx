@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <div className="flex items-center gap-2.5 font-bold text-lg text-[--text] mb-3">
-              <Image src="/images/compy-logo.png" alt="Shop Compy" width={36} height={36} />
+              <Image src="/images/compy-logo.png" alt="Shop Compy" width={36} height={36} className="compy-logo" />
               Shop Compy
             </div>
             <p className="text-base text-[--text-subtle] leading-relaxed">

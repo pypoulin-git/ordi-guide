@@ -115,14 +115,21 @@ export default function SearchBar() {
 
       {/* Loading */}
       {loading && (
-        <div className="mt-6 text-center">
-          <p className="text-[--text-muted]">{s.loading}</p>
+        <div className="mt-6 flex flex-col items-center gap-3">
+          <img
+            src="/images/VideoGIFCompySearching.gif"
+            alt="Compy searching"
+            width={100}
+            height={100}
+            className="rounded-xl"
+          />
+          <p className="text-sm font-medium text-[--text-muted] animate-pulse">{s.loading}</p>
         </div>
       )}
 
       {/* Error */}
       {error && (
-        <div className="mt-4 p-4 rounded-xl" style={{ background: '#fef3c7', color: '#92400e', borderLeft: '4px solid #d97706' }}>
+        <div className="mt-4 p-4 rounded-xl" style={{ background: 'var(--accent-bg)', color: 'var(--warn)', borderLeft: '4px solid var(--warn)' }}>
           {error}
         </div>
       )}
