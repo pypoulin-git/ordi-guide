@@ -141,7 +141,7 @@ export default function GuideClient() {
 
               {/* A retenir -- original style + Compy icon */}
               <div className="flex gap-4 items-start">
-                <Image src="/compy-icon.svg" alt="Compy" width={44} height={44}
+                <Image src="/images/compy-logo.png" alt="Compy" width={44} height={44}
                   className="shrink-0 mt-1 hidden sm:block"
                   style={{ filter: 'drop-shadow(0 2px 6px rgba(37,99,235,0.18))' }} />
                 <div className="flex-1 min-w-0 p-4 rounded-xl bg-[--accent-bg]" style={{

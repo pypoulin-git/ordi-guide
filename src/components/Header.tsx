@@ -109,7 +109,7 @@ export default function Header() {
             <Link href={`/${locale}`}
               className="flex items-center gap-2 font-bold text-lg hover:text-[--accent] transition-colors text-[--text]"
               style={{ whiteSpace: 'nowrap' }}>
-              <Image src="/logo-compy.svg" alt="" width={32} height={32} className="shrink-0" />
+              <Image src="/images/compy-logo.png" alt="" width={32} height={32} className="shrink-0" />
               Shop Compy
             </Link>
 

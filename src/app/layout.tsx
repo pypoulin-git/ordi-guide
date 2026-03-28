@@ -56,7 +56,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           '@type': 'Organization',
           name: 'Shop Compy',
           url: BASE_URL,
-          logo: `${BASE_URL}/logo-compy.svg`,
+          logo: `${BASE_URL}/images/compy-logo.png`,
           description: isFr
             ? 'Plateforme québécoise d\'aide à l\'achat informatique.'
             : 'Quebec-based computer buying guide platform.',
