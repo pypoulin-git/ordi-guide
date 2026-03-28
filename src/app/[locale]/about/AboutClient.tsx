@@ -124,6 +124,28 @@ export default function AboutClient() {
           <h2 className="text-2xl font-bold mb-3 text-[var(--text)]">{t.funding.fundingTitle}</h2>
           <p className="leading-relaxed mb-8 text-[var(--text-subtle)]">{t.funding.fundingIntro}</p>
 
+          {/* Donation box — full width */}
+          <div className="rounded-xl p-6 mb-6 text-center" style={{ background: 'var(--accent-bg)', border: '2px dashed var(--accent)' }}>
+            <span className="text-3xl block mb-2">☕</span>
+            <h3 className="font-bold text-lg text-[var(--text)] mb-1">
+              {locale === 'fr' ? 'Soutenir Shop Compy' : 'Support Shop Compy'}
+            </h3>
+            <p className="text-sm text-[var(--text-subtle)] mb-4 max-w-md mx-auto">
+              {locale === 'fr'
+                ? 'Le site est 100 % gratuit. Si tu trouves ça utile, un petit don nous aide à continuer.'
+                : 'The site is 100% free. If you find it useful, a small donation helps us keep going.'}
+            </p>
+            <a
+              href={process.env.NEXT_PUBLIC_STRIPE_DONATION_URL || 'https://donate.stripe.com/7sY8wI9N79Vx45pdKP2Ry00'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-colors"
+              style={{ background: 'var(--accent)', color: 'white' }}
+            >
+              {locale === 'fr' ? 'Faire un don — montant au choix' : 'Make a donation — any amount'}
+            </a>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             <div className="card" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
               <div className="text-2xl mb-2">🔗</div>
@@ -143,7 +165,16 @@ export default function AboutClient() {
             <div className="card" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
               <div className="text-2xl mb-2">💬</div>
               <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{t.funding.fundingSupportTitle}</h3>
-              <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{t.funding.fundingSupportDesc}</p>
+              <p className="text-[var(--text-subtle)] mb-3" style={{ fontSize: '0.9375rem' }}>{t.funding.fundingSupportDesc}</p>
+              <a
+                href={process.env.NEXT_PUBLIC_STRIPE_SUPPORT_URL || 'https://buy.stripe.com/3cIaEQaRb3x9dFZ0Y32Ry01'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-colors"
+                style={{ background: 'var(--accent)', color: 'white' }}
+              >
+                {locale === 'fr' ? 'Poser ma question — 10 $' : 'Ask my question — $10'}
+              </a>
             </div>
           </div>
 

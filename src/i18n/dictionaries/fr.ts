@@ -368,7 +368,7 @@ const fr = {
     fundingGiftTitle: 'Trouvailles Compy',
     fundingGiftDesc: 'Certains deals exceptionnels sont référencés sans commission pour nous. Un don volontaire est proposé — tu gardes le reste de tes économies.',
     fundingSupportTitle: 'Support expert',
-    fundingSupportDesc: 'Une question à un humain pour seulement 5 $. Réponse garantie en 24h par courriel. Abordable et personnalisé.',
+    fundingSupportDesc: 'Une question à un humain pour seulement 10 $. Réponse garantie en 24h par courriel. Abordable et personnalisé.',
     fundingWhy: 'Ces revenus financent l\'IA qui analyse les produits, l\'hébergement du site, et le développement continu. Sans ça, le site n\'existerait pas — ou il serait payant.',
     fundingBadge1: 'Pas de paywall',
     fundingBadge2: 'Pas de cookies de tracking',

@@ -370,7 +370,7 @@ const en: Dictionary = {
     fundingGiftTitle: 'Compy Finds',
     fundingGiftDesc: 'Some exceptional deals are listed with no commission for us. A voluntary donation is offered — you keep the rest of your savings.',
     fundingSupportTitle: 'Expert support',
-    fundingSupportDesc: 'Ask a human a question for just $5. Guaranteed reply within 24 hours by email. Affordable and personalized.',
+    fundingSupportDesc: 'Ask a human a question for just $10. Guaranteed reply within 24 hours by email. Affordable and personalized.',
     fundingWhy: 'This revenue funds the AI that analyzes products, the site hosting, and ongoing development. Without it, the site wouldn\'t exist — or it would be behind a paywall.',
     fundingBadge1: 'No paywall',
     fundingBadge2: 'No tracking cookies',
