@@ -31,20 +31,28 @@ const PRODUCT_SCHEMA = {
       specs: {
         type: 'OBJECT',
         properties: {
-          cpu:     { type: 'STRING' },
-          ram:     { type: 'STRING' },
-          storage: { type: 'STRING' },
-          display: { type: 'STRING' },
-          gpu:     { type: 'STRING' },
-          battery: { type: 'STRING' },
+          cpu:            { type: 'STRING' },
+          ram:            { type: 'STRING' },
+          storage:        { type: 'STRING' },
+          display:        { type: 'STRING' },
+          gpu:            { type: 'STRING' },
+          battery:        { type: 'STRING' },
+          // New — for monitors
+          panelType:      { type: 'STRING' },
+          resolution:     { type: 'STRING' },
+          refreshRate:    { type: 'STRING' },
+          size:           { type: 'STRING' },
+          // New — for docks/peripherals
+          ports:          { type: 'STRING' },
+          powerDelivery:  { type: 'STRING' },
         },
-        required: ['cpu', 'ram', 'storage'],
+        required: ['cpu'],  // Relax — only cpu required (may be "N/A" for monitors)
       },
       aiScore:     { type: 'INTEGER' },
       aiRationale: { type: 'STRING' },
     },
     required: ['name', 'brand', 'category', 'profiles', 'budgetTier', 'price',
-      'isOnSale', 'cpuModel', 'specs', 'aiScore', 'aiRationale'],
+      'isOnSale', 'specs', 'aiScore', 'aiRationale'],
   },
 }
 
@@ -112,10 +120,13 @@ export async function runCurator(scanResults) {
             .filter(p => {
               // Filtre score
               if (p.aiScore < MIN_AI_SCORE) return false
-              // Filtre CPU whitelist (dur)
-              if (!matchesCpuWhitelist(p.cpuModel || p.specs?.cpu || '')) {
-                log(`    ✗ CPU rejeté: ${p.cpuModel || p.specs?.cpu} — ${p.name?.slice(0, 40)}`)
-                return false
+              // Skip CPU whitelist for non-computer categories
+              const NON_CPU_CATEGORIES = ['monitor', 'dock', 'peripheral', 'storage', 'accessory']
+              if (!NON_CPU_CATEGORIES.includes(p.category)) {
+                if (!matchesCpuWhitelist(p.cpuModel || p.specs?.cpu || '')) {
+                  log(`    ✗ CPU rejeté: ${p.cpuModel || p.specs?.cpu} — ${p.name?.slice(0, 40)}`)
+                  return false
+                }
               }
               // Filtre prix
               if (!p.price || p.price < 50 || p.price > 5000) return false
@@ -257,27 +268,47 @@ function buildPrompt(batch, source) {
     return entry
   }).join('\n\n')
 
-  return `Tu es un expert hardware informatique au Québec. Analyse ces résultats de ${source} et extrais UNIQUEMENT les ordinateurs (laptop, desktop, MacBook, Chromebook) disponibles à l'achat au Canada.
+  return `Tu es un expert hardware informatique au Québec. Analyse ces résultats de ${source} et extrais les produits disponibles à l'achat au Canada.
 
-RÈGLES STRICTES :
+CATÉGORIES ACCEPTÉES :
+- "laptop" : ordinateurs portables Windows/Linux
+- "desktop" : ordinateurs de bureau
+- "apple" : MacBook, iMac, Mac Mini, Mac Studio
+- "chromebook" : Chromebooks
+- "monitor" : écrans/moniteurs (bureau, gaming, ultrawide)
+- "dock" : stations d'accueil, hubs USB-C, docking stations
+- "peripheral" : claviers, souris, casques, webcams
+- "storage" : SSD externes, disques durs, clés USB
+- "accessory" : câbles, adaptateurs, supports, sacoches
+
+RÈGLES POUR ORDINATEURS (laptop, desktop, apple, chromebook) :
 - UNIQUEMENT des CPU de génération récente : Intel 12th gen+ (i5-12xxx, Core Ultra), AMD Ryzen 5000+, Apple M2+, Snapdragon X
-- Si un CPU est Intel 11th gen ou plus vieux, Ryzen 3000/4000, ou Apple M1 → NE PAS INCLURE (aiScore = 0)
-- Le champ "cpuModel" doit contenir le modèle EXACT du CPU (ex: "Intel Core i7-14700H", "AMD Ryzen 7 8845HS", "Apple M4")
-- Si un "prix détecté sur la page" est fourni, utilise-le comme prix de référence. Sinon, extrais le prix du contenu.
-- Ignore les accessoires, écrans seuls, tablettes sans clavier, imprimantes.
+- Si un CPU est Intel 11th gen ou plus vieux, Ryzen 3000/4000, ou Apple M1 → NE PAS INCLURE
+- Le champ "cpuModel" doit contenir le modèle EXACT du CPU (ex: "Intel Core i7-14700H", "Apple M4")
+- Ignore les tablettes sans clavier et imprimantes
 
-Pour chaque ordinateur :
+RÈGLES POUR MONITEURS :
+- Remplis specs.panelType (IPS, VA, OLED), specs.resolution (1920x1080, 2560x1440, 3840x2160), specs.refreshRate (60Hz, 144Hz...), specs.size (24", 27", 32"...)
+- cpuModel = "N/A"
+- specs.cpu = "N/A", specs.ram = "N/A", specs.storage = "N/A"
+
+RÈGLES POUR DOCKS / PÉRIPHÉRIQUES / STOCKAGE / ACCESSOIRES :
+- Remplis specs.ports (ex: "2x USB-A, 1x HDMI, 1x USB-C PD") et specs.powerDelivery (ex: "100W USB-C") si applicable
+- cpuModel = "N/A"
+- specs.cpu = "N/A"
+- Pour le stockage : specs.storage = capacité (ex: "2TB NVMe"), specs.ram = "N/A"
+
+POUR TOUS LES PRODUITS :
 - name : nom complet du produit
 - brand : marque
-- category : "laptop", "desktop", "apple" (Mac), ou "chromebook"
+- category : une des catégories ci-dessus
 - profiles : parmi ["basic", "work", "student", "creative", "gaming"]
 - budgetTier : "under500" (<500$), "500to900", "900to1500", "over1500"
-- price : prix en $ CAD (nombre)
+- price : prix en $ CAD (nombre). Si un "prix détecté sur la page" est fourni, utilise-le.
 - originalPrice : prix original si en solde (sinon 0)
 - isOnSale : true/false
-- cpuModel : modèle exact du CPU
-- specs : { cpu, ram, storage, display?, gpu?, battery? }
-- aiScore : 0-100 (rapport qualité-prix pour un Québécois)
+- specs : { cpu, ram, storage, display?, gpu?, battery?, panelType?, resolution?, refreshRate?, size?, ports?, powerDelivery? }
+- aiScore : 0-100 (rapport qualité-prix pour un consommateur canadien)
 - aiRationale : 1-2 phrases en français québécois, ton direct
 
 Scoring :

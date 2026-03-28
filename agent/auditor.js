@@ -65,19 +65,21 @@ export async function runAudit() {
   })
 
   // ── Check 4: CPU whitelist ────────────────────────────────────
-  const badCpus = products.filter(p => !matchesCpuWhitelist(p.specs?.cpu || ''))
-  if (badCpus.length > products.length * 0.2) {
-    // Tolérance 20% — certains produits peuvent avoir un format CPU non-standard
-    failures.push(`CPU: ${badCpus.length}/${products.length} hors whitelist (>20%)`)
+  // CPU whitelist — only applies to computers
+  const NON_CPU_CATEGORIES = ['monitor', 'dock', 'peripheral', 'storage', 'accessory']
+  const computerProducts = products.filter(p => !NON_CPU_CATEGORIES.includes(p.category))
+  const badCpus = computerProducts.filter(p => !matchesCpuWhitelist(p.specs?.cpu || ''))
+  if (badCpus.length > computerProducts.length * 0.2) {
+    failures.push(`CPU: ${badCpus.length}/${computerProducts.length} hors whitelist (>20%)`)
   }
   checks.push({
     name: 'cpu',
-    passed: badCpus.length <= products.length * 0.2,
-    details: `${products.length - badCpus.length}/${products.length} OK`,
+    passed: badCpus.length <= computerProducts.length * 0.2,
+    details: `${computerProducts.length - badCpus.length}/${computerProducts.length} OK (ordinateurs seulement)`,
   })
 
   // ── Check 5: RAM et stockage minimums ─────────────────────────
-  const badSpecs = products.filter(p => {
+  const badSpecs = computerProducts.filter(p => {
     const ram = parseGB(p.specs?.ram || '')
     const storage = parseGB(p.specs?.storage || '')
     return ram < AUDIT_RULES.minRamGB || storage < AUDIT_RULES.minStorageGB
