@@ -184,7 +184,7 @@ function useBestMatch(answers: Answers, done: boolean) {
     if (!done) return
     setLoading(true)
 
-    fetch('/api/search?limit=50')
+    fetch('/api/catalogue')
       .then(r => r.ok ? r.json() : null)
       .catch(() => null)
       .then(data => {
