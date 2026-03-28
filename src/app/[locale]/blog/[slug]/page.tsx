@@ -1,33 +1,38 @@
 import Link from 'next/link'
-import { articles, getArticleBySlug } from '@/content/articles'
+import { getArticles, getArticleBySlug } from '@/content/articles'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { use } from 'react'
 import JsonLd from '@/components/JsonLd'
 import TechIllustration from '@/components/TechIllustration'
+import { getDictionary } from '@/i18n/get-dictionary'
+import type { Locale } from '@/i18n/config'
 
 type Props = {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string; locale: string }>
 }
 
 export function generateStaticParams() {
-  return articles.map(a => ({ slug: a.slug }))
+  // Use French articles for static params (slugs are the same in both languages)
+  return getArticles('fr').map(a => ({ slug: a.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
-  const article = getArticleBySlug(slug)
+  const { slug, locale } = await params
+  const article = getArticleBySlug(slug, locale as Locale)
   if (!article) return {}
   return {
-    title: `${article.title} | Le Décodeur — Shop Compy`,
+    title: `${article.title} | ${locale === 'fr' ? 'Le Décodeur' : 'The Decoder'} — Shop Compy`,
     description: article.description,
   }
 }
 
 export default function ArticlePage({ params }: Props) {
-  const { slug } = use(params)
-  const article = getArticleBySlug(slug)
+  const { slug, locale } = use(params)
+  const article = getArticleBySlug(slug, locale as Locale)
   if (!article) notFound()
+  const t = use(getDictionary(locale as Locale))
+  const ba = t.blogArticle
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -39,15 +44,15 @@ export default function ArticlePage({ params }: Props) {
     publisher: { '@type': 'Organization', name: 'Shop Compy', url: 'https://ordi-guide.vercel.app' },
     mainEntityOfPage: `https://ordi-guide.vercel.app/blog/${article.slug}`,
     articleSection: article.category,
-    inLanguage: 'fr-CA',
+    inLanguage: locale === 'fr' ? 'fr-CA' : 'en-CA',
   }
 
   return (
     <>
       <JsonLd data={articleSchema} />
-      {/* ── Hero ─────────────────────────────────────────────────── */}
+      {/* -- Hero -- */}
       <section style={{
-        background: `linear-gradient(135deg, ${article.categoryColor}18 0%, #f8fafc 100%)`,
+        background: `linear-gradient(135deg, ${article.categoryColor}18 0%, var(--bg-subtle) 100%)`,
         padding: '2.5rem 0 3rem',
         position: 'relative',
         overflow: 'hidden',
@@ -73,23 +78,22 @@ export default function ArticlePage({ params }: Props) {
         </div>
 
         <div className="container max-w-3xl mx-auto" style={{ position: 'relative', zIndex: 1 }}>
-          <Link href="/blog" className="inline-flex items-center gap-1 text-sm mb-5 hover:underline"
-            style={{ color: '#2563eb' }}>
-            ← Retour au Décodeur
+          <Link href={`/${locale}/blog`} className="inline-flex items-center gap-1 text-sm mb-5 hover:underline text-[--accent]">
+            {ba.backToBlog}
           </Link>
           <div className="flex items-center gap-2 mb-4">
             <span className="text-xs font-semibold px-2.5 py-1 rounded-full"
               style={{ background: article.categoryColor + '18', color: article.categoryColor, border: `1px solid ${article.categoryColor}30` }}>
               {article.category}
             </span>
-            <span className="text-xs" style={{ color: '#94a3b8' }}>
-              {article.readTime} · {new Date(article.date).toLocaleDateString('fr-CA', { year: 'numeric', month: 'long', day: 'numeric' })}
+            <span className="text-xs text-[--text-muted]">
+              {article.readTime} · {new Date(article.date).toLocaleDateString(locale === 'fr' ? 'fr-CA' : 'en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight" style={{ color: '#0f172a' }}>
-            <span className="mr-2">{article.icon}</span>{article.title}
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-[--text]">
+            {article.title}
           </h1>
-          <p className="text-lg leading-relaxed" style={{ color: '#475569' }}>
+          <p className="text-lg leading-relaxed text-[--text-subtle]">
             {article.description}
           </p>
         </div>
@@ -97,36 +101,36 @@ export default function ArticlePage({ params }: Props) {
         {/* Subtle wave */}
         <div aria-hidden style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '20px' }}>
           <svg viewBox="0 0 1440 20" preserveAspectRatio="none" style={{ width: '100%', height: '100%', display: 'block' }}>
-            <path d="M0,20 L0,10 Q360,0 720,10 Q1080,20 1440,10 L1440,20 Z" fill="white" />
+            <path d="M0,20 L0,10 Q360,0 720,10 Q1080,20 1440,10 L1440,20 Z" className="fill-[--bg]" />
           </svg>
         </div>
       </section>
 
-      {/* ── TL;DR ────────────────────────────────────────────────── */}
+      {/* -- TL;DR -- */}
       <section className="section" style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>
         <div className="container max-w-3xl mx-auto">
-          <div className="p-5 rounded-xl" style={{ background: '#eff6ff', border: '1px solid #bfdbfe' }}>
-            <div className="flex items-center gap-2 font-semibold text-base mb-2" style={{ color: '#1d4ed8' }}>
-              ⚡ TL;DR — L&apos;essentiel en 30 secondes
+          <div className="p-5 rounded-xl bg-[--accent-bg]" style={{ border: '1px solid var(--border)' }}>
+            <div className="flex items-center gap-2 font-semibold text-base mb-2 text-[--accent]">
+              {ba.tldr}
             </div>
-            <p className="text-base leading-relaxed" style={{ color: '#1e40af' }}>
+            <p className="text-base leading-relaxed text-[--text-subtle]">
               {article.tldr}
             </p>
           </div>
         </div>
       </section>
 
-      {/* ── Article body ─────────────────────────────────────────── */}
+      {/* -- Article body -- */}
       <div className="container max-w-3xl mx-auto pb-12">
         <div className="space-y-10">
           {article.sections.map((section, i) => (
             <section key={i}>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#0f172a' }}>
+              <h2 className="text-2xl font-bold mb-4 text-[--text]">
                 {section.title}
               </h2>
               <div className="space-y-4">
                 {section.paragraphs.map((p, j) => (
-                  <p key={j} className="text-base leading-relaxed" style={{ color: '#475569' }}>
+                  <p key={j} className="text-base leading-relaxed text-[--text-subtle]">
                     {p}
                   </p>
                 ))}
@@ -136,18 +140,18 @@ export default function ArticlePage({ params }: Props) {
         </div>
       </div>
 
-      {/* ── Bottom CTA ───────────────────────────────────────────── */}
-      <section className="section" style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
+      {/* -- Bottom CTA -- */}
+      <section className="section bg-[--bg-subtle] border-t border-[--border]">
         <div className="container max-w-3xl mx-auto text-center">
-          <p className="mb-4" style={{ color: '#475569' }}>
+          <p className="mb-4 text-[--text-subtle]">
             {article.ctaText}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/comparateur" className="btn-primary">
-              M&apos;aider à choisir →
+            <Link href={`/${locale}/comparateur`} className="btn-primary">
+              {ba.helpChoose}
             </Link>
-            <Link href="/blog" className="btn-outline">
-              Lire d&apos;autres articles
+            <Link href={`/${locale}/blog`} className="btn-outline">
+              {ba.readMore}
             </Link>
           </div>
         </div>

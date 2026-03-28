@@ -227,10 +227,115 @@ const fr = {
     catSmart: 'Achat malin',
   },
 
+  // ── Compy Blog Assistant ───────────────────────────────────
+  compy: {
+    title: 'Demande à Compy',
+    subtitle: 'Ton assistant tech, prêt à répondre à tes questions',
+    placeholder: 'Ex: C\'est quoi la différence entre SSD et disque dur ?',
+    askButton: 'Demander',
+    thinking: 'Compy réfléchit…',
+    relatedArticles: 'Articles reliés',
+    improvisedNote: 'Aucun article ne couvre ce sujet pour l\'instant — on l\'a noté pour un prochain article.',
+    errorGeneric: 'Oups, quelque chose n\'a pas fonctionné. Réessaie.',
+    example1: 'C\'est quoi un processeur ?',
+    example2: 'Combien de RAM j\'ai besoin ?',
+    example3: 'SSD ou disque dur ?',
+  },
+
   // ── Catalogue page ───────────────────────────────────────
   catalogue: {
     heroTitle: 'Nos recommandations',
     heroSubtitleTemplate: '{count} ordinateurs sélectionnés et notés par notre IA. Filtre par profil, budget ou catégorie pour trouver le tien.',
+    profileLabel: 'Profil',
+    budgetLabel: 'Budget',
+    categoryLabel: 'Catégorie',
+    clearFilters: 'Effacer les filtres',
+    productCount: '{count} {plural}',
+    productSingular: 'produit',
+    productPlural: 'produits',
+    matching: 'correspondants',
+    total: 'au total',
+    noProducts: 'Aucun produit trouvé',
+    noProductsHint: 'Essaie d\'ajuster tes filtres pour voir plus de résultats.',
+    viewAll: 'Voir tous les produits',
+    viewDetails: 'Voir détails →',
+    storageLabel: 'Stockage',
+    displayLabel: 'Écran',
+  },
+
+  // ── Product detail page ─────────────────────────────────
+  product: {
+    aiScore: 'Score IA',
+    breadcrumbCatalogue: 'Catalogue',
+    aiOpinion: 'Notre avis IA',
+    specifications: 'Spécifications',
+    cpuLabel: 'Processeur',
+    ramLabel: 'Mémoire vive',
+    storageLabel: 'Stockage',
+    gpuLabel: 'Carte graphique',
+    displayLabel: 'Écran',
+    batteryLabel: 'Batterie',
+    idealFor: 'Idéal pour',
+    viewAt: 'Voir chez {source} →',
+    affiliateNote: 'Lien affilié — tu ne payes rien de plus',
+    notSure: 'Pas sûr ? Fais le questionnaire',
+    similarProducts: 'Produits similaires',
+  },
+
+  // ── Search bar ──────────────────────────────────────────
+  search: {
+    placeholder: 'Décris ton besoin en une phrase…',
+    searching: 'Analyse…',
+    submit: 'Chercher',
+    tryLabel: 'Essaie :',
+    example1: 'Un ordi pour ma mère qui fait du Zoom et du courriel',
+    example2: 'Je veux un portable léger pour l\'université',
+    example3: 'Un PC pour jouer à des jeux récents sans me ruiner',
+    example4: 'Je fais du montage vidéo 4K, qu\'est-ce qu\'il me faut ?',
+    loading: 'Notre assistant analyse ta demande…',
+    connectionError: 'Erreur de connexion. Réessaie dans un instant.',
+    profileLabel: 'Profil',
+    recommendedSpecs: 'Spécifications recommandées',
+    specCpu: 'Processeur',
+    specRam: 'RAM',
+    specSsd: 'Stockage',
+    specGpu: 'Graphique',
+    specBudget: 'Budget',
+    recommendedProduct: 'Produit recommandé',
+    viewPrice: 'Voir le prix →',
+    fullQuiz: 'Questionnaire complet →',
+    learnMore: 'En savoir plus dans le guide',
+    disclaimer: 'Réponse générée par intelligence artificielle · À titre indicatif',
+    archetypeMinimalist: 'Le Minimaliste',
+    archetypeMinimalistDesc: 'Léger et efficace pour les tâches de base',
+    archetypeAthlete: 'Le Performant',
+    archetypeAthleteDesc: 'Équilibre parfait entre puissance et polyvalence',
+    archetypeGeek: 'Le Passionné',
+    archetypeGeekDesc: 'Puissance de calcul brute pour les pros',
+    archetypeDouchebag: 'Le Frimeur',
+    archetypeDouchebagDesc: 'Attention : specs déséquilibrées — gros GPU mais le reste ne suit pas',
+  },
+
+  // ── Blog article page ───────────────────────────────────
+  blogArticle: {
+    backToBlog: '← Retour au Décodeur',
+    tldr: '⚡ TL;DR — L\'essentiel en 30 secondes',
+    helpChoose: 'M\'aider à choisir →',
+    readMore: 'Lire d\'autres articles',
+  },
+
+  // ── Spec tooltip ────────────────────────────────────────
+  tooltip: {
+    glossaryLink: 'Voir le lexique complet →',
+  },
+
+  // ── 404 Not Found ─────────────────────────────────────
+  notFound: {
+    title: 'Page introuvable',
+    subtitle: 'On dirait que cette page n\'existe pas ou a été déplacée.',
+    goHome: 'Retour à l\'accueil',
+    goGuide: 'Lire le guide',
+    goComparator: 'M\'aider à choisir',
   },
 } satisfies Record<string, Record<string, string>>
 
