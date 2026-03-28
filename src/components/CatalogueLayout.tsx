@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { ProfileTag, BudgetTier, Category, CatalogueProduct } from '@/types/catalogue'
@@ -15,11 +15,15 @@ type FilterState = {
   category: Category | null
 }
 
+const PAGE_SIZE = 12
+
 export default function CatalogueLayout({ products }: { products: CatalogueProduct[] }) {
   const [filters, setFilters] = useState<FilterState>({
     profile: null, budget: null, category: null,
   })
   const [filterHistory, setFilterHistory] = useState<string[]>([])
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
+  const loadMoreRef = useRef<HTMLDivElement>(null)
   const { t, locale } = useTranslation()
   const cat = t.catalogue
   const isFr = locale === 'fr'
@@ -52,6 +56,27 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
     if (filters.category && p.category !== filters.category) return false
     return true
   })
+
+  // Reset pagination when filters change
+  useEffect(() => { setVisibleCount(PAGE_SIZE) }, [filters.profile, filters.budget, filters.category])
+
+  const visibleProducts = filtered.slice(0, visibleCount)
+  const hasMore = visibleCount < filtered.length
+
+  // Infinite scroll — auto-load next batch when sentinel enters viewport
+  useEffect(() => {
+    if (!hasMore || !loadMoreRef.current) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setVisibleCount(v => Math.min(v + PAGE_SIZE, filtered.length))
+        }
+      },
+      { rootMargin: '200px' },
+    )
+    observer.observe(loadMoreRef.current)
+    return () => observer.disconnect()
+  }, [hasMore, filtered.length])
 
   const reset = () => setFilters({ profile: null, budget: null, category: null })
   const hasFilters = filters.profile || filters.budget || filters.category
@@ -195,23 +220,38 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
         {/* Product grid */}
         <h2 className="sr-only">{isFr ? 'Produits' : 'Products'}</h2>
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7">
-            {filtered.map((p, i) => (
-              <React.Fragment key={p.id}>
-                <ProductCard product={p} />
-                {i === 5 && filtered.length > 6 && (
-                  <div className="col-span-full">
-                    <AdBanner slot="6409853100" format="in-feed" />
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
-            {filtered.length <= 6 && filtered.length > 0 && (
-              <div className="col-span-full">
-                <AdBanner slot="6409853100" format="in-feed" />
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7">
+              {visibleProducts.map((p, i) => (
+                <React.Fragment key={p.id}>
+                  <ProductCard product={p} />
+                  {i === 5 && visibleProducts.length > 6 && (
+                    <div className="col-span-full">
+                      <AdBanner slot="6409853100" format="in-feed" />
+                    </div>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+
+            {/* Load more / infinite scroll sentinel */}
+            {hasMore && (
+              <div ref={loadMoreRef} className="flex flex-col items-center gap-3 mt-8">
+                <button
+                  onClick={() => setVisibleCount(v => Math.min(v + PAGE_SIZE, filtered.length))}
+                  className="btn-outline"
+                  style={{ padding: '0.75rem 2rem', fontSize: '0.9375rem', minHeight: '44px' }}
+                >
+                  {isFr
+                    ? `Voir plus (${Math.min(PAGE_SIZE, filtered.length - visibleCount)} de plus)`
+                    : `Show more (${Math.min(PAGE_SIZE, filtered.length - visibleCount)} more)`}
+                </button>
+                <p className="text-xs text-[var(--text-muted)]">
+                  {visibleCount} / {filtered.length}
+                </p>
               </div>
             )}
-          </div>
+          </>
         ) : (
           <div className="card text-center" style={{ padding: '3rem 2rem' }}>
             <div style={{ fontSize: '3rem', marginBottom: '1rem' }} aria-hidden>
