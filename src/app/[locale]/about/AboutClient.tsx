@@ -37,32 +37,15 @@ export default function AboutClient() {
           <div className="my-8 max-w-2xl mx-auto">
             <div className="relative rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/compu-station.jpg"
+                src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=900&q=80&auto=format"
                 alt={locale === 'fr'
-                  ? 'Une boutique informatique dans un centre commercial du Québec, années 2000'
-                  : 'A computer shop in a Quebec mall, early 2000s'}
-                width={800}
+                  ? 'Une boutique informatique remplie d\'ordinateurs, ambiance nostalgique'
+                  : 'A computer store filled with machines, nostalgic vibes'}
+                width={900}
                 height={500}
                 className="w-full h-auto grayscale-[30%] hover:grayscale-0 transition-all duration-700"
                 style={{ objectFit: 'cover' }}
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.display = 'none'
-                  const fallback = e.currentTarget.nextElementSibling as HTMLElement
-                  if (fallback) fallback.style.display = 'flex'
-                }}
               />
-              {/* Fallback if image not found */}
-              <div className="hidden items-center justify-center bg-[var(--bg-subtle)] border border-[var(--border)] rounded-xl"
-                style={{ minHeight: '200px' }}>
-                <div className="text-center text-[var(--text-muted)] px-6 py-8">
-                  <span className="text-4xl block mb-3">🖥️</span>
-                  <p className="text-sm italic">
-                    {locale === 'fr'
-                      ? 'Les boutiques informatiques des années 2000'
-                      : 'Computer shops from the 2000s'}
-                  </p>
-                </div>
-              </div>
             </div>
             <p className="text-center text-sm italic mt-3 text-[var(--text-muted)]">
               {locale === 'fr'
