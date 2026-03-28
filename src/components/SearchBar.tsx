@@ -87,7 +87,7 @@ export default function SearchBar() {
           onChange={e => setQuery(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && search()}
           placeholder={s.placeholder}
-          className="flex-1 px-4 py-3 rounded-xl border-2 outline-none transition-colors bg-[--bg] text-[--text]"
+          className="flex-1 px-4 py-3 rounded-xl border-2 outline-none transition-colors bg-[var(--bg)] text-[var(--text)]"
           style={{ borderColor: 'var(--border)', fontSize: '1rem' }}
           disabled={loading}
         />
@@ -103,10 +103,10 @@ export default function SearchBar() {
       {/* Examples */}
       {!result && !loading && (
         <div className="mt-3 flex flex-wrap gap-2">
-          <span className="text-sm text-[--text-muted]">{s.tryLabel}</span>
+          <span className="text-sm text-[var(--text-muted)]">{s.tryLabel}</span>
           {EXAMPLES.map(ex => (
             <button key={ex} onClick={() => useExample(ex)}
-              className="text-sm px-3 py-1 rounded-full transition-colors hover:bg-[--accent-bg] bg-[--bg-card] text-[--text-subtle]">
+              className="text-sm px-3 py-1 rounded-full transition-colors hover:bg-[var(--accent-bg)] bg-[var(--bg-card)] text-[var(--text-subtle)]">
               {ex}
             </button>
           ))}
@@ -123,7 +123,7 @@ export default function SearchBar() {
             height={100}
             className="rounded-xl"
           />
-          <p className="text-sm font-medium text-[--text-muted] animate-pulse">{s.loading}</p>
+          <p className="text-sm font-medium text-[var(--text-muted)] animate-pulse">{s.loading}</p>
         </div>
       )}
 
@@ -148,7 +148,7 @@ export default function SearchBar() {
                 <p className="text-sm mt-1.5" style={{ color: arch.color + 'cc' }}>{arch.desc}</p>
               </div>
             )}
-            <p className="text-[--text]" style={{ fontSize: '1rem', lineHeight: 1.7 }}>
+            <p className="text-[var(--text)]" style={{ fontSize: '1rem', lineHeight: 1.7 }}>
               {result.answer}
             </p>
           </div>
@@ -156,18 +156,18 @@ export default function SearchBar() {
           {/* Specs */}
           {result.specs && (
             <div className="card" style={{ padding: '1.25rem' }}>
-              <h3 className="font-semibold mb-3 text-[--text]">
+              <h3 className="font-semibold mb-3 text-[var(--text)]">
                 {s.recommendedSpecs}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {Object.entries(result.specs).map(([key, val]) => (
                   <div key={key} className="flex items-start gap-2">
-                    <span className="text-[--success]" style={{ fontWeight: 700, flexShrink: 0 }}>·</span>
+                    <span className="text-[var(--success)]" style={{ fontWeight: 700, flexShrink: 0 }}>·</span>
                     <div>
-                      <span className="font-semibold text-[--text]">
+                      <span className="font-semibold text-[var(--text)]">
                         {SPEC_LABELS[key] || key}
                       </span>
-                      <span className="text-[--text-muted]"> : {val}</span>
+                      <span className="text-[var(--text-muted)]"> : {val}</span>
                     </div>
                   </div>
                 ))}
@@ -182,7 +182,7 @@ export default function SearchBar() {
             return (
               <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid var(--success)' }}>
                 <div className="px-5 pt-4 pb-1 flex items-center justify-between">
-                  <span className="text-sm font-bold uppercase tracking-wide text-[--success]">
+                  <span className="text-sm font-bold uppercase tracking-wide text-[var(--success)]">
                     {s.recommendedProduct}
                   </span>
                   <div className="flex items-center gap-2">
@@ -198,33 +198,33 @@ export default function SearchBar() {
                   </div>
                 </div>
                 <div className="px-5 pt-2 pb-4">
-                  <p className="text-sm font-medium mb-0.5 text-[--text-muted]">{p.brand}</p>
-                  <h4 className="font-bold mb-3 text-[--text]" style={{ fontSize: '1rem', lineHeight: 1.3 }}>
+                  <p className="text-sm font-medium mb-0.5 text-[var(--text-muted)]">{p.brand}</p>
+                  <h4 className="font-bold mb-3 text-[var(--text)]" style={{ fontSize: '1rem', lineHeight: 1.3 }}>
                     {p.name}
                   </h4>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-1 mb-3 text-sm">
-                    {p.specs.cpu && <div><span className="font-medium text-[--text]">CPU</span> <span className="text-[--text-muted]">{p.specs.cpu}</span></div>}
-                    {p.specs.ram && <div><span className="font-medium text-[--text]">RAM</span> <span className="text-[--text-muted]">{p.specs.ram}</span></div>}
-                    {p.specs.storage && <div><span className="font-medium text-[--text]">{SPEC_LABELS.ssd}</span> <span className="text-[--text-muted]">{p.specs.storage}</span></div>}
-                    {p.specs.gpu && <div><span className="font-medium text-[--text]">GPU</span> <span className="text-[--text-muted]">{p.specs.gpu}</span></div>}
+                    {p.specs.cpu && <div><span className="font-medium text-[var(--text)]">CPU</span> <span className="text-[var(--text-muted)]">{p.specs.cpu}</span></div>}
+                    {p.specs.ram && <div><span className="font-medium text-[var(--text)]">RAM</span> <span className="text-[var(--text-muted)]">{p.specs.ram}</span></div>}
+                    {p.specs.storage && <div><span className="font-medium text-[var(--text)]">{SPEC_LABELS.ssd}</span> <span className="text-[var(--text-muted)]">{p.specs.storage}</span></div>}
+                    {p.specs.gpu && <div><span className="font-medium text-[var(--text)]">GPU</span> <span className="text-[var(--text-muted)]">{p.specs.gpu}</span></div>}
                   </div>
-                  <div className="p-3 rounded-lg mb-3 bg-[--accent-bg]" style={{ borderLeft: '3px solid var(--success)' }}>
-                    <p className="text-sm leading-relaxed text-[--text-subtle]">{p.aiRationale}</p>
+                  <div className="p-3 rounded-lg mb-3 bg-[var(--accent-bg)]" style={{ borderLeft: '3px solid var(--success)' }}>
+                    <p className="text-sm leading-relaxed text-[var(--text-subtle)]">{p.aiRationale}</p>
                   </div>
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {p.profiles.map(pr => (
-                      <span key={pr} className="text-sm px-2.5 py-1 rounded-full bg-[--accent-bg] text-[--accent]">
+                      <span key={pr} className="text-sm px-2.5 py-1 rounded-full bg-[var(--accent-bg)] text-[var(--accent)]">
                         {PROFILE_LABELS[pr].label}
                       </span>
                     ))}
                   </div>
-                  <div className="flex items-end justify-between pt-2 border-t border-[--border]">
+                  <div className="flex items-end justify-between pt-2 border-t border-[var(--border)]">
                     <div>
-                      <span className="text-2xl font-bold text-[--text]">
+                      <span className="text-2xl font-bold text-[var(--text)]">
                         {p.price.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en-CA')} $
                       </span>
                       {p.isOnSale && p.originalPrice && (
-                        <span className="ml-2 text-sm line-through text-[--text-muted]">
+                        <span className="ml-2 text-sm line-through text-[var(--text-muted)]">
                           {p.originalPrice.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en-CA')} $
                         </span>
                       )}
@@ -250,7 +250,7 @@ export default function SearchBar() {
             </Link>
           </div>
 
-          <p className="text-center text-sm text-[--text-muted]">
+          <p className="text-center text-sm text-[var(--text-muted)]">
             {s.disclaimer}
           </p>
         </div>

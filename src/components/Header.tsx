@@ -98,16 +98,16 @@ export default function Header() {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-50 shadow-sm bg-[--bg] dark:shadow-md">
+    <header className="sticky top-0 z-50 shadow-sm bg-[var(--bg)] dark:shadow-md">
 
       {/* -- Ligne 1 : Logo + navigation principale -- */}
-      <div className="border-b border-[--border]">
+      <div className="border-b border-[var(--border)]">
         <div className="container">
           <div className="flex items-center justify-between h-14">
 
             {/* Logo */}
             <Link href={`/${locale}`}
-              className="flex items-center gap-2 font-bold text-lg hover:text-[--accent] transition-colors text-[--text]"
+              className="flex items-center gap-2 font-bold text-lg hover:text-[var(--accent)] transition-colors text-[var(--text)]"
               style={{ whiteSpace: 'nowrap' }}>
               <Image src="/images/compy-logo.png" alt="" width={32} height={32} className="shrink-0 compy-logo" />
               Shop Compy
@@ -117,7 +117,7 @@ export default function Header() {
             <nav className="hidden md:flex items-center gap-0.5">
               {NAV.map(n => (
                 <Link key={n.href} href={n.href}
-                  className="px-3 py-2 rounded-lg font-medium transition-colors hover:text-[--accent] hover:bg-[--accent-bg] text-[--text-subtle]"
+                  className="px-3 py-2 rounded-lg font-medium transition-colors hover:text-[var(--accent)] hover:bg-[var(--accent-bg)] text-[var(--text-subtle)]"
                   style={{ fontSize: '0.875rem', whiteSpace: 'nowrap' }}>
                   {n.label}
                 </Link>
@@ -131,16 +131,16 @@ export default function Header() {
               <ThemeToggle />
               <button
                 ref={burgerRef}
-                className="p-2 rounded-lg hover:bg-[--bg-card] transition-colors"
+                className="p-2 rounded-lg hover:bg-[var(--bg-card)] transition-colors"
                 onClick={() => (open ? closeMenu() : setOpen(true))}
                 aria-label="Menu"
                 aria-expanded={open}
                 aria-controls="mobile-menu-panel"
               >
                 <div className="space-y-1.5">
-                  <span className={`block h-0.5 w-6 bg-[--text] transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
-                  <span className={`block h-0.5 w-6 bg-[--text] transition-opacity ${open ? 'opacity-0' : ''}`} />
-                  <span className={`block h-0.5 w-6 bg-[--text] transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+                  <span className={`block h-0.5 w-6 bg-[var(--text)] transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
+                  <span className={`block h-0.5 w-6 bg-[var(--text)] transition-opacity ${open ? 'opacity-0' : ''}`} />
+                  <span className={`block h-0.5 w-6 bg-[var(--text)] transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
                 </div>
               </button>
             </div>
@@ -149,11 +149,11 @@ export default function Header() {
       </div>
 
       {/* -- Ligne 2 : Sous-menu -- Toggle + CTA (desktop uniquement) -- */}
-      <div className="hidden md:block relative bg-[--bg-subtle] border-b border-[--border]" style={{ overflow: 'visible' }}>
+      <div className="hidden md:block relative bg-[var(--bg-subtle)] border-b border-[var(--border)]" style={{ overflow: 'visible' }}>
         <div className="container" style={{ overflow: 'visible' }}>
           <div className="flex items-center justify-between h-10">
             <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-[--text-muted]">
+              <span className="text-sm font-medium text-[var(--text-muted)]">
                 {t.nav.explanationMode}
               </span>
               <AnalogyToggle variant="pill" />
@@ -183,7 +183,7 @@ export default function Header() {
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
-          className="border-t border-[--border] bg-[--bg]"
+          className="border-t border-[var(--border)] bg-[var(--bg)]"
         >
           <nav className="container py-2">
             {NAV.map((n, i) => {
@@ -193,18 +193,18 @@ export default function Header() {
                   <Link href={n.href} onClick={closeMenu}
                     className={`block px-4 py-4 rounded-lg text-base font-medium transition-colors ${
                       isActive
-                        ? 'text-[--accent] bg-[--accent-bg]'
-                        : 'text-[--text-subtle] hover:text-[--accent] hover:bg-[--accent-bg]'
+                        ? 'text-[var(--accent)] bg-[var(--accent-bg)]'
+                        : 'text-[var(--text-subtle)] hover:text-[var(--accent)] hover:bg-[var(--accent-bg)]'
                     }`}>
                     {n.label}
                   </Link>
                   {i < NAV.length - 1 && (
-                    <div className="border-b border-[--border] mx-4" />
+                    <div className="border-b border-[var(--border)] mx-4" />
                   )}
                 </div>
               )
             })}
-            <div className="flex items-center justify-between px-4 pt-4 mt-2 border-t border-[--border]">
+            <div className="flex items-center justify-between px-4 pt-4 mt-2 border-t border-[var(--border)]">
               <div className="flex items-center gap-3">
                 <AnalogyToggle variant="pill" />
                 <LanguageSwitcher />

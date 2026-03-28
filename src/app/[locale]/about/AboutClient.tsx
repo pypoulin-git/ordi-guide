@@ -21,15 +21,15 @@ export default function AboutClient() {
       <section className="section">
         <div className="container max-w-3xl mx-auto">
           <div className="card" style={{ padding: '2.5rem', borderLeft: '4px solid var(--accent)' }}>
-            <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-[--accent]">
+            <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-[var(--accent)]">
               {a.origin}
             </p>
-            <blockquote className="text-xl leading-relaxed mb-0 text-[--text]" style={{ fontStyle: 'italic' }}>
+            <blockquote className="text-xl leading-relaxed mb-0 text-[var(--text)]" style={{ fontStyle: 'italic' }}>
               &laquo;&nbsp;{a.originQuote}&nbsp;&raquo;
             </blockquote>
           </div>
 
-          <div className="mt-6 text-[--text-subtle]">
+          <div className="mt-6 text-[var(--text-subtle)]">
             <p className="leading-relaxed mb-5">{a.originP1}</p>
           </div>
 
@@ -52,9 +52,9 @@ export default function AboutClient() {
                 }}
               />
               {/* Fallback if image not found */}
-              <div className="hidden items-center justify-center bg-[--bg-subtle] border border-[--border] rounded-xl"
+              <div className="hidden items-center justify-center bg-[var(--bg-subtle)] border border-[var(--border)] rounded-xl"
                 style={{ minHeight: '200px' }}>
-                <div className="text-center text-[--text-muted] px-6 py-8">
+                <div className="text-center text-[var(--text-muted)] px-6 py-8">
                   <span className="text-4xl block mb-3">🖥️</span>
                   <p className="text-sm italic">
                     {locale === 'fr'
@@ -64,32 +64,32 @@ export default function AboutClient() {
                 </div>
               </div>
             </div>
-            <p className="text-center text-sm italic mt-3 text-[--text-muted]">
+            <p className="text-center text-sm italic mt-3 text-[var(--text-muted)]">
               {locale === 'fr'
                 ? 'Les boutiques informatiques des années 2000 — une autre époque.'
                 : 'Computer shops from the 2000s — a different era.'}
             </p>
           </div>
 
-          <div className="text-[--text-subtle]">
+          <div className="text-[var(--text-subtle)]">
             <p className="leading-relaxed">{a.originP2}</p>
           </div>
         </div>
       </section>
 
       {/* Histoire 2 : aujourd'hui */}
-      <section className="section bg-[--bg-subtle]">
+      <section className="section bg-[var(--bg-subtle)]">
         <div className="container max-w-3xl mx-auto">
           <div className="card" style={{ padding: '2.5rem', borderLeft: '4px solid #7c3aed' }}>
             <p className="text-sm font-semibold uppercase tracking-wider mb-4" style={{ color: '#7c3aed' }}>
               {a.today}
             </p>
-            <blockquote className="text-xl leading-relaxed mb-0 text-[--text]" style={{ fontStyle: 'italic' }}>
+            <blockquote className="text-xl leading-relaxed mb-0 text-[var(--text)]" style={{ fontStyle: 'italic' }}>
               &laquo;&nbsp;{a.todayQuote}&nbsp;&raquo;
             </blockquote>
           </div>
 
-          <div className="mt-6 text-[--text-subtle]">
+          <div className="mt-6 text-[var(--text-subtle)]">
             <p className="leading-relaxed">{a.todayP1}</p>
           </div>
         </div>
@@ -98,16 +98,16 @@ export default function AboutClient() {
       {/* Mission */}
       <section className="section">
         <div className="container max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold mb-3 text-[--text]">{a.missionTitle}</h2>
-          <p className="leading-relaxed mb-8 text-[--text-subtle]">{a.missionIntro}</p>
+          <h2 className="text-2xl font-bold mb-3 text-[var(--text)]">{a.missionTitle}</h2>
+          <p className="leading-relaxed mb-8 text-[var(--text-subtle)]">{a.missionIntro}</p>
 
           <div className="space-y-4">
             <div className="card flex gap-5 items-start" style={{ padding: '1.5rem 2rem' }}>
               <div className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white bg-blue-600"
                 style={{ fontSize: '1rem' }}>1</div>
               <div>
-                <h3 className="font-bold mb-1 text-[--text]" style={{ fontSize: '1.0625rem' }}>{a.step1Title}</h3>
-                <p className="text-[--text-subtle]" style={{ fontSize: '0.9375rem' }}>{a.step1Desc}</p>
+                <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{a.step1Title}</h3>
+                <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{a.step1Desc}</p>
               </div>
             </div>
 
@@ -115,8 +115,8 @@ export default function AboutClient() {
               <div className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white"
                 style={{ background: '#7c3aed', fontSize: '1rem' }}>2</div>
               <div>
-                <h3 className="font-bold mb-1 text-[--text]" style={{ fontSize: '1.0625rem' }}>{a.step2Title}</h3>
-                <p className="text-[--text-subtle]" style={{ fontSize: '0.9375rem' }}>{a.step2Desc}</p>
+                <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{a.step2Title}</h3>
+                <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{a.step2Desc}</p>
               </div>
             </div>
 
@@ -124,8 +124,8 @@ export default function AboutClient() {
               <div className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white"
                 style={{ background: '#0891b2', fontSize: '1rem' }}>3</div>
               <div>
-                <h3 className="font-bold mb-1 text-[--text]" style={{ fontSize: '1.0625rem' }}>{a.step3Title}</h3>
-                <p className="text-[--text-subtle]" style={{ fontSize: '0.9375rem' }}>{a.step3Desc}</p>
+                <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{a.step3Title}</h3>
+                <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{a.step3Desc}</p>
               </div>
             </div>
           </div>
@@ -147,10 +147,10 @@ export default function AboutClient() {
       </section>
 
       {/* CTA */}
-      <section className="section bg-[--bg-subtle] border-t border-[--border]">
+      <section className="section bg-[var(--bg-subtle)] border-t border-[var(--border)]">
         <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-3 text-[--text]">{a.ctaTitle}</h2>
-          <p className="mb-6 text-[--text-subtle]">{a.ctaSubtitle}</p>
+          <h2 className="text-2xl font-bold mb-3 text-[var(--text)]">{a.ctaTitle}</h2>
+          <p className="mb-6 text-[var(--text-subtle)]">{a.ctaSubtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={`/${locale}/comparateur`} className="btn-primary">{a.ctaChoose}</Link>
             <Link href={`/${locale}/guide`} className="btn-outline">{a.ctaGuide}</Link>

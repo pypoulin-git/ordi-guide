@@ -43,11 +43,11 @@ export default function GuideClient() {
         <div className="container max-w-3xl mx-auto">
           <div className="card">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="font-semibold text-[--text]" style={{ fontSize: '1rem' }}>{g.tocTitle}</h2>
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm shrink-0 bg-[--bg-card] text-[--text-subtle]">
+              <h2 className="font-semibold text-[var(--text)]" style={{ fontSize: '1rem' }}>{g.tocTitle}</h2>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm shrink-0 bg-[var(--bg-card)] text-[var(--text-subtle)]">
                 <span>{modeIcon}</span>
                 <span>{g.modeLabel} <strong>{modeLabel}</strong></span>
-                <span className="text-[--text-muted]">·</span>
+                <span className="text-[var(--text-muted)]">·</span>
                 <AnalogyToggle variant="pill" />
               </div>
             </div>
@@ -57,7 +57,7 @@ export default function GuideClient() {
                 const componentMatch = title.match(/^(.*?)(,\s*.*)$/)
                 return (
                   <a key={s.id} href={`#${s.id}`}
-                    className="flex items-center gap-3 rounded-xl px-4 py-3 transition-all hover:shadow-md hover:-translate-y-0.5 bg-[--accent-bg] text-[--accent]"
+                    className="flex items-center gap-3 rounded-xl px-4 py-3 transition-all hover:shadow-md hover:-translate-y-0.5 bg-[var(--accent-bg)] text-[var(--accent)]"
                     style={{ border: '1px solid var(--border)' }}>
                     <span className="shrink-0">
                       <SectionSvgIcon component={s.component} mode={mode} size={42} />
@@ -107,7 +107,7 @@ export default function GuideClient() {
                 </div>
               )}
               <div>
-                <h2 className="text-2xl font-bold leading-tight text-[--text]">
+                <h2 className="text-2xl font-bold leading-tight text-[var(--text)]">
                   {s.title[mode]}
                 </h2>
                 {s.component && (
@@ -128,8 +128,8 @@ export default function GuideClient() {
                       ? '3px solid var(--accent)'
                       : undefined,
                   }}>
-                  <h3 className="font-semibold mb-2 text-[--text]">{c.subtitle}</h3>
-                  <p className="text-sm leading-relaxed text-[--text-subtle]">
+                  <h3 className="font-semibold mb-2 text-[var(--text)]">{c.subtitle}</h3>
+                  <p className="text-sm leading-relaxed text-[var(--text-subtle)]">
                     {isDual(c) ? c[mode] : c.text}
                   </p>
                 </div>
@@ -139,14 +139,14 @@ export default function GuideClient() {
               <div className="flex gap-4 items-start">
                 <Image src="/images/compy-logo.png" alt="Compy" width={44} height={44}
                   className="shrink-0 mt-1 hidden sm:block compy-logo" />
-                <div className="flex-1 min-w-0 p-4 rounded-xl bg-[--accent-bg]" style={{
+                <div className="flex-1 min-w-0 p-4 rounded-xl bg-[var(--accent-bg)]" style={{
                   border: '1px solid var(--border)',
                   borderLeft: '4px solid var(--accent)',
                 }}>
-                  <p className="font-semibold text-xs uppercase tracking-wide mb-1 text-[--accent]">
+                  <p className="font-semibold text-xs uppercase tracking-wide mb-1 text-[var(--accent)]">
                     {g.tipLabel}
                   </p>
-                  <p className="leading-relaxed text-[--text-subtle]" style={{ fontSize: '0.9375rem' }}>
+                  <p className="leading-relaxed text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>
                     {s.tip[mode]}
                   </p>
                 </div>
@@ -158,12 +158,12 @@ export default function GuideClient() {
       </div>
 
       {/* -- Bottom CTA -- */}
-      <section className="section bg-[--bg-subtle] border-t border-[--border]">
+      <section className="section bg-[var(--bg-subtle)] border-t border-[var(--border)]">
         <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-3 text-[--text]">
+          <h2 className="text-2xl font-bold mb-3 text-[var(--text)]">
             {g.ctaTitle}
           </h2>
-          <p className="mb-6 text-[--text-subtle]">
+          <p className="mb-6 text-[var(--text-subtle)]">
             {g.ctaSubtitle}
           </p>
           <Link href={`/${locale}/comparateur`} className="btn-primary">

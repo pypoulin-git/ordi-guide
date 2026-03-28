@@ -49,7 +49,7 @@ function ScoreBadge({ score, label }: { score: number; label: string }) {
           {score}
         </span>
       </div>
-      <span className="text-sm font-medium text-[--text-muted]">{label}</span>
+      <span className="text-sm font-medium text-[var(--text-muted)]">{label}</span>
     </div>
   )
 }
@@ -101,14 +101,14 @@ export default function ProductPage({ params }: Props) {
       <JsonLd data={productSchema} />
 
       {/* Breadcrumb */}
-      <div className="bg-[--bg-subtle] border-b border-[--border]">
+      <div className="bg-[var(--bg-subtle)] border-b border-[var(--border)]">
         <div className="container max-w-4xl mx-auto py-3">
-          <nav className="flex items-center gap-2 text-base text-[--text-muted]" aria-label="Breadcrumb">
-            <Link href={`/${locale}`} className="hover:underline text-[--accent]">{pt.breadcrumbHome}</Link>
+          <nav className="flex items-center gap-2 text-base text-[var(--text-muted)]" aria-label="Breadcrumb">
+            <Link href={`/${locale}`} className="hover:underline text-[var(--accent)]">{pt.breadcrumbHome}</Link>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="shrink-0 opacity-50"><path d="M5.646 3.354a.5.5 0 01.708-.708l5 5a.5.5 0 010 .708l-5 5a.5.5 0 01-.708-.708L10.293 8 5.646 3.354z"/></svg>
-            <Link href={`/${locale}/catalogue`} className="hover:underline text-[--accent]">{pt.breadcrumbCatalogue}</Link>
+            <Link href={`/${locale}/catalogue`} className="hover:underline text-[var(--accent)]">{pt.breadcrumbCatalogue}</Link>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="shrink-0 opacity-50"><path d="M5.646 3.354a.5.5 0 01.708-.708l5 5a.5.5 0 010 .708l-5 5a.5.5 0 01-.708-.708L10.293 8 5.646 3.354z"/></svg>
-            <span className="text-[--text-subtle] truncate">{product.brand} {product.name.slice(0, 40)}{product.name.length > 40 ? '...' : ''}</span>
+            <span className="text-[var(--text-subtle)] truncate">{product.brand} {product.name.slice(0, 40)}{product.name.length > 40 ? '...' : ''}</span>
           </nav>
         </div>
       </div>
@@ -127,7 +127,7 @@ export default function ProductPage({ params }: Props) {
                     style={{ background: source.color + '15', color: source.color }}>
                     {source.label}
                   </span>
-                  <span className="text-sm px-2.5 py-1 rounded-full bg-[--bg-card] text-[--text-subtle]">
+                  <span className="text-sm px-2.5 py-1 rounded-full bg-[var(--bg-card)] text-[var(--text-subtle)]">
                     {CATEGORY_LABELS[product.category]}
                   </span>
                   {product.isOnSale && product.originalPrice && (
@@ -136,28 +136,28 @@ export default function ProductPage({ params }: Props) {
                     </span>
                   )}
                 </div>
-                <p className="text-sm font-medium mb-1 text-[--text-muted]">{product.brand}</p>
-                <h1 className="text-2xl font-bold leading-tight text-[--text]">
+                <p className="text-sm font-medium mb-1 text-[var(--text-muted)]">{product.brand}</p>
+                <h1 className="text-2xl font-bold leading-tight text-[var(--text)]">
                   {product.name}
                 </h1>
               </div>
 
               {/* AI Rationale */}
-              <div className="p-5 rounded-xl bg-[--accent-bg]" style={{ borderLeft: '4px solid var(--success)' }}>
-                <p className="text-xs font-bold uppercase tracking-wide mb-2 text-[--success]">
+              <div className="p-5 rounded-xl bg-[var(--accent-bg)]" style={{ borderLeft: '4px solid var(--success)' }}>
+                <p className="text-xs font-bold uppercase tracking-wide mb-2 text-[var(--success)]">
                   {pt.aiOpinion}
                 </p>
-                <p className="leading-relaxed text-[--text-subtle]">
+                <p className="leading-relaxed text-[var(--text-subtle)]">
                   {product.aiRationale}
                 </p>
               </div>
 
               {/* Specs table */}
               <div>
-                <h2 className="font-bold mb-4 text-[--text]" style={{ fontSize: '1.125rem' }}>
+                <h2 className="font-bold mb-4 text-[var(--text)]" style={{ fontSize: '1.125rem' }}>
                   {pt.specifications}
                 </h2>
-                <div className="divide-y divide-[--border] border-t border-b border-[--border]">
+                <div className="divide-y divide-[var(--border)] border-t border-b border-[var(--border)]">
                   {[
                     { label: pt.cpuLabel, key: 'cpu', value: product.specs.cpu },
                     { label: pt.ramLabel, key: 'ram', value: product.specs.ram },
@@ -167,10 +167,10 @@ export default function ProductPage({ params }: Props) {
                     { label: pt.batteryLabel, key: 'battery', value: product.specs.battery },
                   ].filter(s => s.value).map(s => (
                     <div key={s.label} className="flex items-center py-3 gap-4">
-                      <span className="text-sm font-medium shrink-0 inline-flex items-center gap-1.5 text-[--text]" style={{ minWidth: '8rem' }}>
+                      <span className="text-sm font-medium shrink-0 inline-flex items-center gap-1.5 text-[var(--text)]" style={{ minWidth: '8rem' }}>
                         {s.label} <SpecTooltip specKey={s.key} />
                       </span>
-                      <span className="text-sm text-[--text-subtle]">{s.value}</span>
+                      <span className="text-sm text-[var(--text-subtle)]">{s.value}</span>
                     </div>
                   ))}
                 </div>
@@ -178,17 +178,17 @@ export default function ProductPage({ params }: Props) {
 
               {/* Profiles */}
               <div>
-                <h2 className="font-bold mb-3 text-[--text]" style={{ fontSize: '1.125rem' }}>
+                <h2 className="font-bold mb-3 text-[var(--text)]" style={{ fontSize: '1.125rem' }}>
                   {pt.idealFor}
                 </h2>
                 <div className="flex flex-wrap gap-2">
                   {product.profiles.map(p => (
-                    <div key={p} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[--accent-bg]"
+                    <div key={p} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--accent-bg)]"
                       style={{ border: '1px solid var(--border)' }}>
-                      <span className="text-sm font-semibold text-[--accent]">
+                      <span className="text-sm font-semibold text-[var(--accent)]">
                         {PROFILE_LABELS[p].label}
                       </span>
-                      <span className="text-sm text-[--text-muted]">
+                      <span className="text-sm text-[var(--text-muted)]">
                         {PROFILE_LABELS[p].desc}
                       </span>
                     </div>
@@ -203,15 +203,15 @@ export default function ProductPage({ params }: Props) {
                 <ScoreBadge score={product.aiScore} label={pt.aiScore} />
 
                 <div className="mt-5 mb-5">
-                  <span className="text-3xl font-bold text-[--text]">
+                  <span className="text-3xl font-bold text-[var(--text)]">
                     {product.price.toLocaleString('fr-CA')} $
                   </span>
                   {product.isOnSale && product.originalPrice && (
-                    <span className="ml-2 text-base line-through text-[--text-muted]">
+                    <span className="ml-2 text-base line-through text-[var(--text-muted)]">
                       {product.originalPrice.toLocaleString('fr-CA')} $
                     </span>
                   )}
-                  <p className="text-sm mt-1 text-[--text-muted]">
+                  <p className="text-sm mt-1 text-[var(--text-muted)]">
                     {BUDGET_LABELS[product.budgetTier]}
                   </p>
                 </div>
@@ -222,11 +222,11 @@ export default function ProductPage({ params }: Props) {
                   {pt.viewAt.replace('{source}', source.label)}
                 </a>
 
-                <p className="text-sm text-center text-[--text-muted]">
+                <p className="text-sm text-center text-[var(--text-muted)]">
                   {pt.affiliateNote}
                 </p>
 
-                <div className="mt-5 pt-5 border-t border-[--border]">
+                <div className="mt-5 pt-5 border-t border-[var(--border)]">
                   <Link href={`/${locale}/comparateur`}
                     className="btn-outline w-full justify-center text-sm">
                     {pt.notSure}
@@ -240,9 +240,9 @@ export default function ProductPage({ params }: Props) {
 
       {/* Similar products */}
       {similar.length > 0 && (
-        <section className="section bg-[--bg-subtle] border-t border-[--border]">
+        <section className="section bg-[var(--bg-subtle)] border-t border-[var(--border)]">
           <div className="container max-w-4xl mx-auto">
-            <h2 className="text-xl font-bold mb-6 text-[--text]">
+            <h2 className="text-xl font-bold mb-6 text-[var(--text)]">
               {pt.similarProducts}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -257,13 +257,13 @@ export default function ProductPage({ params }: Props) {
                         style={{ background: s.color + '15', color: s.color }}>
                         {s.label}
                       </span>
-                      <span className="text-sm font-bold text-[--warn]">{p.aiScore}/100</span>
+                      <span className="text-sm font-bold text-[var(--warn)]">{p.aiScore}/100</span>
                     </div>
-                    <p className="text-sm mb-0.5 text-[--text-muted]">{p.brand}</p>
-                    <h3 className="font-semibold text-sm mb-2 line-clamp-2 text-[--text]" style={{ lineHeight: 1.4 }}>
+                    <p className="text-sm mb-0.5 text-[var(--text-muted)]">{p.brand}</p>
+                    <h3 className="font-semibold text-sm mb-2 line-clamp-2 text-[var(--text)]" style={{ lineHeight: 1.4 }}>
                       {p.name}
                     </h3>
-                    <span className="text-lg font-bold text-[--text]">
+                    <span className="text-lg font-bold text-[var(--text)]">
                       {p.price.toLocaleString('fr-CA')} $
                     </span>
                   </Link>

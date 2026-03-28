@@ -62,10 +62,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             : 'Quebec-based computer buying guide platform.',
         }} />
       </head>
-      <body className="min-h-full flex flex-col bg-[--bg] text-[--text]">
+      <body className="min-h-full flex flex-col bg-[var(--bg)] text-[var(--text)]">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[--accent] focus:text-white focus:font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[--accent]"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[var(--accent)] focus:text-white focus:font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--accent)]"
         >
           {isFr ? 'Aller au contenu' : 'Skip to content'}
         </a>

@@ -67,8 +67,8 @@ export default function CompyBlogBar() {
           </svg>
         </div>
         <div>
-          <h3 className="text-base font-bold text-[--text]">{c.title}</h3>
-          <p className="text-sm text-[--text-muted]">{c.subtitle}</p>
+          <h3 className="text-base font-bold text-[var(--text)]">{c.title}</h3>
+          <p className="text-sm text-[var(--text-muted)]">{c.subtitle}</p>
         </div>
       </div>
 
@@ -83,7 +83,7 @@ export default function CompyBlogBar() {
             onKeyDown={e => e.key === 'Enter' && ask()}
             placeholder={c.placeholder}
             maxLength={200}
-            className="w-full px-4 py-3 rounded-xl text-sm bg-[--bg] border border-[--border] text-[--text] placeholder:text-[--text-muted] focus:outline-none focus:border-[--accent] transition-colors"
+            className="w-full px-4 py-3 rounded-xl text-sm bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
           />
         </div>
         <button
@@ -105,7 +105,7 @@ export default function CompyBlogBar() {
           {EXAMPLES.map((ex, i) => (
             <button key={i}
               onClick={() => { setQuery(ex); ask(ex) }}
-              className="text-sm px-3 py-1.5 rounded-lg border border-[--border] text-[--text-muted] hover:border-[--accent] hover:text-[--accent] transition-colors">
+              className="text-sm px-3 py-1.5 rounded-lg border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors">
               {ex}
             </button>
           ))}
@@ -129,21 +129,21 @@ export default function CompyBlogBar() {
             height={48}
             className="rounded-lg"
           />
-          <span className="text-sm font-medium text-[--text-muted] animate-pulse">{c.thinking}</span>
+          <span className="text-sm font-medium text-[var(--text-muted)] animate-pulse">{c.thinking}</span>
         </div>
       )}
 
       {/* Result */}
       {result && (
-        <div className="mt-4 p-5 rounded-xl border border-[--border] bg-[--bg]">
-          <p className="text-sm leading-relaxed text-[--text] whitespace-pre-line">
+        <div className="mt-4 p-5 rounded-xl border border-[var(--border)] bg-[var(--bg)]">
+          <p className="text-sm leading-relaxed text-[var(--text)] whitespace-pre-line">
             {result.answer}
           </p>
 
           {/* Matched articles */}
           {result.matchedArticles.length > 0 && (
-            <div className="mt-4 pt-4 border-t border-[--border]">
-              <p className="text-xs font-semibold uppercase tracking-wider text-[--text-muted] mb-2">
+            <div className="mt-4 pt-4 border-t border-[var(--border)]">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">
                 {c.relatedArticles}
               </p>
               <div className="space-y-2">
@@ -151,12 +151,12 @@ export default function CompyBlogBar() {
                   <Link key={a.slug} href={`/${locale}/blog/${a.slug}`}
                     className={`flex items-center justify-between rounded-lg transition-colors group ${
                       a.isTopMatch
-                        ? 'p-4 border-2 border-[--accent] bg-[--accent-bg] hover:shadow-md'
-                        : 'p-3 hover:bg-[--bg-card]'
+                        ? 'p-4 border-2 border-[var(--accent)] bg-[var(--accent-bg)] hover:shadow-md'
+                        : 'p-3 hover:bg-[var(--bg-card)]'
                     }`}>
                     <div className="flex-1 min-w-0">
-                      <span className={`font-medium group-hover:text-[--accent] transition-colors ${
-                        a.isTopMatch ? 'text-base text-[--accent]' : 'text-sm text-[--text]'
+                      <span className={`font-medium group-hover:text-[var(--accent)] transition-colors ${
+                        a.isTopMatch ? 'text-base text-[var(--accent)]' : 'text-sm text-[var(--text)]'
                       }`}>
                         {a.title}
                       </span>
@@ -167,7 +167,7 @@ export default function CompyBlogBar() {
                         {a.relevance}
                       </span>
                     ) : (
-                      <span className="shrink-0 ml-3 text-xs text-[--text-muted]">{a.relevance}</span>
+                      <span className="shrink-0 ml-3 text-xs text-[var(--text-muted)]">{a.relevance}</span>
                     )}
                   </Link>
                 ))}
@@ -176,7 +176,7 @@ export default function CompyBlogBar() {
           )}
 
           {result.isImprovised && (
-            <p className="mt-3 text-sm text-[--text-muted] italic">
+            <p className="mt-3 text-sm text-[var(--text-muted)] italic">
               {c.improvisedNote}
             </p>
           )}

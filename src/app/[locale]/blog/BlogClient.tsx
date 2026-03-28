@@ -95,13 +95,13 @@ export default function BlogClient() {
         </div>
         <div aria-hidden style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '28px' }}>
           <svg viewBox="0 0 1440 28" preserveAspectRatio="none" style={{ width: '100%', height: '100%', display: 'block' }}>
-            <path d="M0,28 L0,14 Q360,0 720,14 Q1080,28 1440,14 L1440,28 Z" className="fill-[--bg-subtle]" />
+            <path d="M0,28 L0,14 Q360,0 720,14 Q1080,28 1440,14 L1440,28 Z" style={{ fill: 'var(--bg-subtle)' }} />
           </svg>
         </div>
       </section>
 
       {/* ── Category + tag filters ── */}
-      <section className="bg-[--bg-subtle] border-b border-[--border]" style={{ padding: '1.25rem 0' }}>
+      <section className="bg-[var(--bg-subtle)] border-b border-[var(--border)]" style={{ padding: '1.25rem 0' }}>
         <div className="container">
           <div className="flex items-center gap-2.5 overflow-x-auto pb-1 scrollbar-none">
             {CATEGORIES.map(cat => {
@@ -126,7 +126,7 @@ export default function BlogClient() {
           </div>
           {allTags.length > 0 && (
             <div className="flex items-center gap-2 mt-3 overflow-x-auto pb-1 scrollbar-none">
-              <span className="text-xs uppercase tracking-wider font-semibold shrink-0 text-[--text-muted]">{b.tags}</span>
+              <span className="text-xs uppercase tracking-wider font-semibold shrink-0 text-[var(--text-muted)]">{b.tags}</span>
               {allTags.map(tag => (
                 <button key={tag}
                   onClick={() => setActiveTag(activeTag === tag ? null : tag)}
@@ -146,15 +146,15 @@ export default function BlogClient() {
       {/* ── Filter indicator ── */}
       {(activeCategory !== 'all' || activeTag) && (
         <div className="container" style={{ padding: '0.75rem 0 0' }}>
-          <div className="flex items-center gap-2 text-sm text-[--text-muted]">
+          <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
             <span>{b.found.replace('{count}', String(filtered.length)).replace(/\{plural\}/g, filtered.length > 1 ? 's' : '')}</span>
-            <button onClick={clearFilters} className="underline hover:text-[--accent]">{b.reset}</button>
+            <button onClick={clearFilters} className="underline hover:text-[var(--accent)]">{b.reset}</button>
           </div>
         </div>
       )}
 
       {/* ── Compy AI bar (top, above articles) ── */}
-      <section className="border-b border-[--border]" style={{ padding: '2rem 0', background: 'var(--bg-subtle)' }}>
+      <section className="border-b border-[var(--border)]" style={{ padding: '2rem 0', background: 'var(--bg-subtle)' }}>
         <div className="container max-w-3xl mx-auto">
           <CompyBlogBar />
         </div>
@@ -168,8 +168,8 @@ export default function BlogClient() {
               <svg width="48" height="48" viewBox="0 0 16 16" fill="var(--text-muted)" className="mx-auto mb-4">
                 <path d="M11.742 10.344a6.5 6.5 0 10-1.397 1.398h-.001l3.85 3.85a1 1 0 001.415-1.414l-3.85-3.85zm-5.242.156a5 5 0 110-10 5 5 0 010 10z" />
               </svg>
-              <p className="text-lg font-semibold text-[--text]">{b.noResults}</p>
-              <p className="text-base mt-1 text-[--text-muted]">{b.noResultsHint}</p>
+              <p className="text-lg font-semibold text-[var(--text)]">{b.noResults}</p>
+              <p className="text-base mt-1 text-[var(--text-muted)]">{b.noResultsHint}</p>
               <button onClick={clearFilters} className="btn-outline mt-4">{b.viewAll}</button>
             </div>
           ) : (
@@ -189,15 +189,15 @@ export default function BlogClient() {
         <section className="section" style={{ paddingTop: 0 }}>
           <div className="container">
             <div className="flex items-center justify-between mb-5">
-              <h2 className="text-xl font-bold text-[--text]">{b.otherArticles}</h2>
+              <h2 className="text-xl font-bold text-[var(--text)]">{b.otherArticles}</h2>
               {rest.length > 3 && (
                 <div className="flex gap-2">
                   <button onClick={() => scrollCarousel('left')} disabled={!canScrollLeft}
-                    className="w-9 h-9 rounded-full border border-[--border] flex items-center justify-center transition-all hover:border-[--accent] hover:text-[--accent] disabled:opacity-30" aria-label="Previous">
+                    className="w-9 h-9 rounded-full border border-[var(--border)] flex items-center justify-center transition-all hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:opacity-30" aria-label="Previous">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M10.354 3.354a.5.5 0 00-.708-.708l-5 5a.5.5 0 000 .708l5 5a.5.5 0 00.708-.708L5.707 8l4.647-4.646z"/></svg>
                   </button>
                   <button onClick={() => scrollCarousel('right')} disabled={!canScrollRight}
-                    className="w-9 h-9 rounded-full border border-[--border] flex items-center justify-center transition-all hover:border-[--accent] hover:text-[--accent] disabled:opacity-30" aria-label="Next">
+                    className="w-9 h-9 rounded-full border border-[var(--border)] flex items-center justify-center transition-all hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:opacity-30" aria-label="Next">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M5.646 3.354a.5.5 0 01.708-.708l5 5a.5.5 0 010 .708l-5 5a.5.5 0 01-.708-.708L10.293 8 5.646 3.354z"/></svg>
                   </button>
                 </div>
@@ -273,7 +273,7 @@ function CarouselCard({ article, locale, readLabel }: {
 }) {
   return (
     <Link href={`/${locale}/blog/${article.slug}`}
-      className="group block rounded-xl border border-[--border] bg-[--bg] transition-all hover:border-[--accent] hover:shadow-md shrink-0"
+      className="group block rounded-xl border border-[var(--border)] bg-[var(--bg)] transition-all hover:border-[var(--accent)] hover:shadow-md shrink-0"
       style={{ width: '300px', scrollSnapAlign: 'start' }}>
       <div className="rounded-t-xl" style={{ height: '6px', background: `linear-gradient(90deg, ${article.categoryColor}, ${article.categoryColor}60)` }} />
       <div className="p-5">
@@ -282,11 +282,11 @@ function CarouselCard({ article, locale, readLabel }: {
             style={{ background: article.categoryColor + '12', color: article.categoryColor }}>
             {article.category}
           </span>
-          <span className="text-xs text-[--text-muted]">{article.readTime}</span>
+          <span className="text-xs text-[var(--text-muted)]">{article.readTime}</span>
         </div>
-        <h3 className="text-base font-bold leading-snug group-hover:text-[--accent] transition-colors text-[--text] mb-2 line-clamp-2">{article.title}</h3>
-        <p className="text-sm leading-relaxed line-clamp-2 text-[--text-muted] mb-3">{article.description}</p>
-        <span className="text-sm font-semibold text-[--accent] opacity-0 group-hover:opacity-100 transition-opacity">{readLabel}</span>
+        <h3 className="text-base font-bold leading-snug group-hover:text-[var(--accent)] transition-colors text-[var(--text)] mb-2 line-clamp-2">{article.title}</h3>
+        <p className="text-sm leading-relaxed line-clamp-2 text-[var(--text-muted)] mb-3">{article.description}</p>
+        <span className="text-sm font-semibold text-[var(--accent)] opacity-0 group-hover:opacity-100 transition-opacity">{readLabel}</span>
       </div>
     </Link>
   )

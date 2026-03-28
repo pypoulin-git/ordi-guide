@@ -120,18 +120,18 @@ export default function HomePage() {
           position: 'absolute', bottom: 0, left: 0, right: 0, height: '48px',
         }}>
           <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{ width: '100%', height: '100%', display: 'block' }}>
-            <path d="M0,48 L0,24 Q360,0 720,24 Q1080,48 1440,24 L1440,48 Z" className="fill-[--bg]" />
+            <path d="M0,48 L0,24 Q360,0 720,24 Q1080,48 1440,24 L1440,48 Z" style={{ fill: 'var(--bg)' }} />
           </svg>
         </div>
       </section>
 
       {/* -- BARRE DE RECHERCHE -- */}
-      <section className="bg-[--bg]" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
+      <section className="bg-[var(--bg)]" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
         <div className="container max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-2 text-[--text]">
+          <h2 className="text-2xl font-bold text-center mb-2 text-[var(--text)]">
             {t.home.searchTitle}
           </h2>
-          <p className="text-center mb-6 text-[--text-muted]">
+          <p className="text-center mb-6 text-[var(--text-muted)]">
             {t.home.searchSubtitle}
           </p>
           <SearchBar />
@@ -139,16 +139,16 @@ export default function HomePage() {
       </section>
 
       {/* -- SECTION ANALOGIES ENCADREE -- */}
-      <section className="bg-[--bg-subtle]" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
+      <section className="bg-[var(--bg-subtle)]" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
         <div className="container max-w-4xl mx-auto">
-          <div className="rounded-2xl overflow-hidden bg-[--bg] border border-[--border]" style={{ borderWidth: '1.5px' }}>
+          <div className="rounded-2xl overflow-hidden bg-[var(--bg)] border border-[var(--border)]" style={{ borderWidth: '1.5px' }}>
 
             {/* En-tete de la section */}
-            <div className="px-8 py-5 border-b border-[--border] bg-[--bg-subtle]">
-              <h2 className="text-xl font-bold text-[--text]">
+            <div className="px-8 py-5 border-b border-[var(--border)] bg-[var(--bg-subtle)]">
+              <h2 className="text-xl font-bold text-[var(--text)]">
                 {t.home.analogyTitle}
               </h2>
-              <p className="text-sm mt-1 text-[--text-muted]">
+              <p className="text-sm mt-1 text-[var(--text-muted)]">
                 {t.home.analogySubtitle}
               </p>
             </div>
@@ -157,20 +157,20 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: '280px' }}>
 
               {/* Colonne gauche : toggle */}
-              <div className="flex flex-col justify-center px-8 py-6 border-r border-[--border]">
-                <p className="font-bold text-lg mb-1 text-[--text]">{t.home.analogyStyle}</p>
-                <p className="text-sm mb-4 text-[--text-muted]">
+              <div className="flex flex-col justify-center px-8 py-6 border-r border-[var(--border)]">
+                <p className="font-bold text-lg mb-1 text-[var(--text)]">{t.home.analogyStyle}</p>
+                <p className="text-sm mb-4 text-[var(--text-muted)]">
                   {t.home.analogyDesc}
                 </p>
                 <AnalogyToggle variant="card" />
-                <p className="text-sm mt-3 text-[--text-muted]">
+                <p className="text-sm mt-3 text-[var(--text-muted)]">
                   {t.home.analogyChangeAnytime}
                 </p>
               </div>
 
               {/* Colonne droite : 6 dimensions verticales */}
               <div className="px-8 py-6">
-                <p className="text-sm font-semibold uppercase tracking-wider mb-5 text-[--text-muted]">
+                <p className="text-sm font-semibold uppercase tracking-wider mb-5 text-[var(--text-muted)]">
                   {modeIcon} {t.home.analogyMode} {modeLabel}
                 </p>
                 <ul className="space-y-5">
@@ -185,14 +185,14 @@ export default function HomePage() {
                           })()}
                         </span>
                         <div className="flex-1 min-w-0">
-                          <div className="font-semibold text-[--text]" style={{ fontSize: '0.9375rem' }}>
+                          <div className="font-semibold text-[var(--text)]" style={{ fontSize: '0.9375rem' }}>
                             {analogy.name}
                           </div>
-                          <div className="text-sm text-[--text-muted]" style={{ lineHeight: 1.4 }}>
+                          <div className="text-sm text-[var(--text-muted)]" style={{ lineHeight: 1.4 }}>
                             {analogy.short}
                           </div>
                         </div>
-                        <span className="shrink-0 text-sm px-2.5 py-0.5 rounded-full mt-0.5 bg-[--bg-card] text-[--text-muted]"
+                        <span className="shrink-0 text-sm px-2.5 py-0.5 rounded-full mt-0.5 bg-[var(--bg-card)] text-[var(--text-muted)]"
                           style={{ whiteSpace: 'nowrap' }}>
                           {t.comp[comp as keyof typeof t.comp]}
                         </span>
@@ -208,16 +208,16 @@ export default function HomePage() {
       </section>
 
       {/* -- FEATURE CARDS -- */}
-      <section className="section bg-[--bg]">
+      <section className="section bg-[var(--bg)]">
         <div className="container">
-          <h2 className="text-2xl font-bold text-center mb-2 text-[--text]">{t.home.featuresTitle}</h2>
-          <p className="text-center mb-10 text-[--text-subtle]">{t.home.featuresSubtitle}</p>
+          <h2 className="text-2xl font-bold text-center mb-2 text-[var(--text)]">{t.home.featuresTitle}</h2>
+          <p className="text-center mb-10 text-[var(--text-subtle)]">{t.home.featuresSubtitle}</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map(f => (
               <Link key={f.href} href={f.href} className="card block hover:no-underline"
                 style={{ background: 'var(--bg-card)', borderColor: f.color + '30' }}>
-                <h3 className="text-xl font-bold mb-3 text-[--text]">{f.title}</h3>
-                <p className="leading-relaxed mb-5 text-[--text-subtle]">{f.desc}</p>
+                <h3 className="text-xl font-bold mb-3 text-[var(--text)]">{f.title}</h3>
+                <p className="leading-relaxed mb-5 text-[var(--text-subtle)]">{f.desc}</p>
                 <span className="font-semibold" style={{ color: f.color }}>{f.cta}</span>
               </Link>
             ))}
@@ -226,13 +226,13 @@ export default function HomePage() {
       </section>
 
       {/* -- REASSURANCES -- */}
-      <section className="section bg-[--bg-subtle]">
+      <section className="section bg-[var(--bg-subtle)]">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {reassurances.map(r => (
               <div key={r.label} className="text-center">
-                <div className="font-semibold mb-1 text-[--text]">{r.label}</div>
-                <div className="text-sm text-[--text-muted]">{r.desc}</div>
+                <div className="font-semibold mb-1 text-[var(--text)]">{r.label}</div>
+                <div className="text-sm text-[var(--text-muted)]">{r.desc}</div>
               </div>
             ))}
           </div>
@@ -240,36 +240,36 @@ export default function HomePage() {
       </section>
 
       {/* -- WARM ILLUSTRATION: Happy people with technology -- */}
-      <section className="section bg-[--bg]">
+      <section className="section bg-[var(--bg)]">
         <div className="container max-w-4xl mx-auto">
-          <div className="rounded-2xl overflow-hidden border border-[--border]"
+          <div className="rounded-2xl overflow-hidden border border-[var(--border)]"
             style={{ background: 'var(--bg-subtle)' }}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
               {/* Scene 1 */}
-              <div className="flex flex-col items-center justify-center p-8 text-center border-b md:border-b-0 md:border-r border-[--border]">
+              <div className="flex flex-col items-center justify-center p-8 text-center border-b md:border-b-0 md:border-r border-[var(--border)]">
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
                   style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
                   👵
                 </div>
-                <p className="text-sm font-semibold text-[--text] mb-1">
+                <p className="text-sm font-semibold text-[var(--text)] mb-1">
                   {locale === 'fr' ? 'Simple et clair' : 'Simple and clear'}
                 </p>
-                <p className="text-xs text-[--text-muted] leading-relaxed">
+                <p className="text-xs text-[var(--text-muted)] leading-relaxed">
                   {locale === 'fr'
                     ? 'Pas de jargon technique. On vous parle comme un ami.'
                     : 'No tech jargon. We talk to you like a friend.'}
                 </p>
               </div>
               {/* Scene 2 */}
-              <div className="flex flex-col items-center justify-center p-8 text-center border-b md:border-b-0 md:border-r border-[--border]">
+              <div className="flex flex-col items-center justify-center p-8 text-center border-b md:border-b-0 md:border-r border-[var(--border)]">
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
                   style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
                   👨‍👧
                 </div>
-                <p className="text-sm font-semibold text-[--text] mb-1">
+                <p className="text-sm font-semibold text-[var(--text)] mb-1">
                   {locale === 'fr' ? 'Pour toute la famille' : 'For the whole family'}
                 </p>
-                <p className="text-xs text-[--text-muted] leading-relaxed">
+                <p className="text-xs text-[var(--text-muted)] leading-relaxed">
                   {locale === 'fr'
                     ? 'Aidez vos parents ou grands-parents à choisir.'
                     : 'Help your parents or grandparents choose.'}
@@ -281,10 +281,10 @@ export default function HomePage() {
                   style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
                   😊
                 </div>
-                <p className="text-sm font-semibold text-[--text] mb-1">
+                <p className="text-sm font-semibold text-[var(--text)] mb-1">
                   {locale === 'fr' ? 'Achat sans stress' : 'Stress-free shopping'}
                 </p>
-                <p className="text-xs text-[--text-muted] leading-relaxed">
+                <p className="text-xs text-[var(--text-muted)] leading-relaxed">
                   {locale === 'fr'
                     ? 'Recommandations honnêtes, sans pression de vente.'
                     : 'Honest recommendations, no sales pressure.'}
@@ -296,25 +296,25 @@ export default function HomePage() {
       </section>
 
       {/* -- FAQ -- */}
-      <section className="section bg-[--bg]">
+      <section className="section bg-[var(--bg)]">
         <div className="container max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-2 text-[--text]">{t.home.faqTitle}</h2>
-          <p className="text-center mb-10 text-[--text-subtle]">{t.home.faqSubtitle}</p>
+          <h2 className="text-2xl font-bold text-center mb-2 text-[var(--text)]">{t.home.faqTitle}</h2>
+          <p className="text-center mb-10 text-[var(--text-subtle)]">{t.home.faqSubtitle}</p>
           <div className="space-y-3">
             {faqs.map((faq, i) => (
               <details key={i} className="card cursor-pointer" style={{ padding: '1.25rem 1.5rem' }}>
-                <summary className="font-semibold list-none flex items-center justify-between gap-4 text-[--text]"
+                <summary className="font-semibold list-none flex items-center justify-between gap-4 text-[var(--text)]"
                   style={{ fontSize: '1.0625rem' }}>
                   {faq.q}
-                  <span className="text-xl shrink-0 text-[--accent]">+</span>
+                  <span className="text-xl shrink-0 text-[var(--accent)]">+</span>
                 </summary>
-                <p className="mt-3 leading-relaxed text-[--text-subtle]">{faq.a}</p>
+                <p className="mt-3 leading-relaxed text-[var(--text-subtle)]">{faq.a}</p>
               </details>
             ))}
           </div>
-          <p className="text-center mt-6 text-sm text-[--text-muted]">
+          <p className="text-center mt-6 text-sm text-[var(--text-muted)]">
             {t.home.faqGlossaryHint}{' '}
-            <Link href={`/${locale}/glossaire`} className="underline text-[--accent]">
+            <Link href={`/${locale}/glossaire`} className="underline text-[var(--accent)]">
               {t.home.faqGlossaryLink}
             </Link>{' '}
             {t.home.faqGlossaryEnd}

@@ -43,7 +43,7 @@ export default function CatalogueFilters({ products }: { products: CatalogueProd
 
         {/* Profil */}
         <div>
-          <p className="text-base font-bold mb-2 text-[--text]">{cat.profileLabel}</p>
+          <p className="text-base font-bold mb-2 text-[var(--text)]">{cat.profileLabel}</p>
           <div className="flex flex-wrap gap-2.5">
             {(Object.keys(PROFILE_LABELS) as ProfileTag[]).map(key => (
               <button key={key} onClick={() => toggle('profile', key)}
@@ -62,7 +62,7 @@ export default function CatalogueFilters({ products }: { products: CatalogueProd
 
         {/* Budget */}
         <div>
-          <p className="text-base font-bold mb-2 text-[--text]">{cat.budgetLabel}</p>
+          <p className="text-base font-bold mb-2 text-[var(--text)]">{cat.budgetLabel}</p>
           <div className="flex flex-wrap gap-2.5">
             {(Object.keys(BUDGET_LABELS) as BudgetTier[]).map(key => (
               <button key={key} onClick={() => toggle('budget', key)}
@@ -81,7 +81,7 @@ export default function CatalogueFilters({ products }: { products: CatalogueProd
 
         {/* Categorie */}
         <div>
-          <p className="text-base font-bold mb-2 text-[--text]">{cat.categoryLabel}</p>
+          <p className="text-base font-bold mb-2 text-[var(--text)]">{cat.categoryLabel}</p>
           <div className="flex flex-wrap gap-2.5">
             {(Object.keys(CATEGORY_LABELS) as Category[]).map(key => (
               <button key={key} onClick={() => toggle('category', key)}
@@ -101,14 +101,14 @@ export default function CatalogueFilters({ products }: { products: CatalogueProd
         {/* Reset */}
         {hasFilters && (
           <button onClick={reset}
-            className="text-base font-medium transition-colors text-[--accent] underline">
+            className="text-base font-medium transition-colors text-[var(--accent)] underline">
             {cat.clearFilters}
           </button>
         )}
       </div>
 
       {/* Results count */}
-      <p className="text-base mb-5 text-[--text-muted]">
+      <p className="text-base mb-5 text-[var(--text-muted)]">
         {filtered.length} {filtered.length > 1 ? cat.productPlural : cat.productSingular}
         {hasFilters ? ` ${cat.matching}` : ` ${cat.total}`}
       </p>
@@ -125,13 +125,13 @@ export default function CatalogueFilters({ products }: { products: CatalogueProd
           <div style={{ fontSize: '3rem', marginBottom: '1rem' }} aria-hidden>
             🔍
           </div>
-          <p className="text-xl font-bold mb-3 text-[--text]">
+          <p className="text-xl font-bold mb-3 text-[var(--text)]">
             {cat.noProducts}
           </p>
-          <p className="text-base leading-relaxed mb-2 text-[--text-muted]">
+          <p className="text-base leading-relaxed mb-2 text-[var(--text-muted)]">
             {cat.noProductsHint}
           </p>
-          <p className="text-base mb-6 text-[--text-muted]">
+          <p className="text-base mb-6 text-[var(--text-muted)]">
             {cat.noProductsSuggestion}
           </p>
           <button onClick={reset}

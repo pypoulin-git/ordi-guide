@@ -52,14 +52,14 @@ export default function ArticlePage({ params }: Props) {
       <JsonLd data={articleSchema} />
 
       {/* Breadcrumb */}
-      <div className="bg-[--bg-subtle] border-b border-[--border]">
+      <div className="bg-[var(--bg-subtle)] border-b border-[var(--border)]">
         <div className="container max-w-3xl mx-auto py-3">
-          <nav className="flex items-center gap-2 text-base text-[--text-muted]" aria-label="Breadcrumb">
-            <Link href={`/${locale}`} className="hover:underline text-[--accent]">{ba.breadcrumbHome}</Link>
+          <nav className="flex items-center gap-2 text-base text-[var(--text-muted)]" aria-label="Breadcrumb">
+            <Link href={`/${locale}`} className="hover:underline text-[var(--accent)]">{ba.breadcrumbHome}</Link>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="shrink-0 opacity-50"><path d="M5.646 3.354a.5.5 0 01.708-.708l5 5a.5.5 0 010 .708l-5 5a.5.5 0 01-.708-.708L10.293 8 5.646 3.354z"/></svg>
-            <Link href={`/${locale}/blog`} className="hover:underline text-[--accent]">{ba.breadcrumbBlog}</Link>
+            <Link href={`/${locale}/blog`} className="hover:underline text-[var(--accent)]">{ba.breadcrumbBlog}</Link>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="shrink-0 opacity-50"><path d="M5.646 3.354a.5.5 0 01.708-.708l5 5a.5.5 0 010 .708l-5 5a.5.5 0 01-.708-.708L10.293 8 5.646 3.354z"/></svg>
-            <span className="text-[--text-subtle] truncate">{article.title.slice(0, 50)}{article.title.length > 50 ? '...' : ''}</span>
+            <span className="text-[var(--text-subtle)] truncate">{article.title.slice(0, 50)}{article.title.length > 50 ? '...' : ''}</span>
           </nav>
         </div>
       </div>
@@ -92,7 +92,7 @@ export default function ArticlePage({ params }: Props) {
         </div>
 
         <div className="container max-w-3xl mx-auto" style={{ position: 'relative', zIndex: 1 }}>
-          <Link href={`/${locale}/blog`} className="inline-flex items-center gap-1 text-sm mb-5 hover:underline text-[--accent]">
+          <Link href={`/${locale}/blog`} className="inline-flex items-center gap-1 text-sm mb-5 hover:underline text-[var(--accent)]">
             {ba.backToBlog}
           </Link>
           <div className="flex items-center gap-2 mb-4">
@@ -100,14 +100,14 @@ export default function ArticlePage({ params }: Props) {
               style={{ background: article.categoryColor + '18', color: article.categoryColor, border: `1px solid ${article.categoryColor}30` }}>
               {article.category}
             </span>
-            <span className="text-sm text-[--text-muted]">
+            <span className="text-sm text-[var(--text-muted)]">
               {article.readTime} · {new Date(article.date).toLocaleDateString(locale === 'fr' ? 'fr-CA' : 'en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-[--text]">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-[var(--text)]">
             {article.title}
           </h1>
-          <p className="text-lg leading-relaxed text-[--text-subtle]">
+          <p className="text-lg leading-relaxed text-[var(--text-subtle)]">
             {article.description}
           </p>
         </div>
@@ -115,7 +115,7 @@ export default function ArticlePage({ params }: Props) {
         {/* Subtle wave */}
         <div aria-hidden style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '20px' }}>
           <svg viewBox="0 0 1440 20" preserveAspectRatio="none" style={{ width: '100%', height: '100%', display: 'block' }}>
-            <path d="M0,20 L0,10 Q360,0 720,10 Q1080,20 1440,10 L1440,20 Z" className="fill-[--bg]" />
+            <path d="M0,20 L0,10 Q360,0 720,10 Q1080,20 1440,10 L1440,20 Z" style={{ fill: 'var(--bg)' }} />
           </svg>
         </div>
       </section>
@@ -123,11 +123,11 @@ export default function ArticlePage({ params }: Props) {
       {/* -- TL;DR -- */}
       <section className="section" style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>
         <div className="container max-w-3xl mx-auto">
-          <div className="p-5 rounded-xl bg-[--accent-bg]" style={{ border: '1px solid var(--border)' }}>
-            <div className="flex items-center gap-2 font-semibold text-base mb-2 text-[--accent]">
+          <div className="p-5 rounded-xl bg-[var(--accent-bg)]" style={{ border: '1px solid var(--border)' }}>
+            <div className="flex items-center gap-2 font-semibold text-base mb-2 text-[var(--accent)]">
               {ba.tldr}
             </div>
-            <p className="text-base leading-relaxed text-[--text-subtle]">
+            <p className="text-base leading-relaxed text-[var(--text-subtle)]">
               {article.tldr}
             </p>
           </div>
@@ -139,12 +139,12 @@ export default function ArticlePage({ params }: Props) {
         <div className="space-y-10">
           {article.sections.map((section, i) => (
             <section key={i}>
-              <h2 className="text-2xl font-bold mb-4 text-[--text]">
+              <h2 className="text-2xl font-bold mb-4 text-[var(--text)]">
                 {section.title}
               </h2>
               <div className="space-y-4">
                 {section.paragraphs.map((p, j) => (
-                  <p key={j} className="text-base leading-relaxed text-[--text-subtle]">
+                  <p key={j} className="text-base leading-relaxed text-[var(--text-subtle)]">
                     {p}
                   </p>
                 ))}
@@ -155,9 +155,9 @@ export default function ArticlePage({ params }: Props) {
       </div>
 
       {/* -- Bottom CTA -- */}
-      <section className="section bg-[--bg-subtle] border-t border-[--border]">
+      <section className="section bg-[var(--bg-subtle)] border-t border-[var(--border)]">
         <div className="container max-w-3xl mx-auto text-center">
-          <p className="mb-4 text-[--text-subtle]">
+          <p className="mb-4 text-[var(--text-subtle)]">
             {article.ctaText}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -27,7 +27,7 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
           </span>
         </div>
         <div className="flex items-center gap-1">
-          <span className="text-sm font-semibold text-[--warn]">
+          <span className="text-sm font-semibold text-[var(--warn)]">
             {product.aiScore}/100
           </span>
         </div>
@@ -37,8 +37,8 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
       <div className="px-5 pt-3 pb-4 flex-1 flex flex-col">
 
         {/* Nom et marque */}
-        <p className="text-sm font-medium mb-1 text-[--text-muted]">{product.brand}</p>
-        <h3 className="font-bold mb-3 text-[--text]" style={{ fontSize: '1.0625rem', lineHeight: 1.3 }}>
+        <p className="text-sm font-medium mb-1 text-[var(--text-muted)]">{product.brand}</p>
+        <h3 className="font-bold mb-3 text-[var(--text)]" style={{ fontSize: '1.0625rem', lineHeight: 1.3 }}>
           {product.name}
         </h3>
 
@@ -52,17 +52,17 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
             { key: 'display', label: cat.displayLabel, value: product.specs.display },
           ] as const).filter(s => s.value).map(s => (
             <div key={s.key} className="flex items-start gap-2 text-sm">
-              <span className="shrink-0 font-medium inline-flex items-center gap-1 text-[--text]" style={{ minWidth: '4rem' }}>
+              <span className="shrink-0 font-medium inline-flex items-center gap-1 text-[var(--text)]" style={{ minWidth: '4rem' }}>
                 {s.label} <SpecTooltip specKey={s.key} />
               </span>
-              <span className="text-[--text-muted]">{s.value}</span>
+              <span className="text-[var(--text-muted)]">{s.value}</span>
             </div>
           ))}
         </div>
 
         {/* Avis IA */}
-        <div className="p-3 rounded-lg mb-4 bg-[--bg-subtle]" style={{ borderLeft: '3px solid var(--accent)' }}>
-          <p className="text-sm leading-relaxed text-[--text-subtle]">
+        <div className="p-3 rounded-lg mb-4 bg-[var(--bg-subtle)]" style={{ borderLeft: '3px solid var(--accent)' }}>
+          <p className="text-sm leading-relaxed text-[var(--text-subtle)]">
             {product.aiRationale}
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
         {/* Profils */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {product.profiles.map(p => (
-            <span key={p} className="text-sm px-2.5 py-1 rounded-full bg-[--accent-bg] text-[--accent]">
+            <span key={p} className="text-sm px-2.5 py-1 rounded-full bg-[var(--accent-bg)] text-[var(--accent)]">
               {PROFILE_LABELS[p].label}
             </span>
           ))}
@@ -80,13 +80,13 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
         <div className="flex-1" />
 
         {/* Prix + CTA */}
-        <div className="flex items-end justify-between pt-2 border-t border-[--border]">
+        <div className="flex items-end justify-between pt-2 border-t border-[var(--border)]">
           <div>
-            <span className="text-2xl font-bold text-[--text]">
+            <span className="text-2xl font-bold text-[var(--text)]">
               {product.price.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en-CA')} $
             </span>
             {product.isOnSale && product.originalPrice && (
-              <span className="ml-2 text-sm line-through text-[--text-muted]">
+              <span className="ml-2 text-sm line-through text-[var(--text-muted)]">
                 {product.originalPrice.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en-CA')} $
               </span>
             )}

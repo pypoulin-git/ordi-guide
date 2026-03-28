@@ -71,7 +71,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="p-2 rounded-lg transition-colors hover:bg-[--accent-bg]"
+      className="p-2 rounded-lg transition-colors hover:bg-[var(--accent-bg)]"
       style={{ color: dark ? '#fbbf24' : '#64748b' }}
       aria-label={dark ? t.nav.themeLight : t.nav.themeDark}
       title={dark ? t.nav.themeLight : t.nav.themeDark}

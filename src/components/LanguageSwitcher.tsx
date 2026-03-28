@@ -16,7 +16,7 @@ export default function LanguageSwitcher() {
   return (
     <Link
       href={switchedPath}
-      className="ml-2 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wide transition-colors hover:bg-[--accent-bg]"
+      className="ml-2 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wide transition-colors hover:bg-[var(--accent-bg)]"
       style={{
         color: 'var(--accent)',
         border: '1.5px solid var(--accent)',

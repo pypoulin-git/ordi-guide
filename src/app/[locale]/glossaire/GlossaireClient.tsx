@@ -47,7 +47,7 @@ export default function GlossaireClient() {
       />
 
       {/* -- Quick nav -- */}
-      <section className="bg-[--bg-subtle] border-b border-[--border]" style={{ padding: '1rem 0' }}>
+      <section className="bg-[var(--bg-subtle)] border-b border-[var(--border)]" style={{ padding: '1rem 0' }}>
         <div className="container max-w-3xl mx-auto">
           <div className="flex flex-wrap gap-3 justify-center">
             {letters.map(l => (
@@ -70,18 +70,18 @@ export default function GlossaireClient() {
                 style={{ background: 'var(--accent-bg)', color: '#7c3aed' }}>
                 {letter}
               </span>
-              <div className="flex-1 h-px bg-[--border]" />
+              <div className="flex-1 h-px bg-[var(--border)]" />
             </div>
             <div className="space-y-4">
               {grouped[letter].map(term => (
                 <div key={term.term} className="card">
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
-                    <span className="text-xl font-bold text-[--text]">{term.term}</span>
+                    <span className="text-xl font-bold text-[var(--text)]">{term.term}</span>
                     <span className="text-sm font-medium" style={{ color: '#7c3aed' }}>{term.full}</span>
-                    <span className="text-sm text-[--text-muted]">· {term.fr}</span>
+                    <span className="text-sm text-[var(--text-muted)]">· {term.fr}</span>
                   </div>
-                  <p className="text-sm leading-relaxed mb-2 text-[--text-subtle]">{term.def}</p>
-                  <p className="text-sm text-[--text-muted]">
+                  <p className="text-sm leading-relaxed mb-2 text-[var(--text-subtle)]">{term.def}</p>
+                  <p className="text-sm text-[var(--text-muted)]">
                     <span className="font-medium">{g.exLabel}</span> {term.example}
                   </p>
                 </div>
@@ -92,12 +92,12 @@ export default function GlossaireClient() {
       </div>
 
       {/* -- Bottom CTA -- */}
-      <section className="section bg-[--bg-subtle] border-t border-[--border]">
+      <section className="section bg-[var(--bg-subtle)] border-t border-[var(--border)]">
         <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-3 text-[--text]">
+          <h2 className="text-2xl font-bold mb-3 text-[var(--text)]">
             {g.ctaTitle}
           </h2>
-          <p className="mb-6 text-[--text-subtle]">
+          <p className="mb-6 text-[var(--text-subtle)]">
             {g.ctaSubtitle}
           </p>
           <Link href={`/${locale}/comparateur`} className="btn-primary">

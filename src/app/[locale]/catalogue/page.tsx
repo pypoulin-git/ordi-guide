@@ -51,13 +51,13 @@ export default async function CataloguePage({
       </section>
 
       {/* Bottom CTA */}
-      <section className="section bg-[--bg-subtle] border-t border-[--border]">
+      <section className="section bg-[var(--bg-subtle)] border-t border-[var(--border)]">
         <div className="container max-w-3xl mx-auto">
           <div className="card text-center" style={{ padding: '2.5rem' }}>
-            <h2 className="text-xl font-bold mb-3 text-[--text]">
+            <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
               {isFr ? 'Pas certain de ton choix ?' : 'Not sure which one to pick?'}
             </h2>
-            <p className="mb-6 text-[--text-subtle]">
+            <p className="mb-6 text-[var(--text-subtle)]">
               {isFr
                 ? 'Notre outil comparateur te donne une recommandation personnalisée en moins de deux minutes. Réponds à 5 questions simples.'
                 : 'Our recommendation tool gives you a personalized suggestion in under two minutes. Answer 5 simple questions.'}

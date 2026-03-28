@@ -1,0 +1,299 @@
+{
+  "timestamp": "2026-03-28T06:00:01.904Z",
+  "baseUrl": "https://ordi-guide.vercel.app",
+  "pages": [
+    {
+      "url": "https://ordi-guide.vercel.app/fr",
+      "label": "[FR] /",
+      "status": 200,
+      "elapsed": 2003,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 74300,
+      "issues": [
+        "Emojis trouvés (7): ✓ 👵 👨 👧 😊"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/fr/guide",
+      "label": "[FR] /guide",
+      "status": 200,
+      "elapsed": 374,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 86096,
+      "issues": [
+        "Emojis trouvés (2): ✓ ⚡"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/fr/comparateur",
+      "label": "[FR] /comparateur",
+      "status": 200,
+      "elapsed": 235,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 48228,
+      "issues": [
+        "Emojis trouvés (2): ✓ ⚡"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/fr/glossaire",
+      "label": "[FR] /glossaire",
+      "status": 200,
+      "elapsed": 275,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 86112,
+      "issues": [
+        "Emojis trouvés (3): ⚡ ✓"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/fr/catalogue",
+      "label": "[FR] /catalogue",
+      "status": 200,
+      "elapsed": 300,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 161053,
+      "issues": [
+        "Emojis trouvés (2): ✓ ⚡"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/fr/blog",
+      "label": "[FR] /blog",
+      "status": 200,
+      "elapsed": 243,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 82963,
+      "issues": [
+        "Emojis trouvés (2): ✓ ⚡"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/fr/about",
+      "label": "[FR] /about",
+      "status": 200,
+      "elapsed": 216,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 55316,
+      "issues": [
+        "Emojis trouvés (3): 🖥 ✓ ⚡"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/en",
+      "label": "[EN] /",
+      "status": 200,
+      "elapsed": 126,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 72570,
+      "issues": [
+        "Emojis trouvés (7): ✓ 👵 👨 👧 😊"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/en/guide",
+      "label": "[EN] /guide",
+      "status": 200,
+      "elapsed": 131,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 83940,
+      "issues": [
+        "Emojis trouvés (2): ✓ ⚡"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/en/comparateur",
+      "label": "[EN] /comparateur",
+      "status": 200,
+      "elapsed": 115,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 46883,
+      "issues": [
+        "Emojis trouvés (2): ✓ ⚡"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/en/glossaire",
+      "label": "[EN] /glossaire",
+      "status": 200,
+      "elapsed": 103,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 83534,
+      "issues": [
+        "Emojis trouvés (3): ⚡ ✓"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/en/catalogue",
+      "label": "[EN] /catalogue",
+      "status": 200,
+      "elapsed": 112,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 159765,
+      "issues": [
+        "Emojis trouvés (2): ✓ ⚡"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/en/blog",
+      "label": "[EN] /blog",
+      "status": 200,
+      "elapsed": 166,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 81301,
+      "issues": [
+        "Emojis trouvés (2): ✓ ⚡"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/en/about",
+      "label": "[EN] /about",
+      "status": 200,
+      "elapsed": 138,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 53496,
+      "issues": [
+        "Emojis trouvés (3): 🖥 ✓ ⚡"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/fr/blog/processeur-cerveau-moteur-ordinateur",
+      "label": "[FR] /blog/processeur-cerveau-moteur-ordinateur",
+      "status": 200,
+      "elapsed": 248,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 72803,
+      "issues": [
+        "Emojis trouvés (4): ⚡ ✓"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/fr/blog/ram-memoire-vive-poumons-transmission",
+      "label": "[FR] /blog/ram-memoire-vive-poumons-transmission",
+      "status": 200,
+      "elapsed": 110,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 72319,
+      "issues": [
+        "Emojis trouvés (4): ⚡ ✓"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/fr/blog/ssd-stockage-memoire-coffre",
+      "label": "[FR] /blog/ssd-stockage-memoire-coffre",
+      "status": 200,
+      "elapsed": 161,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 52637,
+      "issues": [
+        "Emojis trouvés (2): ✓ ⚡"
+      ]
+    },
+    {
+      "url": "https://ordi-guide.vercel.app/fr/catalogue/bestbuy-asus-rog-strix-g16-2024-gaming-laptop",
+      "label": "[FR] /catalogue/bestbuy-asus-rog-strix-g16-2024-gaming-laptop",
+      "status": 200,
+      "elapsed": 244,
+      "hasTitle": true,
+      "hasMetaDesc": true,
+      "hasOG": true,
+      "size": 85397,
+      "issues": [
+        "Emojis trouvés (2): ✓ ⚡"
+      ]
+    }
+  ],
+  "api": [
+    {
+      "path": "/api/search",
+      "method": "POST",
+      "status": 200,
+      "elapsed": 1651,
+      "hasData": true,
+      "hasError": false,
+      "errorMsg": null,
+      "issues": []
+    },
+    {
+      "path": "/api/blog-ask",
+      "method": "POST",
+      "status": 200,
+      "elapsed": 1275,
+      "hasData": true,
+      "hasError": false,
+      "errorMsg": null,
+      "issues": []
+    }
+  ],
+  "seo": [
+    {
+      "check": "robots.txt",
+      "ok": true,
+      "detail": "91 bytes"
+    },
+    {
+      "check": "sitemap.xml",
+      "ok": true,
+      "detail": "86 URLs"
+    },
+    {
+      "check": "canonical",
+      "ok": true,
+      "detail": "Présent"
+    },
+    {
+      "check": "hreflang",
+      "ok": false,
+      "detail": "Manquant"
+    }
+  ],
+  "content": [],
+  "errors": [],
+  "warnings": [
+    "Hreflang manquant sur homepage FR"
+  ],
+  "summary": {
+    "totalPages": 18,
+    "okPages": 18,
+    "errorPages": 0,
+    "slowPages": 0,
+    "totalIssues": 18,
+    "totalErrors": 0,
+    "totalWarnings": 1,
+    "avgResponseMs": 294
+  }
+}
