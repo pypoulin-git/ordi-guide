@@ -1,10 +1,8 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
 import { promises as fs } from 'fs'
 import path from 'path'
 import type { CatalogueData } from '@/types/catalogue'
-import CatalogueFilters from '@/components/CatalogueFilters'
-import PageHero from '@/components/PageHero'
+import CatalogueLayout from '@/components/CatalogueLayout'
 import { getDictionary } from '@/i18n/get-dictionary'
 import type { Locale } from '@/i18n/config'
 
@@ -31,46 +29,28 @@ export default async function CataloguePage({
   const catalogue = await getCatalogue()
   const products = catalogue.products.sort((a, b) => b.aiScore - a.aiScore)
 
-  const isFr = locale === 'fr'
-
   return (
     <>
-      {/* Hero */}
-      <PageHero
-        title={cat.heroTitle}
-        subtitle={cat.heroSubtitleTemplate.replace('{count}', String(products.length))}
-        gradient="linear-gradient(135deg, #064e3b 0%, #059669 50%, #34d399 100%)"
-        accentColor="#059669"
-      />
-
-      {/* Filters + Grid */}
-      <section className="section">
+      {/* Compact hero header */}
+      <section
+        className="border-b border-[var(--border)]"
+        style={{
+          background: 'linear-gradient(135deg, #064e3b 0%, #059669 60%, #34d399 100%)',
+          padding: '1.5rem 0 1.75rem',
+        }}
+      >
         <div className="container">
-          <CatalogueFilters products={products} />
+          <h1 className="text-2xl md:text-3xl font-bold text-white">{cat.heroTitle}</h1>
+          <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.7)' }}>
+            {cat.heroSubtitleTemplate.replace('{count}', String(products.length))}
+          </p>
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="section bg-[var(--bg-subtle)] border-t border-[var(--border)]">
-        <div className="container max-w-3xl mx-auto">
-          <div className="card text-center" style={{ padding: '2.5rem' }}>
-            <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
-              {isFr ? 'Pas certain de ton choix ?' : 'Not sure which one to pick?'}
-            </h2>
-            <p className="mb-6 text-[var(--text-subtle)]">
-              {isFr
-                ? 'Notre outil comparateur te donne une recommandation personnalisée en moins de deux minutes. Réponds à 5 questions simples.'
-                : 'Our recommendation tool gives you a personalized suggestion in under two minutes. Answer 5 simple questions.'}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href={`/${locale}/comparateur`} className="btn-primary">
-                {isFr ? 'M\'aider à choisir →' : 'Help me choose →'}
-              </Link>
-              <Link href={`/${locale}/guide`} className="btn-outline">
-                {isFr ? 'Lire le guide' : 'Read the guide'}
-              </Link>
-            </div>
-          </div>
+      {/* Sidebar + Grid layout */}
+      <section className="section" style={{ paddingTop: '1.5rem' }}>
+        <div className="container">
+          <CatalogueLayout products={products} />
         </div>
       </section>
     </>
