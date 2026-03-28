@@ -5,7 +5,6 @@ import { useAnalogy, type AnalogyMode } from '@/contexts/AnalogyContext'
 import AnalogyToggle from '@/components/AnalogyToggle'
 import PageHero from '@/components/PageHero'
 import TechIllustration, { getAnalogyVariant } from '@/components/TechIllustration'
-import ActionCTA from '@/components/ActionCTA'
 import { useTranslation } from '@/i18n/DictionaryContext'
 import { getGuideSections, type Section, type ContentBlock, type DualContent } from '@/content/guide-sections'
 
@@ -156,11 +155,6 @@ export default function GuideClient() {
         {conclusionSections.map((s, idx) => (
           <GenericSection key={s.id} section={s} idx={idx} mode={mode} tipLabel={g.tipLabel} />
         ))}
-      </div>
-
-      {/* -- Expert help CTA -- */}
-      <div className="container max-w-3xl mx-auto pb-6">
-        <ActionCTA variant="compact" />
       </div>
 
       {/* -- Bottom CTA -- */}

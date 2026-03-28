@@ -24,9 +24,12 @@ export default function AboutClient() {
             <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-[var(--accent)]">
               {a.origin}
             </p>
-            <blockquote className="text-lg sm:text-xl leading-relaxed mb-0 text-[var(--text)]" style={{ fontStyle: 'italic' }}>
+            <blockquote className="text-lg sm:text-xl leading-relaxed mb-3 text-[var(--text)]" style={{ fontStyle: 'italic' }}>
               &laquo;&nbsp;{a.originQuote}&nbsp;&raquo;
             </blockquote>
+            <p className="text-sm text-[var(--text-muted)] text-right font-medium">
+              — {locale === 'fr' ? 'Le propriétaire' : 'The owner'}
+            </p>
           </div>
 
           <div className="mt-6 text-[var(--text-subtle)]">
@@ -37,13 +40,13 @@ export default function AboutClient() {
           <div className="my-8 max-w-2xl mx-auto">
             <div className="relative rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=900&q=80&auto=format"
+                src="/images/ImageKiosque.png"
                 alt={locale === 'fr'
-                  ? 'Une boutique informatique remplie d\'ordinateurs, ambiance nostalgique'
-                  : 'A computer store filled with machines, nostalgic vibes'}
+                  ? 'Le kiosque Compu-Station dans un centre commercial québécois, années 2000'
+                  : 'The Compu-Station kiosk in a Quebec shopping mall, early 2000s'}
                 width={900}
                 height={500}
-                className="w-full h-auto grayscale-[30%] hover:grayscale-0 transition-all duration-700"
+                className="w-full h-auto"
                 style={{ objectFit: 'cover' }}
               />
             </div>
