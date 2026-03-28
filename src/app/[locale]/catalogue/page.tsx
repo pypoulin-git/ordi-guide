@@ -49,7 +49,7 @@ export default async function CataloguePage({
 
       {/* Sidebar + Grid layout */}
       <section className="section" style={{ paddingTop: '1.5rem' }}>
-        <div className="container">
+        <div className="container" style={{ maxWidth: '1400px' }}>
           <CatalogueLayout products={products} />
         </div>
       </section>
