@@ -6,8 +6,8 @@
  */
 
 type Variant =
-  | 'cpu' | 'ram' | 'ssd' | 'gpu' | 'battery' | 'screen'     // component icons (body mode)
-  | 'engine' | 'transmission' | 'trunk' | 'turbo' | 'fuel' | 'windshield'  // component icons (car mode)
+  | 'cpu' | 'ram' | 'ssd' | 'gpu' | 'battery' | 'screen' | 'motherboard'  // component icons (body mode)
+  | 'engine' | 'transmission' | 'trunk' | 'turbo' | 'fuel' | 'windshield' | 'chassis'  // component icons (car mode)
   | 'hero-guide' | 'hero-glossaire' | 'hero-about' | 'hero-catalogue' | 'hero-blog'  // page decorations
   | 'circuit-pattern'  // background pattern
 
@@ -149,6 +149,45 @@ export default function TechIllustration({ variant, size = 48, className = '', s
         </svg>
       )
 
+    case 'motherboard':
+      return (
+        <svg viewBox="0 0 80 80" fill="none" className={className} style={s}>
+          {/* Central spine */}
+          <line x1="40" y1="8" x2="40" y2="72" stroke="#2563eb" strokeWidth="2.5" strokeLinecap="round" />
+          {/* Main nerve branches left */}
+          <path d="M40 18 L18 12" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M40 28 L12 24" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M40 38 L14 36" stroke="#3b82f6" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M40 48 L10 50" stroke="#3b82f6" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M40 58 L16 62" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M40 66 L20 72" stroke="#3b82f6" strokeWidth="1.2" strokeLinecap="round" />
+          {/* Main nerve branches right */}
+          <path d="M40 18 L62 12" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M40 28 L68 24" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M40 38 L66 36" stroke="#3b82f6" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M40 48 L70 50" stroke="#3b82f6" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M40 58 L64 62" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M40 66 L60 72" stroke="#3b82f6" strokeWidth="1.2" strokeLinecap="round" />
+          {/* Secondary branches (finer) */}
+          <path d="M18 12 L10 8" stroke="#93c5fd" strokeWidth="0.8" strokeLinecap="round" />
+          <path d="M12 24 L6 20" stroke="#93c5fd" strokeWidth="0.8" strokeLinecap="round" />
+          <path d="M62 12 L70 8" stroke="#93c5fd" strokeWidth="0.8" strokeLinecap="round" />
+          <path d="M68 24 L74 20" stroke="#93c5fd" strokeWidth="0.8" strokeLinecap="round" />
+          <path d="M10 50 L4 54" stroke="#93c5fd" strokeWidth="0.8" strokeLinecap="round" />
+          <path d="M70 50 L76 54" stroke="#93c5fd" strokeWidth="0.8" strokeLinecap="round" />
+          {/* Nerve nodes along spine */}
+          {[18, 28, 38, 48, 58, 66].map(y => (
+            <circle key={y} cx={40} cy={y} r="2.5" fill="#dbeafe" stroke="#2563eb" strokeWidth="1" />
+          ))}
+          {/* Brain node at top */}
+          <ellipse cx="40" cy="8" rx="6" ry="4" fill="#dbeafe" stroke="#2563eb" strokeWidth="1.5" />
+          <ellipse cx="40" cy="8" rx="3" ry="2" fill="#2563eb" opacity="0.4" />
+          {/* Pulse rings on spine */}
+          <circle cx="40" cy="38" r="6" stroke="#2563eb" strokeWidth="0.5" opacity="0.25" />
+          <circle cx="40" cy="38" r="10" stroke="#2563eb" strokeWidth="0.3" opacity="0.12" />
+        </svg>
+      )
+
     /* ── Car mode component icons ───────────────────────────── */
     case 'engine':
       return (
@@ -261,6 +300,46 @@ export default function TechIllustration({ variant, size = 48, className = '', s
         </svg>
       )
 
+    case 'chassis':
+      return (
+        <svg viewBox="0 0 80 80" fill="none" className={className} style={s}>
+          {/* Main frame rails */}
+          <path d="M12 30 L12 58 Q12 62 16 62 L64 62 Q68 62 68 58 L68 30 Q68 26 64 26 L16 26 Q12 26 12 30 Z" fill="#fef3c7" stroke="#d97706" strokeWidth="1.5" />
+          {/* Cross members */}
+          <line x1="12" y1="36" x2="68" y2="36" stroke="#d97706" strokeWidth="1" opacity="0.5" />
+          <line x1="12" y1="44" x2="68" y2="44" stroke="#d97706" strokeWidth="1" opacity="0.5" />
+          <line x1="12" y1="52" x2="68" y2="52" stroke="#d97706" strokeWidth="1" opacity="0.5" />
+          {/* Center tunnel */}
+          <rect x="34" y="26" width="12" height="36" rx="2" fill="#d97706" opacity="0.15" stroke="#d97706" strokeWidth="0.8" />
+          {/* Front axle */}
+          <line x1="8" y1="32" x2="72" y2="32" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" />
+          {/* Rear axle */}
+          <line x1="8" y1="56" x2="72" y2="56" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" />
+          {/* Suspension points - front */}
+          <circle cx="14" cy="32" r="3" fill="#fef3c7" stroke="#d97706" strokeWidth="1.5" />
+          <circle cx="66" cy="32" r="3" fill="#fef3c7" stroke="#d97706" strokeWidth="1.5" />
+          {/* Suspension points - rear */}
+          <circle cx="14" cy="56" r="3" fill="#fef3c7" stroke="#d97706" strokeWidth="1.5" />
+          <circle cx="66" cy="56" r="3" fill="#fef3c7" stroke="#d97706" strokeWidth="1.5" />
+          {/* Suspension springs - front left */}
+          <path d="M8 28 L6 30 L10 32 L6 34 L8 36" stroke="#d97706" strokeWidth="1" fill="none" strokeLinecap="round" />
+          {/* Suspension springs - front right */}
+          <path d="M72 28 L74 30 L70 32 L74 34 L72 36" stroke="#d97706" strokeWidth="1" fill="none" strokeLinecap="round" />
+          {/* Suspension springs - rear left */}
+          <path d="M8 52 L6 54 L10 56 L6 58 L8 60" stroke="#d97706" strokeWidth="1" fill="none" strokeLinecap="round" />
+          {/* Suspension springs - rear right */}
+          <path d="M72 52 L74 54 L70 56 L74 58 L72 60" stroke="#d97706" strokeWidth="1" fill="none" strokeLinecap="round" />
+          {/* Wheel hubs */}
+          <circle cx="8" cy="32" r="1.5" fill="#d97706" />
+          <circle cx="72" cy="32" r="1.5" fill="#d97706" />
+          <circle cx="8" cy="56" r="1.5" fill="#d97706" />
+          <circle cx="72" cy="56" r="1.5" fill="#d97706" />
+          {/* Steering column hint */}
+          <line x1="40" y1="18" x2="40" y2="26" stroke="#d97706" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="40" cy="16" r="3" fill="none" stroke="#f59e0b" strokeWidth="1.2" />
+        </svg>
+      )
+
     /* ── Background circuit pattern ─────────────────────────── */
     case 'circuit-pattern':
       return (
@@ -285,10 +364,10 @@ export default function TechIllustration({ variant, size = 48, className = '', s
 
 /* ── Analogy icon helper ────────────────────────────────────── */
 const BODY_VARIANTS: Record<string, Variant> = {
-  cpu: 'cpu', ram: 'ram', ssd: 'ssd', gpu: 'gpu', battery: 'battery', screen: 'screen',
+  cpu: 'cpu', ram: 'ram', ssd: 'ssd', gpu: 'gpu', battery: 'battery', screen: 'screen', motherboard: 'motherboard',
 }
 const CAR_VARIANTS: Record<string, Variant> = {
-  cpu: 'engine', ram: 'transmission', ssd: 'trunk', gpu: 'turbo', battery: 'fuel', screen: 'windshield',
+  cpu: 'engine', ram: 'transmission', ssd: 'trunk', gpu: 'turbo', battery: 'fuel', screen: 'windshield', motherboard: 'chassis',
 }
 
 export function getAnalogyVariant(component: string, mode: 'body' | 'car'): Variant | null {
