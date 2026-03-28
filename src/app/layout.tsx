@@ -5,6 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { headers } from 'next/headers'
 import './globals.css'
 import JsonLd from '@/components/JsonLd'
+import AdSenseScript from '@/components/AdSenseScript'
 import { BASE_URL, SITE_NAME } from '@/lib/constants'
 
 const inter = Inter({
@@ -60,13 +61,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             ? 'Plateforme québécoise d\'aide à l\'achat informatique.'
             : 'Quebec-based computer buying guide platform.',
         }} />
-        {process.env.NEXT_PUBLIC_ADSENSE_ID && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID.trim()}`}
-            crossOrigin="anonymous"
-          />
-        )}
+        <AdSenseScript />
       </head>
       <body className="min-h-full flex flex-col bg-[var(--bg)] text-[var(--text)]">
         <a

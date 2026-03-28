@@ -25,6 +25,7 @@ const en: Dictionary = {
     aboutTitle: 'About',
     affiliateDisclosure: 'Some retailer links are affiliate links: if you buy through these links, we receive a small commission at no extra cost to you. We also display a single clearly labelled ad spot on product pages only. Our recommendations are always based on quality and your needs, never on commissions.',
     privacy: 'Privacy',
+    terms: 'Terms of Service',
     support: 'Expert support',
     rights: 'All rights reserved.',
     helpTitle: 'Can\'t find what you\'re looking for?',
@@ -432,6 +433,12 @@ const en: Dictionary = {
   privacy: {
     privacyTitle: 'Privacy Policy',
     privacyLastUpdated: 'Last updated: March 2026',
+  },
+
+  // ── Terms of Service ──────────────────────────────
+  terms: {
+    termsTitle: 'Terms of Service',
+    termsLastUpdated: 'Last updated: March 2026',
   },
 
   // ── Ads ────────────────────────────────────────────

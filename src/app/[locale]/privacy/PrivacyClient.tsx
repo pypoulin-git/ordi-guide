@@ -17,15 +17,27 @@ export default function PrivacyClient() {
       <section className="section">
         <div className="container max-w-3xl mx-auto space-y-8">
 
+          {/* 0. Data protection officer */}
+          <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
+            <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
+              {isFr ? 'Responsable de la protection des renseignements personnels' : 'Data protection officer'}
+            </h2>
+            <p className="text-[var(--text-subtle)] leading-relaxed">
+              {isFr
+                ? 'Le responsable de la protection des renseignements personnels pour Shop Compy est joignable par courriel à support@shopcompy.ca. Cette personne veille au respect de la Loi 25 du Québec et de la PIPEDA en ce qui concerne la collecte, l\'utilisation et la conservation de vos données.'
+                : 'The data protection officer for Shop Compy can be reached by email at support@shopcompy.ca. This person ensures compliance with Quebec\'s Law 25 and PIPEDA regarding the collection, use, and retention of your data.'}
+            </p>
+          </div>
+
           {/* 1. Data collected */}
           <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
             <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
-              {isFr ? 'Quelles données sont collectées' : 'What data is collected'}
+              {isFr ? 'Collecte de données' : 'Data collection'}
             </h2>
             <p className="text-[var(--text-subtle)] leading-relaxed mb-3">
               {isFr
-                ? 'Shop Compy utilise Vercel Analytics pour mesurer la fréquentation du site. Ces données sont anonymes : aucune information personnelle n\'est collectée par défaut.'
-                : 'Shop Compy uses Vercel Analytics to measure site traffic. This data is anonymous: no personal information is collected by default.'}
+                ? 'Shop Compy utilise Vercel Analytics pour mesurer la fréquentation du site. Ces données sont anonymes : aucune information personnelle n\'est collectée par défaut. La collecte se limite aux données strictement nécessaires au fonctionnement et à l\'amélioration du site.'
+                : 'Shop Compy uses Vercel Analytics to measure site traffic. This data is anonymous: no personal information is collected by default. The collection is limited to data strictly necessary for site operation and improvement.'}
             </p>
             <p className="text-[var(--text-subtle)] leading-relaxed">
               {isFr
@@ -59,12 +71,38 @@ export default function PrivacyClient() {
                 <strong>Google AdSense</strong> — {isFr ? 'Publicité (uniquement si consentement donné via la bannière cookies).' : 'Advertising (only if consent given via cookie banner).'}
               </li>
               <li>
-                <strong>Google Gemini API</strong> — {isFr ? 'Moteur de recommandation pour le comparateur. Aucune donnée personnelle n\'est envoyée.' : 'Recommendation engine for the comparator. No personal data is sent.'}
+                <strong>Google Gemini API</strong> — {isFr
+                  ? 'L\'assistant Compy utilise l\'API Gemini AI de Google pour générer des recommandations personnalisées. Les questions que vous posez à l\'assistant sont transmises aux serveurs de Google (États-Unis) pour traitement par intelligence artificielle. Aucune donnée personnelle identifiable n\'est volontairement envoyée, mais les requêtes textuelles sont traitées conformément à la politique de confidentialité de Google.'
+                  : 'The Compy assistant uses Google\'s Gemini AI API to generate personalized recommendations. Questions you ask the assistant are transferred to Google servers (USA) for AI processing. No personally identifiable data is intentionally sent, but text queries are processed in accordance with Google\'s privacy policy.'}
               </li>
               <li>
                 <strong>Stripe</strong> — {isFr ? 'Traitement des paiements pour le support expert et les dons. Vos informations de paiement sont gérées directement par Stripe.' : 'Payment processing for expert support and donations. Your payment information is handled directly by Stripe.'}
               </li>
             </ul>
+          </div>
+
+          {/* 3b. Affiliate links */}
+          <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
+            <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
+              {isFr ? 'Liens d\'affiliation' : 'Affiliate links'}
+            </h2>
+            <p className="text-[var(--text-subtle)] leading-relaxed">
+              {isFr
+                ? 'Certains liens sur Shop Compy sont des liens d\'affiliation. Lorsque vous cliquez sur ces liens et effectuez un achat, nous pouvons recevoir une commission du détaillant, sans coût supplémentaire pour vous. Ces commissions contribuent au financement du site. Les liens d\'affiliation n\'influencent pas nos recommandations : les produits sont sélectionnés selon des critères objectifs de qualité et de rapport qualité-prix.'
+                : 'Some links on Shop Compy are affiliate links. When you click on these links and make a purchase, we may receive a commission from the retailer at no additional cost to you. These commissions help fund the site. Affiliate links do not influence our recommendations: products are selected based on objective quality and value criteria.'}
+            </p>
+          </div>
+
+          {/* 3c. International data transfers */}
+          <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
+            <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
+              {isFr ? 'Transferts internationaux de données' : 'International data transfers'}
+            </h2>
+            <p className="text-[var(--text-subtle)] leading-relaxed">
+              {isFr
+                ? 'En utilisant l\'assistant Compy, vos requêtes textuelles peuvent être transférées vers les serveurs de Google situés aux États-Unis pour le traitement par l\'API Gemini AI. En acceptant les cookies publicitaires, des données peuvent également être transmises à Google (AdSense) aux États-Unis. Ces transferts sont encadrés par les politiques de confidentialité des fournisseurs concernés.'
+                : 'When using the Compy assistant, your text queries may be transferred to Google servers located in the USA for processing by the Gemini AI API. By accepting advertising cookies, data may also be transmitted to Google (AdSense) in the USA. These transfers are governed by the privacy policies of the respective providers.'}
+            </p>
           </div>
 
           {/* 4. Cookies */}

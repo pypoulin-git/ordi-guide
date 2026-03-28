@@ -23,6 +23,7 @@ const fr = {
     aboutTitle: 'À propos',
     affiliateDisclosure: 'Certains liens vers des détaillants sont des liens affiliés : si tu achètes via ces liens, on reçoit une petite commission, sans frais supplémentaires pour toi. On affiche aussi un seul espace publicitaire clairement identifié sur les pages produit. Nos recommandations restent basées sur la qualité et tes besoins, jamais sur les commissions.',
     privacy: 'Confidentialité',
+    terms: 'Conditions d\u2019utilisation',
     support: 'Support expert',
     rights: 'Tous droits réservés.',
     helpTitle: 'Tu ne trouves pas ce que tu cherches ?',
@@ -430,6 +431,12 @@ const fr = {
   privacy: {
     privacyTitle: 'Politique de confidentialité',
     privacyLastUpdated: 'Dernière mise à jour : mars 2026',
+  },
+
+  // ── Terms of Service ──────────────────────────────
+  terms: {
+    termsTitle: 'Conditions d\u2019utilisation',
+    termsLastUpdated: 'Dernière mise à jour : mars 2026',
   },
 
   // ── Ads ────────────────────────────────────────────

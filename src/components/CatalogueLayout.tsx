@@ -193,6 +193,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
         </p>
 
         {/* Product grid */}
+        <h2 className="sr-only">{isFr ? 'Produits' : 'Products'}</h2>
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 md:gap-7">
             {filtered.map((p, i) => (

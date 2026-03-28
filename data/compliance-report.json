@@ -1,0 +1,455 @@
+{
+  "date": "2026-03-28T19:47:44.052Z",
+  "score": "80%",
+  "totalChecks": 51,
+  "passed": 41,
+  "failed": 1,
+  "warnings": 9,
+  "results": [
+    {
+      "id": "legal-fr-privacy",
+      "category": "privacy",
+      "title": "Politique de confidentialité [FR] existe",
+      "status": "pass",
+      "severity": "critical",
+      "details": "https://ordi-guide.vercel.app/fr/privacy"
+    },
+    {
+      "id": "legal-fr-privacy-terms",
+      "category": "privacy",
+      "title": "Termes manquants [FR]",
+      "status": "warning",
+      "severity": "high",
+      "details": "Manquants: responsable de la protection, collecte"
+    },
+    {
+      "id": "legal-fr-privacy-contact",
+      "category": "privacy",
+      "title": "Info contact/responsable [FR]",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Coordonnées trouvées"
+    },
+    {
+      "id": "legal-en-privacy",
+      "category": "privacy",
+      "title": "Politique de confidentialité [EN] existe",
+      "status": "pass",
+      "severity": "critical",
+      "details": "https://ordi-guide.vercel.app/en/privacy"
+    },
+    {
+      "id": "legal-en-privacy-terms",
+      "category": "privacy",
+      "title": "Termes manquants [EN]",
+      "status": "warning",
+      "severity": "high",
+      "details": "Manquants: collection, data protection"
+    },
+    {
+      "id": "legal-en-privacy-contact",
+      "category": "privacy",
+      "title": "Info contact/responsable [EN]",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Coordonnées trouvées"
+    },
+    {
+      "id": "legal-fr-terms",
+      "category": "privacy",
+      "title": "Conditions d'utilisation [FR] manquante",
+      "status": "warning",
+      "severity": "high",
+      "details": "HTTP 404 — https://ordi-guide.vercel.app/fr/terms"
+    },
+    {
+      "id": "legal-en-terms",
+      "category": "privacy",
+      "title": "Conditions d'utilisation [EN] manquante",
+      "status": "warning",
+      "severity": "high",
+      "details": "HTTP 404 — https://ordi-guide.vercel.app/en/terms"
+    },
+    {
+      "id": "cookie-banner",
+      "category": "cookies",
+      "title": "Bannière de cookies détectée",
+      "status": "pass",
+      "severity": "high",
+      "details": "Mécanisme de consentement trouvé dans le HTML"
+    },
+    {
+      "id": "cookie-optin",
+      "category": "cookies",
+      "title": "Consentement cookies pré-coché",
+      "status": "fail",
+      "severity": "critical",
+      "details": "Le consentement doit être opt-in (non pré-coché)"
+    },
+    {
+      "id": "sec-content-security-policy",
+      "category": "security",
+      "title": "Content-Security-Policy",
+      "status": "pass",
+      "severity": "critical",
+      "details": "default-src 'self'; script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://cdn.vercel-insights.com http"
+    },
+    {
+      "id": "sec-strict-transport-security",
+      "category": "security",
+      "title": "Strict-Transport-Security (HSTS)",
+      "status": "pass",
+      "severity": "critical",
+      "details": "max-age=31536000; includeSubDomains; preload"
+    },
+    {
+      "id": "sec-x-frame-options",
+      "category": "security",
+      "title": "X-Frame-Options",
+      "status": "pass",
+      "severity": "high",
+      "details": "DENY"
+    },
+    {
+      "id": "sec-x-content-type-options",
+      "category": "security",
+      "title": "X-Content-Type-Options",
+      "status": "pass",
+      "severity": "high",
+      "details": "nosniff"
+    },
+    {
+      "id": "sec-referrer-policy",
+      "category": "security",
+      "title": "Referrer-Policy",
+      "status": "pass",
+      "severity": "medium",
+      "details": "strict-origin-when-cross-origin"
+    },
+    {
+      "id": "sec-permissions-policy",
+      "category": "security",
+      "title": "Permissions-Policy",
+      "status": "pass",
+      "severity": "medium",
+      "details": "camera=(), microphone=(), geolocation=()"
+    },
+    {
+      "id": "ssl-https",
+      "category": "security",
+      "title": "Site accessible en HTTPS",
+      "status": "pass",
+      "severity": "critical",
+      "details": "HTTP 307"
+    },
+    {
+      "id": "ssl-redirect",
+      "category": "security",
+      "title": "Redirection HTTP → HTTPS",
+      "status": "pass",
+      "severity": "critical",
+      "details": "308 → https://ordi-guide.vercel.app/"
+    },
+    {
+      "id": "3p-detection",
+      "category": "thirdParty",
+      "title": "2 service(s) tiers détecté(s)",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Programmes d'affiliation, Stripe (paiement)"
+    },
+    {
+      "id": "3p-disclosure",
+      "category": "thirdParty",
+      "title": "Tous les services tiers divulgués",
+      "status": "pass",
+      "severity": "high",
+      "details": "Politique de confidentialité couvre tous les services"
+    },
+    {
+      "id": "data-api-/api/search",
+      "category": "dataMin",
+      "title": "API /api/search — pas de PII dans la réponse",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Aucune donnée personnelle détectée"
+    },
+    {
+      "id": "data-ratelimit-/api/search",
+      "category": "dataMin",
+      "title": "Rate limiting sur /api/search",
+      "status": "warning",
+      "severity": "medium",
+      "details": "Pas de headers rate-limit détectés (peut être géré en interne)"
+    },
+    {
+      "id": "data-api-/api/blog-ask",
+      "category": "dataMin",
+      "title": "API /api/blog-ask — pas de PII dans la réponse",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Aucune donnée personnelle détectée"
+    },
+    {
+      "id": "data-ratelimit-/api/blog-ask",
+      "category": "dataMin",
+      "title": "Rate limiting sur /api/blog-ask",
+      "status": "warning",
+      "severity": "medium",
+      "details": "Pas de headers rate-limit détectés (peut être géré en interne)"
+    },
+    {
+      "id": "a11y-lang-/",
+      "category": "accessibility",
+      "title": "lang attr [Accueil]",
+      "status": "pass",
+      "severity": "high",
+      "details": "Attribut lang présent"
+    },
+    {
+      "id": "a11y-h1-/",
+      "category": "accessibility",
+      "title": "<h1> [Accueil]",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Balise h1 trouvée"
+    },
+    {
+      "id": "a11y-alt-/",
+      "category": "accessibility",
+      "title": "Images alt [Accueil]",
+      "status": "pass",
+      "severity": "high",
+      "details": "2 images, toutes avec alt"
+    },
+    {
+      "id": "a11y-heading-/",
+      "category": "accessibility",
+      "title": "Hiérarchie headings [Accueil]",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Niveaux: 3 → 3 → 3 → 3 → 1 → 2 → 2 → 2 → 3 → 3 → 3 → 2 → 2"
+    },
+    {
+      "id": "a11y-lang-/guide",
+      "category": "accessibility",
+      "title": "lang attr [Guide]",
+      "status": "pass",
+      "severity": "high",
+      "details": "Attribut lang présent"
+    },
+    {
+      "id": "a11y-h1-/guide",
+      "category": "accessibility",
+      "title": "<h1> [Guide]",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Balise h1 trouvée"
+    },
+    {
+      "id": "a11y-alt-/guide",
+      "category": "accessibility",
+      "title": "Images alt [Guide]",
+      "status": "pass",
+      "severity": "high",
+      "details": "8 images, toutes avec alt"
+    },
+    {
+      "id": "a11y-heading-/guide",
+      "category": "accessibility",
+      "title": "Hiérarchie headings [Guide]",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Niveaux: 3 → 3 → 3 → 3 → 1 → 2 → 2 → 3 → 3 → 2 → 3 → 3 → 2 → 3 → 3 → 2 → 3 → 3 → 2 → 3 → 3 → 2 → 3 → 3 → 2 → 3 → 3 → 3 → 2 → 3 → 3 → 2"
+    },
+    {
+      "id": "a11y-lang-/catalogue",
+      "category": "accessibility",
+      "title": "lang attr [Catalogue]",
+      "status": "pass",
+      "severity": "high",
+      "details": "Attribut lang présent"
+    },
+    {
+      "id": "a11y-h1-/catalogue",
+      "category": "accessibility",
+      "title": "<h1> [Catalogue]",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Balise h1 trouvée"
+    },
+    {
+      "id": "a11y-alt-/catalogue",
+      "category": "accessibility",
+      "title": "Images alt [Catalogue]",
+      "status": "pass",
+      "severity": "high",
+      "details": "3 images, toutes avec alt"
+    },
+    {
+      "id": "a11y-heading-/catalogue",
+      "category": "accessibility",
+      "title": "Hiérarchie headings [Catalogue]",
+      "status": "warning",
+      "severity": "medium",
+      "details": "Saut de niveau détecté: 3 → 3 → 3 → 3 → 1 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3"
+    },
+    {
+      "id": "a11y-lang-/blog",
+      "category": "accessibility",
+      "title": "lang attr [Blog]",
+      "status": "pass",
+      "severity": "high",
+      "details": "Attribut lang présent"
+    },
+    {
+      "id": "a11y-h1-/blog",
+      "category": "accessibility",
+      "title": "<h1> [Blog]",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Balise h1 trouvée"
+    },
+    {
+      "id": "a11y-alt-/blog",
+      "category": "accessibility",
+      "title": "Images alt [Blog]",
+      "status": "pass",
+      "severity": "high",
+      "details": "20 images, toutes avec alt"
+    },
+    {
+      "id": "a11y-heading-/blog",
+      "category": "accessibility",
+      "title": "Hiérarchie headings [Blog]",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Niveaux: 3 → 3 → 3 → 3 → 1 → 2 → 2 → 2 → 2 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 3 → 2"
+    },
+    {
+      "id": "a11y-lang-/about",
+      "category": "accessibility",
+      "title": "lang attr [À propos]",
+      "status": "pass",
+      "severity": "high",
+      "details": "Attribut lang présent"
+    },
+    {
+      "id": "a11y-h1-/about",
+      "category": "accessibility",
+      "title": "<h1> [À propos]",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Balise h1 trouvée"
+    },
+    {
+      "id": "a11y-alt-/about",
+      "category": "accessibility",
+      "title": "Images alt [À propos]",
+      "status": "pass",
+      "severity": "high",
+      "details": "4 images, toutes avec alt"
+    },
+    {
+      "id": "a11y-heading-/about",
+      "category": "accessibility",
+      "title": "Hiérarchie headings [À propos]",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Niveaux: 3 → 3 → 3 → 3 → 1 → 2 → 3 → 3 → 3 → 2 → 3 → 3 → 3 → 3 → 2"
+    },
+    {
+      "id": "i18n-fr-privacy",
+      "category": "i18n",
+      "title": "Politique de confidentialité disponible en FR",
+      "status": "pass",
+      "severity": "critical",
+      "details": "https://ordi-guide.vercel.app/fr/privacy — HTTP 200"
+    },
+    {
+      "id": "i18n-en-privacy",
+      "category": "i18n",
+      "title": "Politique de confidentialité disponible en EN",
+      "status": "pass",
+      "severity": "high",
+      "details": "https://ordi-guide.vercel.app/en/privacy — HTTP 200"
+    },
+    {
+      "id": "i18n-fr-terms",
+      "category": "i18n",
+      "title": "Conditions d'utilisation manquante en FR",
+      "status": "warning",
+      "severity": "critical",
+      "details": "Loi 25 exige la disponibilité en français"
+    },
+    {
+      "id": "i18n-en-terms",
+      "category": "i18n",
+      "title": "Conditions d'utilisation manquante en EN",
+      "status": "warning",
+      "severity": "high",
+      "details": "Loi 25 exige la disponibilité en français"
+    },
+    {
+      "id": "i18n-home-fr",
+      "category": "i18n",
+      "title": "Accueil [FR]",
+      "status": "pass",
+      "severity": "high",
+      "details": "Page fonctionnelle"
+    },
+    {
+      "id": "i18n-home-en",
+      "category": "i18n",
+      "title": "Accueil [EN]",
+      "status": "pass",
+      "severity": "high",
+      "details": "Page fonctionnelle"
+    },
+    {
+      "id": "i18n-switch",
+      "category": "i18n",
+      "title": "Sélecteur de langue",
+      "status": "pass",
+      "severity": "medium",
+      "details": "Détecté dans le HTML"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "critical",
+      "title": "Consentement cookies pré-coché",
+      "description": "Le consentement doit être opt-in (non pré-coché)"
+    },
+    {
+      "priority": "medium",
+      "title": "Termes manquants [FR]",
+      "description": "Manquants: responsable de la protection, collecte"
+    },
+    {
+      "priority": "medium",
+      "title": "Termes manquants [EN]",
+      "description": "Manquants: collection, data protection"
+    },
+    {
+      "priority": "medium",
+      "title": "Conditions d'utilisation [FR] manquante",
+      "description": "HTTP 404 — https://ordi-guide.vercel.app/fr/terms"
+    },
+    {
+      "priority": "medium",
+      "title": "Conditions d'utilisation [EN] manquante",
+      "description": "HTTP 404 — https://ordi-guide.vercel.app/en/terms"
+    },
+    {
+      "priority": "medium",
+      "title": "Conditions d'utilisation manquante en FR",
+      "description": "Loi 25 exige la disponibilité en français"
+    },
+    {
+      "priority": "medium",
+      "title": "Conditions d'utilisation manquante en EN",
+      "description": "Loi 25 exige la disponibilité en français"
+    }
+  ]
+}

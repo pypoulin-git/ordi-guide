@@ -31,13 +31,13 @@ export default function CookieConsent() {
         <div className="flex gap-3 shrink-0">
           <button
             onClick={() => handleChoice('refused')}
-            className="px-4 py-2 rounded-lg border border-[var(--border)] text-sm font-medium text-[var(--text-subtle)] hover:bg-[var(--bg-subtle)] transition-colors"
+            className="px-4 py-2 rounded-lg border-2 border-[var(--accent)] text-sm font-medium text-[var(--accent)] hover:bg-[var(--bg-subtle)] transition-colors"
           >
             {c.cookieRefuse}
           </button>
           <button
             onClick={() => handleChoice('accepted')}
-            className="px-4 py-2 rounded-lg bg-[var(--accent)] text-white text-sm font-medium hover:opacity-90 transition-opacity"
+            className="px-4 py-2 rounded-lg border-2 border-[var(--accent)] bg-[var(--accent)] text-white text-sm font-medium hover:opacity-90 transition-opacity"
           >
             {c.cookieAccept}
           </button>
