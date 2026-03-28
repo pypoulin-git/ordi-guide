@@ -8,8 +8,7 @@ type Answers = Record<string, string>
 
 /* ── Inline SVG illustrations per question ─────────────────────────── */
 function StepIllustration({ stepId }: { stepId: string }) {
-  const size = 120
-  const s = { width: size, height: size }
+  const s = { width: '100%', height: 'auto', maxWidth: 120, maxHeight: 120 } as const
 
   switch (stepId) {
     case 'usage':
@@ -230,12 +229,12 @@ export default function ComparateurClient() {
     return (
       <div className="section">
         <div className="container max-w-2xl mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2 text-[var(--text)]">{c.resultTitle}</h1>
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-[var(--text)]">{c.resultTitle}</h1>
             <p className="text-[var(--text-subtle)]">{c.resultSubtitle}</p>
           </div>
 
-          <div className="card mb-6" style={{ border: '2px solid var(--accent)' }}>
+          <div className="card mb-6" style={{ border: '2px solid var(--accent)', overflowWrap: 'anywhere' }}>
             {rec.archetype && ARCHETYPE_INFO[rec.archetype] && (() => {
               const arch = ARCHETYPE_INFO[rec.archetype]
               return (
@@ -248,7 +247,7 @@ export default function ComparateurClient() {
                 </div>
               )
             })()}
-            <h2 className="text-2xl font-bold mb-3 text-[var(--text)]">{rec.title}</h2>
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 text-[var(--text)]">{rec.title}</h2>
             <p className="mb-4 text-[var(--text-subtle)]">{rec.summary}</p>
             <ul className="space-y-2 mb-4">
               {rec.specs.map(s => (
@@ -287,15 +286,15 @@ export default function ComparateurClient() {
     <div className="section">
       <div className="container max-w-2xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2 text-[var(--text)]">{c.pageTitle}</h1>
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-[var(--text)]">{c.pageTitle}</h1>
           <p className="text-[var(--text-subtle)]">
             {c.pageSubtitle.replace('{count}', String(totalSteps))}
           </p>
         </div>
 
         {/* Progress */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <div className="flex justify-between text-sm mb-2 text-[var(--text-muted)]">
             <span>
               {c.questionOf
@@ -313,7 +312,7 @@ export default function ComparateurClient() {
         {/* Question card */}
         <div className="card mb-6">
           {/* Illustration */}
-          <div className="flex justify-center mb-4 opacity-80">
+          <div className="flex justify-center mb-4 opacity-80 w-20 h-20 sm:w-[120px] sm:h-[120px] mx-auto">
             <StepIllustration stepId={currentStep.id} />
           </div>
 
@@ -324,8 +323,8 @@ export default function ComparateurClient() {
           <div className="space-y-3 mt-4">
             {currentStep.options.map(opt => (
               <button key={opt.value} onClick={() => choose(opt.value)}
-                className="w-full text-left flex items-start gap-3 p-4 rounded-xl border-2 transition-all hover:border-[var(--accent)] hover:bg-[var(--accent-bg)]"
-                style={{ borderColor: 'var(--border)', background: 'var(--input-bg)' }}>
+                className="w-full text-left flex items-start gap-3 p-3 sm:p-4 rounded-xl border-2 transition-all hover:border-[var(--accent)] hover:bg-[var(--accent-bg)]"
+                style={{ borderColor: 'var(--border)', background: 'var(--input-bg)', minHeight: '48px' }}>
                 {opt.emoji && (
                   <span className="text-xl shrink-0 mt-0.5">{opt.emoji}</span>
                 )}
@@ -347,7 +346,7 @@ export default function ComparateurClient() {
         {/* Back */}
         {currentIndex > 0 && (
           <button onClick={goBack}
-            className="inline-flex items-center gap-2 text-base font-medium px-5 py-3 rounded-xl border-2 border-[var(--border)] bg-[var(--bg)] text-[var(--text-subtle)] hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--accent-bg)] transition-all"
+            className="inline-flex items-center gap-2 text-base font-medium px-4 sm:px-5 py-3 rounded-xl border-2 border-[var(--border)] bg-[var(--bg)] text-[var(--text-subtle)] hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--accent-bg)] transition-all mb-4"
             style={{ minHeight: '48px' }}>
             <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M10.354 3.354a.5.5 0 00-.708-.708l-5 5a.5.5 0 000 .708l5 5a.5.5 0 00.708-.708L5.707 8l4.647-4.646z"/></svg>
             {c.back}

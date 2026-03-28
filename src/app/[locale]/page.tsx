@@ -58,9 +58,9 @@ export default function HomePage() {
   return (
     <>
       {/* -- HERO BANNIERE PLEINE LARGEUR -- */}
-      <section style={{
+      <section className="hero-home" style={{
         background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 45%, #4338ca 100%)',
-        padding: '5rem 0 6rem',
+        padding: 'clamp(2.5rem, 6vw, 5rem) 0 clamp(3rem, 7vw, 6rem)',
         position: 'relative',
         overflow: 'hidden',
       }}>
@@ -85,29 +85,29 @@ export default function HomePage() {
               ))}
             </h1>
             <p className="text-white/80 leading-relaxed mb-10"
-              style={{ fontSize: '1.25rem', maxWidth: '36rem', margin: '0 auto 2.5rem' }}>
+              style={{ fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', maxWidth: '36rem', margin: '0 auto 2.5rem' }}>
               {t.home.heroSubtitle.split('\n').map((line, i) => (
                 <span key={i}>{line}{i === 0 && <br />}</span>
               ))}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/comparateur`}
-                className="inline-flex items-center justify-center gap-2 font-bold rounded-xl transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 font-bold rounded-xl transition-all hover:-translate-y-0.5 w-full sm:w-auto"
                 style={{
                   background: 'white', color: '#1e3a8a',
-                  padding: '1.125rem 2.5rem', fontSize: '1.125rem',
+                  padding: '0.875rem 1.5rem', fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.25)',
-                  minHeight: '52px',
+                  minHeight: '48px',
                 }}>
                 {t.home.heroCta}
               </Link>
               <Link href={`/${locale}/guide`}
-                className="inline-flex items-center justify-center gap-2 font-bold rounded-xl transition-all hover:-translate-y-0.5 hover:bg-white/10"
+                className="inline-flex items-center justify-center gap-2 font-bold rounded-xl transition-all hover:-translate-y-0.5 hover:bg-white/10 w-full sm:w-auto"
                 style={{
                   background: 'transparent', color: 'white',
                   border: '2px solid rgba(255,255,255,0.6)',
-                  padding: '1.125rem 2.5rem', fontSize: '1.125rem',
-                  minHeight: '52px',
+                  padding: '0.875rem 1.5rem', fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
+                  minHeight: '48px',
                 }}>
                 {t.home.heroCtaGuide}
               </Link>
@@ -144,7 +144,7 @@ export default function HomePage() {
           <div className="rounded-2xl overflow-hidden bg-[var(--bg)] border border-[var(--border)]" style={{ borderWidth: '1.5px' }}>
 
             {/* En-tete de la section */}
-            <div className="px-8 py-5 border-b border-[var(--border)] bg-[var(--bg-subtle)]">
+            <div className="px-4 sm:px-8 py-5 border-b border-[var(--border)] bg-[var(--bg-subtle)]">
               <h2 className="text-xl font-bold text-[var(--text)]">
                 {t.home.analogyTitle}
               </h2>
@@ -157,7 +157,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: '280px' }}>
 
               {/* Colonne gauche : toggle */}
-              <div className="flex flex-col justify-center px-8 py-6 border-r border-[var(--border)]">
+              <div className="flex flex-col justify-center px-4 sm:px-8 py-6 md:border-r border-[var(--border)]">
                 <p className="font-bold text-lg mb-1 text-[var(--text)]">{t.home.analogyStyle}</p>
                 <p className="text-sm mb-4 text-[var(--text-muted)]">
                   {t.home.analogyDesc}
@@ -169,7 +169,7 @@ export default function HomePage() {
               </div>
 
               {/* Colonne droite : 6 dimensions verticales */}
-              <div className="px-8 py-6">
+              <div className="px-4 sm:px-8 py-6">
                 <p className="text-sm font-semibold uppercase tracking-wider mb-5 text-[var(--text-muted)]">
                   {modeIcon} {t.home.analogyMode} {modeLabel}
                 </p>
@@ -228,7 +228,7 @@ export default function HomePage() {
       {/* -- REASSURANCES -- */}
       <section className="section bg-[var(--bg-subtle)]">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {reassurances.map(r => (
               <div key={r.label} className="text-center">
                 <div className="font-semibold mb-1 text-[var(--text)]">{r.label}</div>
@@ -246,7 +246,7 @@ export default function HomePage() {
             style={{ background: 'var(--bg-subtle)' }}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
               {/* Scene 1 */}
-              <div className="flex flex-col items-center justify-center p-8 text-center border-b md:border-b-0 md:border-r border-[var(--border)]">
+              <div className="flex flex-col items-center justify-center p-5 sm:p-8 text-center border-b md:border-b-0 md:border-r border-[var(--border)]">
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
                   style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
                   👵
@@ -261,7 +261,7 @@ export default function HomePage() {
                 </p>
               </div>
               {/* Scene 2 */}
-              <div className="flex flex-col items-center justify-center p-8 text-center border-b md:border-b-0 md:border-r border-[var(--border)]">
+              <div className="flex flex-col items-center justify-center p-5 sm:p-8 text-center border-b md:border-b-0 md:border-r border-[var(--border)]">
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
                   style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
                   👨‍👧
@@ -276,7 +276,7 @@ export default function HomePage() {
                 </p>
               </div>
               {/* Scene 3 */}
-              <div className="flex flex-col items-center justify-center p-8 text-center">
+              <div className="flex flex-col items-center justify-center p-5 sm:p-8 text-center">
                 <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
                   style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
                   😊
@@ -325,13 +325,13 @@ export default function HomePage() {
       {/* -- BOTTOM CTA -- */}
       <section className="section bg-blue-600">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white">{t.home.bottomCtaTitle}</h2>
-          <p className="text-lg mb-8 text-white/80">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">{t.home.bottomCtaTitle}</h2>
+          <p className="text-base sm:text-lg mb-8 text-white/80">
             {t.home.bottomCtaSubtitle}
           </p>
           <Link href={`/${locale}/comparateur`}
-            className="inline-flex items-center gap-2 bg-white text-blue-600 font-bold py-3.5 px-10 rounded-xl text-lg transition-transform hover:-translate-y-0.5"
-            style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
+            className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 font-bold py-3.5 px-6 sm:px-10 rounded-xl text-base sm:text-lg transition-transform hover:-translate-y-0.5 w-full sm:w-auto"
+            style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.2)', minHeight: '48px' }}>
             {t.home.bottomCtaButton}
           </Link>
         </div>

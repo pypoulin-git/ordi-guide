@@ -36,7 +36,7 @@ export default function SupportClient() {
           <div className="max-w-md mx-auto">
             <div
               className="card relative flex flex-col text-center"
-              style={{ padding: '2.5rem 2rem', border: '2px solid var(--accent)' }}
+              style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2rem)', border: '2px solid var(--accent)' }}
             >
               <p className="text-4xl font-bold text-[var(--text)] mb-1">5 $</p>
               <p className="font-semibold text-[var(--text)] mb-2">
@@ -71,7 +71,8 @@ export default function SupportClient() {
             {examples.map((ex, i) => (
               <span
                 key={i}
-                className="inline-block px-4 py-2 rounded-full text-sm bg-[var(--bg-subtle)] border border-[var(--border)] text-[var(--text-subtle)]"
+                className="inline-flex items-center px-4 py-2 rounded-full text-sm bg-[var(--bg-subtle)] border border-[var(--border)] text-[var(--text-subtle)]"
+                style={{ minHeight: '44px' }}
               >
                 {ex}
               </span>
@@ -89,7 +90,7 @@ export default function SupportClient() {
               : 'Guaranteed response within 24h by email. If we can\'t help, you get a full refund.'}
           </p>
           <div className="mt-6">
-            <Link href={`/${locale}`} className="text-[var(--accent)] font-medium hover:underline">
+            <Link href={`/${locale}`} className="inline-flex items-center text-[var(--accent)] font-medium hover:underline" style={{ minHeight: '44px' }}>
               {isFr ? '← Retour à l\'accueil' : '← Back to home'}
             </Link>
           </div>

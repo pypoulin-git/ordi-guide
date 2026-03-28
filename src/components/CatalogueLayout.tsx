@@ -59,7 +59,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
   const compySummary = buildCompySummary(filters, filtered.length, products.length, isFr)
 
   return (
-    <div className="flex gap-6 items-start">
+    <div className="flex gap-6 items-start overflow-hidden">
 
       {/* ── Left sidebar (sticky) ────────────────────────────── */}
       <aside
@@ -193,7 +193,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
 
         {/* Product grid */}
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
             {filtered.map(p => (
               <ProductCard key={p.id} product={p} />
             ))}
@@ -238,12 +238,12 @@ function FilterGroup<T extends string>({ label, options, active, getLabel, onTog
       <p className={`font-bold mb-1.5 text-[var(--text)] ${inline ? 'text-sm' : 'text-xs uppercase tracking-wider'}`}>
         {label}
       </p>
-      <div className={`flex ${inline ? 'flex-wrap' : 'flex-col'} gap-1.5`}>
+      <div className={`flex ${inline ? 'flex-wrap' : 'flex-col'} gap-2`}>
         {options.map(key => (
           <button key={key} onClick={() => onToggle(key)}
-            className={`text-sm px-3 py-1.5 rounded-lg font-medium transition-all text-left ${inline ? '' : 'w-full'}`}
+            className={`text-sm px-3.5 py-2 rounded-lg font-medium transition-all text-left ${inline ? '' : 'w-full'}`}
             style={{
-              minHeight: inline ? '40px' : '32px',
+              minHeight: '44px',
               ...(active === key
                 ? { background: 'var(--accent)', color: 'white' }
                 : { background: 'var(--bg-card)', color: 'var(--text-subtle)' }),

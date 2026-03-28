@@ -20,11 +20,11 @@ export default function AboutClient() {
       {/* Histoire 1 : Dell */}
       <section className="section">
         <div className="container max-w-3xl mx-auto">
-          <div className="card" style={{ padding: '2.5rem', borderLeft: '4px solid var(--accent)' }}>
+          <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2.5rem)', borderLeft: '4px solid var(--accent)' }}>
             <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-[var(--accent)]">
               {a.origin}
             </p>
-            <blockquote className="text-xl leading-relaxed mb-0 text-[var(--text)]" style={{ fontStyle: 'italic' }}>
+            <blockquote className="text-lg sm:text-xl leading-relaxed mb-0 text-[var(--text)]" style={{ fontStyle: 'italic' }}>
               &laquo;&nbsp;{a.originQuote}&nbsp;&raquo;
             </blockquote>
           </div>
@@ -80,11 +80,11 @@ export default function AboutClient() {
       {/* Histoire 2 : aujourd'hui */}
       <section className="section bg-[var(--bg-subtle)]">
         <div className="container max-w-3xl mx-auto">
-          <div className="card" style={{ padding: '2.5rem', borderLeft: '4px solid #7c3aed' }}>
+          <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2.5rem)', borderLeft: '4px solid #7c3aed' }}>
             <p className="text-sm font-semibold uppercase tracking-wider mb-4" style={{ color: '#7c3aed' }}>
               {a.today}
             </p>
-            <blockquote className="text-xl leading-relaxed mb-0 text-[var(--text)]" style={{ fontStyle: 'italic' }}>
+            <blockquote className="text-lg sm:text-xl leading-relaxed mb-0 text-[var(--text)]" style={{ fontStyle: 'italic' }}>
               &laquo;&nbsp;{a.todayQuote}&nbsp;&raquo;
             </blockquote>
           </div>
@@ -102,7 +102,7 @@ export default function AboutClient() {
           <p className="leading-relaxed mb-8 text-[var(--text-subtle)]">{a.missionIntro}</p>
 
           <div className="space-y-4">
-            <div className="card flex gap-5 items-start" style={{ padding: '1.5rem 2rem' }}>
+            <div className="card flex gap-3 sm:gap-5 items-start" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
               <div className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white bg-blue-600"
                 style={{ fontSize: '1rem' }}>1</div>
               <div>
@@ -111,7 +111,7 @@ export default function AboutClient() {
               </div>
             </div>
 
-            <div className="card flex gap-5 items-start" style={{ padding: '1.5rem 2rem' }}>
+            <div className="card flex gap-3 sm:gap-5 items-start" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
               <div className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white"
                 style={{ background: '#7c3aed', fontSize: '1rem' }}>2</div>
               <div>
@@ -120,7 +120,7 @@ export default function AboutClient() {
               </div>
             </div>
 
-            <div className="card flex gap-5 items-start" style={{ padding: '1.5rem 2rem' }}>
+            <div className="card flex gap-3 sm:gap-5 items-start" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
               <div className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white"
                 style={{ background: '#0891b2', fontSize: '1rem' }}>3</div>
               <div>
@@ -139,22 +139,22 @@ export default function AboutClient() {
           <p className="leading-relaxed mb-8 text-[var(--text-subtle)]">{t.funding.fundingIntro}</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <div className="card" style={{ padding: '1.5rem 2rem' }}>
+            <div className="card" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
               <div className="text-2xl mb-2">🔗</div>
               <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{t.funding.fundingAffiliateTitle}</h3>
               <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{t.funding.fundingAffiliateDesc}</p>
             </div>
-            <div className="card" style={{ padding: '1.5rem 2rem' }}>
+            <div className="card" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
               <div className="text-2xl mb-2">📢</div>
               <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{t.funding.fundingPartnerTitle}</h3>
               <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{t.funding.fundingPartnerDesc}</p>
             </div>
-            <div className="card" style={{ padding: '1.5rem 2rem' }}>
+            <div className="card" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
               <div className="text-2xl mb-2">🎁</div>
               <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{t.funding.fundingGiftTitle}</h3>
               <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{t.funding.fundingGiftDesc}</p>
             </div>
-            <div className="card" style={{ padding: '1.5rem 2rem' }}>
+            <div className="card" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
               <div className="text-2xl mb-2">💬</div>
               <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{t.funding.fundingSupportTitle}</h3>
               <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{t.funding.fundingSupportDesc}</p>
@@ -182,7 +182,7 @@ export default function AboutClient() {
         <div className="container max-w-2xl mx-auto text-center">
           <Image src="/images/compy-logo.png" alt="Shop Compy" width={80} height={80}
             className="mx-auto mb-6 compy-logo" />
-          <p className="text-2xl leading-relaxed text-white/90 mb-6" style={{ fontStyle: 'italic' }}>
+          <p className="text-xl sm:text-2xl leading-relaxed text-white/90 mb-6" style={{ fontStyle: 'italic' }}>
             &laquo;&nbsp;{a.finalQuote}&nbsp;&raquo;
           </p>
           <p className="font-semibold" style={{ color: 'rgba(255,255,255,0.7)' }}>

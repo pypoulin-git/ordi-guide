@@ -11,11 +11,11 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
   const cat = t.catalogue
 
   return (
-    <Link href={`/${locale}/catalogue/${product.id}`} className="card flex flex-col transition-all hover:-translate-y-0.5 hover:shadow-md" style={{ padding: 0, overflow: 'hidden', textDecoration: 'none', color: 'inherit' }}>
+    <Link href={`/${locale}/catalogue/${product.id}`} className="card flex flex-col transition-all hover:-translate-y-0.5 hover:shadow-md" style={{ padding: 0, overflow: 'hidden', textDecoration: 'none', color: 'inherit', minWidth: 0 }}>
 
       {/* Header : badge rabais + source */}
-      <div className="flex items-center justify-between px-5 pt-4 pb-0">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between px-4 sm:px-5 pt-4 pb-0 gap-2">
+        <div className="flex items-center gap-2 min-w-0 flex-wrap">
           {product.isOnSale && product.originalPrice && (
             <span className="text-sm font-bold px-2.5 py-0.5 rounded-full text-white bg-blue-600">
               -{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)} %
@@ -34,11 +34,11 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
       </div>
 
       {/* Corps */}
-      <div className="px-5 pt-3 pb-4 flex-1 flex flex-col">
+      <div className="px-4 sm:px-5 pt-3 pb-4 flex-1 flex flex-col min-w-0">
 
         {/* Nom et marque */}
         <p className="text-sm font-medium mb-1 text-[var(--text-muted)]">{product.brand}</p>
-        <h3 className="font-bold mb-3 text-[var(--text)]" style={{ fontSize: '1.0625rem', lineHeight: 1.3 }}>
+        <h3 className="font-bold mb-3 text-[var(--text)] break-words" style={{ fontSize: '1.0625rem', lineHeight: 1.3 }}>
           {product.name}
         </h3>
 
@@ -51,11 +51,11 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
             { key: 'gpu', label: 'GPU', value: product.specs.gpu?.toLowerCase().includes('intégré') ? undefined : product.specs.gpu },
             { key: 'display', label: cat.displayLabel, value: product.specs.display },
           ] as const).filter(s => s.value).map(s => (
-            <div key={s.key} className="flex items-start gap-2 text-sm">
-              <span className="shrink-0 font-medium inline-flex items-center gap-1 text-[var(--text)]" style={{ minWidth: '4rem' }}>
+            <div key={s.key} className="flex items-start gap-2 text-sm min-w-0">
+              <span className="shrink-0 font-medium inline-flex items-center gap-1 text-[var(--text)]" style={{ minWidth: '3.5rem' }}>
                 {s.label} <SpecTooltip specKey={s.key} />
               </span>
-              <span className="text-[var(--text-muted)]">{s.value}</span>
+              <span className="text-[var(--text-muted)] break-words min-w-0">{s.value}</span>
             </div>
           ))}
         </div>
@@ -80,9 +80,9 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
         <div className="flex-1" />
 
         {/* Prix + CTA */}
-        <div className="flex items-end justify-between pt-2 border-t border-[var(--border)]">
-          <div>
-            <span className="text-2xl font-bold text-[var(--text)]">
+        <div className="flex items-end justify-between gap-2 pt-2 border-t border-[var(--border)] flex-wrap">
+          <div className="min-w-0">
+            <span className="text-xl sm:text-2xl font-bold text-[var(--text)]">
               {product.price.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en-CA')} $
             </span>
             {product.isOnSale && product.originalPrice && (
@@ -91,8 +91,8 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
               </span>
             )}
           </div>
-          <span className="btn-primary"
-            style={{ padding: '0.5rem 1rem', fontSize: '0.8125rem' }}>
+          <span className="btn-primary shrink-0"
+            style={{ padding: '0.625rem 1rem', fontSize: '0.8125rem', minHeight: '44px' }}>
             {cat.viewDetails}
           </span>
         </div>

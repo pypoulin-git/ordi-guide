@@ -43,9 +43,12 @@ export default function GlassTooltip({ label, children, position = 'bottom' }: P
       {mounted && (
         <span
           role="tooltip"
-          className="absolute z-[9999] whitespace-nowrap rounded-full px-4 py-2 text-xs font-medium pointer-events-none"
+          className="absolute z-[9999] rounded-xl px-4 py-2 text-xs font-medium pointer-events-none"
           style={{
             ...posStyle,
+            maxWidth: 'min(280px, 90vw)',
+            whiteSpace: 'normal',
+            textAlign: 'center',
             color: 'var(--text)',
             background: 'rgba(255,255,255,0.5)',
             backdropFilter: 'blur(12px)',

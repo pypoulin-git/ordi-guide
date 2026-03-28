@@ -92,6 +92,7 @@ html.theme-transition *::after {
 .btn-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: var(--accent);
   color: #fff;
@@ -103,12 +104,14 @@ html.theme-transition *::after {
   transition: background 0.15s, transform 0.1s;
   border: none;
   cursor: pointer;
+  min-height: 44px;
 }
 .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
 .btn-outline {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: transparent;
   color: var(--accent);
@@ -120,6 +123,7 @@ html.theme-transition *::after {
   border: 2px solid var(--accent);
   transition: background 0.15s;
   cursor: pointer;
+  min-height: 44px;
 }
 .btn-outline:hover { background: var(--accent-bg); }
 
@@ -152,7 +156,13 @@ textarea:focus {
 }
 
 .section { padding: 4rem 0; }
+@media (max-width: 639px) {
+  .section { padding: 2.5rem 0; }
+}
 .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+@media (max-width: 374px) {
+  .container { padding: 0 1rem; }
+}
 
 /* ── Compy logo: remove white bg on both modes ───────────── */
 .compy-logo {
@@ -175,3 +185,17 @@ textarea:focus {
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
+
+/* ── Mobile UX fixes ─────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .card { padding: 1rem; }
+
+  .btn-primary,
+  .btn-outline {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+}
+
+/* Prevent any horizontal overflow at page level */
+html, body { overflow-x: hidden; }

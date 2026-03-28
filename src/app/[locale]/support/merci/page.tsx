@@ -37,10 +37,10 @@ export default async function MerciPage({
         <div className="text-5xl mb-6" aria-hidden="true">
           &#10003;
         </div>
-        <h1 className="text-3xl font-bold text-[var(--text)] mb-4">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[var(--text)] mb-4">
           {isFr ? 'Merci !' : 'Thank you!'}
         </h1>
-        <p className="text-lg text-[var(--text-subtle)] leading-relaxed mb-8">
+        <p className="text-base sm:text-lg text-[var(--text-subtle)] leading-relaxed mb-8">
           {isFr
             ? 'Ta question a été reçue. On te répond dans les 24h.'
             : 'Your question has been received. We\'ll get back to you within 24h.'}

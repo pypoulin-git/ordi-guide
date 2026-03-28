@@ -36,7 +36,7 @@ export default async function CataloguePage({
         className="border-b border-[var(--border)]"
         style={{
           background: 'linear-gradient(135deg, #064e3b 0%, #059669 60%, #34d399 100%)',
-          padding: '1.5rem 0 1.75rem',
+          padding: '1.25rem 0 1.5rem',
         }}
       >
         <div className="container">

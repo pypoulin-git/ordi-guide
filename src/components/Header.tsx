@@ -132,7 +132,8 @@ export default function Header() {
               <ThemeToggle />
               <button
                 ref={burgerRef}
-                className="p-2 rounded-lg hover:bg-[var(--bg-card)] transition-colors"
+                className="p-2.5 rounded-lg hover:bg-[var(--bg-card)] transition-colors"
+                style={{ minWidth: '44px', minHeight: '44px' }}
                 onClick={() => (open ? closeMenu() : setOpen(true))}
                 aria-label="Menu"
                 aria-expanded={open}
@@ -206,13 +207,13 @@ export default function Header() {
                 </div>
               )
             })}
-            <div className="flex items-center justify-between px-4 pt-4 mt-2 border-t border-[var(--border)]">
+            <div className="flex flex-col gap-3 px-4 pt-4 mt-2 border-t border-[var(--border)]">
               <div className="flex items-center gap-3">
                 <AnalogyToggle variant="pill" />
                 <LanguageSwitcher />
               </div>
               <Link href={`/${locale}/comparateur`} onClick={closeMenu}
-                className="btn-primary" style={{ padding: '0.75rem 1.5rem', fontSize: '1rem' }}>
+                className="btn-primary w-full text-center" style={{ padding: '0.75rem 1.5rem', fontSize: '1rem', minHeight: '48px' }}>
                 {t.nav.start}
               </Link>
             </div>

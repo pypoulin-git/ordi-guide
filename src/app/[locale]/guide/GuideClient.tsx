@@ -60,7 +60,7 @@ export default function GuideClient() {
       <section className="section" style={{ paddingTop: '1.25rem', paddingBottom: '1.5rem' }}>
         <div className="container max-w-3xl mx-auto">
           <div className="card">
-            <div className="flex items-center justify-between gap-4 mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4">
               <h2 className="font-semibold text-[var(--text)]" style={{ fontSize: '1rem' }}>{g.tocTitle}</h2>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm shrink-0 bg-[var(--bg-card)] text-[var(--text-subtle)]">
                 <span>{modeIcon}</span>
@@ -210,14 +210,14 @@ function AnalogySectionBlock({ section: s, idx, mode, tipLabel }: {
     <section id={s.id} className="scroll-mt-20"
       style={{
         background: hasAltBg ? 'var(--bg-subtle)' : 'transparent',
-        margin: hasAltBg ? '0 -1.5rem' : undefined,
-        padding: hasAltBg ? '2.5rem 1.5rem' : '2.5rem 0',
-        borderRadius: hasAltBg ? '1.5rem' : undefined,
+        margin: hasAltBg ? '0 -1rem' : undefined,
+        padding: hasAltBg ? '2rem 1rem' : '2rem 0',
+        borderRadius: hasAltBg ? '1rem' : undefined,
         borderTop: idx > 0 && !hasAltBg ? '1px solid var(--border)' : 'none',
       }}>
       {/* Section header with decorative accent */}
-      <div className="flex items-start gap-4 mb-6"
-        style={{ paddingLeft: isEven ? 0 : '1rem' }}>
+      <div className="flex items-start gap-3 sm:gap-4 mb-6"
+        style={{ paddingLeft: isEven ? 0 : '0.5rem' }}>
         {s.component && (
           <div className="shrink-0 rounded-2xl p-2.5 shadow-sm"
             style={{
@@ -241,7 +241,7 @@ function AnalogySectionBlock({ section: s, idx, mode, tipLabel }: {
       </div>
 
       {/* Content blocks with varied layout */}
-      <div className="space-y-4" style={{ paddingLeft: isEven ? '0.5rem' : '1.5rem' }}>
+      <div className="space-y-4" style={{ paddingLeft: isEven ? '0' : '0.5rem' }}>
         {s.content.map((c, ci) => (
           <div key={c.subtitle} className="card"
             style={{

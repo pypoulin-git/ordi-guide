@@ -18,7 +18,7 @@ export default function PrivacyClient() {
         <div className="container max-w-3xl mx-auto space-y-8">
 
           {/* 1. Data collected */}
-          <div className="card" style={{ padding: '2rem' }}>
+          <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
             <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
               {isFr ? 'Quelles données sont collectées' : 'What data is collected'}
             </h2>
@@ -35,7 +35,7 @@ export default function PrivacyClient() {
           </div>
 
           {/* 2. How data is used */}
-          <div className="card" style={{ padding: '2rem' }}>
+          <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
             <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
               {isFr ? 'Comment les données sont utilisées' : 'How data is used'}
             </h2>
@@ -47,7 +47,7 @@ export default function PrivacyClient() {
           </div>
 
           {/* 3. Third-party services */}
-          <div className="card" style={{ padding: '2rem' }}>
+          <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
             <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
               {isFr ? 'Services tiers' : 'Third-party services'}
             </h2>
@@ -68,7 +68,7 @@ export default function PrivacyClient() {
           </div>
 
           {/* 4. Cookies */}
-          <div className="card" style={{ padding: '2rem' }}>
+          <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
             <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
               Cookies
             </h2>
@@ -85,7 +85,7 @@ export default function PrivacyClient() {
           </div>
 
           {/* 5. Your rights */}
-          <div className="card" style={{ padding: '2rem' }}>
+          <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
             <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
               {isFr ? 'Vos droits' : 'Your rights'}
             </h2>
@@ -103,7 +103,7 @@ export default function PrivacyClient() {
           </div>
 
           {/* 6. Contact */}
-          <div className="card" style={{ padding: '2rem' }}>
+          <div className="card" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
             <h2 className="text-xl font-bold mb-3 text-[var(--text)]">
               Contact
             </h2>
@@ -114,7 +114,8 @@ export default function PrivacyClient() {
             </p>
             <p className="mt-2">
               <a href="mailto:support@shopcompy.ca"
-                className="text-[var(--accent)] font-medium hover:underline">
+                className="inline-flex items-center text-[var(--accent)] font-medium hover:underline"
+                style={{ minHeight: '44px' }}>
                 support@shopcompy.ca
               </a>
             </p>

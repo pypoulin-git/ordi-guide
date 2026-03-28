@@ -140,8 +140,9 @@ export default function BlogClient() {
                       {allTags.map(tag => (
                         <button key={tag}
                           onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-                          className="px-2.5 py-1 rounded-lg text-xs font-medium transition-all"
+                          className="px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all"
                           style={{
+                            minHeight: '36px',
                             background: activeTag === tag ? 'var(--text)' : 'var(--bg-card)',
                             color: activeTag === tag ? 'var(--bg)' : 'var(--text-muted)',
                           }}>
@@ -184,7 +185,7 @@ export default function BlogClient() {
 
               {/* Mobile filters */}
               <div className="lg:hidden mb-5 space-y-3">
-                <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+                <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none px-1">
                   {CATEGORIES.map(cat => {
                     const isActive = activeCategory === cat.id
                     const labelKey = CAT_LABEL_KEYS[cat.id]
@@ -192,8 +193,9 @@ export default function BlogClient() {
                     return (
                       <button key={cat.id}
                         onClick={() => { setActiveCategory(cat.id); setActiveTag(null) }}
-                        className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all shrink-0"
+                        className="flex items-center gap-1.5 px-4 rounded-full text-sm font-semibold whitespace-nowrap transition-all shrink-0"
                         style={{
+                          minHeight: '44px',
                           background: isActive ? cat.color : 'var(--bg)',
                           color: isActive ? 'white' : cat.color,
                           border: `1.5px solid ${isActive ? cat.color : 'var(--border)'}`,
@@ -205,13 +207,14 @@ export default function BlogClient() {
                   })}
                 </div>
                 {allTags.length > 0 && (
-                  <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+                  <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none px-1">
                     <span className="text-xs uppercase tracking-wider font-semibold shrink-0 text-[var(--text-muted)]">{b.tags}</span>
                     {allTags.map(tag => (
                       <button key={tag}
                         onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-                        className="px-3 py-1 rounded-lg text-xs font-medium transition-all shrink-0"
+                        className="px-3 rounded-lg text-sm font-medium transition-all shrink-0"
                         style={{
+                          minHeight: '44px',
                           background: activeTag === tag ? 'var(--text)' : 'var(--bg-card)',
                           color: activeTag === tag ? 'var(--bg)' : 'var(--text-muted)',
                         }}>
@@ -256,11 +259,11 @@ export default function BlogClient() {
                     {rest.length > 3 && (
                       <div className="flex gap-2">
                         <button onClick={() => scrollCarousel('left')} disabled={!canScrollLeft}
-                          className="w-9 h-9 rounded-full border border-[var(--border)] flex items-center justify-center transition-all hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:opacity-30" aria-label="Previous">
+                          className="w-11 h-11 rounded-full border border-[var(--border)] flex items-center justify-center transition-all hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:opacity-30" aria-label="Previous">
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M10.354 3.354a.5.5 0 00-.708-.708l-5 5a.5.5 0 000 .708l5 5a.5.5 0 00.708-.708L5.707 8l4.647-4.646z"/></svg>
                         </button>
                         <button onClick={() => scrollCarousel('right')} disabled={!canScrollRight}
-                          className="w-9 h-9 rounded-full border border-[var(--border)] flex items-center justify-center transition-all hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:opacity-30" aria-label="Next">
+                          className="w-11 h-11 rounded-full border border-[var(--border)] flex items-center justify-center transition-all hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:opacity-30" aria-label="Next">
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M5.646 3.354a.5.5 0 01.708-.708l5 5a.5.5 0 010 .708l-5 5a.5.5 0 01-.708-.708L10.293 8 5.646 3.354z"/></svg>
                         </button>
                       </div>
@@ -282,7 +285,8 @@ export default function BlogClient() {
           <h2 className="text-2xl font-bold mb-3 text-white">{b.ctaTitle}</h2>
           <p className="mb-5 text-white/70 text-sm max-w-md mx-auto">{b.ctaSubtitle}</p>
           <Link href={`/${locale}/comparateur`}
-            className="inline-flex items-center gap-2 bg-[#2563eb] text-white font-semibold py-3 px-7 rounded-xl text-sm transition-transform hover:-translate-y-0.5">
+            className="inline-flex items-center gap-2 bg-[#2563eb] text-white font-semibold py-3 px-6 sm:px-7 rounded-xl text-sm transition-transform hover:-translate-y-0.5"
+            style={{ minHeight: '48px' }}>
             {b.ctaButton}
           </Link>
         </div>
@@ -300,7 +304,7 @@ function FeaturedCard({ article, locale, readLabel, size }: {
     <Link href={`/${locale}/blog/${article.slug}`}
       className={`group block rounded-2xl overflow-hidden transition-all hover:shadow-xl ${isLarge ? 'lg:row-span-2' : ''}`}
       style={{ background: '#0f172a' }}>
-      <div className="relative flex items-end p-6 h-full"
+      <div className="relative flex items-end p-4 sm:p-6 h-full"
         style={{
           background: article.coverGradient || `linear-gradient(135deg, ${article.categoryColor}40 0%, #1e293b 60%, #334155 100%)`,
           minHeight: isLarge ? '420px' : undefined,
@@ -340,7 +344,7 @@ function CarouselCard({ article, locale, readLabel }: {
   return (
     <Link href={`/${locale}/blog/${article.slug}`}
       className="group block rounded-xl border border-[var(--border)] bg-[var(--bg)] transition-all hover:border-[var(--accent)] hover:shadow-md shrink-0"
-      style={{ width: '300px', scrollSnapAlign: 'start' }}>
+      style={{ width: 'min(300px, 85vw)', scrollSnapAlign: 'start' }}>
       <div className="rounded-t-xl" style={{ height: '6px', background: `linear-gradient(90deg, ${article.categoryColor}, ${article.categoryColor}60)` }} />
       <div className="p-5">
         <div className="flex items-center gap-2 mb-2.5">

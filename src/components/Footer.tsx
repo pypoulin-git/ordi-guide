@@ -20,7 +20,7 @@ export default function Footer() {
     <footer className="border-t border-[var(--border)] bg-[var(--bg-subtle)] mt-auto">
       {/* Safety net section for lost users */}
       <div className="border-b border-[var(--border)] bg-[var(--accent-bg)]">
-        <div className="container py-16 text-center">
+        <div className="container py-10 md:py-16 text-center">
           <p className="text-lg font-semibold text-[var(--text)] mb-4">
             {t.footer.helpTitle}
           </p>
@@ -37,8 +37,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container py-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+      <div className="container py-12 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
           <div>
             <div className="flex items-center gap-2.5 font-bold text-lg text-[var(--text)] mb-3">
               <Image src="/images/compy-logo.png" alt="Shop Compy" width={36} height={36} className="compy-logo" />
@@ -53,10 +53,10 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="font-semibold text-[var(--text)] mb-5 text-base uppercase tracking-wider">{t.footer.explore}</h3>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               {links.map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-base text-[var(--text-subtle)] hover:text-[var(--accent)] transition-colors">
+                  <Link href={l.href} className="text-base text-[var(--text-subtle)] hover:text-[var(--accent)] transition-colors inline-block py-2">
                     {l.label}
                   </Link>
                 </li>
@@ -70,7 +70,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="border-t border-[var(--border)] mt-14 pt-10 text-sm text-[var(--text-muted)] text-center">
+        <div className="border-t border-[var(--border)] mt-8 pt-6 md:mt-14 md:pt-10 text-sm text-[var(--text-muted)] text-center">
           &copy; {new Date().getFullYear()} Shop Compy. {t.footer.rights}
         </div>
       </div>

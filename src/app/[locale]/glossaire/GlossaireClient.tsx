@@ -47,13 +47,13 @@ export default function GlossaireClient() {
       />
 
       {/* -- Quick nav -- */}
-      <section className="bg-[var(--bg-subtle)] border-b border-[var(--border)]" style={{ padding: '1rem 0' }}>
+      <section className="bg-[var(--bg-subtle)] border-b border-[var(--border)]" style={{ padding: '0.75rem 0' }}>
         <div className="container max-w-3xl mx-auto">
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex flex-wrap gap-2 justify-center">
             {letters.map(l => (
               <a key={l} href={`#letter-${l}`}
-                className="w-10 h-10 flex items-center justify-center rounded-lg text-base font-bold transition-colors hover:bg-[#7c3aed] hover:text-white"
-                style={{ background: 'var(--accent-bg)', color: '#7c3aed', minWidth: '40px', minHeight: '40px' }}>
+                className="w-11 h-11 flex items-center justify-center rounded-lg text-base font-bold transition-colors hover:bg-[#7c3aed] hover:text-white"
+                style={{ background: 'var(--accent-bg)', color: '#7c3aed', minWidth: '44px', minHeight: '44px' }}>
                 {l}
               </a>
             ))}
@@ -62,7 +62,7 @@ export default function GlossaireClient() {
       </section>
 
       {/* -- Terms -- */}
-      <div className="container max-w-3xl mx-auto py-12 space-y-10">
+      <div className="container max-w-3xl mx-auto py-8 sm:py-12 space-y-10">
         {letters.map(letter => (
           <div key={letter} id={`letter-${letter}`} className="scroll-mt-20">
             <div className="flex items-center gap-3 mb-4">
