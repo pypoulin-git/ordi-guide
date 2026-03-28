@@ -12,6 +12,8 @@ export default function Footer() {
     { href: `/${locale}/blog`,        label: t.nav.blog },
     { href: `/${locale}/catalogue`,   label: t.nav.catalogue },
     { href: `/${locale}/about`,       label: t.nav.about },
+    { href: `/${locale}/privacy`,    label: t.footer.privacy },
+    { href: `/${locale}/support`,    label: t.footer.support },
   ]
 
   return (

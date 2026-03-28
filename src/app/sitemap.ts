@@ -4,8 +4,7 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import type { CatalogueData } from '@/types/catalogue'
 import { locales } from '@/i18n/config'
-
-const BASE = 'https://ordi-guide.vercel.app'
+import { BASE_URL as BASE } from '@/lib/constants'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString()
@@ -18,6 +17,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/glossaire', changeFrequency: 'monthly' as const, priority: 0.7 },
     { path: '/blog', changeFrequency: 'weekly' as const, priority: 0.7 },
     { path: '/about', changeFrequency: 'yearly' as const, priority: 0.4 },
+    { path: '/privacy', changeFrequency: 'yearly' as const, priority: 0.3 },
+    { path: '/support', changeFrequency: 'monthly' as const, priority: 0.5 },
   ]
 
   const staticPages: MetadataRoute.Sitemap = locales.flatMap(locale =>

@@ -14,7 +14,9 @@ const CSP_DIRECTIVES = [
   // Scripts: 'unsafe-inline' is required by Next.js for inline <script> tags
   // injected during SSR/hydration. Removing it would break the app.
   // Vercel analytics + insights scripts are loaded from their CDN domains.
-  "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://cdn.vercel-insights.com",
+  // Google AdSense (conditional on NEXT_PUBLIC_ADSENSE_ID env var being set).
+  // Stripe.js for payment links (support expert + donations).
+  "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://cdn.vercel-insights.com https://pagead2.googlesyndication.com https://js.stripe.com",
 
   // Styles: 'unsafe-inline' is required for Tailwind's runtime styles and
   // Next.js style injection. Google Fonts stylesheet is loaded from googleapis.
@@ -23,14 +25,17 @@ const CSP_DIRECTIVES = [
   // Fonts: Google Fonts serves font files from gstatic.com
   "font-src 'self' https://fonts.gstatic.com",
 
-  // Images: Only local images + data: URIs (used by Next.js image blur placeholders).
-  // No external image domains are used — keeping this tight.
-  "img-src 'self' data:",
+  // Images: local + data: URIs (Next.js blur placeholders) + AdSense ad images.
+  "img-src 'self' data: https://pagead2.googlesyndication.com",
 
   // XHR / fetch / WebSocket connections:
   // - Vercel Web Vitals & Analytics reporting
   // - Google Generative AI API (comparator AI features)
-  "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com https://generativelanguage.googleapis.com",
+  // - AdSense reporting
+  "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com https://generativelanguage.googleapis.com https://pagead2.googlesyndication.com",
+
+  // Frames: AdSense ad rendering + Stripe checkout
+  "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://js.stripe.com https://checkout.stripe.com",
 
   // Prevent this site from being embedded in iframes (clickjacking protection)
   "frame-ancestors 'none'",

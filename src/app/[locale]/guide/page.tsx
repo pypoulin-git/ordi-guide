@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import GuideClient from './GuideClient'
-
-const BASE_URL = 'https://ordi-guide.vercel.app'
+import { BASE_URL } from '@/lib/constants'
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> }

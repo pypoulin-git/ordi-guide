@@ -907,4 +907,64 @@ export const articles: Article[] = [
     ],
     ctaText: 'Ta batterie te remerciera. Prêt à trouver le portable parfait pour les prochaines années ?',
   },
+  {
+    slug: 'comment-on-finance-shop-compy',
+    title: 'Comment on finance Shop Compy',
+    description: 'Zéro bullshit : on t\'explique exactement comment le site paye ses factures, et pourquoi ça ne change rien à nos recommandations.',
+    date: '2026-03-28',
+    readTime: '5 min',
+    category: 'Achat malin',
+    categoryColor: '#059669',
+    icon: '💰',
+    tags: ['financement', 'transparence', 'affilié'],
+    tldr: 'Shop Compy est gratuit et le restera. On se finance par des liens affiliés (qui ne changent rien au prix ni aux recommandations), un espace pub identifié, des trouvailles Compy, et du support expert à 5 $. Pas de paywall, pas de tracking invasif, pas de recommandations biaisées.',
+    sections: [
+      {
+        title: 'Gratuit, et ça va rester comme ça',
+        paragraphs: [
+          'On va être directs : Shop Compy est gratuit. Le comparateur, les guides, les articles — tout. Et ça va rester gratuit. Pas de plan \"premium\" caché, pas de version payante qui débloque les \"vraies\" recommandations. Ce que tu vois, c\'est ce que tout le monde voit.',
+          'Pourquoi on insiste là-dessus ? Parce que trop de sites d\'avis tech te donnent des recommandations médiocres gratuitement, puis te poussent vers un abonnement pour les \"vraies\" réponses. Chez nous, la meilleure recommandation est toujours celle qui est affichée.',
+        ],
+      },
+      {
+        title: 'Oui, ça coûte de l\'argent pour vrai',
+        paragraphs: [
+          'Faire tourner Shop Compy, c\'est pas gratuit de notre côté. L\'IA (Gemini) qui analyse les produits et personnalise les recommandations, ça coûte de l\'argent à chaque requête. L\'hébergement sur Vercel, le développement continu, la recherche sur les produits — tout ça s\'additionne.',
+          'On aurait pu mettre un paywall et régler la question. Mais on croit que tout le monde mérite des recommandations honnêtes, pas juste ceux qui peuvent payer un abonnement mensuel. Faque on a trouvé d\'autres moyens.',
+        ],
+      },
+      {
+        title: 'Nos 4 sources de revenus (en toute transparence)',
+        paragraphs: [
+          '**1. Liens affiliés.** Quand tu cliques sur un lien vers un détaillant (Amazon, Best Buy, etc.) et que tu achètes quelque chose, on reçoit une petite commission du détaillant. Ça te coûte exactement le même prix — pas une cenne de plus. Et surtout : les commissions n\'influencent JAMAIS nos recommandations. Si un produit est meilleur pour toi, c\'est celui qu\'on recommande, point.',
+          '**2. Un espace publicitaire identifié.** Sur les pages produit, tu vas voir un seul espace pub, clairement marqué comme tel. Pas de pop-up, pas de pub déguisée en contenu, pas de \"article sponsorisé\" qui ressemble à un vrai guide. Une pub, identifiée, c\'est tout.',
+          '**3. Trouvailles Compy.** On déniche des deals exceptionnels qu\'on partage gratuitement, sans commission. Si une trouvaille t\'a fait économiser gros, on te propose un don volontaire. Zéro obligation, zéro culpabilité.',
+          '**4. Support expert.** Tu as une question précise sur ton achat ? Pour 5 $, tu nous envoies ta question et on te répond en 24 h avec une recommandation personnalisée. Pas un chatbot, pas un template — une vraie réponse de quelqu\'un qui connaît ça.',
+        ],
+      },
+      {
+        title: 'Pourquoi c\'est nécessaire',
+        paragraphs: [
+          'Chaque fois que le comparateur analyse un ordinateur pour toi, ça consomme des ressources d\'IA. Chaque page que tu charges, c\'est de la bande passante. Chaque nouveau guide qu\'on écrit, c\'est du temps de recherche et de développement.',
+          'Sans revenus, le site ferme. C\'est aussi simple que ça. Mais au lieu de te faire payer directement, on a choisi des sources de revenus qui restent alignées avec ta réalité : tu ne paies jamais plus cher, et nos recommandations restent indépendantes.',
+        ],
+      },
+      {
+        title: 'Ce qu\'on ne fera JAMAIS',
+        paragraphs: [
+          '**Pas de paywall.** Tout le contenu reste gratuit. Pas de \"connecte-toi pour voir la suite\", pas de \"abonne-toi pour débloquer le comparateur\".',
+          '**Pas de tracking invasif.** On n\'installe pas de trackers tiers sur ton navigateur. On n\'a pas besoin de savoir ce que tu fais sur d\'autres sites pour te recommander un bon ordinateur.',
+          '**Pas de recommandations biaisées.** Si un produit nous rapporte plus de commission mais qu\'un autre est meilleur pour toi, c\'est le meilleur qu\'on recommande. Toujours. Notre réputation vaut plus que n\'importe quelle commission.',
+        ],
+      },
+      {
+        title: 'Notre promesse',
+        paragraphs: [
+          'Des recommandations accessibles et honnêtes. C\'est ça, Shop Compy. On croit qu\'acheter un ordinateur ne devrait pas être compliqué, stressant, ou réservé à ceux qui parlent le jargon tech. Et on croit que la transparence, ça se prouve avec des actes, pas juste des belles paroles.',
+          'T\'es ici, tu lis cet article — c\'est la preuve qu\'on joue cartes sur table. Merci de nous faire confiance.',
+        ],
+      },
+    ],
+    ctaText: 'Maintenant que tu sais comment on fonctionne, laisse-nous t\'aider à trouver ton prochain ordi.',
+  },
 ]

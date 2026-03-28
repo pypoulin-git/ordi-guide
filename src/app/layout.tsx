@@ -5,14 +5,13 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { headers } from 'next/headers'
 import './globals.css'
 import JsonLd from '@/components/JsonLd'
+import { BASE_URL, SITE_NAME } from '@/lib/constants'
 
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
   display: 'swap',
 })
-
-const BASE_URL = 'https://ordi-guide.vercel.app'
 
 export const metadata: Metadata = {
   icons: {
@@ -39,11 +38,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <JsonLd data={{
           '@context': 'https://schema.org',
           '@type': 'WebSite',
-          name: 'Shop Compy',
+          name: SITE_NAME,
           url: BASE_URL,
           description: isFr
-            ? 'Guide simple pour choisir ton ordinateur. Zéro jargon, zéro pub.'
-            : 'Simple guide to choose your computer. Zero jargon, zero ads.',
+            ? 'Guide simple pour choisir ton ordinateur. Recommandations accessibles et honnêtes.'
+            : 'Simple guide to choose your computer. Accessible and honest recommendations.',
           inLanguage: isFr ? 'fr-CA' : 'en-CA',
           potentialAction: {
             '@type': 'SearchAction',
@@ -54,13 +53,20 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <JsonLd data={{
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          name: 'Shop Compy',
+          name: SITE_NAME,
           url: BASE_URL,
           logo: `${BASE_URL}/images/compy-logo.png`,
           description: isFr
             ? 'Plateforme québécoise d\'aide à l\'achat informatique.'
             : 'Quebec-based computer buying guide platform.',
         }} />
+        {process.env.NEXT_PUBLIC_ADSENSE_ID && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
+            crossOrigin="anonymous"
+          />
+        )}
       </head>
       <body className="min-h-full flex flex-col bg-[var(--bg)] text-[var(--text)]">
         <a

@@ -10,6 +10,9 @@ import JsonLd from '@/components/JsonLd'
 import SpecTooltip from '@/components/SpecTooltip'
 import { getDictionary } from '@/i18n/get-dictionary'
 import type { Locale } from '@/i18n/config'
+import { buildAffiliateUrl, getAffiliateRel } from '@/lib/affiliate'
+import SponsoredSpot from '@/components/SponsoredSpot'
+import DonationBox from '@/components/DonationBox'
 
 async function getCatalogue(): Promise<CatalogueData> {
   const filePath = path.join(process.cwd(), 'data', 'catalogue.json')
@@ -216,15 +219,22 @@ export default function ProductPage({ params }: Props) {
                   </p>
                 </div>
 
-                <a href={product.url} target="_blank" rel="noopener noreferrer"
+                <a href={product.isGiftPick ? product.url : buildAffiliateUrl(product.url, product.source)}
+                  target="_blank" rel={getAffiliateRel(product.isGiftPick)}
                   className="btn-primary w-full justify-center mb-3"
                   style={{ padding: '0.875rem 1.5rem', fontSize: '1rem' }}>
                   {pt.viewAt.replace('{source}', source.label)}
                 </a>
 
-                <p className="text-sm text-center text-[var(--text-muted)]">
-                  {pt.affiliateNote}
-                </p>
+                {product.isGiftPick ? (
+                  <p className="text-sm text-center text-[var(--text-muted)]">
+                    {pt.giftPickNote || 'Trouvaille Compy — cette référence est offerte sans revenu pour nous'}
+                  </p>
+                ) : (
+                  <p className="text-sm text-center text-[var(--text-muted)]">
+                    {pt.affiliateNote}
+                  </p>
+                )}
 
                 <div className="mt-5 pt-5 border-t border-[var(--border)]">
                   <Link href={`/${locale}/comparateur`}
@@ -235,6 +245,22 @@ export default function ProductPage({ params }: Props) {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Donation box for gift picks */}
+      {product.isGiftPick && (
+        <section className="section">
+          <div className="container max-w-4xl mx-auto">
+            <DonationBox />
+          </div>
+        </section>
+      )}
+
+      {/* Sponsored ad spot — between content and similar products */}
+      <section className="section">
+        <div className="container max-w-4xl mx-auto">
+          <SponsoredSpot />
         </div>
       </section>
 

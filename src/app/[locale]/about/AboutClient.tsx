@@ -132,6 +132,51 @@ export default function AboutClient() {
         </div>
       </section>
 
+      {/* Funding / Transparency */}
+      <section className="section bg-[var(--bg-subtle)]">
+        <div className="container max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold mb-3 text-[var(--text)]">{t.funding.fundingTitle}</h2>
+          <p className="leading-relaxed mb-8 text-[var(--text-subtle)]">{t.funding.fundingIntro}</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div className="card" style={{ padding: '1.5rem 2rem' }}>
+              <div className="text-2xl mb-2">🔗</div>
+              <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{t.funding.fundingAffiliateTitle}</h3>
+              <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{t.funding.fundingAffiliateDesc}</p>
+            </div>
+            <div className="card" style={{ padding: '1.5rem 2rem' }}>
+              <div className="text-2xl mb-2">📢</div>
+              <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{t.funding.fundingPartnerTitle}</h3>
+              <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{t.funding.fundingPartnerDesc}</p>
+            </div>
+            <div className="card" style={{ padding: '1.5rem 2rem' }}>
+              <div className="text-2xl mb-2">🎁</div>
+              <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{t.funding.fundingGiftTitle}</h3>
+              <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{t.funding.fundingGiftDesc}</p>
+            </div>
+            <div className="card" style={{ padding: '1.5rem 2rem' }}>
+              <div className="text-2xl mb-2">💬</div>
+              <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{t.funding.fundingSupportTitle}</h3>
+              <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{t.funding.fundingSupportDesc}</p>
+            </div>
+          </div>
+
+          <p className="leading-relaxed mb-8 text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>
+            {t.funding.fundingWhy}
+          </p>
+
+          <div className="flex flex-wrap gap-3 justify-center">
+            {[t.funding.fundingBadge1, t.funding.fundingBadge2, t.funding.fundingBadge3].map((badge) => (
+              <span key={badge} className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium"
+                style={{ background: 'var(--accent-bg)', color: 'var(--accent)' }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                {badge}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Citation finale */}
       <section className="section" style={{ background: '#1e3a8a' }}>
         <div className="container max-w-2xl mx-auto text-center">

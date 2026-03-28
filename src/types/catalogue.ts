@@ -1,7 +1,7 @@
 export type ProfileTag = 'basic' | 'work' | 'student' | 'creative' | 'gaming'
-export type Category = 'laptop' | 'desktop' | 'apple' | 'chromebook'
+export type Category = 'laptop' | 'desktop' | 'apple' | 'chromebook' | 'monitor' | 'dock' | 'peripheral' | 'storage' | 'accessory'
 export type BudgetTier = 'under500' | '500to900' | '900to1500' | 'over1500'
-export type Source = 'bestbuy' | 'amazon' | 'costco' | 'staples'
+export type Source = 'bestbuy' | 'amazon' | 'costco' | 'staples' | 'newegg' | 'lenovo' | 'dell' | 'hp' | 'walmart' | 'canadacomputers' | 'microsoft'
 
 export interface ProductSpecs {
   cpu: string
@@ -10,6 +10,14 @@ export interface ProductSpecs {
   display?: string
   gpu?: string
   battery?: string
+  // Monitors
+  panelType?: string
+  resolution?: string
+  refreshRate?: string
+  size?: string
+  // Docks
+  ports?: string
+  powerDelivery?: string
 }
 
 export interface CatalogueProduct {
@@ -30,6 +38,8 @@ export interface CatalogueProduct {
   addedAt: string
   lastVerified: string
   isOnSale: boolean
+  /** Product offered without affiliate revenue — shows donation box instead */
+  isGiftPick?: boolean
 }
 
 export interface AgentRunInfo {
@@ -61,6 +71,11 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   desktop:    'Ordinateurs de bureau',
   apple:      'Apple (Mac)',
   chromebook: 'Chromebooks',
+  monitor:    'Moniteurs',
+  dock:       'Docks & Stations',
+  peripheral: 'Périphériques',
+  storage:    'Stockage',
+  accessory:  'Accessoires',
 }
 
 export const BUDGET_LABELS: Record<BudgetTier, string> = {
@@ -71,8 +86,15 @@ export const BUDGET_LABELS: Record<BudgetTier, string> = {
 }
 
 export const SOURCE_LABELS: Record<Source, { label: string; color: string }> = {
-  bestbuy: { label: 'Best Buy', color: '#0046be' },
-  amazon:  { label: 'Amazon',   color: '#ff9900' },
-  costco:  { label: 'Costco',   color: '#e31837' },
-  staples: { label: 'Bureau en Gros', color: '#cc0000' },
+  bestbuy:         { label: 'Best Buy',          color: '#0046be' },
+  amazon:          { label: 'Amazon',            color: '#ff9900' },
+  costco:          { label: 'Costco',            color: '#e31837' },
+  staples:         { label: 'Bureau en Gros',    color: '#cc0000' },
+  newegg:          { label: 'Newegg',            color: '#e56708' },
+  lenovo:          { label: 'Lenovo',            color: '#e2231a' },
+  dell:            { label: 'Dell',              color: '#007db8' },
+  hp:              { label: 'HP',                color: '#0096d6' },
+  walmart:         { label: 'Walmart',           color: '#0071dc' },
+  canadacomputers: { label: 'Canada Computers',  color: '#1a1a1a' },
+  microsoft:       { label: 'Microsoft',         color: '#737373' },
 }

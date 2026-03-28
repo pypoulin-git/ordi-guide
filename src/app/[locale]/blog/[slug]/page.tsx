@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd'
 import TechIllustration from '@/components/TechIllustration'
 import { getDictionary } from '@/i18n/get-dictionary'
 import type { Locale } from '@/i18n/config'
+import { BASE_URL } from '@/lib/constants'
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>
@@ -41,8 +42,8 @@ export default function ArticlePage({ params }: Props) {
     description: article.description,
     datePublished: article.date,
     author: { '@type': 'Organization', name: 'Shop Compy' },
-    publisher: { '@type': 'Organization', name: 'Shop Compy', url: 'https://ordi-guide.vercel.app' },
-    mainEntityOfPage: `https://ordi-guide.vercel.app/blog/${article.slug}`,
+    publisher: { '@type': 'Organization', name: 'Shop Compy', url: BASE_URL },
+    mainEntityOfPage: `${BASE_URL}/blog/${article.slug}`,
     articleSection: article.category,
     inLanguage: locale === 'fr' ? 'fr-CA' : 'en-CA',
   }

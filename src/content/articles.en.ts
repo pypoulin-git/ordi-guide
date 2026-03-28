@@ -907,4 +907,64 @@ export const articles: Article[] = [
     ],
     ctaText: 'Your battery will thank you. Ready to find the perfect laptop for the years ahead?',
   },
+  {
+    slug: 'comment-on-finance-shop-compy',
+    title: 'How We Fund Shop Compy',
+    description: 'No BS: here\'s exactly how the site pays its bills, and why it doesn\'t change a thing about our recommendations.',
+    date: '2026-03-28',
+    readTime: '5 min',
+    category: 'Achat malin',
+    categoryColor: '#059669',
+    icon: '💰',
+    tags: ['funding', 'transparency', 'affiliate'],
+    tldr: 'Shop Compy is free and always will be. We fund ourselves through affiliate links (which don\'t change prices or recommendations), one clearly marked ad spot, Compy Finds, and expert support at $5. No paywall, no invasive tracking, no biased recommendations.',
+    sections: [
+      {
+        title: 'Free, and it\'s staying that way',
+        paragraphs: [
+          'Let\'s be upfront: Shop Compy is free. The comparison tool, the guides, the articles — all of it. And it\'s staying free. No hidden "premium" plan, no paid version that unlocks the "real" recommendations. What you see is what everyone sees.',
+          'Why do we make such a big deal about this? Because too many tech review sites give you mediocre recommendations for free, then push you toward a subscription for the "real" answers. Here, the best recommendation is always the one on display.',
+        ],
+      },
+      {
+        title: 'Yes, this actually costs real money',
+        paragraphs: [
+          'Running Shop Compy isn\'t free on our end. The AI (Gemini) that analyzes products and personalizes recommendations costs money with every request. Hosting on Vercel, ongoing development, product research — it all adds up.',
+          'We could have slapped on a paywall and called it a day. But we believe everyone deserves honest recommendations, not just people who can afford a monthly subscription. So we found other ways.',
+        ],
+      },
+      {
+        title: 'Our 4 revenue sources (full transparency)',
+        paragraphs: [
+          '**1. Affiliate links.** When you click a link to a retailer (Amazon, Best Buy, etc.) and buy something, we get a small commission from the retailer. It costs you exactly the same price — not a penny more. And most importantly: commissions NEVER influence our recommendations. If a product is better for you, that\'s the one we recommend. Period.',
+          '**2. One clearly marked ad spot.** On product pages, you\'ll see a single ad space, clearly labelled as such. No pop-ups, no ads disguised as content, no "sponsored articles" that look like real guides. One ad, identified, that\'s it.',
+          '**3. Compy Finds.** We dig up exceptional deals and share them for free, with no commission. If a find saved you big, we offer a voluntary donation option. Zero obligation, zero guilt.',
+          '**4. Expert support.** Got a specific question about your purchase? For $5, you send us your question and we get back to you within 24 hours with a personalized recommendation. Not a chatbot, not a template — a real answer from someone who knows their stuff.',
+        ],
+      },
+      {
+        title: 'Why this is necessary',
+        paragraphs: [
+          'Every time the comparison tool analyzes a computer for you, it uses AI resources. Every page you load is bandwidth. Every new guide we write is research and development time.',
+          'Without revenue, the site shuts down. It\'s that simple. But instead of charging you directly, we chose revenue sources that stay aligned with your interests: you never pay more, and our recommendations stay independent.',
+        ],
+      },
+      {
+        title: 'What we will NEVER do',
+        paragraphs: [
+          '**No paywall.** All content stays free. No "log in to see the rest," no "subscribe to unlock the comparison tool."',
+          '**No invasive tracking.** We don\'t install third-party trackers in your browser. We don\'t need to know what you do on other sites to recommend a good computer.',
+          '**No biased recommendations.** If a product earns us more commission but another one is better for you, we recommend the better one. Always. Our reputation is worth more than any commission.',
+        ],
+      },
+      {
+        title: 'Our promise',
+        paragraphs: [
+          'Accessible and honest recommendations. That\'s Shop Compy. We believe buying a computer shouldn\'t be complicated, stressful, or reserved for people who speak tech jargon. And we believe transparency is proven with actions, not just nice words.',
+          'You\'re here, reading this article — that\'s proof we\'re playing with our cards on the table. Thanks for trusting us.',
+        ],
+      },
+    ],
+    ctaText: 'Now that you know how we work, let us help you find your next computer.',
+  },
 ]

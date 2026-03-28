@@ -6,9 +6,10 @@ import { I18nProvider } from '@/i18n/DictionaryContext'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
+import CookieConsent from '@/components/CookieConsent'
+import FundingToast from '@/components/FundingToast'
 import { AnalogyProvider } from '@/contexts/AnalogyContext'
-
-const BASE_URL = 'https://ordi-guide.vercel.app'
+import { BASE_URL } from '@/lib/constants'
 
 export async function generateStaticParams() {
   return locales.map(locale => ({ locale }))
@@ -29,8 +30,8 @@ export async function generateMetadata(
       template: '%s — Shop Compy',
     },
     description: isFr
-      ? 'Choisir un ordinateur n\'est pas compliqué. On t\'explique tout simplement pour que tu puisses magasiner en confiance. Zéro jargon, zéro pub.'
-      : 'Choosing a computer isn\'t complicated. We explain everything simply so you can shop with confidence. Zero jargon, zero ads.',
+      ? 'Choisir un ordinateur n\'est pas compliqué. On t\'explique tout simplement pour que tu puisses magasiner en confiance. Recommandations accessibles et honnêtes.'
+      : 'Choosing a computer isn\'t complicated. We explain everything simply so you can shop with confidence. Accessible and honest recommendations.',
     openGraph: {
       type: 'website',
       locale: isFr ? 'fr_CA' : 'en_CA',
@@ -68,6 +69,8 @@ export default async function LocaleLayout({
         <Header />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
+        <CookieConsent />
+        <FundingToast />
         <ScrollToTop />
       </AnalogyProvider>
     </I18nProvider>
