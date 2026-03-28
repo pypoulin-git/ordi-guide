@@ -2,6 +2,7 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { useTranslation } from '@/i18n/DictionaryContext'
+import GlassTooltip from './GlassTooltip'
 
 export default function LanguageSwitcher() {
   const { locale } = useTranslation()
@@ -13,17 +14,20 @@ export default function LanguageSwitcher() {
   // Replace /fr/... with /en/... or vice versa
   const switchedPath = pathname.replace(`/${locale}`, `/${otherLocale}`)
 
+  const tooltipLabel = locale === 'fr' ? 'Switch to English' : 'Passer en français'
+
   return (
-    <Link
-      href={switchedPath}
-      className="ml-2 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wide transition-colors hover:bg-[var(--accent-bg)]"
-      style={{
-        color: 'var(--accent)',
-        border: '1.5px solid var(--accent)',
-      }}
-      title={locale === 'fr' ? 'Switch to English' : 'Passer en français'}
-    >
-      {label}
-    </Link>
+    <GlassTooltip label={tooltipLabel}>
+      <Link
+        href={switchedPath}
+        className="ml-2 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wide transition-colors hover:bg-[var(--accent-bg)]"
+        style={{
+          color: 'var(--accent)',
+          border: '1.5px solid var(--accent)',
+        }}
+      >
+        {label}
+      </Link>
+    </GlassTooltip>
   )
 }

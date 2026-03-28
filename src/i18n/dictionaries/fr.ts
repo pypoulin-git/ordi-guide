@@ -12,7 +12,7 @@ const fr = {
     home: 'Accueil',
     themeDark: 'Mode sombre',
     themeLight: 'Mode clair',
-    analogyHelp: 'Change le style des explications : corps humain ou voiture',
+    analogyHelp: 'Choisissez l\'analogie utilisée pour expliquer les composants sur le site',
   },
 
   // ── Footer ───────────────────────────────────────────────
@@ -21,7 +21,9 @@ const fr = {
     explore: 'Explorer',
     guideComplete: 'Le guide complet',
     aboutTitle: 'À propos',
-    affiliateDisclosure: 'Certains liens vers des détaillants sont des liens affiliés : si tu achètes via ces liens, on reçoit une petite commission, sans frais supplémentaires pour toi. Nos recommandations restent basées sur la qualité et tes besoins, jamais sur les commissions.',
+    affiliateDisclosure: 'Certains liens vers des détaillants sont des liens affiliés : si tu achètes via ces liens, on reçoit une petite commission, sans frais supplémentaires pour toi. On affiche aussi un seul espace publicitaire clairement identifié sur les pages produit. Nos recommandations restent basées sur la qualité et tes besoins, jamais sur les commissions.',
+    privacy: 'Confidentialité',
+    support: 'Support expert',
     rights: 'Tous droits réservés.',
     helpTitle: 'Tu ne trouves pas ce que tu cherches ?',
     helpComparator: 'Faire le questionnaire',
@@ -65,7 +67,7 @@ const fr = {
     reassurance2: 'Rapide à lire',
     reassurance2Desc: 'L\'essentiel en moins de 10 min',
     reassurance3: 'Transparent',
-    reassurance3Desc: 'Liens affiliés identifiés, conseils impartiaux',
+    reassurance3Desc: 'Liens affiliés et espace partenaire identifiés, conseils impartiaux',
     reassurance4: 'Pour tous',
     reassurance4Desc: 'Que tu aies 15 ou 75 ans',
 
@@ -291,6 +293,7 @@ const fr = {
     affiliateNote: 'Lien affilié — tu ne payes rien de plus',
     notSure: 'Pas sûr ? Fais le questionnaire',
     similarProducts: 'Produits similaires',
+    giftPickNote: 'Trouvaille Compy — cette référence est offerte sans revenu pour nous',
   },
 
   // ── Search bar ──────────────────────────────────────────
@@ -349,6 +352,81 @@ const fr = {
     goHome: 'Retour à l\'accueil',
     goGuide: 'Lire le guide',
     goComparator: 'M\'aider à choisir',
+  },
+  // ── Funding (About page transparency) ────────────────
+  funding: {
+    fundingTitle: 'Comment on finance ce site',
+    fundingIntro: 'Shop Compy est gratuit et le restera. Voici comment on couvre nos coûts pour garder le site en vie, à jour, et réellement utile.',
+    fundingAffiliateTitle: 'Liens affiliés',
+    fundingAffiliateDesc: 'Quand tu achètes via un de nos liens, on reçoit une petite commission du détaillant. Ça ne te coûte rien de plus et ça n\'influence jamais nos recommandations.',
+    fundingPartnerTitle: 'Un espace partenaire',
+    fundingPartnerDesc: 'Un seul placement publicitaire, clairement identifié, sur les pages produit seulement. Le reste du site est 100 % sans pub.',
+    fundingGiftTitle: 'Trouvailles Compy',
+    fundingGiftDesc: 'Certains deals exceptionnels sont référencés sans commission pour nous. Un don volontaire est proposé — tu gardes le reste de tes économies.',
+    fundingSupportTitle: 'Support expert',
+    fundingSupportDesc: 'Une question à un humain pour seulement 5 $. Réponse garantie en 24h par courriel. Abordable et personnalisé.',
+    fundingWhy: 'Ces revenus financent l\'IA qui analyse les produits, l\'hébergement du site, et le développement continu. Sans ça, le site n\'existerait pas — ou il serait payant.',
+    fundingBadge1: 'Pas de paywall',
+    fundingBadge2: 'Pas de cookies de tracking',
+    fundingBadge3: 'Recommandations basées sur la qualité',
+  },
+
+  // ── Sponsored (SponsoredSpot component) ──────────────
+  sponsored: {
+    sponsoredLabel: 'Espace partenaire',
+    sponsoredFunds: 'Cet espace finance le site.',
+    sponsoredLearnMore: 'En savoir plus',
+  },
+
+  // ── Cookie consent ──────────────────────────────────
+  cookie: {
+    cookieMessage: 'Ce site utilise un espace publicitaire qui peut placer des cookies.',
+    cookieAccept: 'Accepter',
+    cookieRefuse: 'Refuser',
+  },
+
+  // ── Support expert ──────────────────────────────────
+  support: {
+    supportHeroTitle: 'Un expert, une réponse',
+    supportHeroSubtitle: 'Pose ta question à un vrai humain. Réponse garantie en 24h.',
+    supportIntro: 'L\'IA de Compy est super, mais parfois tu as besoin d\'un avis personnalisé. Nos experts connaissent le marché canadien et répondent en langage simple.',
+    supportTier1Title: '1 question',
+    supportTier1Price: '5 $',
+    supportTier1Desc: 'Un avis rapide et clair sur ta question.',
+    supportTier2Title: '2 questions',
+    supportTier2Price: '10 $',
+    supportTier2Desc: 'Deux questions, une réponse complète.',
+    supportTier3Title: 'Consultation',
+    supportTier3Price: '20 $',
+    supportTier3Desc: 'Analyse détaillée et recommandation personnalisée.',
+    supportEmailLabel: 'Ton courriel',
+    supportEmailPlaceholder: 'ton@courriel.com',
+    supportQuestionLabel: 'Ta question',
+    supportQuestionPlaceholder: 'Ex: Mon ordinateur a 5 ans, est-ce qu\'il vaut la peine d\'être upgradé ?',
+    supportCta: 'Payer et envoyer',
+    supportExamples: 'Exemples de questions',
+    supportEx1: 'Mon ordi a 5 ans, est-ce qu\'il vaut la peine d\'être upgradé ?',
+    supportEx2: 'J\'hésite entre le MacBook Air M4 et le Lenovo Yoga.',
+    supportEx3: 'Est-ce que mon PC peut supporter Windows 11 ?',
+    supportEx4: 'J\'ai trouvé un deal, est-ce que c\'est un bon achat ?',
+    supportMerciTitle: 'Merci !',
+    supportMerciMessage: 'Ta question a été reçue. On te répond dans les 24 prochaines heures à l\'adresse courriel indiquée.',
+  },
+
+  // ── Donation ────────────────────────────────────────
+  donation: {
+    donationTitle: 'Ce deal t\'a aidé ?',
+    donationSubtitle: 'Cette référence est offerte sans revenu pour nous. Si tu veux nous soutenir :',
+    donationCta5: '5 $',
+    donationCta10: '10 $',
+    donationCta20: '20 $',
+    donationThanks: 'Merci pour ton soutien !',
+  },
+
+  // ── Privacy ─────────────────────────────────────────
+  privacy: {
+    privacyTitle: 'Politique de confidentialité',
+    privacyLastUpdated: 'Dernière mise à jour : mars 2026',
   },
 } satisfies Record<string, Record<string, string>>
 

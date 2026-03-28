@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useAnalogy, type AnalogyMode } from '@/contexts/AnalogyContext'
 import { useTranslation } from '@/i18n/DictionaryContext'
+import GlassTooltip from './GlassTooltip'
 
 interface Props {
   /** 'pill' = compact inline toggle, 'card' = large card with descriptions */
@@ -231,30 +232,32 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
             transition: 'left 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
         />
-        <button
-          onClick={() => setMode('body')}
-          className="relative z-10 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
-          style={{
-            color: bodyActive ? 'var(--accent)' : 'var(--text-muted)',
-            transition: 'color 0.2s ease',
-            background: 'transparent',
-          }}
-          title={ta.bodyTitle}
-        >
-          <BodyIcon /> <span className="hidden sm:inline">{ta.bodyShort}</span>
-        </button>
-        <button
-          onClick={() => setMode('car')}
-          className="relative z-10 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
-          style={{
-            color: !bodyActive ? '#d97706' : 'var(--text-muted)',
-            transition: 'color 0.2s ease',
-            background: 'transparent',
-          }}
-          title={ta.carTitle}
-        >
-          <CarIcon /> <span className="hidden sm:inline">{ta.carShort}</span>
-        </button>
+        <GlassTooltip label={ta.bodyTitle}>
+          <button
+            onClick={() => setMode('body')}
+            className="relative z-10 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
+            style={{
+              color: bodyActive ? 'var(--accent)' : 'var(--text-muted)',
+              transition: 'color 0.2s ease',
+              background: 'transparent',
+            }}
+          >
+            <BodyIcon /> <span className="hidden sm:inline">{ta.bodyShort}</span>
+          </button>
+        </GlassTooltip>
+        <GlassTooltip label={ta.carTitle}>
+          <button
+            onClick={() => setMode('car')}
+            className="relative z-10 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
+            style={{
+              color: !bodyActive ? '#d97706' : 'var(--text-muted)',
+              transition: 'color 0.2s ease',
+              background: 'transparent',
+            }}
+          >
+            <CarIcon /> <span className="hidden sm:inline">{ta.carShort}</span>
+          </button>
+        </GlassTooltip>
       </div>
 
       {/* Toast — fixed top-center, portal-style, never clipped */}
@@ -271,10 +274,10 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
             className="text-sm leading-snug whitespace-nowrap rounded-full px-5 py-2.5 font-medium"
             style={{
               color: 'var(--text)',
-              background: 'rgba(255,255,255,0.2)',
+              background: 'rgba(255,255,255,0.5)',
               backdropFilter: 'blur(12px)',
               WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255,255,255,0.3)',
+              border: '1px solid rgba(255,255,255,0.4)',
               boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
               opacity: visible ? 1 : 0,
               transform: visible ? 'translateY(0)' : 'translateY(-6px)',

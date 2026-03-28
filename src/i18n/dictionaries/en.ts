@@ -14,7 +14,7 @@ const en: Dictionary = {
     home: 'Home',
     themeDark: 'Dark mode',
     themeLight: 'Light mode',
-    analogyHelp: 'Changes explanation style: human body or car analogies',
+    analogyHelp: 'Choose the analogy used to explain components on the site',
   },
 
   // ── Footer ───────────────────────────────────────────────
@@ -23,7 +23,9 @@ const en: Dictionary = {
     explore: 'Explore',
     guideComplete: 'The full guide',
     aboutTitle: 'About',
-    affiliateDisclosure: 'Some retailer links are affiliate links: if you buy through these links, we receive a small commission at no extra cost to you. Our recommendations are always based on quality and your needs, never on commissions.',
+    affiliateDisclosure: 'Some retailer links are affiliate links: if you buy through these links, we receive a small commission at no extra cost to you. We also display a single clearly labelled ad spot on product pages only. Our recommendations are always based on quality and your needs, never on commissions.',
+    privacy: 'Privacy',
+    support: 'Expert support',
     rights: 'All rights reserved.',
     helpTitle: 'Can\'t find what you\'re looking for?',
     helpComparator: 'Take the questionnaire',
@@ -67,7 +69,7 @@ const en: Dictionary = {
     reassurance2: 'Quick to read',
     reassurance2Desc: 'The essentials in under 10 min',
     reassurance3: 'Transparent',
-    reassurance3Desc: 'Affiliate links disclosed, unbiased advice',
+    reassurance3Desc: 'Affiliate links and partner spot disclosed, unbiased advice',
     reassurance4: 'For everyone',
     reassurance4Desc: 'Whether you\'re 15 or 75',
 
@@ -293,6 +295,7 @@ const en: Dictionary = {
     affiliateNote: 'Affiliate link — you pay nothing extra',
     notSure: 'Not sure? Take the quiz',
     similarProducts: 'Similar products',
+    giftPickNote: 'Compy find — this recommendation generates no revenue for us',
   },
 
   // ── Search bar ──────────────────────────────────────────
@@ -351,6 +354,81 @@ const en: Dictionary = {
     goHome: 'Back to home',
     goGuide: 'Read the guide',
     goComparator: 'Help me choose',
+  },
+  // ── Funding (About page transparency) ────────────────
+  funding: {
+    fundingTitle: 'How we fund this site',
+    fundingIntro: 'Shop Compy is free and always will be. Here\'s how we cover our costs to keep the site alive, up to date, and genuinely useful.',
+    fundingAffiliateTitle: 'Affiliate links',
+    fundingAffiliateDesc: 'When you buy through one of our links, we receive a small commission from the retailer. It costs you nothing extra and never influences our recommendations.',
+    fundingPartnerTitle: 'A partner spot',
+    fundingPartnerDesc: 'A single ad placement, clearly labelled, on product pages only. The rest of the site is 100% ad-free.',
+    fundingGiftTitle: 'Compy Finds',
+    fundingGiftDesc: 'Some exceptional deals are listed with no commission for us. A voluntary donation is offered — you keep the rest of your savings.',
+    fundingSupportTitle: 'Expert support',
+    fundingSupportDesc: 'Ask a human a question for just $5. Guaranteed reply within 24 hours by email. Affordable and personalized.',
+    fundingWhy: 'This revenue funds the AI that analyzes products, the site hosting, and ongoing development. Without it, the site wouldn\'t exist — or it would be behind a paywall.',
+    fundingBadge1: 'No paywall',
+    fundingBadge2: 'No tracking cookies',
+    fundingBadge3: 'Recommendations based on quality',
+  },
+
+  // ── Sponsored (SponsoredSpot component) ──────────────
+  sponsored: {
+    sponsoredLabel: 'Partner spot',
+    sponsoredFunds: 'This space helps fund the site.',
+    sponsoredLearnMore: 'Learn more',
+  },
+
+  // ── Cookie consent ──────────────────────────────────
+  cookie: {
+    cookieMessage: 'This site uses a partner ad spot that may place cookies.',
+    cookieAccept: 'Accept',
+    cookieRefuse: 'Decline',
+  },
+
+  // ── Support expert ──────────────────────────────────
+  support: {
+    supportHeroTitle: 'One expert, one answer',
+    supportHeroSubtitle: 'Ask a real human your question. Guaranteed reply within 24 hours.',
+    supportIntro: 'Compy\'s AI is great, but sometimes you need a personalized opinion. Our experts know the Canadian market and answer in plain language.',
+    supportTier1Title: '1 question',
+    supportTier1Price: '$5',
+    supportTier1Desc: 'A quick, clear opinion on your question.',
+    supportTier2Title: '2 questions',
+    supportTier2Price: '$10',
+    supportTier2Desc: 'Two questions, one thorough answer.',
+    supportTier3Title: 'Consultation',
+    supportTier3Price: '$20',
+    supportTier3Desc: 'Detailed analysis and personalized recommendation.',
+    supportEmailLabel: 'Your email',
+    supportEmailPlaceholder: 'your@email.com',
+    supportQuestionLabel: 'Your question',
+    supportQuestionPlaceholder: 'Ex: My computer is 5 years old, is it worth upgrading?',
+    supportCta: 'Pay and send',
+    supportExamples: 'Example questions',
+    supportEx1: 'My computer is 5 years old, is it worth upgrading?',
+    supportEx2: 'I\'m torn between the MacBook Air M4 and the Lenovo Yoga.',
+    supportEx3: 'Can my PC run Windows 11?',
+    supportEx4: 'I found a deal, is it a good buy?',
+    supportMerciTitle: 'Thank you!',
+    supportMerciMessage: 'Your question has been received. We\'ll reply within 24 hours to the email address you provided.',
+  },
+
+  // ── Donation ────────────────────────────────────────
+  donation: {
+    donationTitle: 'Did this deal help you?',
+    donationSubtitle: 'This recommendation is offered at no revenue to us. If you\'d like to support us:',
+    donationCta5: '$5',
+    donationCta10: '$10',
+    donationCta20: '$20',
+    donationThanks: 'Thanks for your support!',
+  },
+
+  // ── Privacy ─────────────────────────────────────────
+  privacy: {
+    privacyTitle: 'Privacy Policy',
+    privacyLastUpdated: 'Last updated: March 2026',
   },
 }
 

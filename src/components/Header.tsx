@@ -7,6 +7,7 @@ import AnalogyToggle from './AnalogyToggle'
 import ThemeToggle from './ThemeToggle'
 import { useTranslation } from '@/i18n/DictionaryContext'
 import LanguageSwitcher from './LanguageSwitcher'
+import GlassTooltip from './GlassTooltip'
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
@@ -153,18 +154,19 @@ export default function Header() {
         <div className="container" style={{ overflow: 'visible' }}>
           <div className="flex items-center justify-between h-10">
             <div className="flex items-center gap-2">
+              <GlassTooltip label={t.nav.analogyHelp}>
+                <span
+                  className="inline-flex items-center justify-center w-5 h-5 rounded-full text-[11px] font-bold cursor-help"
+                  style={{ background: 'var(--bg-card)', color: 'var(--text-muted)', border: '1px solid var(--border)' }}
+                  aria-label={t.nav.analogyHelp}
+                >
+                  ?
+                </span>
+              </GlassTooltip>
               <span className="text-sm font-medium text-[var(--text-muted)]">
                 {t.nav.explanationMode}
               </span>
               <AnalogyToggle variant="pill" />
-              <span
-                className="inline-flex items-center justify-center w-5 h-5 rounded-full text-[11px] font-bold cursor-help"
-                style={{ background: 'var(--bg-card)', color: 'var(--text-muted)', border: '1px solid var(--border)' }}
-                title={t.nav.analogyHelp}
-                aria-label={t.nav.analogyHelp}
-              >
-                ?
-              </span>
             </div>
             <Link href={`/${locale}/comparateur`}
               className="btn-primary"
