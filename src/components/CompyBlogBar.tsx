@@ -3,9 +3,16 @@ import { useState, useRef } from 'react'
 import Link from 'next/link'
 import { useTranslation } from '@/i18n/DictionaryContext'
 
+interface MatchedArticle {
+  slug: string
+  title: string
+  relevance: string
+  isTopMatch?: boolean
+}
+
 interface BlogAnswer {
   answer: string
-  matchedArticles: { slug: string; title: string; relevance: string }[]
+  matchedArticles: MatchedArticle[]
   isImprovised: boolean
 }
 
@@ -98,7 +105,7 @@ export default function CompyBlogBar() {
           {EXAMPLES.map((ex, i) => (
             <button key={i}
               onClick={() => { setQuery(ex); ask(ex) }}
-              className="text-xs px-3 py-1.5 rounded-lg border border-[--border] text-[--text-muted] hover:border-[--accent] hover:text-[--accent] transition-colors">
+              className="text-sm px-3 py-1.5 rounded-lg border border-[--border] text-[--text-muted] hover:border-[--accent] hover:text-[--accent] transition-colors">
               {ex}
             </button>
           ))}
@@ -140,16 +147,26 @@ export default function CompyBlogBar() {
               <div className="space-y-2">
                 {result.matchedArticles.map(a => (
                   <Link key={a.slug} href={`/${locale}/blog/${a.slug}`}
-                    className="flex items-center justify-between p-3 rounded-lg hover:bg-[--bg-card] transition-colors group">
-                    <div>
-                      <span className="text-sm font-medium text-[--text] group-hover:text-[--accent] transition-colors">
+                    className={`flex items-center justify-between rounded-lg transition-colors group ${
+                      a.isTopMatch
+                        ? 'p-4 border-2 border-[--accent] bg-[--accent-bg] hover:shadow-md'
+                        : 'p-3 hover:bg-[--bg-card]'
+                    }`}>
+                    <div className="flex-1 min-w-0">
+                      <span className={`font-medium group-hover:text-[--accent] transition-colors ${
+                        a.isTopMatch ? 'text-base text-[--accent]' : 'text-sm text-[--text]'
+                      }`}>
                         {a.title}
                       </span>
-                      <span className="text-xs text-[--text-muted] ml-2">{a.relevance}</span>
                     </div>
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="var(--accent)" className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <path d="M5.646 3.354a.5.5 0 01.708-.708l5 5a.5.5 0 010 .708l-5 5a.5.5 0 01-.708-.708L10.293 8 5.646 3.354z" />
-                    </svg>
+                    {a.isTopMatch ? (
+                      <span className="shrink-0 ml-3 px-3 py-1.5 rounded-lg text-xs font-bold text-white"
+                        style={{ background: '#2563eb' }}>
+                        {a.relevance}
+                      </span>
+                    ) : (
+                      <span className="shrink-0 ml-3 text-xs text-[--text-muted]">{a.relevance}</span>
+                    )}
                   </Link>
                 ))}
               </div>
@@ -157,7 +174,7 @@ export default function CompyBlogBar() {
           )}
 
           {result.isImprovised && (
-            <p className="mt-3 text-xs text-[--text-muted] italic">
+            <p className="mt-3 text-sm text-[--text-muted] italic">
               {c.improvisedNote}
             </p>
           )}

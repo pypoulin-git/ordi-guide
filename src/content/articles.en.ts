@@ -10,7 +10,7 @@ export const articles: Article[] = [
     category: 'Les bases',
     categoryColor: '#2563eb',
     icon: '🧠',
-    tags: ['processor', 'beginner', 'laptop', 'desktop'],
+    tags: ['processeur'],
     featured: true,
     coverGradient: 'linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #0891b2 100%)',
     tldr: 'The processor (CPU) is what makes your computer "think." For most people, a recent Intel Core i5 or AMD Ryzen 5 is more than enough. Don\'t be impressed by big numbers — a recent mid-range model often beats a high-end one from 3 years ago.',
@@ -60,7 +60,7 @@ export const articles: Article[] = [
     category: 'Les bases',
     categoryColor: '#2563eb',
     icon: '🫁',
-    tags: ['ram', 'beginner', 'budget'],
+    tags: ['ram'],
     tldr: 'RAM is your computer\'s active workspace — not permanent storage. 8 GB is enough for basic tasks, 16 GB is the recommended standard in 2026, and 32 GB is for pros. More RAM ≠ automatically faster.',
     sections: [
       {
@@ -108,7 +108,7 @@ export const articles: Article[] = [
     category: 'Achat malin',
     categoryColor: '#059669',
     icon: '💾',
-    tags: ['storage', 'beginner', 'budget'],
+    tags: ['stockage'],
     tldr: 'If your computer takes 2 minutes to boot, it\'s probably because of the hard drive (HDD). Replacing it with an SSD is the best investment you can make — your computer will boot in 15 seconds and everything will be faster. A 512 GB SSD costs about $50-70.',
     sections: [
       {
@@ -166,7 +166,7 @@ export const articles: Article[] = [
     category: 'Comparatifs',
     categoryColor: '#7c3aed',
     icon: '⚖️',
-    tags: ['mac', 'windows', 'beginner', 'laptop'],
+    tags: ['chromebook'],
     featured: false,
     coverGradient: 'linear-gradient(135deg, #1a1a2e 0%, #7c3aed 50%, #0f172a 100%)',
     tldr: 'There\'s no "best" — there\'s the one that fits YOUR life. Mac if you want simplicity, battery life, and a seamless Apple ecosystem. PC if you want choice, varied pricing, and compatibility with everything. Both do the same job for 90% of people.',
@@ -218,7 +218,7 @@ export const articles: Article[] = [
     category: 'Tendances',
     categoryColor: '#d97706',
     icon: '⚡',
-    tags: ['processor', 'trends', 'laptop', 'desktop'],
+    tags: ['processeur'],
     featured: false,
     coverGradient: 'linear-gradient(135deg, #d97706 0%, #1e293b 50%, #0891b2 100%)',
     tldr: 'Intel ditched the old names (Core i5, i7) for Core Ultra 5, Ultra 7, and Ultra 9 with a built-in NPU for AI. AMD renamed its Ryzen line with suffixes like HX, HS, U. The thing to remember: look at the generation (newer = better) and the tier (5 = perfect mid-range). The rest is marketing.',
@@ -270,7 +270,7 @@ export const articles: Article[] = [
     category: 'Connectique',
     categoryColor: '#0891b2',
     icon: '🔌',
-    tags: ['usb-c', 'thunderbolt', 'ports', 'beginner', 'laptop'],
+    tags: [],
     featured: false,
     coverGradient: 'linear-gradient(135deg, #0891b2 0%, #1e293b 50%, #2563eb 100%)',
     tldr: 'USB-C is THE universal port of 2026 — it does everything: data, video, AND laptop charging with a single cable. Thunderbolt 4/5 is the premium version of USB-C (same shape, faster). Always check if your USB-C can charge your laptop (Power Delivery) and how many watts it supports.',
@@ -332,7 +332,7 @@ export const articles: Article[] = [
     category: 'Connectique',
     categoryColor: '#0891b2',
     icon: '🖥️',
-    tags: ['dock', 'usb-c', 'thunderbolt', 'remote-work', 'laptop'],
+    tags: [],
     featured: false,
     coverGradient: 'linear-gradient(135deg, #334155 0%, #0891b2 50%, #1e293b 100%)',
     tldr: 'A USB-C or Thunderbolt dock lets you connect monitors, keyboard, mouse, headset, and charging through ONE single cable. You arrive, you plug in, you work. The 3 things to check: 1) charging power in watts (65W minimum), 2) number of supported monitors, 3) compatibility with your laptop (Thunderbolt vs USB-C).',
@@ -395,7 +395,7 @@ export const articles: Article[] = [
     category: 'Les bases',
     categoryColor: '#2563eb',
     icon: '🖥️',
-    tags: ['display', 'beginner', 'laptop'],
+    tags: ['ecran'],
     tldr: 'For most people, an IPS Full HD (1920x1080) screen at 60 Hz is perfect. If you want premium, aim for OLED or IPS 2K (2560x1440). Brightness (300+ nits) matters more than you think — especially if you work near a window. 4K on a 14-inch laptop is overkill.',
     sections: [
       {
@@ -453,7 +453,7 @@ export const articles: Article[] = [
     category: 'Les bases',
     categoryColor: '#2563eb',
     icon: '📶',
-    tags: ['beginner', 'remote-work', 'budget'],
+    tags: [],
     tldr: 'Your Internet depends on TWO links: your provider\'s plan AND your local network (router + devices). If your router is from 2018 or your laptop only has Wi-Fi 5, you\'ll never get the speed you\'re paying for. Wi-Fi 6 is the minimum in 2026, Wi-Fi 6E is ideal, Wi-Fi 7 is the future.',
     sections: [
       {
@@ -503,7 +503,7 @@ export const articles: Article[] = [
     category: 'Achat malin',
     categoryColor: '#059669',
     icon: '⚙️',
-    tags: ['windows', 'beginner', 'laptop', 'desktop'],
+    tags: [],
     tldr: 'Windows 11 ships with ads, useless apps, and questionable privacy settings. In 15 minutes, you can disable Start menu ads, remove bloatware, optimize battery life, and configure updates so they stop interrupting you. Do it on day one — you\'ll thank me later.',
     sections: [
       {
@@ -552,7 +552,7 @@ export const articles: Article[] = [
     category: 'Achat malin',
     categoryColor: '#059669',
     icon: '⏳',
-    tags: ['budget', 'beginner', 'laptop', 'desktop'],
+    tags: ['budget'],
     tldr: 'A laptop lasts 4-6 years, a desktop 6-8 years. End-of-life signs: persistent slowness despite having an SSD, battery lasting less than an hour, programs crashing regularly. Before replacing, try: adding an SSD ($60), reformatting Windows, or replacing the battery ($80-120).',
     sections: [
       {
@@ -602,7 +602,7 @@ export const articles: Article[] = [
     category: 'Les bases',
     categoryColor: '#2563eb',
     icon: '☁️',
-    tags: ['beginner', 'budget', 'mac', 'windows'],
+    tags: [],
     tldr: 'The cloud is an online hard drive you can access from anywhere. Google Drive (15 GB free) is the most generous. OneDrive (5 GB free) integrates perfectly with Windows. iCloud (5 GB free) is the natural choice for Apple users. For most people, the free plan is enough — and it\'s your best backup against disasters.',
     sections: [
       {
@@ -651,7 +651,7 @@ export const articles: Article[] = [
     category: 'Achat malin',
     categoryColor: '#059669',
     icon: '🛡️',
-    tags: ['beginner', 'windows', 'mac'],
+    tags: ['securite'],
     tldr: 'Computer scams exploit fear and urgency. Golden rule: Microsoft, Apple, and your bank will NEVER call you to say your computer is infected. Never click a link in an urgent email, never give control of your computer to a stranger, and never pay with gift cards. When in doubt, close everything and call the real number yourself.',
     sections: [
       {
@@ -708,7 +708,7 @@ export const articles: Article[] = [
     category: 'Comparatifs',
     categoryColor: '#7c3aed',
     icon: '💻',
-    tags: ['budget', 'beginner', 'student', 'laptop'],
+    tags: ['chromebook', 'budget'],
     tldr: 'A Chromebook is a lightweight laptop running ChromeOS (based on Chrome). Perfect for web browsing, email, Netflix, Google Docs, and studying. Not made for: Photoshop, PC gaming, specific Windows software. If 90% of your time is spent in a browser, the $300 Chromebook is probably the best bang for your buck on the market.',
     sections: [
       {
@@ -758,7 +758,7 @@ export const articles: Article[] = [
     category: 'Les bases',
     categoryColor: '#2563eb',
     icon: '🎮',
-    tags: ['gpu', 'gaming', 'creative', 'beginner'],
+    tags: ['gpu'],
     tldr: 'The graphics card (GPU) handles everything visual: display, video, gaming, 3D. For office work and web browsing, the GPU built into your processor is more than enough. You only need a dedicated GPU (NVIDIA/AMD) for gaming, 4K video editing, 3D modelling, or AI. Don\'t pay for a GPU you don\'t need.',
     sections: [
       {
@@ -809,7 +809,7 @@ export const articles: Article[] = [
     category: 'Achat malin',
     categoryColor: '#059669',
     icon: '♻️',
-    tags: ['budget', 'beginner', 'laptop', 'mac', 'windows'],
+    tags: ['budget'],
     tldr: 'A certified refurbished computer is tested, cleaned, and warrantied — it\'s NOT a used computer from Kijiji. You can save 30-50% on a MacBook or ThinkPad that\'s practically new. Buy from Apple Refurbished, certified resellers, or manufacturer programs. Avoid Marketplace, Kijiji, and sellers with no warranty.',
     sections: [
       {
@@ -859,7 +859,7 @@ export const articles: Article[] = [
     category: 'Achat malin',
     categoryColor: '#059669',
     icon: '🔋',
-    tags: ['battery', 'laptop', 'beginner'],
+    tags: [],
     tldr: 'You can leave your laptop plugged in without destroying it — modern laptops handle this automatically. To maximize longevity: keep the charge between 20-80% when possible, avoid extreme heat, and turn on the "battery optimization" mode in your settings. The battery will lose about 20% of its capacity after 2-3 years — that\'s normal.',
     sections: [
       {
