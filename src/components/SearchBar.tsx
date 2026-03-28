@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { SOURCE_LABELS, PROFILE_LABELS } from '@/types/catalogue'
 import type { CatalogueProduct } from '@/types/catalogue'
 import { useTranslation } from '@/i18n/DictionaryContext'
+import { buildAffiliateUrl, getAffiliateRel } from '@/lib/affiliate'
 
 interface SearchResult {
   answer: string
@@ -54,7 +55,7 @@ export default function SearchBar() {
       const res = await fetch('/api/search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: text.trim() }),
+        body: JSON.stringify({ query: text.trim(), locale }),
       })
       const data = await res.json()
       if (data.error) {
@@ -229,7 +230,8 @@ export default function SearchBar() {
                         </span>
                       )}
                     </div>
-                    <a href={p.url} target="_blank" rel="noopener noreferrer"
+                    <a href={buildAffiliateUrl(p.url, p.source)} target="_blank"
+                      rel={getAffiliateRel(p.isGiftPick)}
                       className="btn-primary"
                       style={{ padding: '0.5rem 1rem', fontSize: '0.8125rem' }}>
                       {s.viewPrice}
