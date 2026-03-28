@@ -1,20 +1,18 @@
 // ─── Catalogue Agent — Configuration ──────────────────────────────
 
-export const CATEGORIES = ['laptop', 'desktop', 'apple', 'chromebook']
+export const CATEGORIES = ['laptop', 'desktop', 'apple', 'chromebook', 'monitor', 'dock', 'peripheral', 'storage', 'accessory']
 export const PROFILES = ['basic', 'work', 'student', 'creative', 'gaming']
 export const BUDGET_TIERS = ['under500', '500to900', '900to1500', 'over1500']
-export const SOURCES = ['bestbuy', 'amazon', 'costco', 'staples']
+export const SOURCES = ['bestbuy', 'amazon', 'costco', 'staples', 'newegg', 'lenovo', 'dell', 'hp', 'walmart', 'canadacomputers', 'microsoft']
 
-// Distribution cible : ~50-60 produits max
-export const MAX_PRODUCTS = 60
+// Distribution cible : ~100 produits max (more categories)
+export const MAX_PRODUCTS = 100
 export const MIN_PRODUCTS = 30
 
 // Minimum par catégorie pour garder une bonne distribution
 export const MIN_PER_CATEGORY = {
-  laptop: 12,
-  desktop: 5,
-  apple: 5,
-  chromebook: 3,
+  laptop: 12, desktop: 5, apple: 5, chromebook: 3,
+  monitor: 5, dock: 2, peripheral: 2, storage: 2, accessory: 2,
 }
 
 // Score IA minimum pour garder un produit
@@ -54,7 +52,13 @@ export const CPU_WHITELIST = [
 export const AFFILIATE_TAGS = {
   amazon:  { param: 'tag', value: 'shopcompy-20' },
   bestbuy: { param: 'ref', value: 'shopcompy' },
-  // costco et staples: pas de programme affilié pour l'instant
+  newegg:  { param: 'utm_source', value: '' },  // placeholder
+  lenovo:  { param: 'clickid', value: '' },
+  dell:    { param: 'dgc', value: '' },
+  hp:      { param: 'jumpid', value: '' },
+  walmart: { param: 'utm_source', value: '' },
+  canadacomputers: { param: 'ref', value: '' },
+  // costco, staples, microsoft: pas de programme affilié pour l'instant
 }
 
 // ── Règles d'audit (Phase 3) ────────────────────────────────────
@@ -63,8 +67,8 @@ export const AUDIT_RULES = {
   minPrice: 50,
   minRamGB: 8,
   minStorageGB: 256,
-  minPerCategory: { laptop: 8, desktop: 3, apple: 3, chromebook: 2 },
-  minTotalProducts: 25,
+  minPerCategory: { laptop: 8, desktop: 3, apple: 3, chromebook: 2, monitor: 3, dock: 1, peripheral: 1, storage: 1, accessory: 1 },
+  minTotalProducts: 35,
   maxDeadUrlPercent: 20, // si plus de 20% de liens morts, audit échoue
 }
 

@@ -1,5 +1,5 @@
 // ─── Phase 1 : Scanner ──────────────────────────────────────────
-// Scrape les 4 sources, enrichit avec les pages réelles,
+// Scrape les 11 sources, enrichit avec les pages réelles,
 // pré-filtre par CPU whitelist, écrit scan-results.json.
 
 import { writeFile } from 'fs/promises'
@@ -9,6 +9,13 @@ import { fetchBestBuy } from './sources/bestbuy.js'
 import { fetchAmazon } from './sources/amazon.js'
 import { fetchCostco } from './sources/costco.js'
 import { fetchStaples } from './sources/staples.js'
+import { fetchNewegg } from './sources/newegg.js'
+import { fetchLenovo } from './sources/lenovo.js'
+import { fetchDell } from './sources/dell.js'
+import { fetchHp } from './sources/hp.js'
+import { fetchWalmart } from './sources/walmart.js'
+import { fetchCanadaComputers } from './sources/canadacomputers.js'
+import { fetchMicrosoft } from './sources/microsoft.js'
 
 export async function runScanner() {
   const startedAt = new Date().toISOString()
@@ -19,6 +26,13 @@ export async function runScanner() {
     { name: 'amazon', fn: fetchAmazon },
     { name: 'costco', fn: fetchCostco },
     { name: 'staples', fn: fetchStaples },
+    { name: 'newegg', fn: fetchNewegg },
+    { name: 'lenovo', fn: fetchLenovo },
+    { name: 'dell', fn: fetchDell },
+    { name: 'hp', fn: fetchHp },
+    { name: 'walmart', fn: fetchWalmart },
+    { name: 'canadacomputers', fn: fetchCanadaComputers },
+    { name: 'microsoft', fn: fetchMicrosoft },
   ]
 
   const allResults = []
@@ -41,6 +55,13 @@ export async function runScanner() {
   // Pré-filtre CPU : rejeter les produits avec un CPU identifié hors whitelist
   const filtered = allResults.filter(r => {
     const text = `${r.title} ${r.snippet} ${r.pageText || ''}`.toLowerCase()
+
+    // Don't CPU-filter monitors, docks, peripherals, storage, accessories
+    const nonCpuCategories = ['monitor', 'dock', 'peripheral', 'storage', 'accessory']
+    // If the title/snippet suggests it's not a computer, skip CPU filter
+    if (/monitor|écran|dock|station|hub|clavier|keyboard|souris|mouse|ssd|hdd|disque|drive|cable|câble|adaptateur|adapter|casque|headset|webcam/i.test(text)) {
+      return true
+    }
 
     // Rejeter les CPU clairement obsolètes
     if (/celeron|pentium|atom/i.test(text) && !/core\s*(ultra|[357i])/i.test(text)) {
