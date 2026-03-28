@@ -43,13 +43,6 @@ export default function HomePage() {
     },
   ]
 
-  const reassurances = [
-    { label: t.home.reassurance1, desc: t.home.reassurance1Desc },
-    { label: t.home.reassurance2, desc: t.home.reassurance2Desc },
-    { label: t.home.reassurance3, desc: t.home.reassurance3Desc },
-    { label: t.home.reassurance4, desc: t.home.reassurance4Desc },
-  ]
-
   const faqs = [
     { q: t.home.faq1Q, a: t.home.faq1A },
     { q: t.home.faq2Q, a: t.home.faq2A },
@@ -227,32 +220,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* -- REASSURANCES -- */}
-      <section className="section bg-[var(--bg-subtle)]">
-        <div className="container">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            {reassurances.map(r => (
-              <div key={r.label} className="text-center">
-                <div className="font-semibold mb-1 text-[var(--text)]">{r.label}</div>
-                <div className="text-sm text-[var(--text-muted)]">{r.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* -- WARM ILLUSTRATION: Happy people with technology -- */}
+      {/* -- Pour tout le monde -- */}
       <section className="section bg-[var(--bg)]">
         <div className="container max-w-4xl mx-auto">
           <div className="rounded-2xl overflow-hidden border border-[var(--border)]"
             style={{ background: 'var(--bg-subtle)' }}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-              {/* Scene 1 */}
-              <div className="flex flex-col items-center justify-center p-5 sm:p-8 text-center border-b md:border-b-0 md:border-r border-[var(--border)]">
-                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
-                  style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
-                  👵
-                </div>
+              {/* Scene 1 — Senior */}
+              <div className="flex flex-col items-center justify-center p-5 sm:p-6 text-center border-b md:border-b-0 md:border-r border-[var(--border)]">
+                <Image
+                  src="/images/people/senior.jpg"
+                  alt={locale === 'fr' ? 'Personne senior souriante' : 'Smiling senior person'}
+                  width={64} height={64}
+                  className="rounded-full object-cover mb-3"
+                  style={{ width: 64, height: 64 }}
+                />
                 <p className="text-sm font-semibold text-[var(--text)] mb-1">
                   {locale === 'fr' ? 'Simple et clair' : 'Simple and clear'}
                 </p>
@@ -262,12 +244,15 @@ export default function HomePage() {
                     : 'No tech jargon. We talk to you like a friend.'}
                 </p>
               </div>
-              {/* Scene 2 */}
-              <div className="flex flex-col items-center justify-center p-5 sm:p-8 text-center border-b md:border-b-0 md:border-r border-[var(--border)]">
-                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
-                  style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
-                  👨‍👧
-                </div>
+              {/* Scene 2 — Family */}
+              <div className="flex flex-col items-center justify-center p-5 sm:p-6 text-center border-b md:border-b-0 md:border-r border-[var(--border)]">
+                <Image
+                  src="/images/people/family.jpg"
+                  alt={locale === 'fr' ? 'Parent et enfant devant un ordinateur' : 'Parent and child at a computer'}
+                  width={64} height={64}
+                  className="rounded-full object-cover mb-3"
+                  style={{ width: 64, height: 64 }}
+                />
                 <p className="text-sm font-semibold text-[var(--text)] mb-1">
                   {locale === 'fr' ? 'Pour toute la famille' : 'For the whole family'}
                 </p>
@@ -277,12 +262,15 @@ export default function HomePage() {
                     : 'Help your parents or grandparents choose.'}
                 </p>
               </div>
-              {/* Scene 3 */}
-              <div className="flex flex-col items-center justify-center p-5 sm:p-8 text-center">
-                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
-                  style={{ background: 'var(--accent-bg)', fontSize: '2.5rem' }}>
-                  😊
-                </div>
+              {/* Scene 3 — Young pro */}
+              <div className="flex flex-col items-center justify-center p-5 sm:p-6 text-center">
+                <Image
+                  src="/images/people/student.jpg"
+                  alt={locale === 'fr' ? 'Jeune personne avec un laptop' : 'Young person with a laptop'}
+                  width={64} height={64}
+                  className="rounded-full object-cover mb-3"
+                  style={{ width: 64, height: 64 }}
+                />
                 <p className="text-sm font-semibold text-[var(--text)] mb-1">
                   {locale === 'fr' ? 'Achat sans stress' : 'Stress-free shopping'}
                 </p>
