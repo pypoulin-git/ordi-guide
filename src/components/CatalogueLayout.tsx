@@ -193,7 +193,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
 
         {/* Product grid */}
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 md:gap-7">
             {filtered.map(p => (
               <ProductCard key={p.id} product={p} />
             ))}

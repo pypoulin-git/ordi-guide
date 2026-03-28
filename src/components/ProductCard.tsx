@@ -36,7 +36,7 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
       </div>
 
       {/* Header : badge rabais + source */}
-      <div className="flex items-center justify-between px-4 sm:px-5 pt-4 pb-0 gap-2">
+      <div className="flex items-center justify-between px-5 sm:px-6 pt-5 pb-0 gap-2">
         <div className="flex items-center gap-2 min-w-0 flex-wrap">
           {product.isOnSale && product.originalPrice && (
             <span className="text-sm font-bold px-2.5 py-0.5 rounded-full text-white bg-blue-600">
@@ -56,16 +56,16 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
       </div>
 
       {/* Corps */}
-      <div className="px-4 sm:px-5 pt-3 pb-4 flex-1 flex flex-col min-w-0">
+      <div className="px-5 sm:px-6 pt-4 pb-5 flex-1 flex flex-col min-w-0">
 
         {/* Nom et marque */}
         <p className="text-sm font-medium mb-1 text-[var(--text-muted)]">{product.brand}</p>
-        <h3 className="font-bold mb-3 text-[var(--text)] break-words" style={{ fontSize: '1.0625rem', lineHeight: 1.3 }}>
+        <h3 className="font-bold mb-4 text-[var(--text)] break-words" style={{ fontSize: '1.125rem', lineHeight: 1.35 }}>
           {product.name}
         </h3>
 
         {/* Specs */}
-        <div className="space-y-1 mb-4">
+        <div className="space-y-2 mb-5">
           {([
             { key: 'cpu', label: 'CPU', value: product.specs.cpu },
             { key: 'ram', label: 'RAM', value: product.specs.ram },
@@ -83,14 +83,14 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
         </div>
 
         {/* Avis IA */}
-        <div className="p-3 rounded-lg mb-4 bg-[var(--bg-subtle)]" style={{ borderLeft: '3px solid var(--accent)' }}>
+        <div className="p-4 rounded-lg mb-5 bg-[var(--bg-subtle)]" style={{ borderLeft: '3px solid var(--accent)' }}>
           <p className="text-sm leading-relaxed text-[var(--text-subtle)]">
             {product.aiRationale}
           </p>
         </div>
 
         {/* Profils */}
-        <div className="flex flex-wrap gap-1.5 mb-4">
+        <div className="flex flex-wrap gap-2 mb-5">
           {product.profiles.map(p => (
             <span key={p} className="text-sm px-2.5 py-1 rounded-full bg-[var(--accent-bg)] text-[var(--accent)]">
               {PROFILE_LABELS[p].label}
@@ -102,7 +102,7 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
         <div className="flex-1" />
 
         {/* Prix + CTA */}
-        <div className="flex items-end justify-between gap-2 pt-2 border-t border-[var(--border)] flex-wrap">
+        <div className="flex items-end justify-between gap-3 pt-4 border-t border-[var(--border)] flex-wrap">
           <div className="min-w-0">
             <span className="text-xl sm:text-2xl font-bold text-[var(--text)]">
               {product.price.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en-CA')} $
