@@ -18,6 +18,7 @@
   --success:     #0891b2;
   --warn:        #d97706;
   --radius:      0.75rem;
+  --input-bg:    #ffffff;
 }
 
 /* ── Dark mode tokens ────────────────────────────────────────── */
@@ -34,6 +35,7 @@
   --accent-bg:   #1e3a5f;
   --success:     #22d3ee;
   --warn:        #fbbf24;
+  --input-bg:    #1e293b;
 }
 
 @theme inline {
@@ -120,6 +122,24 @@ html.theme-transition *::after {
   cursor: pointer;
 }
 .btn-outline:hover { background: var(--accent-bg); }
+
+/* ── Inputs: always clearly identifiable as editable fields ──── */
+input[type="text"],
+input[type="search"],
+input[type="email"],
+textarea {
+  background: var(--input-bg) !important;
+  color: var(--text);
+  border: 2px solid var(--border);
+  caret-color: var(--accent);
+}
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
 
 @keyframes tooltipIn {
   from { opacity: 0; transform: scale(0.96) translateY(4px); }

@@ -87,8 +87,8 @@ export default function SearchBar() {
           onChange={e => setQuery(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && search()}
           placeholder={s.placeholder}
-          className="flex-1 px-4 py-3 rounded-xl border-2 outline-none transition-colors bg-[var(--bg)] text-[var(--text)]"
-          style={{ borderColor: 'var(--border)', fontSize: '1rem' }}
+          className="flex-1 px-4 py-3 rounded-xl outline-none transition-colors text-[var(--text)] placeholder:text-[var(--text-muted)]"
+          style={{ fontSize: '1rem' }}
           disabled={loading}
         />
         <button

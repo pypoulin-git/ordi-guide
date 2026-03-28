@@ -83,7 +83,7 @@ export default function CompyBlogBar() {
             onKeyDown={e => e.key === 'Enter' && ask()}
             placeholder={c.placeholder}
             maxLength={200}
-            className="w-full px-4 py-3 rounded-xl text-sm bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+            className="w-full px-4 py-3 rounded-xl text-sm text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none transition-colors"
           />
         </div>
         <button

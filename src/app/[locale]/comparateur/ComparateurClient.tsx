@@ -129,8 +129,8 @@ export default function ComparateurClient() {
           <div className="space-y-3 mt-4">
             {currentStep.options.map(opt => (
               <button key={opt.value} onClick={() => choose(opt.value)}
-                className="w-full text-left flex items-center gap-3 p-4 rounded-xl border-2 transition-all hover:border-[var(--accent)] hover:bg-[var(--accent-bg)] bg-[var(--bg)]"
-                style={{ borderColor: 'var(--border)' }}>
+                className="w-full text-left flex items-center gap-3 p-4 rounded-xl border-2 transition-all hover:border-[var(--accent)] hover:bg-[var(--accent-bg)]"
+                style={{ borderColor: 'var(--border)', background: 'var(--input-bg)' }}>
                 <span className="text-[var(--text)]" style={{ fontSize: '1rem', fontWeight: 500 }}>{opt.label}</span>
               </button>
             ))}
