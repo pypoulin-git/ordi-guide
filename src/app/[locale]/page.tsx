@@ -6,6 +6,7 @@ import SearchBar from '@/components/SearchBar'
 import { useAnalogy } from '@/contexts/AnalogyContext'
 import TechIllustration, { getAnalogyVariant } from '@/components/TechIllustration'
 import ActionCTA from '@/components/ActionCTA'
+import AdBanner from '@/components/AdBanner'
 import { useTranslation } from '@/i18n/DictionaryContext'
 
 export default function HomePage() {
@@ -320,6 +321,13 @@ export default function HomePage() {
             </Link>{' '}
             {t.home.faqGlossaryEnd}
           </p>
+        </div>
+      </section>
+
+      {/* -- Ad placement -- */}
+      <section className="bg-[var(--bg-subtle)]" style={{ padding: '2rem 0' }}>
+        <div className="container max-w-4xl mx-auto">
+          <AdBanner format="horizontal" />
         </div>
       </section>
 

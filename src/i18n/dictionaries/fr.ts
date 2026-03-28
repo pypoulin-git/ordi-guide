@@ -431,6 +431,12 @@ const fr = {
     privacyTitle: 'Politique de confidentialité',
     privacyLastUpdated: 'Dernière mise à jour : mars 2026',
   },
+
+  // ── Ads ────────────────────────────────────────────
+  ads: {
+    label: 'Espace publicitaire',
+    sponsored: 'Article sponsoris\u00e9',
+  },
 } satisfies Record<string, Record<string, string>>
 
 export default fr

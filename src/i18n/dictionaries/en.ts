@@ -433,6 +433,12 @@ const en: Dictionary = {
     privacyTitle: 'Privacy Policy',
     privacyLastUpdated: 'Last updated: March 2026',
   },
+
+  // ── Ads ────────────────────────────────────────────
+  ads: {
+    label: 'Advertisement',
+    sponsored: 'Sponsored article',
+  },
 }
 
 export default en

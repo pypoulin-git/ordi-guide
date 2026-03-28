@@ -1,11 +1,12 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import React, { useState, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { ProfileTag, BudgetTier, Category, CatalogueProduct } from '@/types/catalogue'
 import { PROFILE_LABELS, BUDGET_LABELS, CATEGORY_LABELS } from '@/types/catalogue'
 import ProductCard from './ProductCard'
+import AdBanner from './AdBanner'
 import { useTranslation } from '@/i18n/DictionaryContext'
 
 type FilterState = {
@@ -194,9 +195,21 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
         {/* Product grid */}
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 md:gap-7">
-            {filtered.map(p => (
-              <ProductCard key={p.id} product={p} />
+            {filtered.map((p, i) => (
+              <React.Fragment key={p.id}>
+                <ProductCard product={p} />
+                {i === 5 && filtered.length > 6 && (
+                  <div className="col-span-full">
+                    <AdBanner format="in-feed" />
+                  </div>
+                )}
+              </React.Fragment>
             ))}
+            {filtered.length <= 6 && filtered.length > 0 && (
+              <div className="col-span-full">
+                <AdBanner format="in-feed" />
+              </div>
+            )}
           </div>
         ) : (
           <div className="card text-center" style={{ padding: '3rem 2rem' }}>

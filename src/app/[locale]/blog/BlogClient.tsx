@@ -5,6 +5,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { getArticles, CATEGORIES, CATEGORY_ICONS, getAllTags } from '@/content/articles'
 import type { Article } from '@/content/articles'
 import CompyBlogBar from '@/components/CompyBlogBar'
+import AdBanner from '@/components/AdBanner'
 import { useTranslation } from '@/i18n/DictionaryContext'
 
 const CAT_LABEL_KEYS: Record<string, string> = {
@@ -248,6 +249,32 @@ export default function BlogClient() {
                   <div className="grid grid-cols-1 gap-5" style={{ gridTemplateRows: '1fr 1fr' }}>
                     {featured[1] && <FeaturedCard article={featured[1]} locale={locale} readLabel={b.read} size="medium" />}
                     {featured[2] && <FeaturedCard article={featured[2]} locale={locale} readLabel={b.read} size="medium" />}
+                  </div>
+                </div>
+              )}
+
+              {/* Sponsored slot */}
+              {filtered.length > 0 && (
+                <div className="mt-8">
+                  <div
+                    className="rounded-2xl overflow-hidden border border-[var(--border)]"
+                    style={{ background: 'var(--bg-card)' }}
+                  >
+                    <div className="flex items-center gap-2 px-5 pt-4">
+                      <span
+                        className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                        style={{
+                          background: 'var(--bg-subtle)',
+                          color: 'var(--text-muted)',
+                          border: '1px solid var(--border)',
+                        }}
+                      >
+                        {t.ads.sponsored}
+                      </span>
+                    </div>
+                    <div className="p-5 pt-3">
+                      <AdBanner format="rectangle" />
+                    </div>
                   </div>
                 </div>
               )}
