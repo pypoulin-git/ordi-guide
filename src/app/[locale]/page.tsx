@@ -324,17 +324,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* -- Ad placement -- */}
-      <section className="bg-[var(--bg-subtle)]" style={{ padding: '2rem 0' }}>
-        <div className="container max-w-4xl mx-auto">
+      {/* -- Aidez-nous section -- */}
+      <section className="section bg-[var(--bg-subtle)]">
+        <div className="container max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl font-bold mb-2 text-[var(--text)]">
+            {locale === 'fr' ? 'Aidez-nous à vous aider' : 'Help us help you'}
+          </h2>
+          <p className="text-[var(--text-subtle)] mb-8">
+            {locale === 'fr'
+              ? 'Shop Compy est gratuit et le restera. Voici comment nous soutenir.'
+              : 'Shop Compy is free and will stay free. Here\'s how you can support us.'}
+          </p>
+          <ActionCTA variant="inline" className="mb-6" />
           <AdBanner format="horizontal" />
-        </div>
-      </section>
-
-      {/* -- Expert + Don -- */}
-      <section className="section bg-[var(--bg)]">
-        <div className="container max-w-2xl mx-auto">
-          <ActionCTA variant="inline" />
         </div>
       </section>
 

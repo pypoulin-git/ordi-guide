@@ -38,7 +38,7 @@ export default function SupportClient() {
               className="card relative flex flex-col text-center"
               style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2rem)', border: '2px solid var(--accent)' }}
             >
-              <p className="text-4xl font-bold text-[var(--text)] mb-1">5 $</p>
+              <p className="text-4xl font-bold text-[var(--text)] mb-1">10 $</p>
               <p className="font-semibold text-[var(--text)] mb-2">
                 {isFr ? '1 question, 1 réponse d\'expert' : '1 question, 1 expert answer'}
               </p>

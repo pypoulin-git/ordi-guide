@@ -27,7 +27,7 @@ export default function ActionCTA({ variant = 'full', className = '' }: ActionCT
           className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors"
           style={{ background: 'var(--accent)', color: 'white' }}
         >
-          💬 {isFr ? 'Demander à un expert — 5 $' : 'Ask an expert — $5'}
+          💬 {isFr ? 'Demander à un expert — 10 $' : 'Ask an expert — $10'}
         </a>
         <a
           href={DONATE_URL}
@@ -44,7 +44,7 @@ export default function ActionCTA({ variant = 'full', className = '' }: ActionCT
 
   if (variant === 'compact') {
     return (
-      <div className={`rounded-xl p-5 ${className}`} style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border)' }}>
+      <div className={`rounded-xl p-10 ${className}`} style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border)' }}>
         <p className="text-center text-sm font-semibold text-[var(--text)] mb-3">
           {isFr ? 'Besoin d\'aide personnalisée ?' : 'Need personalized help?'}
         </p>
@@ -56,7 +56,7 @@ export default function ActionCTA({ variant = 'full', className = '' }: ActionCT
             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors"
             style={{ background: 'var(--accent)', color: 'white' }}
           >
-            💬 {isFr ? 'Poser ma question — 5 $' : 'Ask my question — $5'}
+            💬 {isFr ? 'Poser ma question — 10 $' : 'Ask my question — $10'}
           </a>
           <a
             href={DONATE_URL}
@@ -96,7 +96,7 @@ export default function ActionCTA({ variant = 'full', className = '' }: ActionCT
           className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-colors w-full"
           style={{ background: 'var(--accent)', color: 'white' }}
         >
-          {isFr ? 'Poser ma question — 5 $' : 'Ask my question — $5'}
+          {isFr ? 'Poser ma question — 10 $' : 'Ask my question — $10'}
         </a>
         <p className="text-xs text-[var(--text-muted)] mt-2">
           {isFr ? 'Remboursé si on ne peut pas t\'aider' : 'Refunded if we can\'t help'}
