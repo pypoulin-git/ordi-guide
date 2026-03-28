@@ -50,6 +50,20 @@ export default function ArticlePage({ params }: Props) {
   return (
     <>
       <JsonLd data={articleSchema} />
+
+      {/* Breadcrumb */}
+      <div className="bg-[--bg-subtle] border-b border-[--border]">
+        <div className="container max-w-3xl mx-auto py-3">
+          <nav className="flex items-center gap-2 text-base text-[--text-muted]" aria-label="Breadcrumb">
+            <Link href={`/${locale}`} className="hover:underline text-[--accent]">{ba.breadcrumbHome}</Link>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="shrink-0 opacity-50"><path d="M5.646 3.354a.5.5 0 01.708-.708l5 5a.5.5 0 010 .708l-5 5a.5.5 0 01-.708-.708L10.293 8 5.646 3.354z"/></svg>
+            <Link href={`/${locale}/blog`} className="hover:underline text-[--accent]">{ba.breadcrumbBlog}</Link>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="shrink-0 opacity-50"><path d="M5.646 3.354a.5.5 0 01.708-.708l5 5a.5.5 0 010 .708l-5 5a.5.5 0 01-.708-.708L10.293 8 5.646 3.354z"/></svg>
+            <span className="text-[--text-subtle] truncate">{article.title.slice(0, 50)}{article.title.length > 50 ? '...' : ''}</span>
+          </nav>
+        </div>
+      </div>
+
       {/* -- Hero -- */}
       <section style={{
         background: `linear-gradient(135deg, ${article.categoryColor}18 0%, var(--bg-subtle) 100%)`,
@@ -82,11 +96,11 @@ export default function ArticlePage({ params }: Props) {
             {ba.backToBlog}
           </Link>
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full"
+            <span className="text-sm font-semibold px-2.5 py-1 rounded-full"
               style={{ background: article.categoryColor + '18', color: article.categoryColor, border: `1px solid ${article.categoryColor}30` }}>
               {article.category}
             </span>
-            <span className="text-xs text-[--text-muted]">
+            <span className="text-sm text-[--text-muted]">
               {article.readTime} · {new Date(article.date).toLocaleDateString(locale === 'fr' ? 'fr-CA' : 'en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}
             </span>
           </div>

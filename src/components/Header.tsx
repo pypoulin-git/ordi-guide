@@ -1,14 +1,22 @@
 'use client'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { usePathname } from 'next/navigation'
 import AnalogyToggle from './AnalogyToggle'
+import ThemeToggle from './ThemeToggle'
 import { useTranslation } from '@/i18n/DictionaryContext'
 import LanguageSwitcher from './LanguageSwitcher'
+
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
   const { t, locale } = useTranslation()
+  const pathname = usePathname()
+  const burgerRef = useRef<HTMLButtonElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
 
   const NAV = [
     { href: `/${locale}/guide`,       label: t.nav.guide },
@@ -18,18 +26,89 @@ export default function Header() {
     { href: `/${locale}/about`,       label: t.nav.about },
   ]
 
-  return (
-    <header className="sticky top-0 z-50 shadow-sm" style={{ background: 'white' }}>
+  const closeMenu = useCallback(() => {
+    setOpen(false)
+    burgerRef.current?.focus()
+  }, [])
 
-      {/* ── Ligne 1 : Logo + navigation principale ── */}
-      <div style={{ borderBottom: '1px solid #e2e8f0' }}>
+  // Escape key closes the menu
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault()
+        closeMenu()
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [open, closeMenu])
+
+  // Focus trap: Tab cycles within the menu panel
+  useEffect(() => {
+    if (!open) return
+    const panel = menuRef.current
+    if (!panel) return
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return
+      const focusable = Array.from(
+        panel.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+      )
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [open])
+
+  // Move focus into the menu when it opens
+  useEffect(() => {
+    if (!open) return
+    const panel = menuRef.current
+    if (!panel) return
+    const first = panel.querySelector<HTMLElement>(FOCUSABLE_SELECTOR)
+    first?.focus()
+  }, [open])
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
+  return (
+    <header className="sticky top-0 z-50 shadow-sm bg-[--bg] dark:shadow-md">
+
+      {/* -- Ligne 1 : Logo + navigation principale -- */}
+      <div className="border-b border-[--border]">
         <div className="container">
           <div className="flex items-center justify-between h-14">
 
             {/* Logo */}
             <Link href={`/${locale}`}
-              className="flex items-center gap-2 font-bold text-lg hover:text-[--accent] transition-colors"
-              style={{ color: '#0f172a', whiteSpace: 'nowrap' }}>
+              className="flex items-center gap-2 font-bold text-lg hover:text-[--accent] transition-colors text-[--text]"
+              style={{ whiteSpace: 'nowrap' }}>
               <Image src="/logo-compy.svg" alt="" width={32} height={32} className="shrink-0" />
               Shop Compy
             </Link>
@@ -38,36 +117,54 @@ export default function Header() {
             <nav className="hidden md:flex items-center gap-0.5">
               {NAV.map(n => (
                 <Link key={n.href} href={n.href}
-                  className="px-3 py-2 rounded-lg font-medium transition-colors hover:text-[--accent] hover:bg-[--accent-bg]"
-                  style={{ color: '#475569', fontSize: '0.875rem', whiteSpace: 'nowrap' }}>
+                  className="px-3 py-2 rounded-lg font-medium transition-colors hover:text-[--accent] hover:bg-[--accent-bg] text-[--text-subtle]"
+                  style={{ fontSize: '0.875rem', whiteSpace: 'nowrap' }}>
                   {n.label}
                 </Link>
               ))}
               <LanguageSwitcher />
+              <ThemeToggle />
             </nav>
 
-            {/* Burger mobile */}
-            <button className="md:hidden p-2 rounded-lg hover:bg-[--bg-card] transition-colors"
-              onClick={() => setOpen(o => !o)} aria-label="Menu">
-              <div className="space-y-1.5">
-                <span className={`block h-0.5 w-6 bg-[--text] transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
-                <span className={`block h-0.5 w-6 bg-[--text] transition-opacity ${open ? 'opacity-0' : ''}`} />
-                <span className={`block h-0.5 w-6 bg-[--text] transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
-              </div>
-            </button>
+            {/* Burger mobile + theme toggle */}
+            <div className="md:hidden flex items-center gap-1">
+              <ThemeToggle />
+              <button
+                ref={burgerRef}
+                className="p-2 rounded-lg hover:bg-[--bg-card] transition-colors"
+                onClick={() => (open ? closeMenu() : setOpen(true))}
+                aria-label="Menu"
+                aria-expanded={open}
+                aria-controls="mobile-menu-panel"
+              >
+                <div className="space-y-1.5">
+                  <span className={`block h-0.5 w-6 bg-[--text] transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
+                  <span className={`block h-0.5 w-6 bg-[--text] transition-opacity ${open ? 'opacity-0' : ''}`} />
+                  <span className={`block h-0.5 w-6 bg-[--text] transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ── Ligne 2 : Sous-menu — Toggle + CTA (desktop uniquement) ── */}
-      <div className="hidden md:block relative" style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0', overflow: 'visible' }}>
+      {/* -- Ligne 2 : Sous-menu -- Toggle + CTA (desktop uniquement) -- */}
+      <div className="hidden md:block relative bg-[--bg-subtle] border-b border-[--border]" style={{ overflow: 'visible' }}>
         <div className="container" style={{ overflow: 'visible' }}>
           <div className="flex items-center justify-between h-10">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-medium" style={{ color: '#94a3b8' }}>
+              <span className="text-sm font-medium text-[--text-muted]">
                 {t.nav.explanationMode}
               </span>
               <AnalogyToggle variant="pill" />
+              <span
+                className="inline-flex items-center justify-center w-5 h-5 rounded-full text-[11px] font-bold cursor-help"
+                style={{ background: 'var(--bg-card)', color: 'var(--text-muted)', border: '1px solid var(--border)' }}
+                title={t.nav.analogyHelp}
+                aria-label={t.nav.analogyHelp}
+              >
+                ?
+              </span>
             </div>
             <Link href={`/${locale}/comparateur`}
               className="btn-primary"
@@ -78,25 +175,42 @@ export default function Header() {
         </div>
       </div>
 
-      {/* ── Menu mobile déroulant ── */}
+      {/* -- Menu mobile deroulant -- */}
       {open && (
-        <div style={{ borderTop: '1px solid #e2e8f0', background: 'white' }}>
-          <nav className="container py-3 space-y-1">
-            {NAV.map(n => (
-              <Link key={n.href} href={n.href} onClick={() => setOpen(false)}
-                className="block px-3 py-2.5 rounded-lg font-medium transition-colors hover:text-[--accent] hover:bg-[--accent-bg]"
-                style={{ color: '#475569' }}>
-                {n.label}
-              </Link>
-            ))}
-            <div className="flex items-center justify-between px-3 pt-3 mt-2"
-              style={{ borderTop: '1px solid #f1f5f9' }}>
+        <div
+          ref={menuRef}
+          id="mobile-menu-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
+          className="border-t border-[--border] bg-[--bg]"
+        >
+          <nav className="container py-2">
+            {NAV.map((n, i) => {
+              const isActive = pathname === n.href || pathname.startsWith(n.href + '/')
+              return (
+                <div key={n.href}>
+                  <Link href={n.href} onClick={closeMenu}
+                    className={`block px-4 py-4 rounded-lg text-base font-medium transition-colors ${
+                      isActive
+                        ? 'text-[--accent] bg-[--accent-bg]'
+                        : 'text-[--text-subtle] hover:text-[--accent] hover:bg-[--accent-bg]'
+                    }`}>
+                    {n.label}
+                  </Link>
+                  {i < NAV.length - 1 && (
+                    <div className="border-b border-[--border] mx-4" />
+                  )}
+                </div>
+              )
+            })}
+            <div className="flex items-center justify-between px-4 pt-4 mt-2 border-t border-[--border]">
               <div className="flex items-center gap-3">
                 <AnalogyToggle variant="pill" />
                 <LanguageSwitcher />
               </div>
-              <Link href={`/${locale}/comparateur`} onClick={() => setOpen(false)}
-                className="btn-primary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.875rem' }}>
+              <Link href={`/${locale}/comparateur`} onClick={closeMenu}
+                className="btn-primary" style={{ padding: '0.75rem 1.5rem', fontSize: '1rem' }}>
                 {t.nav.start}
               </Link>
             </div>

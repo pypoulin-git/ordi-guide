@@ -51,22 +51,22 @@ export default async function CataloguePage({
       </section>
 
       {/* Bottom CTA */}
-      <section className="section" style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
+      <section className="section bg-[--bg-subtle] border-t border-[--border]">
         <div className="container max-w-3xl mx-auto">
-          <div className="card text-center" style={{ padding: '2.5rem', border: '1.5px solid #bfdbfe' }}>
-            <h2 className="text-xl font-bold mb-3" style={{ color: '#0f172a' }}>
+          <div className="card text-center" style={{ padding: '2.5rem' }}>
+            <h2 className="text-xl font-bold mb-3 text-[--text]">
               {isFr ? 'Pas certain de ton choix ?' : 'Not sure which one to pick?'}
             </h2>
-            <p className="mb-6" style={{ color: '#475569' }}>
+            <p className="mb-6 text-[--text-subtle]">
               {isFr
                 ? 'Notre outil comparateur te donne une recommandation personnalisée en moins de deux minutes. Réponds à 5 questions simples.'
                 : 'Our recommendation tool gives you a personalized suggestion in under two minutes. Answer 5 simple questions.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/comparateur" className="btn-primary">
+              <Link href={`/${locale}/comparateur`} className="btn-primary">
                 {isFr ? 'M\'aider à choisir →' : 'Help me choose →'}
               </Link>
-              <Link href="/guide" className="btn-outline">
+              <Link href={`/${locale}/guide`} className="btn-outline">
                 {isFr ? 'Lire le guide' : 'Read the guide'}
               </Link>
             </div>

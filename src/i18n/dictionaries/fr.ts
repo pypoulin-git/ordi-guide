@@ -8,6 +8,11 @@ const fr = {
     about: 'À propos',
     start: 'Commencer →',
     explanationMode: 'Mode d\'explication',
+    backToTop: 'Retour en haut',
+    home: 'Accueil',
+    themeDark: 'Mode sombre',
+    themeLight: 'Mode clair',
+    analogyHelp: 'Change le style des explications : corps humain ou voiture',
   },
 
   // ── Footer ───────────────────────────────────────────────
@@ -18,6 +23,9 @@ const fr = {
     aboutTitle: 'À propos',
     affiliateDisclosure: 'Certains liens vers des détaillants sont des liens affiliés : si tu achètes via ces liens, on reçoit une petite commission, sans frais supplémentaires pour toi. Nos recommandations restent basées sur la qualité et tes besoins, jamais sur les commissions.',
     rights: 'Tous droits réservés.',
+    helpTitle: 'Tu ne trouves pas ce que tu cherches ?',
+    helpComparator: 'Faire le questionnaire',
+    helpGuide: 'Lire le guide complet',
   },
 
   // ── Home ─────────────────────────────────────────────────
@@ -214,6 +222,7 @@ const fr = {
     viewAll: 'Voir tous les articles',
     read: 'Lire →',
     otherArticles: 'Autres articles',
+    paginationOf: '{current} / {total}',
     comingSoon: 'À venir',
     comingSoonText: 'D\'autres articles arrivent bientôt…',
     ctaTitle: 'Prêt à passer à l\'action ?',
@@ -256,8 +265,9 @@ const fr = {
     matching: 'correspondants',
     total: 'au total',
     noProducts: 'Aucun produit trouvé',
-    noProductsHint: 'Essaie d\'ajuster tes filtres pour voir plus de résultats.',
-    viewAll: 'Voir tous les produits',
+    noProductsHint: 'Pas de souci! Essaie de retirer un filtre ou deux.',
+    noProductsSuggestion: 'Parfois, le meilleur choix apparait quand on elargit un peu la recherche.',
+    viewAll: 'Tout afficher',
     viewDetails: 'Voir détails →',
     storageLabel: 'Stockage',
     displayLabel: 'Écran',
@@ -266,6 +276,7 @@ const fr = {
   // ── Product detail page ─────────────────────────────────
   product: {
     aiScore: 'Score IA',
+    breadcrumbHome: 'Accueil',
     breadcrumbCatalogue: 'Catalogue',
     aiOpinion: 'Notre avis IA',
     specifications: 'Spécifications',
@@ -322,6 +333,8 @@ const fr = {
     tldr: '⚡ TL;DR — L\'essentiel en 30 secondes',
     helpChoose: 'M\'aider à choisir →',
     readMore: 'Lire d\'autres articles',
+    breadcrumbHome: 'Accueil',
+    breadcrumbBlog: 'Le Décodeur',
   },
 
   // ── Spec tooltip ────────────────────────────────────────

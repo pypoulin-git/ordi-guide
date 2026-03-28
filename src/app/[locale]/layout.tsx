@@ -5,6 +5,7 @@ import { getDictionary } from '@/i18n/get-dictionary'
 import { I18nProvider } from '@/i18n/DictionaryContext'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import ScrollToTop from '@/components/ScrollToTop'
 import { AnalogyProvider } from '@/contexts/AnalogyContext'
 
 const BASE_URL = 'https://ordi-guide.vercel.app'
@@ -65,8 +66,9 @@ export default async function LocaleLayout({
     <I18nProvider dictionary={dictionary} locale={locale as Locale}>
       <AnalogyProvider>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
+        <ScrollToTop />
       </AnalogyProvider>
     </I18nProvider>
   )

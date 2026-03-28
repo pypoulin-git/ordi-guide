@@ -1,30 +1,33 @@
+'use client'
 import Link from 'next/link'
 import type { CatalogueProduct } from '@/types/catalogue'
 import { SOURCE_LABELS, PROFILE_LABELS } from '@/types/catalogue'
 import SpecTooltip from './SpecTooltip'
+import { useTranslation } from '@/i18n/DictionaryContext'
 
 export default function ProductCard({ product }: { product: CatalogueProduct }) {
   const source = SOURCE_LABELS[product.source]
+  const { t, locale } = useTranslation()
+  const cat = t.catalogue
 
   return (
-    <Link href={`/catalogue/${product.id}`} className="card flex flex-col transition-all hover:-translate-y-0.5 hover:shadow-md" style={{ padding: 0, overflow: 'hidden', textDecoration: 'none', color: 'inherit' }}>
+    <Link href={`/${locale}/catalogue/${product.id}`} className="card flex flex-col transition-all hover:-translate-y-0.5 hover:shadow-md" style={{ padding: 0, overflow: 'hidden', textDecoration: 'none', color: 'inherit' }}>
 
       {/* Header : badge rabais + source */}
       <div className="flex items-center justify-between px-5 pt-4 pb-0">
         <div className="flex items-center gap-2">
           {product.isOnSale && product.originalPrice && (
-            <span className="text-xs font-bold px-2 py-0.5 rounded-full text-white"
-              style={{ background: '#2563eb' }}>
+            <span className="text-sm font-bold px-2.5 py-0.5 rounded-full text-white bg-blue-600">
               -{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)} %
             </span>
           )}
-          <span className="text-xs font-semibold px-2 py-0.5 rounded-full"
+          <span className="text-sm font-semibold px-2.5 py-0.5 rounded-full"
             style={{ background: source.color + '15', color: source.color }}>
             {source.label}
           </span>
         </div>
         <div className="flex items-center gap-1">
-          <span className="text-xs font-semibold" style={{ color: '#d97706' }}>
+          <span className="text-sm font-semibold text-[--warn]">
             {product.aiScore}/100
           </span>
         </div>
@@ -34,8 +37,8 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
       <div className="px-5 pt-3 pb-4 flex-1 flex flex-col">
 
         {/* Nom et marque */}
-        <p className="text-xs font-medium mb-1" style={{ color: '#94a3b8' }}>{product.brand}</p>
-        <h3 className="font-bold mb-3" style={{ color: '#0f172a', fontSize: '1.0625rem', lineHeight: 1.3 }}>
+        <p className="text-sm font-medium mb-1 text-[--text-muted]">{product.brand}</p>
+        <h3 className="font-bold mb-3 text-[--text]" style={{ fontSize: '1.0625rem', lineHeight: 1.3 }}>
           {product.name}
         </h3>
 
@@ -44,22 +47,22 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
           {([
             { key: 'cpu', label: 'CPU', value: product.specs.cpu },
             { key: 'ram', label: 'RAM', value: product.specs.ram },
-            { key: 'storage', label: 'Stockage', value: product.specs.storage },
+            { key: 'storage', label: cat.storageLabel, value: product.specs.storage },
             { key: 'gpu', label: 'GPU', value: product.specs.gpu?.toLowerCase().includes('intégré') ? undefined : product.specs.gpu },
-            { key: 'display', label: 'Écran', value: product.specs.display },
+            { key: 'display', label: cat.displayLabel, value: product.specs.display },
           ] as const).filter(s => s.value).map(s => (
             <div key={s.key} className="flex items-start gap-2 text-sm">
-              <span className="shrink-0 font-medium inline-flex items-center gap-1" style={{ color: '#0f172a', minWidth: '4rem' }}>
+              <span className="shrink-0 font-medium inline-flex items-center gap-1 text-[--text]" style={{ minWidth: '4rem' }}>
                 {s.label} <SpecTooltip specKey={s.key} />
               </span>
-              <span style={{ color: '#64748b' }}>{s.value}</span>
+              <span className="text-[--text-muted]">{s.value}</span>
             </div>
           ))}
         </div>
 
         {/* Avis IA */}
-        <div className="p-3 rounded-lg mb-4" style={{ background: '#f8fafc', borderLeft: '3px solid #2563eb' }}>
-          <p className="text-sm leading-relaxed" style={{ color: '#475569' }}>
+        <div className="p-3 rounded-lg mb-4 bg-[--bg-subtle]" style={{ borderLeft: '3px solid var(--accent)' }}>
+          <p className="text-sm leading-relaxed text-[--text-subtle]">
             {product.aiRationale}
           </p>
         </div>
@@ -67,8 +70,7 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
         {/* Profils */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {product.profiles.map(p => (
-            <span key={p} className="text-xs px-2 py-0.5 rounded-full"
-              style={{ background: '#eff6ff', color: '#2563eb' }}>
+            <span key={p} className="text-sm px-2.5 py-1 rounded-full bg-[--accent-bg] text-[--accent]">
               {PROFILE_LABELS[p].label}
             </span>
           ))}
@@ -78,20 +80,20 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
         <div className="flex-1" />
 
         {/* Prix + CTA */}
-        <div className="flex items-end justify-between pt-2" style={{ borderTop: '1px solid #f1f5f9' }}>
+        <div className="flex items-end justify-between pt-2 border-t border-[--border]">
           <div>
-            <span className="text-2xl font-bold" style={{ color: '#0f172a' }}>
-              {product.price.toLocaleString('fr-CA')} $
+            <span className="text-2xl font-bold text-[--text]">
+              {product.price.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en-CA')} $
             </span>
             {product.isOnSale && product.originalPrice && (
-              <span className="ml-2 text-sm line-through" style={{ color: '#94a3b8' }}>
-                {product.originalPrice.toLocaleString('fr-CA')} $
+              <span className="ml-2 text-sm line-through text-[--text-muted]">
+                {product.originalPrice.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en-CA')} $
               </span>
             )}
           </div>
           <span className="btn-primary"
             style={{ padding: '0.5rem 1rem', fontSize: '0.8125rem' }}>
-            Voir détails →
+            {cat.viewDetails}
           </span>
         </div>
       </div>

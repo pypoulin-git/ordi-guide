@@ -3,6 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import SPEC_TOOLTIPS, { resolveSpecKey } from '@/data/spec-tooltips'
+import { useTranslation } from '@/i18n/DictionaryContext'
 
 interface Props {
   /** The spec key: cpu, ram, storage, gpu, display, battery — or a label like "Processeur" */
@@ -23,6 +24,7 @@ function TooltipBubble({ label, tip }: { label: string; tip: string }) {
   const [coords, setCoords] = useState<{ top: number; left: number; above: boolean } | null>(null)
   const triggerRef = useRef<HTMLSpanElement>(null)
   const [mounted, setMounted] = useState(false)
+  const { t, locale } = useTranslation()
 
   useEffect(() => { setMounted(true) }, [])
 
@@ -61,8 +63,8 @@ function TooltipBubble({ label, tip }: { label: string; tip: string }) {
           height: '1rem',
           fontSize: '0.6rem',
           fontWeight: 700,
-          background: '#e2e8f0',
-          color: '#64748b',
+          background: 'var(--bg-subtle)',
+          color: 'var(--text-muted)',
           lineHeight: 1,
           flexShrink: 0,
         }}
@@ -90,8 +92,8 @@ function TooltipBubble({ label, tip }: { label: string; tip: string }) {
             style={{
               width: '18rem',
               padding: '0.875rem 1rem',
-              background: 'white',
-              border: '1px solid #e2e8f0',
+              background: 'var(--bg)',
+              border: '1px solid var(--border)',
               boxShadow: '0 8px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)',
               animation: 'tooltipIn 0.15s ease-out',
             }}
@@ -103,22 +105,22 @@ function TooltipBubble({ label, tip }: { label: string; tip: string }) {
                 left: '50%',
                 transform: 'translateX(-50%)',
                 ...(coords.above
-                  ? { bottom: '-5px', borderLeft: '6px solid transparent', borderRight: '6px solid transparent', borderTop: '6px solid white' }
-                  : { top: '-5px', borderLeft: '6px solid transparent', borderRight: '6px solid transparent', borderBottom: '6px solid white' }),
+                  ? { bottom: '-5px', borderLeft: '6px solid transparent', borderRight: '6px solid transparent', borderTop: '6px solid var(--bg)' }
+                  : { top: '-5px', borderLeft: '6px solid transparent', borderRight: '6px solid transparent', borderBottom: '6px solid var(--bg)' }),
                 width: 0,
                 height: 0,
                 filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.08))',
               }}
             />
-            <span className="block text-xs font-bold mb-1" style={{ color: '#2563eb' }}>
+            <span className="block text-xs font-bold mb-1" style={{ color: 'var(--accent)' }}>
               {label}
             </span>
-            <span className="block text-xs leading-relaxed" style={{ color: '#475569' }}>
+            <span className="block text-xs leading-relaxed" style={{ color: 'var(--text-subtle)' }}>
               {tip}
             </span>
             <span className="block text-xs mt-1.5">
-              <a href="/glossaire" style={{ color: '#2563eb', textDecoration: 'underline' }}>
-                Voir le lexique complet →
+              <a href={`/${locale}/glossaire`} style={{ color: 'var(--accent)', textDecoration: 'underline' }}>
+                {t.tooltip.glossaryLink}
               </a>
             </span>
           </div>

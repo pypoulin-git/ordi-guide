@@ -19,6 +19,7 @@ export default function HomePage() {
       cta: t.home.featureGuideCta,
       color: '#2563eb',
       bg: '#eff6ff',
+      darkBg: '#1e3a5f',
     },
     {
       href: `/${locale}/comparateur`,
@@ -27,6 +28,7 @@ export default function HomePage() {
       cta: t.home.featureComparatorCta,
       color: '#0891b2',
       bg: '#ecfeff',
+      darkBg: '#164e63',
     },
     {
       href: `/${locale}/glossaire`,
@@ -35,6 +37,7 @@ export default function HomePage() {
       cta: t.home.featureGlossaryCta,
       color: '#7c3aed',
       bg: '#f5f3ff',
+      darkBg: '#3b1f6e',
     },
   ]
 
@@ -54,14 +57,14 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ── HERO BANNIÈRE PLEINE LARGEUR ── */}
+      {/* -- HERO BANNIERE PLEINE LARGEUR -- */}
       <section style={{
         background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 45%, #4338ca 100%)',
         padding: '5rem 0 6rem',
         position: 'relative',
         overflow: 'hidden',
       }}>
-        {/* Formes décoratives */}
+        {/* Formes decoratives */}
         <div aria-hidden style={{
           position: 'absolute', top: '-80px', right: '-80px',
           width: '400px', height: '400px', borderRadius: '50%',
@@ -94,8 +97,9 @@ export default function HomePage() {
                 className="inline-flex items-center justify-center gap-2 font-bold rounded-xl transition-all hover:-translate-y-0.5"
                 style={{
                   background: 'white', color: '#1e3a8a',
-                  padding: '1rem 2.25rem', fontSize: '1.0625rem',
+                  padding: '1.125rem 2.5rem', fontSize: '1.125rem',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.25)',
+                  minHeight: '52px',
                 }}>
                 {t.home.heroCta}
               </Link>
@@ -104,7 +108,8 @@ export default function HomePage() {
                 style={{
                   background: 'transparent', color: 'white',
                   border: '2px solid rgba(255,255,255,0.6)',
-                  padding: '1rem 2.25rem', fontSize: '1.0625rem',
+                  padding: '1.125rem 2.5rem', fontSize: '1.125rem',
+                  minHeight: '52px',
                 }}>
                 {t.home.heroCtaGuide}
               </Link>
@@ -117,35 +122,35 @@ export default function HomePage() {
           position: 'absolute', bottom: 0, left: 0, right: 0, height: '48px',
         }}>
           <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{ width: '100%', height: '100%', display: 'block' }}>
-            <path d="M0,48 L0,24 Q360,0 720,24 Q1080,48 1440,24 L1440,48 Z" fill="white" />
+            <path d="M0,48 L0,24 Q360,0 720,24 Q1080,48 1440,24 L1440,48 Z" className="fill-[--bg]" />
           </svg>
         </div>
       </section>
 
-      {/* ── BARRE DE RECHERCHE ── */}
-      <section style={{ background: 'white', paddingTop: '3rem', paddingBottom: '3rem' }}>
+      {/* -- BARRE DE RECHERCHE -- */}
+      <section className="bg-[--bg]" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
         <div className="container max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-2" style={{ color: '#0f172a' }}>
+          <h2 className="text-2xl font-bold text-center mb-2 text-[--text]">
             {t.home.searchTitle}
           </h2>
-          <p className="text-center mb-6" style={{ color: '#64748b' }}>
+          <p className="text-center mb-6 text-[--text-muted]">
             {t.home.searchSubtitle}
           </p>
           <SearchBar />
         </div>
       </section>
 
-      {/* ── SECTION ANALOGIES ENCADRÉE ── */}
-      <section style={{ background: '#f8fafc', paddingTop: '3rem', paddingBottom: '3rem' }}>
+      {/* -- SECTION ANALOGIES ENCADREE -- */}
+      <section className="bg-[--bg-subtle]" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
         <div className="container max-w-4xl mx-auto">
-          <div className="rounded-2xl overflow-hidden" style={{ border: '1.5px solid #e2e8f0', background: 'white' }}>
+          <div className="rounded-2xl overflow-hidden bg-[--bg] border border-[--border]" style={{ borderWidth: '1.5px' }}>
 
-            {/* En-tête de la section */}
-            <div className="px-8 py-5" style={{ borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
-              <h2 className="text-xl font-bold" style={{ color: '#0f172a' }}>
+            {/* En-tete de la section */}
+            <div className="px-8 py-5 border-b border-[--border] bg-[--bg-subtle]">
+              <h2 className="text-xl font-bold text-[--text]">
                 {t.home.analogyTitle}
               </h2>
-              <p className="text-sm mt-1" style={{ color: '#64748b' }}>
+              <p className="text-sm mt-1 text-[--text-muted]">
                 {t.home.analogySubtitle}
               </p>
             </div>
@@ -154,21 +159,20 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: '280px' }}>
 
               {/* Colonne gauche : toggle */}
-              <div className="flex flex-col justify-center px-8 py-6"
-                style={{ borderRight: '1px solid #e2e8f0' }}>
-                <p className="font-bold text-lg mb-1" style={{ color: '#0f172a' }}>{t.home.analogyStyle}</p>
-                <p className="text-sm mb-4" style={{ color: '#64748b' }}>
+              <div className="flex flex-col justify-center px-8 py-6 border-r border-[--border]">
+                <p className="font-bold text-lg mb-1 text-[--text]">{t.home.analogyStyle}</p>
+                <p className="text-sm mb-4 text-[--text-muted]">
                   {t.home.analogyDesc}
                 </p>
                 <AnalogyToggle variant="card" />
-                <p className="text-xs mt-3" style={{ color: '#94a3b8' }}>
+                <p className="text-sm mt-3 text-[--text-muted]">
                   {t.home.analogyChangeAnytime}
                 </p>
               </div>
 
               {/* Colonne droite : 6 dimensions verticales */}
               <div className="px-8 py-6">
-                <p className="text-xs font-semibold uppercase tracking-wider mb-5" style={{ color: '#94a3b8' }}>
+                <p className="text-sm font-semibold uppercase tracking-wider mb-5 text-[--text-muted]">
                   {modeIcon} {t.home.analogyMode} {modeLabel}
                 </p>
                 <ul className="space-y-5">
@@ -183,15 +187,15 @@ export default function HomePage() {
                           })()}
                         </span>
                         <div className="flex-1 min-w-0">
-                          <div className="font-semibold" style={{ color: '#0f172a', fontSize: '0.9375rem' }}>
+                          <div className="font-semibold text-[--text]" style={{ fontSize: '0.9375rem' }}>
                             {analogy.name}
                           </div>
-                          <div className="text-sm" style={{ color: '#64748b', lineHeight: 1.4 }}>
+                          <div className="text-sm text-[--text-muted]" style={{ lineHeight: 1.4 }}>
                             {analogy.short}
                           </div>
                         </div>
-                        <span className="shrink-0 text-xs px-2 py-0.5 rounded-full mt-0.5"
-                          style={{ background: '#f1f5f9', color: '#94a3b8', whiteSpace: 'nowrap' }}>
+                        <span className="shrink-0 text-sm px-2.5 py-0.5 rounded-full mt-0.5 bg-[--bg-card] text-[--text-muted]"
+                          style={{ whiteSpace: 'nowrap' }}>
                           {t.comp[comp as keyof typeof t.comp]}
                         </span>
                       </li>
@@ -205,17 +209,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FEATURE CARDS ── */}
-      <section className="section">
+      {/* -- FEATURE CARDS -- */}
+      <section className="section bg-[--bg]">
         <div className="container">
-          <h2 className="text-2xl font-bold text-center mb-2" style={{ color: '#0f172a' }}>{t.home.featuresTitle}</h2>
-          <p className="text-center mb-10" style={{ color: '#475569' }}>{t.home.featuresSubtitle}</p>
+          <h2 className="text-2xl font-bold text-center mb-2 text-[--text]">{t.home.featuresTitle}</h2>
+          <p className="text-center mb-10 text-[--text-subtle]">{t.home.featuresSubtitle}</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map(f => (
-              <Link key={f.href} href={f.href} className="card block hover:no-underline"
+              <Link key={f.href} href={f.href} className="card block hover:no-underline dark:!border-[var(--border)]"
                 style={{ background: f.bg, borderColor: f.color + '30' }}>
-                <h3 className="text-xl font-bold mb-3" style={{ color: '#0f172a' }}>{f.title}</h3>
-                <p className="leading-relaxed mb-5" style={{ color: '#475569' }}>{f.desc}</p>
+                <h3 className="text-xl font-bold mb-3 text-[--text]">{f.title}</h3>
+                <p className="leading-relaxed mb-5 text-[--text-subtle]">{f.desc}</p>
                 <span className="font-semibold" style={{ color: f.color }}>{f.cta}</span>
               </Link>
             ))}
@@ -223,40 +227,96 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── RÉASSURANCES ── */}
-      <section className="section" style={{ background: '#f8fafc' }}>
+      {/* -- REASSURANCES -- */}
+      <section className="section bg-[--bg-subtle]">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {reassurances.map(r => (
               <div key={r.label} className="text-center">
-                <div className="font-semibold mb-1" style={{ color: '#0f172a' }}>{r.label}</div>
-                <div className="text-sm" style={{ color: '#94a3b8' }}>{r.desc}</div>
+                <div className="font-semibold mb-1 text-[--text]">{r.label}</div>
+                <div className="text-sm text-[--text-muted]">{r.desc}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="section">
+      {/* -- WARM ILLUSTRATION: Happy people with technology -- */}
+      <section className="section bg-[--bg]">
+        <div className="container max-w-4xl mx-auto">
+          <div className="rounded-2xl overflow-hidden border border-[--border]"
+            style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #f0fdf4 50%, #fefce8 100%)' }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+              {/* Scene 1 */}
+              <div className="flex flex-col items-center justify-center p-8 text-center border-b md:border-b-0 md:border-r border-[--border]">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
+                  style={{ background: 'linear-gradient(135deg, #dbeafe, #bfdbfe)', fontSize: '2.5rem' }}>
+                  👵
+                </div>
+                <p className="text-sm font-semibold text-[--text] mb-1">
+                  {locale === 'fr' ? 'Simple et clair' : 'Simple and clear'}
+                </p>
+                <p className="text-xs text-[--text-muted] leading-relaxed">
+                  {locale === 'fr'
+                    ? 'Pas de jargon technique. On vous parle comme un ami.'
+                    : 'No tech jargon. We talk to you like a friend.'}
+                </p>
+              </div>
+              {/* Scene 2 */}
+              <div className="flex flex-col items-center justify-center p-8 text-center border-b md:border-b-0 md:border-r border-[--border]">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
+                  style={{ background: 'linear-gradient(135deg, #dcfce7, #bbf7d0)', fontSize: '2.5rem' }}>
+                  👨‍👧
+                </div>
+                <p className="text-sm font-semibold text-[--text] mb-1">
+                  {locale === 'fr' ? 'Pour toute la famille' : 'For the whole family'}
+                </p>
+                <p className="text-xs text-[--text-muted] leading-relaxed">
+                  {locale === 'fr'
+                    ? 'Aidez vos parents ou grands-parents à choisir.'
+                    : 'Help your parents or grandparents choose.'}
+                </p>
+              </div>
+              {/* Scene 3 */}
+              <div className="flex flex-col items-center justify-center p-8 text-center">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
+                  style={{ background: 'linear-gradient(135deg, #fef9c3, #fde68a)', fontSize: '2.5rem' }}>
+                  😊
+                </div>
+                <p className="text-sm font-semibold text-[--text] mb-1">
+                  {locale === 'fr' ? 'Achat sans stress' : 'Stress-free shopping'}
+                </p>
+                <p className="text-xs text-[--text-muted] leading-relaxed">
+                  {locale === 'fr'
+                    ? 'Recommandations honnêtes, sans pression de vente.'
+                    : 'Honest recommendations, no sales pressure.'}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* -- FAQ -- */}
+      <section className="section bg-[--bg]">
         <div className="container max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-2" style={{ color: '#0f172a' }}>{t.home.faqTitle}</h2>
-          <p className="text-center mb-10" style={{ color: '#475569' }}>{t.home.faqSubtitle}</p>
+          <h2 className="text-2xl font-bold text-center mb-2 text-[--text]">{t.home.faqTitle}</h2>
+          <p className="text-center mb-10 text-[--text-subtle]">{t.home.faqSubtitle}</p>
           <div className="space-y-3">
             {faqs.map((faq, i) => (
               <details key={i} className="card cursor-pointer" style={{ padding: '1.25rem 1.5rem' }}>
-                <summary className="font-semibold list-none flex items-center justify-between gap-4"
-                  style={{ color: '#0f172a', fontSize: '1.0625rem' }}>
+                <summary className="font-semibold list-none flex items-center justify-between gap-4 text-[--text]"
+                  style={{ fontSize: '1.0625rem' }}>
                   {faq.q}
-                  <span className="text-xl shrink-0" style={{ color: '#2563eb' }}>+</span>
+                  <span className="text-xl shrink-0 text-[--accent]">+</span>
                 </summary>
-                <p className="mt-3 leading-relaxed" style={{ color: '#475569' }}>{faq.a}</p>
+                <p className="mt-3 leading-relaxed text-[--text-subtle]">{faq.a}</p>
               </details>
             ))}
           </div>
-          <p className="text-center mt-6 text-sm" style={{ color: '#94a3b8' }}>
+          <p className="text-center mt-6 text-sm text-[--text-muted]">
             {t.home.faqGlossaryHint}{' '}
-            <Link href={`/${locale}/glossaire`} className="underline" style={{ color: '#2563eb' }}>
+            <Link href={`/${locale}/glossaire`} className="underline text-[--accent]">
               {t.home.faqGlossaryLink}
             </Link>{' '}
             {t.home.faqGlossaryEnd}
@@ -264,16 +324,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── BOTTOM CTA ── */}
-      <section className="section" style={{ background: '#2563eb' }}>
+      {/* -- BOTTOM CTA -- */}
+      <section className="section bg-blue-600">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-4 text-white">{t.home.bottomCtaTitle}</h2>
           <p className="text-lg mb-8 text-white/80">
             {t.home.bottomCtaSubtitle}
           </p>
           <Link href={`/${locale}/comparateur`}
-            className="inline-flex items-center gap-2 bg-white font-bold py-3 px-8 rounded-xl text-base transition-transform hover:-translate-y-0.5"
-            style={{ color: '#2563eb', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
+            className="inline-flex items-center gap-2 bg-white text-blue-600 font-bold py-3.5 px-10 rounded-xl text-lg transition-transform hover:-translate-y-0.5"
+            style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
             {t.home.bottomCtaButton}
           </Link>
         </div>

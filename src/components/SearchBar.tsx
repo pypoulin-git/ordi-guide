@@ -3,6 +3,7 @@ import { useState, useRef } from 'react'
 import Link from 'next/link'
 import { SOURCE_LABELS, PROFILE_LABELS } from '@/types/catalogue'
 import type { CatalogueProduct } from '@/types/catalogue'
+import { useTranslation } from '@/i18n/DictionaryContext'
 
 interface SearchResult {
   answer: string
@@ -19,26 +20,27 @@ interface SearchResult {
   error?: string
 }
 
-const ARCHETYPE_LABELS: Record<string, { label: string; color: string; desc: string }> = {
-  minimalist: { label: 'Le Minimaliste', color: '#7c3aed', desc: 'Léger et efficace pour les tâches de base' },
-  athlete:    { label: 'Le Performant',  color: '#0891b2', desc: 'Équilibre parfait entre puissance et polyvalence' },
-  geek:       { label: 'Le Passionné',   color: '#1e40af', desc: 'Puissance de calcul brute pour les pros' },
-  douchebag:  { label: 'Le Frimeur',     color: '#d97706', desc: 'Attention : specs déséquilibrées — gros GPU mais le reste ne suit pas' },
-}
-
-const EXAMPLES = [
-  'Un ordi pour ma mère qui fait du Zoom et du courriel',
-  'Je veux un portable léger pour l\'université',
-  'Un PC pour jouer à des jeux récents sans me ruiner',
-  'Je fais du montage vidéo 4K, qu\'est-ce qu\'il me faut ?',
-]
-
 export default function SearchBar() {
   const [query, setQuery] = useState('')
   const [result, setResult] = useState<SearchResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
+  const { t, locale } = useTranslation()
+  const s = t.search
+
+  const ARCHETYPE_LABELS: Record<string, { label: string; color: string; desc: string }> = {
+    minimalist: { label: s.archetypeMinimalist, color: '#7c3aed', desc: s.archetypeMinimalistDesc },
+    athlete:    { label: s.archetypeAthlete,    color: '#0891b2', desc: s.archetypeAthleteDesc },
+    geek:       { label: s.archetypeGeek,       color: '#1e40af', desc: s.archetypeGeekDesc },
+    douchebag:  { label: s.archetypeDouchebag,  color: '#d97706', desc: s.archetypeDouchebagDesc },
+  }
+
+  const EXAMPLES = [s.example1, s.example2, s.example3, s.example4]
+
+  const SPEC_LABELS: Record<string, string> = {
+    cpu: s.specCpu, ram: s.specRam, ssd: s.specSsd, gpu: s.specGpu, budget: s.specBudget,
+  }
 
   async function search(q?: string) {
     const text = q || query
@@ -61,7 +63,7 @@ export default function SearchBar() {
         setResult(data)
       }
     } catch {
-      setError('Erreur de connexion. Réessaie dans un instant.')
+      setError(s.connectionError)
     } finally {
       setLoading(false)
     }
@@ -84,9 +86,9 @@ export default function SearchBar() {
           value={query}
           onChange={e => setQuery(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && search()}
-          placeholder="Décris ton besoin en une phrase…"
-          className="flex-1 px-4 py-3 rounded-xl border-2 outline-none transition-colors"
-          style={{ borderColor: '#e2e8f0', background: 'white', color: '#0f172a', fontSize: '1rem' }}
+          placeholder={s.placeholder}
+          className="flex-1 px-4 py-3 rounded-xl border-2 outline-none transition-colors bg-[--bg] text-[--text]"
+          style={{ borderColor: 'var(--border)', fontSize: '1rem' }}
           disabled={loading}
         />
         <button
@@ -94,18 +96,17 @@ export default function SearchBar() {
           disabled={loading || query.trim().length < 3}
           className="btn-primary shrink-0 disabled:opacity-50"
         >
-          {loading ? 'Analyse…' : 'Chercher'}
+          {loading ? s.searching : s.submit}
         </button>
       </div>
 
       {/* Examples */}
       {!result && !loading && (
         <div className="mt-3 flex flex-wrap gap-2">
-          <span className="text-sm" style={{ color: '#94a3b8' }}>Essaie :</span>
+          <span className="text-sm text-[--text-muted]">{s.tryLabel}</span>
           {EXAMPLES.map(ex => (
             <button key={ex} onClick={() => useExample(ex)}
-              className="text-sm px-3 py-1 rounded-full transition-colors hover:bg-[--accent-bg]"
-              style={{ background: '#f1f5f9', color: '#475569' }}>
+              className="text-sm px-3 py-1 rounded-full transition-colors hover:bg-[--accent-bg] bg-[--bg-card] text-[--text-subtle]">
               {ex}
             </button>
           ))}
@@ -115,7 +116,7 @@ export default function SearchBar() {
       {/* Loading */}
       {loading && (
         <div className="mt-6 text-center">
-          <p style={{ color: '#64748b' }}>Notre assistant analyse ta demande…</p>
+          <p className="text-[--text-muted]">{s.loading}</p>
         </div>
       )}
 
@@ -130,17 +131,17 @@ export default function SearchBar() {
       {result && (
         <div className="mt-6 space-y-4">
           {/* Answer */}
-          <div className="card" style={{ border: '2px solid #2563eb', padding: '1.5rem' }}>
+          <div className="card" style={{ border: '2px solid var(--accent)', padding: '1.5rem' }}>
             {arch && (
               <div className="mb-3">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold"
                   style={{ background: arch.color + '15', color: arch.color }}>
-                  Profil : {arch.label}
+                  {s.profileLabel} : {arch.label}
                 </div>
-                <p className="text-xs mt-1.5" style={{ color: arch.color + 'cc' }}>{arch.desc}</p>
+                <p className="text-sm mt-1.5" style={{ color: arch.color + 'cc' }}>{arch.desc}</p>
               </div>
             )}
-            <p style={{ color: '#0f172a', fontSize: '1rem', lineHeight: 1.7 }}>
+            <p className="text-[--text]" style={{ fontSize: '1rem', lineHeight: 1.7 }}>
               {result.answer}
             </p>
           </div>
@@ -148,18 +149,18 @@ export default function SearchBar() {
           {/* Specs */}
           {result.specs && (
             <div className="card" style={{ padding: '1.25rem' }}>
-              <h3 className="font-semibold mb-3" style={{ color: '#0f172a' }}>
-                Spécifications recommandées
+              <h3 className="font-semibold mb-3 text-[--text]">
+                {s.recommendedSpecs}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {Object.entries(result.specs).map(([key, val]) => (
                   <div key={key} className="flex items-start gap-2">
-                    <span style={{ color: '#0891b2', fontWeight: 700, flexShrink: 0 }}>·</span>
+                    <span className="text-[--success]" style={{ fontWeight: 700, flexShrink: 0 }}>·</span>
                     <div>
-                      <span className="font-semibold" style={{ color: '#0f172a' }}>
-                        {key === 'cpu' ? 'Processeur' : key === 'ram' ? 'RAM' : key === 'ssd' ? 'Stockage' : key === 'gpu' ? 'Graphique' : 'Budget'}
+                      <span className="font-semibold text-[--text]">
+                        {SPEC_LABELS[key] || key}
                       </span>
-                      <span style={{ color: '#64748b' }}> : {val}</span>
+                      <span className="text-[--text-muted]"> : {val}</span>
                     </div>
                   </div>
                 ))}
@@ -172,61 +173,59 @@ export default function SearchBar() {
             const p = result.recommended_product!
             const source = SOURCE_LABELS[p.source]
             return (
-              <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid #0891b2' }}>
+              <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid var(--success)' }}>
                 <div className="px-5 pt-4 pb-1 flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wide" style={{ color: '#0891b2' }}>
-                    Produit recommandé
+                  <span className="text-sm font-bold uppercase tracking-wide text-[--success]">
+                    {s.recommendedProduct}
                   </span>
                   <div className="flex items-center gap-2">
                     {p.isOnSale && p.originalPrice && (
-                      <span className="text-xs font-bold px-2 py-0.5 rounded-full text-white"
-                        style={{ background: '#2563eb' }}>
+                      <span className="text-sm font-bold px-2.5 py-0.5 rounded-full text-white bg-blue-600">
                         -{Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100)} %
                       </span>
                     )}
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                    <span className="text-sm font-semibold px-2.5 py-0.5 rounded-full"
                       style={{ background: source.color + '15', color: source.color }}>
                       {source.label}
                     </span>
                   </div>
                 </div>
                 <div className="px-5 pt-2 pb-4">
-                  <p className="text-xs font-medium mb-0.5" style={{ color: '#94a3b8' }}>{p.brand}</p>
-                  <h4 className="font-bold mb-3" style={{ color: '#0f172a', fontSize: '1rem', lineHeight: 1.3 }}>
+                  <p className="text-sm font-medium mb-0.5 text-[--text-muted]">{p.brand}</p>
+                  <h4 className="font-bold mb-3 text-[--text]" style={{ fontSize: '1rem', lineHeight: 1.3 }}>
                     {p.name}
                   </h4>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-1 mb-3 text-sm">
-                    {p.specs.cpu && <div><span className="font-medium" style={{ color: '#0f172a' }}>CPU</span> <span style={{ color: '#64748b' }}>{p.specs.cpu}</span></div>}
-                    {p.specs.ram && <div><span className="font-medium" style={{ color: '#0f172a' }}>RAM</span> <span style={{ color: '#64748b' }}>{p.specs.ram}</span></div>}
-                    {p.specs.storage && <div><span className="font-medium" style={{ color: '#0f172a' }}>Stockage</span> <span style={{ color: '#64748b' }}>{p.specs.storage}</span></div>}
-                    {p.specs.gpu && <div><span className="font-medium" style={{ color: '#0f172a' }}>GPU</span> <span style={{ color: '#64748b' }}>{p.specs.gpu}</span></div>}
+                    {p.specs.cpu && <div><span className="font-medium text-[--text]">CPU</span> <span className="text-[--text-muted]">{p.specs.cpu}</span></div>}
+                    {p.specs.ram && <div><span className="font-medium text-[--text]">RAM</span> <span className="text-[--text-muted]">{p.specs.ram}</span></div>}
+                    {p.specs.storage && <div><span className="font-medium text-[--text]">{SPEC_LABELS.ssd}</span> <span className="text-[--text-muted]">{p.specs.storage}</span></div>}
+                    {p.specs.gpu && <div><span className="font-medium text-[--text]">GPU</span> <span className="text-[--text-muted]">{p.specs.gpu}</span></div>}
                   </div>
-                  <div className="p-3 rounded-lg mb-3" style={{ background: '#f0fdfa', borderLeft: '3px solid #0891b2' }}>
-                    <p className="text-sm leading-relaxed" style={{ color: '#475569' }}>{p.aiRationale}</p>
+                  <div className="p-3 rounded-lg mb-3 bg-[--accent-bg]" style={{ borderLeft: '3px solid var(--success)' }}>
+                    <p className="text-sm leading-relaxed text-[--text-subtle]">{p.aiRationale}</p>
                   </div>
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {p.profiles.map(pr => (
-                      <span key={pr} className="text-xs px-2 py-0.5 rounded-full"
-                        style={{ background: '#eff6ff', color: '#2563eb' }}>
+                      <span key={pr} className="text-sm px-2.5 py-1 rounded-full bg-[--accent-bg] text-[--accent]">
                         {PROFILE_LABELS[pr].label}
                       </span>
                     ))}
                   </div>
-                  <div className="flex items-end justify-between pt-2" style={{ borderTop: '1px solid #f1f5f9' }}>
+                  <div className="flex items-end justify-between pt-2 border-t border-[--border]">
                     <div>
-                      <span className="text-2xl font-bold" style={{ color: '#0f172a' }}>
-                        {p.price.toLocaleString('fr-CA')} $
+                      <span className="text-2xl font-bold text-[--text]">
+                        {p.price.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en-CA')} $
                       </span>
                       {p.isOnSale && p.originalPrice && (
-                        <span className="ml-2 text-sm line-through" style={{ color: '#94a3b8' }}>
-                          {p.originalPrice.toLocaleString('fr-CA')} $
+                        <span className="ml-2 text-sm line-through text-[--text-muted]">
+                          {p.originalPrice.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en-CA')} $
                         </span>
                       )}
                     </div>
                     <a href={p.url} target="_blank" rel="noopener noreferrer"
                       className="btn-primary"
                       style={{ padding: '0.5rem 1rem', fontSize: '0.8125rem' }}>
-                      Voir le prix →
+                      {s.viewPrice}
                     </a>
                   </div>
                 </div>
@@ -236,16 +235,16 @@ export default function SearchBar() {
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-3">
-            <Link href="/comparateur" className="btn-primary flex-1 justify-center">
-              Questionnaire complet →
+            <Link href={`/${locale}/comparateur`} className="btn-primary flex-1 justify-center">
+              {s.fullQuiz}
             </Link>
-            <Link href="/guide" className="btn-outline flex-1 justify-center">
-              En savoir plus dans le guide
+            <Link href={`/${locale}/guide`} className="btn-outline flex-1 justify-center">
+              {s.learnMore}
             </Link>
           </div>
 
-          <p className="text-center text-sm" style={{ color: '#94a3b8' }}>
-            Réponse générée par intelligence artificielle · À titre indicatif
+          <p className="text-center text-sm text-[--text-muted]">
+            {s.disclaimer}
           </p>
         </div>
       )}

@@ -93,7 +93,7 @@ export default function PageHero({
         position: 'absolute', bottom: 0, left: 0, right: 0, height: '32px',
       }}>
         <svg viewBox="0 0 1440 32" preserveAspectRatio="none" style={{ width: '100%', height: '100%', display: 'block' }}>
-          <path d="M0,32 L0,16 Q360,0 720,16 Q1080,32 1440,16 L1440,32 Z" fill="white" />
+          <path d="M0,32 L0,16 Q360,0 720,16 Q1080,32 1440,16 L1440,32 Z" className="fill-[--bg]" />
         </svg>
       </div>
     </section>

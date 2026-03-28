@@ -10,6 +10,11 @@ const en: Dictionary = {
     about: 'About',
     start: 'Get Started →',
     explanationMode: 'Explanation mode',
+    backToTop: 'Back to top',
+    home: 'Home',
+    themeDark: 'Dark mode',
+    themeLight: 'Light mode',
+    analogyHelp: 'Changes explanation style: human body or car analogies',
   },
 
   // ── Footer ───────────────────────────────────────────────
@@ -20,6 +25,9 @@ const en: Dictionary = {
     aboutTitle: 'About',
     affiliateDisclosure: 'Some retailer links are affiliate links: if you buy through these links, we receive a small commission at no extra cost to you. Our recommendations are always based on quality and your needs, never on commissions.',
     rights: 'All rights reserved.',
+    helpTitle: 'Can\'t find what you\'re looking for?',
+    helpComparator: 'Take the questionnaire',
+    helpGuide: 'Read the full guide',
   },
 
   // ── Home ─────────────────────────────────────────────────
@@ -216,6 +224,7 @@ const en: Dictionary = {
     viewAll: 'View all articles',
     read: 'Read →',
     otherArticles: 'Other articles',
+    paginationOf: '{current} / {total}',
     comingSoon: 'Coming soon',
     comingSoonText: 'More articles coming soon…',
     ctaTitle: 'Ready to take action?',
@@ -258,8 +267,9 @@ const en: Dictionary = {
     matching: 'matching',
     total: 'total',
     noProducts: 'No products found',
-    noProductsHint: 'Try adjusting your filters to see more results.',
-    viewAll: 'View all products',
+    noProductsHint: 'No worries! Try removing a filter or two.',
+    noProductsSuggestion: 'Sometimes the best match appears when you broaden your search a little.',
+    viewAll: 'Show me everything',
     viewDetails: 'View details →',
     storageLabel: 'Storage',
     displayLabel: 'Display',
@@ -268,6 +278,7 @@ const en: Dictionary = {
   // ── Product detail page ─────────────────────────────────
   product: {
     aiScore: 'AI Score',
+    breadcrumbHome: 'Home',
     breadcrumbCatalogue: 'Catalogue',
     aiOpinion: 'Our AI opinion',
     specifications: 'Specifications',
@@ -324,6 +335,8 @@ const en: Dictionary = {
     tldr: '⚡ TL;DR — The essentials in 30 seconds',
     helpChoose: 'Help me choose →',
     readMore: 'Read more articles',
+    breadcrumbHome: 'Home',
+    breadcrumbBlog: 'The Decoder',
   },
 
   // ── Spec tooltip ────────────────────────────────────────

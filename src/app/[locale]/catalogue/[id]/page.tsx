@@ -8,6 +8,8 @@ import type { CatalogueData, CatalogueProduct } from '@/types/catalogue'
 import { SOURCE_LABELS, PROFILE_LABELS, CATEGORY_LABELS, BUDGET_LABELS } from '@/types/catalogue'
 import JsonLd from '@/components/JsonLd'
 import SpecTooltip from '@/components/SpecTooltip'
+import { getDictionary } from '@/i18n/get-dictionary'
+import type { Locale } from '@/i18n/config'
 
 async function getCatalogue(): Promise<CatalogueData> {
   const filePath = path.join(process.cwd(), 'data', 'catalogue.json')
@@ -20,7 +22,7 @@ export async function generateStaticParams() {
   return catalogue.products.map(p => ({ id: p.id }))
 }
 
-type Props = { params: Promise<{ id: string }> }
+type Props = { params: Promise<{ id: string; locale: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
@@ -33,13 +35,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-function ScoreBadge({ score }: { score: number }) {
+function ScoreBadge({ score, label }: { score: number; label: string }) {
   const color = score >= 85 ? '#059669' : score >= 70 ? '#d97706' : '#64748b'
   return (
     <div className="flex items-center gap-2">
       <div className="relative w-12 h-12">
         <svg viewBox="0 0 36 36" className="w-12 h-12 -rotate-90">
-          <circle cx="18" cy="18" r="15.5" fill="none" stroke="#e2e8f0" strokeWidth="3" />
+          <circle cx="18" cy="18" r="15.5" fill="none" stroke="var(--border)" strokeWidth="3" />
           <circle cx="18" cy="18" r="15.5" fill="none" stroke={color} strokeWidth="3"
             strokeDasharray={`${(score / 100) * 97.4} 97.4`} strokeLinecap="round" />
         </svg>
@@ -47,7 +49,7 @@ function ScoreBadge({ score }: { score: number }) {
           {score}
         </span>
       </div>
-      <span className="text-xs font-medium" style={{ color: '#94a3b8' }}>Score IA</span>
+      <span className="text-sm font-medium text-[--text-muted]">{label}</span>
     </div>
   )
 }
@@ -68,11 +70,13 @@ function getSimilar(products: CatalogueProduct[], current: CatalogueProduct): Ca
 }
 
 export default function ProductPage({ params }: Props) {
-  const { id } = use(params)
+  const { id, locale } = use(params)
   const catalogue = use(getCatalogue())
   const product = catalogue.products.find(p => p.id === id)
   if (!product) notFound()
 
+  const t = use(getDictionary(locale as Locale))
+  const pt = t.product
   const source = SOURCE_LABELS[product.source]
   const similar = getSimilar(catalogue.products, product)
 
@@ -97,12 +101,14 @@ export default function ProductPage({ params }: Props) {
       <JsonLd data={productSchema} />
 
       {/* Breadcrumb */}
-      <div style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
+      <div className="bg-[--bg-subtle] border-b border-[--border]">
         <div className="container max-w-4xl mx-auto py-3">
-          <nav className="flex items-center gap-2 text-sm" style={{ color: '#94a3b8' }}>
-            <Link href="/catalogue" className="hover:underline" style={{ color: '#2563eb' }}>Catalogue</Link>
-            <span>/</span>
-            <span style={{ color: '#475569' }}>{product.brand} {product.name.slice(0, 40)}{product.name.length > 40 ? '…' : ''}</span>
+          <nav className="flex items-center gap-2 text-base text-[--text-muted]" aria-label="Breadcrumb">
+            <Link href={`/${locale}`} className="hover:underline text-[--accent]">{pt.breadcrumbHome}</Link>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="shrink-0 opacity-50"><path d="M5.646 3.354a.5.5 0 01.708-.708l5 5a.5.5 0 010 .708l-5 5a.5.5 0 01-.708-.708L10.293 8 5.646 3.354z"/></svg>
+            <Link href={`/${locale}/catalogue`} className="hover:underline text-[--accent]">{pt.breadcrumbCatalogue}</Link>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="shrink-0 opacity-50"><path d="M5.646 3.354a.5.5 0 01.708-.708l5 5a.5.5 0 010 .708l-5 5a.5.5 0 01-.708-.708L10.293 8 5.646 3.354z"/></svg>
+            <span className="text-[--text-subtle] truncate">{product.brand} {product.name.slice(0, 40)}{product.name.length > 40 ? '...' : ''}</span>
           </nav>
         </div>
       </div>
@@ -117,56 +123,54 @@ export default function ProductPage({ params }: Props) {
               {/* Header */}
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-3">
-                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full"
+                  <span className="text-sm font-semibold px-2.5 py-1 rounded-full"
                     style={{ background: source.color + '15', color: source.color }}>
                     {source.label}
                   </span>
-                  <span className="text-xs px-2.5 py-1 rounded-full"
-                    style={{ background: '#f1f5f9', color: '#475569' }}>
+                  <span className="text-sm px-2.5 py-1 rounded-full bg-[--bg-card] text-[--text-subtle]">
                     {CATEGORY_LABELS[product.category]}
                   </span>
                   {product.isOnSale && product.originalPrice && (
-                    <span className="text-xs font-bold px-2.5 py-1 rounded-full text-white"
-                      style={{ background: '#2563eb' }}>
+                    <span className="text-sm font-bold px-2.5 py-1 rounded-full text-white bg-blue-600">
                       -{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)} %
                     </span>
                   )}
                 </div>
-                <p className="text-sm font-medium mb-1" style={{ color: '#94a3b8' }}>{product.brand}</p>
-                <h1 className="text-2xl font-bold leading-tight" style={{ color: '#0f172a' }}>
+                <p className="text-sm font-medium mb-1 text-[--text-muted]">{product.brand}</p>
+                <h1 className="text-2xl font-bold leading-tight text-[--text]">
                   {product.name}
                 </h1>
               </div>
 
               {/* AI Rationale */}
-              <div className="p-5 rounded-xl" style={{ background: '#f0fdfa', borderLeft: '4px solid #0891b2' }}>
-                <p className="text-xs font-bold uppercase tracking-wide mb-2" style={{ color: '#0891b2' }}>
-                  Notre avis IA
+              <div className="p-5 rounded-xl bg-[--accent-bg]" style={{ borderLeft: '4px solid var(--success)' }}>
+                <p className="text-xs font-bold uppercase tracking-wide mb-2 text-[--success]">
+                  {pt.aiOpinion}
                 </p>
-                <p className="leading-relaxed" style={{ color: '#475569' }}>
+                <p className="leading-relaxed text-[--text-subtle]">
                   {product.aiRationale}
                 </p>
               </div>
 
               {/* Specs table */}
               <div>
-                <h2 className="font-bold mb-4" style={{ color: '#0f172a', fontSize: '1.125rem' }}>
-                  Spécifications
+                <h2 className="font-bold mb-4 text-[--text]" style={{ fontSize: '1.125rem' }}>
+                  {pt.specifications}
                 </h2>
-                <div className="divide-y" style={{ borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
+                <div className="divide-y divide-[--border] border-t border-b border-[--border]">
                   {[
-                    { label: 'Processeur', key: 'cpu', value: product.specs.cpu },
-                    { label: 'Mémoire vive', key: 'ram', value: product.specs.ram },
-                    { label: 'Stockage', key: 'storage', value: product.specs.storage },
-                    { label: 'Carte graphique', key: 'gpu', value: product.specs.gpu },
-                    { label: 'Écran', key: 'display', value: product.specs.display },
-                    { label: 'Batterie', key: 'battery', value: product.specs.battery },
+                    { label: pt.cpuLabel, key: 'cpu', value: product.specs.cpu },
+                    { label: pt.ramLabel, key: 'ram', value: product.specs.ram },
+                    { label: pt.storageLabel, key: 'storage', value: product.specs.storage },
+                    { label: pt.gpuLabel, key: 'gpu', value: product.specs.gpu },
+                    { label: pt.displayLabel, key: 'display', value: product.specs.display },
+                    { label: pt.batteryLabel, key: 'battery', value: product.specs.battery },
                   ].filter(s => s.value).map(s => (
                     <div key={s.label} className="flex items-center py-3 gap-4">
-                      <span className="text-sm font-medium shrink-0 inline-flex items-center gap-1.5" style={{ color: '#0f172a', minWidth: '8rem' }}>
+                      <span className="text-sm font-medium shrink-0 inline-flex items-center gap-1.5 text-[--text]" style={{ minWidth: '8rem' }}>
                         {s.label} <SpecTooltip specKey={s.key} />
                       </span>
-                      <span className="text-sm" style={{ color: '#475569' }}>{s.value}</span>
+                      <span className="text-sm text-[--text-subtle]">{s.value}</span>
                     </div>
                   ))}
                 </div>
@@ -174,17 +178,17 @@ export default function ProductPage({ params }: Props) {
 
               {/* Profiles */}
               <div>
-                <h2 className="font-bold mb-3" style={{ color: '#0f172a', fontSize: '1.125rem' }}>
-                  Idéal pour
+                <h2 className="font-bold mb-3 text-[--text]" style={{ fontSize: '1.125rem' }}>
+                  {pt.idealFor}
                 </h2>
                 <div className="flex flex-wrap gap-2">
                   {product.profiles.map(p => (
-                    <div key={p} className="flex items-center gap-2 px-3 py-2 rounded-lg"
-                      style={{ background: '#eff6ff', border: '1px solid #bfdbfe' }}>
-                      <span className="text-sm font-semibold" style={{ color: '#2563eb' }}>
+                    <div key={p} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[--accent-bg]"
+                      style={{ border: '1px solid var(--border)' }}>
+                      <span className="text-sm font-semibold text-[--accent]">
                         {PROFILE_LABELS[p].label}
                       </span>
-                      <span className="text-xs" style={{ color: '#64748b' }}>
+                      <span className="text-sm text-[--text-muted]">
                         {PROFILE_LABELS[p].desc}
                       </span>
                     </div>
@@ -196,18 +200,18 @@ export default function ProductPage({ params }: Props) {
             {/* Right: purchase card */}
             <div>
               <div className="card sticky top-20" style={{ padding: '1.75rem' }}>
-                <ScoreBadge score={product.aiScore} />
+                <ScoreBadge score={product.aiScore} label={pt.aiScore} />
 
                 <div className="mt-5 mb-5">
-                  <span className="text-3xl font-bold" style={{ color: '#0f172a' }}>
+                  <span className="text-3xl font-bold text-[--text]">
                     {product.price.toLocaleString('fr-CA')} $
                   </span>
                   {product.isOnSale && product.originalPrice && (
-                    <span className="ml-2 text-base line-through" style={{ color: '#94a3b8' }}>
+                    <span className="ml-2 text-base line-through text-[--text-muted]">
                       {product.originalPrice.toLocaleString('fr-CA')} $
                     </span>
                   )}
-                  <p className="text-xs mt-1" style={{ color: '#94a3b8' }}>
+                  <p className="text-sm mt-1 text-[--text-muted]">
                     {BUDGET_LABELS[product.budgetTier]}
                   </p>
                 </div>
@@ -215,17 +219,17 @@ export default function ProductPage({ params }: Props) {
                 <a href={product.url} target="_blank" rel="noopener noreferrer"
                   className="btn-primary w-full justify-center mb-3"
                   style={{ padding: '0.875rem 1.5rem', fontSize: '1rem' }}>
-                  Voir chez {source.label} →
+                  {pt.viewAt.replace('{source}', source.label)}
                 </a>
 
-                <p className="text-xs text-center" style={{ color: '#94a3b8' }}>
-                  Lien affilié — tu ne payes rien de plus
+                <p className="text-sm text-center text-[--text-muted]">
+                  {pt.affiliateNote}
                 </p>
 
-                <div className="mt-5 pt-5" style={{ borderTop: '1px solid #e2e8f0' }}>
-                  <Link href="/comparateur"
+                <div className="mt-5 pt-5 border-t border-[--border]">
+                  <Link href={`/${locale}/comparateur`}
                     className="btn-outline w-full justify-center text-sm">
-                    Pas sûr ? Fais le questionnaire
+                    {pt.notSure}
                   </Link>
                 </div>
               </div>
@@ -236,30 +240,30 @@ export default function ProductPage({ params }: Props) {
 
       {/* Similar products */}
       {similar.length > 0 && (
-        <section className="section" style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
+        <section className="section bg-[--bg-subtle] border-t border-[--border]">
           <div className="container max-w-4xl mx-auto">
-            <h2 className="text-xl font-bold mb-6" style={{ color: '#0f172a' }}>
-              Produits similaires
+            <h2 className="text-xl font-bold mb-6 text-[--text]">
+              {pt.similarProducts}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {similar.map(p => {
                 const s = SOURCE_LABELS[p.source]
                 return (
-                  <Link key={p.id} href={`/catalogue/${p.id}`}
+                  <Link key={p.id} href={`/${locale}/catalogue/${p.id}`}
                     className="card transition-all hover:-translate-y-0.5 hover:shadow-md"
                     style={{ padding: '1.25rem', textDecoration: 'none' }}>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                      <span className="text-sm font-semibold px-2 py-0.5 rounded-full"
                         style={{ background: s.color + '15', color: s.color }}>
                         {s.label}
                       </span>
-                      <span className="text-xs font-bold" style={{ color: '#d97706' }}>{p.aiScore}/100</span>
+                      <span className="text-sm font-bold text-[--warn]">{p.aiScore}/100</span>
                     </div>
-                    <p className="text-xs mb-0.5" style={{ color: '#94a3b8' }}>{p.brand}</p>
-                    <h3 className="font-semibold text-sm mb-2 line-clamp-2" style={{ color: '#0f172a', lineHeight: 1.4 }}>
+                    <p className="text-sm mb-0.5 text-[--text-muted]">{p.brand}</p>
+                    <h3 className="font-semibold text-sm mb-2 line-clamp-2 text-[--text]" style={{ lineHeight: 1.4 }}>
                       {p.name}
                     </h3>
-                    <span className="text-lg font-bold" style={{ color: '#0f172a' }}>
+                    <span className="text-lg font-bold text-[--text]">
                       {p.price.toLocaleString('fr-CA')} $
                     </span>
                   </Link>

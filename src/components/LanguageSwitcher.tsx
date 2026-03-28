@@ -18,8 +18,8 @@ export default function LanguageSwitcher() {
       href={switchedPath}
       className="ml-2 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wide transition-colors hover:bg-[--accent-bg]"
       style={{
-        color: '#2563eb',
-        border: '1.5px solid #2563eb',
+        color: 'var(--accent)',
+        border: '1.5px solid var(--accent)',
       }}
       title={locale === 'fr' ? 'Switch to English' : 'Passer en français'}
     >

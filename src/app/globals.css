@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
-/* ── Design tokens — accessible light mode ──────────────────────── */
+/* ── Dark mode: class strategy for Tailwind v4 ──────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Design tokens — accessible light mode ──────────────────── */
 :root {
   --bg:          #ffffff;
   --bg-subtle:   #f8fafc;
@@ -17,6 +20,22 @@
   --radius:      0.75rem;
 }
 
+/* ── Dark mode tokens ────────────────────────────────────────── */
+.dark {
+  --bg:          #0f172a;
+  --bg-subtle:   #1e293b;
+  --bg-card:     #1e293b;
+  --border:      #334155;
+  --text:        #f1f5f9;
+  --text-subtle: #94a3b8;
+  --text-muted:  #64748b;
+  --accent:      #2563eb;
+  --accent-dark: #3b82f6;
+  --accent-bg:   #1e3a5f;
+  --success:     #22d3ee;
+  --warn:        #fbbf24;
+}
+
 @theme inline {
   --color-bg:           var(--bg);
   --color-bg-subtle:    var(--bg-subtle);
@@ -31,7 +50,7 @@
   --font-sans: var(--font-inter);
 }
 
-/* ── Base ───────────────────────────────────────────────────────── */
+/* ── Base ───────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
@@ -45,9 +64,19 @@ body {
   font-size: 1rem;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ── Utilities ──────────────────────────────────────────────────── */
+/* ── Smooth transitions for theme change ─────────────────────── */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+  transition-delay: 0s !important;
+}
+
+/* ── Utilities ──────────────────────────────────────────────── */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -56,6 +85,7 @@ body {
   transition: box-shadow 0.15s, border-color 0.15s;
 }
 .card:hover { border-color: #cbd5e1; box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+.dark .card:hover { border-color: #475569; box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
 
 .btn-primary {
   display: inline-flex;

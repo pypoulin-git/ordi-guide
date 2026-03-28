@@ -16,26 +16,45 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-[--border] bg-[--bg-subtle] mt-auto">
+      {/* Safety net section for lost users */}
+      <div className="border-b border-[--border] bg-[--accent-bg]">
+        <div className="container py-8 text-center">
+          <p className="text-lg font-semibold text-[--text] mb-4">
+            {t.footer.helpTitle}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href={`/${locale}/comparateur`}
+              className="btn-primary" style={{ padding: '0.75rem 1.5rem', fontSize: '1rem' }}>
+              {t.footer.helpComparator}
+            </Link>
+            <Link href={`/${locale}/guide`}
+              className="btn-outline" style={{ padding: '0.75rem 1.5rem', fontSize: '1rem' }}>
+              {t.footer.helpGuide}
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <div className="flex items-center gap-2.5 font-bold text-[--text] mb-3">
+            <div className="flex items-center gap-2.5 font-bold text-lg text-[--text] mb-3">
               <Image src="/logo-compy.svg" alt="Shop Compy" width={36} height={36} />
               Shop Compy
             </div>
-            <p className="text-sm text-[--text-subtle] leading-relaxed">
+            <p className="text-base text-[--text-subtle] leading-relaxed">
               {t.footer.tagline}
             </p>
-            <p className="text-xs text-[--text-muted] mt-2">
+            <p className="text-sm text-[--text-muted] mt-2">
               shopcompy.ca
             </p>
           </div>
           <div>
-            <h3 className="font-semibold text-[--text] mb-3 text-sm uppercase tracking-wider">{t.footer.explore}</h3>
-            <ul className="space-y-2">
+            <h3 className="font-semibold text-[--text] mb-4 text-base uppercase tracking-wider">{t.footer.explore}</h3>
+            <ul className="space-y-3">
               {links.map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-[--text-subtle] hover:text-[--accent] transition-colors">
+                  <Link href={l.href} className="text-base text-[--text-subtle] hover:text-[--accent] transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -43,14 +62,14 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-[--text] mb-3 text-sm uppercase tracking-wider">{t.footer.aboutTitle}</h3>
-            <p className="text-sm text-[--text-subtle]">
+            <h3 className="font-semibold text-[--text] mb-4 text-base uppercase tracking-wider">{t.footer.aboutTitle}</h3>
+            <p className="text-base text-[--text-subtle] leading-relaxed">
               {t.footer.affiliateDisclosure}
             </p>
           </div>
         </div>
-        <div className="border-t border-[--border] mt-10 pt-8 text-xs text-[--text-muted] text-center">
-          © {new Date().getFullYear()} Shop Compy. {t.footer.rights}
+        <div className="border-t border-[--border] mt-10 pt-8 text-sm text-[--text-muted] text-center">
+          &copy; {new Date().getFullYear()} Shop Compy. {t.footer.rights}
         </div>
       </div>
     </footer>

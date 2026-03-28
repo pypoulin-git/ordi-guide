@@ -5,6 +5,7 @@ import type { ProfileTag, BudgetTier, Category } from '@/types/catalogue'
 import { PROFILE_LABELS, BUDGET_LABELS, CATEGORY_LABELS } from '@/types/catalogue'
 import ProductCard from './ProductCard'
 import type { CatalogueProduct } from '@/types/catalogue'
+import { useTranslation } from '@/i18n/DictionaryContext'
 
 type FilterState = {
   profile: ProfileTag | null
@@ -18,6 +19,8 @@ export default function CatalogueFilters({ products }: { products: CatalogueProd
     budget: null,
     category: null,
   })
+  const { t } = useTranslation()
+  const cat = t.catalogue
 
   const toggle = useCallback(<K extends keyof FilterState>(key: K, val: FilterState[K]) => {
     setFilters(prev => ({ ...prev, [key]: prev[key] === val ? null : val }))
@@ -40,15 +43,17 @@ export default function CatalogueFilters({ products }: { products: CatalogueProd
 
         {/* Profil */}
         <div>
-          <p className="text-sm font-semibold mb-2" style={{ color: '#0f172a' }}>Profil</p>
-          <div className="flex flex-wrap gap-2">
+          <p className="text-base font-bold mb-2 text-[--text]">{cat.profileLabel}</p>
+          <div className="flex flex-wrap gap-2.5">
             {(Object.keys(PROFILE_LABELS) as ProfileTag[]).map(key => (
               <button key={key} onClick={() => toggle('profile', key)}
-                className="text-sm px-3 py-1.5 rounded-full font-medium transition-colors"
-                style={filters.profile === key
-                  ? { background: '#2563eb', color: 'white' }
-                  : { background: '#f1f5f9', color: '#475569' }
-                }>
+                className="text-base px-4 py-2.5 rounded-full font-medium transition-colors"
+                style={{
+                  minHeight: '44px',
+                  ...(filters.profile === key
+                    ? { background: 'var(--accent)', color: 'white' }
+                    : { background: 'var(--bg-card)', color: 'var(--text-subtle)' }),
+                }}>
                 {PROFILE_LABELS[key].label}
               </button>
             ))}
@@ -57,32 +62,36 @@ export default function CatalogueFilters({ products }: { products: CatalogueProd
 
         {/* Budget */}
         <div>
-          <p className="text-sm font-semibold mb-2" style={{ color: '#0f172a' }}>Budget</p>
-          <div className="flex flex-wrap gap-2">
+          <p className="text-base font-bold mb-2 text-[--text]">{cat.budgetLabel}</p>
+          <div className="flex flex-wrap gap-2.5">
             {(Object.keys(BUDGET_LABELS) as BudgetTier[]).map(key => (
               <button key={key} onClick={() => toggle('budget', key)}
-                className="text-sm px-3 py-1.5 rounded-full font-medium transition-colors"
-                style={filters.budget === key
-                  ? { background: '#2563eb', color: 'white' }
-                  : { background: '#f1f5f9', color: '#475569' }
-                }>
+                className="text-base px-4 py-2.5 rounded-full font-medium transition-colors"
+                style={{
+                  minHeight: '44px',
+                  ...(filters.budget === key
+                    ? { background: 'var(--accent)', color: 'white' }
+                    : { background: 'var(--bg-card)', color: 'var(--text-subtle)' }),
+                }}>
                 {BUDGET_LABELS[key]}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Catégorie */}
+        {/* Categorie */}
         <div>
-          <p className="text-sm font-semibold mb-2" style={{ color: '#0f172a' }}>Catégorie</p>
-          <div className="flex flex-wrap gap-2">
+          <p className="text-base font-bold mb-2 text-[--text]">{cat.categoryLabel}</p>
+          <div className="flex flex-wrap gap-2.5">
             {(Object.keys(CATEGORY_LABELS) as Category[]).map(key => (
               <button key={key} onClick={() => toggle('category', key)}
-                className="text-sm px-3 py-1.5 rounded-full font-medium transition-colors"
-                style={filters.category === key
-                  ? { background: '#2563eb', color: 'white' }
-                  : { background: '#f1f5f9', color: '#475569' }
-                }>
+                className="text-base px-4 py-2.5 rounded-full font-medium transition-colors"
+                style={{
+                  minHeight: '44px',
+                  ...(filters.category === key
+                    ? { background: 'var(--accent)', color: 'white' }
+                    : { background: 'var(--bg-card)', color: 'var(--text-subtle)' }),
+                }}>
                 {CATEGORY_LABELS[key]}
               </button>
             ))}
@@ -92,17 +101,16 @@ export default function CatalogueFilters({ products }: { products: CatalogueProd
         {/* Reset */}
         {hasFilters && (
           <button onClick={reset}
-            className="text-sm font-medium transition-colors"
-            style={{ color: '#2563eb' }}>
-            Effacer les filtres
+            className="text-base font-medium transition-colors text-[--accent] underline">
+            {cat.clearFilters}
           </button>
         )}
       </div>
 
       {/* Results count */}
-      <p className="text-sm mb-5" style={{ color: '#94a3b8' }}>
-        {filtered.length} {filtered.length > 1 ? 'produits' : 'produit'}
-        {hasFilters ? ' correspondants' : ' au total'}
+      <p className="text-base mb-5 text-[--text-muted]">
+        {filtered.length} {filtered.length > 1 ? cat.productPlural : cat.productSingular}
+        {hasFilters ? ` ${cat.matching}` : ` ${cat.total}`}
       </p>
 
       {/* Product grid */}
@@ -113,17 +121,23 @@ export default function CatalogueFilters({ products }: { products: CatalogueProd
           ))}
         </div>
       ) : (
-        <div className="card text-center" style={{ padding: '3rem' }}>
-          <p className="text-lg font-semibold mb-2" style={{ color: '#0f172a' }}>
-            Aucun produit trouvé
+        <div className="card text-center" style={{ padding: '3rem 2rem' }}>
+          <div style={{ fontSize: '3rem', marginBottom: '1rem' }} aria-hidden>
+            🔍
+          </div>
+          <p className="text-xl font-bold mb-3 text-[--text]">
+            {cat.noProducts}
           </p>
-          <p style={{ color: '#64748b' }}>
-            Essaie d&apos;ajuster tes filtres pour voir plus de résultats.
+          <p className="text-base leading-relaxed mb-2 text-[--text-muted]">
+            {cat.noProductsHint}
+          </p>
+          <p className="text-base mb-6 text-[--text-muted]">
+            {cat.noProductsSuggestion}
           </p>
           <button onClick={reset}
-            className="btn-primary mt-4"
-            style={{ padding: '0.5rem 1.25rem', fontSize: '0.875rem' }}>
-            Voir tous les produits
+            className="btn-primary"
+            style={{ padding: '0.75rem 2rem', fontSize: '1rem', minHeight: '44px' }}>
+            {cat.viewAll}
           </button>
         </div>
       )}

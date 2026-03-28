@@ -136,10 +136,10 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
           className="flex-1 flex flex-col items-center gap-2 rounded-2xl transition-all"
           style={{
             padding: '1.5rem 1rem 1.25rem',
-            border: `2.5px solid ${mode === 'body' ? '#2563eb' : '#e2e8f0'}`,
+            border: `2.5px solid ${mode === 'body' ? 'var(--accent)' : 'var(--border)'}`,
             background: mode === 'body'
-              ? 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)'
-              : 'white',
+              ? 'linear-gradient(135deg, var(--accent-bg) 0%, var(--accent-bg) 100%)'
+              : 'var(--bg)',
             boxShadow: mode === 'body'
               ? '0 4px 16px rgba(37,99,235,0.15), inset 0 1px 0 rgba(255,255,255,0.8)'
               : '0 1px 3px rgba(0,0,0,0.05)',
@@ -147,15 +147,15 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
           }}
         >
           <BodyIllustration size={72} />
-          <span className="font-bold text-base" style={{ color: mode === 'body' ? '#1e40af' : '#64748b' }}>
+          <span className="font-bold text-base" style={{ color: mode === 'body' ? 'var(--accent)' : 'var(--text-muted)' }}>
             {ta.bodyLabel}
           </span>
-          <span className="text-xs leading-snug" style={{ color: mode === 'body' ? '#3b82f6' : '#94a3b8' }}>
+          <span className="text-sm leading-snug" style={{ color: mode === 'body' ? 'var(--accent)' : 'var(--text-muted)' }}>
             {ta.bodyDesc}
           </span>
           {mode === 'body' && (
             <span className="mt-1 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full"
-              style={{ background: '#2563eb', color: 'white' }}>
+              style={{ background: 'var(--accent)', color: 'white' }}>
               {ta.active}
             </span>
           )}
@@ -167,10 +167,10 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
           className="flex-1 flex flex-col items-center gap-2 rounded-2xl transition-all"
           style={{
             padding: '1.5rem 1rem 1.25rem',
-            border: `2.5px solid ${mode === 'car' ? '#d97706' : '#e2e8f0'}`,
+            border: `2.5px solid ${mode === 'car' ? '#d97706' : 'var(--border)'}`,
             background: mode === 'car'
               ? 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)'
-              : 'white',
+              : 'var(--bg)',
             boxShadow: mode === 'car'
               ? '0 4px 16px rgba(217,119,6,0.15), inset 0 1px 0 rgba(255,255,255,0.8)'
               : '0 1px 3px rgba(0,0,0,0.05)',
@@ -178,10 +178,10 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
           }}
         >
           <CarIllustration size={72} />
-          <span className="font-bold text-base" style={{ color: mode === 'car' ? '#92400e' : '#64748b' }}>
+          <span className="font-bold text-base" style={{ color: mode === 'car' ? '#92400e' : 'var(--text-muted)' }}>
             {ta.carLabel}
           </span>
-          <span className="text-xs leading-snug" style={{ color: mode === 'car' ? '#d97706' : '#94a3b8' }}>
+          <span className="text-sm leading-snug" style={{ color: mode === 'car' ? '#d97706' : 'var(--text-muted)' }}>
             {ta.carDesc}
           </span>
           {mode === 'car' && (
@@ -219,14 +219,14 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
 
   return (
     <div className="relative inline-flex flex-wrap items-center gap-2">
-      <div className="relative inline-flex items-center rounded-full p-0.5" style={{ background: '#e2e8f0' }}>
+      <div className="relative inline-flex items-center rounded-full p-0.5" style={{ background: 'var(--bg-subtle)' }}>
         {/* Sliding highlight */}
         <div
           className="absolute top-0.5 bottom-0.5 rounded-full"
           style={{
             width: 'calc(50% - 2px)',
             left: bodyActive ? '2px' : 'calc(50%)',
-            background: 'white',
+            background: 'var(--bg)',
             boxShadow: '0 1px 3px rgba(0,0,0,0.12)',
             transition: 'left 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
@@ -235,7 +235,7 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
           onClick={() => setMode('body')}
           className="relative z-10 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
           style={{
-            color: bodyActive ? '#2563eb' : '#64748b',
+            color: bodyActive ? 'var(--accent)' : 'var(--text-muted)',
             transition: 'color 0.2s ease',
             background: 'transparent',
           }}
@@ -247,7 +247,7 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
           onClick={() => setMode('car')}
           className="relative z-10 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
           style={{
-            color: !bodyActive ? '#d97706' : '#64748b',
+            color: !bodyActive ? '#d97706' : 'var(--text-muted)',
             transition: 'color 0.2s ease',
             background: 'transparent',
           }}
