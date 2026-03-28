@@ -28,6 +28,7 @@ export async function fetchCostco() {
           title: r.title || '',
           url: r.url.split('?')[0],
           snippet: r.content || '',
+          imageUrl: r.thumbnail || r.img_src || '',
           source: 'costco',
         }))
       allResults.push(...filtered)

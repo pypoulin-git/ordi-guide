@@ -89,6 +89,7 @@ export default function ProductPage({ params }: Props) {
     name: product.name,
     brand: { '@type': 'Brand', name: product.brand },
     description: product.aiRationale,
+    ...(product.imageUrl ? { image: product.imageUrl } : {}),
     offers: {
       '@type': 'Offer',
       price: product.price,
@@ -123,6 +124,21 @@ export default function ProductPage({ params }: Props) {
 
             {/* Left: details */}
             <div className="lg:col-span-2 space-y-6">
+
+              {/* Product image */}
+              {product.imageUrl && (
+                <div className="rounded-xl overflow-hidden bg-[var(--bg-subtle)] border border-[var(--border)]"
+                  style={{ aspectRatio: '16 / 10' }}>
+                  <img
+                    src={product.imageUrl}
+                    alt={`${product.brand} ${product.name}`}
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-contain p-6"
+                  />
+                </div>
+              )}
+
               {/* Header */}
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-3">

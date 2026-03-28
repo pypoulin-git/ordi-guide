@@ -13,6 +13,7 @@ export const articles: Article[] = [
     tags: ['processeur'],
     featured: true,
     coverGradient: 'linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #0891b2 100%)',
+    coverImage: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80&auto=format',
     tldr: 'Le processeur (CPU), c\'est ce qui fait \"réfléchir\" ton ordinateur. Pour la plupart des gens, un Intel Core i5 ou AMD Ryzen 5 récent suffit amplement. Ne te laisse pas impressionner par les gros chiffres — un modèle récent de milieu de gamme bat souvent un haut de gamme d\'il y a 3 ans.',
     sections: [
       {
@@ -61,6 +62,7 @@ export const articles: Article[] = [
     categoryColor: '#2563eb',
     icon: '🫁',
     tags: ['ram'],
+    coverImage: 'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=800&q=80&auto=format',
     tldr: 'La RAM, c\'est l\'espace de travail actif de ton ordinateur — pas le stockage permanent. 8 Go suffit pour les tâches de base, 16 Go est le standard recommandé en 2026, et 32 Go est réservé aux pros. Plus de RAM ≠ automatiquement plus rapide.',
     sections: [
       {
@@ -109,6 +111,7 @@ export const articles: Article[] = [
     categoryColor: '#059669',
     icon: '💾',
     tags: ['stockage'],
+    coverImage: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?w=800&q=80&auto=format',
     tldr: 'Si ton ordinateur met 2 minutes à démarrer, c\'est probablement à cause du disque dur (HDD). Le remplacer par un SSD est le meilleur investissement possible — ton ordi démarrera en 15 secondes et tout sera plus rapide. Un SSD de 512 Go coûte environ 50-70 $.',
     sections: [
       {
@@ -169,6 +172,7 @@ export const articles: Article[] = [
     tags: ['chromebook'],
     featured: false,
     coverGradient: 'linear-gradient(135deg, #1a1a2e 0%, #7c3aed 50%, #0f172a 100%)',
+    coverImage: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80&auto=format',
     tldr: 'Il n\'y a pas de \"meilleur\" — il y a celui qui correspond à TA vie. Mac si tu veux de la simplicité, de l\'autonomie et un écosystème Apple intégré. PC si tu veux du choix, des prix variés et la compatibilité avec tout. Les deux font le même travail pour 90 % des gens.',
     sections: [
       {
@@ -221,6 +225,7 @@ export const articles: Article[] = [
     tags: ['processeur'],
     featured: false,
     coverGradient: 'linear-gradient(135deg, #d97706 0%, #1e293b 50%, #0891b2 100%)',
+    coverImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80&auto=format',
     tldr: 'Intel a abandonné les vieux noms (Core i5, i7) pour les Core Ultra 5, Ultra 7 et Ultra 9 avec NPU intégré pour l\'IA. AMD a renommé ses Ryzen avec des suffixes comme HX, HS, U. Le truc à retenir : regarde la génération (plus récent = mieux) et le tier (5 = milieu de gamme parfait). Le reste, c\'est du marketing.',
     sections: [
       {
@@ -273,6 +278,7 @@ export const articles: Article[] = [
     tags: [],
     featured: false,
     coverGradient: 'linear-gradient(135deg, #0891b2 0%, #1e293b 50%, #2563eb 100%)',
+    coverImage: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80&auto=format',
     tldr: 'L\'USB-C est LE port universel de 2026 — il fait tout : données, vidéo ET charge de ton portable avec un seul câble. Thunderbolt 4/5 est la version premium de l\'USB-C (même forme, plus rapide). Vérifie toujours si ton USB-C peut charger ton portable (Power Delivery) et combien de watts il supporte.',
     sections: [
       {
@@ -335,6 +341,7 @@ export const articles: Article[] = [
     tags: [],
     featured: false,
     coverGradient: 'linear-gradient(135deg, #334155 0%, #0891b2 50%, #1e293b 100%)',
+    coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format',
     tldr: 'Un dock USB-C ou Thunderbolt te permet de brancher écrans, clavier, souris, casque et charge sur UN seul câble. Tu arrives, tu branches, tu travailles. Les 3 choses à vérifier : 1) la puissance de charge en watts (65W minimum), 2) le nombre d\'écrans supportés, 3) la compatibilité avec ton portable (Thunderbolt vs USB-C).',
     sections: [
       {
@@ -396,6 +403,7 @@ export const articles: Article[] = [
     categoryColor: '#2563eb',
     icon: '🖥️',
     tags: ['ecran'],
+    coverImage: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800&q=80&auto=format',
     tldr: 'Pour la majorité des gens, un écran IPS Full HD (1920×1080) à 60 Hz est parfait. Si tu veux du premium, vise un OLED ou un IPS 2K (2560×1440). La luminosité (300+ nits) compte plus qu\'on pense — surtout si tu travailles près d\'une fenêtre. Le 4K sur un portable de 14 pouces, c\'est du gaspillage.',
     sections: [
       {
@@ -454,6 +462,7 @@ export const articles: Article[] = [
     categoryColor: '#2563eb',
     icon: '📶',
     tags: [],
+    coverImage: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&q=80&auto=format',
     tldr: 'Ton Internet dépend de DEUX maillons : le forfait de ton fournisseur ET ton réseau local (routeur + appareils). Si ton routeur date de 2018 ou si ton portable n\'a que le Wi-Fi 5, tu n\'obtiendras jamais la vitesse payée. Wi-Fi 6 est le minimum en 2026, Wi-Fi 6E est l\'idéal, Wi-Fi 7 est le futur.',
     sections: [
       {
@@ -504,6 +513,7 @@ export const articles: Article[] = [
     categoryColor: '#059669',
     icon: '⚙️',
     tags: [],
+    coverImage: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80&auto=format',
     tldr: 'Windows 11 est livré avec des publicités, des applis inutiles et des paramètres de confidentialité douteux. En 15 minutes, tu peux désactiver les pubs du menu Démarrer, virer les bloatwares, optimiser la batterie, et configurer les mises à jour pour qu\'elles ne te dérangent plus. Fais-le le jour 1, tu me remercieras.',
     sections: [
       {
@@ -553,6 +563,7 @@ export const articles: Article[] = [
     categoryColor: '#059669',
     icon: '⏳',
     tags: ['budget'],
+    coverImage: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&q=80&auto=format',
     tldr: 'Un portable dure 4-6 ans, un PC de bureau 6-8 ans. Les signes de fin de vie : lenteur persistante malgré un SSD, batterie qui dure moins d\'une heure, programmes qui plantent régulièrement. Avant de remplacer, essaie : ajouter un SSD (60 $), reformater Windows, ou remplacer la batterie (80-120 $).',
     sections: [
       {
@@ -603,6 +614,7 @@ export const articles: Article[] = [
     categoryColor: '#2563eb',
     icon: '☁️',
     tags: [],
+    coverImage: 'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=800&q=80&auto=format',
     tldr: 'Le cloud, c\'est un disque dur en ligne accessible partout. Google Drive (15 Go gratuits) est le plus généreux. OneDrive (5 Go gratuits) s\'intègre parfaitement à Windows. iCloud (5 Go gratuits) est le choix naturel pour les utilisateurs Apple. Pour la plupart des gens, le forfait gratuit suffit — et c\'est ton meilleur backup contre les pannes.',
     sections: [
       {
@@ -652,6 +664,7 @@ export const articles: Article[] = [
     categoryColor: '#059669',
     icon: '🛡️',
     tags: ['securite'],
+    coverImage: 'https://images.unsplash.com/photo-1544099858-75feeb57f01b?w=800&q=80&auto=format',
     tldr: 'Les arnaques informatiques exploitent la peur et l\'urgence. Règle d\'or : Microsoft, Apple et ta banque ne t\'appelleront JAMAIS pour te dire que ton ordi est infecté. Ne clique jamais sur un lien dans un courriel urgent, ne donne jamais le contrôle de ton ordi à un inconnu, et ne paie jamais en cartes-cadeaux. En cas de doute, ferme tout et appelle toi-même le vrai numéro.',
     sections: [
       {
@@ -709,6 +722,7 @@ export const articles: Article[] = [
     categoryColor: '#7c3aed',
     icon: '💻',
     tags: ['chromebook', 'budget'],
+    coverImage: 'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=800&q=80&auto=format',
     tldr: 'Un Chromebook est un portable léger qui fait tourner ChromeOS (basé sur Chrome). Parfait pour le web, les courriels, Netflix, Google Docs et les études. Pas fait pour : Photoshop, jeux PC, logiciels Windows spécifiques. Si 90 % de ton temps est dans un navigateur, le Chromebook à 300 $ est probablement le meilleur rapport qualité-prix du marché.',
     sections: [
       {
@@ -759,6 +773,7 @@ export const articles: Article[] = [
     categoryColor: '#2563eb',
     icon: '🎮',
     tags: ['gpu'],
+    coverImage: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=800&q=80&auto=format',
     tldr: 'La carte graphique (GPU) gère tout ce qui est visuel : affichage, vidéo, jeux, 3D. Pour la bureautique et le web, le GPU intégré dans ton processeur suffit largement. Tu as besoin d\'un GPU dédié (NVIDIA/AMD) seulement pour le gaming, le montage vidéo 4K, la modélisation 3D ou l\'IA. Ne paie pas pour un GPU dont tu n\'as pas besoin.',
     sections: [
       {
@@ -810,6 +825,7 @@ export const articles: Article[] = [
     categoryColor: '#059669',
     icon: '♻️',
     tags: ['budget'],
+    coverImage: 'https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=800&q=80&auto=format',
     tldr: 'Un ordinateur reconditionné certifié est testé, nettoyé et garanti — ce n\'est PAS un ordi usagé Kijiji. Tu peux économiser 30-50 % sur un MacBook ou un ThinkPad quasiment neuf. Achète chez Apple Refurbished, des revendeurs certifiés ou les programmes constructeur. Évite Marketplace, Kijiji et les vendeurs sans garantie.',
     sections: [
       {
@@ -860,6 +876,7 @@ export const articles: Article[] = [
     categoryColor: '#059669',
     icon: '🔋',
     tags: [],
+    coverImage: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&q=80&auto=format',
     tldr: 'Tu peux laisser ton portable branché sans le détruire — les portables modernes gèrent ça automatiquement. Pour maximiser la longévité : garde la charge entre 20-80 % quand possible, évite la chaleur extrême, et active le mode "optimisation de batterie" dans les paramètres. La batterie perdra environ 20 % de sa capacité après 2-3 ans, c\'est normal.',
     sections: [
       {
@@ -917,6 +934,7 @@ export const articles: Article[] = [
     categoryColor: '#059669',
     icon: '💰',
     tags: ['financement', 'transparence', 'affilié'],
+    coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format',
     tldr: 'Shop Compy est gratuit et le restera. On se finance par des liens affiliés (qui ne changent rien au prix ni aux recommandations), un espace pub identifié, des trouvailles Compy, et du support expert à 5 $. Pas de paywall, pas de tracking invasif, pas de recommandations biaisées.',
     sections: [
       {

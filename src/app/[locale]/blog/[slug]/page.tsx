@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { getArticles, getArticleBySlug } from '@/content/articles'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -65,32 +66,51 @@ export default function ArticlePage({ params }: Props) {
         </div>
       </div>
 
+      {/* -- Cover image banner -- */}
+      {article.coverImage && (
+        <div className="relative w-full" style={{ height: '280px', maxHeight: '35vh' }}>
+          <Image
+            src={article.coverImage}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--bg-subtle)]" />
+        </div>
+      )}
+
       {/* -- Hero -- */}
       <section style={{
-        background: `linear-gradient(135deg, ${article.categoryColor}18 0%, var(--bg-subtle) 100%)`,
-        padding: '2.5rem 0 3rem',
+        background: !article.coverImage ? `linear-gradient(135deg, ${article.categoryColor}18 0%, var(--bg-subtle) 100%)` : 'var(--bg-subtle)',
+        padding: article.coverImage ? '1.5rem 0 3rem' : '2.5rem 0 3rem',
         position: 'relative',
         overflow: 'hidden',
       }}>
-        {/* Decorative shapes */}
-        <div aria-hidden style={{
-          position: 'absolute', top: '-40px', right: '-20px',
-          width: '200px', height: '200px', borderRadius: '50%',
-          background: `${article.categoryColor}08`,
-        }} />
-        <div aria-hidden style={{
-          position: 'absolute', bottom: '-30px', left: '5%',
-          width: '140px', height: '140px', borderRadius: '50%',
-          background: `${article.categoryColor}05`,
-        }} />
-        {/* Circuit pattern */}
-        <div aria-hidden style={{
-          position: 'absolute', top: 0, right: 0, bottom: 0,
-          width: '30%', display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
-          paddingRight: '1rem', color: article.categoryColor,
-        }}>
-          <TechIllustration variant="circuit-pattern" size={200} style={{ opacity: 0.035 }} />
-        </div>
+        {!article.coverImage && (
+          <>
+            {/* Decorative shapes */}
+            <div aria-hidden style={{
+              position: 'absolute', top: '-40px', right: '-20px',
+              width: '200px', height: '200px', borderRadius: '50%',
+              background: `${article.categoryColor}08`,
+            }} />
+            <div aria-hidden style={{
+              position: 'absolute', bottom: '-30px', left: '5%',
+              width: '140px', height: '140px', borderRadius: '50%',
+              background: `${article.categoryColor}05`,
+            }} />
+            {/* Circuit pattern */}
+            <div aria-hidden style={{
+              position: 'absolute', top: 0, right: 0, bottom: 0,
+              width: '30%', display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
+              paddingRight: '1rem', color: article.categoryColor,
+            }}>
+              <TechIllustration variant="circuit-pattern" size={200} style={{ opacity: 0.035 }} />
+            </div>
+          </>
+        )}
 
         <div className="container max-w-3xl mx-auto" style={{ position: 'relative', zIndex: 1 }}>
           <Link href={`/${locale}/blog`} className="inline-flex items-center gap-1 text-sm mb-5 hover:underline text-[var(--accent)]">

@@ -39,6 +39,7 @@ export async function fetchMicrosoft() {
           title: r.title || '',
           url: cleanUrl(r.url),
           snippet: r.content || '',
+          imageUrl: r.thumbnail || r.img_src || '',
           source: 'microsoft',
         }))
       allResults.push(...filtered)

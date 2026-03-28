@@ -146,6 +146,7 @@ export async function runCurator(scanResults) {
               aiScore: p.aiScore,
               aiRationale: p.aiRationale,
               url: injectAffiliateTag(findUrl(batch, p.name), source),
+              imageUrl: findImageUrl(batch, p.name),
               source,
               addedAt: new Date().toISOString(),
               lastVerified: new Date().toISOString(),
@@ -214,6 +215,8 @@ function mergeProducts(newProducts, existingProducts) {
     if (existing) {
       // Remplacer si meilleur score OU prix plus bas avec score similaire
       if (np.aiScore > existing.aiScore || (np.aiScore >= existing.aiScore - 5 && np.price < existing.price)) {
+        // Preserve imageUrl from existing if new product lacks one
+        if (!np.imageUrl && existing.imageUrl) np.imageUrl = existing.imageUrl
         existingMap.set(key, np)
       }
     } else {
@@ -333,4 +336,14 @@ function findUrl(batch, productName) {
     nameLower.includes(r.title?.toLowerCase().slice(0, 20))
   )
   return match?.url || batch[0]?.url || ''
+}
+
+function findImageUrl(batch, productName) {
+  if (!productName) return batch[0]?.imageUrl || ''
+  const nameLower = productName.toLowerCase()
+  const match = batch.find(r =>
+    r.title?.toLowerCase().includes(nameLower.slice(0, 20)) ||
+    nameLower.includes(r.title?.toLowerCase().slice(0, 20))
+  )
+  return match?.imageUrl || ''
 }

@@ -39,6 +39,7 @@ export async function fetchCanadaComputers() {
           title: r.title || '',
           url: cleanUrl(r.url),
           snippet: r.content || '',
+          imageUrl: r.thumbnail || r.img_src || '',
           source: 'canadacomputers',
         }))
       allResults.push(...filtered)

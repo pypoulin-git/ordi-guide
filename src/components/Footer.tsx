@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslation } from '@/i18n/DictionaryContext'
+import ActionCTA from '@/components/ActionCTA'
 
 export default function Footer() {
   const { t, locale } = useTranslation()
@@ -34,6 +35,13 @@ export default function Footer() {
               {t.footer.helpGuide}
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* ── Expert + Donation CTAs ── */}
+      <div className="border-b border-[var(--border)]">
+        <div className="container py-10 md:py-14 max-w-2xl mx-auto">
+          <ActionCTA variant="full" />
         </div>
       </div>
 

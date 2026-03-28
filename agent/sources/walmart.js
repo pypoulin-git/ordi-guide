@@ -39,6 +39,7 @@ export async function fetchWalmart() {
           title: r.title || '',
           url: cleanUrl(r.url),
           snippet: r.content || '',
+          imageUrl: r.thumbnail || r.img_src || '',
           source: 'walmart',
         }))
       allResults.push(...filtered)

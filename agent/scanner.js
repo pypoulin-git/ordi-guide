@@ -97,6 +97,7 @@ export async function runScanner() {
       url: r.url,
       snippet: r.snippet,
       source: r.source,
+      imageUrl: r.imageUrl || null,
       pagePrice: r.pagePrice || null,
       // Tronquer pageText pour le JSON intermédiaire
       pageText: r.pageText ? r.pageText.slice(0, 2000) : null,

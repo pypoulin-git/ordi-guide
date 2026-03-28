@@ -20,6 +20,7 @@ export interface Article {
   tags: string[]
   featured?: boolean
   coverGradient?: string
+  coverImage?: string
 }
 
 export const CATEGORIES = [

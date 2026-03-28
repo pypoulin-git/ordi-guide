@@ -13,6 +13,28 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
   return (
     <Link href={`/${locale}/catalogue/${product.id}`} className="card flex flex-col transition-all hover:-translate-y-0.5 hover:shadow-md" style={{ padding: 0, overflow: 'hidden', textDecoration: 'none', color: 'inherit', minWidth: 0 }}>
 
+      {/* Product image */}
+      <div className="relative bg-[var(--bg-subtle)]" style={{ aspectRatio: '16 / 10' }}>
+        {product.imageUrl ? (
+          <img
+            src={product.imageUrl}
+            alt={`${product.brand} ${product.name}`}
+            loading="lazy"
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-contain p-3"
+          />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+            <span className="text-xs opacity-40">{'Photo non disponible'}</span>
+          </div>
+        )}
+      </div>
+
       {/* Header : badge rabais + source */}
       <div className="flex items-center justify-between px-4 sm:px-5 pt-4 pb-0 gap-2">
         <div className="flex items-center gap-2 min-w-0 flex-wrap">

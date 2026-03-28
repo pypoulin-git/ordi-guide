@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { getArticles, CATEGORIES, CATEGORY_ICONS, getAllTags } from '@/content/articles'
 import type { Article } from '@/content/articles'
@@ -306,16 +307,20 @@ function FeaturedCard({ article, locale, readLabel, size }: {
       style={{ background: '#0f172a' }}>
       <div className="relative flex items-end p-4 sm:p-6 h-full"
         style={{
-          background: article.coverGradient || `linear-gradient(135deg, ${article.categoryColor}40 0%, #1e293b 60%, #334155 100%)`,
+          background: !article.coverImage ? (article.coverGradient || `linear-gradient(135deg, ${article.categoryColor}40 0%, #1e293b 60%, #334155 100%)`) : '#0f172a',
           minHeight: isLarge ? '420px' : undefined,
         }}>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/40 to-transparent" />
-        <div aria-hidden className="absolute top-5 right-6 opacity-[0.07]">
-          <svg width={isLarge ? 100 : 60} height={isLarge ? 100 : 60} viewBox="0 0 120 120" fill="none" stroke="white" strokeWidth="1">
-            <circle cx="60" cy="60" r="50" /><circle cx="60" cy="60" r="35" />
-            <line x1="10" y1="60" x2="110" y2="60" /><line x1="60" y1="10" x2="60" y2="110" />
-          </svg>
-        </div>
+        {article.coverImage && (
+          <Image
+            src={article.coverImage}
+            alt=""
+            fill
+            sizes={isLarge ? '(max-width: 1024px) 100vw, 50vw' : '(max-width: 1024px) 100vw, 25vw'}
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            priority={isLarge}
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/50 to-transparent" />
         <div className="relative z-10 w-full">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs font-bold px-3 py-1 rounded-full"
@@ -343,9 +348,22 @@ function CarouselCard({ article, locale, readLabel }: {
 }) {
   return (
     <Link href={`/${locale}/blog/${article.slug}`}
-      className="group block rounded-xl border border-[var(--border)] bg-[var(--bg)] transition-all hover:border-[var(--accent)] hover:shadow-md shrink-0"
+      className="group block rounded-xl border border-[var(--border)] bg-[var(--bg)] transition-all hover:border-[var(--accent)] hover:shadow-md shrink-0 overflow-hidden"
       style={{ width: 'min(300px, 85vw)', scrollSnapAlign: 'start' }}>
-      <div className="rounded-t-xl" style={{ height: '6px', background: `linear-gradient(90deg, ${article.categoryColor}, ${article.categoryColor}60)` }} />
+      {article.coverImage ? (
+        <div className="relative h-36 overflow-hidden">
+          <Image
+            src={article.coverImage}
+            alt=""
+            fill
+            sizes="300px"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] to-transparent opacity-30" />
+        </div>
+      ) : (
+        <div className="rounded-t-xl" style={{ height: '6px', background: `linear-gradient(90deg, ${article.categoryColor}, ${article.categoryColor}60)` }} />
+      )}
       <div className="p-5">
         <div className="flex items-center gap-2 mb-2.5">
           <span className="text-xs font-bold px-2.5 py-0.5 rounded-full"
