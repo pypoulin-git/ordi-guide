@@ -40,12 +40,12 @@ export default function Footer() {
 
       {/* ── Expert + Donation CTAs ── */}
       <div className="border-b border-[var(--border)]">
-        <div className="container py-10 md:py-14 max-w-2xl mx-auto">
+        <div className="container py-14 md:py-20 max-w-2xl mx-auto">
           <ActionCTA variant="full" />
         </div>
       </div>
 
-      <div className="container py-16 md:py-28">
+      <div className="container py-20 md:py-28">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
           <div>
             <div className="flex items-center gap-2.5 font-bold text-lg text-[var(--text)] mb-3">
