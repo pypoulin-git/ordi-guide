@@ -78,8 +78,6 @@ export default function HomePage() {
 
         <div className="container" style={{ position: 'relative' }}>
           <div className="max-w-3xl mx-auto text-center">
-            <Image src="/images/compy-logo.png" alt="Shop Compy" width={80} height={80}
-              className="mx-auto mb-6" style={{ filter: 'brightness(1.4) drop-shadow(0 4px 12px rgba(0,0,0,0.3))' }} />
             <h1 className="font-bold text-white mb-5 leading-tight"
               style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)' }}>
               {t.home.heroTitle.split('\n').map((line, i) => (
