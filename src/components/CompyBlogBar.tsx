@@ -16,7 +16,7 @@ interface BlogAnswer {
   isImprovised: boolean
 }
 
-export default function CompyBlogBar() {
+export default function CompyBlogBar({ compact }: { compact?: boolean }) {
   const [query, setQuery] = useState('')
   const [result, setResult] = useState<BlogAnswer | null>(null)
   const [loading, setLoading] = useState(false)
@@ -54,6 +54,60 @@ export default function CompyBlogBar() {
     }
   }
 
+  // ── Compact mode (sidebar) ─────────────────────────────────────
+  if (compact) {
+    return (
+      <div>
+        <div className="flex items-center gap-2 mb-2">
+          <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
+            style={{ background: 'linear-gradient(135deg, #2563eb, #0891b2)' }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" stroke="white" strokeWidth="2" fill="none" />
+            </svg>
+          </div>
+          <span className="text-xs font-bold text-[var(--text)]">{c.title}</span>
+        </div>
+        <input
+          ref={inputRef}
+          type="text"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && ask()}
+          placeholder={locale === 'fr' ? 'Pose ta question...' : 'Ask a question...'}
+          maxLength={200}
+          className="w-full px-3 py-2 rounded-lg text-xs text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none mb-2"
+        />
+        <button
+          onClick={() => ask()}
+          disabled={loading || query.trim().length < 3}
+          className="w-full py-1.5 rounded-lg text-xs font-semibold text-white transition-all disabled:opacity-40"
+          style={{ background: '#2563eb' }}>
+          {loading ? (
+            <span className="inline-block w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+          ) : c.askButton}
+        </button>
+        {result && (
+          <div className="mt-2 p-2.5 rounded-lg border border-[var(--border)] bg-[var(--bg)]">
+            <p className="text-xs leading-relaxed text-[var(--text)] line-clamp-6">{result.answer}</p>
+            {result.matchedArticles.length > 0 && (
+              <div className="mt-2 pt-2 border-t border-[var(--border)] space-y-1">
+                {result.matchedArticles.slice(0, 2).map(a => (
+                  <Link key={a.slug} href={`/${locale}/blog/${a.slug}`}
+                    className="block text-xs font-medium text-[var(--accent)] hover:underline truncate">
+                    {a.title}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+        {error && <p className="mt-2 text-xs text-red-400">{error}</p>}
+      </div>
+    )
+  }
+
+  // ── Full mode ─────────────────────────────────────────────────
   return (
     <div>
       {/* Header */}
