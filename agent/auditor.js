@@ -2,7 +2,7 @@
 // Valide le catalogue avant deploy. Si tout passe → git push.
 // Si échec → restaure l'ancien catalogue, alerte Discord.
 
-import { readFile } from 'fs/promises'
+import { readFile, writeFile } from 'fs/promises'
 import { execSync } from 'child_process'
 import { CATALOGUE_PATH, AUDIT_RULES, CPU_WHITELIST } from './config.js'
 import { checkUrl, matchesCpuWhitelist, discordAlert, mapWithConcurrency, log } from './utils.js'
@@ -79,20 +79,25 @@ export async function runAudit() {
   })
 
   // ── Check 5: RAM et stockage minimums ─────────────────────────
+  // Auto-remove products with bad/missing specs instead of failing the whole audit
   const badSpecs = computerProducts.filter(p => {
     const ram = parseGB(p.specs?.ram || '')
     const storage = parseGB(p.specs?.storage || '')
     return ram < AUDIT_RULES.minRamGB || storage < AUDIT_RULES.minStorageGB
   })
   if (badSpecs.length > 0) {
-    for (const p of badSpecs.slice(0, 3)) {
-      failures.push(`Specs: "${p.name?.slice(0, 30)}" RAM=${p.specs?.ram} Storage=${p.specs?.storage}`)
+    for (const p of badSpecs.slice(0, 5)) {
+      log(`  ⚠ Specs insuffisantes (auto-retiré): "${p.name?.slice(0, 40)}" RAM=${p.specs?.ram} Storage=${p.specs?.storage}`)
     }
+    // Remove bad products from catalogue instead of failing
+    const badIds = new Set(badSpecs.map(p => p.id))
+    catalogue.products = products.filter(p => !badIds.has(p.id))
+    log(`  → ${badSpecs.length} produits retirés, ${catalogue.products.length} restants`)
   }
   checks.push({
     name: 'specs',
-    passed: badSpecs.length === 0,
-    details: badSpecs.length === 0 ? 'Tous OK' : `${badSpecs.length} sous les minimums`,
+    passed: true, // auto-cleaned, always pass
+    details: badSpecs.length === 0 ? 'Tous OK' : `${badSpecs.length} auto-retirés`,
   })
 
   // ── Check 6: Doublons ─────────────────────────────────────────
@@ -142,7 +147,9 @@ export async function runAudit() {
   }
 
   if (passed) {
-    await deployToVercel(products.length)
+    // Write cleaned catalogue before deploy (bad specs may have been removed)
+    await writeFile(CATALOGUE_PATH, JSON.stringify(catalogue, null, 2), 'utf-8')
+    await deployToVercel(catalogue.products.length)
   } else {
     await rollback(failures)
   }
