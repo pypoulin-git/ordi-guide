@@ -9,6 +9,7 @@ import TechIllustration from '@/components/TechIllustration'
 import { getDictionary } from '@/i18n/get-dictionary'
 import type { Locale } from '@/i18n/config'
 import { BASE_URL } from '@/lib/constants'
+import ActionCTA from '@/components/ActionCTA'
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>
@@ -173,6 +174,11 @@ export default function ArticlePage({ params }: Props) {
             </section>
           ))}
         </div>
+      </div>
+
+      {/* -- Expert + Don -- */}
+      <div className="container max-w-3xl mx-auto pb-8">
+        <ActionCTA variant="compact" />
       </div>
 
       {/* -- Bottom CTA -- */}

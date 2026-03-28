@@ -5,6 +5,7 @@ import AnalogyToggle from '@/components/AnalogyToggle'
 import SearchBar from '@/components/SearchBar'
 import { useAnalogy } from '@/contexts/AnalogyContext'
 import TechIllustration, { getAnalogyVariant } from '@/components/TechIllustration'
+import ActionCTA from '@/components/ActionCTA'
 import { useTranslation } from '@/i18n/DictionaryContext'
 
 export default function HomePage() {
@@ -319,6 +320,13 @@ export default function HomePage() {
             </Link>{' '}
             {t.home.faqGlossaryEnd}
           </p>
+        </div>
+      </section>
+
+      {/* -- Expert + Don -- */}
+      <section className="section bg-[var(--bg)]">
+        <div className="container max-w-2xl mx-auto">
+          <ActionCTA variant="inline" />
         </div>
       </section>
 

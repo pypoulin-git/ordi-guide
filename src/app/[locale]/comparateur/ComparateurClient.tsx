@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useTranslation } from '@/i18n/DictionaryContext'
 import { getSteps, getArchetypeInfo, getRecommendation } from '@/content/comparateur-data'
 import { buildAffiliateUrl, getAffiliateRel } from '@/lib/affiliate'
+import ActionCTA from '@/components/ActionCTA'
 import type { CatalogueProduct, ProfileTag } from '@/types/catalogue'
 import { SOURCE_LABELS } from '@/types/catalogue'
 
@@ -425,6 +426,9 @@ export default function ComparateurClient() {
               {c.restart}
             </button>
           </div>
+
+          {/* ── Expert + Don ── */}
+          <ActionCTA variant="compact" className="mb-6" />
 
           <p className="text-center text-sm text-[var(--text-muted)]">
             {c.disclaimer}

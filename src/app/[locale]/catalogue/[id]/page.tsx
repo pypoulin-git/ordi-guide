@@ -13,6 +13,7 @@ import type { Locale } from '@/i18n/config'
 import { buildAffiliateUrl, getAffiliateRel } from '@/lib/affiliate'
 import SponsoredSpot from '@/components/SponsoredSpot'
 import DonationBox from '@/components/DonationBox'
+import ActionCTA from '@/components/ActionCTA'
 
 async function getCatalogue(): Promise<CatalogueData> {
   const filePath = path.join(process.cwd(), 'data', 'catalogue.json')
@@ -272,6 +273,11 @@ export default function ProductPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {/* Expert help inline CTA */}
+      <div className="container max-w-4xl mx-auto pb-4">
+        <ActionCTA variant="inline" />
+      </div>
 
       {/* Sponsored ad spot — between content and similar products */}
       <section className="section">
