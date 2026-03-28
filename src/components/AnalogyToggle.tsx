@@ -122,7 +122,7 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
     }
     setToast(TOAST_LABELS[mode])
     if (timerRef.current) clearTimeout(timerRef.current)
-    timerRef.current = setTimeout(() => setToast(null), 5000)
+    timerRef.current = setTimeout(() => setToast(null), 2000)
     return () => { if (timerRef.current) clearTimeout(timerRef.current) }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode])
@@ -268,18 +268,19 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
           }}
         >
           <div
-            className="text-sm leading-snug whitespace-nowrap rounded-full px-4 py-2 font-medium"
+            className="text-sm leading-snug whitespace-nowrap rounded-full px-5 py-2.5 font-medium"
             style={{
-              color: mode === 'body' ? 'var(--accent)' : 'var(--warn)',
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border)',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              color: 'var(--text)',
+              background: 'rgba(255,255,255,0.2)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255,255,255,0.3)',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
               opacity: visible ? 1 : 0,
-              transform: visible ? 'translateY(0) scale(1)' : 'translateY(-8px) scale(0.97)',
-              transition: 'opacity 0.35s ease, transform 0.35s ease',
+              transform: visible ? 'translateY(0)' : 'translateY(-6px)',
+              transition: 'opacity 0.4s ease, transform 0.4s ease',
             }}
           >
-            {mode === 'body' ? <BodyIcon /> : <CarIcon />}{' '}
             {displayedToast}
           </div>
         </div>
