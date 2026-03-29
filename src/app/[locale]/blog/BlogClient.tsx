@@ -93,15 +93,22 @@ export default function BlogClient() {
         </div>
       </section>
 
+      {/* ── Demande à Compy ── */}
+      <section style={{ paddingTop: '1.25rem', paddingBottom: '0.75rem' }}>
+        <div className="container max-w-3xl mx-auto">
+          <CompyBlogBar />
+        </div>
+      </section>
+
       {/* ── Sidebar + Content layout ── */}
-      <section className="section" style={{ paddingTop: '1.5rem' }}>
+      <section className="section" style={{ paddingTop: '1rem' }}>
         <div className="container">
           <div className="flex gap-6 items-start">
 
             {/* ── Left sidebar (sticky, desktop only) ────────── */}
             <aside
               className="hidden lg:block shrink-0 sticky"
-              style={{ top: '5rem', width: '220px', maxHeight: 'calc(100vh - 6rem)', overflowY: 'auto' }}
+              style={{ top: '5rem', width: '220px' }}
             >
               <div className="space-y-5">
 
@@ -164,11 +171,6 @@ export default function BlogClient() {
                     <button onClick={clearFilters} className="underline text-[var(--accent)] text-sm">{b.reset}</button>
                   </div>
                 )}
-
-                {/* Compy Q&A */}
-                <div className="rounded-xl p-3.5" style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border)' }}>
-                  <CompyBlogBar compact />
-                </div>
 
                 {/* CTA */}
                 <div className="rounded-xl p-3.5" style={{ background: 'var(--accent-bg)', border: '1px solid var(--border)' }}>
