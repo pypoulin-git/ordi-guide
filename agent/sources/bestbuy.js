@@ -56,14 +56,21 @@ export async function fetchBestBuy() {
 
   // Enrichir avec le contenu réel des pages
   const enriched = await mapWithConcurrency(unique, async (r) => {
-    const pageText = await fetchPage(r.url)
-    const pagePrice = extractPrice(pageText, 'bestbuy')
-    return { ...r, pageText, pagePrice }
+    const page = await fetchPage(r.url)
+    if (!page) return { ...r, pageText: null, pagePrice: null }
+    if (!page.available) {
+      log(`  ✗ Best Buy indisponible : ${r.title.slice(0, 50)}`)
+      return null
+    }
+    const pagePrice = extractPrice(page.html, 'bestbuy')
+    const imageUrl = r.imageUrl || page.imageUrl || ''
+    return { ...r, pageText: page.text, pagePrice, imageUrl }
   }, PAGE_FETCH_CONCURRENCY)
 
-  const withData = enriched.filter(r => r.pageText)
-  log(`Best Buy — ${withData.length}/${unique.length} pages enrichies`)
-  return enriched
+  const available = enriched.filter(Boolean)
+  const withData = available.filter(r => r.pageText)
+  log(`Best Buy — ${withData.length}/${unique.length} pages enrichies (${unique.length - available.length} indisponibles)`)
+  return available
 }
 
 function isProductUrl(url) {

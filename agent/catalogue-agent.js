@@ -9,6 +9,25 @@
 // Chaque phase est indépendante : si Phase 1 échoue, on garde
 // l'ancien catalogue. Si Phase 3 échoue, on rollback.
 
+// Load .env.local if present (Node doesn't auto-load it)
+import { readFileSync } from 'fs'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
+try {
+  const __dirname = dirname(fileURLToPath(import.meta.url))
+  const envPath = resolve(__dirname, '..', '.env.local')
+  const envContent = readFileSync(envPath, 'utf-8')
+  for (const line of envContent.split('\n')) {
+    const trimmed = line.trim()
+    if (!trimmed || trimmed.startsWith('#')) continue
+    const eqIdx = trimmed.indexOf('=')
+    if (eqIdx < 0) continue
+    const key = trimmed.slice(0, eqIdx).trim()
+    const value = trimmed.slice(eqIdx + 1).trim()
+    if (!process.env[key]) process.env[key] = value
+  }
+} catch { /* .env.local not found — use system env */ }
+
 import { runScanner } from './scanner.js'
 import { runCurator } from './curator.js'
 import { runAudit } from './auditor.js'

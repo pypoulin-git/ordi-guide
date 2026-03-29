@@ -52,20 +52,35 @@ export async function fetchAmazon() {
   log(`Amazon — ${unique.length} résultats uniques, enrichissement pages...`)
 
   const enriched = await mapWithConcurrency(unique, async (r) => {
-    const pageText = await fetchPage(r.url)
-    const pagePrice = extractPrice(pageText, 'amazon')
-    return { ...r, pageText, pagePrice }
+    const page = await fetchPage(r.url)
+    if (!page) return { ...r, pageText: null, pagePrice: null }
+    // Filter out unavailable products
+    if (!page.available) {
+      log(`  ✗ Amazon indisponible : ${r.title.slice(0, 50)}`)
+      return null
+    }
+    const pagePrice = extractPrice(page.html, 'amazon')
+    // Use page-extracted image if SearXNG didn't provide one
+    const imageUrl = r.imageUrl || page.imageUrl || ''
+    return { ...r, pageText: page.text, pagePrice, imageUrl }
   }, PAGE_FETCH_CONCURRENCY)
 
-  const withData = enriched.filter(r => r.pageText)
-  log(`Amazon — ${withData.length}/${unique.length} pages enrichies`)
-  return enriched
+  const available = enriched.filter(Boolean)
+  const withData = available.filter(r => r.pageText)
+  log(`Amazon — ${withData.length}/${unique.length} pages enrichies (${unique.length - available.length} indisponibles filtrés)`)
+  return available
 }
 
 function isProductUrl(url) {
-  // Amazon product pages have /dp/ASIN or /gp/product/ASIN
-  return /amazon\.ca\/(dp|gp\/product)\/[A-Z0-9]{10}/i.test(url) ||
-    /amazon\.ca.*\/(laptop|computer|ordinateur|macbook)/i.test(url)
+  // Prefer real product pages: /dp/ASIN or /gp/product/ASIN
+  // Also accept /s? search results pages (will be filtered by availability later)
+  // Reject category/browse/help/about pages
+  if (/amazon\.ca\/(dp|gp\/product)\/[A-Z0-9]{10}/i.test(url)) return true
+  // Reject non-product pages
+  if (/amazon\.ca\/(help|gp\/help|b\/|stores\/|s\?|hz\/)/i.test(url)) return false
+  // Accept product-like URLs with ASIN in path
+  if (/amazon\.ca\/[^/]+\/dp\/[A-Z0-9]{10}/i.test(url)) return true
+  return false
 }
 
 function extractAsin(url) {

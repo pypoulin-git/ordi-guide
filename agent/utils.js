@@ -1,7 +1,7 @@
 // ─── Catalogue Agent — Utilitaires ───────────────────────────────
 
 import {
-  SEARXNG_URL, GEMINI_API_URL, GEMINI_API_KEY,
+  SEARXNG_URL, GEMINI_API_URL, getGeminiApiKey,
   MAX_RETRIES, RETRY_DELAY_MS,
   CPU_WHITELIST, AFFILIATE_TAGS,
   PAGE_FETCH_TIMEOUT, DISCORD_WEBHOOK_URL,
@@ -28,6 +28,7 @@ export async function searxSearch(query, options = {}) {
 // ── Gemini ───────────────────────────────────────────────────────
 
 export async function geminiGenerate(prompt, jsonSchema = null) {
+  const GEMINI_API_KEY = getGeminiApiKey()
   if (!GEMINI_API_KEY) throw new Error('GEMINI_API_KEY manquante')
 
   const body = {
@@ -68,7 +69,11 @@ export async function geminiGenerate(prompt, jsonSchema = null) {
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
 
 /**
- * Fetch a product page and return stripped body text (max 3000 chars).
+ * Fetch a product page and return { text, html, imageUrl, available }.
+ * text = stripped body text (max 3000 chars).
+ * html = raw HTML (for price extraction).
+ * imageUrl = best product image found in the page.
+ * available = false if product is explicitly unavailable.
  * Returns null on failure — does not throw.
  */
 export async function fetchPage(url, timeout = PAGE_FETCH_TIMEOUT) {
@@ -83,6 +88,13 @@ export async function fetchPage(url, timeout = PAGE_FETCH_TIMEOUT) {
     clearTimeout(timer)
     if (!res.ok) return null
     const html = await res.text()
+
+    // Extract product image from HTML
+    const imageUrl = extractImageFromHtml(html, url)
+
+    // Check availability
+    const available = checkAvailability(html)
+
     // Strip scripts, styles, tags, compress whitespace
     const text = html
       .replace(/<script[\s\S]*?<\/script>/gi, '')
@@ -91,11 +103,105 @@ export async function fetchPage(url, timeout = PAGE_FETCH_TIMEOUT) {
       .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
       .replace(/&nbsp;/g, ' ').replace(/&#\d+;/g, '')
       .replace(/\s{3,}/g, '\n').trim()
-    return text.slice(0, 3000)
+    return { text: text.slice(0, 3000), html, imageUrl, available }
   } catch {
     clearTimeout(timer)
     return null
   }
+}
+
+/**
+ * Extract the best product image from raw HTML.
+ * Checks og:image, Twitter image, JSON-LD image, common product image patterns.
+ */
+function extractImageFromHtml(html, url) {
+  // 1. og:image (most reliable)
+  const ogMatch = html.match(/<meta\s+(?:property|name)=["']og:image["']\s+content=["']([^"']+)["']/i)
+    || html.match(/<meta\s+content=["']([^"']+)["']\s+(?:property|name)=["']og:image["']/i)
+  if (ogMatch?.[1] && isValidImageUrl(ogMatch[1])) return ogMatch[1]
+
+  // 2. Twitter image
+  const twMatch = html.match(/<meta\s+(?:property|name)=["']twitter:image["']\s+content=["']([^"']+)["']/i)
+    || html.match(/<meta\s+content=["']([^"']+)["']\s+(?:property|name)=["']twitter:image["']/i)
+  if (twMatch?.[1] && isValidImageUrl(twMatch[1])) return twMatch[1]
+
+  // 3. JSON-LD image
+  const jsonLdMatch = html.match(/"image"\s*:\s*"(https?:\/\/[^"]+\.(jpg|jpeg|png|webp)[^"]*)"/i)
+  if (jsonLdMatch?.[1] && isValidImageUrl(jsonLdMatch[1])) return jsonLdMatch[1]
+
+  // 4. Amazon-specific: main product image (landingImage or imgTagWrapperId)
+  if (url?.includes('amazon')) {
+    const amzMatch = html.match(/id=["']landingImage["'][^>]*src=["']([^"']+)["']/i)
+      || html.match(/id=["']imgBlkFront["'][^>]*src=["']([^"']+)["']/i)
+      || html.match(/"hiRes"\s*:\s*"(https?:\/\/[^"]+)"/i)
+      || html.match(/"large"\s*:\s*"(https?:\/\/[^"]+)"/i)
+    if (amzMatch?.[1] && isValidImageUrl(amzMatch[1])) return amzMatch[1]
+  }
+
+  // 5. Best Buy specific
+  if (url?.includes('bestbuy')) {
+    const bbMatch = html.match(/class=["'][^"']*productImage[^"']*["'][^>]*src=["']([^"']+)["']/i)
+      || html.match(/multimedia\.bbycastatic\.ca\/[^"'\s]+/i)
+    if (bbMatch?.[0] && isValidImageUrl(bbMatch[0])) return bbMatch[0].startsWith('http') ? bbMatch[0] : 'https:' + bbMatch[0]
+    if (bbMatch?.[1] && isValidImageUrl(bbMatch[1])) return bbMatch[1]
+  }
+
+  // 6. Walmart specific
+  if (url?.includes('walmart')) {
+    const wmMatch = html.match(/src=["'](https?:\/\/i5\.walmartimages[^"']+)["']/i)
+    if (wmMatch?.[1] && isValidImageUrl(wmMatch[1])) return wmMatch[1]
+  }
+
+  // 7. Microsoft Store specific
+  if (url?.includes('microsoft.com')) {
+    const msMatch = html.match(/src=["'](https?:\/\/img-prod-cms-rt-microsoft-com[^"']+)["']/i)
+      || html.match(/src=["'](https?:\/\/store-images\.s-microsoft\.com[^"']+)["']/i)
+    if (msMatch?.[1] && isValidImageUrl(msMatch[1])) return msMatch[1]
+  }
+
+  // 8. Generic fallback: first large product image (src with dimensions > 200)
+  const genericImgs = html.matchAll(/<img[^>]+src=["'](https?:\/\/[^"']+\.(jpg|jpeg|png|webp)[^"']*)["'][^>]*>/gi)
+  for (const m of genericImgs) {
+    const imgUrl = m[1]
+    if (isValidImageUrl(imgUrl) && imgUrl.length > 30) {
+      // Skip tiny images (check for dimension hints in URL)
+      if (/\b(50x50|100x100|32x32|16x16|favicon|thumb_small)\b/i.test(imgUrl)) continue
+      return imgUrl
+    }
+  }
+
+  return ''
+}
+
+function isValidImageUrl(url) {
+  if (!url || url.length < 10) return false
+  // Reject tracking pixels, spacers, icons
+  if (/1x1|spacer|pixel|blank|icon|logo|sprite|badge|\.svg/i.test(url)) return false
+  // Must look like an image URL or come from a known CDN
+  return /\.(jpg|jpeg|png|webp|avif)/i.test(url) ||
+    /images-amazon|media\.bestbuy|multimedia\.bbycastatic|i\.dell|p\.globalsources|walmartimages|img-prod-cms-rt-microsoft|store-images\.s-microsoft|pisces\.bbystatic/i.test(url)
+}
+
+/**
+ * Check if a product is available for purchase.
+ * Returns false if the page contains explicit unavailability markers.
+ * Only checks prominent/structural elements to avoid false positives on listing pages.
+ */
+function checkAvailability(html) {
+  // Extract only the "main content" area — skip nav, footer, sidebar
+  // Look for unavailability in prominent page elements (titles, alerts, buttons, main content)
+  const unavailablePatterns = [
+    // Amazon-specific
+    /id=["']availability["'][^>]*>[\s\S]{0,200}(actuellement\s+indisponible|currently\s+unavailable)/i,
+    /we\s+don['']t\s+know\s+when\s+or\s+if\s+this\s+item\s+will\s+be\s+back/i,
+    // Generic product page markers (in prominent elements)
+    /<(h[1-3]|div\s+class[^>]*(?:alert|notice|status|availability)[^>]*|span\s+class[^>]*(?:alert|notice|status|availability))[^>]*>[\s\S]{0,100}(out\s+of\s+stock|rupture\s+de\s+stock|actuellement\s+indisponible|currently\s+unavailable|produit\s+discontinu[ée])/i,
+    // "Add to cart" button disabled or missing with explicit unavailable text nearby
+    /class=["'][^"']*(?:sold-?out|unavailable|out-of-stock)[^"']*["']/i,
+    // Structured data marking as out of stock
+    /"availability"\s*:\s*"(?:https?:\/\/schema\.org\/)?(?:OutOfStock|Discontinued|SoldOut)"/i,
+  ]
+  return !unavailablePatterns.some(pattern => pattern.test(html))
 }
 
 /**

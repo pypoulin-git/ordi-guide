@@ -5,6 +5,40 @@ import { SOURCE_LABELS, PROFILE_LABELS } from '@/types/catalogue'
 import SpecTooltip from './SpecTooltip'
 import { useTranslation } from '@/i18n/DictionaryContext'
 
+import type { ReactNode } from 'react'
+
+const CATEGORY_ICONS: Record<string, ReactNode> = {
+  laptop: (
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="2" y1="20" x2="22" y2="20" /><line x1="12" y1="17" x2="12" y2="20" />
+    </svg>
+  ),
+  desktop: (
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
+      <rect x="2" y="2" width="20" height="14" rx="2" /><line x1="8" y1="20" x2="16" y2="20" /><line x1="12" y1="16" x2="12" y2="20" />
+    </svg>
+  ),
+  monitor: (
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
+      <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
+    </svg>
+  ),
+  dock: (
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
+      <rect x="3" y="8" width="18" height="8" rx="2" /><circle cx="8" cy="12" r="1" /><circle cx="12" cy="12" r="1" /><line x1="16" y1="10" x2="18" y2="10" />
+    </svg>
+  ),
+  apple: (
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="2" y1="20" x2="22" y2="20" /><line x1="12" y1="17" x2="12" y2="20" />
+    </svg>
+  ),
+}
+
+function CategoryIcon({ category }: { category: string }) {
+  return CATEGORY_ICONS[category] || CATEGORY_ICONS.laptop
+}
+
 export default function ProductCard({ product }: { product: CatalogueProduct }) {
   const source = SOURCE_LABELS[product.source]
   const { t, locale } = useTranslation()
@@ -22,17 +56,17 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
             loading="lazy"
             referrerPolicy="no-referrer"
             className="w-full h-full object-contain p-3"
+            onError={(e) => {
+              const el = e.currentTarget
+              el.style.display = 'none'
+              el.parentElement?.querySelector('.img-placeholder')?.classList.remove('hidden')
+            }}
           />
-        ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-              <line x1="8" y1="21" x2="16" y2="21" />
-              <line x1="12" y1="17" x2="12" y2="21" />
-            </svg>
-            <span className="text-xs opacity-40">{'Photo non disponible'}</span>
-          </div>
-        )}
+        ) : null}
+        <div className={`w-full h-full flex flex-col items-center justify-center gap-2 text-[var(--text-muted)] img-placeholder ${product.imageUrl ? 'hidden' : ''}`}>
+          <CategoryIcon category={product.category} />
+          <span className="text-xs opacity-40">{product.brand}</span>
+        </div>
       </div>
 
       {/* Header : badge rabais + source */}

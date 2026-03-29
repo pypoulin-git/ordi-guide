@@ -23,7 +23,10 @@ export const SEARXNG_URL = 'http://localhost:8888'
 
 // Gemini 2.5 Flash — via API directe
 export const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent'
-export const GEMINI_API_KEY = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || ''
+// Lazy getter — env may be loaded after module init (e.g. .env.local in catalogue-agent.js)
+export function getGeminiApiKey() {
+  return process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || ''
+}
 
 // Paths
 function fixWinPath(p) { return p.replace(/^\/([A-Z]:)/, '$1') }

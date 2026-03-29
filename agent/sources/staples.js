@@ -47,14 +47,21 @@ export async function fetchStaples() {
   log(`Bureau en Gros — ${unique.length} résultats uniques, enrichissement pages...`)
 
   const enriched = await mapWithConcurrency(unique, async (r) => {
-    const pageText = await fetchPage(r.url)
-    const pagePrice = extractPrice(pageText, 'staples')
-    return { ...r, pageText, pagePrice }
+    const page = await fetchPage(r.url)
+    if (!page) return { ...r, pageText: null, pagePrice: null }
+    if (!page.available) {
+      log(`  ✗ Bureau en Gros indisponible : ${r.title.slice(0, 50)}`)
+      return null
+    }
+    const pagePrice = extractPrice(page.html, 'staples')
+    const imageUrl = r.imageUrl || page.imageUrl || ''
+    return { ...r, pageText: page.text, pagePrice, imageUrl }
   }, PAGE_FETCH_CONCURRENCY)
 
-  const withData = enriched.filter(r => r.pageText)
-  log(`Bureau en Gros — ${withData.length}/${unique.length} pages enrichies`)
-  return enriched
+  const available = enriched.filter(Boolean)
+  const withData = available.filter(r => r.pageText)
+  log(`Bureau en Gros — ${withData.length}/${unique.length} pages enrichies (${unique.length - available.length} indisponibles)`)
+  return available
 }
 
 function isProductUrl(url) {

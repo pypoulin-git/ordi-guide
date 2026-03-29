@@ -106,34 +106,6 @@
       "lastVerified": "2026-03-29T20:57:05.398Z"
     },
     {
-      "id": "bestbuy-laptops-with-intel-processors",
-      "name": "Laptops With Intel Processors",
-      "brand": "Various",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "500to900",
-      "price": 799.99,
-      "originalPrice": 0,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "Intel Core Ultra 5",
-        "ram": "32GB",
-        "storage": "1TB SSD"
-      },
-      "aiScore": 92,
-      "aiRationale": "À 799.99$, ce portable avec un Intel Core Ultra 5, 32GB de RAM et 1TB SSD est un deal incroyable! C'est une aubaine pour n'importe quel profil, que ce soit pour le travail, les études ou même un peu de création.",
-      "url": "https://www.bestbuy.ca/en-ca/shop/computers-tablets/laptops-with-intel-processors?ref=shopcompy",
-      "imageUrl": "https://multimedia.bbycastatic.ca/multimedia/products/500x500/153/15311/15311924.jpeg",
-      "source": "bestbuy",
-      "addedAt": "2026-03-29T20:53:45.592Z",
-      "lastVerified": "2026-03-29T20:57:05.398Z"
-    },
-    {
       "id": "walmart-hp-omnibook-5-16-ba1009ca-ordinateur-portable-16-wuxga-ips-i",
       "name": "HP Omnibook 5 16‑ba1009ca Ordinateur Portable 16\" WUXGA IPS Intel Core i5-1334U",
       "brand": "HP",
@@ -188,7 +160,7 @@
       "aiScore": 90,
       "aiRationale": "Un ThinkPad avec un Core Ultra 7, 32GB de RAM et 2TB SSD, c'est une bête de travail! Parfait pour les pros qui ont besoin de puissance et de fiabilité. Le rapport qualité-prix est excellent pour cette configuration.",
       "url": "https://www.bestbuy.ca/en-ca/product/lenovo-thinkpad-l14p-gen-6-2025-laptop-16-core-intel-core-ultra-7-255h-14-wuxga-ips-display-intel-graphics-32gb-ddr5-2tb-ssd-thunderbolt-4-wi-fi-6e-win11-pro/19486276?ref=shopcompy",
-      "imageUrl": "https://imgs.search.brave.com/rUaMrzQPDE9x5ReHz6I2s1A2DUcbuuzXdlC4nNl8eqI/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tdWx0/aW1lZGlhLmJieWNh/c3RhdGljLmNhL211/bHRpbWVkaWEvcHJv/ZHVjdHMvMjUweDI1/MC8xOTQvMTk0ODYv/MTk0ODYyNzYuanBl/Zw",
+      "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-29T20:53:45.592Z",
       "lastVerified": "2026-03-29T20:57:05.399Z"
@@ -647,35 +619,6 @@
       "lastVerified": "2026-03-29T20:57:05.399Z"
     },
     {
-      "id": "dell-moniteurs-4k",
-      "name": "Moniteurs - 4K",
-      "brand": "Dell",
-      "category": "monitor",
-      "profiles": [
-        "basic",
-        "work",
-        "student"
-      ],
-      "budgetTier": "under500",
-      "price": 299.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "N/A",
-        "resolution": "3840x2160",
-        "size": "N/A",
-        "storage": "N/A"
-      },
-      "aiScore": 92,
-      "aiRationale": "Un moniteur 4K à ce prix-là, c'est un deal en or! Parfait pour améliorer ton setup sans vider ton portefeuille. Fais vite, ça ne durera pas!",
-      "url": "https://www.dell.com/fr-ca/shop/moniteurs-d-ordinateur/ar/8605/4k?appliedRefinements=40603&dgc=",
-      "imageUrl": "https://i.dell.com/sites/imagecontent/app-merchandizing/responsive/HomePage/en/PublishingImages/24042-ena-monitor-u2417h-115x75.png",
-      "source": "dell",
-      "addedAt": "2026-03-29T20:56:18.939Z",
-      "lastVerified": "2026-03-29T20:57:05.399Z"
-    },
-    {
       "id": "dell-moniteur-dell-ultrasharp-u2724d-de-27-po",
       "name": "Moniteur Dell UltraSharp U2724D de 27 po",
       "brand": "Dell",
@@ -699,7 +642,7 @@
       "aiScore": 89,
       "aiRationale": "Un excellent moniteur QHD de 27 pouces pour le travail et la création. La qualité Dell UltraSharp à un prix raisonnable, c'est un choix intelligent.",
       "url": "https://www.dell.com/fr-ca/shop/moniteur-dell-ultrasharp-27-u2724d/apd/210-bksf/moniteurs-et-accessoires-des-moniteurs?dgc=",
-      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2724d/pdp/ultrasharp-u2724d-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=504&fmt=jpg",
+      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2724d/pdp/ultrasharp-u2724d-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=504&fmt=jpg?fmt=png&wid=400&hei=400",
       "source": "dell",
       "addedAt": "2026-03-29T20:56:18.938Z",
       "lastVerified": "2026-03-29T20:57:05.399Z"
@@ -1328,7 +1271,7 @@
       "aiScore": 87,
       "aiRationale": "Un moniteur 4K UltraSharp avec Thunderbolt, c'est le top pour la productivité et la création de contenu. La qualité d'image est incroyable, un investissement qui vaut le coup.",
       "url": "https://www.dell.com/fr-ca/shop/moniteur-4k-concentrateur-thunderbolt-dell-ultrasharp-27-u2725qe/apd/210-bqhr/moniteurs-et-accessoires-des-moniteurs?dgc=",
-      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2725qe/pdp/monitor-u2725qe-hero-image.psd?fmt=png-alpha&wid=5000&hei=4000",
+      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2725qe/pdp/monitor-u2725qe-hero-image.psd?fmt=png-alpha&wid=5000&hei=4000?fmt=png&wid=400&hei=400",
       "source": "dell",
       "addedAt": "2026-03-29T20:56:18.938Z",
       "lastVerified": "2026-03-29T20:57:05.399Z"
@@ -1360,7 +1303,7 @@
       "aiScore": 87,
       "aiRationale": "Ce Zenbook 14 est léger, performant avec son Core Ultra 5 et son écran OLED. La longue autonomie de batterie en fait un excellent compagnon pour les étudiants et les professionnels en déplacement.",
       "url": "https://www.bestbuy.ca/en-ca/product/asus-zenbook-14-lightweight-laptop-2025-14-oled-touchscreen-display-intel-core-ultra-5-cpu-intel-arc-graphic-16gb-512gb-ssd-long-battery-life-ux3405ca-ds51t-ca/19186518?ref=shopcompy",
-      "imageUrl": "https://imgs.search.brave.com/A38TWFyFnZspvJCuUzaIVHx62gvqPeJx5Kh34IaNB6Q/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tdWx0/aW1lZGlhLmJieWNh/c3RhdGljLmNhL211/bHRpbWVkaWEvcHJv/ZHVjdHMvNTV4NTUv/MTkxLzE5MTg2LzE5/MTg2NTE4LmpwZWc",
+      "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-29T20:53:45.592Z",
       "lastVerified": "2026-03-29T20:57:05.399Z"
@@ -1416,7 +1359,7 @@
       "aiScore": 85,
       "aiRationale": "Ce moniteur Dell UltraSharp est un excellent choix pour la productivité avec son hub USB-C intégré et sa connectivité KVM. Un très bon rapport qualité-prix pour le bureau ou l'école.",
       "url": "https://www.dell.com/fr-ca/shop/moniteur-central-usb-c-dell-ultrasharp-24-u2424he/apd/210-bkry/moniteurs-et-accessoires-des-moniteurs?dgc=",
-      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2424he/pdp/ultrasharp-u2424he-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=540&fmt=jpg",
+      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2424he/pdp/ultrasharp-u2424he-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=540&fmt=jpg?fmt=png&wid=400&hei=400",
       "source": "dell",
       "addedAt": "2026-03-29T20:56:27.842Z",
       "lastVerified": "2026-03-29T20:57:05.400Z"
@@ -1608,7 +1551,7 @@
       "aiScore": 85,
       "aiRationale": "Ce moniteur Dell UltraSharp 27 avec Thunderbolt est un excellent choix pour les professionnels et créatifs, offrant une résolution QHD et un panneau IPS Black pour une qualité d'image supérieure.",
       "url": "https://www.dell.com/fr-ca/shop/moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de/apd/210-bksj/moniteurs-et-accessoires-des-moniteurs?dgc=",
-      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2724de/pdp/ultrasharp-u2724de-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=504&fmt=png-alpha",
+      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2724de/pdp/ultrasharp-u2724de-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=504&fmt=png-alpha?fmt=png&wid=400&hei=400",
       "source": "dell",
       "addedAt": "2026-03-29T20:56:21.086Z",
       "lastVerified": "2026-03-29T20:57:05.400Z"
@@ -1805,7 +1748,7 @@
       "aiScore": 82,
       "aiRationale": "Ce ThinkBook 2-en-1 avec un Core Ultra 7 est polyvalent et puissant, idéal pour les professionnels et les étudiants qui veulent la flexibilité d'un écran tactile. Une bonne option pour la productivité et les tâches AI.",
       "url": "https://www.bestbuy.ca/en-ca/product/lenovo-thinkbook-14-gen-4-14-2-in-1-touchscreen-laptop-intel-core-ultra-7-155u-16gb-ram-512gb-ssd-windows-11-pro-21mx000gus/18168397?ref=shopcompy",
-      "imageUrl": "https://imgs.search.brave.com/04f6xkHsOudAuwp_hf1b1JDG5weqb9CZ0jPcGCHQg8U/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tdWx0/aW1lZGlhLmJieWNh/c3RhdGljLmNhL211/bHRpbWVkaWEvcHJv/ZHVjdHMvNTV4NTUv/MTgxLzE4MTY4LzE4/MTY4Mzk3LmpwZWc",
+      "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-29T20:53:45.592Z",
       "lastVerified": "2026-03-29T20:57:05.400Z"
