@@ -23,7 +23,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--bg-subtle)] mt-auto">
-      <div className="container py-12 md:py-16">
+      <div className="container pt-16 pb-12 md:pt-20 md:pb-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12">
 
           {/* ── Brand ── */}
@@ -77,9 +77,23 @@ export default function Footer() {
             <p className="font-semibold text-[var(--text)] mb-4 text-sm uppercase tracking-wider">
               {t.footer.aboutTitle}
             </p>
-            <p className="text-sm text-[var(--text-subtle)] leading-relaxed">
-              {t.footer.affiliateDisclosure}
-            </p>
+            {(() => {
+              const text = t.footer.affiliateDisclosure
+              const splitPoint = text.indexOf(isFr ? 'On affiche' : 'We also')
+              if (splitPoint > 0) {
+                return (
+                  <>
+                    <p className="text-sm text-[var(--text-subtle)] leading-relaxed mb-3">
+                      {text.slice(0, splitPoint).trim()}
+                    </p>
+                    <p className="text-sm text-[var(--text-subtle)] leading-relaxed">
+                      {text.slice(splitPoint).trim()}
+                    </p>
+                  </>
+                )
+              }
+              return <p className="text-sm text-[var(--text-subtle)] leading-relaxed">{text}</p>
+            })()}
           </div>
         </div>
 
