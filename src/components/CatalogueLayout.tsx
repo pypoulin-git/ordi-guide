@@ -53,18 +53,43 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
     })
   }, [])
 
-  const setSearch = useCallback((val: string) => {
-    setFilters(prev => ({ ...prev, search: val }))
-  }, [])
+  const [searchInput, setSearchInput] = useState('')
+  const [searchIntent, setSearchIntent] = useState<SearchIntent | null>(null)
+
+  // Parse natural language on submit / debounce
+  const applySearch = useCallback((query: string) => {
+    if (!query.trim()) {
+      setSearchIntent(null)
+      setFilters(prev => ({ ...prev, search: '', category: null, budget: null, profile: null }))
+      return
+    }
+    const intent = parseSearchQuery(query, isFr)
+    setSearchIntent(intent)
+    setFilters(prev => ({
+      ...prev,
+      search: intent.keywords.join(' '),
+      category: intent.category ?? prev.category,
+      budget: intent.budget ?? prev.budget,
+      profile: intent.profile ?? prev.profile,
+    }))
+  }, [isFr])
+
+  // Debounce search input
+  useEffect(() => {
+    const timer = setTimeout(() => applySearch(searchInput), 400)
+    return () => clearTimeout(timer)
+  }, [searchInput, applySearch])
 
   const filtered = products.filter(p => {
     if (filters.profile && !p.profiles.includes(filters.profile)) return false
     if (filters.budget && p.budgetTier !== filters.budget) return false
     if (filters.category && p.category !== filters.category) return false
     if (filters.search) {
-      const q = filters.search.toLowerCase()
-      const haystack = `${p.name} ${p.brand} ${p.specs.cpu || ''} ${p.specs.gpu || ''} ${p.specs.ram || ''} ${p.aiRationale}`.toLowerCase()
-      if (!haystack.includes(q)) return false
+      const words = filters.search.toLowerCase().split(/\s+/).filter(Boolean)
+      if (words.length > 0) {
+        const haystack = `${p.name} ${p.brand} ${p.specs.cpu || ''} ${p.specs.gpu || ''} ${p.specs.ram || ''} ${p.specs.display || ''} ${p.aiRationale}`.toLowerCase()
+        if (!words.some(w => haystack.includes(w))) return false
+      }
     }
     return true
   })
@@ -90,7 +115,11 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
     return () => observer.disconnect()
   }, [hasMore, filtered.length])
 
-  const reset = () => setFilters({ profile: null, budget: null, category: null, search: '' })
+  const reset = () => {
+    setFilters({ profile: null, budget: null, category: null, search: '' })
+    setSearchInput('')
+    setSearchIntent(null)
+  }
   const hasFilters = filters.profile || filters.budget || filters.category || filters.search
 
   const compySummary = buildCompySummary(filters, filtered.length, products.length, isFr)
@@ -120,26 +149,37 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
           ))}
         </div>
 
-        {/* Search bar */}
+        {/* Natural language search bar */}
         <div className="relative">
-          <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
-          </svg>
+          <Image src="/images/compy-logo.png" alt="" width={22} height={22}
+            className="absolute left-3.5 top-1/2 -translate-y-1/2 compy-logo" />
           <input
             type="text"
-            value={filters.search}
-            onChange={e => setSearch(e.target.value)}
-            placeholder={isFr ? 'Rechercher un produit, une marque, un CPU...' : 'Search a product, brand, CPU...'}
-            className="w-full rounded-xl border border-[var(--border)] bg-white text-[var(--text)] text-sm pl-11 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent"
+            value={searchInput}
+            onChange={e => setSearchInput(e.target.value)}
+            placeholder={isFr
+              ? 'Demande-moi : un portable pour le bureau, un Mac pour le montage, un PC gamer pas cher...'
+              : 'Ask me: a laptop for work, a Mac for editing, a cheap gaming PC...'}
+            className="w-full rounded-xl border border-[var(--border)] bg-white text-[var(--text)] text-sm pl-12 pr-10 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent"
             style={{ minHeight: '48px' }}
           />
-          {filters.search && (
-            <button onClick={() => setSearch('')}
+          {searchInput && (
+            <button onClick={() => { setSearchInput(''); reset() }}
               className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text)]">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
             </button>
           )}
         </div>
+
+        {/* Search intent feedback */}
+        {searchIntent && searchInput && (
+          <div className="flex items-start gap-2.5 rounded-lg px-4 py-2.5" style={{ background: 'var(--accent-bg)', border: '1px solid var(--border)' }}>
+            <Image src="/images/compy-logo.png" alt="" width={20} height={20} className="compy-logo shrink-0 mt-0.5" />
+            <p className="text-sm text-[var(--text-subtle)]">
+              {searchIntent.feedback}
+            </p>
+          </div>
+        )}
       </div>
 
       <div className="flex gap-6 items-start overflow-hidden">
@@ -390,6 +430,105 @@ function FilterGroup<T extends string>({ label, options, active, getLabel, onTog
       </div>
     </div>
   )
+}
+
+/* ── Natural language search parser ─────────────────────────────── */
+type SearchIntent = {
+  category: Category | null
+  budget: BudgetTier | null
+  profile: ProfileTag | null
+  keywords: string[]
+  feedback: string
+}
+
+function parseSearchQuery(query: string, isFr: boolean): SearchIntent {
+  const q = query.toLowerCase().trim()
+  let category: Category | null = null
+  let budget: BudgetTier | null = null
+  let profile: ProfileTag | null = null
+  const feedbackParts: string[] = []
+  const usedWords = new Set<string>()
+
+  // ── Category detection ──
+  const categoryMap: [RegExp, Category, string, string][] = [
+    [/\b(portable|laptop|portatif|notebook)\b/, 'laptop', 'Portables', 'Laptops'],
+    [/\b(bureau|desktop|tour|fixe)\b/, 'desktop', 'Ordinateurs de bureau', 'Desktops'],
+    [/\b(mac|macbook|apple|imac)\b/, 'apple', 'Apple (Mac)', 'Apple (Mac)'],
+    [/\b(chromebook)\b/, 'chromebook', 'Chromebooks', 'Chromebooks'],
+    [/\b(moniteur|écran|screen|monitor|display)\b/, 'monitor', 'Moniteurs', 'Monitors'],
+    [/\b(dock|station|hub)\b/, 'dock', 'Docks & Stations', 'Docks & Stations'],
+    [/\b(souris|clavier|mouse|keyboard|périphérique|peripheral|webcam|casque|headset)\b/, 'peripheral', 'Périphériques', 'Peripherals'],
+    [/\b(stockage|disque|ssd|hdd|external drive|externe)\b/, 'storage', 'Stockage', 'Storage'],
+    [/\b(accessoire|accessory|sac|bag|support|stand)\b/, 'accessory', 'Accessoires', 'Accessories'],
+  ]
+  for (const [re, cat, labelFr, labelEn] of categoryMap) {
+    if (re.test(q)) {
+      category = cat
+      feedbackParts.push(isFr ? `Catégorie : ${labelFr}` : `Category: ${labelEn}`)
+      q.match(re)?.[0] && usedWords.add(q.match(re)![0])
+      break
+    }
+  }
+
+  // ── Budget detection ──
+  const budgetPatterns: [RegExp, BudgetTier, string, string][] = [
+    [/\b(pas cher|cheap|économique|budget|entrée de gamme|entry.?level|abordable|affordable)\b/, 'under500', 'Moins de 500 $', 'Under $500'],
+    [/\b(moins de 500|under.?500)\b/, 'under500', 'Moins de 500 $', 'Under $500'],
+    [/\b(500.{0,5}(à|to|-)?.{0,5}900|milieu de gamme|mid.?range)\b/, '500to900', '500 $ à 900 $', '$500 to $900'],
+    [/\b(900.{0,5}(à|to|-)?.{0,5}1500|haut de gamme|high.?end)\b/, '900to1500', '900 $ à 1 500 $', '$900 to $1,500'],
+    [/\b(plus de 1500|over.?1500|premium|pro|performance)\b/, 'over1500', 'Plus de 1 500 $', 'Over $1,500'],
+    [/\b(cher|expensive|puissant|powerful|bête de course|beast)\b/, 'over1500', 'Plus de 1 500 $', 'Over $1,500'],
+  ]
+  for (const [re, tier, labelFr, labelEn] of budgetPatterns) {
+    if (re.test(q)) {
+      budget = tier
+      feedbackParts.push(isFr ? `Budget : ${labelFr}` : `Budget: ${labelEn}`)
+      break
+    }
+  }
+
+  // ── Profile detection ──
+  const profilePatterns: [RegExp, ProfileTag, string, string][] = [
+    [/\b(jeu|jeux|gaming|gamer|jouer|fortnite|valorant|steam)\b/, 'gaming', 'Pour jouer', 'For gaming'],
+    [/\b(travail|bureau|office|work|professionnel|business|zoom|excel)\b/, 'work', 'Pour travailler', 'For work'],
+    [/\b(étud|school|student|cours|université|cégep|college)\b/, 'student', 'Pour les études', 'For school'],
+    [/\b(créat|montage|design|photo|vidéo|video|editing|photoshop|creative)\b/, 'creative', 'Pour créer', 'For creative work'],
+    [/\b(simple|basic|courriel|email|facebook|youtube|navigation|browsing|débuter|beginner)\b/, 'basic', 'Pour débuter', 'For basics'],
+  ]
+  for (const [re, prof, labelFr, labelEn] of profilePatterns) {
+    if (re.test(q)) {
+      profile = prof
+      feedbackParts.push(isFr ? `Profil : ${labelFr}` : `Profile: ${labelEn}`)
+      break
+    }
+  }
+
+  // ── Extract remaining keywords (brands, specs) ──
+  const brandPatterns = /\b(dell|hp|lenovo|asus|acer|microsoft|surface|samsung|msi|razer|intel|amd|ryzen|i5|i7|i9|m[1-5]|16.?go|32.?go|16.?gb|32.?gb|1.?to|2.?to|1.?tb|2.?tb|rtx|geforce|radeon|oled|4k)\b/gi
+  const brandMatches = q.match(brandPatterns) || []
+  const keywords = brandMatches.filter(w => !usedWords.has(w.toLowerCase()))
+
+  if (keywords.length > 0) {
+    feedbackParts.push(isFr
+      ? `Mots-clés : ${keywords.join(', ')}`
+      : `Keywords: ${keywords.join(', ')}`)
+  }
+
+  // ── Build feedback message ──
+  let feedback: string
+  if (feedbackParts.length === 0) {
+    feedback = isFr
+      ? `Je cherche dans les noms, marques et specs pour "${query}"...`
+      : `Searching names, brands and specs for "${query}"...`
+    // Use the full query as keyword search
+    keywords.push(...q.split(/\s+/).filter(w => w.length > 2))
+  } else {
+    feedback = isFr
+      ? `J'ai compris ! ${feedbackParts.join(' · ')}. Voici ce que j'ai trouvé.`
+      : `Got it! ${feedbackParts.join(' · ')}. Here's what I found.`
+  }
+
+  return { category, budget, profile, keywords, feedback }
 }
 
 /* ── Build contextual Compy message ──────────────────────────────── */
