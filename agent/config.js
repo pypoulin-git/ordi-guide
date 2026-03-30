@@ -1,18 +1,18 @@
 // ─── Catalogue Agent — Configuration ──────────────────────────────
 
-export const CATEGORIES = ['laptop', 'desktop', 'apple', 'chromebook', 'monitor', 'dock', 'peripheral', 'storage', 'accessory']
+export const CATEGORIES = ['laptop', 'desktop', 'apple', 'chromebook', 'monitor', 'dock']
 export const PROFILES = ['basic', 'work', 'student', 'creative', 'gaming']
 export const BUDGET_TIERS = ['under500', '500to900', '900to1500', 'over1500']
 export const SOURCES = ['bestbuy', 'amazon', 'costco', 'staples', 'newegg', 'lenovo', 'dell', 'hp', 'walmart', 'canadacomputers', 'microsoft']
 
-// Distribution cible : ~100 produits max (more categories)
-export const MAX_PRODUCTS = 100
+// Distribution cible : ~200 produits max
+export const MAX_PRODUCTS = 200
 export const MIN_PRODUCTS = 30
 
-// Minimum par catégorie pour garder une bonne distribution
+// Minimum par catégorie pour garder une bonne distribution (min 5 chacune)
 export const MIN_PER_CATEGORY = {
-  laptop: 12, desktop: 5, apple: 5, chromebook: 3,
-  monitor: 5, dock: 2, peripheral: 2, storage: 2, accessory: 2,
+  laptop: 15, desktop: 8, apple: 8, chromebook: 5,
+  monitor: 8, dock: 5,
 }
 
 // Score IA minimum pour garder un produit
@@ -71,7 +71,7 @@ export const AUDIT_RULES = {
   minPrice: 50,
   minRamGB: 8,
   minStorageGB: 256,
-  minPerCategory: { laptop: 8, desktop: 3, apple: 3, chromebook: 2, monitor: 3, dock: 1, peripheral: 1, storage: 1, accessory: 1 },
+  minPerCategory: { laptop: 10, desktop: 5, apple: 5, chromebook: 5, monitor: 5, dock: 5 },
   minTotalProducts: 35,
   maxDeadUrlPercent: 20, // si plus de 20% de liens morts, audit échoue
 }

@@ -19,7 +19,7 @@ type FilterState = {
 const PAGE_SIZE = 12
 
 const COMPUTER_CATEGORIES: Category[] = ['laptop', 'desktop', 'apple', 'chromebook']
-const ACCESSORY_CATEGORIES: Category[] = ['monitor', 'dock', 'peripheral', 'storage', 'accessory']
+const ACCESSORY_CATEGORIES: Category[] = ['monitor', 'dock']
 
 export default function CatalogueLayout({ products }: { products: CatalogueProduct[] }) {
   const [filters, setFilters] = useState<FilterState>({
@@ -290,7 +290,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
             {/* Category filter — Accessories group */}
             <div>
               <p className="font-bold mb-1.5 text-xs uppercase tracking-wider text-[var(--text)]">
-                {isFr ? 'Accessoires & Périphériques' : 'Accessories & Peripherals'}
+                {isFr ? 'Écrans & Docks' : 'Monitors & Docks'}
               </p>
               <div className="flex flex-col gap-2">
                 {ACCESSORY_CATEGORIES.map(key => (
@@ -384,7 +384,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
               inline
             />
             <FilterGroup
-              label={isFr ? 'Accessoires' : 'Accessories'}
+              label={isFr ? 'Écrans & Docks' : 'Monitors & Docks'}
               options={ACCESSORY_CATEGORIES}
               active={filters.category}
               getLabel={(k) => CATEGORY_LABELS[k]}
@@ -401,17 +401,33 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
             />
             {hasFilters && (
               <button onClick={reset}
-                className="text-sm font-medium text-[var(--accent)] underline">
-                {cat.clearFilters}
+                className="flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-lg transition-all hover:opacity-90"
+                style={{ background: 'var(--accent)', color: 'white', minHeight: '40px' }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+                {isFr ? 'Réinitialiser' : 'Reset filters'}
               </button>
             )}
           </div>
 
-          {/* Results count */}
-          <p className="text-sm mb-4 text-[var(--text-muted)]">
-            {filtered.length} {filtered.length > 1 ? cat.productPlural : cat.productSingular}
-            {hasFilters ? ` ${cat.matching}` : ` ${cat.total}`}
-          </p>
+          {/* Results count + reset button */}
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-sm text-[var(--text-muted)]">
+              {filtered.length} {filtered.length > 1 ? cat.productPlural : cat.productSingular}
+              {hasFilters ? ` ${cat.matching}` : ` ${cat.total}`}
+            </p>
+            {hasFilters && (
+              <button onClick={reset}
+                className="flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-lg transition-all hover:opacity-90"
+                style={{ background: 'var(--accent)', color: 'white', minHeight: '40px' }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+                {isFr ? 'Réinitialiser' : 'Reset filters'}
+              </button>
+            )}
+          </div>
 
           {/* Product grid */}
           <h2 className="sr-only">{isFr ? 'Produits' : 'Products'}</h2>
@@ -605,9 +621,6 @@ function parseSearchQuery(query: string, isFr: boolean): SearchIntent {
     [/\b(chromebook)\b/, 'chromebook', 'Chromebooks', 'Chromebooks'],
     [/\b(moniteur|écran|screen|monitor|display)\b/, 'monitor', 'Moniteurs', 'Monitors'],
     [/\b(dock|station|hub)\b/, 'dock', 'Docks & Stations', 'Docks & Stations'],
-    [/\b(souris|clavier|mouse|keyboard|périphérique|peripheral|webcam|casque|headset)\b/, 'peripheral', 'Périphériques', 'Peripherals'],
-    [/\b(stockage|disque|ssd|hdd|external drive|externe)\b/, 'storage', 'Stockage', 'Storage'],
-    [/\b(accessoire|accessory|sac|bag|support|stand)\b/, 'accessory', 'Accessoires', 'Accessories'],
   ]
   for (const [re, cat, labelFr, labelEn] of categoryMap) {
     if (re.test(q)) {

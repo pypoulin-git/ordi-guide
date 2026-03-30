@@ -1,5 +1,5 @@
 export type ProfileTag = 'basic' | 'work' | 'student' | 'creative' | 'gaming'
-export type Category = 'laptop' | 'desktop' | 'apple' | 'chromebook' | 'monitor' | 'dock' | 'peripheral' | 'storage' | 'accessory'
+export type Category = 'laptop' | 'desktop' | 'apple' | 'chromebook' | 'monitor' | 'dock'
 export type BudgetTier = 'under500' | '500to900' | '900to1500' | 'over1500'
 export type Source = 'bestbuy' | 'amazon' | 'costco' | 'staples' | 'newegg' | 'lenovo' | 'dell' | 'hp' | 'walmart' | 'canadacomputers' | 'microsoft'
 
@@ -73,9 +73,6 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   chromebook: 'Chromebooks',
   monitor:    'Moniteurs',
   dock:       'Docks & Stations',
-  peripheral: 'Périphériques',
-  storage:    'Stockage',
-  accessory:  'Accessoires',
 }
 
 export const BUDGET_LABELS: Record<BudgetTier, string> = {
