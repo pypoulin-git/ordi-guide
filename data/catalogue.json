@@ -22,7 +22,7 @@
         "creative",
         "gaming"
       ],
-      "budgetTier": "900to1500",
+      "budgetTier": "500to900",
       "price": 899,
       "originalPrice": 1399,
       "isOnSale": true,
@@ -411,7 +411,7 @@
         "creative"
       ],
       "budgetTier": "over1500",
-      "price": 2499.99,
+      "price": 1899.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
@@ -547,7 +547,7 @@
         "work",
         "basic"
       ],
-      "budgetTier": "over1500",
+      "budgetTier": "900to1500",
       "price": 1014.31,
       "originalPrice": 0,
       "isOnSale": false,
@@ -574,7 +574,7 @@
         "work",
         "basic"
       ],
-      "budgetTier": "500to900",
+      "budgetTier": "under500",
       "price": 499.99,
       "originalPrice": 0,
       "isOnSale": false,
@@ -917,7 +917,7 @@
         "gaming",
         "creative"
       ],
-      "budgetTier": "over1500",
+      "budgetTier": "900to1500",
       "price": 1439.99,
       "originalPrice": 0,
       "isOnSale": false,
@@ -1057,7 +1057,7 @@
         "student",
         "creative"
       ],
-      "budgetTier": "over1500",
+      "budgetTier": "900to1500",
       "price": 1499.97,
       "originalPrice": 0,
       "isOnSale": false,
@@ -1139,7 +1139,7 @@
         "work",
         "creative"
       ],
-      "budgetTier": "over1500",
+      "budgetTier": "900to1500",
       "price": 1029.99,
       "originalPrice": 0,
       "isOnSale": false,
@@ -1597,7 +1597,7 @@
         "student",
         "creative"
       ],
-      "budgetTier": "900to1500",
+      "budgetTier": "500to900",
       "price": 898,
       "originalPrice": 0,
       "isOnSale": false,

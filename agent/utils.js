@@ -225,6 +225,13 @@ export function extractPrice(html, source) {
     patterns.unshift(/data-automation="price"[^>]*>.*?\$?\s*(\d[\d,]*\.\d{2})/is)
   } else if (source === 'amazon') {
     patterns.unshift(/class="a-price-whole">(\d[\d,]*)<.*?a-price-fraction">(\d{2})/is)
+  } else if (source === 'costco') {
+    // Costco uses specific price containers
+    patterns.unshift(/"yourPrice"\s*:\s*(\d[\d,]*\.?\d*)/i)
+    patterns.unshift(/"price"\s*:\s*(\d[\d,]*\.\d{2})/i)
+  } else if (source === 'walmart') {
+    patterns.unshift(/data-automation-id="price"[^>]*>.*?\$?\s*(\d[\d,]*\.\d{2})/is)
+    patterns.unshift(/"priceInfo".*?"currentPrice"\s*:\s*(\d[\d,]*\.?\d*)/is)
   }
 
   for (const pat of patterns) {

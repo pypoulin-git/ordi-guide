@@ -132,25 +132,34 @@ export async function runCurator(scanResults) {
               if (!p.price || p.price < 50 || p.price > 5000) return false
               return true
             })
-            .map(p => ({
-              id: `${source}-${slugify(p.name)}`,
-              name: p.name,
-              brand: p.brand,
-              category: p.category,
-              profiles: p.profiles,
-              budgetTier: p.budgetTier,
-              price: p.price,
-              originalPrice: p.originalPrice || 0,
-              isOnSale: p.isOnSale || false,
-              specs: p.specs,
-              aiScore: p.aiScore,
-              aiRationale: p.aiRationale,
-              url: injectAffiliateTag(findUrl(batch, p.name), source),
-              imageUrl: findImageUrl(batch, p.name),
-              source,
-              addedAt: new Date().toISOString(),
-              lastVerified: new Date().toISOString(),
-            }))
+            .map(p => {
+              // Prefer page-extracted price over Gemini's guess
+              const matchedItem = batch.find(r =>
+                r.title?.toLowerCase().includes(p.name?.toLowerCase().slice(0, 20)) ||
+                p.name?.toLowerCase().includes(r.title?.toLowerCase().slice(0, 20))
+              )
+              const finalPrice = matchedItem?.pagePrice || p.price
+
+              return {
+                id: `${source}-${slugify(p.name)}`,
+                name: p.name,
+                brand: p.brand,
+                category: p.category,
+                profiles: p.profiles,
+                budgetTier: p.budgetTier,
+                price: finalPrice,
+                originalPrice: p.originalPrice || 0,
+                isOnSale: p.isOnSale || false,
+                specs: p.specs,
+                aiScore: p.aiScore,
+                aiRationale: p.aiRationale,
+                url: injectAffiliateTag(findUrl(batch, p.name), source),
+                imageUrl: findImageUrl(batch, p.name),
+                source,
+                addedAt: new Date().toISOString(),
+                lastVerified: new Date().toISOString(),
+              }
+            })
 
           allCurated.push(...enriched)
         }
