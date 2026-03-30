@@ -202,11 +202,23 @@ function useBestMatch(answers: Answers, done: boolean) {
         }
         const targetProfile: ProfileTag = profileMap[usage] || 'basic'
 
+        // Map quiz budget values to price ranges
+        const budgetRanges: Record<string, [number, number]> = {
+          low:       [0, 500],
+          'mid-low': [500, 800],
+          mid:       [800, 1200],
+          high:      [1200, 1800],
+          premium:   [1800, 2500],
+        }
+        const [budgetMin, budgetMax] = budgetRanges[budgetRaw] || [0, 5000]
+
         const scored = products
           .filter(p => {
             // Filter by brand preference
             if (brand === 'mac' && p.category !== 'apple') return false
             if (brand === 'windows' && p.category === 'apple') return false
+            // Only match computers (not accessories/monitors)
+            if (!['laptop', 'desktop', 'apple', 'chromebook'].includes(p.category)) return false
             return true
           })
           .map(p => {
@@ -215,11 +227,16 @@ function useBestMatch(answers: Answers, done: boolean) {
             if (p.profiles?.includes(targetProfile)) score += 15
             // Boost if on sale
             if (p.isOnSale) score += 5
-            // Penalize if way out of budget
-            if (budgetRaw === 'under500' && p.price > 600) score -= 20
-            if (budgetRaw === '500to900' && (p.price < 400 || p.price > 1100)) score -= 10
-            if (budgetRaw === '900to1500' && (p.price < 700 || p.price > 1700)) score -= 10
-            if (budgetRaw === 'over1500' && p.price < 1200) score -= 10
+            // Price scoring — strong preference for products within budget range
+            if (p.price >= budgetMin && p.price <= budgetMax) {
+              score += 20 // Perfect match
+            } else if (p.price <= budgetMax * 1.15 && p.price >= budgetMin * 0.85) {
+              score += 10 // Close enough (15% tolerance)
+            } else if (p.price > budgetMax * 1.3 || p.price < budgetMin * 0.5) {
+              score -= 30 // Way out of range
+            } else {
+              score -= 10 // Somewhat out of range
+            }
             return { p, score }
           })
           .sort((a, b) => b.score - a.score)
