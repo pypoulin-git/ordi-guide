@@ -55,16 +55,21 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
 
   const [searchInput, setSearchInput] = useState('')
   const [searchIntent, setSearchIntent] = useState<SearchIntent | null>(null)
+  const [aiScores, setAiScores] = useState<Map<string, number> | null>(null)
+  const [searching, setSearching] = useState(false)
 
-  // Parse natural language on submit / debounce
-  const applySearch = useCallback((query: string) => {
+  // Submit search — Enter key or button
+  const submitSearch = useCallback(async (query: string) => {
     if (!query.trim()) {
       setSearchIntent(null)
+      setAiScores(null)
       setFilters(prev => ({ ...prev, search: '', category: null, budget: null, profile: null }))
       return
     }
+
+    // 1. Instant local parse for filters
     const intent = parseSearchQuery(query, isFr)
-    setSearchIntent(intent)
+    setSearchIntent({ ...intent, feedback: isFr ? 'Compy réfléchit...' : 'Compy is thinking...' })
     setFilters(prev => ({
       ...prev,
       search: intent.keywords.join(' '),
@@ -72,13 +77,58 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
       budget: intent.budget ?? prev.budget,
       profile: intent.profile ?? prev.profile,
     }))
-  }, [isFr])
 
-  // Debounce search input
-  useEffect(() => {
-    const timer = setTimeout(() => applySearch(searchInput), 400)
-    return () => clearTimeout(timer)
-  }, [searchInput, applySearch])
+    // 2. Call Gemini AI for deep understanding
+    setSearching(true)
+    try {
+      const res = await fetch('/api/search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query, locale }),
+      })
+      if (res.ok) {
+        const data = await res.json()
+        // Score all products against AI response
+        const scores = scoreProductsFromAI(products, data)
+        setAiScores(scores)
+
+        // Update intent with AI feedback
+        setSearchIntent({
+          ...intent,
+          feedback: data.answer || intent.feedback,
+          category: intent.category,
+          budget: intent.budget,
+          profile: intent.profile,
+          keywords: intent.keywords,
+        })
+
+        // Apply profile from AI usage detection
+        if (!intent.profile && data.usage_detected?.length) {
+          const usageMap: Record<string, ProfileTag> = {
+            web: 'basic', bureautique: 'work', office: 'work',
+            etudes: 'student', school: 'student',
+            video: 'creative', creation: 'creative', creative: 'creative',
+            gaming: 'gaming',
+          }
+          for (const u of data.usage_detected) {
+            if (usageMap[u]) {
+              setFilters(prev => ({ ...prev, profile: usageMap[u] }))
+              break
+            }
+          }
+        }
+      }
+    } catch {
+      // AI failed — keep local parse results
+    } finally {
+      setSearching(false)
+    }
+  }, [isFr, locale, products])
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    submitSearch(searchInput)
+  }
 
   const filtered = products.filter(p => {
     if (filters.profile && !p.profiles.includes(filters.profile)) return false
@@ -94,11 +144,16 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
     return true
   })
 
+  // If AI scored products, sort by AI relevance; otherwise keep aiScore order
+  const sortedFiltered = aiScores
+    ? [...filtered].sort((a, b) => (aiScores.get(b.id) ?? 0) - (aiScores.get(a.id) ?? 0))
+    : filtered
+
   // Reset pagination when filters change
   useEffect(() => { setVisibleCount(PAGE_SIZE) }, [filters.profile, filters.budget, filters.category, filters.search])
 
-  const visibleProducts = filtered.slice(0, visibleCount)
-  const hasMore = visibleCount < filtered.length
+  const visibleProducts = sortedFiltered.slice(0, visibleCount)
+  const hasMore = visibleCount < sortedFiltered.length
 
   // Infinite scroll
   useEffect(() => {
@@ -106,19 +161,20 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting) {
-          setVisibleCount(v => Math.min(v + PAGE_SIZE, filtered.length))
+          setVisibleCount(v => Math.min(v + PAGE_SIZE, sortedFiltered.length))
         }
       },
       { rootMargin: '200px' },
     )
     observer.observe(loadMoreRef.current)
     return () => observer.disconnect()
-  }, [hasMore, filtered.length])
+  }, [hasMore, sortedFiltered.length])
 
   const reset = () => {
     setFilters({ profile: null, budget: null, category: null, search: '' })
     setSearchInput('')
     setSearchIntent(null)
+    setAiScores(null)
   }
   const hasFilters = filters.profile || filters.budget || filters.category || filters.search
 
@@ -150,7 +206,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
         </div>
 
         {/* Natural language search bar */}
-        <div className="relative">
+        <form onSubmit={handleSearchSubmit} className="relative">
           <Image src="/images/compy-logo.png" alt="" width={22} height={22}
             className="absolute left-3.5 top-1/2 -translate-y-1/2 compy-logo" />
           <input
@@ -158,26 +214,45 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
             value={searchInput}
             onChange={e => setSearchInput(e.target.value)}
             placeholder={isFr
-              ? 'Demande-moi : un portable pour le bureau, un Mac pour le montage, un PC gamer pas cher...'
-              : 'Ask me: a laptop for work, a Mac for editing, a cheap gaming PC...'}
-            className="w-full rounded-xl border border-[var(--border)] bg-white text-[var(--text)] text-sm pl-12 pr-10 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent"
+              ? 'Demande-moi : un portable pour le bureau, un Mac pour le montage... (Entrée pour chercher)'
+              : 'Ask me: a laptop for work, a Mac for editing... (Enter to search)'}
+            className="w-full rounded-xl border border-[var(--border)] bg-white text-[var(--text)] text-sm pl-12 pr-20 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent"
             style={{ minHeight: '48px' }}
           />
-          {searchInput && (
-            <button onClick={() => { setSearchInput(''); reset() }}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text)]">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+            {searchInput && (
+              <button type="button" onClick={() => { setSearchInput(''); reset() }}
+                className="text-[var(--text-muted)] hover:text-[var(--text)] p-1">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
+              </button>
+            )}
+            <button type="submit" disabled={searching || !searchInput.trim()}
+              className="rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all disabled:opacity-30"
+              style={{ background: 'var(--accent)', color: 'white' }}>
+              {searching
+                ? <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                : <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>}
             </button>
-          )}
-        </div>
+          </div>
+        </form>
 
         {/* Search intent feedback */}
         {searchIntent && searchInput && (
-          <div className="flex items-start gap-2.5 rounded-lg px-4 py-2.5" style={{ background: 'var(--accent-bg)', border: '1px solid var(--border)' }}>
+          <div className="flex items-start gap-2.5 rounded-lg px-4 py-3" style={{ background: 'var(--accent-bg)', border: '1px solid var(--border)' }}>
             <Image src="/images/compy-logo.png" alt="" width={20} height={20} className="compy-logo shrink-0 mt-0.5" />
-            <p className="text-sm text-[var(--text-subtle)]">
-              {searchIntent.feedback}
-            </p>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm leading-relaxed text-[var(--text-subtle)]">
+                {searchIntent.feedback}
+              </p>
+              {searching && (
+                <div className="flex items-center gap-2 mt-1.5">
+                  <span className="inline-block w-3 h-3 border-2 border-[var(--accent)]/30 border-t-[var(--accent)] rounded-full animate-spin" />
+                  <span className="text-xs text-[var(--text-muted)]">
+                    {isFr ? 'Analyse en cours...' : 'Analyzing...'}
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
@@ -364,11 +439,11 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
                     style={{ padding: '0.75rem 2rem', fontSize: '0.9375rem', minHeight: '44px' }}
                   >
                     {isFr
-                      ? `Voir plus (${Math.min(PAGE_SIZE, filtered.length - visibleCount)} de plus)`
-                      : `Show more (${Math.min(PAGE_SIZE, filtered.length - visibleCount)} more)`}
+                      ? `Voir plus (${Math.min(PAGE_SIZE, sortedFiltered.length - visibleCount)} de plus)`
+                      : `Show more (${Math.min(PAGE_SIZE, sortedFiltered.length - visibleCount)} more)`}
                   </button>
                   <p className="text-xs text-[var(--text-muted)]">
-                    {visibleCount} / {filtered.length}
+                    {visibleCount} / {sortedFiltered.length}
                   </p>
                 </div>
               )}
@@ -430,6 +505,79 @@ function FilterGroup<T extends string>({ label, options, active, getLabel, onTog
       </div>
     </div>
   )
+}
+
+/* ── AI product scoring ────────────────────────────────────────── */
+function scoreProductsFromAI(
+  products: CatalogueProduct[],
+  aiResponse: { specs?: { cpu?: string; ram?: string; ssd?: string; gpu?: string; budget?: string }; usage_detected?: string[]; archetype?: string },
+): Map<string, number> {
+  const scores = new Map<string, number>()
+  if (!aiResponse.specs) {
+    products.forEach(p => scores.set(p.id, p.aiScore))
+    return scores
+  }
+
+  // Parse budget
+  const budgetStr = aiResponse.specs.budget || ''
+  const nums = budgetStr.match(/\d[\d\s]*\d|\d+/g)?.map(n => parseInt(n.replace(/\s/g, ''), 10)) || []
+  const budgetMin = nums.length >= 1 ? nums[0] : 0
+  const budgetMax = nums.length >= 2 ? nums[1] : nums.length === 1 ? nums[0] * 1.3 : Infinity
+
+  // Map usage to profiles
+  const usageMap: Record<string, ProfileTag> = {
+    web: 'basic', bureautique: 'work', office: 'work',
+    etudes: 'student', school: 'student',
+    video: 'creative', creation: 'creative', creative: 'creative',
+    gaming: 'gaming',
+  }
+  const targetProfiles = (aiResponse.usage_detected || []).map(u => usageMap[u]).filter(Boolean)
+
+  // Keyword matching from AI specs
+  const specKeywords: string[] = []
+  if (aiResponse.specs.cpu) specKeywords.push(...aiResponse.specs.cpu.toLowerCase().split(/[\s,/()]+/).filter(w => w.length > 2))
+  if (aiResponse.specs.gpu) specKeywords.push(...aiResponse.specs.gpu.toLowerCase().split(/[\s,/()]+/).filter(w => w.length > 2))
+  if (aiResponse.specs.ram) specKeywords.push(...aiResponse.specs.ram.toLowerCase().match(/\d+/g) || [])
+
+  const needsGpu = (aiResponse.usage_detected || []).some(u => ['gaming', 'video', 'creation', 'creative'].includes(u))
+
+  for (const p of products) {
+    let score = 0
+
+    // Budget proximity (0-35)
+    if (budgetMin > 0 || budgetMax < Infinity) {
+      if (p.price >= budgetMin * 0.8 && p.price <= budgetMax * 1.2) score += 35
+      else if (p.price >= budgetMin * 0.5 && p.price <= budgetMax * 1.5) score += 15
+    } else {
+      score += 20 // neutral
+    }
+
+    // Profile match (0-25)
+    if (targetProfiles.length > 0) {
+      const matches = targetProfiles.filter(tp => p.profiles.includes(tp)).length
+      score += Math.round((matches / targetProfiles.length) * 25)
+    } else {
+      score += 12
+    }
+
+    // GPU match (0-15)
+    if (needsGpu && p.specs.gpu && !p.specs.gpu.toLowerCase().includes('intégré') && !p.specs.gpu.toLowerCase().includes('integrated')) score += 15
+    else if (!needsGpu) score += 8
+
+    // Spec keyword match (0-15)
+    if (specKeywords.length > 0) {
+      const haystack = `${p.specs.cpu} ${p.specs.ram} ${p.specs.gpu || ''} ${p.specs.storage} ${p.specs.display || ''}`.toLowerCase()
+      const hits = specKeywords.filter(kw => haystack.includes(kw)).length
+      score += Math.min(15, Math.round((hits / specKeywords.length) * 15))
+    }
+
+    // Base AI score bonus (0-10)
+    score += Math.round((p.aiScore / 100) * 10)
+
+    scores.set(p.id, score)
+  }
+
+  return scores
 }
 
 /* ── Natural language search parser ─────────────────────────────── */
