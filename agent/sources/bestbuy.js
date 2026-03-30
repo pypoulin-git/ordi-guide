@@ -1,7 +1,7 @@
 // ─── Source : Best Buy Canada ────────────────────────────────────
 // SearXNG pour découverte + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log } from '../utils.js'
+import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
@@ -29,7 +29,7 @@ export async function fetchBestBuy() {
         `bestbuy:${query.slice(0, 30)}`
       )
       const filtered = results
-        .filter(r => r.url?.includes('bestbuy.ca') && isProductUrl(r.url))
+        .filter(r => r.url?.includes('bestbuy.ca') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
           title: r.title || '',
           url: cleanUrl(r.url),
@@ -74,9 +74,11 @@ export async function fetchBestBuy() {
 }
 
 function isProductUrl(url) {
-  // Best Buy product URLs contain /product/ or /en-ca/product
-  return /bestbuy\.ca\/(en-ca|fr-ca)?\/?product/i.test(url) ||
-    /bestbuy\.ca.*\/(laptop|desktop|macbook|chromebook|ordinateur)/i.test(url)
+  // Reject category, collection, browse, and search pages
+  if (/\/(collection|b|category)\//i.test(url)) return false
+  if (/\/search/i.test(url)) return false
+  // Best Buy product URLs must contain /product/ with a numeric ID or slug
+  return /bestbuy\.ca\/(en-ca|fr-ca)?\/?product\//i.test(url)
 }
 
 function cleanUrl(url) {

@@ -77,37 +77,44 @@ const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
  * Returns null on failure — does not throw.
  */
 export async function fetchPage(url, timeout = PAGE_FETCH_TIMEOUT) {
-  const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), timeout)
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: { 'User-Agent': UA, Accept: 'text/html' },
-      redirect: 'follow',
-    })
-    clearTimeout(timer)
-    if (!res.ok) return null
-    const html = await res.text()
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const controller = new AbortController()
+    const timer = setTimeout(() => controller.abort(), timeout)
+    try {
+      const res = await fetch(url, {
+        signal: controller.signal,
+        headers: { 'User-Agent': UA, Accept: 'text/html' },
+        redirect: 'follow',
+      })
+      clearTimeout(timer)
+      if (!res.ok) {
+        if (attempt === 0) { await sleep(2000); continue }
+        return null
+      }
+      const html = await res.text()
 
-    // Extract product image from HTML
-    const imageUrl = extractImageFromHtml(html, url)
+      // Extract product image from HTML
+      const imageUrl = extractImageFromHtml(html, url)
 
-    // Check availability
-    const available = checkAvailability(html)
+      // Check availability
+      const available = checkAvailability(html)
 
-    // Strip scripts, styles, tags, compress whitespace
-    const text = html
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '')
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-      .replace(/&nbsp;/g, ' ').replace(/&#\d+;/g, '')
-      .replace(/\s{3,}/g, '\n').trim()
-    return { text: text.slice(0, 3000), html, imageUrl, available }
-  } catch {
-    clearTimeout(timer)
-    return null
+      // Strip scripts, styles, tags, compress whitespace
+      const text = html
+        .replace(/<script[\s\S]*?<\/script>/gi, '')
+        .replace(/<style[\s\S]*?<\/style>/gi, '')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+        .replace(/&nbsp;/g, ' ').replace(/&#\d+;/g, '')
+        .replace(/\s{3,}/g, '\n').trim()
+      return { text: text.slice(0, 3000), html, imageUrl, available }
+    } catch {
+      clearTimeout(timer)
+      if (attempt === 0) { await sleep(2000); continue }
+      return null
+    }
   }
+  return null
 }
 
 /**
@@ -281,7 +288,7 @@ export function matchesCpuWhitelist(cpuString) {
 
 export function injectAffiliateTag(url, source) {
   const tag = AFFILIATE_TAGS[source]
-  if (!tag || !url) return url
+  if (!tag || !url || !tag.value) return url
   try {
     const u = new URL(url)
     u.searchParams.set(tag.param, tag.value)
@@ -342,6 +349,22 @@ export async function withRetry(fn, label = 'operation') {
     }
   }
   throw lastErr
+}
+
+// ── Product URL filter ──────────────────────────────────────────
+
+/**
+ * Centralized filter to reject obvious non-product URLs.
+ * Used as an additional layer alongside each source's specific isProductUrl().
+ */
+export function isCleanProductUrl(url) {
+  if (!url) return false
+  const rejectPatterns = [
+    /\/collection\//i, /\/category\//i, /\/search\?/i, /\/browse\//i,
+    /\/deals\//i, /\/sale\//i, /\/promotions\//i, /\/lp\//i,
+    /\/cp\//i, /\/b\//i, /\/b\?/i,
+  ]
+  return !rejectPatterns.some(p => p.test(url))
 }
 
 // ── Helpers ─────────────────────────────────────────────────────

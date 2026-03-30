@@ -1,6 +1,6 @@
 // ─── Source : Costco Canada ──────────────────────────────────────
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log } from '../utils.js'
+import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
@@ -23,7 +23,7 @@ export async function fetchCostco() {
         `costco:${query.slice(0, 30)}`
       )
       const filtered = results
-        .filter(r => r.url?.includes('costco.ca') && isProductUrl(r.url))
+        .filter(r => r.url?.includes('costco.ca') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
           title: r.title || '',
           url: r.url.split('?')[0],
@@ -66,6 +66,8 @@ export async function fetchCostco() {
 }
 
 function isProductUrl(url) {
-  return /costco\.ca.*\.product\./i.test(url) ||
-    /costco\.ca.*(laptop|ordinateur|macbook|desktop|chromebook)/i.test(url)
+  // Reject browse/category pages
+  if (/\/(browse|category)\//i.test(url)) return false
+  // Costco product pages have .product. in the URL path
+  return /\.product\./i.test(url)
 }

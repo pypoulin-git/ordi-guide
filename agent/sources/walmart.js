@@ -1,7 +1,7 @@
 // ─── Source : Walmart Canada ─────────────────────────────────────
 // SearXNG pour découverte + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log } from '../utils.js'
+import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
@@ -34,7 +34,7 @@ export async function fetchWalmart() {
         `walmart:${query.slice(0, 30)}`
       )
       const filtered = results
-        .filter(r => r.url?.includes('walmart.ca') && isProductUrl(r.url))
+        .filter(r => r.url?.includes('walmart.ca') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
           title: r.title || '',
           url: cleanUrl(r.url),
@@ -79,6 +79,10 @@ export async function fetchWalmart() {
 }
 
 function isProductUrl(url) {
+  // Reject browse, search, and category pages
+  if (/\/browse\//i.test(url)) return false
+  if (/\/search\//i.test(url)) return false
+  if (/\/cp\//i.test(url)) return false
   // Walmart Canada product URLs: /product/... or /ip/...
   return /walmart\.ca\/.*\/product\//i.test(url) ||
     /walmart\.ca.*\/ip\//i.test(url)

@@ -2,9 +2,11 @@
 // ─── Catalogue Agent — Orchestrateur 3 phases ───────────────────
 //
 // Cron nightly à 3h00 AM ET (7h00 UTC)
-// Phase 1 : Scanner  — scrape 4 sources, enrichit pages, filtre CPU
+// Phase 1 : Scanner  — scrape 11 sources, enrichit pages, filtre CPU
 // Phase 2 : Curateur — curation IA, merge, liens affiliés
-// Phase 3 : Auditeur — valide tout, deploy ou rollback
+// Phase 3 : Prix     — vérifie/corrige les prix via page HTML
+// Phase 4 : Images   — récupère les images manquantes (og:image, CSE, SearXNG)
+// Phase 5 : Auditeur — valide tout, deploy ou rollback
 //
 // Chaque phase est indépendante : si Phase 1 échoue, on garde
 // l'ancien catalogue. Si Phase 3 échoue, on rollback.
@@ -31,6 +33,8 @@ try {
 import { runScanner } from './scanner.js'
 import { runCurator } from './curator.js'
 import { runAudit } from './auditor.js'
+import { runPriceVerifier } from './price-verifier.js'
+import { runImageFetcher } from './image-fetcher.js'
 import { log, discordAlert } from './utils.js'
 
 async function main() {
@@ -69,8 +73,26 @@ async function main() {
     process.exit(1)
   }
 
-  // ── Phase 3 : Auditeur ─────────────────────────────────────
-  log('\n── Phase 3 : Auditeur ──')
+  // ── Phase 3 : Vérification prix ────────────────────────────
+  log('\n── Phase 3 : Vérification prix ──')
+  let priceStats = { verified: 0, corrected: 0, unverifiable: 0 }
+  try {
+    priceStats = await runPriceVerifier()
+  } catch (err) {
+    log(`⚠ Price verifier failed (non-fatal): ${err.message}`)
+  }
+
+  // ── Phase 4 : Images manquantes ───────────────────────────
+  log('\n── Phase 4 : Images manquantes ──')
+  let imageStats = { fetched: 0, failed: 0 }
+  try {
+    imageStats = await runImageFetcher()
+  } catch (err) {
+    log(`⚠ Image fetcher failed (non-fatal): ${err.message}`)
+  }
+
+  // ── Phase 5 : Auditeur ─────────────────────────────────────
+  log('\n── Phase 5 : Auditeur ──')
   let audit
   try {
     audit = await runAudit()
@@ -90,6 +112,8 @@ async function main() {
     log(`  Nouveaux : ${curatorStats.newAdded}`)
     log(`  Remplacés : ${curatorStats.replaced}`)
     log(`  URLs mortes retirées : ${curatorStats.removedDead}`)
+    log(`  Prix : ${priceStats.verified} confirmés, ${priceStats.corrected} corrigés`)
+    log(`  Images : ${imageStats.fetched} trouvées`)
   } else {
     log(`  Échecs audit :`)
     for (const f of audit.failures) log(`    • ${f}`)

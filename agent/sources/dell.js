@@ -1,7 +1,7 @@
 // ─── Source : Dell Canada ────────────────────────────────────────
 // SearXNG pour découverte + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log } from '../utils.js'
+import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
@@ -34,7 +34,7 @@ export async function fetchDell() {
         `dell:${query.slice(0, 30)}`
       )
       const filtered = results
-        .filter(r => r.url?.includes('dell.com') && isProductUrl(r.url))
+        .filter(r => r.url?.includes('dell.com') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
           title: r.title || '',
           url: cleanUrl(r.url),
@@ -79,8 +79,12 @@ export async function fetchDell() {
 }
 
 function isProductUrl(url) {
-  // Dell product URLs: /shop/... or /support/... or /pd/... or /productdetail/...
-  return /dell\.com.*\/(shop|support|pd)\//i.test(url) ||
+  // Reject deals, landing pages, and learn pages
+  if (/\/deals\//i.test(url)) return false
+  if (/\/lp\//i.test(url)) return false
+  if (/\/learn\//i.test(url)) return false
+  // Dell product URLs: /shop/... or /pd/... or /productdetail/...
+  return /dell\.com.*\/(shop|pd)\//i.test(url) ||
     /dell\.com.*\/productdetail/i.test(url)
 }
 

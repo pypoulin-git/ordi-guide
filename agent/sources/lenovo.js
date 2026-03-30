@@ -1,7 +1,7 @@
 // ─── Source : Lenovo Canada ──────────────────────────────────────
 // SearXNG pour découverte + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log } from '../utils.js'
+import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
@@ -35,7 +35,7 @@ export async function fetchLenovo() {
         `lenovo:${query.slice(0, 30)}`
       )
       const filtered = results
-        .filter(r => r.url?.includes('lenovo.com') && isProductUrl(r.url))
+        .filter(r => r.url?.includes('lenovo.com') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
           title: r.title || '',
           url: cleanUrl(r.url),
@@ -80,6 +80,10 @@ export async function fetchLenovo() {
 }
 
 function isProductUrl(url) {
+  // Reject deals, sale, and category pages
+  if (/\/d\/deals\//i.test(url)) return false
+  if (/\/sale\//i.test(url)) return false
+  if (/\/c\//i.test(url)) return false
   // Lenovo product URLs: /p/... or /laptops/... or /desktops/... or /monitors/... or /accessories/...
   // Prefer Canadian pages (/ca/) but accept general lenovo.com too
   return /lenovo\.com.*\/(p|laptops|desktops|monitors|accessories)\//i.test(url)

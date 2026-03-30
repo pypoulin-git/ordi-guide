@@ -4,7 +4,7 @@
 
 import { writeFile } from 'fs/promises'
 import { SCAN_RESULTS_PATH } from './config.js'
-import { matchesCpuWhitelist, log } from './utils.js'
+import { matchesCpuWhitelist, log, sleep } from './utils.js'
 import { fetchBestBuy } from './sources/bestbuy.js'
 import { fetchAmazon } from './sources/amazon.js'
 import { fetchCostco } from './sources/costco.js'
@@ -38,7 +38,8 @@ export async function runScanner() {
   const allResults = []
 
   // Scrape séquentiellement (ne pas surcharger SearXNG)
-  for (const { name, fn } of sources) {
+  for (let i = 0; i < sources.length; i++) {
+    const { name, fn } = sources[i]
     try {
       const results = await fn()
       log(`  ${name}: ${results.length} résultats`)
@@ -47,6 +48,8 @@ export async function runScanner() {
       log(`  ✗ ${name} complètement échoué: ${err.message}`)
       errors.push(`${name}: ${err.message}`)
     }
+    // Delay between sources to avoid SearXNG rate limiting
+    if (i < sources.length - 1) await sleep(3000)
   }
 
   const totalRaw = allResults.length

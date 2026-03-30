@@ -1,7 +1,7 @@
 // ─── Source : Microsoft Store Canada ─────────────────────────────
 // SearXNG pour découverte + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log } from '../utils.js'
+import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
@@ -34,7 +34,7 @@ export async function fetchMicrosoft() {
         `microsoft:${query.slice(0, 30)}`
       )
       const filtered = results
-        .filter(r => r.url?.includes('microsoft.com') && isProductUrl(r.url))
+        .filter(r => r.url?.includes('microsoft.com') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
           title: r.title || '',
           url: cleanUrl(r.url),
@@ -79,6 +79,11 @@ export async function fetchMicrosoft() {
 }
 
 function isProductUrl(url) {
+  // Reject store browse, collections, and general shop pages
+  if (/\/store\/b\//i.test(url)) return false
+  if (/\/store\/collections\//i.test(url)) return false
+  if (/\/en-ca\/shop\/$/i.test(url) || /\/en-ca\/shop\?/i.test(url)) return false
+  if (/\/en-ca\/shop\/[^/]*$/i.test(url) && !/\/en-ca\/shop\/\w+-\w+.*\d/i.test(url)) return false
   // Microsoft Store product URLs: /d/... or /p/... or URLs containing "surface"
   return /microsoft\.com.*\/(d|p)\//i.test(url) ||
     /microsoft\.com.*surface/i.test(url)

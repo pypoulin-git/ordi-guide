@@ -1,6 +1,6 @@
 // ─── Source : Bureau en Gros (Staples Canada) ───────────────────
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log } from '../utils.js'
+import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
@@ -23,7 +23,7 @@ export async function fetchStaples() {
         `staples:${query.slice(0, 30)}`
       )
       const filtered = results
-        .filter(r => (r.url?.includes('bureauengros.com') || r.url?.includes('staples.ca')) && isProductUrl(r.url))
+        .filter(r => (r.url?.includes('bureauengros.com') || r.url?.includes('staples.ca')) && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
           title: r.title || '',
           url: r.url.split('?')[0],
@@ -65,6 +65,9 @@ export async function fetchStaples() {
 }
 
 function isProductUrl(url) {
-  return /\/(product|produit|p)\//i.test(url) ||
-    /(laptop|ordinateur|macbook|desktop|chromebook)/i.test(url)
+  // Reject search and category listing pages
+  if (/\/search\?/i.test(url)) return false
+  if (/\/category\//i.test(url)) return false
+  // Require a numeric product ID in the URL
+  return /\/\d{4,}/i.test(url)
 }

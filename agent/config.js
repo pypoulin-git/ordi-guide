@@ -55,12 +55,13 @@ export const CPU_WHITELIST = [
 export const AFFILIATE_TAGS = {
   amazon:  { param: 'tag', value: 'shopcompy-20' },
   bestbuy: { param: 'ref', value: 'shopcompy' },
-  newegg:  { param: 'utm_source', value: '' },  // placeholder
-  lenovo:  { param: 'clickid', value: '' },
-  dell:    { param: 'dgc', value: '' },
-  hp:      { param: 'jumpid', value: '' },
-  walmart: { param: 'utm_source', value: '' },
-  canadacomputers: { param: 'ref', value: '' },
+  // Add back when affiliate accounts are approved:
+  // newegg:  { param: 'utm_source', value: '' },
+  // lenovo:  { param: 'clickid', value: '' },
+  // dell:    { param: 'dgc', value: '' },
+  // hp:      { param: 'jumpid', value: '' },
+  // walmart: { param: 'utm_source', value: '' },
+  // canadacomputers: { param: 'ref', value: '' },
   // costco, staples, microsoft: pas de programme affilié pour l'instant
 }
 

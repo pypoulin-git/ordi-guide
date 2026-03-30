@@ -1,7 +1,7 @@
 // ─── Source : Canada Computers ───────────────────────────────────
 // SearXNG pour découverte + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log } from '../utils.js'
+import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
@@ -34,7 +34,7 @@ export async function fetchCanadaComputers() {
         `canadacomputers:${query.slice(0, 30)}`
       )
       const filtered = results
-        .filter(r => r.url?.includes('canadacomputers.com') && isProductUrl(r.url))
+        .filter(r => r.url?.includes('canadacomputers.com') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
           title: r.title || '',
           url: cleanUrl(r.url),

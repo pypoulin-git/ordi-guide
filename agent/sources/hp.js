@@ -1,7 +1,7 @@
 // ─── Source : HP Canada ──────────────────────────────────────────
 // SearXNG pour découverte + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log } from '../utils.js'
+import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
@@ -35,7 +35,7 @@ export async function fetchHp() {
         `hp:${query.slice(0, 30)}`
       )
       const filtered = results
-        .filter(r => r.url?.includes('hp.com') && isProductUrl(r.url))
+        .filter(r => r.url?.includes('hp.com') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
           title: r.title || '',
           url: cleanUrl(r.url),
@@ -80,6 +80,10 @@ export async function fetchHp() {
 }
 
 function isProductUrl(url) {
+  // Reject category, sitelet, and marketing landing pages
+  if (/\/cat\//i.test(url)) return false
+  if (/\/sitelet\//i.test(url)) return false
+  if (/\/mlp\//i.test(url)) return false
   // HP product URLs: /pdp/... or /product/... or /shop/...
   return /hp\.com.*\/(pdp|product|shop)\//i.test(url)
 }

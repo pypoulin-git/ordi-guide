@@ -1,7 +1,7 @@
 // ─── Source : Newegg Canada ──────────────────────────────────────
 // SearXNG pour découverte + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log } from '../utils.js'
+import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
@@ -33,7 +33,7 @@ export async function fetchNewegg() {
         `newegg:${query.slice(0, 30)}`
       )
       const filtered = results
-        .filter(r => r.url?.includes('newegg.ca') && isProductUrl(r.url))
+        .filter(r => r.url?.includes('newegg.ca') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
           title: r.title || '',
           url: cleanUrl(r.url),
@@ -78,6 +78,8 @@ export async function fetchNewegg() {
 }
 
 function isProductUrl(url) {
+  // Reject global and promotions pages
+  if (/\/(global|promotions)\//i.test(url)) return false
   // Newegg product URLs: /p/XXXX or /Product/Product.aspx
   return /newegg\.ca\/.*\/p\//i.test(url) ||
     /newegg\.ca\/Product/i.test(url)
