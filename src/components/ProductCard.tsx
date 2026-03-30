@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import type { CatalogueProduct } from '@/types/catalogue'
 import { SOURCE_LABELS, PROFILE_LABELS } from '@/types/catalogue'
 import SpecTooltip from './SpecTooltip'
@@ -48,26 +49,32 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
     <Link href={`/${locale}/catalogue/${product.id}`} className="card flex flex-col transition-all hover:-translate-y-0.5 hover:shadow-md" style={{ padding: 0, overflow: 'hidden', textDecoration: 'none', color: 'inherit', minWidth: 0 }}>
 
       {/* Product image */}
-      <div className="relative bg-[var(--bg-subtle)]" style={{ aspectRatio: '16 / 10' }}>
-        {product.imageUrl ? (
-          <img
+      {product.imageUrl ? (
+        <div className="relative bg-[var(--bg-subtle)]" style={{ aspectRatio: '16 / 10' }}>
+          <Image
             src={product.imageUrl}
             alt={`${product.brand} ${product.name}`}
+            fill
+            sizes="(max-width: 768px) 100vw, 400px"
+            className="object-contain p-3"
             loading="lazy"
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-contain p-3"
             onError={(e) => {
-              const el = e.currentTarget
+              const el = e.currentTarget as HTMLImageElement
               el.style.display = 'none'
               el.parentElement?.querySelector('.img-placeholder')?.classList.remove('hidden')
             }}
           />
-        ) : null}
-        <div className={`w-full h-full flex flex-col items-center justify-center gap-2 text-[var(--text-muted)] img-placeholder ${product.imageUrl ? 'hidden' : ''}`}>
+          <div className="img-placeholder hidden absolute inset-0 flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]">
+            <CategoryIcon category={product.category} />
+            <span className="text-xs opacity-40">{product.brand}</span>
+          </div>
+        </div>
+      ) : (
+        <div className="bg-[var(--bg-subtle)] flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]" style={{ aspectRatio: '16 / 10' }}>
           <CategoryIcon category={product.category} />
           <span className="text-xs opacity-40">{product.brand}</span>
         </div>
-      </div>
+      )}
 
       {/* Header : badge rabais + source */}
       <div className="flex items-center justify-between px-5 sm:px-6 pt-5 pb-0 gap-2">

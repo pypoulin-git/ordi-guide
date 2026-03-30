@@ -68,8 +68,24 @@ export async function runImageFetcher() {
 
   log(`Images — ${fetched} trouvées, ${failed} toujours manquantes`)
 
+  // Phase 2: Cache existing external images locally
+  const external = products.filter(p => p.imageUrl && p.imageUrl.startsWith('http'))
+  log(`Images — ${external.length} images externes à cacher localement`)
+
+  let cached = 0
+  if (external.length > 0) {
+    await mapWithConcurrency(external, async (product) => {
+      const localPath = await downloadImage(product.imageUrl, product.id)
+      if (localPath) {
+        product.imageUrl = localPath
+        cached++
+      }
+    }, 2)
+    log(`Images — ${cached} images externes cachées localement`)
+  }
+
   await writeFile(CATALOGUE_PATH, JSON.stringify(catalogue, null, 2), 'utf-8')
-  return { fetched, failed }
+  return { fetched, failed, cached }
 }
 
 // ── Strategy 1: Extract from product page ──────────────────────
@@ -160,6 +176,7 @@ async function downloadImage(url, productId) {
 
     const contentType = res.headers.get('content-type') || ''
     if (!contentType.includes('image')) return null
+    if (contentType.includes('text/html')) return null  // HTML error page, not an image
 
     const ext = contentType.includes('png') ? 'png'
       : contentType.includes('webp') ? 'webp'
@@ -167,8 +184,9 @@ async function downloadImage(url, productId) {
 
     const buffer = Buffer.from(await res.arrayBuffer())
 
-    // Skip tiny images (likely tracking pixels)
-    if (buffer.length < 2000) return null
+    // Reject tracking pixels, logos, and oversized images
+    if (buffer.length < 5000) return null  // Too small — likely icon/logo
+    if (buffer.length > 2_000_000) return null  // Too large — not a product photo
 
     const filename = `${slugify(productId)}.${ext}`
     const filepath = resolve(PRODUCTS_IMG_DIR, filename)

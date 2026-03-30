@@ -394,7 +394,7 @@
       "aiScore": 92,
       "aiRationale": "Le MacBook Pro M4 Pro est une machine de guerre pour les professionnels et les créateurs. La puissance est au rendez-vous, et l'écran est magnifique. Un excellent investissement pour ceux qui en ont besoin.",
       "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-pro-de-14-2-po-d-apple-automne-2024-noir-infini-m4-pro-d-apple-ram-24-go-ssd-512-go-anglais/18619913?ref=shopcompy",
-      "imageUrl": "https://zshop.vn/images/thumbnails/1357/1000/detailed/173/apple_14_macbook_pro_m4pro__cover1.jpg",
+      "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-28T19:36:57.331Z",
       "lastVerified": "2026-03-30T11:08:17.410Z"
@@ -821,7 +821,7 @@
       "aiScore": 92,
       "aiRationale": "Un SSD externe de 2 To de SanDisk est un excellent investissement pour la sauvegarde et le transfert rapide de données, un must-have pour tout utilisateur.",
       "url": "https://www.walmart.ca/fr/ip/Disque-SSD-externe-portable-SanDisk-de-2-To/79BCX5YURYH2",
-      "imageUrl": "https://www.artic.edu/iiif/2//2fa63fff-604f-d1eb-122e-a7ddcd145207/full/843,/0/default.jpg",
+      "imageUrl": "",
       "source": "walmart",
       "addedAt": "2026-03-30T11:07:57.969Z",
       "lastVerified": "2026-03-30T11:08:17.410Z"
@@ -1126,7 +1126,7 @@
       "source": "bestbuy",
       "addedAt": "2026-03-27T03:15:23.698Z",
       "lastVerified": "2026-03-30T11:08:17.410Z",
-      "imageUrl": "https://www.artic.edu/iiif/2//31f7e03c-8f3f-7cbf-3df8-164d85d09d48/full/843,/0/default.jpg"
+      "imageUrl": ""
     },
     {
       "id": "newegg-lg-ultragear-27-qhd-2k-1440p-180hz-curved-gaming-monitor-27g",

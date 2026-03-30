@@ -55,6 +55,30 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'i.dell.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.static.pub',
+      },
+      {
+        protocol: 'https',
+        hostname: 'c1.neweggimages.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.bureauengros.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'm.media-amazon.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'multimedia.bbycastatic.ca',
+      },
     ],
   },
   async headers() {

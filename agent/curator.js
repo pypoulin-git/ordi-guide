@@ -59,7 +59,7 @@ const PRODUCT_SCHEMA = {
 // ── Main entry point ────────────────────────────────────────────
 
 export async function runCurator(scanResults) {
-  const stats = { kept: 0, replaced: 0, removedDead: 0, newAdded: 0 }
+  const stats = { kept: 0, replaced: 0, removedDead: 0, newAdded: 0, deduplicated: 0 }
 
   // 1. Charger le catalogue existant
   let existing = []
@@ -172,7 +172,12 @@ export async function runCurator(scanResults) {
   log(`Total curated : ${allCurated.length} nouveaux produits`)
 
   // 4. Merge : nouveaux vs existants
-  const finalProducts = mergeProducts(allCurated, verifiedExisting)
+  const mergedProducts = mergeProducts(allCurated, verifiedExisting)
+
+  // 4b. Dédoublonnage
+  const finalProducts = deduplicateProducts(mergedProducts)
+  stats.deduplicated = mergedProducts.length - finalProducts.length
+
   stats.kept = finalProducts.length
   stats.newAdded = finalProducts.filter(p => !verifiedExisting.some(e => e.id === p.id)).length
   stats.replaced = verifiedExisting.length - (stats.kept - stats.newAdded)
@@ -195,6 +200,7 @@ export async function runCurator(scanResults) {
       productsNew: stats.newAdded,
       productsReplaced: stats.replaced,
       deadUrlsRemoved: stats.removedDead,
+      productsDeduplicated: stats.deduplicated,
     },
     products: finalProducts,
   }
@@ -203,6 +209,97 @@ export async function runCurator(scanResults) {
   log(`Catalogue écrit : ${finalProducts.length} produits`)
 
   return stats
+}
+
+// ── Deduplication ───────────────────────────────────────────────
+
+function normalizeForCompare(name) {
+  return name.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // remove accents
+    .replace(/[^a-z0-9\s]/g, '')  // remove special chars
+    .replace(/\b(ordinateur|laptop|portable|bureau|desktop|moniteur|monitor|ecran|de|du|po|avec|pour|inch|the|and)\b/g, '')
+    .replace(/\s+/g, ' ').trim()
+}
+
+function isSimilarName(a, b) {
+  const na = normalizeForCompare(a)
+  const nb = normalizeForCompare(b)
+  // One contains the other
+  if (na.includes(nb) || nb.includes(na)) return true
+  // Very similar length and shared words
+  const wordsA = new Set(na.split(' '))
+  const wordsB = new Set(nb.split(' '))
+  const shared = [...wordsA].filter(w => wordsB.has(w) && w.length > 2).length
+  const total = Math.max(wordsA.size, wordsB.size)
+  return total > 0 && shared / total > 0.7  // 70% word overlap
+}
+
+function getUrlDomain(url) {
+  try { return new URL(url).hostname.replace(/^www\./, '') } catch { return '' }
+}
+
+function productQualityScore(p) {
+  let score = p.aiScore || 0
+  if (p.imageUrl) score += 10
+  // Count filled spec fields
+  if (p.specs) {
+    const specValues = Object.values(p.specs).filter(v => v && v !== 'N/A')
+    score += specValues.length * 2
+  }
+  return score
+}
+
+function deduplicateProducts(products) {
+  // Group by brand (case-insensitive)
+  const byBrand = {}
+  for (const p of products) {
+    const brand = (p.brand || 'unknown').toLowerCase()
+    if (!byBrand[brand]) byBrand[brand] = []
+    byBrand[brand].push(p)
+  }
+
+  const removed = new Set()
+
+  for (const [, group] of Object.entries(byBrand)) {
+    for (let i = 0; i < group.length; i++) {
+      if (removed.has(group[i].id)) continue
+      for (let j = i + 1; j < group.length; j++) {
+        if (removed.has(group[j].id)) continue
+
+        const a = group[i]
+        const b = group[j]
+
+        // Check name similarity
+        if (!isSimilarName(a.name, b.name)) continue
+
+        // Check same source domain
+        const domainA = getUrlDomain(a.url)
+        const domainB = getUrlDomain(b.url)
+        if (domainA && domainB && domainA !== domainB) continue
+
+        // Check price within 10%
+        if (a.price > 0 && b.price > 0) {
+          const ratio = Math.abs(a.price - b.price) / Math.max(a.price, b.price)
+          if (ratio > 0.1) continue
+        }
+
+        // Duplicate found — keep the better one
+        const scoreA = productQualityScore(a)
+        const scoreB = productQualityScore(b)
+
+        if (scoreA >= scoreB) {
+          removed.add(b.id)
+          log(`  🔄 Dédoublonné : ${b.name} (doublon de ${a.name})`)
+        } else {
+          removed.add(a.id)
+          log(`  🔄 Dédoublonné : ${a.name} (doublon de ${b.name})`)
+          break  // a is removed, stop comparing it
+        }
+      }
+    }
+  }
+
+  return products.filter(p => !removed.has(p.id))
 }
 
 // ── Merge logic ─────────────────────────────────────────────────
