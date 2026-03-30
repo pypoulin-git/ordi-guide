@@ -11,13 +11,11 @@ const SEARCH_QUERIES = [
   'site:walmart.ca laptop amd ryzen intel core prix',
   // Desktops
   'site:walmart.ca desktop ordinateur bureau gaming',
-  // Monitors
+  // Monitors & docks only (no peripherals/storage/accessories)
   'site:walmart.ca monitor écran ordinateur 27 32 4K',
+  'site:walmart.ca docking station usb-c thunderbolt',
   // Chromebooks
   'site:walmart.ca chromebook 2025 prix',
-  // Accessories & peripherals
-  'site:walmart.ca clavier souris webcam accessoires ordinateur',
-  'site:walmart.ca disque dur SSD stockage externe',
   // Deals
   'walmart.ca deals solde promotion ordinateur laptop canada 2025',
   'site:walmart.ca macbook surface laptop prix',

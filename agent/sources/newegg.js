@@ -13,10 +13,9 @@ const SEARCH_QUERIES = [
   // Desktops
   'site:newegg.ca desktop gaming pc rtx 5070 2025',
   'site:newegg.ca desktop ordinateur bureau intel amd',
-  // Monitors & peripherals
+  // Monitors & docks only (no peripherals/storage/accessories)
   'site:newegg.ca monitor écran 27 32 pouces 4K',
   'site:newegg.ca docking station usb-c thunderbolt',
-  'site:newegg.ca clavier souris accessoires ordinateur',
   // Deals
   'newegg.ca deals promotions solde ordinateur canada 2025',
   'site:newegg.ca chromebook 2025 prix',

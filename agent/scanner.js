@@ -59,10 +59,9 @@ export async function runScanner() {
   const filtered = allResults.filter(r => {
     const text = `${r.title} ${r.snippet} ${r.pageText || ''}`.toLowerCase()
 
-    // Don't CPU-filter monitors, docks, peripherals, storage, accessories
-    const nonCpuCategories = ['monitor', 'dock', 'peripheral', 'storage', 'accessory']
+    // Don't CPU-filter monitors and docks
     // If the title/snippet suggests it's not a computer, skip CPU filter
-    if (/monitor|écran|dock|station|hub|clavier|keyboard|souris|mouse|ssd|hdd|disque|drive|cable|câble|adaptateur|adapter|casque|headset|webcam/i.test(text)) {
+    if (/monitor|écran|dock|station|hub/i.test(text)) {
       return true
     }
 

@@ -121,7 +121,7 @@ export async function runCurator(scanResults) {
               // Filtre score
               if (p.aiScore < MIN_AI_SCORE) return false
               // Skip CPU whitelist for non-computer categories
-              const NON_CPU_CATEGORIES = ['monitor', 'dock', 'peripheral', 'storage', 'accessory']
+              const NON_CPU_CATEGORIES = ['monitor', 'dock']
               if (!NON_CPU_CATEGORIES.includes(p.category)) {
                 if (!matchesCpuWhitelist(p.cpuModel || p.specs?.cpu || '')) {
                   log(`    ✗ CPU rejeté: ${p.cpuModel || p.specs?.cpu} — ${p.name?.slice(0, 40)}`)
@@ -133,12 +133,23 @@ export async function runCurator(scanResults) {
               return true
             })
             .map(p => {
-              // Prefer page-extracted price over Gemini's guess
-              const matchedItem = batch.find(r =>
-                r.title?.toLowerCase().includes(p.name?.toLowerCase().slice(0, 20)) ||
-                p.name?.toLowerCase().includes(r.title?.toLowerCase().slice(0, 20))
-              )
+              // Match product back to batch item for URL + price
+              const matchedItem = findBatchItem(batch, p.name)
+              const url = matchedItem?.url || ''
               const finalPrice = matchedItem?.pagePrice || p.price
+              const imageUrl = matchedItem?.imageUrl || ''
+
+              // GUARD 1: No URL match → reject
+              if (!url) {
+                log(`    ✗ Rejeté (pas de match URL): ${p.name?.slice(0, 50)}`)
+                return null
+              }
+
+              // GUARD 2: Brand/URL mismatch → reject
+              if (!isUrlBrandConsistent(p.brand, url)) {
+                log(`    ✗ Rejeté (brand "${p.brand}" ≠ URL): ${p.name?.slice(0, 50)} → ${url.slice(0, 80)}`)
+                return null
+              }
 
               return {
                 id: `${source}-${slugify(p.name)}`,
@@ -153,13 +164,14 @@ export async function runCurator(scanResults) {
                 specs: p.specs,
                 aiScore: p.aiScore,
                 aiRationale: p.aiRationale,
-                url: injectAffiliateTag(findUrl(batch, p.name), source),
-                imageUrl: findImageUrl(batch, p.name),
+                url: injectAffiliateTag(url, source),
+                imageUrl,
                 source,
                 addedAt: new Date().toISOString(),
                 lastVerified: new Date().toISOString(),
               }
             })
+            .filter(Boolean)  // Remove null (rejected products)
 
           allCurated.push(...enriched)
         }
@@ -250,9 +262,30 @@ function productQualityScore(p) {
 }
 
 function deduplicateProducts(products) {
-  // Group by brand (case-insensitive)
-  const byBrand = {}
+  // Phase 0: Remove exact duplicate URLs (keep best quality)
+  const byUrl = {}
   for (const p of products) {
+    const urlKey = p.url.split('?')[0]  // ignore query params
+    if (!byUrl[urlKey]) byUrl[urlKey] = []
+    byUrl[urlKey].push(p)
+  }
+  const urlDeduped = []
+  for (const [, group] of Object.entries(byUrl)) {
+    if (group.length === 1) {
+      urlDeduped.push(group[0])
+    } else {
+      // Keep the one with best quality score
+      group.sort((a, b) => productQualityScore(b) - productQualityScore(a))
+      urlDeduped.push(group[0])
+      for (let i = 1; i < group.length; i++) {
+        log(`  🔄 URL dédoublonnée : ${group[i].name} (même URL que ${group[0].name})`)
+      }
+    }
+  }
+
+  // Phase 1: Group by brand (case-insensitive) for name similarity check
+  const byBrand = {}
+  for (const p of urlDeduped) {
     const brand = (p.brand || 'unknown').toLowerCase()
     if (!byBrand[brand]) byBrand[brand] = []
     byBrand[brand].push(p)
@@ -379,16 +412,15 @@ function buildPrompt(batch, source) {
 
   return `Tu es un expert hardware informatique au Québec. Analyse ces résultats de ${source} et extrais les produits disponibles à l'achat au Canada.
 
-CATÉGORIES ACCEPTÉES :
+CATÉGORIES ACCEPTÉES (6 seulement) :
 - "laptop" : ordinateurs portables Windows/Linux
 - "desktop" : ordinateurs de bureau
 - "apple" : MacBook, iMac, Mac Mini, Mac Studio
 - "chromebook" : Chromebooks
 - "monitor" : écrans/moniteurs (bureau, gaming, ultrawide)
 - "dock" : stations d'accueil, hubs USB-C, docking stations
-- "peripheral" : claviers, souris, casques, webcams
-- "storage" : SSD externes, disques durs, clés USB
-- "accessory" : câbles, adaptateurs, supports, sacoches
+
+⚠️ NE PAS INCLURE : périphériques (claviers, souris, webcams), composants (CPU, GPU, RAM), stockage (SSD, HDD), accessoires (câbles, sacoches). On ne veut QUE des ordinateurs complets, écrans et docks.
 
 RÈGLES POUR ORDINATEURS (laptop, desktop, apple, chromebook) :
 - UNIQUEMENT des CPU de génération récente : Intel 12th gen+ (i5-12xxx, Core Ultra), AMD Ryzen 5000+, Apple M2+, Snapdragon X
@@ -401,11 +433,10 @@ RÈGLES POUR MONITEURS :
 - cpuModel = "N/A"
 - specs.cpu = "N/A", specs.ram = "N/A", specs.storage = "N/A"
 
-RÈGLES POUR DOCKS / PÉRIPHÉRIQUES / STOCKAGE / ACCESSOIRES :
-- Remplis specs.ports (ex: "2x USB-A, 1x HDMI, 1x USB-C PD") et specs.powerDelivery (ex: "100W USB-C") si applicable
+RÈGLES POUR DOCKS :
+- Remplis specs.ports (ex: "2x USB-A, 1x HDMI, 1x USB-C PD") et specs.powerDelivery (ex: "100W USB-C")
 - cpuModel = "N/A"
 - specs.cpu = "N/A"
-- Pour le stockage : specs.storage = capacité (ex: "2TB NVMe"), specs.ram = "N/A"
 
 POUR TOUS LES PRODUITS :
 - name : nom complet du produit
@@ -434,22 +465,77 @@ ${listings}`
 
 // ── URL matching ────────────────────────────────────────────────
 
-function findUrl(batch, productName) {
-  if (!productName) return batch[0]?.url || ''
+/**
+ * Match a Gemini product name back to the original batch item.
+ * Returns the batch item or null. NEVER falls back to batch[0].
+ */
+function findBatchItem(batch, productName) {
+  if (!productName || batch.length === 0) return null
   const nameLower = productName.toLowerCase()
-  const match = batch.find(r =>
-    r.title?.toLowerCase().includes(nameLower.slice(0, 20)) ||
-    nameLower.includes(r.title?.toLowerCase().slice(0, 20))
-  )
-  return match?.url || batch[0]?.url || ''
+
+  // Strategy 1: brand+model keyword overlap (most reliable)
+  const nameWords = new Set(nameLower.split(/[\s\-\/(),"]+/).filter(w => w.length > 2))
+  let bestMatch = null
+  let bestScore = 0
+  for (const r of batch) {
+    const titleLower = (r.title || '').toLowerCase()
+    const titleWords = new Set(titleLower.split(/[\s\-\/(),"]+/).filter(w => w.length > 2))
+    const shared = [...nameWords].filter(w => titleWords.has(w)).length
+    const total = Math.max(nameWords.size, titleWords.size)
+    const score = total > 0 ? shared / total : 0
+    if (score > bestScore) {
+      bestScore = score
+      bestMatch = r
+    }
+  }
+
+  // Require at least 40% word overlap to consider it a match
+  if (bestScore >= 0.4) return bestMatch
+
+  // Strategy 2: substring matching (fallback)
+  const match = batch.find(r => {
+    const titleLower = (r.title || '').toLowerCase()
+    return titleLower.includes(nameLower.slice(0, 25)) ||
+      nameLower.includes(titleLower.slice(0, 25))
+  })
+
+  return match || null
+}
+
+function findUrl(batch, productName) {
+  const item = findBatchItem(batch, productName)
+  if (!item) {
+    log(`    ⚠ No URL match for: ${productName?.slice(0, 50)} — product will be rejected`)
+    return ''  // Empty = will be filtered out
+  }
+  return item.url
 }
 
 function findImageUrl(batch, productName) {
-  if (!productName) return batch[0]?.imageUrl || ''
-  const nameLower = productName.toLowerCase()
-  const match = batch.find(r =>
-    r.title?.toLowerCase().includes(nameLower.slice(0, 20)) ||
-    nameLower.includes(r.title?.toLowerCase().slice(0, 20))
-  )
-  return match?.imageUrl || ''
+  const item = findBatchItem(batch, productName)
+  return item?.imageUrl || ''
+}
+
+// ── URL-brand consistency check ────────────────────────────────
+
+const KNOWN_BRANDS = ['lenovo','dell','hp','asus','acer','msi','samsung','microsoft','apple','lg','razer','stormcraft','kensington','logitech','corsair','benq','viewsonic','gigabyte']
+
+/**
+ * Verify that the product brand matches the URL.
+ * Returns false if the URL clearly belongs to a different brand.
+ */
+function isUrlBrandConsistent(productBrand, url) {
+  if (!url || !productBrand) return false
+  const urlLower = url.toLowerCase()
+  const brandLower = productBrand.toLowerCase()
+
+  // Find which brands appear in the URL path (not domain — e.g. bestbuy.ca/lenovo-laptop is fine)
+  const urlPath = urlLower.replace(/https?:\/\/[^/]+/, '')  // remove domain
+  const brandsInUrl = KNOWN_BRANDS.filter(b => urlPath.includes(b))
+
+  // If no brand detected in URL path, assume it's OK (generic retailer URL)
+  if (brandsInUrl.length === 0) return true
+
+  // If the product brand matches any brand found in the URL, it's consistent
+  return brandsInUrl.some(b => brandLower.includes(b) || b.includes(brandLower))
 }
