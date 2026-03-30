@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "lastUpdated": "2026-03-30T11:07:59.094Z",
+  "lastUpdated": "2026-03-30T11:08:17.410Z",
   "agentRun": {
-    "scannedAt": "2026-03-30T11:00:04.166Z",
-    "completedAt": "2026-03-30T11:07:59.094Z",
-    "totalScanned": 404,
+    "scannedAt": "2026-03-30T11:02:47.384Z",
+    "completedAt": "2026-03-30T11:08:17.410Z",
+    "totalScanned": 353,
     "productsKept": 100,
-    "productsNew": 44,
-    "productsReplaced": 20,
+    "productsNew": 40,
+    "productsReplaced": 16,
     "deadUrlsRemoved": 2
   },
   "products": [
@@ -46,7 +46,35 @@
       "imageUrl": "",
       "source": "newegg",
       "addedAt": "2026-03-28T19:39:19.950Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "bestbuy-asus-rog-strix-g16-2024-gaming-laptop",
+      "name": "ASUS ROG Strix G16 (2024) Gaming Laptop",
+      "brand": "ASUS",
+      "category": "laptop",
+      "profiles": [
+        "gaming",
+        "creative",
+        "work"
+      ],
+      "budgetTier": "900to1500",
+      "price": 1399.99,
+      "isOnSale": true,
+      "specs": {
+        "cpu": "Intel Core i7-13650HX",
+        "ram": "32GB DDR5",
+        "storage": "1TB PCIe Gen4 SSD",
+        "display": "16” 16:10 FHD 165Hz Display",
+        "gpu": "NVIDIA GeForce RTX 4060"
+      },
+      "aiScore": 92,
+      "aiRationale": "Pour le prix, c'est un deal en or! Avec un i7 de 13e génération, 32 Go de RAM et une RTX 4060, tu vas pouvoir jouer à tout ce que tu veux et faire de la création sans problème. C'est un super choix pour les gamers et créateurs québécois.",
+      "originalPrice": 1499.99,
+      "url": "https://www.bestbuy.ca/fr-ca/collection/asus-rog-strix/215136?ref=shopcompy",
+      "source": "bestbuy",
+      "addedAt": "2026-03-27T07:19:16.107Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "walmart-hp-omnibook-5-16-ba1009ca-ordinateur-portable-16-wuxga-ips-i",
@@ -74,7 +102,7 @@
       "imageUrl": "",
       "source": "walmart",
       "addedAt": "2026-03-29T20:56:48.201Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "microsoft-surface-laptop-studio-2",
@@ -103,91 +131,7 @@
       "imageUrl": "",
       "source": "microsoft",
       "addedAt": "2026-03-28T19:40:45.698Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-asus-rog-strix-g16-2024-gaming-laptop",
-      "name": "ASUS ROG Strix G16 (2024) Gaming Laptop",
-      "brand": "ASUS",
-      "category": "laptop",
-      "profiles": [
-        "gaming",
-        "creative",
-        "work"
-      ],
-      "budgetTier": "900to1500",
-      "price": 1399.99,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "Intel Core i7-13650HX",
-        "ram": "32GB DDR5",
-        "storage": "1TB PCIe Gen4 SSD",
-        "display": "16” 16:10 FHD 165Hz Display",
-        "gpu": "NVIDIA GeForce RTX 4060"
-      },
-      "aiScore": 92,
-      "aiRationale": "Pour le prix, c'est un deal en or! Avec un i7 de 13e génération, 32 Go de RAM et une RTX 4060, tu vas pouvoir jouer à tout ce que tu veux et faire de la création sans problème. C'est un super choix pour les gamers et créateurs québécois.",
-      "originalPrice": 1499.99,
-      "url": "https://www.bestbuy.ca/fr-ca/collection/asus-rog-strix/215136?ref=shopcompy",
-      "source": "bestbuy",
-      "addedAt": "2026-03-27T07:19:16.107Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-dell-14-plus-2025-laptop",
-      "name": "Dell 14 Plus 2025 Laptop",
-      "brand": "Dell",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2299.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 7 258V",
-        "display": "14\" WQXGA IPS Display",
-        "gpu": "Intel Arc Graphics 140V",
-        "ram": "32GB LPDDR5",
-        "storage": "2TB SSD"
-      },
-      "aiScore": 92,
-      "aiRationale": "Avec un Intel Core Ultra 7, 32GB de RAM et un SSD de 2TB, ce Dell 14 Plus est une bête de performance. Idéal pour les professionnels et les créatifs qui veulent le top du top.",
-      "url": "https://www.bestbuy.ca/en-ca/product/dell-14-plus-2025-laptop-8-core-intel-core-ultra-7-258v-14-wqxga-ips-display-intel-arc-graphics-140v-32gb-lpddr5-2tb-ssd-backlit-kb-fingerprint-tb-4-wi-fi-7-win11-pro/19398802?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:04:43.444Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-dell-14-plus-2-in-1-touchscreen-copilot-pc-laptop",
-      "name": "Dell 14\" Plus 2-in-1 Touchscreen Copilot+ PC Laptop",
-      "brand": "Dell",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1289.98,
-      "originalPrice": 1349.98,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "AMD Ryzen AI 7 350",
-        "ram": "16GB RAM",
-        "storage": "1TB SSD"
-      },
-      "aiScore": 91,
-      "aiRationale": "Un excellent 2-en-1 de Dell avec un processeur AMD Ryzen AI 7, offrant une performance solide et une grande polyvalence. Le prix en solde en fait un deal très intéressant pour les étudiants et professionnels.",
-      "url": "https://www.bestbuy.ca/en-ca/product/dell-14-plus-2-in-1-touchscreen-copilot-pc-laptop-midnight-blue-amd-ryzen-ai-7-350-16gb-ram-1tb-ssd/19333057?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:04:43.444Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-lenovo-thinkpad-l14p-gen-6-2025-laptop-16-core-intel-core-ul",
@@ -219,37 +163,7 @@
       "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-29T20:53:45.592Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-2025-asus-zenbook-14-wuxga-touchscreen-laptop",
-      "name": "2025 ASUS Zenbook 14” WUXGA Touchscreen Laptop",
-      "brand": "ASUS",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1799.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 7 255H",
-        "display": "14\" WUXGA Touchscreen OLED Display",
-        "gpu": "Arc 140T GPU",
-        "ram": "16GB LPDDR5",
-        "refreshRate": "60Hz",
-        "storage": "1TB SSD"
-      },
-      "aiScore": 90,
-      "aiRationale": "Cet ASUS Zenbook offre un écran OLED tactile et un puissant Intel Core Ultra 7, idéal pour la productivité et les tâches créatives. Un excellent rapport qualité-prix pour un laptop haut de gamme.",
-      "url": "https://www.bestbuy.ca/en-ca/product/2025-asus-zenbook-14-wuxga-touchscreen-laptop-16-core-intel-core-ultra-7-255h-arc-140t-gpu-16gb-lpddr5-1tb-ssd-tb4-usb-c-w-dp-wifi-be-bt-webcam-hdmi2-1-backlit-kb-win-11-pro/19616624?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:04:43.444Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-portable-vivobook-copilot-pc-de-16-po-d-asus-bleu-calme",
@@ -277,7 +191,64 @@
       "url": "https://www.bestbuy.ca/fr-ca/collection/portables-en-solde/46082?ref=shopcompy",
       "source": "bestbuy",
       "addedAt": "2026-03-27T07:18:21.809Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "bestbuy-lenovo-yoga-7i-14-oled-touchscreen-2-in-1-copilot-pc-laptop",
+      "name": "Lenovo Yoga 7i 14\" OLED Touchscreen 2-in-1 Copilot+ PC Laptop",
+      "brand": "Lenovo",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 1699.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core Ultra 7 256V",
+        "display": "14\" OLED tactile",
+        "gpu": "Intégré",
+        "ram": "16GB RAM",
+        "storage": "1TB SSD"
+      },
+      "aiScore": 89,
+      "aiRationale": "Le Lenovo Yoga 7i est un 2-en-1 polyvalent avec un superbe écran OLED et un processeur Intel Core Ultra 7 puissant. Parfait pour les créatifs et les professionnels qui ont besoin de flexibilité et de performance.",
+      "url": "https://www.bestbuy.ca/en-ca/product/lenovo-yoga-7i-14-oled-touchscreen-2-in-1-copilot-pc-laptop-luna-grey-intel-core-ultra-7-256v-16gb-ram-1tb-ssd-win11/19182406?ref=shopcompy",
+      "imageUrl": "",
+      "source": "bestbuy",
+      "addedAt": "2026-03-30T11:05:02.053Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "amazon-lg-gram-17-inch-ultra-lightweight-laptop-with-16-10-wqxga",
+      "name": "LG gram 17\" Inch Ultra-Lightweight Laptop with 16:10 WQXGA",
+      "brand": "LG",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "creative",
+        "student"
+      ],
+      "budgetTier": "over1500",
+      "price": 1799.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core i7-1360P",
+        "display": "17\" WQXGA (2560x1600)",
+        "ram": "16GB LPDDR5",
+        "storage": "512GB NVMe SSD"
+      },
+      "aiScore": 89,
+      "aiRationale": "Le LG gram 17 pouces, c'est la crème de la crème pour la portabilité avec un grand écran WQXGA et un processeur Intel de 13e génération. Idéal pour les pros qui bougent beaucoup et veulent pas se casser le dos.",
+      "url": "https://www.amazon.ca/dp/B0CVV92SGH?tag=shopcompy-20",
+      "imageUrl": "",
+      "source": "amazon",
+      "addedAt": "2026-03-30T11:06:00.299Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "walmart-asus-ordinateur-de-bureau-de-jeu-strix-g13-processeur-intel-",
@@ -304,33 +275,7 @@
       "imageUrl": "",
       "source": "walmart",
       "addedAt": "2026-03-28T19:40:22.741Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-cyberpowerpc-gamer-supreme-gaming-pc-amd-ryzen-7-7800x3d-32g",
-      "name": "CyberPowerPC Gamer Supreme Gaming PC (AMD Ryzen 7 7800X3D, 32GB RAM, 2TB SSD, GeForce RTX 5070 Ti)",
-      "brand": "CyberPowerPC",
-      "category": "desktop",
-      "profiles": [
-        "gaming",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2500,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "AMD Ryzen 7 7800X3D",
-        "ram": "32GB DDR5",
-        "storage": "2TB NVMe SSD (PCIe Gen4 or Gen5 assumed for 2025 model year with RTX 5070 Ti and Ryzen 7000 series CPU, but not specified in extract. Assuming high-end for gaming PC.)"
-      },
-      "aiScore": 92,
-      "aiRationale": "Un PC de gaming avec un Ryzen 7 7800X3D et une RTX 5070 Ti, c'est une machine de guerre pour les gamers québécois. Le rapport qualité-prix est excellent pour cette puissance.",
-      "url": "https://bestbuy.ca/en-ca/product/cyberpowerpc-gamer-supreme-gaming-pc-amd-ryzen-7-7800x3d-32gb-ram-2tb-ssd-geforce-rtx-5070-ti-eng/19195923?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:24.131Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "newegg-cooler-master-haf-5-pro-intel-i7-14700f-nvidia-geforce-rtx-4",
@@ -365,7 +310,33 @@
       "imageUrl": "",
       "source": "newegg",
       "addedAt": "2026-03-28T19:39:19.950Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "bestbuy-ordinateur-de-bureau-legion-tower-5i-30l-de-lenovo",
+      "name": "Ordinateur de bureau Legion Tower 5i 30L de Lenovo",
+      "brand": "Lenovo",
+      "category": "desktop",
+      "profiles": [
+        "gaming",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 2499.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core Ultra 7 265F",
+        "ram": "32 Go",
+        "storage": "1 To SSD NVMe (estimation, non spécifié mais typique pour ce type de machine gaming haut de gamme)"
+      },
+      "aiScore": 91,
+      "aiRationale": "Avec un Core Ultra 7 et une RTX 5060 Ti, ce Legion Tower est une bête de gaming et de création. Le rapport qualité-prix est excellent pour cette configuration de pointe.",
+      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-minuit-m4-d-apple-ram-16-go-ssd-512-go-anglais/19205141?ref=shopcompy",
+      "imageUrl": "",
+      "source": "bestbuy",
+      "addedAt": "2026-03-30T11:05:08.388Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "costco-msi-pro-dp180-ordinateur-de-bureau-intel-core-i7-14700f-32-g",
@@ -392,7 +363,7 @@
       "imageUrl": "",
       "source": "costco",
       "addedAt": "2026-03-28T19:38:54.732Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "newegg-stormcraft-gaming-pc-intel-sirius-core-i7-14700f-nvidia-gefo",
@@ -427,61 +398,7 @@
       "imageUrl": "",
       "source": "newegg",
       "addedAt": "2026-03-28T19:39:19.950Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-macbook-pro-de-16-2-po-d-apple-automne-2024-noir-infini-m4-p",
-      "name": "MacBook Pro de 16,2 po d'Apple (automne 2024) - Noir infini (M4 Pro d'Apple/RAM 48 Go/SSD 512 Go) - Anglais",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "creative",
-        "work",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 3500,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Pro",
-        "ram": "48 Go",
-        "storage": "512 Go SSD"
-      },
-      "aiScore": 95,
-      "aiRationale": "Pour les professionnels et les créateurs qui ne font aucun compromis, ce MacBook Pro M4 Pro avec 48 Go de RAM est une machine de guerre. La performance est au rendez-vous!",
-      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-pro-de-16-2-po-d-apple-automne-2024-noir-infini-m4-pro-d-apple-ram-48-go-ssd-512-go-anglais/18619894?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:38.441Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "staples-apple-macbook-air-13-6-avec-touch-id-2025-apple-m4-24-go-ram",
-      "name": "Apple MacBook Air 13,6\" avec Touch ID (2025) - Apple M4 - 24 Go RAM - 512 Go SSD - Argent",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2499.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4",
-        "ram": "24 Go",
-        "storage": "512 Go SSD"
-      },
-      "aiScore": 95,
-      "aiRationale": "Le MacBook Air avec la puce M4 est une bête de performance, offrant une puissance incroyable pour la création de contenu et le travail exigeant. Un investissement de choix pour les pros!",
-      "url": "https://www.bureauengros.com/products/3118611-fr-apple-macbook-air-136-avec-touch-id-2025-apple-m4-24-go-ram-512-go-ssd-argent",
-      "imageUrl": "",
-      "source": "staples",
-      "addedAt": "2026-03-30T11:06:18.795Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "costco-apple-macbook-air-de-15-3-po-puce-m5-d-apple-16-go-ram-512-g",
@@ -508,34 +425,7 @@
       "imageUrl": "",
       "source": "costco",
       "addedAt": "2026-03-28T19:38:54.732Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-apple-macbook-pro-14-2-fall-2024-space-black-apple-m4-pro-24",
-      "name": "Apple MacBook Pro 14.2\" (Fall 2024) - Space Black (Apple M4 Pro / 24GB RAM / 1TB SSD) - English",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 3000,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Pro",
-        "ram": "24GB",
-        "storage": "1TB SSD"
-      },
-      "aiScore": 93,
-      "aiRationale": "Un MacBook Pro M4 Pro avec 1 To de stockage, c'est l'outil ultime pour les pros. Performance et espace à revendre pour tous vos projets, même les plus lourds.",
-      "url": "https://www.bestbuy.ca/en-ca/product/apple-macbook-pro-14-2-fall-2024-space-black-apple-m4-pro-24gb-ram-1tb-ssd-english/18619915?ref=shopcompy",
-      "imageUrl": "https://imgs.search.brave.com/BkVHfOGwBxsReFswlh44ZiqICKtms5fG-MHogdyDDF4/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tdWx0/aW1lZGlhLmJieWNh/c3RhdGljLmNhL211/bHRpbWVkaWEvcHJv/ZHVjdHMvNTAweDUw/MC8xODYvMTg2MTkv/MTg2MTk5MTUuanBn",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:38.441Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-macbook-pro-de-14-2-po-d-apple-automne-2024-noir-infini-m4-p",
@@ -548,7 +438,90 @@
         "gaming"
       ],
       "budgetTier": "over1500",
-      "price": 2689.99,
+      "price": 2999.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Apple M4 Pro",
+        "display": "Écran Liquid Retina XDR de 14,2 po",
+        "ram": "24 Go",
+        "storage": "512 Go SSD"
+      },
+      "aiScore": 92,
+      "aiRationale": "Le MacBook Pro M4 Pro est une machine de guerre pour les professionnels et les créateurs. La puissance est au rendez-vous, et l'écran est magnifique. Un excellent investissement pour ceux qui en ont besoin.",
+      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-pro-de-14-2-po-d-apple-automne-2024-noir-infini-m4-pro-d-apple-ram-24-go-ssd-512-go-anglais/18619913?ref=shopcompy",
+      "imageUrl": "",
+      "source": "bestbuy",
+      "addedAt": "2026-03-28T19:36:57.331Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "bestbuy-macbook-air-de-15-3-po-avec-touch-id-d-apple-2025",
+      "name": "MacBook Air de 15,3 po avec Touch ID d'Apple (2025)",
+      "brand": "Apple",
+      "category": "apple",
+      "profiles": [
+        "work",
+        "student",
+        "creative",
+        "basic"
+      ],
+      "budgetTier": "over1500",
+      "price": 1899.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Apple M4",
+        "ram": "16 Go",
+        "storage": "256 Go SSD"
+      },
+      "aiScore": 92,
+      "aiRationale": "Le MacBook Air M4 de 15 pouces est un excellent choix pour la productivité et la création, avec des performances de pointe et une autonomie impressionnante. Un investissement solide pour les pros et les étudiants créatifs.",
+      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-15-3-po-avec-touch-id-d-apple-2025-minuit-m4-d-apple-ram-16-go-ssd-256-go-anglais/19205151?ref=shopcompy",
+      "imageUrl": "",
+      "source": "bestbuy",
+      "addedAt": "2026-03-30T11:05:02.053Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "bestbuy-macbook-pro-de-14-po-d-apple-automne-2025-noir-infini-m5-d-a",
+      "name": "MacBook Pro de 14 po d'Apple (automne 2025) - Noir infini (M5 d'Apple / RAM 16 Go / SSD 512 Go)",
+      "brand": "Apple",
+      "category": "apple",
+      "profiles": [
+        "work",
+        "creative",
+        "gaming"
+      ],
+      "budgetTier": "over1500",
+      "price": 2499.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Apple M5",
+        "ram": "16 Go",
+        "storage": "512 Go SSD"
+      },
+      "aiScore": 92,
+      "aiRationale": "Le MacBook Pro M5 est une bête de performance, idéal pour les professionnels et les créatifs. C'est un investissement, mais la puissance est inégalée.",
+      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-pro-de-14-po-d-apple-automne-2025-noir-infini-m5-d-apple-ram-16-go-ssd-512-go-anglais/19495784?ref=shopcompy",
+      "imageUrl": "",
+      "source": "bestbuy",
+      "addedAt": "2026-03-28T19:36:49.922Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "bestbuy-macbook-pro-de-14-2-po-d-apple-automne-2024",
+      "name": "MacBook Pro de 14,2 po d'Apple (automne 2024)",
+      "brand": "Apple",
+      "category": "apple",
+      "profiles": [
+        "work",
+        "creative",
+        "gaming"
+      ],
+      "budgetTier": "over1500",
+      "price": 2699.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
@@ -557,12 +530,12 @@
         "storage": "512 Go SSD"
       },
       "aiScore": 92,
-      "aiRationale": "Le MacBook Pro M4 Pro, c'est la bête de course pour les créatifs et les pros. Une performance incroyable pour les tâches les plus exigeantes, ça vaut le coup!",
+      "aiRationale": "Le MacBook Pro M4 Pro de 14,2 po est une machine de guerre pour les professionnels et les créateurs, offrant une puissance et une efficacité exceptionnelles. Un investissement qui en vaut la peine!",
       "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-pro-de-14-2-po-d-apple-automne-2024-noir-infini-m4-pro-d-apple-ram-24-go-ssd-512-go-anglais/18619913?ref=shopcompy",
       "imageUrl": "",
       "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:38.441Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "addedAt": "2026-03-30T11:05:08.388Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "walmart-acer-chromebook-plus-spin-714-ecran-tactile-ips-fhd-14-intel",
@@ -589,35 +562,34 @@
       "imageUrl": "",
       "source": "walmart",
       "addedAt": "2026-03-28T19:40:30.192Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-chromebook-plus-de-16-po-cb516-d-acer-avec-12-mois-de-forfai",
-      "name": "Chromebook Plus de 16 po CB516 d'Acer avec 12 mois de forfait Google AI Pro",
+      "name": "Chromebook Plus de 16 po CB516 d'Acer avec 12 mois de forfait Google AI Pro (Core i3-1315U d'Intel, RAM 8 Go, SSD 256 Go)",
       "brand": "Acer",
       "category": "chromebook",
       "profiles": [
-        "work",
         "student",
+        "work",
         "basic"
       ],
       "budgetTier": "500to900",
       "price": 499.99,
-      "originalPrice": 699.99,
-      "isOnSale": true,
+      "originalPrice": 0,
+      "isOnSale": false,
       "specs": {
         "cpu": "Intel Core i3-1315U",
-        "display": "16 po",
         "ram": "8 Go",
         "storage": "256 Go SSD"
       },
-      "aiScore": 88,
-      "aiRationale": "Un excellent Chromebook Plus avec un processeur Intel i3 de 13e génération, idéal pour la productivité et le multitâche. Le grand écran de 16 pouces et le stockage de 256 Go en font un choix solide pour les étudiants et le travail.",
+      "aiScore": 86,
+      "aiRationale": "Un Chromebook Plus avec un grand écran de 16 pouces et un processeur Intel Core i3 de 13e génération. Excellent pour la productivité et le multitâche, avec un bon espace de stockage.",
       "url": "https://www.bestbuy.ca/fr-ca/produit/chromebook-plus-de-16-po-cb516-d-acer-avec-12-mois-de-forfait-google-ai-pro-fer-core-i3-1315u-d-intel-ram-8-go-ssd-256-go/19274596?ref=shopcompy",
       "imageUrl": "",
       "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:58.987Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "addedAt": "2026-03-30T11:05:51.335Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "newegg-msi-27-dual-mode-uhd-4k-144hz-full-hd-288hz-ips-gaming-monit",
@@ -647,7 +619,7 @@
       "imageUrl": "",
       "source": "newegg",
       "addedAt": "2026-03-29T20:55:44.783Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "newegg-lg-ultragear-27-qhd-2k-1440p-180hz-curved-gaming-computer-mo",
@@ -676,35 +648,64 @@
       "imageUrl": "",
       "source": "newegg",
       "addedAt": "2026-03-29T20:55:49.370Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "dell-moniteur-6k-dell-ultrasharp-32-u3224kb",
-      "name": "Moniteur 6K Dell UltraSharp 32 – U3224KB",
-      "brand": "Dell",
+      "id": "newegg-msi-27-dual-mode-uhd-4k-144hz-full-hd-288hz-ips-gaming-compu",
+      "name": "MSI 27\" Dual Mode UHD 4K 144Hz Full HD 288Hz IPS Gaming Computer Monitor",
+      "brand": "MSI",
       "category": "monitor",
       "profiles": [
+        "gaming",
         "creative",
         "work"
       ],
-      "budgetTier": "over1500",
-      "price": 3499.99,
+      "budgetTier": "under500",
+      "price": 349.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
         "cpu": "N/A",
-        "panelType": "LCD à rétroéclairage LED",
-        "resolution": "6144x3456",
-        "size": "32\"",
+        "panelType": "IPS",
+        "refreshRate": "144Hz (4K) / 288Hz (FHD)",
+        "resolution": "3840x2160 (UHD 4K) / 1920x1080 (FHD)",
+        "size": "27\"",
         "storage": "N/A"
       },
       "aiScore": 92,
-      "aiRationale": "Un moniteur 6K de 32 pouces est un outil exceptionnel pour les créatifs et les professionnels qui ont besoin d'une précision d'image maximale. Le prix est élevé, mais la qualité est au rendez-vous.",
-      "url": "https://www.dell.com/fr-ca/shop/moniteur-6k-dell-ultrasharp-32-u3224kb/apd/210-bhbz/moniteurs-et-accessoires-des-moniteurs?dgc=",
+      "aiRationale": "Un moniteur 4K 144Hz IPS avec un mode Full HD 288Hz pour ce prix, c'est un deal de fou! Parfait pour les gamers et les créateurs qui veulent de la polyvalence et de la qualité d'image.",
+      "url": "https://www.newegg.ca/lenovo-ideapad-15-0-full-hd-touch-screen-12gb-memory-256-gb-ssd-silver/p/1TS-000E-1CB60?lang=fr&item=9SIAPG1KDA1943&utm_source=",
+      "imageUrl": "",
+      "source": "newegg",
+      "addedAt": "2026-03-30T11:06:27.816Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "dell-moniteurs-4k-dell",
+      "name": "Moniteurs 4K Dell",
+      "brand": "Dell",
+      "category": "monitor",
+      "profiles": [
+        "basic",
+        "work",
+        "student"
+      ],
+      "budgetTier": "under500",
+      "price": 299.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "resolution": "3840x2160",
+        "storage": "N/A"
+      },
+      "aiScore": 92,
+      "aiRationale": "Un moniteur 4K à ce prix-là, c'est un deal en or! Parfait pour améliorer votre setup sans vider votre portefeuille.",
+      "url": "https://www.dell.com/fr-ca/shop/ordinateurs-de-bureau-et-stations-de-travail/nouveau-optiplex-3000-micro/spd/optiplex-3000-micro/s015do3000mffcavp?dgc=",
       "imageUrl": "",
       "source": "dell",
-      "addedAt": "2026-03-30T11:07:06.368Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "addedAt": "2026-03-30T11:07:16.183Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "dell-moniteur-dell-ultrasharp-u2724d-de-27-po",
@@ -733,7 +734,7 @@
       "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2724d/pdp/ultrasharp-u2724d-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=504&fmt=jpg?fmt=png&wid=400&hei=400",
       "source": "dell",
       "addedAt": "2026-03-29T20:56:18.938Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "microsoft-surface-thunderbolt-4-dock",
@@ -761,16 +762,17 @@
       "imageUrl": "",
       "source": "microsoft",
       "addedAt": "2026-03-28T19:40:58.577Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "microsoft-station-d-accueil-surface-thunderbolt-4-dock-pour-l-entrepri",
-      "name": "Station d'accueil Surface Thunderbolt 4 Dock pour l'entreprise",
+      "id": "microsoft-station-d-accueil-surface-thunderbolt-4-dock",
+      "name": "Station d'accueil Surface Thunderbolt 4 Dock",
       "brand": "Microsoft Surface",
       "category": "dock",
       "profiles": [
         "work",
-        "creative"
+        "creative",
+        "gaming"
       ],
       "budgetTier": "under500",
       "price": 409.99,
@@ -778,18 +780,18 @@
       "isOnSale": false,
       "specs": {
         "cpu": "N/A",
-        "ports": "Thunderbolt 4, USB-A, HDMI, Ethernet",
+        "ports": "2x USB-C (avant), 2x USB-C (arrière), 2x 4K@60Hz display support",
         "powerDelivery": "Oui",
         "ram": "N/A",
         "storage": "N/A"
       },
       "aiScore": 85,
-      "aiRationale": "Cette station d'accueil Thunderbolt 4 est un excellent investissement pour les pros. Elle offre une connectivité complète et une alimentation fiable pour transformer votre Surface en poste de travail complet.",
+      "aiRationale": "Une station d'accueil Thunderbolt 4 polyvalente, parfaite pour étendre les capacités de votre Surface. Idéale pour brancher plusieurs écrans 4K et tous vos périphériques.",
       "url": "https://www.microsoft.com/fr-ca/d/surface-thunderbolt-4-dock-pour-lentreprise/8svnb0c8j1qw",
       "imageUrl": "",
       "source": "microsoft",
       "addedAt": "2026-03-29T20:57:03.964Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "newegg-amd-ryzen-7-9800x3d-zen-5-8-core-5-2-ghz-socket-am5-120w-des",
@@ -824,30 +826,33 @@
       "imageUrl": "",
       "source": "newegg",
       "addedAt": "2026-03-28T19:39:19.950Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "microsoft-pack-complet-de-composants-pour-manette-sans-fil-xbox-elite-",
-      "name": "Pack complet de composants pour manette sans fil Xbox Elite série 2",
-      "brand": "Microsoft",
+      "id": "lenovo-clavier-et-souris-multimode-sans-fil-lenovo-pro-6000",
+      "name": "Clavier et souris multimode sans fil Lenovo Pro 6000",
+      "brand": "Lenovo",
       "category": "peripheral",
       "profiles": [
-        "gaming"
+        "work",
+        "student"
       ],
       "budgetTier": "under500",
-      "price": 74.99,
+      "price": 99.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "N/A"
+        "cpu": "N/A",
+        "ports": "Wireless, Bluetooth",
+        "powerDelivery": "N/A"
       },
-      "aiScore": 85,
-      "aiRationale": "Un ensemble de composants pour personnaliser ou remplacer des pièces de votre manette Xbox Elite Series 2. Essentiel pour les gamers exigeants.",
-      "url": "https://www.microsoft.com/fr-ca/d/pack-complet-de-composants/93t8nmcclss7",
-      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
-      "source": "microsoft",
-      "addedAt": "2026-03-30T11:07:57.439Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "aiScore": 80,
+      "aiRationale": "Ce combo offre une bonne polyvalence avec le multimode et le chiffrement AES-128, parfait pour les professionnels qui cherchent sécurité et flexibilité.",
+      "url": "https://www.lenovo.com/ca/fr/p/accessories-and-software/keyboards-and-mice/keyboard-and-mouse-combos/4x31s04822?clickid=",
+      "imageUrl": "https://p4-ofp.static.pub//fes/cms/2025/05/12/72tho7e37a6o9yofx8z0wli6q1n6yc997575.png",
+      "source": "lenovo",
+      "addedAt": "2026-03-30T11:06:50.326Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "walmart-disque-ssd-externe-portable-sandisk-de-2-to",
@@ -858,7 +863,8 @@
         "basic",
         "work",
         "student",
-        "creative"
+        "creative",
+        "gaming"
       ],
       "budgetTier": "under500",
       "price": 199.99,
@@ -866,16 +872,15 @@
       "isOnSale": false,
       "specs": {
         "cpu": "N/A",
-        "ram": "N/A",
-        "storage": "2TB SSD"
+        "storage": "2TB NVMe"
       },
-      "aiScore": 88,
-      "aiRationale": "Un SSD externe de 2 To de SanDisk, c'est un excellent choix pour la sauvegarde et le transfert rapide de fichiers. Très pratique pour les créatifs et les étudiants.",
-      "url": "https://www.walmart.ca/fr/ip/Disque-SSD-portable-SanDisk-de-2-To/79BCX5YURYH2?utm_source=",
+      "aiScore": 92,
+      "aiRationale": "Un SSD externe de 2 To de SanDisk est un excellent investissement pour la sauvegarde et le transfert rapide de données, un must-have pour tout utilisateur.",
+      "url": "https://www.walmart.ca/fr/ip/Disque-SSD-externe-portable-SanDisk-de-2-To/79BCX5YURYH2?utm_source=",
       "imageUrl": "",
       "source": "walmart",
-      "addedAt": "2026-03-30T11:07:40.710Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "addedAt": "2026-03-30T11:07:57.969Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "walmart-disque-ssd-portable-sandisk-de-1-to",
@@ -885,25 +890,23 @@
       "profiles": [
         "basic",
         "work",
-        "student",
         "creative"
       ],
       "budgetTier": "under500",
-      "price": 119.99,
+      "price": 120,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
         "cpu": "N/A",
-        "ram": "N/A",
-        "storage": "1TB SSD"
+        "storage": "1 To SSD"
       },
-      "aiScore": 87,
-      "aiRationale": "Un SSD portable de 1 To de SanDisk, c'est une valeur sûre pour la fiabilité et la vitesse. Parfait pour les déplacements et la sécurité de vos données.",
+      "aiScore": 80,
+      "aiRationale": "Un SSD portable SanDisk de 1 To, c'est une valeur sûre. Fiable et compact, parfait pour transporter vos données importantes partout avec vous.",
       "url": "https://www.walmart.ca/fr/ip/Disque-SSD-portable-SanDisk-de-1-To/5UE2QKYOHB36?utm_source=",
       "imageUrl": "",
       "source": "walmart",
-      "addedAt": "2026-03-30T11:07:40.710Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "addedAt": "2026-03-28T19:40:30.192Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "newegg-msi-shadow-geforce-rtx-5070-ti-16gb-gddr7-pci-express-5-0-at",
@@ -930,7 +933,7 @@
       "imageUrl": "https://c1.neweggimages.com/ProductImage/14-137-935-17.jpg",
       "source": "newegg",
       "addedAt": "2026-03-29T20:55:49.370Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "newegg-msi-geforce-rtx-5070-12g-vanguard-soc-launch-edition",
@@ -957,38 +960,40 @@
       "imageUrl": "https://c1.neweggimages.com/ProductImage/14-137-934-05.jpg",
       "source": "newegg",
       "addedAt": "2026-03-29T20:55:49.370Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "bestbuy-macbook-pro-de-14-po-d-apple-automne-2025-noir-infini-m5-d-a",
-      "name": "MacBook Pro de 14 po d'Apple (automne 2025) - Noir infini (M5 d'Apple / RAM 16 Go / SSD 512 Go)",
+      "id": "amazon-apple-2025-macbook-air-15-inch-laptop-with-m4-chip",
+      "name": "Apple 2025 MacBook Air 15-inch Laptop with M4 chip",
       "brand": "Apple",
       "category": "apple",
       "profiles": [
         "work",
+        "student",
         "creative",
-        "gaming"
+        "basic"
       ],
       "budgetTier": "over1500",
-      "price": 2499.99,
+      "price": 1899.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "Apple M5",
-        "ram": "16 Go",
-        "storage": "512 Go SSD"
+        "cpu": "Apple M4 chip",
+        "display": "15-inch Liquid Retina display",
+        "ram": "8GB",
+        "storage": "256GB SSD"
       },
       "aiScore": 92,
-      "aiRationale": "Le MacBook Pro M5 est une bête de performance, idéal pour les professionnels et les créatifs. C'est un investissement, mais la puissance est inégalée.",
-      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-pro-de-14-po-d-apple-automne-2025-noir-infini-m5-d-apple-ram-16-go-ssd-512-go-anglais/19495784?ref=shopcompy",
+      "aiRationale": "Le MacBook Air 15 pouces avec la puce M4, c'est une machine de guerre pour la productivité et la création, avec une autonomie de batterie qui dure toute la journée. Un excellent investissement pour ceux qui veulent le top du top.",
+      "url": "https://www.amazon.ca/dp/B0DZDC2XD2?tag=shopcompy-20",
       "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-28T19:36:49.922Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "source": "amazon",
+      "addedAt": "2026-03-30T11:06:00.299Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "bestbuy-macbook-air-de-15-3-po-avec-touch-id-d-apple-2025",
-      "name": "MacBook Air de 15,3 po avec Touch ID d'Apple (2025)",
+      "id": "staples-macbook-air-13-6-avec-touch-id-2025-apple-m4-24-go-ram-512-g",
+      "name": "MacBook Air 13,6\" avec Touch ID (2025) - Apple M4 - 24 Go RAM - 512 Go SSD - Argent",
       "brand": "Apple",
       "category": "apple",
       "profiles": [
@@ -997,105 +1002,22 @@
         "creative"
       ],
       "budgetTier": "over1500",
-      "price": 1899.99,
+      "price": 2499.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
         "cpu": "Apple M4",
-        "ram": "16 Go",
-        "storage": "256 Go SSD"
+        "display": "13,6\"",
+        "ram": "24 Go",
+        "storage": "512 Go SSD"
       },
       "aiScore": 92,
-      "aiRationale": "Le MacBook Air M4 est une bête de performance pour la plupart des tâches, avec une autonomie de batterie incroyable. C'est un excellent investissement pour les pros et les étudiants créatifs.",
-      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-15-3-po-avec-touch-id-d-apple-2025-minuit-m4-d-apple-ram-16-go-ssd-256-go-anglais/19205151?ref=shopcompy",
+      "aiRationale": "Le MacBook Air avec puce M4 et 24 Go de RAM est une bête de performance pour les créatifs et les professionnels, offrant une autonomie incroyable et une puissance impressionnante dans un format ultra-portable. Un investissement solide!",
+      "url": "https://www.bureauengros.com/products/3118611-fr-apple-macbook-air-136-avec-touch-id-2025-apple-m4-24-go-ram-512-go-ssd-argent",
       "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:03:18.146Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-macbook-air-de-15-3-po-avec-touch-id-d-apple-2025-bleu-ciel",
-      "name": "MacBook Air de 15,3 po avec Touch ID d'Apple (2025) - Bleu ciel",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "over1500",
-      "price": 1899.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4",
-        "ram": "16 Go",
-        "storage": "256 Go SSD"
-      },
-      "aiScore": 92,
-      "aiRationale": "Le MacBook Air 15 pouces avec la puce M4 offre un grand écran et une performance solide pour toutes vos tâches. Un excellent choix pour ceux qui veulent plus d'espace d'écran.",
-      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-15-3-po-avec-touch-id-d-apple-2025-minuit-m4-d-apple-ram-16-go-ssd-256-go-francais/19205150?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:31.468Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-macbook-air-de-15-3-po-avec-touch-id-d-apple-2025-comete",
-      "name": "MacBook Air de 15,3 po avec Touch ID d'Apple (2025) - Comète",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "over1500",
-      "price": 1899.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4",
-        "ram": "16 Go",
-        "storage": "256 Go SSD"
-      },
-      "aiScore": 92,
-      "aiRationale": "Ce MacBook Air 15 pouces avec la puce M4 est idéal pour ceux qui ont besoin d'un grand écran et de performances fiables. La couleur comète est un plus!",
-      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-15-3-po-avec-touch-id-d-apple-2025-minuit-m4-d-apple-ram-16-go-ssd-256-go-francais/19205150?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:31.468Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-apple-macbook-air-15-w-touch-id-2025-midnight",
-      "name": "Apple MacBook Air 15\" w/ Touch ID (2025) - Midnight",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "over1500",
-      "price": 1899.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Chip",
-        "ram": "16GB RAM",
-        "storage": "256GB SSD"
-      },
-      "aiScore": 92,
-      "aiRationale": "Ce MacBook Air 15 pouces avec la puce M4 est une machine de travail et de divertissement. L'écran spacieux et la longue autonomie sont des atouts majeurs.",
-      "url": "https://www.bestbuy.ca/en-ca/product/apple-macbook-air-15-w-touch-id-2025-midnight-apple-m4-chip-256gb-ssd-16gb-ram-english-brand-new/18470744?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:31.468Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "source": "staples",
+      "addedAt": "2026-03-30T11:06:16.885Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "staples-apple-portatif-macbook-air-13-po-puce-m4-ssd-256-go-memoire-",
@@ -1105,10 +1027,11 @@
       "profiles": [
         "work",
         "student",
-        "creative"
+        "creative",
+        "basic"
       ],
       "budgetTier": "over1500",
-      "price": 1699.99,
+      "price": 1799.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
@@ -1117,40 +1040,12 @@
         "storage": "256 Go SSD"
       },
       "aiScore": 92,
-      "aiRationale": "Le MacBook Air M4 est une machine ultra-performante et portable, parfaite pour la productivité et la création, avec une excellente autonomie. Un choix solide pour les pros et étudiants.",
+      "aiRationale": "Le MacBook Air M4 est un excellent choix pour la productivité et la création, avec une performance et une autonomie exceptionnelles. C'est un investissement solide pour le long terme.",
       "url": "https://www.bureauengros.com/products/3114987-fr-apple-portatif-macbook-air-13-po-puce-m4-ssd-256-go-memoire-unifiee-16-go-bleu-ciel-anglais",
       "imageUrl": "https://www.bureauengros.com/cdn/shop/files/b12bd349cc72c702a0f8439465089c5e10d9b458_square3114987_1_3d095e13-c30d-4a7b-8454-15ee9f5bf684_350x.jpg?v=1774496759",
       "source": "staples",
-      "addedAt": "2026-03-30T11:06:20.299Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-macbook-air-de-13-6-po-avec-touch-id-d-apple-2025",
-      "name": "MacBook Air de 13,6 po avec Touch ID d'Apple (2025)",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "over1500",
-      "price": 1899.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4",
-        "ram": "16 Go",
-        "storage": "512 Go SSD"
-      },
-      "aiScore": 91,
-      "aiRationale": "Ce MacBook Air 13 pouces avec 512 Go de stockage et la puce M4 est une excellente option pour ceux qui ont besoin de plus d'espace. Performance et portabilité assurées.",
-      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-bleu-ciel-m4-d-apple-ram-16-go-ssd-256-go-francais/19205109?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:31.468Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "addedAt": "2026-03-30T11:06:18.332Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "staples-apple-13-po-macbook-air-puce-m4-ssd-512-go-memoire-unifiee-1",
@@ -1177,7 +1072,7 @@
       "imageUrl": "",
       "source": "staples",
       "addedAt": "2026-03-28T19:39:09.470Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-minuit-m4-",
@@ -1205,148 +1100,7 @@
       "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-28T19:36:57.331Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-bleu-ciel",
-      "name": "MacBook Air de 13,6 po avec Touch ID d'Apple (2025) - Bleu ciel",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "over1500",
-      "price": 1699.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4",
-        "ram": "16 Go",
-        "storage": "256 Go SSD"
-      },
-      "aiScore": 90,
-      "aiRationale": "Le MacBook Air 13 pouces avec puce M4 est un excellent choix pour la portabilité et la performance. Idéal pour les étudiants et les professionnels qui se déplacent souvent.",
-      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-bleu-ciel-m4-d-apple-ram-16-go-ssd-256-go-francais/19205109?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:31.468Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-minuit",
-      "name": "MacBook Air de 13,6 po avec Touch ID d'Apple (2025) - Minuit",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "over1500",
-      "price": 1699.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4",
-        "ram": "16 Go",
-        "storage": "256 Go SSD"
-      },
-      "aiScore": 90,
-      "aiRationale": "Ce MacBook Air 13 pouces en couleur minuit avec la puce M4 est un appareil puissant et stylé. Parfait pour le travail, les études ou la création de contenu léger.",
-      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-bleu-ciel-m4-d-apple-ram-16-go-ssd-256-go-francais/19205109?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:31.468Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-argente",
-      "name": "MacBook Air de 13,6 po avec Touch ID d'Apple (2025) - Argenté",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "over1500",
-      "price": 1699.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4",
-        "ram": "16 Go",
-        "storage": "256 Go SSD"
-      },
-      "aiScore": 90,
-      "aiRationale": "Le MacBook Air 13 pouces en argenté avec la puce M4 est un classique intemporel. Performance et portabilité au rendez-vous pour toutes vos activités quotidiennes.",
-      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-bleu-ciel-m4-d-apple-ram-16-go-ssd-256-go-francais/19205109?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:31.468Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-apple-2025-macbook-air-13-inch-laptop-with-m4-chip",
-      "name": "Apple 2025 MacBook Air 13-inch Laptop with M4 chip",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "over1500",
-      "price": 1699.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 chip",
-        "ram": "16GB Unified Memory",
-        "storage": "256GB SSD Storage"
-      },
-      "aiScore": 90,
-      "aiRationale": "Le MacBook Air 13 pouces avec puce M4 est parfait pour la productivité en déplacement. Son design léger et sa performance robuste en font un excellent choix.",
-      "url": "https://www.bestbuy.ca/en-ca/product/apple-2025-macbook-air-13-inch-laptop-with-m4-chip-13-6-inch-liquid-retina-display-16gb-unified-memory-256gb-ssd-storage-touch-id-midnight/19269601?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:31.468Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "bestbuy-apple-macbook-air-15-3-w-touch-id-2025-midnight-apple-m4-24g",
-      "name": "Apple MacBook Air 15.3\" w/ Touch ID (2025) - Midnight (Apple M4 / 24GB RAM / 512GB SSD) - English",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2500,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4",
-        "battery": "Up to 18 hours",
-        "display": "Spacious Liquid Retina display",
-        "ram": "24GB",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 90,
-      "aiRationale": "Ce MacBook Air M4 de 15.3 pouces avec 24 Go de RAM, c'est un vrai couteau suisse. Idéal pour ceux qui ont besoin de plus de puissance et d'un grand écran pour le multitâche.",
-      "url": "https://www.bestbuy.ca/en-ca/product/open-box-apple-macbook-air-15-3-w-touch-id-2025-starlight-apple-m4-16gb-ram-256gb-ssd-french/19331261?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:38.441Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-macbook-pro-de-14-2-po-d-apple-automne-2024-noir-infini-m4-d",
@@ -1374,35 +1128,35 @@
       "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-28T19:36:57.331Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "bestbuy-lenovo-thinkpad-l14p-gen-6-2025-laptop",
-      "name": "Lenovo ThinkPad L14p Gen 6 2025 Laptop",
-      "brand": "Lenovo",
-      "category": "laptop",
+      "id": "dell-moniteur-4k-concentrateur-thunderbolt-dell-ultrasharp-27-u27",
+      "name": "Moniteur 4K concentrateur Thunderbolt Dell UltraSharp 27 - U2725QE",
+      "brand": "Dell",
+      "category": "monitor",
       "profiles": [
         "work",
-        "student"
+        "creative"
       ],
       "budgetTier": "over1500",
-      "price": 1999.99,
+      "price": 1029.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "Intel Core Ultra 7 255H",
-        "display": "14\" WUXGA IPS Display",
-        "gpu": "Intel Graphics",
-        "ram": "32GB DDR5",
-        "storage": "2TB SSD"
+        "cpu": "N/A",
+        "panelType": "IPS",
+        "resolution": "3840x2160",
+        "size": "27\"",
+        "storage": "N/A"
       },
       "aiScore": 89,
-      "aiRationale": "Le ThinkPad L14p Gen 6 est une machine robuste avec un Intel Core Ultra 7 et 32GB de RAM, parfait pour les professionnels qui ont besoin de puissance et de fiabilité. Le grand stockage est un avantage certain.",
-      "url": "https://www.bestbuy.ca/en-ca/product/lenovo-thinkpad-l14p-gen-6-2025-laptop-16-core-intel-core-ultra-7-255h-14-wuxga-ips-display-intel-graphics-32gb-ddr5-2tb-ssd-thunderbolt-4-wi-fi-6e-win11-pro/19486276?ref=shopcompy",
-      "imageUrl": "https://imgs.search.brave.com/rUaMrzQPDE9x5ReHz6I2s1A2DUcbuuzXdlC4nNl8eqI/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tdWx0/aW1lZGlhLmJieWNh/c3RhdGljLmNhL211/bHRpbWVkaWEvcHJv/ZHVjdHMvMjUweDI1/MC8xOTQvMTk0ODYv/MTk0ODYyNzYuanBl/Zw",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:04:43.444Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "aiRationale": "Un excellent moniteur 4K avec hub Thunderbolt, parfait pour les professionnels et créatifs. La qualité d'image est top et la connectivité est super pratique.",
+      "url": "https://www.dell.com/fr-ca/shop/moniteur-4k-concentrateur-thunderbolt-dell-ultrasharp-27-u2725qe/apd/210-bqhr/moniteurs-et-accessoires-des-moniteurs?dgc=",
+      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2725qe/pdp/monitor-u2725qe-hero-image.psd?fmt=png-alpha&wid=5000&hei=4000",
+      "source": "dell",
+      "addedAt": "2026-03-30T11:07:16.183Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "staples-lenovo-ordinateur-portable-thinkpad-x1-titanium-yoga-gen-1-1",
@@ -1429,7 +1183,7 @@
       "url": "https://www.bureauengros.com/search?query=ordinateur+portable+i7",
       "source": "staples",
       "addedAt": "2026-03-27T03:18:08.913Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-portable-de-15-3-po-ideapad-slim-3x-copilot-pc-de-lenovo-gri",
@@ -1456,7 +1210,7 @@
       "url": "https://www.bestbuy.ca/fr-ca/collection/portables-en-solde/46082?ref=shopcompy",
       "source": "bestbuy",
       "addedAt": "2026-03-27T07:18:21.809Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-ordinateur-tout-en-un-a-ecran-tactile-de-27-po-de-dell",
@@ -1481,36 +1235,7 @@
       "url": "https://www.bestbuy.ca/fr-ca/produit/ordinateur-tout-en-un-a-ecran-tactile-de-27-po-de-dell-blanc-core-7-150u-d-intel-memoire-vive-de-32-go-disque-ssd-de-2-to-windows-11/19285551?ref=shopcompy",
       "source": "bestbuy",
       "addedAt": "2026-03-27T03:15:23.698Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "walmart-lg-32-po-32ur550k-b-uhd-3840-x-2160-va-moniteur-noir",
-      "name": "LG 32 Po 32UR550K-B UHD (3840 X 2160) VA Moniteur Noir",
-      "brand": "LG",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "500to900",
-      "price": 549.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "VA",
-        "resolution": "3840x2160",
-        "size": "32\"",
-        "storage": "N/A"
-      },
-      "aiScore": 88,
-      "aiRationale": "Un moniteur 4K de 32 pouces avec dalle VA, c'est excellent pour la productivité et le divertissement. Le prix est compétitif pour cette taille et résolution.",
-      "url": "https://www.walmart.ca/fr/ip/LG-32-Po-32UR550K-B-UHD-3840-X-2160-VA-Moniteur-Noir/413MRKPCXF1E?utm_source=",
-      "imageUrl": "",
-      "source": "walmart",
-      "addedAt": "2026-03-28T19:40:22.741Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "newegg-lg-ultragear-27-qhd-2k-1440p-180hz-curved-gaming-monitor-27g",
@@ -1539,7 +1264,7 @@
       "imageUrl": "",
       "source": "newegg",
       "addedAt": "2026-03-28T19:39:25.411Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-asus-tuf-gaming-f16-16-gaming-laptop-mecha-grey-intel-core-5",
@@ -1567,7 +1292,36 @@
       "url": "https://www.bestbuy.ca/fr-ca/produit/chromebook-de-15-6-pouces-d-acer-avec-3-mois-de-forfait-google-ai-pro-argente-celeron-n4500-d-intel-128-go-ram-8-go-chromeos/17739396?ref=shopcompy",
       "source": "bestbuy",
       "addedAt": "2026-03-27T03:15:50.908Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "walmart-lg-32-po-32ur550k-b-uhd-3840-x-2160-va-moniteur-noir",
+      "name": "LG 32 Po 32UR550K-B UHD (3840 X 2160) VA Moniteur Noir",
+      "brand": "LG",
+      "category": "monitor",
+      "profiles": [
+        "work",
+        "creative",
+        "gaming"
+      ],
+      "budgetTier": "500to900",
+      "price": 549.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "VA",
+        "resolution": "3840x2160",
+        "size": "32\"",
+        "storage": "N/A"
+      },
+      "aiScore": 88,
+      "aiRationale": "Un moniteur 4K de 32 pouces avec dalle VA, c'est excellent pour la productivité et le divertissement. Le prix est compétitif pour cette taille et résolution.",
+      "url": "https://www.walmart.ca/fr/ip/LG-32-Po-32UR550K-B-UHD-3840-X-2160-VA-Moniteur-Noir/413MRKPCXF1E?utm_source=",
+      "imageUrl": "",
+      "source": "walmart",
+      "addedAt": "2026-03-28T19:40:22.741Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "staples-apple-15-po-macbook-air-puce-m4-ssd-512-go-memoire-unifiee-1",
@@ -1594,34 +1348,7 @@
       "imageUrl": "",
       "source": "staples",
       "addedAt": "2026-03-28T19:39:09.470Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
-    },
-    {
-      "id": "microsoft-surface-laptop-copilot-pc-de-15-pouces",
-      "name": "Surface Laptop, Copilot+ PC de 15 pouces",
-      "brand": "Microsoft Surface",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1899,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Snapdragon X Elite",
-        "ram": "16GB",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 88,
-      "aiRationale": "Le Surface Laptop 15 pouces avec le nouveau Snapdragon X Elite est un excellent choix pour la productivité et la créativité. Un PC Copilot+ puissant et élégant.",
-      "url": "https://www.microsoft.com/fr-ca/d/surface-laptop-copilot-pc-remise-a-neuf-certifiee/8v7gkbzd5v58",
-      "imageUrl": "",
-      "source": "microsoft",
-      "addedAt": "2026-03-28T19:41:01.925Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "newegg-msi-16-venture-16-ai-2k-120hz-oled-laptop",
@@ -1654,7 +1381,7 @@
       "imageUrl": "",
       "source": "newegg",
       "addedAt": "2026-03-29T20:55:44.783Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "dell-moniteur-dell",
@@ -1684,7 +1411,7 @@
       "imageUrl": "",
       "source": "dell",
       "addedAt": "2026-03-29T20:56:26.480Z",
-      "lastVerified": "2026-03-30T11:07:59.093Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-macbook-air-de-15-3-po-avec-touch-id-d-apple-2025-minuit-m4-",
@@ -1712,7 +1439,7 @@
       "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-28T19:36:49.921Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-2025-asus-zenbook-14-wuxga-touchscreen-laptop-16-core-intel-",
@@ -1746,7 +1473,7 @@
       "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-29T20:53:45.592Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "costco-microsoft-surface-ensemble-ordinateur-portable-copilot-pc-ec",
@@ -1773,128 +1500,73 @@
       "imageUrl": "",
       "source": "costco",
       "addedAt": "2026-03-28T19:38:54.732Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "dell-moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de",
-      "name": "Moniteur central Thunderbolt Dell UltraSharp 27 - U2724DE",
-      "brand": "Dell",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative"
-      ],
-      "budgetTier": "500to900",
-      "price": 879.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS Black",
-        "resolution": "2560x1440",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 88,
-      "aiRationale": "Ce moniteur offre une excellente connectivité Thunderbolt et une qualité d'image supérieure avec son panneau IPS Black. Idéal pour les professionnels exigeants.",
-      "url": "https://www.dell.com/fr-ca/shop/moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de/apd/210-bksj/moniteurs-et-accessoires-des-moniteurs?dgc=",
-      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2724de/pdp/ultrasharp-u2724de-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=504&fmt=png-alpha",
-      "source": "dell",
-      "addedAt": "2026-03-30T11:07:06.368Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
-    },
-    {
-      "id": "bestbuy-lenovo-yoga-7i-14-oled-touchscreen-2-in-1-copilot-pc-laptop",
-      "name": "Lenovo Yoga 7i 14\" OLED Touchscreen 2-in-1 Copilot+ PC Laptop",
-      "brand": "Lenovo",
+      "id": "bestbuy-samsung-galaxy-book5-360-15-6-touchscreen-laptop-grey",
+      "name": "Samsung Galaxy Book5 360 15.6\" Touchscreen Laptop - Grey",
+      "brand": "Samsung",
       "category": "laptop",
       "profiles": [
         "work",
         "student",
         "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1699.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 7 256V",
-        "display": "14\" OLED Touchscreen",
-        "ram": "16GB",
-        "storage": "1TB SSD"
-      },
-      "aiScore": 88,
-      "aiRationale": "Ce Lenovo Yoga 7i est un excellent 2-en-1 avec un écran OLED et un processeur Intel Core Ultra 7, parfait pour la productivité et la création. Un très bon choix pour ceux qui cherchent de la polyvalence.",
-      "url": "https://www.bestbuy.ca/en-ca/product/lenovo-yoga-7i-14-oled-touchscreen-2-in-1-copilot-pc-laptop-luna-grey-intel-core-ultra-7-256v-16gb-ram-1tb-ssd-win11/19182406?ref=shopcompy",
-      "imageUrl": "",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:04:43.444Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
-    },
-    {
-      "id": "bestbuy-lenovo-thinkpad-t14-gen-5-14-notebook",
-      "name": "Lenovo ThinkPad T14 Gen 5 14\" Notebook",
-      "brand": "Lenovo",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student"
       ],
       "budgetTier": "over1500",
       "price": 1799.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "Intel Core Ultra 5 135U",
-        "ram": "32GB RAM",
+        "cpu": "Intel Core Ultra 5 226V",
+        "battery": "Longue durée",
+        "display": "15.6\" 3K Dynamic AMOLED 2x tactile",
+        "gpu": "Intégré",
+        "ram": "16GB RAM",
+        "refreshRate": "120Hz adaptatif",
         "storage": "512GB SSD"
       },
       "aiScore": 88,
-      "aiRationale": "Le ThinkPad T14 Gen 5 est un portable fiable et puissant avec un Intel Core Ultra 5 et 32GB de RAM, idéal pour les tâches professionnelles exigeantes. Sa conception légère le rend facile à transporter.",
-      "url": "https://www.bestbuy.ca/en-ca/product/lenovo-thinkpad-t14-gen-5-14-notebook-black-intel-core-ultra-5-135u-512gb-ssd-32gb-ram-windows-11-english-21ml0056us/18597902?ref=shopcompy",
+      "aiRationale": "Ce Galaxy Book5 360 offre une expérience visuelle incroyable avec son écran OLED 3K et un processeur Intel Core Ultra 5 performant. Idéal pour le travail, les études et le divertissement, c'est un excellent 2-en-1.",
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-galaxy-book5-360-15-6-touchscreen-laptop-grey-intel-core-ultra-5-226v-16gb-ram-512gb-ssd-windows-11-home/19504040?ref=shopcompy",
       "imageUrl": "",
       "source": "bestbuy",
-      "addedAt": "2026-03-30T11:04:43.444Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "addedAt": "2026-03-30T11:05:02.053Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "bestbuy-apple-macbook-air-13-6-w-touch-id-2025-midnight-apple-m4-16g",
-      "name": "Apple MacBook Air 13.6\" w/ Touch ID (2025) - Midnight (Apple M4 / 16GB RAM / 512GB SSD) - English",
+      "id": "bestbuy-macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-anglais",
+      "name": "MacBook Air de 13,6 po avec Touch ID d'Apple (2025) - Anglais",
       "brand": "Apple",
       "category": "apple",
       "profiles": [
-        "basic",
         "work",
         "student",
         "creative"
       ],
       "budgetTier": "over1500",
-      "price": 2000,
+      "price": 1899.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
         "cpu": "Apple M4",
-        "battery": "Up to 18 hours",
-        "display": "Liquid Retina display",
-        "ram": "16GB",
-        "storage": "512GB SSD"
+        "ram": "16 Go",
+        "storage": "512 Go SSD"
       },
       "aiScore": 88,
-      "aiRationale": "Le MacBook Air M4 avec 512 Go de stockage, c'est une machine super polyvalente et performante. Parfait pour les étudiants et les professionnels qui bougent.",
-      "url": "https://www.bestbuy.ca/en-ca/product/open-box-apple-macbook-air-13-6-w-touch-id-2025-sky-blue-apple-m4-16gb-ram-256gb-ssd-english/19273914?ref=shopcompy",
+      "aiRationale": "Le MacBook Air M4 de 13,6 po avec 16 Go de RAM et 512 Go de SSD est un excellent choix pour la productivité et la création, offrant une performance solide pour les tâches exigeantes.",
+      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-minuit-m4-d-apple-ram-16-go-ssd-512-go-anglais/19205141?ref=shopcompy",
       "imageUrl": "",
       "source": "bestbuy",
-      "addedAt": "2026-03-30T11:05:38.441Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "addedAt": "2026-03-30T11:05:08.388Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "amazon-skytech-nebula-gaming-pc-desktop-intel-i5-14400f-2-5-ghz-4-7",
-      "name": "Skytech Nebula Gaming PC Desktop, Intel i5 14400F 2.5 GHz (4.7GHz Turbo), NVIDIA RTX 5060 8GB, 1TB NVMe SSD, 16GB DDR5 RAM 6000, 650W Gold PSU, Wi-Fi",
+      "id": "amazon-skytech-nebula-gaming-pc-desktop-intel-i5-14400f",
+      "name": "Skytech Nebula Gaming PC Desktop, Intel i5 14400F",
       "brand": "Skytech",
       "category": "desktop",
       "profiles": [
         "gaming",
-        "work",
         "creative"
       ],
       "budgetTier": "over1500",
@@ -1908,68 +1580,39 @@
         "storage": "1TB NVMe SSD"
       },
       "aiScore": 88,
-      "aiRationale": "Un excellent PC de gaming avec un processeur Intel de 14e génération et une RTX 5060, parfait pour les jeux récents. Un choix solide pour les gamers québécois!",
+      "aiRationale": "Ce PC de gaming Skytech Nebula offre une excellente performance avec son i5 de 14e génération et une RTX 5060, parfait pour les gamers et créateurs. Un très bon rapport qualité-prix pour le marché québécois.",
       "url": "https://www.amazon.ca/dp/B0F8Q52R4B?tag=shopcompy-20",
       "imageUrl": "",
       "source": "amazon",
-      "addedAt": "2026-03-30T11:06:00.811Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "addedAt": "2026-03-30T11:06:00.299Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "dell-dell-g15-5530",
-      "name": "Dell G15 5530",
-      "brand": "Dell",
+      "id": "walmart-hp-omnibook-5-16-ba1009ca-ordinateur-portable-16-wuxga-ips",
+      "name": "HP Omnibook 5 16‑ba1009ca Ordinateur Portable 16\" WUXGA IPS",
+      "brand": "HP",
       "category": "laptop",
       "profiles": [
-        "gaming",
-        "student"
-      ],
-      "budgetTier": "900to1500",
-      "price": 1399.99,
-      "originalPrice": 1599.99,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "Intel Core i7-13650HX",
-        "display": "15.6\" FHD (1920 x 1080) 120Hz",
-        "gpu": "NVIDIA GeForce RTX 4060",
-        "ram": "16GB DDR5",
-        "storage": "512GB PCIe NVMe SSD"
-      },
-      "aiScore": 88,
-      "aiRationale": "Un excellent rapport qualité-prix pour un portable de gaming, avec un CPU et GPU récents. Idéal pour les étudiants qui veulent jouer sans se ruiner.",
-      "url": "https://www.dell.com/support/kbdoc/fr-fr/000357153/les-ordinateurs-portables-dell-g15-5530-et-g16-7630-ne-d%C3%A9marrent-pas-avec-ubuntu-24-04?dgc=",
-      "imageUrl": "",
-      "source": "dell",
-      "addedAt": "2026-03-30T11:06:57.692Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
-    },
-    {
-      "id": "dell-moniteur-4k-concentrateur-thunderbolt-dell-ultrasharp-27-u27",
-      "name": "Moniteur 4K concentrateur Thunderbolt Dell UltraSharp 27 - U2725QE",
-      "brand": "Dell",
-      "category": "monitor",
-      "profiles": [
         "work",
+        "student",
         "creative"
       ],
-      "budgetTier": "over1500",
-      "price": 1029.99,
+      "budgetTier": "900to1500",
+      "price": 898,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "3840x2160",
-        "size": "27\"",
-        "storage": "N/A"
+        "cpu": "Intel Core i5-1334U",
+        "ram": "16 Go",
+        "storage": "512 Go SSD"
       },
-      "aiScore": 87,
-      "aiRationale": "Un moniteur 4K UltraSharp avec Thunderbolt, c'est le top pour la productivité et la création de contenu. La qualité d'image est incroyable, un investissement qui vaut le coup.",
-      "url": "https://www.dell.com/fr-ca/shop/moniteur-4k-concentrateur-thunderbolt-dell-ultrasharp-27-u2725qe/apd/210-bqhr/moniteurs-et-accessoires-des-moniteurs?dgc=",
-      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2725qe/pdp/monitor-u2725qe-hero-image.psd?fmt=png-alpha&wid=5000&hei=4000?fmt=png&wid=400&hei=400",
-      "source": "dell",
-      "addedAt": "2026-03-29T20:56:18.938Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "aiScore": 88,
+      "aiRationale": "Un excellent ordinateur portable avec un processeur Intel de 13e génération, 16 Go de RAM et un grand écran IPS, idéal pour la productivité et le multitâche.",
+      "url": "https://www.walmart.ca/fr/ip/Ordinateur-portable-ASUS-Chromebook-CX15-cran-FHD-1920x1080-16-9-antireflet-de-15-6-po-proc-Intel-Celeron-N4500-stock-128-Go-m-m-8-ChromeOS-Pure-Grey/392GV4058R6P?utm_source=",
+      "imageUrl": "",
+      "source": "walmart",
+      "addedAt": "2026-03-30T11:07:57.969Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-asus-zenbook-14-lightweight-laptop-2025-14-oled-touchscreen-",
@@ -2001,7 +1644,7 @@
       "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-29T20:53:45.592Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "costco-samsung-ordinateur-portable-galaxy-book-edge-se-copilot-pc-d",
@@ -2028,61 +1671,34 @@
       "imageUrl": "",
       "source": "costco",
       "addedAt": "2026-03-28T19:38:54.732Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "bestbuy-lenovo-thinkbook-14-gen-4-14-2-in-1-touchscreen-laptop",
-      "name": "Lenovo ThinkBook 14 Gen 4 14\" 2-in-1 Touchscreen Laptop",
-      "brand": "Lenovo",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student"
-      ],
-      "budgetTier": "over1500",
-      "price": 1699.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 7 155U",
-        "ram": "16GB RAM",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 87,
-      "aiRationale": "Ce ThinkBook 14 2-en-1 est optimisé pour l'IA avec son processeur Intel Core Ultra 7, offrant une bonne performance pour le travail et les études. La polyvalence du 2-en-1 est un atout majeur.",
-      "url": "https://www.bestbuy.ca/en-ca/product/lenovo-thinkbook-14-gen-4-14-2-in-1-touchscreen-laptop-intel-core-ultra-7-155u-16gb-ram-512gb-ssd-windows-11-pro-21mx000gus/18168397?ref=shopcompy",
-      "imageUrl": "https://imgs.search.brave.com/04f6xkHsOudAuwp_hf1b1JDG5weqb9CZ0jPcGCHQg8U/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tdWx0/aW1lZGlhLmJieWNh/c3RhdGljLmNhL211/bHRpbWVkaWEvcHJv/ZHVjdHMvNTV4NTUv/MTgxLzE4MTY4LzE4/MTY4Mzk3LmpwZWc",
-      "source": "bestbuy",
-      "addedAt": "2026-03-30T11:04:43.444Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
-    },
-    {
-      "id": "dell-dell-g16-7630",
-      "name": "Dell G16 7630",
+      "id": "bestbuy-dell-14-plus-2-in-1-touchscreen-copilot-pc-laptop-midnight-b",
+      "name": "Dell 14\" Plus 2-in-1 Touchscreen Copilot+ PC Laptop - Midnight Blue",
       "brand": "Dell",
       "category": "laptop",
       "profiles": [
-        "gaming",
-        "work"
+        "work",
+        "student",
+        "creative"
       ],
       "budgetTier": "over1500",
-      "price": 1799.99,
+      "price": 1599.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "Intel Core i9-13900HX",
-        "display": "16\" QHD+ (2560 x 1600) 165Hz",
-        "gpu": "NVIDIA GeForce RTX 4070",
-        "ram": "32GB DDR5",
-        "storage": "1TB PCIe NVMe SSD"
+        "cpu": "AMD Ryzen AI 7 350",
+        "ram": "16GB RAM",
+        "storage": "1TB SSD"
       },
       "aiScore": 87,
-      "aiRationale": "Un portable de gaming puissant avec un grand écran QHD, parfait pour le jeu et le travail créatif. Un bon investissement pour ceux qui cherchent la performance.",
-      "url": "https://www.dell.com/fr-ca/shop/deals/pc-gaming-deals?dgc=",
+      "aiRationale": "Ce Dell 2-en-1 avec un processeur AMD Ryzen AI 7 est une machine performante pour la productivité et les tâches créatives. Son format polyvalent est un atout pour les étudiants et les professionnels.",
+      "url": "https://www.bestbuy.ca/en-ca/product/dell-14-plus-2-in-1-touchscreen-copilot-pc-laptop-midnight-blue-amd-ryzen-ai-7-350-16gb-ram-1tb-ssd/19333057?ref=shopcompy",
       "imageUrl": "",
-      "source": "dell",
-      "addedAt": "2026-03-30T11:06:57.692Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "source": "bestbuy",
+      "addedAt": "2026-03-30T11:05:02.053Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-argente-m4",
@@ -2110,37 +1726,34 @@
       "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-28T19:36:57.331Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "bestbuy-asus-zenbook-14-lightweight-laptop-2025",
-      "name": "ASUS ZenBook 14 Lightweight Laptop (2025)",
-      "brand": "ASUS",
-      "category": "laptop",
+      "id": "bestbuy-macbook-air-de-13-6-po-avec-touch-id-d-apple-2025",
+      "name": "MacBook Air de 13,6 po avec Touch ID d'Apple (2025)",
+      "brand": "Apple",
+      "category": "apple",
       "profiles": [
         "work",
         "student",
-        "basic"
+        "creative"
       ],
       "budgetTier": "over1500",
-      "price": 1599.99,
+      "price": 1899.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "Intel Core Ultra 5",
-        "battery": "up to 18 hours",
-        "display": "14” OLED Touchscreen Display",
-        "gpu": "Intel Arc Graphic",
-        "ram": "16GB",
-        "storage": "512GB SSD"
+        "cpu": "Apple M4",
+        "ram": "16 Go",
+        "storage": "256 Go SSD"
       },
       "aiScore": 86,
-      "aiRationale": "Léger et élégant, ce Zenbook 14 avec son écran OLED et son Intel Core Ultra 5 est parfait pour la mobilité et l'efficacité. La longue autonomie est un gros plus pour les étudiants et les professionnels.",
-      "url": "https://www.bestbuy.ca/en-ca/product/asus-zenbook-14-lightweight-laptop-2025-14-oled-touchscreen-display-intel-core-ultra-5-cpu-intel-arc-graphic-16gb-512gb-ssd-long-battery-life-ux3405ca-ds51t-ca/19186518?ref=shopcompy",
-      "imageUrl": "https://imgs.search.brave.com/A38TWFyFnZspvJCuUzaIVHx62gvqPeJx5Kh34IaNB6Q/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tdWx0/aW1lZGlhLmJieWNh/c3RhdGljLmNhL211/bHRpbWVkaWEvcHJv/ZHVjdHMvNTV4NTUv/MTkxLzE5MTg2LzE5/MTg2NTE4LmpwZWc",
+      "aiRationale": "Ce MacBook Air M4 de 13,6 po est un excellent compagnon pour les études et le travail, avec une puce M4 performante et 16 Go de RAM. Le SSD de 256 Go est le seul bémol.",
+      "url": "https://www.bestbuy.ca/fr-ca/produit/macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-minuit-m4-d-apple-ram-16-go-ssd-512-go-anglais/19205141?ref=shopcompy",
+      "imageUrl": "",
       "source": "bestbuy",
-      "addedAt": "2026-03-30T11:04:43.444Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "addedAt": "2026-03-30T11:05:08.388Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "dell-moniteur-central-usb-c-dell-ultrasharp-24-u2424he",
@@ -2168,34 +1781,7 @@
       "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2424he/pdp/ultrasharp-u2424he-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=540&fmt=jpg?fmt=png&wid=400&hei=400",
       "source": "dell",
       "addedAt": "2026-03-29T20:56:27.842Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
-    },
-    {
-      "id": "staples-acer-ordinateur-de-bureau-tower-18l-intel-core-i5-14400-ssd-",
-      "name": "Acer - Ordinateur de bureau Tower 18L - Intel Core i5-14400 - SSD 1 To - 16 Go RAM - Windows 11",
-      "brand": "Acer",
-      "category": "desktop",
-      "profiles": [
-        "work",
-        "student",
-        "basic"
-      ],
-      "budgetTier": "900to1500",
-      "price": 929.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core i5-14400",
-        "ram": "16 Go",
-        "storage": "1 To SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un excellent rapport qualité-prix pour un ordinateur de bureau avec un processeur Intel de 14e génération et un SSD de 1 To. Parfait pour le travail et les études.",
-      "url": "https://www.bureauengros.com/products/3094667-fr-acer-ordinateur-de-bureau-tower-18l-intel-core-i5-14400-ssd-1-to-16-go-ram-windows-11",
-      "imageUrl": "",
-      "source": "staples",
-      "addedAt": "2026-03-28T19:39:02.486Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "hp-victus-15-fa2040ca-ordinateur-portable-de-jeu-geforce-rtx-40",
@@ -2223,7 +1809,34 @@
       "imageUrl": "",
       "source": "hp",
       "addedAt": "2026-03-28T19:40:11.979Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "staples-acer-ordinateur-de-bureau-tower-18l-intel-core-i5-14400-ssd-",
+      "name": "Acer - Ordinateur de bureau Tower 18L - Intel Core i5-14400 - SSD 1 To - 16 Go RAM - Windows 11",
+      "brand": "Acer",
+      "category": "desktop",
+      "profiles": [
+        "work",
+        "student",
+        "basic"
+      ],
+      "budgetTier": "900to1500",
+      "price": 929.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core i5-14400",
+        "ram": "16 Go",
+        "storage": "1 To SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un excellent rapport qualité-prix pour un ordinateur de bureau avec un processeur Intel de 14e génération et un SSD de 1 To. Parfait pour le travail et les études.",
+      "url": "https://www.bureauengros.com/products/3094667-fr-acer-ordinateur-de-bureau-tower-18l-intel-core-i5-14400-ssd-1-to-16-go-ram-windows-11",
+      "imageUrl": "",
+      "source": "staples",
+      "addedAt": "2026-03-28T19:39:02.486Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "walmart-hp-victus-15-fb2009ca-15-6-inch-gaming-laptop-16gb-ram-512gb",
@@ -2250,61 +1863,35 @@
       "imageUrl": "",
       "source": "walmart",
       "addedAt": "2026-03-28T19:40:22.741Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "microsoft-surface-laptop-copilot-pc-remise-a-neuf-certifiee",
-      "name": "Surface Laptop, Copilot+ PC (remise à neuf certifiée)",
-      "brand": "Microsoft Surface",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1600,
-      "originalPrice": 2000,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "Snapdragon X Elite",
-        "ram": "16GB",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un Surface Laptop remis à neuf avec un processeur Snapdragon X Elite, c'est une excellente affaire pour un PC Copilot+. Performance et autonomie au rendez-vous!",
-      "url": "https://www.microsoft.com/fr-ca/d/surface-laptop-copilot-pc-remise-a-neuf-certifiee/8v7gkbzd5v58",
-      "imageUrl": "",
-      "source": "microsoft",
-      "addedAt": "2026-03-28T19:41:01.925Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
-    },
-    {
-      "id": "walmart-acer-ed270-x0-fhd-moniteur-de-jeu-incurve-27-pouces-1080p-fh",
-      "name": "Acer ED270 X0 FHD – Moniteur de jeu incurvé 27 pouces 1080P FHD, taux de rafraîchissement 200 Hz",
-      "brand": "Acer",
+      "id": "dell-moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de",
+      "name": "Moniteur central Thunderbolt™ Dell UltraSharp 27 - U2724DE",
+      "brand": "Dell",
       "category": "monitor",
       "profiles": [
-        "gaming"
+        "work",
+        "creative"
       ],
-      "budgetTier": "under500",
-      "price": 299.99,
+      "budgetTier": "500to900",
+      "price": 879.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
         "cpu": "N/A",
-        "panelType": "VA",
-        "resolution": "1920x1080",
+        "panelType": "IPS Black",
+        "resolution": "2560x1440",
         "size": "27\"",
         "storage": "N/A"
       },
       "aiScore": 85,
-      "aiRationale": "Pour les gamers avec un budget serré, un moniteur 27 pouces incurvé avec un taux de rafraîchissement de 200 Hz, c'est un excellent deal. Parfait pour une expérience de jeu fluide.",
-      "url": "https://www.walmart.ca/fr/ip/Acer-ED270-X0-FHD-Moniteur-de-jeu-incurv-27-pouces-1080P-FHD-taux-de-rafra-chissement-200-Hz-cran-large-sans-cadre-Zeroframe/64FL8SOG50LI?utm_source=",
-      "imageUrl": "",
-      "source": "walmart",
-      "addedAt": "2026-03-29T20:56:48.201Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "aiRationale": "Ce moniteur Dell UltraSharp 27 avec Thunderbolt est un excellent choix pour les professionnels et créatifs, offrant une résolution QHD et un panneau IPS Black pour une qualité d'image supérieure.",
+      "url": "https://www.dell.com/fr-ca/shop/moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de/apd/210-bksj/moniteurs-et-accessoires-des-moniteurs?dgc=",
+      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2724de/pdp/ultrasharp-u2724de-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=504&fmt=png-alpha?fmt=png&wid=400&hei=400",
+      "source": "dell",
+      "addedAt": "2026-03-29T20:56:21.086Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "bestbuy-hp-omnibook-7-17-touchscreen-laptop-glacier-silver-aluminium",
@@ -2332,7 +1919,61 @@
       "imageUrl": "",
       "source": "bestbuy",
       "addedAt": "2026-03-28T19:36:49.922Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "walmart-acer-ed270-x0-fhd-moniteur-de-jeu-incurve-27-pouces-1080p-fh",
+      "name": "Acer ED270 X0 FHD – Moniteur de jeu incurvé 27 pouces 1080P FHD, taux de rafraîchissement 200 Hz",
+      "brand": "Acer",
+      "category": "monitor",
+      "profiles": [
+        "gaming"
+      ],
+      "budgetTier": "under500",
+      "price": 299.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "VA",
+        "resolution": "1920x1080",
+        "size": "27\"",
+        "storage": "N/A"
+      },
+      "aiScore": 85,
+      "aiRationale": "Pour les gamers avec un budget serré, un moniteur 27 pouces incurvé avec un taux de rafraîchissement de 200 Hz, c'est un excellent deal. Parfait pour une expérience de jeu fluide.",
+      "url": "https://www.walmart.ca/fr/ip/Acer-ED270-X0-FHD-Moniteur-de-jeu-incurv-27-pouces-1080P-FHD-taux-de-rafra-chissement-200-Hz-cran-large-sans-cadre-Zeroframe/64FL8SOG50LI?utm_source=",
+      "imageUrl": "",
+      "source": "walmart",
+      "addedAt": "2026-03-29T20:56:48.201Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "microsoft-surface-laptop-copilot-pc-remise-a-neuf-certifiee",
+      "name": "Surface Laptop, Copilot+ PC (remise à neuf certifiée)",
+      "brand": "Microsoft Surface",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 1600,
+      "originalPrice": 2000,
+      "isOnSale": true,
+      "specs": {
+        "cpu": "Snapdragon X Elite",
+        "ram": "16GB",
+        "storage": "512GB SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un Surface Laptop remis à neuf avec un processeur Snapdragon X Elite, c'est une excellente affaire pour un PC Copilot+. Performance et autonomie au rendez-vous!",
+      "url": "https://www.microsoft.com/fr-ca/d/surface-laptop-copilot-pc-remise-a-neuf-certifiee/8v7gkbzd5v58",
+      "imageUrl": "",
+      "source": "microsoft",
+      "addedAt": "2026-03-28T19:41:01.925Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "microsoft-surface-laptop-copilot-pc-15-pouces",
@@ -2360,17 +2001,16 @@
       "imageUrl": "",
       "source": "microsoft",
       "addedAt": "2026-03-29T20:57:05.395Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
-      "id": "microsoft-station-d-accueil-surface-thunderbolt-4-dock",
-      "name": "Station d'accueil Surface Thunderbolt 4 Dock",
+      "id": "microsoft-station-d-accueil-surface-thunderbolt-4-dock-pour-l-entrepri",
+      "name": "Station d'accueil Surface Thunderbolt 4 Dock pour l'entreprise",
       "brand": "Microsoft Surface",
       "category": "dock",
       "profiles": [
         "work",
-        "creative",
-        "gaming"
+        "creative"
       ],
       "budgetTier": "under500",
       "price": 409.99,
@@ -2378,18 +2018,18 @@
       "isOnSale": false,
       "specs": {
         "cpu": "N/A",
-        "ports": "2x USB-C (avant), 2x USB-C (arrière), 2x 4K@60Hz display support",
+        "ports": "Thunderbolt 4, USB-A, HDMI, Ethernet",
         "powerDelivery": "Oui",
         "ram": "N/A",
         "storage": "N/A"
       },
       "aiScore": 85,
-      "aiRationale": "Une station d'accueil Thunderbolt 4 polyvalente, parfaite pour étendre les capacités de votre Surface. Idéale pour brancher plusieurs écrans 4K et tous vos périphériques.",
+      "aiRationale": "Cette station d'accueil Thunderbolt 4 est un excellent investissement pour les pros. Elle offre une connectivité complète et une alimentation fiable pour transformer votre Surface en poste de travail complet.",
       "url": "https://www.microsoft.com/fr-ca/d/surface-thunderbolt-4-dock-pour-lentreprise/8svnb0c8j1qw",
       "imageUrl": "",
       "source": "microsoft",
       "addedAt": "2026-03-29T20:57:03.964Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     },
     {
       "id": "costco-hp-ordinateur-portable-15-6-po-intel-core-5-225u-24-go-ram-1",
@@ -2416,7 +2056,226 @@
       "imageUrl": "",
       "source": "costco",
       "addedAt": "2026-03-28T19:38:54.732Z",
-      "lastVerified": "2026-03-30T11:07:59.094Z"
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "amazon-hp-15-6-inch-laptop-pc-amd-ryzen-7-7730u",
+      "name": "HP 15.6 inch Laptop PC, AMD Ryzen 7 7730U",
+      "brand": "HP",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "basic"
+      ],
+      "budgetTier": "900to1500",
+      "price": 1099.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "AMD Ryzen 7 7730U",
+        "ram": "16GB RAM",
+        "storage": "1TB SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un laptop HP avec un Ryzen 7 7730U et 16 Go de RAM, c'est une machine solide pour le travail et les études. Le 1 To de stockage, c'est un gros plus. Très bon deal pour le prix.",
+      "url": "https://www.amazon.ca/dp/B0F1MRPW86?tag=shopcompy-20",
+      "imageUrl": "",
+      "source": "amazon",
+      "addedAt": "2026-03-30T11:06:00.299Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "lenovo-ideacentre-mini-x-1l",
+      "name": "IdeaCentre Mini x (1L)",
+      "brand": "Lenovo",
+      "category": "desktop",
+      "profiles": [
+        "work",
+        "student",
+        "basic"
+      ],
+      "budgetTier": "900to1500",
+      "price": 1199.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Snapdragon X Plus",
+        "ram": "16GB LPDDR5X",
+        "storage": "1TB SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Ce mini PC avec Snapdragon X Plus offre une excellente performance et une efficacité énergétique. Idéal pour un setup minimaliste et puissant.",
+      "url": "https://www.lenovo.com/ca/en/p/desktops/ideacentre/ideacentre-mini-series/lenovo-ideacentre-mini-x-gen-10-snapdragon/91b6001put?clickid=",
+      "imageUrl": "https://p2-ofp.static.pub/ShareResource/na/products/ideacentre/400x300/lenovo-ideacentre-mini-vertical.png",
+      "source": "lenovo",
+      "addedAt": "2026-03-30T11:06:43.608Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "lenovo-station-d-accueil-kensington-thunderbolt-3-usb-c-double-4k-h",
+      "name": "Station d'accueil Kensington Thunderbolt 3/USB-C double 4K Hybride",
+      "brand": "Kensington",
+      "category": "dock",
+      "profiles": [
+        "work",
+        "creative"
+      ],
+      "budgetTier": "under500",
+      "price": 299.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "ports": "Thunderbolt 3, USB-C, Dual 4K",
+        "powerDelivery": "100W USB-C"
+      },
+      "aiScore": 85,
+      "aiRationale": "C'est une excellente station d'accueil hybride pour les pros qui ont besoin de flexibilité entre Thunderbolt 3 et USB-C, avec une bonne puissance de charge. Un choix solide!",
+      "url": "https://www.lenovo.com/ca/fr/p/accessories-and-software/docking/docking_thunderbolt-docks/78531215?clickid=",
+      "imageUrl": "https://p1-ofp.static.pub//medias/C57CD18C-95BD-4E4F-AF1F-CA9ACB196034_400x300_1759716653039.jpg",
+      "source": "lenovo",
+      "addedAt": "2026-03-30T11:06:50.326Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "bestbuy-samsung-galaxy-book5-360-15-6-touchscreen-laptop-grey-intel-",
+      "name": "Samsung Galaxy Book5 360 15.6\" Touchscreen Laptop - Grey (Intel Core Ultra 5-226V / 16GB RAM / 512GB SSD)",
+      "brand": "Samsung",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 1699.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core Ultra 5-226V",
+        "display": "15.6\" 3K Dynamic AMOLED 2x touchscreen",
+        "ram": "16GB RAM",
+        "refreshRate": "120Hz adaptive",
+        "storage": "512GB SSD"
+      },
+      "aiScore": 82,
+      "aiRationale": "Un excellent 2-en-1 avec un écran AMOLED magnifique et un processeur Intel Core Ultra. Idéal pour les étudiants et les professionnels qui veulent de la flexibilité.",
+      "url": "https://www.bestbuy.ca/en-ca/product/samsung-galaxy-book5-360-15-6-touchscreen-laptop-grey-intel-core-ultra-5-226v-16gb-ram-512gb-ssd-windows-11-home/19504040?ref=shopcompy",
+      "imageUrl": "",
+      "source": "bestbuy",
+      "addedAt": "2026-03-28T19:36:49.922Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "dell-ordinateur-de-bureau-dell-pro-max-tour-t2",
+      "name": "Ordinateur de bureau Dell Pro Max Tour T2",
+      "brand": "Dell",
+      "category": "desktop",
+      "profiles": [
+        "work",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 1634.3,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core i7-14700H",
+        "ram": "16GB DDR5",
+        "storage": "512GB NVMe SSD"
+      },
+      "aiScore": 82,
+      "aiRationale": "Un Dell Pro Max Tour T2 avec un i7 de 14e génération, c'est une machine puissante pour le travail ou la création. Le prix est justifié pour les performances offertes.",
+      "url": "https://www.dell.com/fr-ca/shop/ordinateurs-de-bureau-et-stations-de-travail/nouvel-ordinateur-de-bureau-dell-pro-max-tour-t2/spd/dell-pro-max-fct2250-desktop/xcto-fct2250-cafx?dgc=",
+      "imageUrl": "",
+      "source": "dell",
+      "addedAt": "2026-03-29T20:56:26.481Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "bestbuy-lenovo-thinkbook-14-gen-4-14-2-in-1-touchscreen-laptop-intel",
+      "name": "Lenovo ThinkBook 14 Gen 4 14\" 2-in-1 Touchscreen Laptop - (Intel Core Ultra 7 155U/16GB RAM/512GB SSD/Windows 11 Pro) - (21MX000GUS)",
+      "brand": "Lenovo",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 1699.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core Ultra 7 155U",
+        "display": "14\" 2-in-1 Touchscreen",
+        "ram": "16GB RAM",
+        "size": "14\"",
+        "storage": "512GB SSD"
+      },
+      "aiScore": 82,
+      "aiRationale": "Ce ThinkBook 2-en-1 avec un Core Ultra 7 est polyvalent et puissant, idéal pour les professionnels et les étudiants qui veulent la flexibilité d'un écran tactile. Une bonne option pour la productivité et les tâches AI.",
+      "url": "https://www.bestbuy.ca/en-ca/product/lenovo-thinkbook-14-gen-4-14-2-in-1-touchscreen-laptop-intel-core-ultra-7-155u-16gb-ram-512gb-ssd-windows-11-pro-21mx000gus/18168397?ref=shopcompy",
+      "imageUrl": "",
+      "source": "bestbuy",
+      "addedAt": "2026-03-29T20:53:45.592Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "amazon-hp-17-inch-laptop-pc-amd-ryzen-5-7430u",
+      "name": "HP 17 inch Laptop PC, AMD Ryzen 5 7430U",
+      "brand": "HP",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "basic"
+      ],
+      "budgetTier": "900to1500",
+      "price": 949.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "AMD Ryzen 5 7430U",
+        "ram": "16GB DDR4-3200",
+        "storage": "512GB SSD"
+      },
+      "aiScore": 82,
+      "aiRationale": "Ce laptop HP de 17 pouces avec un Ryzen 5 7430U est parfait pour ceux qui veulent un grand écran et de bonnes performances pour le travail ou les études. Un choix fiable et abordable.",
+      "url": "https://www.amazon.ca/dp/B0DVGWY41D?tag=shopcompy-20",
+      "imageUrl": "",
+      "source": "amazon",
+      "addedAt": "2026-03-30T11:06:00.299Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
+    },
+    {
+      "id": "bestbuy-macbook-pro-16-2-po-apple-aut-2023-noir-m3-pro-apple-ram-18-",
+      "name": "MacBook Pro 16,2 po Apple (aut. 2023) - Noir (M3 Pro Apple/RAM 18 Go/SSD 512 Go) - Français",
+      "brand": "Apple",
+      "category": "apple",
+      "profiles": [
+        "work",
+        "creative",
+        "gaming"
+      ],
+      "budgetTier": "over1500",
+      "price": 2499.99,
+      "originalPrice": 3249.99,
+      "isOnSale": true,
+      "specs": {
+        "cpu": "Apple M3 Pro",
+        "display": "Écran Liquid Retina XDR de 16,2 po",
+        "ram": "18 Go",
+        "storage": "512 Go SSD"
+      },
+      "aiScore": 80,
+      "aiRationale": "Même si c'est un modèle de l'automne 2023, le MacBook Pro M3 Pro reste une machine très performante, surtout avec cette réduction de prix. Un excellent choix pour les professionnels qui cherchent un bon deal.",
+      "url": "https://blogue.bestbuy.ca/ordinateurs-portables-et-tablettes/jeux-pour-pc/comparaison-rog-xbox-ally-ou-ally-x-asus?ref=shopcompy",
+      "imageUrl": "",
+      "source": "bestbuy",
+      "addedAt": "2026-03-28T19:36:57.331Z",
+      "lastVerified": "2026-03-30T11:08:17.410Z"
     }
   ]
 }
