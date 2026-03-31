@@ -110,7 +110,7 @@ export default function Header() {
             <Link href={`/${locale}`}
               className="flex items-center gap-2 font-bold text-lg hover:text-[var(--accent)] transition-colors text-[var(--text)]"
               style={{ whiteSpace: 'nowrap' }}>
-              <Image src="/images/compy-logo.png" alt="" width={32} height={32} className="shrink-0 compy-logo" />
+              <Image src="/images/compy-logo.png" alt="Shop Compy" width={32} height={32} className="shrink-0 compy-logo" />
               Shop Compy
             </Link>
 
@@ -132,7 +132,7 @@ export default function Header() {
               <ThemeToggle />
               <button
                 ref={burgerRef}
-                className="p-2.5 rounded-lg hover:bg-[var(--bg-card)] transition-colors"
+                className="p-2.5 rounded-lg hover:bg-[var(--bg-card)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
                 style={{ minWidth: '44px', minHeight: '44px' }}
                 onClick={() => (open ? closeMenu() : setOpen(true))}
                 aria-label="Menu"

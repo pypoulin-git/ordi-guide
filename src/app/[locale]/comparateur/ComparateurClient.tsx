@@ -477,7 +477,7 @@ export default function ComparateurClient() {
             </span>
             <span>{Math.round(progress)} %</span>
           </div>
-          <div className="h-2 rounded-full bg-[var(--border)]">
+          <div className="h-2 rounded-full bg-[var(--border)]" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
             <div className="h-2 rounded-full transition-all duration-500"
               style={{ width: `${progress}%`, background: 'var(--accent)' }} />
           </div>
@@ -492,17 +492,17 @@ export default function ComparateurClient() {
             </div>
 
             <div className="flex-1 min-w-0">
-              <h2 className="text-lg sm:text-xl font-bold mb-0.5 text-[var(--text)]">{currentStep.question}</h2>
+              <h2 id="quiz-question" className="text-lg sm:text-xl font-bold mb-0.5 text-[var(--text)]">{currentStep.question}</h2>
               {currentStep.hint && (
                 <p className="text-sm text-[var(--text-muted)]">{currentStep.hint}</p>
               )}
             </div>
           </div>
 
-          <div className="space-y-2.5 mt-4">
+          <div className="space-y-2.5 mt-4" role="group" aria-labelledby="quiz-question">
             {currentStep.options.map(opt => (
               <button key={opt.value} onClick={() => choose(opt.value)}
-                className="w-full text-left flex items-start gap-3 p-3 rounded-xl border-2 transition-all hover:border-[var(--accent)] hover:bg-[var(--accent-bg)]"
+                className="w-full text-left flex items-start gap-3 p-3 rounded-xl border-2 transition-all hover:border-[var(--accent)] hover:bg-[var(--accent-bg)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
                 style={{ borderColor: 'var(--border)', background: 'var(--input-bg)', minHeight: '44px' }}>
                 {opt.emoji && (
                   <span className="text-lg shrink-0 mt-0.5">{opt.emoji}</span>

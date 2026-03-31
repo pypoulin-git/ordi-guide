@@ -10,27 +10,27 @@ import type { ReactNode } from 'react'
 
 const CATEGORY_ICONS: Record<string, ReactNode> = {
   laptop: (
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30" aria-hidden="true">
       <rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="2" y1="20" x2="22" y2="20" /><line x1="12" y1="17" x2="12" y2="20" />
     </svg>
   ),
   desktop: (
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30" aria-hidden="true">
       <rect x="2" y="2" width="20" height="14" rx="2" /><line x1="8" y1="20" x2="16" y2="20" /><line x1="12" y1="16" x2="12" y2="20" />
     </svg>
   ),
   monitor: (
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30" aria-hidden="true">
       <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
     </svg>
   ),
   dock: (
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30" aria-hidden="true">
       <rect x="3" y="8" width="18" height="8" rx="2" /><circle cx="8" cy="12" r="1" /><circle cx="12" cy="12" r="1" /><line x1="16" y1="10" x2="18" y2="10" />
     </svg>
   ),
   apple: (
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30" aria-hidden="true">
       <rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="2" y1="20" x2="22" y2="20" /><line x1="12" y1="17" x2="12" y2="20" />
     </svg>
   ),
@@ -64,13 +64,15 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
               el.parentElement?.querySelector('.img-placeholder')?.classList.remove('hidden')
             }}
           />
-          <div className="img-placeholder hidden absolute inset-0 flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]">
+          <div className="img-placeholder hidden absolute inset-0 flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]"
+            role="img" aria-label={`${product.brand} ${product.name}`}>
             <CategoryIcon category={product.category} />
             <span className="text-xs opacity-40">{product.brand}</span>
           </div>
         </div>
       ) : (
-        <div className="bg-[var(--bg-subtle)] flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]" style={{ aspectRatio: '16 / 10' }}>
+        <div className="bg-[var(--bg-subtle)] flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]"
+          style={{ aspectRatio: '16 / 10' }} role="img" aria-label={`${product.brand} ${product.name}`}>
           <CategoryIcon category={product.category} />
           <span className="text-xs opacity-40">{product.brand}</span>
         </div>

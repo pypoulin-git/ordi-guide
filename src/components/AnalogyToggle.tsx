@@ -263,6 +263,8 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
       {/* Toast — fixed top-center, portal-style, never clipped */}
       {displayedToast && (
         <div
+          role="status"
+          aria-live="polite"
           className="fixed left-1/2 z-[9999]"
           style={{
             top: '5rem',

@@ -22,7 +22,7 @@ export default function CookieConsent() {
   if (!visible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-[var(--border)] bg-[var(--bg-card)]"
+    <div role="dialog" aria-label={c.cookieMessage} className="fixed bottom-0 left-0 right-0 z-50 border-t border-[var(--border)] bg-[var(--bg-card)]"
       style={{ backdropFilter: 'blur(12px)' }}>
       <div className="container py-4 flex flex-col sm:flex-row items-center gap-4">
         <p className="text-sm text-[var(--text-subtle)] flex-1">
@@ -31,13 +31,15 @@ export default function CookieConsent() {
         <div className="flex gap-3 shrink-0">
           <button
             onClick={() => handleChoice('refused')}
-            className="px-4 py-2 rounded-lg border-2 border-[var(--accent)] text-sm font-medium text-[var(--accent)] hover:bg-[var(--bg-subtle)] transition-colors"
+            className="px-4 py-2 rounded-lg border-2 border-[var(--accent)] text-sm font-medium text-[var(--accent)] hover:bg-[var(--bg-subtle)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+            style={{ minHeight: '44px' }}
           >
             {c.cookieRefuse}
           </button>
           <button
             onClick={() => handleChoice('accepted')}
-            className="px-4 py-2 rounded-lg border-2 border-[var(--accent)] bg-[var(--accent)] text-white text-sm font-medium hover:opacity-90 transition-opacity"
+            className="px-4 py-2 rounded-lg border-2 border-[var(--accent)] bg-[var(--accent)] text-white text-sm font-medium hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-white"
+            style={{ minHeight: '44px' }}
           >
             {c.cookieAccept}
           </button>

@@ -68,6 +68,8 @@ function TooltipBubble({ label, tip }: { label: string; tip: string }) {
           lineHeight: 1,
           flexShrink: 0,
         }}
+        role="button"
+        tabIndex={0}
         aria-label={`Info : ${label}`}
       >
         ?

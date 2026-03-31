@@ -88,7 +88,8 @@ export default function SearchBar() {
           onChange={e => setQuery(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && search()}
           placeholder={s.placeholder}
-          className="flex-1 px-4 py-3 rounded-xl outline-none transition-colors text-[var(--text)] placeholder:text-[var(--text-muted)]"
+          aria-label={s.placeholder}
+          className="flex-1 px-4 py-3 rounded-xl outline-none transition-colors text-[var(--text)] placeholder:text-[var(--text-muted)] focus:ring-2 focus:ring-[var(--accent)]"
           style={{ fontSize: '1rem' }}
           disabled={loading}
         />
@@ -137,7 +138,7 @@ export default function SearchBar() {
 
       {/* Result */}
       {result && (
-        <div className="mt-6 space-y-4">
+        <div className="mt-6 space-y-4" role="region" aria-live="polite" aria-label={s.recommendedSpecs}>
           {/* Answer */}
           <div className="card" style={{ border: '2px solid var(--accent)', padding: '1.5rem' }}>
             {arch && (

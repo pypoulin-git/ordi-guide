@@ -187,13 +187,14 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
       <div className="mb-6 space-y-4">
 
         {/* Profile pills — horizontal */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mr-1">
+        <fieldset className="flex flex-wrap items-center gap-2">
+          <legend className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mr-1">
             {cat.profileLabel}
-          </span>
+          </legend>
           {(Object.keys(PROFILE_LABELS) as ProfileTag[]).map(key => (
             <button key={key} onClick={() => toggle('profile', key)}
-              className="text-sm px-4 py-2 rounded-full font-medium transition-all"
+              aria-pressed={filters.profile === key}
+              className="text-sm px-4 py-2 rounded-full font-medium transition-all focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
               style={{
                 minHeight: '40px',
                 ...(filters.profile === key
@@ -203,13 +204,17 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
               {PROFILE_LABELS[key].label}
             </button>
           ))}
-        </div>
+        </fieldset>
 
         {/* Natural language search bar */}
-        <form onSubmit={handleSearchSubmit} className="relative">
+        <form onSubmit={handleSearchSubmit} className="relative" role="search">
           <Image src="/images/compy-logo.png" alt="" width={22} height={22}
-            className="absolute left-3.5 top-1/2 -translate-y-1/2 compy-logo" />
+            className="absolute left-3.5 top-1/2 -translate-y-1/2 compy-logo" aria-hidden="true" />
+          <label htmlFor="catalogue-search" className="sr-only">
+            {isFr ? 'Rechercher un produit' : 'Search for a product'}
+          </label>
           <input
+            id="catalogue-search"
             type="text"
             value={searchInput}
             onChange={e => setSearchInput(e.target.value)}
@@ -238,7 +243,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
 
         {/* Search intent feedback */}
         {searchIntent && searchInput && (
-          <div className="flex items-start gap-2.5 rounded-lg px-4 py-3" style={{ background: 'var(--accent-bg)', border: '1px solid var(--border)' }}>
+          <div role="status" aria-live="polite" className="flex items-start gap-2.5 rounded-lg px-4 py-3" style={{ background: 'var(--accent-bg)', border: '1px solid var(--border)' }}>
             <Image src="/images/compy-logo.png" alt="" width={20} height={20} className="compy-logo shrink-0 mt-0.5" />
             <div className="flex-1 min-w-0">
               <p className="text-sm leading-relaxed text-[var(--text-subtle)]">
@@ -267,14 +272,15 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
           <div className="space-y-5">
 
             {/* Category filter — Computers group */}
-            <div>
-              <p className="font-bold mb-1.5 text-xs uppercase tracking-wider text-[var(--text)]">
+            <fieldset>
+              <legend className="font-bold mb-1.5 text-xs uppercase tracking-wider text-[var(--text)]">
                 {isFr ? 'Ordinateurs' : 'Computers'}
-              </p>
+              </legend>
               <div className="flex flex-col gap-2">
                 {COMPUTER_CATEGORIES.map(key => (
                   <button key={key} onClick={() => toggle('category', key)}
-                    className="text-sm px-3.5 py-2 rounded-lg font-medium transition-all text-left w-full"
+                    aria-pressed={filters.category === key}
+                    className="text-sm px-3.5 py-2 rounded-lg font-medium transition-all text-left w-full focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
                     style={{
                       minHeight: '44px',
                       ...(filters.category === key
@@ -285,17 +291,18 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
                   </button>
                 ))}
               </div>
-            </div>
+            </fieldset>
 
-            {/* Category filter — Accessories group */}
-            <div>
-              <p className="font-bold mb-1.5 text-xs uppercase tracking-wider text-[var(--text)]">
+            {/* Category filter — Monitors & Docks group */}
+            <fieldset>
+              <legend className="font-bold mb-1.5 text-xs uppercase tracking-wider text-[var(--text)]">
                 {isFr ? 'Écrans & Docks' : 'Monitors & Docks'}
-              </p>
+              </legend>
               <div className="flex flex-col gap-2">
                 {ACCESSORY_CATEGORIES.map(key => (
                   <button key={key} onClick={() => toggle('category', key)}
-                    className="text-sm px-3.5 py-2 rounded-lg font-medium transition-all text-left w-full"
+                    aria-pressed={filters.category === key}
+                    className="text-sm px-3.5 py-2 rounded-lg font-medium transition-all text-left w-full focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
                     style={{
                       minHeight: '44px',
                       ...(filters.category === key
@@ -306,7 +313,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
                   </button>
                 ))}
               </div>
-            </div>
+            </fieldset>
 
             {/* Budget filter */}
             <FilterGroup
@@ -413,7 +420,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
 
           {/* Results count + reset button */}
           <div className="flex items-center justify-between mb-4">
-            <p className="text-sm text-[var(--text-muted)]">
+            <p className="text-sm text-[var(--text-muted)]" role="status" aria-live="polite">
               {filtered.length} {filtered.length > 1 ? cat.productPlural : cat.productSingular}
               {hasFilters ? ` ${cat.matching}` : ` ${cat.total}`}
             </p>
@@ -501,14 +508,15 @@ function FilterGroup<T extends string>({ label, options, active, getLabel, onTog
   inline?: boolean
 }) {
   return (
-    <div>
-      <p className={`font-bold mb-1.5 text-[var(--text)] ${inline ? 'text-sm' : 'text-xs uppercase tracking-wider'}`}>
+    <fieldset>
+      <legend className={`font-bold mb-1.5 text-[var(--text)] ${inline ? 'text-sm' : 'text-xs uppercase tracking-wider'}`}>
         {label}
-      </p>
+      </legend>
       <div className={`flex ${inline ? 'flex-wrap' : 'flex-col'} gap-2`}>
         {options.map(key => (
           <button key={key} onClick={() => onToggle(key)}
-            className={`text-sm px-3.5 py-2 rounded-lg font-medium transition-all text-left ${inline ? '' : 'w-full'}`}
+            aria-pressed={active === key}
+            className={`text-sm px-3.5 py-2 rounded-lg font-medium transition-all text-left focus:outline-none focus:ring-2 focus:ring-[var(--accent)] ${inline ? '' : 'w-full'}`}
             style={{
               minHeight: '44px',
               ...(active === key
@@ -519,7 +527,7 @@ function FilterGroup<T extends string>({ label, options, active, getLabel, onTog
           </button>
         ))}
       </div>
-    </div>
+    </fieldset>
   )
 }
 

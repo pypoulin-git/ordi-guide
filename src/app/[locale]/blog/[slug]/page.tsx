@@ -71,7 +71,7 @@ export default function ArticlePage({ params }: Props) {
         <div className="relative w-full" style={{ height: '280px', maxHeight: '35vh' }}>
           <Image
             src={article.coverImage}
-            alt=""
+            alt={article.title}
             fill
             sizes="100vw"
             className="object-cover"

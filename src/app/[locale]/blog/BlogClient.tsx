@@ -342,7 +342,7 @@ function FeaturedCard({ article, locale, readLabel, size }: {
         {article.coverImage && (
           <Image
             src={article.coverImage}
-            alt=""
+            alt={article.title}
             fill
             sizes={isLarge ? '(max-width: 1024px) 100vw, 50vw' : '(max-width: 1024px) 100vw, 25vw'}
             className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -383,7 +383,7 @@ function CarouselCard({ article, locale, readLabel }: {
         <div className="relative h-36 overflow-hidden">
           <Image
             src={article.coverImage}
-            alt=""
+            alt={article.title}
             fill
             sizes="300px"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
