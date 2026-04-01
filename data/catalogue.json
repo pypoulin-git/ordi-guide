@@ -83,7 +83,7 @@
         "creative"
       ],
       "budgetTier": "900to1500",
-      "price": 898,
+      "price": 999.98,
       "originalPrice": 1099,
       "isOnSale": true,
       "specs": {
@@ -99,7 +99,7 @@
       "source": "walmart",
       "addedAt": "2026-04-01T00:36:29.792Z",
       "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "ai"
+      "priceSource": "manual"
     },
     {
       "id": "bestbuy-lenovo-thinkpad-l14p-gen-6-2025-laptop-16-core-intel-core-ul",
@@ -499,7 +499,7 @@
         "creative"
       ],
       "budgetTier": "over1500",
-      "price": 2299.99,
+      "price": 1649.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
@@ -515,7 +515,7 @@
       "source": "staples",
       "addedAt": "2026-04-01T00:35:12.672Z",
       "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "ai"
+      "priceSource": "manual"
     },
     {
       "id": "costco-apple-macbook-air-de-15-3-po-puce-m5-d-apple-16-go-ram-512-g",
@@ -890,36 +890,6 @@
       "priceSource": "page"
     },
     {
-      "id": "newegg-lg-ultragear-27-qhd-2k-1440p-180hz-curved-gaming-monitor-27g",
-      "name": "LG UltraGear 27\" QHD 2K 1440P 180Hz Curved Gaming Monitor 27GS60QC-B",
-      "brand": "LG Electronics",
-      "category": "monitor",
-      "profiles": [
-        "gaming",
-        "work",
-        "creative"
-      ],
-      "budgetTier": "under500",
-      "price": 238.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "VA",
-        "resolution": "2560x1440",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 88,
-      "aiRationale": "Un excellent moniteur de gaming 1440p à 180Hz pour un prix super abordable. Parfait pour les gamers qui veulent une belle image et de la fluidité sans se ruiner.",
-      "url": "https://www.newegg.ca/avgpc-gaming-desktop-pcs-geforce-rtx-5070-amd-ryzen-7-7800x3d-32gb-2tb-ssd-av-ww-r73d-5070-w-white/p/3D5-002N-000C6?lang=fr",
-      "imageUrl": "/images/products/newegg-lg-ultragear-27-qhd-2k-1440p-180hz-curved-gaming-moni.jpg",
-      "source": "newegg",
-      "addedAt": "2026-03-28T19:39:25.411Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "ai"
-    },
-    {
       "id": "walmart-lg-32-po-32ur550k-b-uhd-3840-x-2160-va-moniteur-noir",
       "name": "LG 32 Po 32UR550K-B UHD (3840 X 2160) VA Moniteur Noir",
       "brand": "LG",
@@ -930,7 +900,7 @@
         "gaming"
       ],
       "budgetTier": "500to900",
-      "price": 549.99,
+      "price": 337.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
@@ -947,38 +917,7 @@
       "source": "walmart",
       "addedAt": "2026-03-28T19:40:22.741Z",
       "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "dell-moniteur-dell",
-      "name": "Moniteur Dell",
-      "brand": "Dell",
-      "category": "monitor",
-      "profiles": [
-        "basic",
-        "work",
-        "student",
-        "gaming"
-      ],
-      "budgetTier": "under500",
-      "price": 139.99,
-      "originalPrice": 0,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "N/A",
-        "resolution": "N/A",
-        "size": "N/A",
-        "storage": "N/A"
-      },
-      "aiScore": 88,
-      "aiRationale": "Un moniteur Dell à 139.99$, c'est un prix imbattable pour un écran de marque. Même sans les specs complètes, c'est un excellent rapport qualité-prix pour un usage général ou un deuxième écran.",
-      "url": "https://www.dell.com/support/kbdoc/fr-lu/000202072/identification-des-voyants-de-diagnostic-de-la-station-d-accueil-cablee-dell",
-      "imageUrl": "/images/products/dell-moniteur-dell.jpg",
-      "source": "dell",
-      "addedAt": "2026-03-29T20:56:26.480Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "ai"
+      "priceSource": "manual"
     },
     {
       "id": "dell-moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de",
@@ -1040,35 +979,6 @@
       "priceSource": "page"
     },
     {
-      "id": "microsoft-surface-thunderbolt-4-dock",
-      "name": "Surface Thunderbolt 4 Dock",
-      "brand": "Microsoft",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "student",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "under500",
-      "price": 409.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "2x USB-C (avant), 2x USB-C (arrière), supporte 2x écrans 4K@60Hz",
-        "powerDelivery": "N/A"
-      },
-      "aiScore": 85,
-      "aiRationale": "Cette station d'accueil Thunderbolt 4 est excellente pour les utilisateurs exigeants, offrant une connectivité étendue et la prise en charge de deux écrans 4K. Un excellent ajout pour transformer votre Surface en poste de travail complet.",
-      "url": "https://www.microsoft.com/fr-ca/d/surface-thunderbolt-4-dock/8x7cgh1n2tb2",
-      "imageUrl": "/images/products/microsoft-surface-thunderbolt-4-dock.png",
-      "source": "microsoft",
-      "addedAt": "2026-03-28T19:40:58.577Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
       "id": "walmart-startech-com-usb-c-multiport-adapter-4k-60hz-hdmi-3-port-usb",
       "name": "StarTech.com USB-C Multiport Adapter, 4K 60Hz HDMI, 3-Port USB-A 3.2 Hub, 100W Power Delivery Passthrough, GbE",
       "brand": "StarTech.com",
@@ -1096,60 +1006,6 @@
       "priceSource": "ai"
     },
     {
-      "id": "microsoft-surface-thunderbolt-4-dock-pour-l-entreprise",
-      "name": "Surface Thunderbolt 4 Dock pour l'entreprise",
-      "brand": "Microsoft",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "creative"
-      ],
-      "budgetTier": "under500",
-      "price": 409.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "2x USB-C (avant), 2x USB-C (arrière), 2x USB-A, 1x Ethernet, 1x HDMI, 1x DisplayPort",
-        "powerDelivery": "Jusqu'à 96W"
-      },
-      "aiScore": 82,
-      "aiRationale": "Une station d'accueil Thunderbolt 4 complète pour transformer votre Surface en poste de travail. Très pratique pour la connectivité et la recharge.",
-      "url": "https://www.microsoft.com/fr-ca/d/surface-thunderbolt-4-dock-pour-lentreprise/8svnb0c8j1qw",
-      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
-      "source": "microsoft",
-      "addedAt": "2026-04-01T00:36:39.892Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "microsoft-station-d-accueil-surface-thunderbolt-4",
-      "name": "Station d'accueil Surface Thunderbolt 4",
-      "brand": "Microsoft Surface",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "creative"
-      ],
-      "budgetTier": "under500",
-      "price": 365.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "4x USB-C (Thunderbolt 4)",
-        "powerDelivery": "N/A"
-      },
-      "aiScore": 82,
-      "aiRationale": "Une station d'accueil Thunderbolt 4 de Surface, idéale pour étendre la connectivité de votre portable avec des vitesses de transfert rapides et la prise en charge de plusieurs moniteurs.",
-      "url": "https://www.microsoft.com/fr-fr/d/station-daccueil-surface-thunderbolt-4/8x7cgh1n2tb2",
-      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
-      "source": "microsoft",
-      "addedAt": "2026-04-01T00:36:44.651Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
       "id": "bestbuy-macbook-air-de-13-6-po-avec-touch-id-d-apple-2025-minuit-m4-",
       "name": "MacBook Air de 13,6 po avec Touch ID d'Apple (2025) - Minuit (M4 d'Apple/RAM 24 Go/SSD 512 Go) - Français",
       "brand": "Apple",
@@ -1160,7 +1016,7 @@
         "creative"
       ],
       "budgetTier": "over1500",
-      "price": 2799.99,
+      "price": 1389.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
@@ -1176,7 +1032,7 @@
       "source": "bestbuy",
       "addedAt": "2026-03-28T19:36:57.331Z",
       "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "ai"
+      "priceSource": "manual"
     },
     {
       "id": "staples-apple-15-po-macbook-air-puce-m4-ssd-512-go-memoire-unifiee-1",
@@ -1519,34 +1375,6 @@
       "imageUrl": "/images/products/bestbuy-hp-omnibook-7-17-touchscreen-laptop-glacier-silver-a.jpg",
       "source": "bestbuy",
       "addedAt": "2026-03-28T19:36:49.922Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "bestbuy-samsung-galaxy-book5-360-15-6-touchscreen-laptop",
-      "name": "Samsung Galaxy Book5 360 15.6\" Touchscreen Laptop",
-      "brand": "Samsung",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1999.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 5-226V",
-        "ram": "16GB",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un excellent 2-en-1 avec un écran AMOLED 3K et un processeur Intel Core Ultra 5, idéal pour la productivité et la création de contenu. Le taux de rafraîchissement de 120Hz est un atout.",
-      "url": "https://www.bestbuy.ca/en-ca/product/samsung-galaxy-book5-360-15-6-touchscreen-laptop-grey-intel-core-ultra-5-226v-16gb-ram-512gb-ssd-windows-11-home/19504040?ref=shopcompy",
-      "imageUrl": "/images/products/bestbuy-samsung-galaxy-book5-360-15-6-touchscreen-laptop.jpg",
-      "source": "bestbuy",
-      "addedAt": "2026-04-01T00:35:04.692Z",
       "lastVerified": "2026-04-01T00:36:44.660Z",
       "priceSource": "ai"
     },

@@ -67,6 +67,34 @@ export async function runAudit() {
     details: badPrices.length === 0 ? 'Tous OK' : `${badPrices.length} auto-retirés`,
   })
 
+  // ── Check 3b: Price sanity — detect obviously wrong AI prices ──
+  const priceSanity = [
+    { match: /macbook air/i, max: 2200, label: 'MacBook Air' },
+    { match: /chromebook/i, max: 1200, label: 'Chromebook' },
+    { match: /dock|adapter|hub|station d.accueil|concentrateur/i, max: 500, label: 'Dock/Adapter' },
+  ]
+  const insanePrices = []
+  for (const p of catalogue.products) {
+    if (p.priceSource !== 'ai') continue // only check AI prices
+    for (const rule of priceSanity) {
+      if (rule.match.test(p.name) && p.price > rule.max) {
+        insanePrices.push(p)
+        log(`  ⚠ Prix IA suspect (auto-retiré): "${p.name?.slice(0, 45)}" = ${p.price}$ (max ${rule.label}: ${rule.max}$)`)
+        break
+      }
+    }
+  }
+  if (insanePrices.length > 0) {
+    const insaneIds = new Set(insanePrices.map(p => p.id))
+    catalogue.products = catalogue.products.filter(p => !insaneIds.has(p.id))
+    log(`  → ${insanePrices.length} prix IA suspects retirés, ${catalogue.products.length} restants`)
+  }
+  checks.push({
+    name: 'priceSanity',
+    passed: true,
+    details: insanePrices.length === 0 ? 'Tous OK' : `${insanePrices.length} auto-retirés`,
+  })
+
   // ── Check 4: CPU whitelist ────────────────────────────────────
   // CPU whitelist — only applies to computers
   const NON_CPU_CATEGORIES = ['monitor', 'dock']
@@ -103,21 +131,33 @@ export async function runAudit() {
     details: badSpecs.length === 0 ? 'Tous OK' : `${badSpecs.length} auto-retirés`,
   })
 
-  // ── Check 6: Doublons ─────────────────────────────────────────
+  // ── Check 6: Doublons (exact + near-match, auto-remove) ───────
   const nameMap = new Map()
-  const dupes = []
-  for (const p of products) {
+  const dupeIds = new Set()
+  for (const p of catalogue.products) {
+    // Exact match key
     const key = p.name.toLowerCase().replace(/[^a-z0-9]/g, '')
-    if (nameMap.has(key)) dupes.push(p.name)
+    if (nameMap.has(key)) {
+      dupeIds.add(p.id)
+      log(`  ⚠ Doublon exact (auto-retiré): "${p.name?.slice(0, 50)}"`)
+    }
     nameMap.set(key, true)
+    // Near-match: same brand + first 30 chars of name
+    const nearKey = (p.brand || '').toLowerCase() + '-' + p.name.slice(0, 30).toLowerCase().replace(/[^a-z0-9]/g, '')
+    if (nameMap.has('near:' + nearKey) && !dupeIds.has(p.id)) {
+      dupeIds.add(p.id)
+      log(`  ⚠ Doublon proche (auto-retiré): "${p.name?.slice(0, 50)}"`)
+    }
+    if (!nameMap.has('near:' + nearKey)) nameMap.set('near:' + nearKey, true)
   }
-  if (dupes.length > 0) {
-    failures.push(`Doublons: ${dupes.length} (${dupes.slice(0, 2).join(', ')})`)
+  if (dupeIds.size > 0) {
+    catalogue.products = catalogue.products.filter(p => !dupeIds.has(p.id))
+    log(`  → ${dupeIds.size} doublons retirés, ${catalogue.products.length} restants`)
   }
   checks.push({
     name: 'duplicates',
-    passed: dupes.length === 0,
-    details: dupes.length === 0 ? 'Aucun doublon' : `${dupes.length} doublons`,
+    passed: true, // auto-cleaned
+    details: dupeIds.size === 0 ? 'Aucun doublon' : `${dupeIds.size} auto-retirés`,
   })
 
   // ── Check 7: URLs (échantillon — vérifier 10 URLs max) ───────
