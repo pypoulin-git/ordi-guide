@@ -115,10 +115,10 @@ export default function Header() {
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-0.5">
+            <nav className="hidden md:flex items-center gap-0.5" aria-label="Main navigation">
               {NAV.map(n => (
                 <Link key={n.href} href={n.href}
-                  className="px-3 py-2 rounded-lg font-medium transition-colors hover:text-[var(--accent)] hover:bg-[var(--accent-bg)] text-[var(--text-subtle)]"
+                  className="px-3 py-2 rounded-lg font-medium transition-colors hover:text-[var(--accent)] hover:bg-[var(--accent-bg)] text-[var(--text-subtle)] focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:outline-none"
                   style={{ fontSize: '0.875rem', whiteSpace: 'nowrap' }}>
                   {n.label}
                 </Link>

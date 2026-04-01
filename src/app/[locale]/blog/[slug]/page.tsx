@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { use } from 'react'
 import JsonLd from '@/components/JsonLd'
+import ReadingProgress from '@/components/ReadingProgress'
 import TechIllustration from '@/components/TechIllustration'
 import { getDictionary } from '@/i18n/get-dictionary'
 import type { Locale } from '@/i18n/config'
@@ -52,6 +53,7 @@ export default function ArticlePage({ params }: Props) {
   return (
     <>
       <JsonLd data={articleSchema} />
+      <ReadingProgress />
 
       {/* Breadcrumb */}
       <div className="bg-[var(--bg-subtle)] border-b border-[var(--border)]">

@@ -55,13 +55,17 @@ function TooltipBubble({ label, tip }: { label: string; tip: string }) {
       onMouseEnter={handleOpen}
       onMouseLeave={handleClose}
       onClick={() => { if (open) handleClose(); else handleOpen() }}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (open) handleClose(); else handleOpen() }
+        if (e.key === 'Escape' && open) { e.preventDefault(); handleClose() }
+      }}
     >
       <span
-        className="inline-flex items-center justify-center rounded-full cursor-help"
+        className="inline-flex items-center justify-center rounded-full cursor-help transition-colors hover:bg-[var(--accent-bg)] hover:text-[var(--accent)]"
         style={{
-          width: '1rem',
-          height: '1rem',
-          fontSize: '0.6rem',
+          width: '1.375rem',
+          height: '1.375rem',
+          fontSize: '0.65rem',
           fontWeight: 700,
           background: 'var(--bg-subtle)',
           color: 'var(--text-muted)',
@@ -71,6 +75,7 @@ function TooltipBubble({ label, tip }: { label: string; tip: string }) {
         role="button"
         tabIndex={0}
         aria-label={`Info : ${label}`}
+        aria-expanded={open}
       >
         ?
       </span>

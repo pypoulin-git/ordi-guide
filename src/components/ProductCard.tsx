@@ -5,6 +5,7 @@ import type { CatalogueProduct } from '@/types/catalogue'
 import { SOURCE_LABELS, PROFILE_LABELS } from '@/types/catalogue'
 import SpecTooltip from './SpecTooltip'
 import { useTranslation } from '@/i18n/DictionaryContext'
+import { useCompare } from '@/contexts/CompareContext'
 
 import type { ReactNode } from 'react'
 
@@ -44,19 +45,47 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
   const source = SOURCE_LABELS[product.source]
   const { t, locale } = useTranslation()
   const cat = t.catalogue
+  const cmp = t.compare
+  const { addItem, removeItem, isInCompare, items } = useCompare()
+  const inCompare = isInCompare(product.id)
 
   return (
-    <Link href={`/${locale}/catalogue/${product.id}`} className="card flex flex-col transition-all hover:-translate-y-0.5 hover:shadow-md" style={{ padding: 0, overflow: 'hidden', textDecoration: 'none', color: 'inherit', minWidth: 0 }}>
+    <Link href={`/${locale}/catalogue/${product.id}`} className="card card-interactive flex flex-col group" style={{ padding: 0, overflow: 'hidden', textDecoration: 'none', color: 'inherit', minWidth: 0 }}>
 
       {/* Product image */}
       {product.imageUrl ? (
-        <div className="relative bg-[var(--bg-subtle)]" style={{ aspectRatio: '16 / 10' }}>
+        <div className="relative bg-[var(--bg-subtle)] overflow-hidden" style={{ aspectRatio: '16 / 10' }}>
+          {/* Compare toggle */}
+          <button
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              if (inCompare) {
+                removeItem(product.id)
+              } else if (items.length < 3) {
+                addItem(product)
+              }
+            }}
+            className={`absolute top-2 right-2 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all shadow-md ${
+              inCompare
+                ? 'bg-[var(--accent)] text-white'
+                : 'bg-white/80 text-[var(--text-muted)] hover:bg-white hover:text-[var(--accent)]'
+            } ${!inCompare && items.length >= 3 ? 'opacity-40 cursor-not-allowed' : ''}`}
+            title={inCompare ? cmp.added : cmp.add}
+            aria-label={inCompare ? cmp.added : cmp.add}
+          >
+            {inCompare ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 12 2 2 4-4" /></svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>
+            )}
+          </button>
           <Image
             src={product.imageUrl}
             alt={`${product.brand} ${product.name}`}
             fill
             sizes="(max-width: 768px) 100vw, 400px"
-            className="object-contain p-3"
+            className="object-contain p-3 transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
             onError={(e) => {
               const el = e.currentTarget as HTMLImageElement
@@ -71,8 +100,33 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
           </div>
         </div>
       ) : (
-        <div className="bg-[var(--bg-subtle)] flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]"
+        <div className="relative bg-[var(--bg-subtle)] flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]"
           style={{ aspectRatio: '16 / 10' }} role="img" aria-label={`${product.brand} ${product.name}`}>
+          {/* Compare toggle */}
+          <button
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              if (inCompare) {
+                removeItem(product.id)
+              } else if (items.length < 3) {
+                addItem(product)
+              }
+            }}
+            className={`absolute top-2 right-2 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all shadow-md ${
+              inCompare
+                ? 'bg-[var(--accent)] text-white'
+                : 'bg-white/80 text-[var(--text-muted)] hover:bg-white hover:text-[var(--accent)]'
+            } ${!inCompare && items.length >= 3 ? 'opacity-40 cursor-not-allowed' : ''}`}
+            title={inCompare ? cmp.added : cmp.add}
+            aria-label={inCompare ? cmp.added : cmp.add}
+          >
+            {inCompare ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 12 2 2 4-4" /></svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>
+            )}
+          </button>
           <CategoryIcon category={product.category} />
           <span className="text-xs opacity-40">{product.brand}</span>
         </div>

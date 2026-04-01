@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -21,6 +21,16 @@ export const metadata: Metadata = {
     ],
     apple: '/favicon.svg',
   },
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Shop Compy',
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#2563eb',
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

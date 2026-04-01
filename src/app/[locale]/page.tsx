@@ -7,6 +7,7 @@ import { useAnalogy } from '@/contexts/AnalogyContext'
 import TechIllustration, { getAnalogyVariant } from '@/components/TechIllustration'
 import ActionCTA from '@/components/ActionCTA'
 import AdBanner from '@/components/AdBanner'
+import JsonLd from '@/components/JsonLd'
 import { useTranslation } from '@/i18n/DictionaryContext'
 
 export default function HomePage() {
@@ -50,25 +51,47 @@ export default function HomePage() {
     { q: t.home.faq4Q, a: t.home.faq4A },
   ]
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  }
+
   return (
     <>
+      <JsonLd data={faqSchema} />
       {/* -- HERO BANNIERE PLEINE LARGEUR -- */}
-      <section className="hero-home" style={{
-        background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 45%, #4338ca 100%)',
+      <section className="hero-home animate-hero-gradient" style={{
+        background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 25%, #4338ca 50%, #2563eb 75%, #1e3a8a 100%)',
+        backgroundSize: '200% 200%',
         padding: 'clamp(2.5rem, 6vw, 5rem) 0 clamp(3rem, 7vw, 6rem)',
         position: 'relative',
         overflow: 'hidden',
       }}>
-        {/* Formes decoratives */}
-        <div aria-hidden style={{
+        {/* Formes decoratives animees */}
+        <div aria-hidden="true" className="animate-float" style={{
           position: 'absolute', top: '-80px', right: '-80px',
           width: '400px', height: '400px', borderRadius: '50%',
-          background: 'rgba(255,255,255,0.04)',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 70%)',
         }} />
-        <div aria-hidden style={{
+        <div aria-hidden="true" className="animate-float" style={{
           position: 'absolute', bottom: '-60px', left: '10%',
           width: '260px', height: '260px', borderRadius: '50%',
-          background: 'rgba(255,255,255,0.04)',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 70%)',
+          animationDelay: '-3s',
+        }} />
+        <div aria-hidden="true" className="animate-float" style={{
+          position: 'absolute', top: '20%', left: '-40px',
+          width: '180px', height: '180px', borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 70%)',
+          animationDelay: '-1.5s',
         }} />
 
         <div className="container" style={{ position: 'relative' }}>
@@ -79,7 +102,7 @@ export default function HomePage() {
                 <span key={i}>{line}{i === 0 && <br />}</span>
               ))}
             </h1>
-            <p className="text-white/80 leading-relaxed mb-10"
+            <p className="text-white/90 leading-relaxed mb-10"
               style={{ fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', maxWidth: '36rem', margin: '0 auto 2.5rem' }}>
               {t.home.heroSubtitle.split('\n').map((line, i) => (
                 <span key={i}>{line}{i === 0 && <br />}</span>

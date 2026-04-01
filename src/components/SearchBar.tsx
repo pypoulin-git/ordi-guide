@@ -1,5 +1,5 @@
 'use client'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { SOURCE_LABELS, PROFILE_LABELS } from '@/types/catalogue'
 import type { CatalogueProduct } from '@/types/catalogue'
@@ -26,9 +26,53 @@ export default function SearchBar() {
   const [result, setResult] = useState<SearchResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [focused, setFocused] = useState(false)
+  const [recentSearches, setRecentSearches] = useState<string[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const { t, locale } = useTranslation()
   const s = t.search
+
+  const RECENT_KEY = 'recent_searches'
+  const MAX_RECENT = 5
+
+  // Load recent searches from localStorage
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(RECENT_KEY)
+      if (stored) {
+        const parsed = JSON.parse(stored)
+        if (Array.isArray(parsed)) setRecentSearches(parsed.slice(0, MAX_RECENT))
+      }
+    } catch { /* ignore */ }
+  }, [])
+
+  function saveRecentSearch(q: string) {
+    const trimmed = q.trim()
+    if (!trimmed || trimmed.length < 3) return
+    setRecentSearches(prev => {
+      const filtered = prev.filter(s => s.toLowerCase() !== trimmed.toLowerCase())
+      const updated = [trimmed, ...filtered].slice(0, MAX_RECENT)
+      try { localStorage.setItem(RECENT_KEY, JSON.stringify(updated)) } catch { /* ignore */ }
+      return updated
+    })
+  }
+
+  function clearHistory() {
+    setRecentSearches([])
+    try { localStorage.removeItem(RECENT_KEY) } catch { /* ignore */ }
+  }
+
+  // Close recent panel on outside click
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setFocused(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [])
 
   const ARCHETYPE_LABELS: Record<string, { label: string; color: string; desc: string }> = {
     minimalist: { label: s.archetypeMinimalist, color: '#7c3aed', desc: s.archetypeMinimalistDesc },
@@ -50,6 +94,8 @@ export default function SearchBar() {
     setLoading(true)
     setError('')
     setResult(null)
+    setFocused(false)
+    saveRecentSearch(text.trim())
 
     try {
       const res = await fetch('/api/search', {
@@ -78,7 +124,7 @@ export default function SearchBar() {
   const arch = result?.archetype ? ARCHETYPE_LABELS[result.archetype] : null
 
   return (
-    <div>
+    <div ref={containerRef}>
       {/* Search input */}
       <div className="flex gap-2">
         <input
@@ -87,6 +133,7 @@ export default function SearchBar() {
           value={query}
           onChange={e => setQuery(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && search()}
+          onFocus={() => setFocused(true)}
           placeholder={s.placeholder}
           aria-label={s.placeholder}
           className="flex-1 px-4 py-3 rounded-xl outline-none transition-colors text-[var(--text)] placeholder:text-[var(--text-muted)] focus:ring-2 focus:ring-[var(--accent)]"
@@ -102,8 +149,31 @@ export default function SearchBar() {
         </button>
       </div>
 
-      {/* Examples */}
-      {!result && !loading && (
+      {/* Recent searches */}
+      {!result && !loading && focused && recentSearches.length > 0 && (
+        <div className="mt-3 p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border)]">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-sm font-medium text-[var(--text-muted)]">{s.recentSearches}</span>
+            <button
+              onClick={clearHistory}
+              className="text-xs text-[var(--text-muted)] hover:text-[var(--warn)] transition-colors"
+            >
+              {s.clearHistory}
+            </button>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {recentSearches.map(rs => (
+              <button key={rs} onClick={() => useExample(rs)}
+                className="text-sm px-3 py-1 rounded-full transition-colors hover:bg-[var(--accent-bg)] bg-[var(--bg-subtle)] text-[var(--text-subtle)]">
+                {rs}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Examples — show when no recent searches or not focused */}
+      {!result && !loading && !(focused && recentSearches.length > 0) && (
         <div className="mt-3 flex flex-wrap gap-2">
           <span className="text-sm text-[var(--text-muted)]">{s.tryLabel}</span>
           {EXAMPLES.map(ex => (
@@ -131,7 +201,7 @@ export default function SearchBar() {
 
       {/* Error */}
       {error && (
-        <div className="mt-4 p-4 rounded-xl" style={{ background: 'var(--accent-bg)', color: 'var(--warn)', borderLeft: '4px solid var(--warn)' }}>
+        <div role="alert" className="mt-4 p-4 rounded-xl" style={{ background: 'var(--accent-bg)', color: 'var(--warn)', borderLeft: '4px solid var(--warn)' }}>
           {error}
         </div>
       )}

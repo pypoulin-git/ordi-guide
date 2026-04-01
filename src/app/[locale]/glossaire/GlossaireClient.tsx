@@ -34,9 +34,25 @@ export default function GlossaireClient() {
     })),
   }
 
+  const definedTermSetSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTermSet',
+    name: locale === 'fr' ? 'Glossaire informatique' : 'Computer Glossary',
+    description: locale === 'fr'
+      ? 'Lexique des termes informatiques expliques simplement'
+      : 'Computer terms explained in plain language',
+    hasDefinedTerm: terms.map(term => ({
+      '@type': 'DefinedTerm',
+      name: term.term,
+      description: term.def,
+      inDefinedTermSet: `https://shopcompy.ca/${locale}/glossaire`,
+    })),
+  }
+
   return (
     <>
       <JsonLd data={faqSchema} />
+      <JsonLd data={definedTermSetSchema} />
       {/* -- Hero -- */}
       <PageHero
         title={g.heroTitle}

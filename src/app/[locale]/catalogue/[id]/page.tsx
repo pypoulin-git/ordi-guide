@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { promises as fs } from 'fs'
 import path from 'path'
 import { notFound } from 'next/navigation'
@@ -84,6 +85,8 @@ export default function ProductPage({ params }: Props) {
   const source = SOURCE_LABELS[product.source]
   const similar = getSimilar(catalogue.products, product)
 
+  const siteUrl = 'https://shopcompy.ca'
+
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -101,9 +104,47 @@ export default function ProductPage({ params }: Props) {
     },
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: pt.breadcrumbHome,
+        item: `${siteUrl}/${locale}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: pt.breadcrumbCatalogue,
+        item: `${siteUrl}/${locale}/catalogue`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: product.name,
+        item: `${siteUrl}/${locale}/catalogue/${product.id}`,
+      },
+    ],
+  }
+
+  const buyUrl = product.isGiftPick ? product.url : buildAffiliateUrl(product.url, product.source)
+  const buyRel = getAffiliateRel(product.isGiftPick)
+
+  const specs = [
+    { label: pt.cpuLabel, key: 'cpu', value: product.specs.cpu },
+    { label: pt.ramLabel, key: 'ram', value: product.specs.ram },
+    { label: pt.storageLabel, key: 'storage', value: product.specs.storage },
+    { label: pt.gpuLabel, key: 'gpu', value: product.specs.gpu },
+    { label: pt.displayLabel, key: 'display', value: product.specs.display },
+    { label: pt.batteryLabel, key: 'battery', value: product.specs.battery },
+  ].filter(s => s.value)
+
   return (
     <>
       <JsonLd data={productSchema} />
+      <JsonLd data={breadcrumbSchema} />
 
       {/* Breadcrumb */}
       <div className="bg-[var(--bg-subtle)] border-b border-[var(--border)]">
@@ -118,6 +159,33 @@ export default function ProductPage({ params }: Props) {
         </div>
       </div>
 
+      {/* Sticky price bar (appears on scroll) */}
+      <div
+        className="sticky top-0 z-30 border-b border-[var(--border)] bg-[var(--bg-card)] hidden lg:block"
+        style={{ backdropFilter: 'blur(12px)' }}
+      >
+        <div className="container max-w-4xl mx-auto py-2.5 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3 min-w-0">
+            <span className="text-sm font-medium text-[var(--text-muted)] shrink-0">{product.brand}</span>
+            <h2 className="text-sm font-bold text-[var(--text)] truncate">{product.name}</h2>
+          </div>
+          <div className="flex items-center gap-4 shrink-0">
+            <span className="text-lg font-bold text-[var(--text)]">
+              {product.price.toLocaleString('fr-CA')} $
+            </span>
+            <a
+              href={buyUrl}
+              target="_blank"
+              rel={buyRel}
+              className="btn-primary text-sm"
+              style={{ padding: '0.5rem 1rem' }}
+            >
+              {pt.viewAt.replace('{source}', source.label)}
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Main content */}
       <section className="section">
         <div className="container max-w-4xl mx-auto">
@@ -126,17 +194,22 @@ export default function ProductPage({ params }: Props) {
             {/* Left: details */}
             <div className="lg:col-span-2 space-y-6">
 
-              {/* Product image */}
+              {/* Product image — 480px height area with hover zoom */}
               {product.imageUrl && (
-                <div className="rounded-xl overflow-hidden bg-[var(--bg-subtle)] border border-[var(--border)]"
-                  style={{ aspectRatio: '16 / 10' }}>
-                  <img
-                    src={product.imageUrl}
-                    alt={`${product.brand} ${product.name}`}
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-contain p-6"
-                  />
+                <div
+                  className="rounded-xl overflow-hidden bg-[var(--bg-subtle)] border border-[var(--border)] group"
+                  style={{ height: '480px' }}
+                >
+                  <div className="w-full h-full relative transition-transform duration-300 ease-out group-hover:scale-110 origin-center">
+                    <Image
+                      src={product.imageUrl}
+                      alt={`${product.brand} ${product.name}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 640px"
+                      className="object-contain p-6"
+                      priority
+                    />
+                  </div>
                 </div>
               )}
 
@@ -172,21 +245,21 @@ export default function ProductPage({ params }: Props) {
                 </p>
               </div>
 
-              {/* Specs table */}
+              {/* Specs table with alternating row backgrounds */}
               <div>
                 <h2 className="font-bold mb-4 text-[var(--text)]" style={{ fontSize: '1.125rem' }}>
                   {pt.specifications}
                 </h2>
-                <div className="divide-y divide-[var(--border)] border-t border-b border-[var(--border)]">
-                  {[
-                    { label: pt.cpuLabel, key: 'cpu', value: product.specs.cpu },
-                    { label: pt.ramLabel, key: 'ram', value: product.specs.ram },
-                    { label: pt.storageLabel, key: 'storage', value: product.specs.storage },
-                    { label: pt.gpuLabel, key: 'gpu', value: product.specs.gpu },
-                    { label: pt.displayLabel, key: 'display', value: product.specs.display },
-                    { label: pt.batteryLabel, key: 'battery', value: product.specs.battery },
-                  ].filter(s => s.value).map(s => (
-                    <div key={s.label} className="flex items-center py-3 gap-4">
+                <div className="rounded-xl overflow-hidden border border-[var(--border)]">
+                  {specs.map((s, i) => (
+                    <div
+                      key={s.label}
+                      className="flex items-center py-3.5 px-4 gap-4"
+                      style={{
+                        backgroundColor: i % 2 === 0 ? 'var(--bg-subtle)' : 'transparent',
+                        borderBottom: i < specs.length - 1 ? '1px solid var(--border)' : 'none',
+                      }}
+                    >
                       <span className="text-sm font-medium shrink-0 inline-flex items-center gap-1.5 text-[var(--text)]" style={{ minWidth: '8rem' }}>
                         {s.label} <SpecTooltip specKey={s.key} />
                       </span>
@@ -236,8 +309,8 @@ export default function ProductPage({ params }: Props) {
                   </p>
                 </div>
 
-                <a href={product.isGiftPick ? product.url : buildAffiliateUrl(product.url, product.source)}
-                  target="_blank" rel={getAffiliateRel(product.isGiftPick)}
+                <a href={buyUrl}
+                  target="_blank" rel={buyRel}
                   className="btn-primary w-full justify-center mb-3"
                   style={{ padding: '0.875rem 1.5rem', fontSize: '1rem' }}>
                   {pt.viewAt.replace('{source}', source.label)}

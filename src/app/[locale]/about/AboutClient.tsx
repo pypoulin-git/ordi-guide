@@ -118,6 +118,64 @@ export default function AboutClient() {
         </div>
       </section>
 
+      {/* How we recommend */}
+      <section className="section">
+        <div className="container max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold mb-2 text-[var(--text)]">{a.methodTitle}</h2>
+          <p className="leading-relaxed mb-8 text-[var(--text-subtle)]">{a.methodSubtitle}</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* AI-Powered Analysis */}
+            <div className="card" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-3"
+                style={{ background: 'var(--accent-bg)' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93" /><path d="M8.24 9.93A4 4 0 0 1 12 2" /><path d="M12 22v-6" /><path d="M6 18h12" /><circle cx="12" cy="14" r="2" /><path d="M17 10h3" /><path d="M4 10h3" />
+                </svg>
+              </div>
+              <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{a.method1Title}</h3>
+              <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{a.method1Desc}</p>
+            </div>
+
+            {/* Real Prices */}
+            <div className="card" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-3"
+                style={{ background: '#dcfce715', color: 'var(--success)' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+              </div>
+              <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{a.method2Title}</h3>
+              <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{a.method2Desc}</p>
+            </div>
+
+            {/* No Pay-to-Play */}
+            <div className="card" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-3"
+                style={{ background: '#fef3c715', color: 'var(--warn)' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{a.method3Title}</h3>
+              <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{a.method3Desc}</p>
+            </div>
+
+            {/* Updated Weekly */}
+            <div className="card" style={{ padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem)' }}>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-3"
+                style={{ background: '#ede9fe15', color: '#7c3aed' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="23 4 23 10 17 10" /><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                </svg>
+              </div>
+              <h3 className="font-bold mb-1 text-[var(--text)]" style={{ fontSize: '1.0625rem' }}>{a.method4Title}</h3>
+              <p className="text-[var(--text-subtle)]" style={{ fontSize: '0.9375rem' }}>{a.method4Desc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Funding / Transparency */}
       <section className="section bg-[var(--bg-subtle)]">
         <div className="container max-w-3xl mx-auto">

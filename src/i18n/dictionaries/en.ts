@@ -31,6 +31,13 @@ const en: Dictionary = {
     helpTitle: 'Can\'t find what you\'re looking for?',
     helpComparator: 'Take the questionnaire',
     helpGuide: 'Read the full guide',
+    newsletter: 'Newsletter',
+    newsletterDesc: 'Get monthly deals and tips',
+    newsletterPlaceholder: 'Your email',
+    newsletterButton: 'Subscribe',
+    newsletterSuccess: 'Subscribed!',
+    manageCookies: 'Manage cookies',
+    socialGithub: 'GitHub',
   },
 
   // ── Home ─────────────────────────────────────────────────
@@ -215,6 +222,16 @@ const en: Dictionary = {
     ctaSubtitle: 'Let us help you make the right choice — simply, honestly.',
     ctaChoose: 'Help me choose →',
     ctaGuide: 'Read the guide',
+    methodTitle: 'How we recommend',
+    methodSubtitle: 'Our process is transparent, automated, and independent.',
+    method1Title: 'AI-Powered Analysis',
+    method1Desc: 'Our AI analyzes hundreds of products across Canadian retailers every week.',
+    method2Title: 'Verified Prices',
+    method2Desc: 'Prices are extracted directly from retailer pages, not estimated.',
+    method3Title: 'No Pay-to-Play',
+    method3Desc: 'Affiliate commissions never influence our recommendations.',
+    method4Title: 'Updated Weekly',
+    method4Desc: 'Our catalogue is refreshed automatically to reflect the current market.',
   },
 
   // ── Blog page ────────────────────────────────────────────
@@ -334,6 +351,8 @@ const en: Dictionary = {
     archetypeGeekDesc: 'Raw computing power for pros',
     archetypeDouchebag: 'The Show-Off',
     archetypeDouchebagDesc: 'Warning: unbalanced specs — big GPU but the rest doesn\'t keep up',
+    recentSearches: 'Recent searches',
+    clearHistory: 'Clear',
   },
 
   // ── Blog article page ───────────────────────────────────
@@ -387,8 +406,16 @@ const en: Dictionary = {
   // ── Cookie consent ──────────────────────────────────
   cookie: {
     cookieMessage: 'This site uses a partner ad spot that may place cookies.',
-    cookieAccept: 'Accept',
-    cookieRefuse: 'Decline',
+    cookieAccept: 'Accept all',
+    cookieRefuse: 'Decline all',
+    cookieManage: 'Save preferences',
+    cookieSettings: 'Cookie settings',
+    cookieEssential: 'Essential',
+    cookieEssentialDesc: 'Required for the site to function. Always active.',
+    cookieAnalytics: 'Analytics',
+    cookieAnalyticsDesc: 'Help us understand how the site is used.',
+    cookieAdvertising: 'Advertising',
+    cookieAdvertisingDesc: 'Allow us to show relevant ads.',
   },
 
   // ── Support expert ──────────────────────────────────
@@ -439,6 +466,18 @@ const en: Dictionary = {
   terms: {
     termsTitle: 'Terms of Service',
     termsLastUpdated: 'Last updated: March 2026',
+  },
+
+  // ── Compare ──────────────────────────────────────────
+  compare: {
+    button: 'Compare',
+    title: 'Comparison',
+    empty: 'Add products to compare',
+    remove: 'Remove',
+    clear: 'Clear all',
+    max: 'Maximum 3 products',
+    add: 'Add to comparison',
+    added: 'In comparison',
   },
 
   // ── Ads ────────────────────────────────────────────

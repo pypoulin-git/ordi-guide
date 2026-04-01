@@ -1,0 +1,16 @@
+{
+  "name": "Shop Compy",
+  "short_name": "Compy",
+  "description": "Your free bilingual computer buying guide",
+  "start_url": "/fr",
+  "display": "standalone",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/images/compy-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

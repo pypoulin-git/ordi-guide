@@ -9,6 +9,8 @@ import ScrollToTop from '@/components/ScrollToTop'
 import CookieConsent from '@/components/CookieConsent'
 import FundingToast from '@/components/FundingToast'
 import { AnalogyProvider } from '@/contexts/AnalogyContext'
+import { CompareProvider } from '@/contexts/CompareContext'
+import CompareDrawer from '@/components/CompareDrawer'
 import { BASE_URL } from '@/lib/constants'
 
 export async function generateStaticParams() {
@@ -66,12 +68,15 @@ export default async function LocaleLayout({
   return (
     <I18nProvider dictionary={dictionary} locale={locale as Locale}>
       <AnalogyProvider>
-        <Header />
-        <main id="main-content" className="flex-1">{children}</main>
-        <Footer />
-        <CookieConsent />
-        <FundingToast />
-        <ScrollToTop />
+        <CompareProvider>
+          <Header />
+          <main id="main-content" className="flex-1">{children}</main>
+          <Footer />
+          <CookieConsent />
+          <FundingToast />
+          <ScrollToTop />
+          <CompareDrawer />
+        </CompareProvider>
       </AnalogyProvider>
     </I18nProvider>
   )

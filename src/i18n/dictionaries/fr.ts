@@ -29,6 +29,13 @@ const fr = {
     helpTitle: 'Tu ne trouves pas ce que tu cherches ?',
     helpComparator: 'Faire le questionnaire',
     helpGuide: 'Lire le guide complet',
+    newsletter: 'Infolettre',
+    newsletterDesc: 'Recevez nos offres et conseils mensuels',
+    newsletterPlaceholder: 'Votre courriel',
+    newsletterButton: 'S\'abonner',
+    newsletterSuccess: 'Abonnement confirme !',
+    manageCookies: 'Gerer les temoins',
+    socialGithub: 'GitHub',
   },
 
   // ── Home ─────────────────────────────────────────────────
@@ -213,6 +220,16 @@ const fr = {
     ctaSubtitle: 'Laisse-nous t\'aider à faire le bon choix — simplement, honnêtement.',
     ctaChoose: 'M\'aider à choisir →',
     ctaGuide: 'Lire le guide',
+    methodTitle: 'Comment on recommande',
+    methodSubtitle: 'Notre processus est transparent, automatisé et indépendant.',
+    method1Title: 'Analyse IA',
+    method1Desc: 'Notre IA analyse des centaines de produits chez les détaillants canadiens chaque semaine.',
+    method2Title: 'Prix vérifiés',
+    method2Desc: 'Les prix sont extraits directement des pages détaillants, pas estimés.',
+    method3Title: 'Aucun passe-droit',
+    method3Desc: 'Les commissions d\'affiliation n\'influencent jamais nos recommandations.',
+    method4Title: 'Mis à jour chaque semaine',
+    method4Desc: 'Le catalogue est rafraîchi automatiquement pour refléter le marché actuel.',
   },
 
   // ── Blog page ────────────────────────────────────────────
@@ -332,6 +349,8 @@ const fr = {
     archetypeGeekDesc: 'Puissance de calcul brute pour les pros',
     archetypeDouchebag: 'Le Frimeur',
     archetypeDouchebagDesc: 'Attention : specs déséquilibrées — gros GPU mais le reste ne suit pas',
+    recentSearches: 'Recherches récentes',
+    clearHistory: 'Effacer',
   },
 
   // ── Blog article page ───────────────────────────────────
@@ -385,8 +404,16 @@ const fr = {
   // ── Cookie consent ──────────────────────────────────
   cookie: {
     cookieMessage: 'Ce site utilise un espace publicitaire qui peut placer des cookies.',
-    cookieAccept: 'Accepter',
-    cookieRefuse: 'Refuser',
+    cookieAccept: 'Tout accepter',
+    cookieRefuse: 'Tout refuser',
+    cookieManage: 'Enregistrer mes choix',
+    cookieSettings: 'Paramètres des cookies',
+    cookieEssential: 'Essentiels',
+    cookieEssentialDesc: 'Nécessaires au fonctionnement du site. Toujours actifs.',
+    cookieAnalytics: 'Analytiques',
+    cookieAnalyticsDesc: 'Nous aident à comprendre comment le site est utilisé.',
+    cookieAdvertising: 'Publicitaires',
+    cookieAdvertisingDesc: 'Permettent d\'afficher des annonces pertinentes.',
   },
 
   // ── Support expert ──────────────────────────────────
@@ -437,6 +464,18 @@ const fr = {
   terms: {
     termsTitle: 'Conditions d\u2019utilisation',
     termsLastUpdated: 'Dernière mise à jour : mars 2026',
+  },
+
+  // ── Compare ──────────────────────────────────────────
+  compare: {
+    button: 'Comparer',
+    title: 'Comparaison',
+    empty: 'Ajoute des produits pour comparer',
+    remove: 'Retirer',
+    clear: 'Tout retirer',
+    max: 'Maximum 3 produits',
+    add: 'Ajouter à la comparaison',
+    added: 'Dans la comparaison',
   },
 
   // ── Ads ────────────────────────────────────────────

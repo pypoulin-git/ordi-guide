@@ -89,7 +89,7 @@ export default function BlogClient() {
             {b.articleCount.replace('{count}', String(articles.length))}
           </div>
           <h1 className="text-2xl md:text-3xl font-bold text-white">{b.heroTitle}</h1>
-          <p className="text-sm mt-1 text-white/60 max-w-lg">{b.heroSubtitle}</p>
+          <p className="text-sm mt-1 text-white/80 max-w-lg">{b.heroSubtitle}</p>
         </div>
       </section>
 
