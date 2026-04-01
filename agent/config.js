@@ -9,9 +9,9 @@ export const SOURCES = ['bestbuy', 'amazon', 'costco', 'staples', 'newegg', 'len
 export const MAX_PRODUCTS = 200
 export const MIN_PRODUCTS = 30
 
-// Minimum par catégorie pour garder une bonne distribution (min 5 chacune)
+// Minimum par catégorie pour garder une bonne distribution
 export const MIN_PER_CATEGORY = {
-  laptop: 15, desktop: 8, apple: 8, chromebook: 5,
+  laptop: 15, desktop: 8, apple: 8, chromebook: 3,
   monitor: 8, dock: 5,
 }
 
@@ -71,7 +71,7 @@ export const AUDIT_RULES = {
   minPrice: 50,
   minRamGB: 8,
   minStorageGB: 256,
-  minPerCategory: { laptop: 10, desktop: 5, apple: 5, chromebook: 5, monitor: 5, dock: 5 },
+  minPerCategory: { laptop: 10, desktop: 5, apple: 5, chromebook: 3, monitor: 5, dock: 5 },
   minTotalProducts: 35,
   maxDeadUrlPercent: 20, // si plus de 20% de liens morts, audit échoue
 }

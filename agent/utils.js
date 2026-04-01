@@ -214,46 +214,149 @@ function checkAvailability(html) {
 /**
  * Extract price from raw HTML using common retailer patterns.
  * Returns a number or null.
+ * Strategy: extract ALL candidate prices, then pick the most likely product price.
  */
 export function extractPrice(html, source) {
   if (!html) return null
 
-  const patterns = [
-    // JSON-LD price (most reliable)
-    /"price"\s*:\s*"?(\d[\d,]*\.?\d*)"?/i,
-    // Common HTML patterns
-    /\$\s*(\d[\d,]*\.\d{2})/,
-    /prix[^<]*?(\d[\d,]*\.\d{2})/i,
-    /data-price="(\d[\d,]*\.?\d*)"/i,
-  ]
+  const candidates = []
 
-  // Source-specific patterns
-  if (source === 'bestbuy') {
-    patterns.unshift(/data-automation="price"[^>]*>.*?\$?\s*(\d[\d,]*\.\d{2})/is)
-  } else if (source === 'amazon') {
-    patterns.unshift(/class="a-price-whole">(\d[\d,]*)<.*?a-price-fraction">(\d{2})/is)
-  } else if (source === 'costco') {
-    // Costco uses specific price containers
-    patterns.unshift(/"yourPrice"\s*:\s*(\d[\d,]*\.?\d*)/i)
-    patterns.unshift(/"price"\s*:\s*(\d[\d,]*\.\d{2})/i)
-  } else if (source === 'walmart') {
-    patterns.unshift(/data-automation-id="price"[^>]*>.*?\$?\s*(\d[\d,]*\.\d{2})/is)
-    patterns.unshift(/"priceInfo".*?"currentPrice"\s*:\s*(\d[\d,]*\.?\d*)/is)
+  // ── 1. JSON-LD structured data (most reliable) ────────────
+  // Find Product schema specifically (not random "price" fields)
+  const jsonLdBlocks = html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)
+  for (const block of jsonLdBlocks) {
+    try {
+      const data = JSON.parse(block[1])
+      const items = Array.isArray(data) ? data : [data]
+      for (const item of items) {
+        // Direct Product schema
+        if (item['@type'] === 'Product' && item.offers) {
+          const offers = Array.isArray(item.offers) ? item.offers : [item.offers]
+          for (const offer of offers) {
+            const p = parseFloat(String(offer.price || offer.lowPrice || '').replace(/,/g, ''))
+            if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 10, source: 'jsonld-product' })
+          }
+        }
+        // Nested @graph
+        if (item['@graph']) {
+          for (const node of item['@graph']) {
+            if (node['@type'] === 'Product' && node.offers) {
+              const offers = Array.isArray(node.offers) ? node.offers : [node.offers]
+              for (const offer of offers) {
+                const p = parseFloat(String(offer.price || offer.lowPrice || '').replace(/,/g, ''))
+                if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 10, source: 'jsonld-graph' })
+              }
+            }
+          }
+        }
+      }
+    } catch { /* invalid JSON-LD, skip */ }
   }
 
-  for (const pat of patterns) {
-    const m = html.match(pat)
+  // ── 2. Source-specific patterns ────────────────────────────
+  if (source === 'amazon') {
+    const m = html.match(/class="a-price-whole">(\d[\d,]*)<.*?a-price-fraction">(\d{2})/is)
     if (m) {
-      // Handle amazon's split format (whole + fraction)
-      if (m[2] && source === 'amazon') {
-        const price = parseFloat(m[1].replace(/,/g, '') + '.' + m[2])
-        if (price > 30 && price < 10000) return price
-      }
-      const price = parseFloat(m[1].replace(/,/g, ''))
-      if (price > 30 && price < 10000) return price
+      const p = parseFloat(m[1].replace(/,/g, '') + '.' + m[2])
+      if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 9, source: 'amazon-dom' })
     }
   }
-  return null
+
+  if (source === 'bestbuy') {
+    // Best Buy Canada: look for the sale or regular price
+    const bbSale = html.match(/class="[^"]*price_FHDu[^"]*"[^>]*>\$?([\d,]+\.\d{2})/is)
+    if (bbSale) {
+      const p = parseFloat(bbSale[1].replace(/,/g, ''))
+      if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 9, source: 'bestbuy-class' })
+    }
+    const bbMeta = html.match(/data-automation="price"[^>]*>.*?\$?\s*(\d[\d,]*\.\d{2})/is)
+    if (bbMeta) {
+      const p = parseFloat(bbMeta[1].replace(/,/g, ''))
+      if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 8, source: 'bestbuy-auto' })
+    }
+  }
+
+  if (source === 'costco') {
+    // Costco: your price in JS data
+    const costcoPrice = html.match(/"yourPrice"\s*:\s*"?(\d[\d,]*\.?\d*)"?/i)
+    if (costcoPrice) {
+      const p = parseFloat(costcoPrice[1].replace(/,/g, ''))
+      if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 9, source: 'costco-yourPrice' })
+    }
+  }
+
+  if (source === 'walmart') {
+    const wmPrice = html.match(/"currentPrice"\s*:\s*(\d[\d,]*\.?\d*)/i)
+    if (wmPrice) {
+      const p = parseFloat(wmPrice[1].replace(/,/g, ''))
+      if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 9, source: 'walmart-current' })
+    }
+  }
+
+  if (source === 'staples') {
+    // Bureau en Gros / Staples Canada
+    const stPrice = html.match(/"price"\s*:\s*"?(\d[\d,]*\.\d{2})"?\s*,\s*"priceCurrency"/i)
+    if (stPrice) {
+      const p = parseFloat(stPrice[1].replace(/,/g, ''))
+      if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 9, source: 'staples-schema' })
+    }
+  }
+
+  if (source === 'dell') {
+    const dellPrice = html.match(/"dell_sale_price"\s*:\s*"?(\d[\d,]*\.?\d*)"?/i)
+      || html.match(/"price"\s*:\s*"?(\d[\d,]*\.?\d*)"?\s*,\s*"priceCurrency"\s*:\s*"CAD"/i)
+    if (dellPrice) {
+      const p = parseFloat(dellPrice[1].replace(/,/g, ''))
+      if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 9, source: 'dell-specific' })
+    }
+  }
+
+  if (source === 'lenovo') {
+    const lenPrice = html.match(/"finalPrice"\s*:\s*"?(\d[\d,]*\.?\d*)"?/i)
+      || html.match(/"price"\s*:\s*"?(\d[\d,]*\.?\d*)"?\s*,\s*"priceCurrency"/i)
+    if (lenPrice) {
+      const p = parseFloat(lenPrice[1].replace(/,/g, ''))
+      if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 9, source: 'lenovo-specific' })
+    }
+  }
+
+  if (source === 'hp') {
+    const hpPrice = html.match(/"price"\s*:\s*"?(\d[\d,]*\.?\d*)"?\s*,\s*"priceCurrency"/i)
+    if (hpPrice) {
+      const p = parseFloat(hpPrice[1].replace(/,/g, ''))
+      if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 9, source: 'hp-schema' })
+    }
+  }
+
+  if (source === 'microsoft') {
+    const msPrice = html.match(/"price"\s*:\s*"?(\d[\d,]*\.?\d*)"?\s*,\s*"priceCurrency"\s*:\s*"CAD"/i)
+    if (msPrice) {
+      const p = parseFloat(msPrice[1].replace(/,/g, ''))
+      if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 9, source: 'ms-schema' })
+    }
+  }
+
+  // ── 3. Generic HTML patterns (lower confidence) ───────────
+  const dataPrice = html.match(/data-price="(\d[\d,]*\.?\d*)"/i)
+  if (dataPrice) {
+    const p = parseFloat(dataPrice[1].replace(/,/g, ''))
+    if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 5, source: 'data-attr' })
+  }
+
+  // Match $X,XXX.XX patterns in visible text (not inside script/style tags)
+  const visibleHtml = html.replace(/<script[\s\S]*?<\/script>/gi, '').replace(/<style[\s\S]*?<\/style>/gi, '')
+  const dollarPrices = [...visibleHtml.matchAll(/\$\s*(\d[\d,]*\.\d{2})/g)]
+  for (const m of dollarPrices) {
+    const p = parseFloat(m[1].replace(/,/g, ''))
+    if (p > 50 && p < 10000) candidates.push({ price: p, confidence: 3, source: 'dollar-text' })
+  }
+
+  // ── Pick best candidate ───────────────────────────────────
+  if (candidates.length === 0) return null
+
+  // Sort by confidence (highest first), then by price (lowest first for same confidence)
+  candidates.sort((a, b) => b.confidence - a.confidence || a.price - b.price)
+  return candidates[0].price
 }
 
 /**

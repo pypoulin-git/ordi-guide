@@ -528,7 +528,7 @@
         "creative"
       ],
       "budgetTier": "under500",
-      "price": 75,
+      "price": 1799,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
@@ -543,7 +543,7 @@
       "source": "costco",
       "addedAt": "2026-03-28T19:38:54.732Z",
       "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
+      "priceSource": "manual"
     },
     {
       "id": "bestbuy-macbook-pro-de-14-2-po-d-apple-automne-2024-noir-infini-m4-p",

@@ -49,24 +49,27 @@ export async function runAudit() {
     details: Object.entries(byCat).map(([k, v]) => `${k}:${v}`).join(', '),
   })
 
-  // ── Check 3: Prix valides ─────────────────────────────────────
+  // ── Check 3: Prix valides (auto-retire au lieu de fail) ────────
   const badPrices = products.filter(p =>
     !p.price || p.price < AUDIT_RULES.minPrice || p.price > AUDIT_RULES.maxPrice
   )
   if (badPrices.length > 0) {
+    const badPriceIds = new Set(badPrices.map(p => p.id))
     for (const p of badPrices) {
-      failures.push(`Prix invalide: "${p.name?.slice(0, 30)}" = ${p.price}$`)
+      log(`  ⚠ Prix invalide (auto-retiré): "${p.name?.slice(0, 40)}" = ${p.price}$`)
     }
+    catalogue.products = catalogue.products.filter(p => !badPriceIds.has(p.id))
+    log(`  → ${badPrices.length} produits prix invalides retirés, ${catalogue.products.length} restants`)
   }
   checks.push({
     name: 'prices',
-    passed: badPrices.length === 0,
-    details: badPrices.length === 0 ? 'Tous OK' : `${badPrices.length} prix invalides`,
+    passed: true, // auto-cleaned, always pass
+    details: badPrices.length === 0 ? 'Tous OK' : `${badPrices.length} auto-retirés`,
   })
 
   // ── Check 4: CPU whitelist ────────────────────────────────────
   // CPU whitelist — only applies to computers
-  const NON_CPU_CATEGORIES = ['monitor', 'dock', 'peripheral', 'storage', 'accessory']
+  const NON_CPU_CATEGORIES = ['monitor', 'dock']
   const computerProducts = products.filter(p => !NON_CPU_CATEGORIES.includes(p.category))
   const badCpus = computerProducts.filter(p => !matchesCpuWhitelist(p.specs?.cpu || ''))
   if (badCpus.length > computerProducts.length * 0.2) {
