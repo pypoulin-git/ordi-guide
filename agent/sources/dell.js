@@ -1,38 +1,30 @@
 // ─── Source : Dell Canada ────────────────────────────────────────
-// SearXNG pour découverte + fetch page pour enrichissement.
+// SearXNG multi-query + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
+import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl, sleep } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
   // Laptops
-  'site:dell.com Latitude laptop canada 2025 2026',
-  'site:dell.com Inspiron ordinateur portable prix',
-  'site:dell.com XPS laptop ultrabook 2025',
-  // Gaming
-  'site:dell.com Alienware gaming laptop rtx 2025',
-  'site:dell.com Dell G16 G15 gaming laptop',
-  // Desktop
-  'site:dell.com OptiPlex desktop ordinateur bureau',
-  'site:dell.com desktop gaming Alienware Aurora',
-  // Monitors & docks
-  'site:dell.com monitor écran UltraSharp 4K 27 32',
-  'site:dell.com docking station WD22 WD19 thunderbolt',
-  // Deals
-  'dell.com/en-ca deals solde promotion ordinateur 2025',
-  'site:dell.com accessories clavier souris hub canada',
+  'Dell XPS 14 9440 laptop prix',
+  'Dell Inspiron 16 7640 laptop 2025',
+  'Dell Latitude 5550 laptop professionnel prix',
+  'Dell Alienware m16 R2 gaming laptop rtx',
+  // Desktops
+  'Dell Inspiron 3030 desktop tour prix',
+  'Alienware Aurora R16 gaming desktop rtx',
+  // Monitors
+  'Dell UltraSharp U2724D moniteur 27 QHD',
+  'Dell S2722QC moniteur 27 4K USB-C',
 ]
 
 export async function fetchDell() {
-  log('Dell — début du scan')
+  log('Dell — debut du scan')
   const allResults = []
 
   for (const query of SEARCH_QUERIES) {
     try {
-      const results = await withRetry(
-        () => searxSearch(query, { engines: 'google,bing' }),
-        `dell:${query.slice(0, 30)}`
-      )
+      const results = await searxSearchMulti('dell.com', query, { minResults: 2 })
       const filtered = results
         .filter(r => r.url?.includes('dell.com') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
@@ -46,9 +38,10 @@ export async function fetchDell() {
     } catch (err) {
       log(`  ✗ Dell query failed: ${query.slice(0, 40)} — ${err.message}`)
     }
+    await sleep(5000)
   }
 
-  // Dédupliquer par URL
+  // Dedupliquer par URL
   const seen = new Set()
   const unique = allResults.filter(r => {
     const key = r.url.split('?')[0]
@@ -57,9 +50,8 @@ export async function fetchDell() {
     return true
   })
 
-  log(`Dell — ${unique.length} résultats uniques, enrichissement pages...`)
+  log(`Dell — ${unique.length} resultats uniques, enrichissement pages...`)
 
-  // Enrichir avec le contenu réel des pages
   const enriched = await mapWithConcurrency(unique, async (r) => {
     const page = await fetchPage(r.url)
     if (!page) return { ...r, pageText: null, pagePrice: null }
@@ -91,7 +83,6 @@ function isProductUrl(url) {
 function cleanUrl(url) {
   try {
     const u = new URL(url)
-    // Remove tracking params
     u.searchParams.delete('ref')
     u.searchParams.delete('dgc')
     u.searchParams.delete('cid')

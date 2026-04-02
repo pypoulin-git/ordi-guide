@@ -1,39 +1,30 @@
 // ─── Source : HP Canada ──────────────────────────────────────────
-// SearXNG pour découverte + fetch page pour enrichissement.
+// SearXNG multi-query + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
+import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl, sleep } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
   // Laptops
-  'site:hp.com Pavilion laptop ordinateur portable 2025 2026',
-  'site:hp.com ProBook EliteBook laptop professionnel',
-  'site:hp.com Spectre Envy laptop ultrabook 2025',
-  // Gaming
-  'site:hp.com OMEN Victus gaming laptop rtx 2025',
-  // Desktop
-  'site:hp.com desktop ordinateur bureau Pavilion Pro',
-  'site:hp.com desktop gaming OMEN tower',
-  // Monitors & docks
-  'site:hp.com monitor écran 4K 27 32 pouces',
-  'site:hp.com docking station thunderbolt G5 USB-C',
-  // Accessories & peripherals
-  'site:hp.com accessories clavier souris webcam hub',
-  // Deals
-  'hp.com/ca deals solde promotion laptop ordinateur 2025',
-  'site:hp.com chromebook 2025 prix canada',
+  'HP Spectre x360 14 OLED laptop prix',
+  'HP Pavilion 15 laptop 2025 prix',
+  'HP EliteBook 840 G11 laptop professionnel prix',
+  'HP OMEN 16 gaming laptop rtx 4070 prix',
+  // Desktops
+  'HP Pavilion Desktop TP01 tour 2025 prix',
+  'HP All-in-One 27 tout-en-un 2025 prix',
+  // Monitors
+  'HP M27fd moniteur 27 QHD USB-C prix',
+  'HP X27q moniteur gaming 27 QHD 165Hz',
 ]
 
 export async function fetchHp() {
-  log('HP — début du scan')
+  log('HP — debut du scan')
   const allResults = []
 
   for (const query of SEARCH_QUERIES) {
     try {
-      const results = await withRetry(
-        () => searxSearch(query, { engines: 'google,bing' }),
-        `hp:${query.slice(0, 30)}`
-      )
+      const results = await searxSearchMulti('hp.com', query, { minResults: 2 })
       const filtered = results
         .filter(r => r.url?.includes('hp.com') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
@@ -47,9 +38,10 @@ export async function fetchHp() {
     } catch (err) {
       log(`  ✗ HP query failed: ${query.slice(0, 40)} — ${err.message}`)
     }
+    await sleep(5000)
   }
 
-  // Dédupliquer par URL
+  // Dedupliquer par URL
   const seen = new Set()
   const unique = allResults.filter(r => {
     const key = r.url.split('?')[0]
@@ -58,9 +50,8 @@ export async function fetchHp() {
     return true
   })
 
-  log(`HP — ${unique.length} résultats uniques, enrichissement pages...`)
+  log(`HP — ${unique.length} resultats uniques, enrichissement pages...`)
 
-  // Enrichir avec le contenu réel des pages
   const enriched = await mapWithConcurrency(unique, async (r) => {
     const page = await fetchPage(r.url)
     if (!page) return { ...r, pageText: null, pagePrice: null }
@@ -91,7 +82,6 @@ function isProductUrl(url) {
 function cleanUrl(url) {
   try {
     const u = new URL(url)
-    // Remove tracking params
     u.searchParams.delete('jumpid')
     u.searchParams.delete('ctrl')
     u.searchParams.delete('ref')

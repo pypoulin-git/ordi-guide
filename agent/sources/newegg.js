@@ -1,36 +1,30 @@
 // ─── Source : Newegg Canada ──────────────────────────────────────
-// SearXNG pour découverte + fetch page pour enrichissement.
+// SearXNG multi-query + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
+import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl, sleep } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
   // Laptops
-  'site:newegg.ca laptop ordinateur portable 2025 2026',
-  'site:newegg.ca laptop gaming rtx 4060 4070 2025',
-  'site:newegg.ca laptop intel core ultra i7 2025',
-  'site:newegg.ca laptop amd ryzen 7 9000 2025',
+  'laptop ASUS ROG Strix G16 2025 prix',
+  'laptop MSI Katana 15 rtx 4060 prix',
+  'laptop Lenovo Legion 5 rtx 4070 prix',
+  'laptop Acer Predator Helios Neo 16 2025',
   // Desktops
-  'site:newegg.ca desktop gaming pc rtx 5070 2025',
-  'site:newegg.ca desktop ordinateur bureau intel amd',
-  // Monitors & docks only (no peripherals/storage/accessories)
-  'site:newegg.ca monitor écran 27 32 pouces 4K',
-  'site:newegg.ca docking station usb-c thunderbolt',
-  // Deals
-  'newegg.ca deals promotions solde ordinateur canada 2025',
-  'site:newegg.ca chromebook 2025 prix',
+  'desktop gaming pc ASUS ROG Strix rtx 5070',
+  'desktop CyberPowerPC gaming tour rtx',
+  // Monitors
+  'moniteur LG UltraGear 27GP850 gaming 165hz',
+  'ecran Samsung Odyssey G5 32 QHD gaming',
 ]
 
 export async function fetchNewegg() {
-  log('Newegg — début du scan')
+  log('Newegg — debut du scan')
   const allResults = []
 
   for (const query of SEARCH_QUERIES) {
     try {
-      const results = await withRetry(
-        () => searxSearch(query, { engines: 'google,bing' }),
-        `newegg:${query.slice(0, 30)}`
-      )
+      const results = await searxSearchMulti('newegg.ca', query, { minResults: 2 })
       const filtered = results
         .filter(r => r.url?.includes('newegg.ca') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
@@ -44,9 +38,10 @@ export async function fetchNewegg() {
     } catch (err) {
       log(`  ✗ Newegg query failed: ${query.slice(0, 40)} — ${err.message}`)
     }
+    await sleep(5000)
   }
 
-  // Dédupliquer par URL
+  // Dedupliquer par URL
   const seen = new Set()
   const unique = allResults.filter(r => {
     const key = r.url.split('?')[0]
@@ -55,9 +50,8 @@ export async function fetchNewegg() {
     return true
   })
 
-  log(`Newegg — ${unique.length} résultats uniques, enrichissement pages...`)
+  log(`Newegg — ${unique.length} resultats uniques, enrichissement pages...`)
 
-  // Enrichir avec le contenu réel des pages
   const enriched = await mapWithConcurrency(unique, async (r) => {
     const page = await fetchPage(r.url)
     if (!page) return { ...r, pageText: null, pagePrice: null }
@@ -79,15 +73,14 @@ export async function fetchNewegg() {
 function isProductUrl(url) {
   // Reject global and promotions pages
   if (/\/(global|promotions)\//i.test(url)) return false
-  // Newegg product URLs: /p/XXXX or /Product/Product.aspx
-  return /newegg\.ca\/.*\/p\//i.test(url) ||
+  // Newegg product URLs: /p/XXXX (with or without category prefix) or /Product/Product.aspx
+  return /newegg\.ca\/(.*\/)?p\//i.test(url) ||
     /newegg\.ca\/Product/i.test(url)
 }
 
 function cleanUrl(url) {
   try {
     const u = new URL(url)
-    // Remove tracking params
     u.searchParams.delete('cm_sp')
     u.searchParams.delete('icid')
     u.searchParams.delete('ref')

@@ -1,27 +1,31 @@
 // ─── Source : Bureau en Gros (Staples Canada) ───────────────────
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
+import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl, sleep } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  'site:bureauengros.com laptop ordinateur portable',
-  'site:bureauengros.com desktop ordinateur bureau',
-  'site:bureauengros.com chromebook',
-  'site:bureauengros.com macbook apple',
-  'site:staples.ca laptop computer deal',
-  'bureauengros.com ordinateur solde promotion 2025',
+  // Laptops
+  'laptop HP ProBook 450 G11 prix',
+  'laptop Lenovo ThinkPad E14 2025 prix',
+  'MacBook Air M4 prix',
+  'laptop ASUS VivoBook 15 2025 prix',
+  // Desktops
+  'desktop HP Pro Tower 290 G9 prix',
+  'desktop Lenovo ThinkCentre M70q Tiny prix',
+  // Monitors
+  'moniteur Dell E2723HN 27 pouces prix',
+  // Chromebooks
+  'Chromebook Acer 314 prix',
 ]
 
 export async function fetchStaples() {
-  log('Bureau en Gros — début du scan')
+  log('Bureau en Gros — debut du scan')
   const allResults = []
 
   for (const query of SEARCH_QUERIES) {
     try {
-      const results = await withRetry(
-        () => searxSearch(query, { engines: 'google,bing' }),
-        `staples:${query.slice(0, 30)}`
-      )
+      // Search staples.ca only (bureauengros.com often redirects to staples.ca)
+      const results = await searxSearchMulti('staples.ca', query, { minResults: 2 })
       const filtered = results
         .filter(r => (r.url?.includes('bureauengros.com') || r.url?.includes('staples.ca')) && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
@@ -35,6 +39,7 @@ export async function fetchStaples() {
     } catch (err) {
       log(`  ✗ Staples query failed: ${query.slice(0, 40)} — ${err.message}`)
     }
+    await sleep(5000)
   }
 
   const seen = new Set()
@@ -44,7 +49,7 @@ export async function fetchStaples() {
     return true
   })
 
-  log(`Bureau en Gros — ${unique.length} résultats uniques, enrichissement pages...`)
+  log(`Bureau en Gros — ${unique.length} resultats uniques, enrichissement pages...`)
 
   const enriched = await mapWithConcurrency(unique, async (r) => {
     const page = await fetchPage(r.url)

@@ -1,33 +1,33 @@
 // ─── Source : Amazon Canada ──────────────────────────────────────
-// SearXNG + page enrichment. PA-API à intégrer quand affiliate approuvé.
+// SearXNG multi-query + page enrichment. PA-API a integrer quand affiliate approuve.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log } from '../utils.js'
+import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl, sleep } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  'site:amazon.ca laptop ordinateur portable intel core ultra 2025',
-  'site:amazon.ca laptop amd ryzen 7 8000',
-  'site:amazon.ca macbook air m4',
-  'site:amazon.ca macbook pro m4',
-  'site:amazon.ca desktop gaming rtx 4060',
-  'site:amazon.ca chromebook 2025',
-  'site:amazon.ca laptop deal solde ordinateur portable',
-  'site:amazon.ca laptop gaming rtx 4070 canada',
-  'amazon.ca best seller laptop 2025',
+  // Laptops
+  'laptop ASUS ZenBook 14 2025 prix',
+  'laptop HP Spectre x360 14 2025 prix',
+  'MacBook Air M4 prix',
+  'laptop gaming ASUS ROG Zephyrus G14 2025',
+  // Desktops
+  'desktop gaming pc rtx 4060 tour',
+  'iMac M4 prix',
+  // Monitors
+  'moniteur LG 27UK850 4K USB-C',
+  // Chromebooks
+  'Chromebook Acer 314 2025 prix',
 ]
 
 export async function fetchAmazon() {
-  log('Amazon — début du scan')
+  log('Amazon — debut du scan')
   const allResults = []
 
   for (const query of SEARCH_QUERIES) {
     try {
-      const results = await withRetry(
-        () => searxSearch(query, { engines: 'google,bing' }),
-        `amazon:${query.slice(0, 30)}`
-      )
+      const results = await searxSearchMulti('amazon.ca', query, { minResults: 2 })
       const filtered = results
-        .filter(r => r.url?.includes('amazon.ca') && isProductUrl(r.url))
+        .filter(r => r.url?.includes('amazon.ca') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
           title: r.title || '',
           url: cleanUrl(r.url),
@@ -39,8 +39,10 @@ export async function fetchAmazon() {
     } catch (err) {
       log(`  ✗ Amazon query failed: ${query.slice(0, 40)} — ${err.message}`)
     }
+    await sleep(5000)
   }
 
+  // Dedupliquer par ASIN
   const seen = new Set()
   const unique = allResults.filter(r => {
     const key = extractAsin(r.url) || r.url.split('?')[0]
@@ -49,37 +51,32 @@ export async function fetchAmazon() {
     return true
   })
 
-  log(`Amazon — ${unique.length} résultats uniques, enrichissement pages...`)
+  log(`Amazon — ${unique.length} resultats uniques, enrichissement pages...`)
 
   const enriched = await mapWithConcurrency(unique, async (r) => {
     const page = await fetchPage(r.url)
     if (!page) return { ...r, pageText: null, pagePrice: null }
-    // Filter out unavailable products
     if (!page.available) {
       log(`  ✗ Amazon indisponible : ${r.title.slice(0, 50)}`)
       return null
     }
     const pagePrice = extractPrice(page.html, 'amazon')
-    // Use page-extracted image if SearXNG didn't provide one
     const imageUrl = r.imageUrl || page.imageUrl || ''
     return { ...r, pageText: page.text, pagePrice, imageUrl }
   }, PAGE_FETCH_CONCURRENCY)
 
   const available = enriched.filter(Boolean)
   const withData = available.filter(r => r.pageText)
-  log(`Amazon — ${withData.length}/${unique.length} pages enrichies (${unique.length - available.length} indisponibles filtrés)`)
+  log(`Amazon — ${withData.length}/${unique.length} pages enrichies (${unique.length - available.length} indisponibles filtres)`)
   return available
 }
 
 function isProductUrl(url) {
-  // Prefer real product pages: /dp/ASIN or /gp/product/ASIN
-  // Also accept /s? search results pages (will be filtered by availability later)
-  // Reject category/browse/help/about pages
-  if (/amazon\.ca\/(dp|gp\/product)\/[A-Z0-9]{10}/i.test(url)) return true
-  // Reject non-product pages
-  if (/amazon\.ca\/(help|gp\/help|b\/|stores\/|s\?|hz\/)/i.test(url)) return false
-  // Accept product-like URLs with ASIN in path
-  if (/amazon\.ca\/[^/]+\/dp\/[A-Z0-9]{10}/i.test(url)) return true
+  // Reject non-product pages first (account for locale prefixes like /-/fr/)
+  if (/amazon\.ca\/((-\/\w+\/)?)(help|gp\/help|b\/|b\?|stores\/|s\?|hz\/)/i.test(url)) return false
+  // Accept any URL containing /dp/ASIN or /gp/product/ASIN anywhere in path
+  if (/\/dp\/[A-Z0-9]{10}/i.test(url) && url.includes('amazon.ca')) return true
+  if (/\/gp\/product\/[A-Z0-9]{10}/i.test(url) && url.includes('amazon.ca')) return true
   return false
 }
 
@@ -90,10 +87,9 @@ function extractAsin(url) {
 
 function cleanUrl(url) {
   try {
-    const u = new URL(url)
-    // Keep only the product path
     const asin = extractAsin(url)
     if (asin) return `https://www.amazon.ca/dp/${asin}`
+    const u = new URL(url)
     return u.origin + u.pathname
   } catch { return url }
 }

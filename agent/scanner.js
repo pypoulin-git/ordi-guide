@@ -49,7 +49,7 @@ export async function runScanner() {
       errors.push(`${name}: ${err.message}`)
     }
     // Delay between sources to avoid SearXNG rate limiting
-    if (i < sources.length - 1) await sleep(3000)
+    if (i < sources.length - 1) await sleep(10000)
   }
 
   const totalRaw = allResults.length

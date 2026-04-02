@@ -19,10 +19,51 @@ export async function searxSearch(query, options = {}) {
     pageno: String(options.page || 1),
   })
 
-  const res = await fetch(`${SEARXNG_URL}/search?${params}`)
+  const res = await fetch(`${SEARXNG_URL}/search?${params}`, {
+    signal: AbortSignal.timeout(15000),
+  })
   if (!res.ok) throw new Error(`SearXNG ${res.status}: ${res.statusText}`)
   const data = await res.json()
   return data.results || []
+}
+
+/**
+ * Multi-page search with domain filter fallback.
+ * 1. Try `site:domain query` on page 1 and 2
+ * 2. If < minResults product URLs found, try without `site:` and filter by domain
+ * Returns raw SearXNG results (caller applies isProductUrl).
+ */
+export async function searxSearchMulti(domain, query, options = {}) {
+  const allResults = []
+  const minResults = options.minResults || 3
+
+  // Try multiple engine groups — use whichever works
+  const engineGroups = ['brave,bing', 'qwant,mojeek', 'yandex,startpage', 'duckduckgo']
+
+  for (const engines of engineGroups) {
+    if (allResults.filter(r => r.url?.includes(domain)).length >= minResults) break
+
+    // Try domain-in-query first (more reliable)
+    try {
+      const r = await searxSearch(`${domain} ${query}`, { engines })
+      const matching = r.filter(r => r.url?.includes(domain))
+      if (matching.length > 0) {
+        allResults.push(...matching)
+        continue // this engine group worked, move on
+      }
+    } catch { /* ignore */ }
+
+    // Try site: operator as fallback
+    await sleep(2000)
+    try {
+      const r = await searxSearch(`site:${domain} ${query}`, { engines })
+      allResults.push(...r.filter(r => r.url?.includes(domain)))
+    } catch { /* ignore */ }
+
+    await sleep(2000)
+  }
+
+  return allResults
 }
 
 // ── Gemini ───────────────────────────────────────────────────────

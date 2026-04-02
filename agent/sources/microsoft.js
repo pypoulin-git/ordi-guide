@@ -1,38 +1,30 @@
 // ─── Source : Microsoft Store Canada ─────────────────────────────
-// SearXNG pour découverte + fetch page pour enrichissement.
+// SearXNG multi-query + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
+import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl, sleep } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  // Surface Pro
-  'site:microsoft.com Surface Pro tablet laptop 2025 2026',
-  'site:microsoft.com Surface Pro 10 11 prix canada',
-  // Surface Laptop
-  'site:microsoft.com Surface Laptop ordinateur portable 2025',
-  'site:microsoft.com Surface Laptop Go Studio prix',
-  // Surface accessories
-  'site:microsoft.com Surface accessories clavier stylet dock',
-  'site:microsoft.com Surface dock thunderbolt hub USB-C',
-  // Xbox accessories (gaming peripherals)
-  'site:microsoft.com Xbox manette controller accessoires',
+  // Laptops
+  'Microsoft Surface Pro 11 Copilot+ prix',
+  'Microsoft Surface Laptop 6 15 pouces prix',
+  'Microsoft Surface Laptop Go 3 prix',
+  'Microsoft Surface Laptop Studio 2 prix',
+  // Desktops
+  'Surface Copilot+ PC laptop Snapdragon prix',
   // Monitors & peripherals
-  'site:microsoft.com monitor écran ergonomic webcam',
-  // Deals
-  'microsoft.com/en-ca deals solde promotion Surface 2025',
-  'site:microsoft.com Copilot+ PC laptop Surface canada',
+  'Microsoft Ergonomic Keyboard clavier prix',
+  'Xbox Wireless Controller manette prix',
+  'Surface Dock 2 thunderbolt prix',
 ]
 
 export async function fetchMicrosoft() {
-  log('Microsoft — début du scan')
+  log('Microsoft — debut du scan')
   const allResults = []
 
   for (const query of SEARCH_QUERIES) {
     try {
-      const results = await withRetry(
-        () => searxSearch(query, { engines: 'google,bing' }),
-        `microsoft:${query.slice(0, 30)}`
-      )
+      const results = await searxSearchMulti('microsoft.com', query, { minResults: 2 })
       const filtered = results
         .filter(r => r.url?.includes('microsoft.com') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
@@ -46,9 +38,10 @@ export async function fetchMicrosoft() {
     } catch (err) {
       log(`  ✗ Microsoft query failed: ${query.slice(0, 40)} — ${err.message}`)
     }
+    await sleep(5000)
   }
 
-  // Dédupliquer par URL
+  // Dedupliquer par URL
   const seen = new Set()
   const unique = allResults.filter(r => {
     const key = r.url.split('?')[0]
@@ -57,9 +50,8 @@ export async function fetchMicrosoft() {
     return true
   })
 
-  log(`Microsoft — ${unique.length} résultats uniques, enrichissement pages...`)
+  log(`Microsoft — ${unique.length} resultats uniques, enrichissement pages...`)
 
-  // Enrichir avec le contenu réel des pages
   const enriched = await mapWithConcurrency(unique, async (r) => {
     const page = await fetchPage(r.url)
     if (!page) return { ...r, pageText: null, pagePrice: null }
@@ -82,8 +74,8 @@ function isProductUrl(url) {
   // Reject store browse, collections, and general shop pages
   if (/\/store\/b\//i.test(url)) return false
   if (/\/store\/collections\//i.test(url)) return false
-  if (/\/en-ca\/shop\/$/i.test(url) || /\/en-ca\/shop\?/i.test(url)) return false
-  if (/\/en-ca\/shop\/[^/]*$/i.test(url) && !/\/en-ca\/shop\/\w+-\w+.*\d/i.test(url)) return false
+  if (/\/[a-z]{2}-[a-z]{2}\/shop\/?(\?|$)/i.test(url)) return false
+  if (/\/[a-z]{2}-[a-z]{2}\/shop\/[^/]*$/i.test(url) && !/\/[a-z]{2}-[a-z]{2}\/shop\/\w+-\w+.*\d/i.test(url)) return false
   // Microsoft Store product URLs: /d/... or /p/... or URLs containing "surface"
   return /microsoft\.com.*\/(d|p)\//i.test(url) ||
     /microsoft\.com.*surface/i.test(url)
@@ -92,7 +84,6 @@ function isProductUrl(url) {
 function cleanUrl(url) {
   try {
     const u = new URL(url)
-    // Remove tracking params
     u.searchParams.delete('icid')
     u.searchParams.delete('activetab')
     u.searchParams.delete('ef_id')

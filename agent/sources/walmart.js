@@ -1,36 +1,31 @@
 // ─── Source : Walmart Canada ─────────────────────────────────────
-// SearXNG pour découverte + fetch page pour enrichissement.
+// SearXNG multi-query + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
+import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl, sleep } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
   // Laptops
-  'site:walmart.ca laptop ordinateur portable 2025 2026',
-  'site:walmart.ca laptop gaming rtx 4060 4070',
-  'site:walmart.ca laptop amd ryzen intel core prix',
+  'laptop HP Pavilion 15 2025 prix',
+  'laptop Acer Aspire 5 A515 2025 prix',
+  'MacBook Air M4 prix',
+  'laptop gaming ASUS TUF Gaming A15 rtx',
   // Desktops
-  'site:walmart.ca desktop ordinateur bureau gaming',
-  // Monitors & docks only (no peripherals/storage/accessories)
-  'site:walmart.ca monitor écran ordinateur 27 32 4K',
-  'site:walmart.ca docking station usb-c thunderbolt',
+  'desktop gaming pc tour rtx 4060 prix',
+  'ordinateur bureau HP Slim Desktop 2025',
+  // Monitors
+  'moniteur Samsung 27 pouces 4K prix',
   // Chromebooks
-  'site:walmart.ca chromebook 2025 prix',
-  // Deals
-  'walmart.ca deals solde promotion ordinateur laptop canada 2025',
-  'site:walmart.ca macbook surface laptop prix',
+  'Chromebook Acer 315 prix',
 ]
 
 export async function fetchWalmart() {
-  log('Walmart — début du scan')
+  log('Walmart — debut du scan')
   const allResults = []
 
   for (const query of SEARCH_QUERIES) {
     try {
-      const results = await withRetry(
-        () => searxSearch(query, { engines: 'google,bing' }),
-        `walmart:${query.slice(0, 30)}`
-      )
+      const results = await searxSearchMulti('walmart.ca', query, { minResults: 2 })
       const filtered = results
         .filter(r => r.url?.includes('walmart.ca') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
@@ -44,9 +39,10 @@ export async function fetchWalmart() {
     } catch (err) {
       log(`  ✗ Walmart query failed: ${query.slice(0, 40)} — ${err.message}`)
     }
+    await sleep(5000)
   }
 
-  // Dédupliquer par URL
+  // Dedupliquer par URL
   const seen = new Set()
   const unique = allResults.filter(r => {
     const key = r.url.split('?')[0]
@@ -55,9 +51,8 @@ export async function fetchWalmart() {
     return true
   })
 
-  log(`Walmart — ${unique.length} résultats uniques, enrichissement pages...`)
+  log(`Walmart — ${unique.length} resultats uniques, enrichissement pages...`)
 
-  // Enrichir avec le contenu réel des pages
   const enriched = await mapWithConcurrency(unique, async (r) => {
     const page = await fetchPage(r.url)
     if (!page) return { ...r, pageText: null, pagePrice: null }
@@ -89,7 +84,6 @@ function isProductUrl(url) {
 function cleanUrl(url) {
   try {
     const u = new URL(url)
-    // Remove tracking params
     u.searchParams.delete('athcpid')
     u.searchParams.delete('athpgid')
     u.searchParams.delete('athznid')

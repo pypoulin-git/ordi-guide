@@ -1,39 +1,30 @@
 // ─── Source : Lenovo Canada ──────────────────────────────────────
-// SearXNG pour découverte + fetch page pour enrichissement.
+// SearXNG multi-query + fetch page pour enrichissement.
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
+import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl, sleep } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  // ThinkPad & IdeaPad
-  'site:lenovo.com ThinkPad laptop canada 2025 2026',
-  'site:lenovo.com IdeaPad ordinateur portable prix canada',
-  'site:lenovo.com IdeaPad Slim Flex 2025',
-  // Gaming — Legion
-  'site:lenovo.com Legion gaming laptop rtx 2025',
-  // Desktop — ThinkCentre
-  'site:lenovo.com ThinkCentre desktop ordinateur bureau',
-  'site:lenovo.com IdeaCentre desktop 2025',
-  // Monitors & docks
-  'site:lenovo.com monitor écran ThinkVision 27 32',
-  'site:lenovo.com docking station thunderbolt usb-c',
-  // Accessories
-  'site:lenovo.com accessories clavier souris hub canada',
-  // Deals
-  'lenovo.com/ca solde deals promotion laptop 2025',
-  'site:lenovo.com Yoga laptop 2-in-1 2025 canada',
+  // Laptops
+  'Lenovo ThinkPad X1 Carbon Gen 12 prix',
+  'Lenovo IdeaPad Slim 5 14 2025 prix',
+  'Lenovo Yoga 9i 14 2025 OLED prix',
+  'Lenovo Legion Pro 5 16 rtx 4070 prix',
+  // Desktops
+  'Lenovo ThinkCentre M75q Tiny desktop prix',
+  'Lenovo IdeaCentre AIO 27 tout-en-un 2025',
+  // Monitors
+  'Lenovo ThinkVision T27p-30 moniteur 27 4K',
+  'Lenovo ThinkVision P27h-30 moniteur QHD USB-C',
 ]
 
 export async function fetchLenovo() {
-  log('Lenovo — début du scan')
+  log('Lenovo — debut du scan')
   const allResults = []
 
   for (const query of SEARCH_QUERIES) {
     try {
-      const results = await withRetry(
-        () => searxSearch(query, { engines: 'google,bing' }),
-        `lenovo:${query.slice(0, 30)}`
-      )
+      const results = await searxSearchMulti('lenovo.com', query, { minResults: 2 })
       const filtered = results
         .filter(r => r.url?.includes('lenovo.com') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
@@ -47,9 +38,10 @@ export async function fetchLenovo() {
     } catch (err) {
       log(`  ✗ Lenovo query failed: ${query.slice(0, 40)} — ${err.message}`)
     }
+    await sleep(5000)
   }
 
-  // Dédupliquer par URL
+  // Dedupliquer par URL
   const seen = new Set()
   const unique = allResults.filter(r => {
     const key = r.url.split('?')[0]
@@ -58,9 +50,8 @@ export async function fetchLenovo() {
     return true
   })
 
-  log(`Lenovo — ${unique.length} résultats uniques, enrichissement pages...`)
+  log(`Lenovo — ${unique.length} resultats uniques, enrichissement pages...`)
 
-  // Enrichir avec le contenu réel des pages
   const enriched = await mapWithConcurrency(unique, async (r) => {
     const page = await fetchPage(r.url)
     if (!page) return { ...r, pageText: null, pagePrice: null }
@@ -85,14 +76,12 @@ function isProductUrl(url) {
   if (/\/sale\//i.test(url)) return false
   if (/\/c\//i.test(url)) return false
   // Lenovo product URLs: /p/... or /laptops/... or /desktops/... or /monitors/... or /accessories/...
-  // Prefer Canadian pages (/ca/) but accept general lenovo.com too
   return /lenovo\.com.*\/(p|laptops|desktops|monitors|accessories)\//i.test(url)
 }
 
 function cleanUrl(url) {
   try {
     const u = new URL(url)
-    // Remove tracking params
     u.searchParams.delete('cid')
     u.searchParams.delete('clickid')
     u.searchParams.delete('orgRef')

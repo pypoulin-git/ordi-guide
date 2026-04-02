@@ -1,27 +1,30 @@
 // ─── Source : Costco Canada ──────────────────────────────────────
 
-import { searxSearch, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl } from '../utils.js'
+import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrency, log, isCleanProductUrl, sleep } from '../utils.js'
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  'site:costco.ca laptop ordinateur portable',
-  'site:costco.ca macbook apple',
-  'site:costco.ca desktop ordinateur bureau',
-  'site:costco.ca chromebook',
-  'site:costco.ca laptop gaming',
-  'costco.ca ordinateur solde promotion 2025',
+  // Laptops
+  'laptop Lenovo IdeaPad 5 prix',
+  'laptop HP Pavilion 15 2025 prix',
+  'MacBook Air M4 prix',
+  'laptop gaming ASUS TUF Gaming A15 2025',
+  // Desktops
+  'desktop Lenovo IdeaCentre 2025 prix',
+  'desktop gaming pc tour rtx',
+  // Monitors
+  'moniteur LG UltraWide 34 pouces prix',
+  // Chromebooks
+  'Chromebook HP 14 prix',
 ]
 
 export async function fetchCostco() {
-  log('Costco — début du scan')
+  log('Costco — debut du scan')
   const allResults = []
 
   for (const query of SEARCH_QUERIES) {
     try {
-      const results = await withRetry(
-        () => searxSearch(query, { engines: 'google,bing' }),
-        `costco:${query.slice(0, 30)}`
-      )
+      const results = await searxSearchMulti('costco.ca', query, { minResults: 2 })
       const filtered = results
         .filter(r => r.url?.includes('costco.ca') && isProductUrl(r.url) && isCleanProductUrl(r.url))
         .map(r => ({
@@ -35,6 +38,7 @@ export async function fetchCostco() {
     } catch (err) {
       log(`  ✗ Costco query failed: ${query.slice(0, 40)} — ${err.message}`)
     }
+    await sleep(5000)
   }
 
   const seen = new Set()
@@ -45,7 +49,7 @@ export async function fetchCostco() {
     return true
   })
 
-  log(`Costco — ${unique.length} résultats uniques, enrichissement pages...`)
+  log(`Costco — ${unique.length} resultats uniques, enrichissement pages...`)
 
   const enriched = await mapWithConcurrency(unique, async (r) => {
     const page = await fetchPage(r.url)
