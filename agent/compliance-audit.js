@@ -654,6 +654,13 @@ async function main() {
     log(C.red(`\n✗ Erreur écriture rapport: ${err.message}`))
   }
 
+  // Record to Knowledge Store
+  try {
+    var ks = require("/home/pypou/pclaw-discord/knowledge-store.js");
+    var failedChecks = report.recommendations.filter(r => r.priority === 'critical' || r.priority === 'high').map(r => r.title);
+    ks.recordComplianceScore(parseInt(report.score), failedChecks);
+  } catch(e) { /* knowledge store optional */ }
+
   // Envoyer l'alerte Discord
   await sendDiscordAlert(report)
 

@@ -118,6 +118,12 @@ async function main() {
     log(`  Échecs audit :`)
     for (const f of audit.failures) log(`    • ${f}`)
   }
+
+  // Record to Knowledge Store
+  try {
+    var ks = require("/home/pypou/pclaw-discord/knowledge-store.js");
+    ks.recordCatalogueHealth({ total: curatorStats.kept, deadUrls: curatorStats.removedDead, newProducts: curatorStats.newAdded, categories: {} });
+  } catch(e) { /* knowledge store optional */ }
 }
 
 // Run
