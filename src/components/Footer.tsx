@@ -39,6 +39,7 @@ export default function Footer() {
     { href: `/${locale}/privacy`,  label: t.footer.privacy },
     { href: `/${locale}/terms`,    label: t.footer.terms },
     { href: `/${locale}/support`,  label: t.footer.support },
+    { href: `/${locale}/contact`,  label: t.footer.contact },
   ]
 
   return (

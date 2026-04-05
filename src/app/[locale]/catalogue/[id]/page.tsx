@@ -15,6 +15,7 @@ import { buildAffiliateUrl, getAffiliateRel } from '@/lib/affiliate'
 import SponsoredSpot from '@/components/SponsoredSpot'
 import DonationBox from '@/components/DonationBox'
 import ActionCTA from '@/components/ActionCTA'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 
 async function getCatalogue(): Promise<CatalogueData> {
   const filePath = path.join(process.cwd(), 'data', 'catalogue.json')
@@ -145,6 +146,8 @@ export default function ProductPage({ params }: Props) {
     <>
       <JsonLd data={productSchema} />
       <JsonLd data={breadcrumbSchema} />
+
+      <AffiliateDisclosure />
 
       {/* Breadcrumb */}
       <div className="bg-[var(--bg-subtle)] border-b border-[var(--border)]">

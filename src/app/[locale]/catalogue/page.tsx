@@ -3,6 +3,7 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import type { CatalogueData } from '@/types/catalogue'
 import CatalogueLayout from '@/components/CatalogueLayout'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import { getDictionary } from '@/i18n/get-dictionary'
 import type { Locale } from '@/i18n/config'
 
@@ -46,6 +47,8 @@ export default async function CataloguePage({
           </p>
         </div>
       </section>
+
+      <AffiliateDisclosure />
 
       {/* Sidebar + Grid layout */}
       <section className="section" style={{ paddingTop: '1.5rem' }}>

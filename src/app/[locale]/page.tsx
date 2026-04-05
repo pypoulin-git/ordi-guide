@@ -308,6 +308,49 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* -- GETTING STARTED -- */}
+      <section className="section bg-[var(--bg)]">
+        <div className="container max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-2 text-[var(--text)]">{t.home.gettingStartedTitle}</h2>
+          <div className="mt-8 space-y-5 text-[var(--text-subtle)] leading-relaxed" style={{ fontSize: '1.0625rem' }}>
+            <p>{t.home.gettingStartedP1}</p>
+            <p>{t.home.gettingStartedP2}</p>
+            <p>{t.home.gettingStartedP3}</p>
+            <p>{t.home.gettingStartedP4}</p>
+          </div>
+          <div className="text-center mt-8">
+            <Link href={`/${locale}/guide`}
+              className="inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all hover:-translate-y-0.5"
+              style={{
+                background: 'var(--accent)', color: 'white',
+                padding: '0.75rem 1.5rem', fontSize: '1rem',
+                minHeight: '48px',
+              }}>
+              {t.home.gettingStartedGuideLink}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* -- TRUST STATS -- */}
+      <section className="bg-[var(--bg-subtle)]" style={{ paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+        <div className="container max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { value: t.home.stat1, label: t.home.stat1Label },
+              { value: t.home.stat2, label: t.home.stat2Label },
+              { value: t.home.stat3, label: t.home.stat3Label },
+              { value: t.home.stat4, label: t.home.stat4Label },
+            ].map((stat, i) => (
+              <div key={i} className="flex flex-col items-center gap-1">
+                <span className="text-3xl font-bold text-[var(--accent)]">{stat.value}</span>
+                <span className="text-sm text-[var(--text-muted)]">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* -- FAQ -- */}
       <section className="section bg-[var(--bg)]">
         <div className="container max-w-3xl mx-auto">
@@ -335,8 +378,61 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* -- Aidez-nous section -- */}
+      {/* -- LATEST BLOG -- */}
       <section className="section bg-[var(--bg-subtle)]">
+        <div className="container max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-2 text-[var(--text)]">{t.home.latestTitle}</h2>
+          <p className="text-center mb-10 text-[var(--text-subtle)]">{t.home.latestSubtitle}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                slug: 'ssd-vs-hdd-stockage-ordinateur',
+                title: locale === 'fr' ? 'SSD vs HDD : pourquoi ton vieux ordi est lent' : 'SSD vs HDD: Why Your Old Computer Is Slow',
+                excerpt: locale === 'fr'
+                  ? 'La différence entre un SSD et un disque dur classique, et pourquoi c\'est le changement le plus rentable.'
+                  : 'The difference between an SSD and a traditional hard drive, and why it\'s the best bang for your buck.',
+                readTime: 5,
+              },
+              {
+                slug: 'mac-vs-pc-lequel-choisir',
+                title: locale === 'fr' ? 'Mac vs PC : lequel est fait pour toi ?' : 'Mac vs PC: Which One Is Right for You?',
+                excerpt: locale === 'fr'
+                  ? 'Le grand débat expliqué sans fanatisme. On compare honnêtement les forces de chaque camp.'
+                  : 'The big debate explained without bias. An honest comparison of each side\'s strengths.',
+                readTime: 7,
+              },
+              {
+                slug: 'ram-memoire-vive-poumons-transmission',
+                title: locale === 'fr' ? 'La RAM : combien t\'en faut vraiment ?' : 'RAM: How Much Do You Really Need?',
+                excerpt: locale === 'fr'
+                  ? '8, 16, 32 Go… On démystifie la mémoire vive sans jargon pour t\'aider à choisir.'
+                  : '8, 16, 32 GB… We demystify RAM without jargon to help you choose.',
+                readTime: 5,
+              },
+            ].map(article => (
+              <Link key={article.slug} href={`/${locale}/blog/${article.slug}`}
+                className="card block hover:no-underline transition-transform hover:-translate-y-0.5"
+                style={{ background: 'var(--bg-card)' }}>
+                <h3 className="text-lg font-bold mb-2 text-[var(--text)]">{article.title}</h3>
+                <p className="text-sm leading-relaxed mb-4 text-[var(--text-subtle)]">{article.excerpt}</p>
+                <span className="text-xs text-[var(--text-muted)]">
+                  {article.readTime} {t.home.latestReadTime}
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href={`/${locale}/blog`}
+              className="inline-flex items-center justify-center font-semibold text-[var(--accent)] hover:underline"
+              style={{ fontSize: '1rem' }}>
+              {t.home.latestReadMore}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* -- Aidez-nous section -- */}
+      <section className="section bg-[var(--bg)]">
         <div className="container max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-2 text-[var(--text)]">
             {locale === 'fr' ? 'Aidez-nous à vous aider' : 'Help us help you'}

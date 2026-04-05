@@ -25,6 +25,7 @@ const fr = {
     privacy: 'Confidentialité',
     terms: 'Conditions d\u2019utilisation',
     support: 'Support expert',
+    contact: 'Contact',
     rights: 'Tous droits réservés.',
     helpTitle: 'Tu ne trouves pas ce que tu cherches ?',
     helpComparator: 'Faire le questionnaire',
@@ -97,6 +98,30 @@ const fr = {
     faqGlossaryHint: 'Perdu dans le jargon ? Consulte notre',
     faqGlossaryLink: 'lexique des termes informatiques',
     faqGlossaryEnd: 'pour tout comprendre en langage simple.',
+
+    // ── Getting Started ───────────────────────────────────
+    gettingStartedTitle: 'Par où commencer quand on magasine un ordinateur ?',
+    gettingStartedP1: 'Avant de regarder les prix ou les marques, la première étape est de te poser une question simple : à quoi va servir cet ordinateur ? Naviguer sur le web et écrire des courriels, c\'est très différent de monter des vidéos ou de jouer à des jeux en ligne. Un étudiant qui prend des notes en classe n\'a pas les mêmes besoins qu\'un travailleur autonome qui gère sa comptabilité. En identifiant tes besoins réels, tu évites de payer pour des fonctionnalités que tu n\'utiliseras jamais — et tu t\'assures d\'avoir un ordinateur qui fait exactement ce que tu lui demandes.',
+    gettingStartedP2: 'Au Canada, les fourchettes de prix sont assez prévisibles. Pour un usage de base (web, courriel, documents), un budget de 500 à 800 $ est suffisant. Si tu as besoin de plus de puissance — par exemple pour du multitâche intensif, de la retouche photo ou des applications professionnelles — vise entre 800 et 1 200 $. Les ordinateurs à 1 200 $ et plus sont conçus pour les usages exigeants comme le montage vidéo, la création 3D ou le jeu haute performance. N\'oublie pas que les promotions et les périodes de soldes (rentrée scolaire, Vendredi fou) peuvent te faire économiser 15 à 30 % sur le prix régulier.',
+    gettingStartedP3: 'Quand tu compares des modèles, concentre-toi sur trois composants clés. Le processeur (CPU), c\'est le cerveau de l\'ordinateur : il détermine la vitesse à laquelle les tâches sont exécutées. La mémoire vive (RAM) contrôle combien de choses tu peux faire en même temps — 8 Go est le minimum recommandé en 2025, et 16 Go offre un confort durable. Le stockage (SSD) détermine l\'espace pour tes fichiers et la vitesse de démarrage : un SSD de 256 Go convient si tu utilises le nuage, mais 512 Go est plus confortable.',
+    gettingStartedP4: 'La bonne nouvelle ? Tu n\'as presque jamais besoin du modèle le plus cher. Les fabricants mettent en valeur les options haut de gamme, mais un ordinateur milieu de gamme bien choisi couvrira les besoins de 80 % des utilisateurs pendant 4 à 6 ans. L\'important, c\'est de choisir un appareil adapté à tes besoins, pas le plus impressionnant sur papier. Notre guide complet t\'explique chaque composant en détail pour t\'aider à faire le bon choix.',
+    gettingStartedGuideLink: 'Lire le guide complet →',
+
+    // ── Trust Stats ───────────────────────────────────────
+    stat1: '62+',
+    stat1Label: 'produits analysés',
+    stat2: '11',
+    stat2Label: 'détaillants canadiens',
+    stat3: '7j',
+    stat3Label: 'mis à jour chaque semaine',
+    stat4: '100%',
+    stat4Label: 'gratuit, sans inscription',
+
+    // ── Latest Blog ───────────────────────────────────────
+    latestTitle: 'Derniers articles',
+    latestSubtitle: 'Nos guides les plus récents pour t\'aider à comprendre la tech sans te casser la tête.',
+    latestReadMore: 'Voir tous les articles →',
+    latestReadTime: 'min de lecture',
 
     bottomCtaTitle: 'Prêt à trouver ton ordi idéal ?',
     bottomCtaSubtitle: 'Réponds à 5 questions et reçois une recommandation personnalisée gratuite.',
@@ -230,6 +255,18 @@ const fr = {
     method3Desc: 'Les commissions d\'affiliation n\'influencent jamais nos recommandations.',
     method4Title: 'Mis à jour chaque semaine',
     method4Desc: 'Le catalogue est rafraîchi automatiquement pour refléter le marché actuel.',
+    privacyTitle: 'Confidentialité et gestion de vos données',
+    privacyIntro: 'Votre vie privée est une priorité. Voici comment nous traitons vos données — en toute transparence.',
+    privacyP1: 'Nous collectons uniquement des données anonymes de navigation via Vercel Analytics (pages visitées, durée). Aucun compte utilisateur n\'est requis, aucune donnée personnelle n\'est stockée.',
+    privacyP2: 'Ce qui n\'est PAS collecté : nom, courriel, adresse IP, historique de recherche, données de paiement. Nous n\'utilisons aucun pixel de suivi tiers (Facebook, Google Analytics, etc.).',
+    privacyP3: 'Notre bannière de cookies vous offre un contrôle granulaire : vous choisissez exactement quels cookies accepter. Ce mécanisme est conforme à la Loi 25 du Québec et aux normes canadiennes PIPEDA.',
+    privacyManageCookies: 'Gérer mes cookies',
+    privacyFullPolicy: 'Lire la politique de confidentialité complète',
+    contactTitle: 'Nous joindre',
+    contactIntro: 'Une question, une suggestion ou une demande de partenariat ? On est là.',
+    contactEmail: 'info@shopcompy.ca',
+    contactResponse: 'Délai de réponse : 48 h',
+    contactCta: 'Écrire via le formulaire de contact',
   },
 
   // ── Blog page ────────────────────────────────────────────
@@ -478,10 +515,55 @@ const fr = {
     added: 'Dans la comparaison',
   },
 
+  // ── Contact ──────────────────────────────────────────
+  contact: {
+    heroTitle: 'Nous joindre',
+    heroSubtitle: 'Une question, une suggestion ou une demande de partenariat ? On est la pour t\'aider.',
+    formTitle: 'Envoyer un message',
+    nameLabel: 'Nom',
+    namePlaceholder: 'Ton nom',
+    emailLabel: 'Courriel',
+    emailPlaceholder: 'ton@courriel.com',
+    subjectLabel: 'Sujet',
+    subjectGeneral: 'Question generale',
+    subjectPartnership: 'Demande de partenariat',
+    subjectBug: 'Signaler un probleme',
+    subjectOther: 'Autre',
+    messageLabel: 'Message',
+    messagePlaceholder: 'Ecris ton message ici...',
+    submit: 'Envoyer',
+    sending: 'Envoi en cours...',
+    successTitle: 'Message envoye !',
+    successMessage: 'Merci pour ton message. On te repond dans les 48 prochaines heures.',
+    errorMessage: 'Une erreur est survenue. Reessaie plus tard.',
+    emailInvalid: 'Adresse courriel invalide.',
+    required: 'Ce champ est requis.',
+    altTitle: 'Autres moyens de nous joindre',
+    altEmail: 'Courriel',
+    altEmailValue: 'info@shopcompy.ca',
+    altResponse: 'Delai de reponse',
+    altResponseValue: '48 heures',
+    faqTitle: 'Questions frequentes',
+    faqQ1: 'Le site est vraiment gratuit ?',
+    faqA1: 'Oui ! Shop Compy est finance par des liens affilies et un seul espace publicitaire. Tu ne paies rien pour utiliser le site.',
+    faqQ2: 'Comment les recommandations sont-elles faites ?',
+    faqA2: 'Nos recommandations sont basees sur une analyse IA combinee a des prix verifies aupres de detaillants canadiens. Consulte notre page A propos pour en savoir plus.',
+    faqQ3: 'Puis-je suggerer un produit ?',
+    faqA3: 'Bien sur ! Utilise le formulaire ci-dessus pour nous envoyer ta suggestion.',
+    faqQ4: 'Est-ce que vous vendez des ordinateurs ?',
+    faqA4: 'Non, nous ne vendons rien. On te redirige vers des detaillants canadiens de confiance.',
+  },
+
   // ── Ads ────────────────────────────────────────────
   ads: {
     label: 'Espace publicitaire',
     sponsored: 'Article sponsoris\u00e9',
+  },
+
+  // ── Affiliate Disclosure ─────────────────────────────
+  affiliate: {
+    disclosure: 'Certains liens sont des liens affiliés. Si tu achètes via ces liens, on reçoit une petite commission sans frais pour toi.',
+    learnMore: 'En savoir plus',
   },
 } satisfies Record<string, Record<string, string>>
 

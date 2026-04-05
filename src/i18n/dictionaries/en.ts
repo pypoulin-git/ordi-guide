@@ -27,6 +27,7 @@ const en: Dictionary = {
     privacy: 'Privacy',
     terms: 'Terms of Service',
     support: 'Expert support',
+    contact: 'Contact',
     rights: 'All rights reserved.',
     helpTitle: 'Can\'t find what you\'re looking for?',
     helpComparator: 'Take the questionnaire',
@@ -99,6 +100,30 @@ const en: Dictionary = {
     faqGlossaryHint: 'Lost in the jargon? Check out our',
     faqGlossaryLink: 'computer terms glossary',
     faqGlossaryEnd: 'to understand everything in plain language.',
+
+    // ── Getting Started ───────────────────────────────────
+    gettingStartedTitle: 'Where to start when shopping for a computer?',
+    gettingStartedP1: 'Before looking at prices or brands, the first step is to ask yourself a simple question: what will this computer be used for? Browsing the web and writing emails is very different from editing videos or playing online games. A student taking notes in class doesn\'t have the same needs as a freelancer managing their accounting. By identifying your real needs, you avoid paying for features you\'ll never use — and you make sure you get a computer that does exactly what you need it to do.',
+    gettingStartedP2: 'In Canada, price ranges are fairly predictable. For basic use (web, email, documents), a budget of $500 to $800 is sufficient. If you need more power — for example, for heavy multitasking, photo editing, or professional applications — aim for $800 to $1,200. Computers at $1,200 and above are designed for demanding tasks like video editing, 3D creation, or high-performance gaming. Keep in mind that sales events (back-to-school, Black Friday) can save you 15 to 30% off the regular price.',
+    gettingStartedP3: 'When comparing models, focus on three key components. The processor (CPU) is the brain of the computer: it determines how fast tasks are completed. RAM controls how many things you can do at once — 8 GB is the recommended minimum in 2025, and 16 GB provides lasting comfort. Storage (SSD) determines how much space you have for files and how fast your computer boots: a 256 GB SSD is fine if you use cloud storage, but 512 GB is more comfortable.',
+    gettingStartedP4: 'The good news? You almost never need the most expensive model. Manufacturers highlight premium options, but a well-chosen mid-range computer will meet the needs of 80% of users for 4 to 6 years. What matters is choosing a device that fits your needs, not the most impressive one on paper. Our full guide breaks down every component in detail to help you make the right choice.',
+    gettingStartedGuideLink: 'Read the full guide →',
+
+    // ── Trust Stats ───────────────────────────────────────
+    stat1: '62+',
+    stat1Label: 'products analyzed',
+    stat2: '11',
+    stat2Label: 'Canadian retailers',
+    stat3: '7d',
+    stat3Label: 'updated weekly',
+    stat4: '100%',
+    stat4Label: 'free, no signup',
+
+    // ── Latest Blog ───────────────────────────────────────
+    latestTitle: 'Latest articles',
+    latestSubtitle: 'Our most recent guides to help you understand tech without the headache.',
+    latestReadMore: 'View all articles →',
+    latestReadTime: 'min read',
 
     bottomCtaTitle: 'Ready to find your ideal computer?',
     bottomCtaSubtitle: 'Answer 5 questions and get a free personalized recommendation.',
@@ -232,6 +257,18 @@ const en: Dictionary = {
     method3Desc: 'Affiliate commissions never influence our recommendations.',
     method4Title: 'Updated Weekly',
     method4Desc: 'Our catalogue is refreshed automatically to reflect the current market.',
+    privacyTitle: 'Privacy & data management',
+    privacyIntro: 'Your privacy is a priority. Here\'s how we handle your data — in full transparency.',
+    privacyP1: 'We only collect anonymous browsing data via Vercel Analytics (pages visited, duration). No user account is required, no personal data is stored.',
+    privacyP2: 'What is NOT collected: name, email, IP address, search history, payment data. We don\'t use any third-party tracking pixels (Facebook, Google Analytics, etc.).',
+    privacyP3: 'Our cookie banner gives you granular control: you choose exactly which cookies to accept. This mechanism complies with Quebec\'s Law 25 and Canadian PIPEDA standards.',
+    privacyManageCookies: 'Manage my cookies',
+    privacyFullPolicy: 'Read the full privacy policy',
+    contactTitle: 'Get in touch',
+    contactIntro: 'Have a question, suggestion, or partnership inquiry? We\'re here.',
+    contactEmail: 'info@shopcompy.ca',
+    contactResponse: 'Response time: 48 h',
+    contactCta: 'Write via the contact form',
   },
 
   // ── Blog page ────────────────────────────────────────────
@@ -480,10 +517,55 @@ const en: Dictionary = {
     added: 'In comparison',
   },
 
+  // ── Contact ──────────────────────────────────────────
+  contact: {
+    heroTitle: 'Get in touch',
+    heroSubtitle: 'Have a question, suggestion, or partnership inquiry? We\'re here to help.',
+    formTitle: 'Send a message',
+    nameLabel: 'Name',
+    namePlaceholder: 'Your name',
+    emailLabel: 'Email',
+    emailPlaceholder: 'you@email.com',
+    subjectLabel: 'Subject',
+    subjectGeneral: 'General question',
+    subjectPartnership: 'Partnership inquiry',
+    subjectBug: 'Bug report',
+    subjectOther: 'Other',
+    messageLabel: 'Message',
+    messagePlaceholder: 'Write your message here...',
+    submit: 'Send',
+    sending: 'Sending...',
+    successTitle: 'Message sent!',
+    successMessage: 'Thanks for your message. We\'ll get back to you within 48 hours.',
+    errorMessage: 'Something went wrong. Please try again later.',
+    emailInvalid: 'Invalid email address.',
+    required: 'This field is required.',
+    altTitle: 'Other ways to reach us',
+    altEmail: 'Email',
+    altEmailValue: 'info@shopcompy.ca',
+    altResponse: 'Response time',
+    altResponseValue: '48 hours',
+    faqTitle: 'Frequently asked questions',
+    faqQ1: 'Is the site really free?',
+    faqA1: 'Yes! Shop Compy is funded by affiliate links and a single ad spot. You never pay anything to use the site.',
+    faqQ2: 'How are recommendations made?',
+    faqA2: 'Our recommendations are based on AI analysis combined with verified prices from Canadian retailers. Check our About page to learn more.',
+    faqQ3: 'Can I suggest a product?',
+    faqA3: 'Of course! Use the form above to send us your suggestion.',
+    faqQ4: 'Do you sell computers?',
+    faqA4: 'No, we don\'t sell anything. We redirect you to trusted Canadian retailers.',
+  },
+
   // ── Ads ────────────────────────────────────────────
   ads: {
     label: 'Advertisement',
     sponsored: 'Sponsored article',
+  },
+
+  // ── Affiliate Disclosure ─────────────────────────────
+  affiliate: {
+    disclosure: 'Some links are affiliate links. If you buy through them, we earn a small commission at no cost to you.',
+    learnMore: 'Learn more',
   },
 }
 
