@@ -66,7 +66,7 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
                 addItem(product)
               }
             }}
-            className={`absolute top-2 right-2 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all shadow-md ${
+            className={`absolute top-2 right-2 z-10 w-10 h-10 rounded-full flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] transition-all shadow-md ${
               inCompare
                 ? 'bg-[var(--accent)] text-white'
                 : 'bg-white/80 text-[var(--text-muted)] hover:bg-white hover:text-[var(--accent)]'
@@ -113,7 +113,7 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
                 addItem(product)
               }
             }}
-            className={`absolute top-2 right-2 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all shadow-md ${
+            className={`absolute top-2 right-2 z-10 w-10 h-10 rounded-full flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] transition-all shadow-md ${
               inCompare
                 ? 'bg-[var(--accent)] text-white'
                 : 'bg-white/80 text-[var(--text-muted)] hover:bg-white hover:text-[var(--accent)]'
@@ -145,9 +145,17 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
             {source.label}
           </span>
         </div>
-        <div className="flex items-center gap-1">
-          <span className="text-sm font-semibold text-[var(--warn)]">
-            {product.aiScore}/100
+        <div className="flex items-center gap-2 min-w-[100px]">
+          <div className="flex-1 h-1.5 rounded-full bg-[var(--border)] overflow-hidden">
+            <div className="score-bar h-full rounded-full" style={{
+              width: `${product.aiScore}%`,
+              background: product.aiScore >= 81 ? '#0891b2' : product.aiScore >= 61 ? '#2563eb' : product.aiScore >= 41 ? '#d97706' : '#94a3b8',
+            }} />
+          </div>
+          <span className="text-sm font-semibold" style={{
+            color: product.aiScore >= 81 ? '#0891b2' : product.aiScore >= 61 ? '#2563eb' : product.aiScore >= 41 ? '#d97706' : '#94a3b8',
+          }}>
+            {product.aiScore}
           </span>
         </div>
       </div>

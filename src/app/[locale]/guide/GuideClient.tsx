@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useAnalogy, type AnalogyMode } from '@/contexts/AnalogyContext'
 import AnalogyToggle from '@/components/AnalogyToggle'
+import JsonLd from '@/components/JsonLd'
 import PageHero from '@/components/PageHero'
 import TechIllustration, { getAnalogyVariant } from '@/components/TechIllustration'
 import { useTranslation } from '@/i18n/DictionaryContext'
@@ -46,8 +47,18 @@ export default function GuideClient() {
   const analogySections = sections.filter(s => s.category === 'analogy')
   const conclusionSections = sections.filter(s => s.category === 'conclusion')
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: locale === 'fr' ? 'Accueil' : 'Home', item: `https://shopcompy.ca/${locale}` },
+      { '@type': 'ListItem', position: 2, name: locale === 'fr' ? 'Guide' : 'Guide', item: `https://shopcompy.ca/${locale}/guide` },
+    ],
+  }
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
       {/* -- Hero -- */}
       <PageHero
         title={g.heroTitle}

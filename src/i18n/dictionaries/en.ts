@@ -220,6 +220,14 @@ const en: Dictionary = {
     ctaSubtitle: 'Use our recommendation tool to get a personalized suggestion.',
     ctaButton: 'Help me choose →',
     faqPrefix: 'What is',
+    filterAll: 'All',
+    filterProcessor: 'Processors',
+    filterMemory: 'Memory',
+    filterStorage: 'Storage',
+    filterDisplay: 'Display',
+    filterConnectivity: 'Connectivity',
+    filterAi: 'AI',
+    filterPower: 'Power',
   },
 
   // ── About page ───────────────────────────────────────────

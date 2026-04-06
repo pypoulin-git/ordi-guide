@@ -218,6 +218,14 @@ const fr = {
     ctaSubtitle: 'Utilise notre outil d\'aide au choix pour obtenir une recommandation personnalisée.',
     ctaButton: 'M\'aider à choisir →',
     faqPrefix: 'Qu\'est-ce que',
+    filterAll: 'Tout',
+    filterProcessor: 'Processeurs',
+    filterMemory: 'Mémoire',
+    filterStorage: 'Stockage',
+    filterDisplay: 'Affichage',
+    filterConnectivity: 'Connectivité',
+    filterAi: 'IA',
+    filterPower: 'Alimentation',
   },
 
   // ── About page ───────────────────────────────────────────

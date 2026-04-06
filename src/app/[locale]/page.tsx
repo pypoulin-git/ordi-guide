@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import AnalogyToggle from '@/components/AnalogyToggle'
@@ -9,10 +10,56 @@ import ActionCTA from '@/components/ActionCTA'
 import AdBanner from '@/components/AdBanner'
 import JsonLd from '@/components/JsonLd'
 import { useTranslation } from '@/i18n/DictionaryContext'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
+
+/* ── Animated counter component ─────────────────────────────── */
+function AnimatedStat({ value, label }: { value: string; label: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [displayed, setDisplayed] = useState(value)
+  const animated = useRef(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const num = parseInt(value.replace(/[^0-9]/g, ''), 10)
+    const suffix = value.replace(/[0-9]/g, '')
+    if (isNaN(num)) return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !animated.current) {
+        animated.current = true
+        observer.disconnect()
+        const duration = 1500
+        const start = performance.now()
+        const step = (now: number) => {
+          const t = Math.min((now - start) / duration, 1)
+          const eased = 1 - Math.pow(1 - t, 3) // easeOutCubic
+          setDisplayed(Math.round(eased * num) + suffix)
+          if (t < 1) requestAnimationFrame(step)
+        }
+        setDisplayed('0' + suffix)
+        requestAnimationFrame(step)
+      }
+    }, { threshold: 0.3 })
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [value])
+
+  return (
+    <div ref={ref} className="flex flex-col items-center gap-1">
+      <span className="text-3xl font-bold text-[var(--accent)]">{displayed}</span>
+      <span className="text-sm text-[var(--text-muted)]">{label}</span>
+    </div>
+  )
+}
 
 export default function HomePage() {
   const { a, mode, modeLabel, modeIcon } = useAnalogy()
   const { t, locale } = useTranslation()
+  const reveal = useScrollReveal()
 
   const features = [
     {
@@ -23,6 +70,11 @@ export default function HomePage() {
       color: '#2563eb',
       bg: '#eff6ff',
       darkBg: '#1e3a5f',
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+      ),
     },
     {
       href: `/${locale}/comparateur`,
@@ -32,6 +84,11 @@ export default function HomePage() {
       color: '#0891b2',
       bg: '#ecfeff',
       darkBg: '#164e63',
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0891b2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      ),
     },
     {
       href: `/${locale}/glossaire`,
@@ -41,6 +98,11 @@ export default function HomePage() {
       color: '#7c3aed',
       bg: '#f5f3ff',
       darkBg: '#3b1f6e',
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+      ),
     },
   ]
 
@@ -63,6 +125,8 @@ export default function HomePage() {
       },
     })),
   }
+
+  const blogColors = ['#2563eb', '#d97706', '#0891b2']
 
   return (
     <>
@@ -157,7 +221,7 @@ export default function HomePage() {
       </section>
 
       {/* -- SECTION ANALOGIES ENCADREE -- */}
-      <section className="bg-[var(--bg-subtle)]" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
+      <section ref={reveal} className="reveal bg-[var(--bg-subtle)]" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
         <div className="container max-w-4xl mx-auto">
           <div className="rounded-2xl overflow-hidden bg-[var(--bg)] border border-[var(--border)]" style={{ borderWidth: '1.5px' }}>
 
@@ -225,26 +289,50 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* -- FEATURE CARDS -- */}
-      <section className="section bg-[var(--bg)]">
+      {/* -- FEATURE CARDS — Bento grid -- */}
+      <section ref={reveal} className="reveal section bg-[var(--bg)]">
         <div className="container">
           <h2 className="text-2xl font-bold text-center mb-2 text-[var(--text)]">{t.home.featuresTitle}</h2>
           <p className="text-center mb-10 text-[var(--text-subtle)]">{t.home.featuresSubtitle}</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {features.map(f => (
-              <Link key={f.href} href={f.href} className="card block hover:no-underline"
-                style={{ background: 'var(--bg-card)', borderColor: f.color + '30' }}>
-                <h3 className="text-xl font-bold mb-3 text-[var(--text)]">{f.title}</h3>
-                <p className="leading-relaxed mb-5 text-[var(--text-subtle)]">{f.desc}</p>
-                <span className="font-semibold" style={{ color: f.color }}>{f.cta}</span>
-              </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6">
+            {/* Guide — large bento card spanning 2 rows */}
+            <Link href={features[0].href} className="card card-interactive block hover:no-underline md:col-span-2 md:row-span-2"
+              style={{ background: 'var(--bg-card)', borderColor: features[0].color + '30', position: 'relative', overflow: 'hidden' }}>
+              <div className="absolute top-0 left-0 right-0 h-1" style={{ background: features[0].color }} />
+              <div className="relative z-10 h-full flex flex-col justify-between p-2">
+                <div>
+                  <div className="mb-4">{features[0].icon}</div>
+                  <h3 className="text-2xl font-bold mb-3 text-[var(--text)]">{features[0].title}</h3>
+                  <p className="leading-relaxed mb-5 text-[var(--text-subtle)] text-base">{features[0].desc}</p>
+                </div>
+                <span className="font-semibold text-lg" style={{ color: features[0].color }}>{features[0].cta}</span>
+              </div>
+              {/* Decorative dot pattern */}
+              <div className="bg-dots absolute inset-0 pointer-events-none" aria-hidden="true" />
+            </Link>
+
+            {/* Comparator + Glossary — stacked right column */}
+            {features.slice(1).map((f, i) => (
+              <div key={f.href} ref={reveal} className={`reveal ${i === 0 ? 'reveal-delay-1' : 'reveal-delay-2'}`}>
+                <Link href={f.href}
+                  className="card card-interactive block hover:no-underline h-full"
+                  style={{ background: 'var(--bg-card)', borderColor: f.color + '30', position: 'relative', overflow: 'hidden' }}>
+                  <div className="absolute top-0 left-0 right-0 h-1" style={{ background: f.color }} />
+                  <div className="relative z-10 p-1">
+                    <div className="mb-3">{f.icon}</div>
+                    <h3 className="text-xl font-bold mb-2 text-[var(--text)]">{f.title}</h3>
+                    <p className="leading-relaxed mb-4 text-[var(--text-subtle)] text-sm">{f.desc}</p>
+                    <span className="font-semibold" style={{ color: f.color }}>{f.cta}</span>
+                  </div>
+                </Link>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* -- Pour tout le monde -- */}
-      <section className="section bg-[var(--bg)]">
+      <section ref={reveal} className="reveal section bg-[var(--bg)]">
         <div className="container max-w-4xl mx-auto">
           <div className="rounded-2xl overflow-hidden border border-[var(--border)]"
             style={{ background: 'var(--bg-subtle)' }}>
@@ -309,7 +397,7 @@ export default function HomePage() {
       </section>
 
       {/* -- GETTING STARTED -- */}
-      <section className="section bg-[var(--bg)]">
+      <section ref={reveal} className="reveal section bg-[var(--bg)]">
         <div className="container max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-center mb-2 text-[var(--text)]">{t.home.gettingStartedTitle}</h2>
           <div className="mt-8 space-y-5 text-[var(--text-subtle)] leading-relaxed" style={{ fontSize: '1.0625rem' }}>
@@ -332,7 +420,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* -- TRUST STATS -- */}
+      {/* -- TRUST STATS — animated counters -- */}
       <section className="bg-[var(--bg-subtle)]" style={{ paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
         <div className="container max-w-4xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -342,23 +430,20 @@ export default function HomePage() {
               { value: t.home.stat3, label: t.home.stat3Label },
               { value: t.home.stat4, label: t.home.stat4Label },
             ].map((stat, i) => (
-              <div key={i} className="flex flex-col items-center gap-1">
-                <span className="text-3xl font-bold text-[var(--accent)]">{stat.value}</span>
-                <span className="text-sm text-[var(--text-muted)]">{stat.label}</span>
-              </div>
+              <AnimatedStat key={i} value={stat.value} label={stat.label} />
             ))}
           </div>
         </div>
       </section>
 
       {/* -- FAQ -- */}
-      <section className="section bg-[var(--bg)]">
+      <section ref={reveal} className="reveal section bg-[var(--bg)]">
         <div className="container max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-center mb-2 text-[var(--text)]">{t.home.faqTitle}</h2>
           <p className="text-center mb-10 text-[var(--text-subtle)]">{t.home.faqSubtitle}</p>
           <div className="space-y-3">
             {faqs.map((faq, i) => (
-              <details key={i} className="card cursor-pointer" style={{ padding: '1.25rem 1.5rem' }}>
+              <details key={i} className="card cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]" style={{ padding: '1.25rem 1.5rem' }}>
                 <summary className="font-semibold list-none flex items-center justify-between gap-4 text-[var(--text)]"
                   style={{ fontSize: '1.0625rem' }}>
                   {faq.q}
@@ -378,8 +463,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* -- LATEST BLOG -- */}
-      <section className="section bg-[var(--bg-subtle)]">
+      {/* -- LATEST BLOG — polished cards -- */}
+      <section ref={reveal} className="reveal section bg-[var(--bg-subtle)]">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-center mb-2 text-[var(--text)]">{t.home.latestTitle}</h2>
           <p className="text-center mb-10 text-[var(--text-subtle)]">{t.home.latestSubtitle}</p>
@@ -392,6 +477,7 @@ export default function HomePage() {
                   ? 'La différence entre un SSD et un disque dur classique, et pourquoi c\'est le changement le plus rentable.'
                   : 'The difference between an SSD and a traditional hard drive, and why it\'s the best bang for your buck.',
                 readTime: 5,
+                badge: locale === 'fr' ? 'Les bases' : 'Basics',
               },
               {
                 slug: 'mac-vs-pc-lequel-choisir',
@@ -400,6 +486,7 @@ export default function HomePage() {
                   ? 'Le grand débat expliqué sans fanatisme. On compare honnêtement les forces de chaque camp.'
                   : 'The big debate explained without bias. An honest comparison of each side\'s strengths.',
                 readTime: 7,
+                badge: locale === 'fr' ? 'Comparatifs' : 'Comparisons',
               },
               {
                 slug: 'ram-memoire-vive-poumons-transmission',
@@ -408,16 +495,30 @@ export default function HomePage() {
                   ? '8, 16, 32 Go… On démystifie la mémoire vive sans jargon pour t\'aider à choisir.'
                   : '8, 16, 32 GB… We demystify RAM without jargon to help you choose.',
                 readTime: 5,
+                badge: locale === 'fr' ? 'Les bases' : 'Basics',
               },
-            ].map(article => (
+            ].map((article, i) => (
               <Link key={article.slug} href={`/${locale}/blog/${article.slug}`}
-                className="card block hover:no-underline transition-transform hover:-translate-y-0.5"
-                style={{ background: 'var(--bg-card)' }}>
-                <h3 className="text-lg font-bold mb-2 text-[var(--text)]">{article.title}</h3>
-                <p className="text-sm leading-relaxed mb-4 text-[var(--text-subtle)]">{article.excerpt}</p>
-                <span className="text-xs text-[var(--text-muted)]">
-                  {article.readTime} {t.home.latestReadTime}
-                </span>
+                className="card card-interactive block hover:no-underline"
+                style={{ background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+                {/* Colored top border */}
+                <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: blogColors[i] }} />
+                <div className="pt-1">
+                  {/* Badge */}
+                  <span className="inline-block text-xs font-semibold px-2.5 py-1 rounded-full mb-3"
+                    style={{ background: `${blogColors[i]}15`, color: blogColors[i] }}>
+                    {article.badge}
+                  </span>
+                  <h3 className="text-lg font-bold mb-2 text-[var(--text)]">{article.title}</h3>
+                  <p className="text-sm leading-relaxed mb-4 text-[var(--text-subtle)]">{article.excerpt}</p>
+                  <span className="flex items-center gap-1.5 text-xs text-[var(--text-muted)]">
+                    {/* Clock icon */}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    {article.readTime} {t.home.latestReadTime}
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

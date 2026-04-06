@@ -311,6 +311,32 @@ html, body { overflow-x: hidden; }
 .link-underline:hover::after,
 .link-underline:focus-visible::after { width: 100%; }
 
+/* ── Scroll reveal animations ────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal[data-revealed="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── Decorative dot pattern ──────────────────────────────────── */
+.bg-dots {
+  background-image: radial-gradient(circle, var(--accent) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.03;
+}
+
+/* ── Score bar animation ─────────────────────────────────────── */
+.score-bar {
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 /* ── Accessibility: respect user motion preferences ───────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -323,4 +349,9 @@ html, body { overflow-x: hidden; }
   .animate-hero-gradient,
   .animate-pulse-glow,
   .animate-shimmer { animation: none !important; }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

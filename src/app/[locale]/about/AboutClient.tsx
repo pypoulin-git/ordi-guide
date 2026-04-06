@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import Image from 'next/image'
+import JsonLd from '@/components/JsonLd'
 import PageHero from '@/components/PageHero'
 import { useTranslation } from '@/i18n/DictionaryContext'
 
@@ -8,8 +9,18 @@ export default function AboutClient() {
   const { t, locale } = useTranslation()
   const a = t.about
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: locale === 'fr' ? 'Accueil' : 'Home', item: `https://shopcompy.ca/${locale}` },
+      { '@type': 'ListItem', position: 2, name: locale === 'fr' ? 'A propos' : 'About', item: `https://shopcompy.ca/${locale}/about` },
+    ],
+  }
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
       {/* Hero */}
       <PageHero
         title={a.heroTitle}

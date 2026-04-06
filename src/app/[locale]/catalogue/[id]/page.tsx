@@ -91,7 +91,7 @@ export default function ProductPage({ params }: Props) {
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: product.name,
+    name: `${product.brand} ${product.name}`,
     brand: { '@type': 'Brand', name: product.brand },
     description: product.aiRationale,
     ...(product.imageUrl ? { image: product.imageUrl } : {}),
@@ -103,6 +103,15 @@ export default function ProductPage({ params }: Props) {
       url: product.url,
       seller: { '@type': 'Organization', name: source.label },
     },
+    ...(product.aiScore ? {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: (product.aiScore / 20).toFixed(1),
+        bestRating: '5',
+        worstRating: '1',
+        ratingCount: '1',
+      },
+    } : {}),
   }
 
   const breadcrumbSchema = {

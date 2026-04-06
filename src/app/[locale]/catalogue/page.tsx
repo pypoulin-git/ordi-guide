@@ -30,8 +30,18 @@ export default async function CataloguePage({
   const catalogue = await getCatalogue()
   const products = catalogue.products.sort((a, b) => b.aiScore - a.aiScore)
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: locale === 'fr' ? 'Accueil' : 'Home', item: `https://shopcompy.ca/${locale}` },
+      { '@type': 'ListItem', position: 2, name: locale === 'fr' ? 'Catalogue' : 'Catalogue', item: `https://shopcompy.ca/${locale}/catalogue` },
+    ],
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Compact hero header */}
       <section
         className="border-b border-[var(--border)]"

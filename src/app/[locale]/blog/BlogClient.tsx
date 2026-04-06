@@ -6,6 +6,7 @@ import { getArticles, CATEGORIES, CATEGORY_ICONS, getAllTags } from '@/content/a
 import type { Article } from '@/content/articles'
 import CompyBlogBar from '@/components/CompyBlogBar'
 import AdBanner from '@/components/AdBanner'
+import JsonLd from '@/components/JsonLd'
 import { useTranslation } from '@/i18n/DictionaryContext'
 
 const CAT_LABEL_KEYS: Record<string, string> = {
@@ -73,8 +74,18 @@ export default function BlogClient() {
     el.scrollBy({ left: dir === 'left' ? -el.clientWidth * 0.8 : el.clientWidth * 0.8, behavior: 'smooth' })
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: locale === 'fr' ? 'Accueil' : 'Home', item: `https://shopcompy.ca/${locale}` },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `https://shopcompy.ca/${locale}/blog` },
+    ],
+  }
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
       {/* ── Compact hero ── */}
       <section
         className="border-b border-[var(--border)]"
