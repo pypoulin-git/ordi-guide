@@ -62,7 +62,7 @@ export default function Footer() {
               {/* -- Brand -- */}
               <div className="md:col-span-1">
                 <div className="flex items-center gap-2.5 font-bold text-lg text-[var(--text)] mb-3">
-                  <Image src="/images/compy-logo.png" alt="Shop Compy" width={32} height={32} className="compy-logo" />
+                  <Image src="/compy-icon.svg" alt="Shop Compy" width={32} height={32} className="compy-logo" />
                   Shop Compy
                 </div>
                 <p className="text-sm text-[var(--text-subtle)] leading-relaxed">

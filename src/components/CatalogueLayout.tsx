@@ -208,7 +208,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
 
         {/* Natural language search bar */}
         <form onSubmit={handleSearchSubmit} className="relative" role="search">
-          <Image src="/images/compy-logo.png" alt="" width={22} height={22}
+          <Image src="/compy-icon.svg" alt="" width={22} height={22}
             className="absolute left-3.5 top-1/2 -translate-y-1/2 compy-logo" aria-hidden="true" />
           <label htmlFor="catalogue-search" className="sr-only">
             {isFr ? 'Rechercher un produit' : 'Search for a product'}
@@ -244,7 +244,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
         {/* Search intent feedback */}
         {searchIntent && searchInput && (
           <div role="status" aria-live="polite" className="flex items-start gap-2.5 rounded-lg px-4 py-3" style={{ background: 'var(--accent-bg)', border: '1px solid var(--border)' }}>
-            <Image src="/images/compy-logo.png" alt="" width={20} height={20} className="compy-logo shrink-0 mt-0.5" />
+            <Image src="/compy-icon.svg" alt="" width={20} height={20} className="compy-logo shrink-0 mt-0.5" />
             <div className="flex-1 min-w-0">
               <p className="text-sm leading-relaxed text-[var(--text-subtle)]">
                 {searchIntent.feedback}
@@ -338,7 +338,7 @@ export default function CatalogueLayout({ products }: { products: CatalogueProdu
               border: '1px solid var(--border)',
             }}>
               <div className="flex items-center gap-2 mb-2">
-                <Image src="/images/compy-logo.png" alt="Compy" width={28} height={28}
+                <Image src="/compy-icon.svg" alt="Compy" width={28} height={28}
                   className="compy-logo shrink-0" />
                 <span className="text-xs font-bold text-[var(--accent)]">Compy</span>
               </div>

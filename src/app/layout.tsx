@@ -66,7 +66,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           '@type': 'Organization',
           name: SITE_NAME,
           url: BASE_URL,
-          logo: `${BASE_URL}/images/compy-logo.png`,
+          logo: `${BASE_URL}/compy-icon.svg`,
           description: isFr
             ? 'Plateforme québécoise d\'aide à l\'achat informatique.'
             : 'Quebec-based computer buying guide platform.',

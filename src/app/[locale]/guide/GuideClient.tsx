@@ -279,7 +279,7 @@ function TipBlock({ tip, label, showCompy }: { tip: string; label: string; showC
   return (
     <div className="flex gap-4 items-start">
       {showCompy && (
-        <Image src="/images/compy-logo.png" alt="Compy" width={44} height={44}
+        <Image src="/compy-icon.svg" alt="Compy" width={44} height={44}
           className="shrink-0 mt-1 hidden sm:block compy-logo" />
       )}
       <div className="flex-1 min-w-0 p-4 rounded-xl bg-[var(--accent-bg)]" style={{

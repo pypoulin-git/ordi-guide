@@ -33,7 +33,7 @@ export default function RootNotFound() {
             boxShadow: '0 8px 32px rgba(37, 99, 235, 0.2)',
           }}>
             <Image
-              src="/images/compy-logo.png"
+              src="/compy-icon.svg"
               alt="Compy"
               width={56}
               height={56}

@@ -1,34 +1,51 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <!-- Robot head -->
-  <rect x="14" y="4" width="36" height="30" rx="10" fill="#4a8fa2"/>
-  <!-- Ears -->
-  <rect x="6" y="14" width="8" height="14" rx="4" fill="#4a8fa2"/>
-  <rect x="50" y="14" width="8" height="14" rx="4" fill="#4a8fa2"/>
-  <!-- Antenna -->
-  <rect x="29" y="0" width="6" height="6" rx="3" fill="#4a8fa2"/>
+  <!-- Shop Compy Favicon — Robot mascot, professional flat design -->
+
+  <!-- === HEAD === -->
+  <rect x="12" y="6" width="40" height="30" rx="10" fill="#1e40af"/>
+  <!-- Face panel -->
+  <rect x="16" y="10" width="32" height="22" rx="7" fill="#1e3a8a"/>
+
+  <!-- Antenna base -->
+  <rect x="28" y="1" width="8" height="8" rx="4" fill="#2563eb"/>
+  <!-- Antenna tip glow -->
+  <circle cx="32" cy="2" r="3" fill="#60a5fa"/>
+
   <!-- Eyes -->
-  <circle cx="26" cy="18" r="4" fill="#2e7a8e"/>
-  <circle cx="38" cy="18" r="4" fill="#2e7a8e"/>
-  <circle cx="27.5" cy="16.5" r="1.5" fill="#8ec5d4"/>
-  <circle cx="39.5" cy="16.5" r="1.5" fill="#8ec5d4"/>
+  <circle cx="25" cy="20" r="4.5" fill="#0f172a"/>
+  <circle cx="39" cy="20" r="4.5" fill="#0f172a"/>
+  <!-- Eye highlights -->
+  <circle cx="27" cy="18" r="1.8" fill="#93c5fd"/>
+  <circle cx="41" cy="18" r="1.8" fill="#93c5fd"/>
 
-  <!-- Body / laptop screen -->
-  <rect x="10" y="34" width="44" height="26" rx="5" fill="#3d8a9e"/>
-  <rect x="14" y="37" width="36" height="20" rx="3" fill="#2e7a8e"/>
-  <!-- Screen base -->
-  <rect x="10" y="34" width="44" height="6" rx="3" fill="#5ca0b2" opacity="0.4"/>
+  <!-- Ears with glow -->
+  <circle cx="8" cy="20" r="5" fill="#3b82f6" opacity="0.3"/>
+  <circle cx="8" cy="20" r="3.5" fill="#3b82f6"/>
+  <circle cx="8" cy="20" r="1.5" fill="#93c5fd"/>
+  <circle cx="56" cy="20" r="5" fill="#7c3aed" opacity="0.3"/>
+  <circle cx="56" cy="20" r="3.5" fill="#7c3aed"/>
+  <circle cx="56" cy="20" r="1.5" fill="#c4b5fd"/>
 
-  <!-- Light bulb (top-left) -->
-  <circle cx="12" cy="32" r="7" fill="#fbbf24"/>
-  <circle cx="12" cy="32" r="5" fill="#fde68a"/>
-  <path d="M10 37 L14 37 L13 39 L11 39 Z" fill="#fbbf24"/>
-  <!-- Bulb rays -->
-  <line x1="5" y1="28" x2="3" y2="26" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="4" y1="33" x2="2" y2="34" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="8" y1="25" x2="7" y2="23" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- === BODY (laptop/screen) === -->
+  <rect x="8" y="36" width="48" height="26" rx="6" fill="#1e3a8a"/>
+  <!-- Screen bezel -->
+  <rect x="12" y="39" width="40" height="20" rx="4" fill="#1e40af"/>
+  <!-- Screen shine -->
+  <rect x="14" y="41" width="16" height="8" rx="2" fill="#2563eb" opacity="0.3"/>
 
-  <!-- Magnifying glass (bottom-right) -->
-  <circle cx="52" cy="54" r="6" fill="#bfdbfe" stroke="#8ec5d4" stroke-width="2"/>
-  <circle cx="52" cy="54" r="3" fill="white" opacity="0.5"/>
-  <line x1="56.5" y1="58.5" x2="61" y2="63" stroke="#8ec5d4" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- === LIGHT BULB (left) === -->
+  <circle cx="10" cy="34" r="6" fill="#fbbf24"/>
+  <circle cx="10" cy="34" r="4" fill="#fde68a"/>
+  <!-- Bulb base -->
+  <rect x="8" y="38" width="4" height="2" rx="1" fill="#f59e0b"/>
+  <!-- Rays -->
+  <line x1="4" y1="30" x2="2" y2="28" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="3" y1="35" x2="1" y2="36" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="6" y1="27" x2="5" y2="25" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- === MAGNIFYING GLASS (bottom-right) === -->
+  <circle cx="52" cy="54" r="6" fill="none" stroke="#60a5fa" stroke-width="2.5"/>
+  <circle cx="52" cy="54" r="3.5" fill="#93c5fd" opacity="0.4"/>
+  <!-- Handle -->
+  <line x1="56.5" y1="58.5" x2="61" y2="63" stroke="#60a5fa" stroke-width="3" stroke-linecap="round"/>
 </svg>

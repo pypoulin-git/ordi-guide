@@ -349,7 +349,7 @@ export default function AboutClient() {
       {/* Citation finale */}
       <section className="section" style={{ background: '#1e3a8a' }}>
         <div className="container max-w-2xl mx-auto text-center">
-          <Image src="/images/compy-logo.png" alt="Shop Compy" width={80} height={80}
+          <Image src="/compy-icon.svg" alt="Shop Compy" width={80} height={80}
             className="mx-auto mb-6 compy-logo" />
           <p className="text-xl sm:text-2xl leading-relaxed text-white/90 mb-6" style={{ fontStyle: 'italic' }}>
             &laquo;&nbsp;{a.finalQuote}&nbsp;&raquo;
