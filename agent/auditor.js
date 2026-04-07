@@ -4,7 +4,7 @@
 
 import { readFile, writeFile } from 'fs/promises'
 import { execSync } from 'child_process'
-import { CATALOGUE_PATH, AUDIT_RULES, CPU_WHITELIST, PRICE_SANITY_RULES } from './config.js'
+import { CATALOGUE_PATH, AUDIT_RULES, CPU_WHITELIST, PRICE_SANITY_RULES, CPU_PRICE_CAPS, BLOCKED_SOURCES } from './config.js'
 import { checkUrl, matchesCpuWhitelist, discordAlert, mapWithConcurrency, log } from './utils.js'
 
 export async function runAudit() {
@@ -21,6 +21,25 @@ export async function runAudit() {
   const products = catalogue.products || []
   const checks = []
   const failures = []
+
+  // ── Check 0: Retirer les sources bloquées ─────────────────────
+  if (BLOCKED_SOURCES && BLOCKED_SOURCES.length > 0) {
+    const blockedSet = new Set(BLOCKED_SOURCES)
+    const blocked = catalogue.products.filter(p => blockedSet.has(p.source))
+    if (blocked.length > 0) {
+      for (const p of blocked.slice(0, 5)) {
+        log(`  ✗ Source bloquée (auto-retiré): "${p.name?.slice(0, 45)}" (${p.source})`)
+      }
+      if (blocked.length > 5) log(`  ... et ${blocked.length - 5} autres`)
+      catalogue.products = catalogue.products.filter(p => !blockedSet.has(p.source))
+      log(`  → ${blocked.length} produits de sources bloquées retirés, ${catalogue.products.length} restants`)
+    }
+    checks.push({
+      name: 'blockedSources',
+      passed: true,
+      details: blocked.length === 0 ? 'Aucun' : `${blocked.length} retirés (${BLOCKED_SOURCES.join(', ')})`,
+    })
+  }
 
   // ── Check 1: Nombre total de produits ─────────────────────────
   if (products.length < AUDIT_RULES.minTotalProducts) {
@@ -89,6 +108,34 @@ export async function runAudit() {
     name: 'priceSanity',
     passed: true,
     details: insanePrices.length === 0 ? 'Tous OK' : `${insanePrices.length} auto-retirés`,
+  })
+
+  // ── Check 3b2: CPU generation price caps — old chips ≠ premium ──
+  const NON_CPU_CATS = ['monitor', 'dock']
+  const cpuOverpriced = []
+  if (CPU_PRICE_CAPS && CPU_PRICE_CAPS.length > 0) {
+    for (const p of catalogue.products) {
+      if (NON_CPU_CATS.includes(p.category)) continue
+      const cpu = p.specs?.cpu || ''
+      if (!cpu) continue
+      for (const rule of CPU_PRICE_CAPS) {
+        if (rule.match.test(cpu) && p.price > rule.max) {
+          cpuOverpriced.push(p)
+          log(`  ⚠ Vieux CPU surpayé (auto-retiré): "${p.name?.slice(0, 45)}" = ${p.price}$ > ${rule.max}$ (${rule.label}: ${cpu})`)
+          break
+        }
+      }
+    }
+    if (cpuOverpriced.length > 0) {
+      const overIds = new Set(cpuOverpriced.map(p => p.id))
+      catalogue.products = catalogue.products.filter(p => !overIds.has(p.id))
+      log(`  → ${cpuOverpriced.length} produits vieux CPU surpayés retirés, ${catalogue.products.length} restants`)
+    }
+  }
+  checks.push({
+    name: 'cpuPriceCaps',
+    passed: true,
+    details: cpuOverpriced.length === 0 ? 'Tous OK' : `${cpuOverpriced.length} auto-retirés`,
   })
 
   // ── Check 3c: Staleness — retirer les produits trop vieux ─────

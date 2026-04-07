@@ -1,14 +1,12 @@
 // ─── Phase 1 : Scanner ──────────────────────────────────────────
-// Scrape les 11 sources, enrichit avec les pages réelles,
+// Scrape les sources actives, enrichit avec les pages réelles,
 // pré-filtre par CPU whitelist, écrit scan-results.json.
+// Sources bloquées (bestbuy, costco, staples) ne sont plus scannées.
 
 import { writeFile } from 'fs/promises'
 import { SCAN_RESULTS_PATH } from './config.js'
 import { matchesCpuWhitelist, log, sleep } from './utils.js'
-import { fetchBestBuy } from './sources/bestbuy.js'
 import { fetchAmazon } from './sources/amazon.js'
-import { fetchCostco } from './sources/costco.js'
-import { fetchStaples } from './sources/staples.js'
 import { fetchNewegg } from './sources/newegg.js'
 import { fetchLenovo } from './sources/lenovo.js'
 import { fetchDell } from './sources/dell.js'
@@ -22,10 +20,7 @@ export async function runScanner() {
   const errors = []
 
   const sources = [
-    { name: 'bestbuy', fn: fetchBestBuy },
     { name: 'amazon', fn: fetchAmazon },
-    { name: 'costco', fn: fetchCostco },
-    { name: 'staples', fn: fetchStaples },
     { name: 'newegg', fn: fetchNewegg },
     { name: 'lenovo', fn: fetchLenovo },
     { name: 'dell', fn: fetchDell },
