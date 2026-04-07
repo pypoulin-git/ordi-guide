@@ -20,9 +20,32 @@ export default function FundingToast() {
       || document.cookie.length > 0
 
     if (!seen && hasVisited) {
-      // Small delay so it doesn't compete with page load
-      const timer = setTimeout(() => setVisible(true), 2000)
-      return () => clearTimeout(timer)
+      let shown = false
+
+      // Trigger after user has scrolled 600px (shows interest)
+      const onScroll = () => {
+        if (!shown && window.scrollY > 600) {
+          shown = true
+          setVisible(true)
+          window.removeEventListener('scroll', onScroll)
+          clearTimeout(fallbackTimer)
+        }
+      }
+
+      // Fallback: show after 8s if user hasn't scrolled
+      const fallbackTimer = setTimeout(() => {
+        if (!shown) {
+          shown = true
+          setVisible(true)
+          window.removeEventListener('scroll', onScroll)
+        }
+      }, 8000)
+
+      window.addEventListener('scroll', onScroll, { passive: true })
+      return () => {
+        window.removeEventListener('scroll', onScroll)
+        clearTimeout(fallbackTimer)
+      }
     }
   }, [])
 

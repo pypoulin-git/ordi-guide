@@ -151,9 +151,14 @@ export default function Footer() {
                 {t.footer.newsletterDesc}
               </p>
               {subscribed ? (
-                <p className="text-sm font-medium text-green-600 dark:text-green-400">
-                  {t.footer.newsletterSuccess}
-                </p>
+                <div>
+                  <p className="text-sm font-medium text-[var(--success)]">
+                    {t.footer.newsletterSuccess}
+                  </p>
+                  <p className="text-xs text-[var(--text-muted)] mt-1">
+                    {t.footer.newsletterLocalNote}
+                  </p>
+                </div>
               ) : (
                 <form onSubmit={handleSubscribe} className="flex gap-2 max-w-sm">
                   <input

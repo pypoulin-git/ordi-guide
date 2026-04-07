@@ -34,7 +34,8 @@ const fr = {
     newsletterDesc: 'Recevez nos offres et conseils mensuels',
     newsletterPlaceholder: 'Votre courriel',
     newsletterButton: 'S\'abonner',
-    newsletterSuccess: 'Abonnement confirme !',
+    newsletterSuccess: 'Merci pour l\'intérêt ! On n\'envoie pas encore de newsletter — on te contactera dès qu\'elle sera lancée.',
+    newsletterLocalNote: '(Ton courriel est conservé uniquement sur cet appareil)',
     manageCookies: 'Gerer les temoins',
     socialGithub: 'GitHub',
   },
@@ -339,6 +340,7 @@ const fr = {
     viewDetails: 'Voir détails →',
     storageLabel: 'Stockage',
     displayLabel: 'Écran',
+    aiScoreTooltip: 'Score de pertinence calculé par notre IA — basé sur le rapport qualité/prix, la fiabilité et le profil d\'usage.',
   },
 
   // ── Product detail page ─────────────────────────────────
@@ -533,6 +535,18 @@ const fr = {
     max: 'Maximum 3 produits',
     add: 'Ajouter à la comparaison',
     added: 'Dans la comparaison',
+    labelImage: 'Image',
+    labelName: 'Nom',
+    labelBrand: 'Marque',
+    labelPrice: 'Prix',
+    labelCpu: 'Processeur',
+    labelRam: 'RAM',
+    labelStorage: 'Stockage',
+    labelGpu: 'GPU',
+    labelDisplay: 'Écran',
+    labelAiScore: 'Score IA',
+    labelSource: 'Source',
+    labelLink: 'Lien',
   },
 
   // ── Contact ──────────────────────────────────────────

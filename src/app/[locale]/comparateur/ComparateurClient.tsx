@@ -470,14 +470,23 @@ export default function ComparateurClient() {
         {/* Progress */}
         <div className="mb-5">
           <div className="flex justify-between text-sm mb-1.5 text-[var(--text-muted)]">
-            <span>
+            <span aria-live="polite" aria-atomic="true">
               {c.questionOf
                 .replace('{current}', String(currentIndex + 1))
                 .replace('{total}', String(totalSteps))}
             </span>
             <span>{Math.round(progress)} %</span>
           </div>
-          <div className="h-2 rounded-full bg-[var(--border)]" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
+          <div
+            className="h-2 rounded-full bg-[var(--border)]"
+            role="progressbar"
+            aria-valuenow={progress}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label={c.questionOf
+              .replace('{current}', String(currentIndex + 1))
+              .replace('{total}', String(totalSteps))}
+          >
             <div className="h-2 rounded-full transition-all duration-500"
               style={{ width: `${progress}%`, background: 'var(--accent)' }} />
           </div>

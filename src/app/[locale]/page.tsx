@@ -12,6 +12,70 @@ import JsonLd from '@/components/JsonLd'
 import { useTranslation } from '@/i18n/DictionaryContext'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
+/* ── Featured blog articles (single source of truth) ────────────
+   Update here when articles are renamed or replaced.              */
+const FEATURED_ARTICLES: Record<'fr' | 'en', Array<{
+  slug: string
+  title: string
+  excerpt: string
+  readTime: number
+  badge: string
+  color: string
+}>> = {
+  fr: [
+    {
+      slug: 'ssd-vs-hdd-stockage-ordinateur',
+      title: 'SSD vs HDD : pourquoi ton vieux ordi est lent',
+      excerpt: 'La différence entre un SSD et un disque dur classique, et pourquoi c\'est le changement le plus rentable.',
+      readTime: 5,
+      badge: 'Les bases',
+      color: '#2563eb',
+    },
+    {
+      slug: 'mac-vs-pc-lequel-choisir',
+      title: 'Mac vs PC : lequel est fait pour toi ?',
+      excerpt: 'Le grand débat expliqué sans fanatisme. On compare honnêtement les forces de chaque camp.',
+      readTime: 7,
+      badge: 'Comparatifs',
+      color: '#d97706',
+    },
+    {
+      slug: 'ram-memoire-vive-poumons-transmission',
+      title: 'La RAM : combien t\'en faut vraiment ?',
+      excerpt: '8, 16, 32 Go… On démystifie la mémoire vive sans jargon pour t\'aider à choisir.',
+      readTime: 5,
+      badge: 'Les bases',
+      color: '#0891b2',
+    },
+  ],
+  en: [
+    {
+      slug: 'ssd-vs-hdd-stockage-ordinateur',
+      title: 'SSD vs HDD: Why Your Old Computer Is Slow',
+      excerpt: 'The difference between an SSD and a traditional hard drive, and why it\'s the best bang for your buck.',
+      readTime: 5,
+      badge: 'Basics',
+      color: '#2563eb',
+    },
+    {
+      slug: 'mac-vs-pc-lequel-choisir',
+      title: 'Mac vs PC: Which One Is Right for You?',
+      excerpt: 'The big debate explained without bias. An honest comparison of each side\'s strengths.',
+      readTime: 7,
+      badge: 'Comparisons',
+      color: '#d97706',
+    },
+    {
+      slug: 'ram-memoire-vive-poumons-transmission',
+      title: 'RAM: How Much Do You Really Need?',
+      excerpt: '8, 16, 32 GB… We demystify RAM without jargon to help you choose.',
+      readTime: 5,
+      badge: 'Basics',
+      color: '#0891b2',
+    },
+  ],
+}
+
 /* ── Animated counter component ─────────────────────────────── */
 function AnimatedStat({ value, label }: { value: string; label: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -126,7 +190,7 @@ export default function HomePage() {
     })),
   }
 
-  const blogColors = ['#2563eb', '#d97706', '#0891b2']
+  const featuredArticles = FEATURED_ARTICLES[locale as 'fr' | 'en'] ?? FEATURED_ARTICLES.fr
 
   return (
     <>
@@ -469,44 +533,16 @@ export default function HomePage() {
           <h2 className="text-2xl font-bold text-center mb-2 text-[var(--text)]">{t.home.latestTitle}</h2>
           <p className="text-center mb-10 text-[var(--text-subtle)]">{t.home.latestSubtitle}</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                slug: 'ssd-vs-hdd-stockage-ordinateur',
-                title: locale === 'fr' ? 'SSD vs HDD : pourquoi ton vieux ordi est lent' : 'SSD vs HDD: Why Your Old Computer Is Slow',
-                excerpt: locale === 'fr'
-                  ? 'La différence entre un SSD et un disque dur classique, et pourquoi c\'est le changement le plus rentable.'
-                  : 'The difference between an SSD and a traditional hard drive, and why it\'s the best bang for your buck.',
-                readTime: 5,
-                badge: locale === 'fr' ? 'Les bases' : 'Basics',
-              },
-              {
-                slug: 'mac-vs-pc-lequel-choisir',
-                title: locale === 'fr' ? 'Mac vs PC : lequel est fait pour toi ?' : 'Mac vs PC: Which One Is Right for You?',
-                excerpt: locale === 'fr'
-                  ? 'Le grand débat expliqué sans fanatisme. On compare honnêtement les forces de chaque camp.'
-                  : 'The big debate explained without bias. An honest comparison of each side\'s strengths.',
-                readTime: 7,
-                badge: locale === 'fr' ? 'Comparatifs' : 'Comparisons',
-              },
-              {
-                slug: 'ram-memoire-vive-poumons-transmission',
-                title: locale === 'fr' ? 'La RAM : combien t\'en faut vraiment ?' : 'RAM: How Much Do You Really Need?',
-                excerpt: locale === 'fr'
-                  ? '8, 16, 32 Go… On démystifie la mémoire vive sans jargon pour t\'aider à choisir.'
-                  : '8, 16, 32 GB… We demystify RAM without jargon to help you choose.',
-                readTime: 5,
-                badge: locale === 'fr' ? 'Les bases' : 'Basics',
-              },
-            ].map((article, i) => (
+            {featuredArticles.map((article) => (
               <Link key={article.slug} href={`/${locale}/blog/${article.slug}`}
                 className="card card-interactive block hover:no-underline"
                 style={{ background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
                 {/* Colored top border */}
-                <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: blogColors[i] }} />
+                <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: article.color }} />
                 <div className="pt-1">
                   {/* Badge */}
                   <span className="inline-block text-xs font-semibold px-2.5 py-1 rounded-full mb-3"
-                    style={{ background: `${blogColors[i]}15`, color: blogColors[i] }}>
+                    style={{ background: `${article.color}15`, color: article.color }}>
                     {article.badge}
                   </span>
                   <h3 className="text-lg font-bold mb-2 text-[var(--text)]">{article.title}</h3>

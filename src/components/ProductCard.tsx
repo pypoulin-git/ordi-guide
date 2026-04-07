@@ -4,6 +4,7 @@ import Image from 'next/image'
 import type { CatalogueProduct } from '@/types/catalogue'
 import { SOURCE_LABELS, PROFILE_LABELS } from '@/types/catalogue'
 import SpecTooltip from './SpecTooltip'
+import GlassTooltip from './GlassTooltip'
 import { useTranslation } from '@/i18n/DictionaryContext'
 import { useCompare } from '@/contexts/CompareContext'
 
@@ -145,19 +146,21 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
             {source.label}
           </span>
         </div>
-        <div className="flex items-center gap-2 min-w-[100px]">
-          <div className="flex-1 h-1.5 rounded-full bg-[var(--border)] overflow-hidden">
-            <div className="score-bar h-full rounded-full" style={{
-              width: `${product.aiScore}%`,
-              background: product.aiScore >= 81 ? '#0891b2' : product.aiScore >= 61 ? '#2563eb' : product.aiScore >= 41 ? '#d97706' : '#94a3b8',
-            }} />
+        <GlassTooltip label={cat.aiScoreTooltip} position="top">
+          <div className="flex items-center gap-2 min-w-[100px]" tabIndex={0} aria-label={`${t.product.aiScore} : ${product.aiScore}/100. ${cat.aiScoreTooltip}`}>
+            <div className="flex-1 h-1.5 rounded-full bg-[var(--border)] overflow-hidden">
+              <div className="score-bar h-full rounded-full" style={{
+                width: `${product.aiScore}%`,
+                background: product.aiScore >= 81 ? '#0891b2' : product.aiScore >= 61 ? '#2563eb' : product.aiScore >= 41 ? '#d97706' : '#94a3b8',
+              }} />
+            </div>
+            <span className="text-sm font-semibold" style={{
+              color: product.aiScore >= 81 ? '#0891b2' : product.aiScore >= 61 ? '#2563eb' : product.aiScore >= 41 ? '#d97706' : '#94a3b8',
+            }}>
+              {product.aiScore}
+            </span>
           </div>
-          <span className="text-sm font-semibold" style={{
-            color: product.aiScore >= 81 ? '#0891b2' : product.aiScore >= 61 ? '#2563eb' : product.aiScore >= 41 ? '#d97706' : '#94a3b8',
-          }}>
-            {product.aiScore}
-          </span>
-        </div>
+        </GlassTooltip>
       </div>
 
       {/* Corps */}

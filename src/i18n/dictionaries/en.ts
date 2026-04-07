@@ -36,7 +36,8 @@ const en: Dictionary = {
     newsletterDesc: 'Get monthly deals and tips',
     newsletterPlaceholder: 'Your email',
     newsletterButton: 'Subscribe',
-    newsletterSuccess: 'Subscribed!',
+    newsletterSuccess: 'Thanks for your interest! No newsletter just yet — we\'ll reach out once it launches.',
+    newsletterLocalNote: '(Your email is stored locally on this device only)',
     manageCookies: 'Manage cookies',
     socialGithub: 'GitHub',
   },
@@ -341,6 +342,7 @@ const en: Dictionary = {
     viewDetails: 'View details →',
     storageLabel: 'Storage',
     displayLabel: 'Display',
+    aiScoreTooltip: 'Relevance score calculated by our AI — based on value for money, reliability, and usage fit.',
   },
 
   // ── Product detail page ─────────────────────────────────
@@ -535,6 +537,18 @@ const en: Dictionary = {
     max: 'Maximum 3 products',
     add: 'Add to comparison',
     added: 'In comparison',
+    labelImage: 'Image',
+    labelName: 'Name',
+    labelBrand: 'Brand',
+    labelPrice: 'Price',
+    labelCpu: 'Processor',
+    labelRam: 'RAM',
+    labelStorage: 'Storage',
+    labelGpu: 'GPU',
+    labelDisplay: 'Display',
+    labelAiScore: 'AI Score',
+    labelSource: 'Source',
+    labelLink: 'Link',
   },
 
   // ── Contact ──────────────────────────────────────────

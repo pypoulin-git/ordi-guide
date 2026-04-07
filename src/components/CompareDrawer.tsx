@@ -97,7 +97,7 @@ export default function CompareDrawer() {
                 <tbody>
                   {/* Image row */}
                   <tr className="border-t border-[var(--border)]">
-                    <td className="py-3 px-3 font-medium text-[var(--text-muted)]">Image</td>
+                    <td className="py-3 px-3 font-medium text-[var(--text-muted)]">{c.labelImage}</td>
                     {items.map(p => (
                       <td key={p.id} className="py-3 px-3 text-center">
                         {p.imageUrl ? (
@@ -121,36 +121,36 @@ export default function CompareDrawer() {
 
                   {/* Data rows */}
                   {([
-                    { label: 'Name', getValue: (p: typeof items[0]) => p.name },
-                    { label: 'Brand', getValue: (p: typeof items[0]) => p.brand },
-                    { label: 'Price', getValue: (p: typeof items[0]) => `${p.price.toLocaleString('fr-CA')} $` },
-                    { label: 'CPU', getValue: (p: typeof items[0]) => p.specs.cpu },
-                    { label: 'RAM', getValue: (p: typeof items[0]) => p.specs.ram },
-                    { label: 'Storage', getValue: (p: typeof items[0]) => p.specs.storage },
-                    { label: 'GPU', getValue: (p: typeof items[0]) => p.specs.gpu || '—' },
-                    { label: 'Display', getValue: (p: typeof items[0]) => p.specs.display || '—' },
-                    { label: 'AI Score', getValue: (p: typeof items[0]) => `${p.aiScore}/100` },
-                    { label: 'Source', getValue: (p: typeof items[0]) => SOURCE_LABELS[p.source]?.label || p.source },
-                    { label: 'Link', getValue: () => '' },
-                  ]).map((row, i) => (
-                    <tr key={row.label} className={i % 2 === 0 ? 'bg-[var(--bg-subtle)]' : ''}>
+                    { key: 'name', label: c.labelName, getValue: (p: typeof items[0]) => p.name },
+                    { key: 'brand', label: c.labelBrand, getValue: (p: typeof items[0]) => p.brand },
+                    { key: 'price', label: c.labelPrice, getValue: (p: typeof items[0]) => `${p.price.toLocaleString('fr-CA')} $` },
+                    { key: 'cpu', label: c.labelCpu, getValue: (p: typeof items[0]) => p.specs.cpu },
+                    { key: 'ram', label: c.labelRam, getValue: (p: typeof items[0]) => p.specs.ram },
+                    { key: 'storage', label: c.labelStorage, getValue: (p: typeof items[0]) => p.specs.storage },
+                    { key: 'gpu', label: c.labelGpu, getValue: (p: typeof items[0]) => p.specs.gpu || '—' },
+                    { key: 'display', label: c.labelDisplay, getValue: (p: typeof items[0]) => p.specs.display || '—' },
+                    { key: 'aiScore', label: c.labelAiScore, getValue: (p: typeof items[0]) => `${p.aiScore}/100` },
+                    { key: 'source', label: c.labelSource, getValue: (p: typeof items[0]) => SOURCE_LABELS[p.source]?.label || p.source },
+                    { key: 'link', label: c.labelLink, getValue: () => '' },
+                  ] as const).map((row, i) => (
+                    <tr key={row.key} className={i % 2 === 0 ? 'bg-[var(--bg-subtle)]' : ''}>
                       <td className="py-2.5 px-3 font-medium text-[var(--text-muted)] border-t border-[var(--border)]">
                         {row.label}
                       </td>
                       {items.map(p => (
                         <td key={p.id} className="py-2.5 px-3 text-center text-[var(--text)] border-t border-[var(--border)]">
-                          {row.label === 'Link' ? (
+                          {row.key === 'link' ? (
                             <a
                               href={p.url}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="text-[var(--accent)] hover:underline text-sm font-medium"
                             >
-                              {SOURCE_LABELS[p.source]?.label || 'View'}
+                              {SOURCE_LABELS[p.source]?.label || c.labelLink}
                             </a>
-                          ) : row.label === 'AI Score' ? (
+                          ) : row.key === 'aiScore' ? (
                             <span className="font-semibold text-[var(--warn)]">{row.getValue(p)}</span>
-                          ) : row.label === 'Price' ? (
+                          ) : row.key === 'price' ? (
                             <span className="font-bold">{row.getValue(p)}</span>
                           ) : (
                             row.getValue(p)
