@@ -249,10 +249,31 @@ function useBestMatch(answers: Answers, done: boolean) {
   return { match, loading }
 }
 
+const SESSION_KEY = 'comparateur_progress'
+
+function saveProgress(answers: Answers, index: number) {
+  try { sessionStorage.setItem(SESSION_KEY, JSON.stringify({ answers, index })) } catch { /* ignore */ }
+}
+
+function clearProgress() {
+  try { sessionStorage.removeItem(SESSION_KEY) } catch { /* ignore */ }
+}
+
+function loadProgress(): { answers: Answers; index: number } | null {
+  try {
+    const raw = sessionStorage.getItem(SESSION_KEY)
+    if (!raw) return null
+    const parsed = JSON.parse(raw)
+    if (parsed && typeof parsed.answers === 'object' && typeof parsed.index === 'number') return parsed
+  } catch { /* ignore */ }
+  return null
+}
+
 export default function ComparateurClient() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [answers, setAnswers] = useState<Answers>({})
   const [done, setDone] = useState(false)
+  const [showResume, setShowResume] = useState(false)
   const { t, locale } = useTranslation()
   const c = t.comparator
 
@@ -260,6 +281,14 @@ export default function ComparateurClient() {
   const allSteps = getSteps(locale)
   const ARCHETYPE_INFO = getArchetypeInfo(locale)
   const { match, loading } = useBestMatch(answers, done)
+
+  // Restore progress from sessionStorage on mount
+  useEffect(() => {
+    const saved = loadProgress()
+    if (saved && Object.keys(saved.answers).length > 0) {
+      setShowResume(true)
+    }
+  }, [])
 
   const visibleSteps = useMemo(() => {
     return allSteps.filter(s => !s.showIf || s.showIf(answers))
@@ -274,9 +303,12 @@ export default function ComparateurClient() {
     setAnswers(newAnswers)
     const nextVisible = allSteps.filter(s => !s.showIf || s.showIf(newAnswers))
     if (currentIndex < nextVisible.length - 1) {
-      setCurrentIndex(i => i + 1)
+      const nextIndex = currentIndex + 1
+      setCurrentIndex(nextIndex)
+      saveProgress(newAnswers, nextIndex)
     } else {
       setDone(true)
+      clearProgress()
     }
   }
 
@@ -285,7 +317,9 @@ export default function ComparateurClient() {
       const cleaned = { ...answers }
       delete cleaned[currentStep.id]
       setAnswers(cleaned)
-      setCurrentIndex(i => i - 1)
+      const prevIndex = currentIndex - 1
+      setCurrentIndex(prevIndex)
+      saveProgress(cleaned, prevIndex)
     }
   }
 
@@ -293,6 +327,22 @@ export default function ComparateurClient() {
     setCurrentIndex(0)
     setAnswers({})
     setDone(false)
+    setShowResume(false)
+    clearProgress()
+  }
+
+  function resumeProgress() {
+    const saved = loadProgress()
+    if (saved) {
+      setAnswers(saved.answers)
+      setCurrentIndex(saved.index)
+      setShowResume(false)
+    }
+  }
+
+  function dismissResume() {
+    setShowResume(false)
+    clearProgress()
   }
 
   /* ── RESULTS PAGE ──────────────────────────────────────────────── */
@@ -466,6 +516,28 @@ export default function ComparateurClient() {
             {c.pageSubtitle.replace('{count}', String(totalSteps))}
           </p>
         </div>
+
+        {/* Resume banner */}
+        {showResume && !done && (
+          <div className="card mb-5 flex flex-col sm:flex-row items-center gap-3" style={{ border: '2px solid var(--accent)', background: 'var(--accent-bg)' }}>
+            <div className="flex-1 min-w-0">
+              <p className="font-semibold text-[var(--text)]">
+                {isFr ? 'Tu avais commencé le questionnaire.' : 'You started the questionnaire earlier.'}
+              </p>
+              <p className="text-sm text-[var(--text-subtle)]">
+                {isFr ? 'Reprendre où tu en étais ?' : 'Pick up where you left off?'}
+              </p>
+            </div>
+            <div className="flex gap-2 shrink-0">
+              <button onClick={resumeProgress} className="btn-primary" style={{ padding: '0.625rem 1.25rem', fontSize: '0.875rem' }}>
+                {isFr ? 'Reprendre' : 'Resume'}
+              </button>
+              <button onClick={dismissResume} className="btn-outline" style={{ padding: '0.625rem 1.25rem', fontSize: '0.875rem' }}>
+                {isFr ? 'Recommencer' : 'Start over'}
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Progress */}
         <div className="mb-5">

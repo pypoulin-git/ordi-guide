@@ -21,19 +21,10 @@ export default function SupportClient() {
         gradient="linear-gradient(135deg, #064e3b 0%, #059669 50%, #34d399 100%)"
       />
 
-      {/* Intro */}
-      <section className="section">
-        <div className="container max-w-3xl mx-auto text-center">
-          <p className="text-lg text-[var(--text-subtle)] leading-relaxed">
-            {s.supportIntro}
-          </p>
-        </div>
-      </section>
-
-      {/* Single pricing card */}
-      <section className="section bg-[var(--bg-subtle)]">
+      {/* CTA above the fold — pricing + reassurance */}
+      <section className="section" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div className="container">
-          <div className="max-w-md mx-auto">
+          <div className="max-w-lg mx-auto">
             <div
               className="card relative flex flex-col text-center"
               style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2rem)', border: '2px solid var(--accent)' }}
@@ -42,7 +33,7 @@ export default function SupportClient() {
               <p className="font-semibold text-[var(--text)] mb-2">
                 {isFr ? '1 question, 1 réponse d\'expert' : '1 question, 1 expert answer'}
               </p>
-              <p className="text-sm text-[var(--text-subtle)] mb-6">
+              <p className="text-sm text-[var(--text-subtle)] mb-4">
                 {isFr
                   ? 'Pose ta question par courriel et reçois une réponse personnalisée en moins de 24h.'
                   : 'Ask your question by email and get a personalized answer within 24h.'}
@@ -52,12 +43,37 @@ export default function SupportClient() {
                 href={SUPPORT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary w-full"
+                className="btn-primary w-full mb-4"
               >
                 {s.supportCta}
               </a>
+
+              {/* Reassurance badges */}
+              <div className="flex flex-wrap justify-center gap-3 text-xs text-[var(--text-muted)]">
+                <span className="flex items-center gap-1">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  {isFr ? 'Remboursé si sans réponse' : 'Refund if unanswered'}
+                </span>
+                <span className="flex items-center gap-1">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  {isFr ? 'Réponse en 24h' : 'Reply within 24h'}
+                </span>
+                <span className="flex items-center gap-1">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                  {isFr ? 'Paiement sécurisé Stripe' : 'Secure Stripe payment'}
+                </span>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Intro */}
+      <section className="section" style={{ paddingTop: '1rem' }}>
+        <div className="container max-w-3xl mx-auto text-center">
+          <p className="text-lg text-[var(--text-subtle)] leading-relaxed">
+            {s.supportIntro}
+          </p>
         </div>
       </section>
 

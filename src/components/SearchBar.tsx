@@ -28,8 +28,11 @@ export default function SearchBar() {
   const [error, setError] = useState('')
   const [focused, setFocused] = useState(false)
   const [recentSearches, setRecentSearches] = useState<string[]>([])
+  const [loadingMsg, setLoadingMsg] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
+  const abortRef = useRef<AbortController | null>(null)
+  const msgIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const { t, locale } = useTranslation()
   const s = t.search
 
@@ -91,17 +94,39 @@ export default function SearchBar() {
     const text = q || query
     if (!text.trim() || text.trim().length < 3) return
 
+    // Abort previous request if any
+    if (abortRef.current) abortRef.current.abort()
+    const controller = new AbortController()
+    abortRef.current = controller
+
+    // Rotating loading messages
+    const isFrLocal = locale === 'fr'
+    const msgs = isFrLocal
+      ? ['Analyse en cours...', 'Consultation du catalogue...', 'Préparation de ta recommandation...']
+      : ['Analyzing your request...', 'Browsing the catalogue...', 'Preparing your recommendation...']
+    let msgIdx = 0
+    setLoadingMsg(msgs[0])
+    if (msgIntervalRef.current) clearInterval(msgIntervalRef.current)
+    msgIntervalRef.current = setInterval(() => {
+      msgIdx = (msgIdx + 1) % msgs.length
+      setLoadingMsg(msgs[msgIdx])
+    }, 3000)
+
     setLoading(true)
     setError('')
     setResult(null)
     setFocused(false)
     saveRecentSearch(text.trim())
 
+    // Timeout after 12 seconds
+    const timeoutId = setTimeout(() => controller.abort(), 12000)
+
     try {
       const res = await fetch('/api/search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: text.trim(), locale }),
+        signal: controller.signal,
       })
       const data = await res.json()
       if (data.error) {
@@ -109,10 +134,20 @@ export default function SearchBar() {
       } else {
         setResult(data)
       }
-    } catch {
-      setError(s.connectionError)
+    } catch (err) {
+      if ((err as Error).name === 'AbortError') {
+        setError(isFrLocal
+          ? 'La recherche a pris trop de temps. Réessaie dans un instant.'
+          : 'Search took too long. Please try again in a moment.')
+      } else {
+        setError(s.connectionError)
+      }
     } finally {
+      clearTimeout(timeoutId)
+      if (msgIntervalRef.current) clearInterval(msgIntervalRef.current)
+      msgIntervalRef.current = null
       setLoading(false)
+      abortRef.current = null
     }
   }
 
@@ -195,7 +230,7 @@ export default function SearchBar() {
             height={100}
             className="rounded-xl"
           />
-          <p className="text-sm font-medium text-[var(--text-muted)] animate-pulse">{s.loading}</p>
+          <p className="text-sm font-medium text-[var(--text-muted)] animate-pulse">{loadingMsg || s.loading}</p>
         </div>
       )}
 

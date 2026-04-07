@@ -276,11 +276,11 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
             className="text-sm leading-snug whitespace-nowrap rounded-full px-5 py-2.5 font-medium"
             style={{
               color: 'var(--text)',
-              background: 'rgba(255,255,255,0.5)',
+              background: 'var(--glass-bg)',
               backdropFilter: 'blur(12px)',
               WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255,255,255,0.4)',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+              border: '1px solid var(--glass-border)',
+              boxShadow: '0 4px 20px var(--glass-shadow)',
               opacity: visible ? 1 : 0,
               transform: visible ? 'translateY(0)' : 'translateY(-6px)',
               transition: 'opacity 0.4s ease, transform 0.4s ease',

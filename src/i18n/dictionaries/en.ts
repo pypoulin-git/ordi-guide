@@ -600,6 +600,7 @@ const en: Dictionary = {
   affiliate: {
     disclosure: 'Some links are affiliate links. If you buy through them, we earn a small commission at no cost to you.',
     learnMore: 'Learn more',
+    dismiss: 'Dismiss',
   },
 }
 

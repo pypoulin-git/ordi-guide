@@ -598,6 +598,7 @@ const fr = {
   affiliate: {
     disclosure: 'Certains liens sont des liens affiliés. Si tu achètes via ces liens, on reçoit une petite commission sans frais pour toi.',
     learnMore: 'En savoir plus',
+    dismiss: 'Fermer',
   },
 } satisfies Record<string, Record<string, string>>
 

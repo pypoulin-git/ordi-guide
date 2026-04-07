@@ -19,6 +19,9 @@
   --warn:        #d97706;
   --radius:      0.75rem;
   --input-bg:    #ffffff;
+  --glass-bg:     rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-shadow: rgba(0, 0, 0, 0.12);
 }
 
 /* ── Dark mode tokens ────────────────────────────────────────── */
@@ -36,6 +39,9 @@
   --success:     #22d3ee;
   --warn:        #fbbf24;
   --input-bg:    #1e293b;
+  --glass-bg:     rgba(15, 23, 42, 0.88);
+  --glass-border: rgba(51, 65, 85, 0.6);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
 }
 
 @theme inline {
