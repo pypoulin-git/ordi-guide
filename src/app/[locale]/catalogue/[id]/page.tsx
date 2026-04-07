@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { promises as fs } from 'fs'
 import path from 'path'
 import { notFound } from 'next/navigation'
-import { use } from 'react'
 import type { Metadata } from 'next'
 import type { CatalogueData, CatalogueProduct } from '@/types/catalogue'
 import { SOURCE_LABELS, PROFILE_LABELS, CATEGORY_LABELS, BUDGET_LABELS } from '@/types/catalogue'
@@ -75,13 +74,13 @@ function getSimilar(products: CatalogueProduct[], current: CatalogueProduct): Ca
     .map(x => x.p)
 }
 
-export default function ProductPage({ params }: Props) {
-  const { id, locale } = use(params)
-  const catalogue = use(getCatalogue())
+export default async function ProductPage({ params }: Props) {
+  const { id, locale } = await params
+  const catalogue = await getCatalogue()
   const product = catalogue.products.find(p => p.id === id)
   if (!product) notFound()
 
-  const t = use(getDictionary(locale as Locale))
+  const t = await getDictionary(locale as Locale)
   const pt = t.product
   const source = SOURCE_LABELS[product.source]
   const similar = getSimilar(catalogue.products, product)

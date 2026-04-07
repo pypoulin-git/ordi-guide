@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ViewTransition } from 'react'
 import { notFound } from 'next/navigation'
 import { locales, type Locale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/get-dictionary'
@@ -70,7 +71,9 @@ export default async function LocaleLayout({
       <AnalogyProvider>
         <CompareProvider>
           <Header />
-          <main id="main-content" className="flex-1">{children}</main>
+          <ViewTransition>
+            <main id="main-content" className="flex-1">{children}</main>
+          </ViewTransition>
           <Footer />
           <CookieConsent />
           <FundingToast />
