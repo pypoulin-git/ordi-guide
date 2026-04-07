@@ -15,6 +15,7 @@ import SponsoredSpot from '@/components/SponsoredSpot'
 import DonationBox from '@/components/DonationBox'
 import ActionCTA from '@/components/ActionCTA'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import PriceAlertBox from '@/components/PriceAlertBox'
 
 async function getCatalogue(): Promise<CatalogueData> {
   const filePath = path.join(process.cwd(), 'data', 'catalogue.json')
@@ -342,6 +343,14 @@ export default async function ProductPage({ params }: Props) {
                     className="btn-outline w-full justify-center text-sm">
                     {pt.notSure}
                   </Link>
+                </div>
+
+                <div className="mt-5 pt-5 border-t border-[var(--border)]">
+                  <PriceAlertBox
+                    productId={product.id}
+                    productName={`${product.brand} ${product.name}`}
+                    currentPrice={product.price}
+                  />
                 </div>
               </div>
             </div>

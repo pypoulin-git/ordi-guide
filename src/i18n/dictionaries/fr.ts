@@ -362,6 +362,18 @@ const fr = {
     giftPickNote: 'Trouvaille Compy — cette référence est offerte sans revenu pour nous',
   },
 
+  // ── Price alerts ────────────────────────────────────────
+  priceAlert: {
+    title: 'Alerte baisse de prix',
+    description: 'Reçois un courriel si le prix de ce produit diminue.',
+    placeholder: 'ton@courriel.com',
+    button: 'Me prévenir',
+    subscribed: 'C\'est noté ! On te prévient dès que le prix baisse.',
+    alreadySubscribed: 'Tu es déjà inscrit pour ce produit.',
+    error: 'Une erreur est survenue. Réessaie.',
+    privacy: 'Ton courriel sert uniquement aux alertes prix. Aucun spam.',
+  },
+
   // ── Search bar ──────────────────────────────────────────
   search: {
     placeholder: 'Décris ton besoin en une phrase…',

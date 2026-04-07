@@ -364,6 +364,18 @@ const en: Dictionary = {
     giftPickNote: 'Compy find — this recommendation generates no revenue for us',
   },
 
+  // ── Price alerts ────────────────────────────────────────
+  priceAlert: {
+    title: 'Price drop alert',
+    description: 'Get an email if this product\'s price goes down.',
+    placeholder: 'your@email.com',
+    button: 'Notify me',
+    subscribed: 'You\'re set! We\'ll email you when the price drops.',
+    alreadySubscribed: 'You\'re already subscribed for this product.',
+    error: 'Something went wrong. Try again.',
+    privacy: 'Your email is only used for price alerts. No spam.',
+  },
+
   // ── Search bar ──────────────────────────────────────────
   search: {
     placeholder: 'Describe what you need in one sentence…',
