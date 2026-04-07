@@ -78,7 +78,7 @@ interface ArticleData {
   title: string
   description: string
   tags: string[]
-  tldr: string
+  gist: string
   category: string
   sections: { title: string; paragraphs: string[] }[]
 }
@@ -92,7 +92,7 @@ function scoreArticle(article: ArticleData, keywords: string[]): number {
   const slug = norm(article.slug)
   const title = norm(article.title)
   const desc = norm(article.description)
-  const tldr = norm(article.tldr)
+  const gist = norm(article.gist)
   const tags = article.tags.map(t => norm(t))
   const category = norm(article.category)
   const sectionTitles = article.sections.map(s => norm(s.title)).join(' ')
@@ -110,8 +110,8 @@ function scoreArticle(article: ArticleData, keywords: string[]): number {
     // Tag match (strong — curated topic label)
     if (tags.some(t => t === kw || t.includes(kw))) score += 6
 
-    // TL;DR match (strong — article summary)
-    if (tldr.includes(kw)) score += 4
+    // Gist match (strong — article summary)
+    if (gist.includes(kw)) score += 4
 
     // Description match
     if (desc.includes(kw)) score += 3
@@ -171,7 +171,7 @@ export async function POST(req: NextRequest) {
   }
 
   const articleContext = hasMatches
-    ? relevantMatches.map(s => `- "${s.article.title}" (slug: ${s.article.slug}): ${s.article.description}. TL;DR: ${s.article.tldr}`).join('\n')
+    ? relevantMatches.map(s => `- "${s.article.title}" (slug: ${s.article.slug}): ${s.article.description}. Résumé: ${s.article.gist}`).join('\n')
     : ''
 
   const systemPrompt = locale === 'fr'

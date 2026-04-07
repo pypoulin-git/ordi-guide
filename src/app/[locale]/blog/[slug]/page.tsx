@@ -143,7 +143,7 @@ export default function ArticlePage({ params }: Props) {
         </div>
       </section>
 
-      {/* -- TL;DR -- */}
+      {/* -- Gist -- */}
       <section className="section" style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>
         <div className="container max-w-3xl mx-auto">
           <div className="p-5 rounded-xl bg-[var(--accent-bg)]" style={{ border: '1px solid var(--border)' }}>
@@ -151,7 +151,7 @@ export default function ArticlePage({ params }: Props) {
               {ba.tldr}
             </div>
             <p className="text-base leading-relaxed text-[var(--text-subtle)]">
-              {article.tldr}
+              {article.gist}
             </p>
           </div>
         </div>

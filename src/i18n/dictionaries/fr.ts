@@ -401,7 +401,7 @@ const fr = {
   // ── Blog article page ───────────────────────────────────
   blogArticle: {
     backToBlog: '← Retour au Décodeur',
-    tldr: '⚡ TL;DR — L\'essentiel en 30 secondes',
+    tldr: 'L\'essentiel en 30 secondes',
     helpChoose: 'M\'aider à choisir →',
     readMore: 'Lire d\'autres articles',
     breadcrumbHome: 'Accueil',

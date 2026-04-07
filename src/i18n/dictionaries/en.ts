@@ -403,7 +403,7 @@ const en: Dictionary = {
   // ── Blog article page ───────────────────────────────────
   blogArticle: {
     backToBlog: '← Back to The Decoder',
-    tldr: '⚡ TL;DR — The essentials in 30 seconds',
+    tldr: 'The essentials in 30 seconds',
     helpChoose: 'Help me choose →',
     readMore: 'Read more articles',
     breadcrumbHome: 'Home',

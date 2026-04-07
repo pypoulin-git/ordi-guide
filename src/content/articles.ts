@@ -14,7 +14,7 @@ export interface Article {
   category: string
   categoryColor: string
   icon: string
-  tldr: string
+  gist: string
   sections: ArticleSection[]
   ctaText: string
   tags: string[]

@@ -14,7 +14,7 @@ export const articles: Article[] = [
     featured: true,
     coverGradient: 'linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #0891b2 100%)',
     coverImage: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80&auto=format',
-    tldr: 'Le processeur (CPU), c\'est ce qui fait \"réfléchir\" ton ordinateur. Pour la plupart des gens, un Intel Core i5 ou AMD Ryzen 5 récent suffit amplement. Ne te laisse pas impressionner par les gros chiffres — un modèle récent de milieu de gamme bat souvent un haut de gamme d\'il y a 3 ans.',
+    gist: 'Le processeur (CPU), c\'est ce qui fait \"réfléchir\" ton ordinateur. Pour la plupart des gens, un Intel Core i5 ou AMD Ryzen 5 récent suffit amplement. Ne te laisse pas impressionner par les gros chiffres — un modèle récent de milieu de gamme bat souvent un haut de gamme d\'il y a 3 ans.',
     sections: [
       {
         title: 'C\'est quoi, un processeur ?',
@@ -63,7 +63,7 @@ export const articles: Article[] = [
     icon: '🫁',
     tags: ['ram'],
     coverImage: 'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=800&q=80&auto=format',
-    tldr: 'La RAM, c\'est l\'espace de travail actif de ton ordinateur — pas le stockage permanent. 8 Go suffit pour les tâches de base, 16 Go est le standard recommandé en 2026, et 32 Go est réservé aux pros. Plus de RAM ≠ automatiquement plus rapide.',
+    gist: 'La RAM, c\'est l\'espace de travail actif de ton ordinateur — pas le stockage permanent. 8 Go suffit pour les tâches de base, 16 Go est le standard recommandé en 2026, et 32 Go est réservé aux pros. Plus de RAM ≠ automatiquement plus rapide.',
     sections: [
       {
         title: 'La RAM, c\'est quoi exactement ?',
@@ -112,7 +112,7 @@ export const articles: Article[] = [
     icon: '💾',
     tags: ['stockage'],
     coverImage: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?w=800&q=80&auto=format',
-    tldr: 'Si ton ordinateur met 2 minutes à démarrer, c\'est probablement à cause du disque dur (HDD). Le remplacer par un SSD est le meilleur investissement possible — ton ordi démarrera en 15 secondes et tout sera plus rapide. Un SSD de 512 Go coûte environ 50-70 $.',
+    gist: 'Si ton ordinateur met 2 minutes à démarrer, c\'est probablement à cause du disque dur (HDD). Le remplacer par un SSD est le meilleur investissement possible — ton ordi démarrera en 15 secondes et tout sera plus rapide. Un SSD de 512 Go coûte environ 50-70 $.',
     sections: [
       {
         title: 'Le responsable n°1 de la lenteur : le disque dur classique',
@@ -173,7 +173,7 @@ export const articles: Article[] = [
     featured: false,
     coverGradient: 'linear-gradient(135deg, #1a1a2e 0%, #7c3aed 50%, #0f172a 100%)',
     coverImage: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80&auto=format',
-    tldr: 'Il n\'y a pas de \"meilleur\" — il y a celui qui correspond à TA vie. Mac si tu veux de la simplicité, de l\'autonomie et un écosystème Apple intégré. PC si tu veux du choix, des prix variés et la compatibilité avec tout. Les deux font le même travail pour 90 % des gens.',
+    gist: 'Il n\'y a pas de \"meilleur\" — il y a celui qui correspond à TA vie. Mac si tu veux de la simplicité, de l\'autonomie et un écosystème Apple intégré. PC si tu veux du choix, des prix variés et la compatibilité avec tout. Les deux font le même travail pour 90 % des gens.',
     sections: [
       {
         title: 'Oublie les guerres de religion',
@@ -226,7 +226,7 @@ export const articles: Article[] = [
     featured: false,
     coverGradient: 'linear-gradient(135deg, #d97706 0%, #1e293b 50%, #0891b2 100%)',
     coverImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80&auto=format',
-    tldr: 'Intel a abandonné les vieux noms (Core i5, i7) pour les Core Ultra 5, Ultra 7 et Ultra 9 avec NPU intégré pour l\'IA. AMD a renommé ses Ryzen avec des suffixes comme HX, HS, U. Le truc à retenir : regarde la génération (plus récent = mieux) et le tier (5 = milieu de gamme parfait). Le reste, c\'est du marketing.',
+    gist: 'Intel a abandonné les vieux noms (Core i5, i7) pour les Core Ultra 5, Ultra 7 et Ultra 9 avec NPU intégré pour l\'IA. AMD a renommé ses Ryzen avec des suffixes comme HX, HS, U. Le truc à retenir : regarde la génération (plus récent = mieux) et le tier (5 = milieu de gamme parfait). Le reste, c\'est du marketing.',
     sections: [
       {
         title: 'Pourquoi c\'est devenu si compliqué ?',
@@ -279,7 +279,7 @@ export const articles: Article[] = [
     featured: false,
     coverGradient: 'linear-gradient(135deg, #0891b2 0%, #1e293b 50%, #2563eb 100%)',
     coverImage: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80&auto=format',
-    tldr: 'L\'USB-C est LE port universel de 2026 — il fait tout : données, vidéo ET charge de ton portable avec un seul câble. Thunderbolt 4/5 est la version premium de l\'USB-C (même forme, plus rapide). Vérifie toujours si ton USB-C peut charger ton portable (Power Delivery) et combien de watts il supporte.',
+    gist: 'L\'USB-C est LE port universel de 2026 — il fait tout : données, vidéo ET charge de ton portable avec un seul câble. Thunderbolt 4/5 est la version premium de l\'USB-C (même forme, plus rapide). Vérifie toujours si ton USB-C peut charger ton portable (Power Delivery) et combien de watts il supporte.',
     sections: [
       {
         title: 'Pourquoi les ports sont importants',
@@ -299,7 +299,7 @@ export const articles: Article[] = [
         ],
       },
       {
-        title: 'La charge par USB-C : le game changer',
+        title: 'La charge par USB-C : un seul câble pour tout',
         paragraphs: [
           'La technologie USB Power Delivery (USB PD) permet de charger ton portable par USB-C. C\'est un changement majeur : fini les chargeurs propriétaires différents pour chaque marque. Un seul chargeur USB-C universel peut alimenter ton portable, ton téléphone, ta tablette et même certains moniteurs.',
           'Les watts comptent. Un téléphone se charge à 20-30W. Un ultrabook léger a besoin de 45-65W. Un portable de performance demande 100-140W. Un portable de gaming peut exiger 180-240W. Ton chargeur doit fournir assez de watts, sinon ton portable charge trop lentement ou pas du tout.',
@@ -342,7 +342,7 @@ export const articles: Article[] = [
     featured: false,
     coverGradient: 'linear-gradient(135deg, #334155 0%, #0891b2 50%, #1e293b 100%)',
     coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format',
-    tldr: 'Un dock USB-C ou Thunderbolt te permet de brancher écrans, clavier, souris, casque et charge sur UN seul câble. Tu arrives, tu branches, tu travailles. Les 3 choses à vérifier : 1) la puissance de charge en watts (65W minimum), 2) le nombre d\'écrans supportés, 3) la compatibilité avec ton portable (Thunderbolt vs USB-C).',
+    gist: 'Un dock USB-C ou Thunderbolt te permet de brancher écrans, clavier, souris, casque et charge sur UN seul câble. Tu arrives, tu branches, tu travailles. Les 3 choses à vérifier : 1) la puissance de charge en watts (65W minimum), 2) le nombre d\'écrans supportés, 3) la compatibilité avec ton portable (Thunderbolt vs USB-C).',
     sections: [
       {
         title: 'C\'est quoi un dock et pourquoi tu en veux un',
@@ -368,7 +368,7 @@ export const articles: Article[] = [
           'Thunderbolt 4 supporte nativement 2 écrans 4K à 60 Hz. Un dock Thunderbolt peut donc facilement alimenter un double setup d\'écrans. C\'est la solution la plus fiable et la plus simple.',
           'USB-C standard est plus limité : un seul flux vidéo en mode DisplayPort Alt. Pour un deuxième écran, le dock utilise une technologie appelée DisplayLink (compression logicielle) qui fonctionne mais ajoute un léger délai et utilise du processeur. Pour de la bureautique c\'est correct, mais pour du graphisme précis ou du jeu, c\'est insuffisant.',
           'Le piège MacBook : les MacBook avec puces M1 et M2 standard ne supportent qu\'un seul écran externe nativement, même avec Thunderbolt. Les M3, M4 et les versions Pro/Max gèrent 2 écrans ou plus. Vérifie les specs de TON modèle avant d\'acheter un dock dual-screen.',
-          'En résumé : si tu veux 2+ écrans de manière fiable, assure-toi d\'avoir un port Thunderbolt 4 et un dock Thunderbolt. C\'est le combo garanti.',
+          'Bref, si tu veux 2+ écrans de manière fiable, assure-toi d\'avoir un port Thunderbolt 4 et un dock Thunderbolt. C\'est le combo garanti.',
         ],
       },
       {
@@ -404,7 +404,7 @@ export const articles: Article[] = [
     icon: '🖥️',
     tags: ['ecran'],
     coverImage: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800&q=80&auto=format',
-    tldr: 'Pour la majorité des gens, un écran IPS Full HD (1920×1080) à 60 Hz est parfait. Si tu veux du premium, vise un OLED ou un IPS 2K (2560×1440). La luminosité (300+ nits) compte plus qu\'on pense — surtout si tu travailles près d\'une fenêtre. Le 4K sur un portable de 14 pouces, c\'est du gaspillage.',
+    gist: 'Pour la majorité des gens, un écran IPS Full HD (1920×1080) à 60 Hz est parfait. Si tu veux du premium, vise un OLED ou un IPS 2K (2560×1440). La luminosité (300+ nits) compte plus qu\'on pense — surtout si tu travailles près d\'une fenêtre. Le 4K sur un portable de 14 pouces, c\'est du gaspillage.',
     sections: [
       {
         title: 'La résolution : combien de pixels sur ton écran',
@@ -463,7 +463,7 @@ export const articles: Article[] = [
     icon: '📶',
     tags: [],
     coverImage: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&q=80&auto=format',
-    tldr: 'Ton Internet dépend de DEUX maillons : le forfait de ton fournisseur ET ton réseau local (routeur + appareils). Si ton routeur date de 2018 ou si ton portable n\'a que le Wi-Fi 5, tu n\'obtiendras jamais la vitesse payée. Wi-Fi 6 est le minimum en 2026, Wi-Fi 6E est l\'idéal, Wi-Fi 7 est le futur.',
+    gist: 'Ton Internet dépend de DEUX maillons : le forfait de ton fournisseur ET ton réseau local (routeur + appareils). Si ton routeur date de 2018 ou si ton portable n\'a que le Wi-Fi 5, tu n\'obtiendras jamais la vitesse payée. Wi-Fi 6 est le minimum en 2026, Wi-Fi 6E est l\'idéal, Wi-Fi 7 est le futur.',
     sections: [
       {
         title: 'Le maillon faible de ta connexion',
@@ -514,7 +514,7 @@ export const articles: Article[] = [
     icon: '⚙️',
     tags: [],
     coverImage: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80&auto=format',
-    tldr: 'Windows 11 est livré avec des publicités, des applis inutiles et des paramètres de confidentialité douteux. En 15 minutes, tu peux désactiver les pubs du menu Démarrer, virer les bloatwares, optimiser la batterie, et configurer les mises à jour pour qu\'elles ne te dérangent plus. Fais-le le jour 1, tu me remercieras.',
+    gist: 'Windows 11 est livré avec des publicités, des applis inutiles et des paramètres de confidentialité douteux. En 15 minutes, tu peux désactiver les pubs du menu Démarrer, virer les bloatwares, optimiser la batterie, et configurer les mises à jour pour qu\'elles ne te dérangent plus. Fais-le le jour 1, tu me remercieras.',
     sections: [
       {
         title: 'Pourquoi Windows 11 a besoin d\'un ménage',
@@ -564,7 +564,7 @@ export const articles: Article[] = [
     icon: '⏳',
     tags: ['budget'],
     coverImage: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&q=80&auto=format',
-    tldr: 'Un portable dure 4-6 ans, un PC de bureau 6-8 ans. Les signes de fin de vie : lenteur persistante malgré un SSD, batterie qui dure moins d\'une heure, programmes qui plantent régulièrement. Avant de remplacer, essaie : ajouter un SSD (60 $), reformater Windows, ou remplacer la batterie (80-120 $).',
+    gist: 'Un portable dure 4-6 ans, un PC de bureau 6-8 ans. Les signes de fin de vie : lenteur persistante malgré un SSD, batterie qui dure moins d\'une heure, programmes qui plantent régulièrement. Avant de remplacer, essaie : ajouter un SSD (60 $), reformater Windows, ou remplacer la batterie (80-120 $).',
     sections: [
       {
         title: 'La durée de vie réaliste',
@@ -615,7 +615,7 @@ export const articles: Article[] = [
     icon: '☁️',
     tags: [],
     coverImage: 'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=800&q=80&auto=format',
-    tldr: 'Le cloud, c\'est un disque dur en ligne accessible partout. Google Drive (15 Go gratuits) est le plus généreux. OneDrive (5 Go gratuits) s\'intègre parfaitement à Windows. iCloud (5 Go gratuits) est le choix naturel pour les utilisateurs Apple. Pour la plupart des gens, le forfait gratuit suffit — et c\'est ton meilleur backup contre les pannes.',
+    gist: 'Le cloud, c\'est un disque dur en ligne accessible partout. Google Drive (15 Go gratuits) est le plus généreux. OneDrive (5 Go gratuits) s\'intègre parfaitement à Windows. iCloud (5 Go gratuits) est le choix naturel pour les utilisateurs Apple. Pour la plupart des gens, le forfait gratuit suffit — et c\'est ton meilleur backup contre les pannes.',
     sections: [
       {
         title: 'Le cloud, c\'est quoi exactement ?',
@@ -665,7 +665,7 @@ export const articles: Article[] = [
     icon: '🛡️',
     tags: ['securite'],
     coverImage: 'https://images.unsplash.com/photo-1544099858-75feeb57f01b?w=800&q=80&auto=format',
-    tldr: 'Les arnaques informatiques exploitent la peur et l\'urgence. Règle d\'or : Microsoft, Apple et ta banque ne t\'appelleront JAMAIS pour te dire que ton ordi est infecté. Ne clique jamais sur un lien dans un courriel urgent, ne donne jamais le contrôle de ton ordi à un inconnu, et ne paie jamais en cartes-cadeaux. En cas de doute, ferme tout et appelle toi-même le vrai numéro.',
+    gist: 'Les arnaques informatiques exploitent la peur et l\'urgence. Règle d\'or : Microsoft, Apple et ta banque ne t\'appelleront JAMAIS pour te dire que ton ordi est infecté. Ne clique jamais sur un lien dans un courriel urgent, ne donne jamais le contrôle de ton ordi à un inconnu, et ne paie jamais en cartes-cadeaux. En cas de doute, ferme tout et appelle toi-même le vrai numéro.',
     sections: [
       {
         title: 'Pourquoi ça marche encore en 2026',
@@ -723,7 +723,7 @@ export const articles: Article[] = [
     icon: '💻',
     tags: ['chromebook', 'budget'],
     coverImage: 'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=800&q=80&auto=format',
-    tldr: 'Un Chromebook est un portable léger qui fait tourner ChromeOS (basé sur Chrome). Parfait pour le web, les courriels, Netflix, Google Docs et les études. Pas fait pour : Photoshop, jeux PC, logiciels Windows spécifiques. Si 90 % de ton temps est dans un navigateur, le Chromebook à 300 $ est probablement le meilleur rapport qualité-prix du marché.',
+    gist: 'Un Chromebook est un portable léger qui fait tourner ChromeOS (basé sur Chrome). Parfait pour le web, les courriels, Netflix, Google Docs et les études. Pas fait pour : Photoshop, jeux PC, logiciels Windows spécifiques. Si 90 % de ton temps est dans un navigateur, le Chromebook à 300 $ est probablement le meilleur rapport qualité-prix du marché.',
     sections: [
       {
         title: 'ChromeOS : un système pensé pour le web',
@@ -774,7 +774,7 @@ export const articles: Article[] = [
     icon: '🎮',
     tags: ['gpu'],
     coverImage: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=800&q=80&auto=format',
-    tldr: 'La carte graphique (GPU) gère tout ce qui est visuel : affichage, vidéo, jeux, 3D. Pour la bureautique et le web, le GPU intégré dans ton processeur suffit largement. Tu as besoin d\'un GPU dédié (NVIDIA/AMD) seulement pour le gaming, le montage vidéo 4K, la modélisation 3D ou l\'IA. Ne paie pas pour un GPU dont tu n\'as pas besoin.',
+    gist: 'La carte graphique (GPU) gère tout ce qui est visuel : affichage, vidéo, jeux, 3D. Pour la bureautique et le web, le GPU intégré dans ton processeur suffit largement. Tu as besoin d\'un GPU dédié (NVIDIA/AMD) seulement pour le gaming, le montage vidéo 4K, la modélisation 3D ou l\'IA. Ne paie pas pour un GPU dont tu n\'as pas besoin.',
     sections: [
       {
         title: 'GPU intégré vs GPU dédié : la différence fondamentale',
@@ -826,7 +826,7 @@ export const articles: Article[] = [
     icon: '♻️',
     tags: ['budget'],
     coverImage: 'https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=800&q=80&auto=format',
-    tldr: 'Un ordinateur reconditionné certifié est testé, nettoyé et garanti — ce n\'est PAS un ordi usagé Kijiji. Tu peux économiser 30-50 % sur un MacBook ou un ThinkPad quasiment neuf. Achète chez Apple Refurbished, des revendeurs certifiés ou les programmes constructeur. Évite Marketplace, Kijiji et les vendeurs sans garantie.',
+    gist: 'Un ordinateur reconditionné certifié est testé, nettoyé et garanti — ce n\'est PAS un ordi usagé Kijiji. Tu peux économiser 30-50 % sur un MacBook ou un ThinkPad quasiment neuf. Achète chez Apple Refurbished, des revendeurs certifiés ou les programmes constructeur. Évite Marketplace, Kijiji et les vendeurs sans garantie.',
     sections: [
       {
         title: 'Reconditionné ≠ usagé',
@@ -877,7 +877,7 @@ export const articles: Article[] = [
     icon: '🔋',
     tags: [],
     coverImage: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&q=80&auto=format',
-    tldr: 'Tu peux laisser ton portable branché sans le détruire — les portables modernes gèrent ça automatiquement. Pour maximiser la longévité : garde la charge entre 20-80 % quand possible, évite la chaleur extrême, et active le mode "optimisation de batterie" dans les paramètres. La batterie perdra environ 20 % de sa capacité après 2-3 ans, c\'est normal.',
+    gist: 'Tu peux laisser ton portable branché sans le détruire — les portables modernes gèrent ça automatiquement. Pour maximiser la longévité : garde la charge entre 20-80 % quand possible, évite la chaleur extrême, et active le mode "optimisation de batterie" dans les paramètres. La batterie perdra environ 20 % de sa capacité après 2-3 ans, c\'est normal.',
     sections: [
       {
         title: 'Comment fonctionne une batterie lithium-ion',
@@ -935,7 +935,7 @@ export const articles: Article[] = [
     icon: '💰',
     tags: ['financement', 'transparence', 'affilié'],
     coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format',
-    tldr: 'Shop Compy est gratuit et le restera. On se finance par des liens affiliés (qui ne changent rien au prix ni aux recommandations), un espace pub identifié, des trouvailles Compy, et du support expert à 5 $. Pas de paywall, pas de tracking invasif, pas de recommandations biaisées.',
+    gist: 'Shop Compy est gratuit et le restera. On se finance par des liens affiliés (qui ne changent rien au prix ni aux recommandations), un espace pub identifié, des trouvailles Compy, et du support expert à 5 $. Pas de paywall, pas de tracking invasif, pas de recommandations biaisées.',
     sections: [
       {
         title: 'Gratuit, et ça va rester comme ça',
@@ -954,10 +954,10 @@ export const articles: Article[] = [
       {
         title: 'Nos 4 sources de revenus (en toute transparence)',
         paragraphs: [
-          '**1. Liens affiliés.** Quand tu cliques sur un lien vers un détaillant (Amazon, Best Buy, etc.) et que tu achètes quelque chose, on reçoit une petite commission du détaillant. Ça te coûte exactement le même prix — pas une cenne de plus. Et surtout : les commissions n\'influencent JAMAIS nos recommandations. Si un produit est meilleur pour toi, c\'est celui qu\'on recommande, point.',
-          '**2. Un espace publicitaire identifié.** Sur les pages produit, tu vas voir un seul espace pub, clairement marqué comme tel. Pas de pop-up, pas de pub déguisée en contenu, pas de \"article sponsorisé\" qui ressemble à un vrai guide. Une pub, identifiée, c\'est tout.',
-          '**3. Trouvailles Compy.** On déniche des deals exceptionnels qu\'on partage gratuitement, sans commission. Si une trouvaille t\'a fait économiser gros, on te propose un don volontaire. Zéro obligation, zéro culpabilité.',
-          '**4. Support expert.** Tu as une question précise sur ton achat ? Pour 5 $, tu nous envoies ta question et on te répond en 24 h avec une recommandation personnalisée. Pas un chatbot, pas un template — une vraie réponse de quelqu\'un qui connaît ça.',
+          '1. Liens affiliés. Quand tu cliques sur un lien vers un détaillant (Amazon, Best Buy, etc.) et que tu achètes quelque chose, on reçoit une petite commission du détaillant. Ça te coûte exactement le même prix — pas une cenne de plus. Et surtout : les commissions n\'influencent JAMAIS nos recommandations. Si un produit est meilleur pour toi, c\'est celui qu\'on recommande, point.',
+          '2. Un espace publicitaire identifié. Sur les pages produit, tu vas voir un seul espace pub, clairement marqué comme tel. Pas de pop-up, pas de pub déguisée en contenu, pas de \"article sponsorisé\" qui ressemble à un vrai guide. Une pub, identifiée, c\'est tout.',
+          '3. Trouvailles Compy. On déniche des deals exceptionnels qu\'on partage gratuitement, sans commission. Si une trouvaille t\'a fait économiser gros, on te propose un don volontaire. Zéro obligation, zéro culpabilité.',
+          '4. Support expert. Tu as une question précise sur ton achat ? Pour 5 $, tu nous envoies ta question et on te répond en 24 h avec une recommandation personnalisée. Pas un chatbot, pas un template — une vraie réponse de quelqu\'un qui connaît ça.',
         ],
       },
       {
@@ -970,9 +970,9 @@ export const articles: Article[] = [
       {
         title: 'Ce qu\'on ne fera JAMAIS',
         paragraphs: [
-          '**Pas de paywall.** Tout le contenu reste gratuit. Pas de \"connecte-toi pour voir la suite\", pas de \"abonne-toi pour débloquer le comparateur\".',
-          '**Pas de tracking invasif.** On n\'installe pas de trackers tiers sur ton navigateur. On n\'a pas besoin de savoir ce que tu fais sur d\'autres sites pour te recommander un bon ordinateur.',
-          '**Pas de recommandations biaisées.** Si un produit nous rapporte plus de commission mais qu\'un autre est meilleur pour toi, c\'est le meilleur qu\'on recommande. Toujours. Notre réputation vaut plus que n\'importe quelle commission.',
+          'Pas de paywall. Tout le contenu reste gratuit. Pas de \"connecte-toi pour voir la suite\", pas de \"abonne-toi pour débloquer le comparateur\".',
+          'Pas de tracking invasif. On n\'installe pas de trackers tiers sur ton navigateur. On n\'a pas besoin de savoir ce que tu fais sur d\'autres sites pour te recommander un bon ordinateur.',
+          'Pas de recommandations biaisées. Si un produit nous rapporte plus de commission mais qu\'un autre est meilleur pour toi, c\'est le meilleur qu\'on recommande. Toujours. Notre réputation vaut plus que n\'importe quelle commission.',
         ],
       },
       {
