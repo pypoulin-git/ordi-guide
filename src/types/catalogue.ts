@@ -38,6 +38,8 @@ export interface CatalogueProduct {
   addedAt: string
   lastVerified: string
   isOnSale: boolean
+  /** 'page' = verified from retailer, 'ai' = estimated by AI */
+  priceSource?: 'page' | 'ai'
   /** Product offered without affiliate revenue — shows donation box instead */
   isGiftPick?: boolean
 }

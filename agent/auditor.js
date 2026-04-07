@@ -4,7 +4,7 @@
 
 import { readFile, writeFile } from 'fs/promises'
 import { execSync } from 'child_process'
-import { CATALOGUE_PATH, AUDIT_RULES, CPU_WHITELIST } from './config.js'
+import { CATALOGUE_PATH, AUDIT_RULES, CPU_WHITELIST, PRICE_SANITY_RULES } from './config.js'
 import { checkUrl, matchesCpuWhitelist, discordAlert, mapWithConcurrency, log } from './utils.js'
 
 export async function runAudit() {
@@ -67,19 +67,15 @@ export async function runAudit() {
     details: badPrices.length === 0 ? 'Tous OK' : `${badPrices.length} auto-retirés`,
   })
 
-  // ── Check 3b: Price sanity — detect obviously wrong AI prices ──
-  const priceSanity = [
-    { match: /macbook air/i, max: 2200, label: 'MacBook Air' },
-    { match: /chromebook/i, max: 1200, label: 'Chromebook' },
-    { match: /dock|adapter|hub|station d.accueil|concentrateur/i, max: 500, label: 'Dock/Adapter' },
-  ]
+  // ── Check 3b: Price sanity — ALL prices, not just AI ──────────
+  // Uses PRICE_SANITY_RULES from config (min/max per product type)
   const insanePrices = []
   for (const p of catalogue.products) {
-    if (p.priceSource !== 'ai') continue // only check AI prices
-    for (const rule of priceSanity) {
-      if (rule.match.test(p.name) && p.price > rule.max) {
+    for (const rule of PRICE_SANITY_RULES) {
+      if (rule.match.test(p.name) && (p.price > rule.max || p.price < rule.min)) {
         insanePrices.push(p)
-        log(`  ⚠ Prix IA suspect (auto-retiré): "${p.name?.slice(0, 45)}" = ${p.price}$ (max ${rule.label}: ${rule.max}$)`)
+        const reason = p.price > rule.max ? `>${rule.max}` : `<${rule.min}`
+        log(`  ⚠ Prix suspect (auto-retiré): "${p.name?.slice(0, 45)}" = ${p.price}$ (${rule.label}: ${reason}) [source: ${p.priceSource || '?'}]`)
         break
       }
     }
@@ -87,7 +83,7 @@ export async function runAudit() {
   if (insanePrices.length > 0) {
     const insaneIds = new Set(insanePrices.map(p => p.id))
     catalogue.products = catalogue.products.filter(p => !insaneIds.has(p.id))
-    log(`  → ${insanePrices.length} prix IA suspects retirés, ${catalogue.products.length} restants`)
+    log(`  → ${insanePrices.length} prix suspects retirés, ${catalogue.products.length} restants`)
   }
   checks.push({
     name: 'priceSanity',
@@ -95,10 +91,49 @@ export async function runAudit() {
     details: insanePrices.length === 0 ? 'Tous OK' : `${insanePrices.length} auto-retirés`,
   })
 
+  // ── Check 3c: Staleness — retirer les produits trop vieux ─────
+  const now = Date.now()
+  const staleDaysPage = AUDIT_RULES.staleDaysPage || 14
+  const staleDaysAi = AUDIT_RULES.staleDaysAi || 7
+  const staleProducts = []
+  for (const p of catalogue.products) {
+    if (!p.lastVerified) continue
+    const age = (now - new Date(p.lastVerified).getTime()) / (1000 * 60 * 60 * 24)
+    const maxDays = p.priceSource === 'ai' ? staleDaysAi : staleDaysPage
+    if (age > maxDays) {
+      staleProducts.push(p)
+      log(`  ⚠ Produit périmé (auto-retiré): "${p.name?.slice(0, 45)}" — ${Math.round(age)}j (max ${maxDays}j, source: ${p.priceSource || '?'})`)
+    }
+  }
+  if (staleProducts.length > 0) {
+    const staleIds = new Set(staleProducts.map(p => p.id))
+    catalogue.products = catalogue.products.filter(p => !staleIds.has(p.id))
+    log(`  → ${staleProducts.length} produits périmés retirés, ${catalogue.products.length} restants`)
+  }
+  checks.push({
+    name: 'staleness',
+    passed: true, // auto-cleaned
+    details: staleProducts.length === 0 ? 'Tous frais' : `${staleProducts.length} auto-retirés`,
+  })
+
+  // ── Check 3d: % de prix AI — alerte si trop élevé ────────────
+  const aiCount = catalogue.products.filter(p => p.priceSource === 'ai').length
+  const aiPercent = catalogue.products.length > 0 ? (aiCount / catalogue.products.length) * 100 : 0
+  const maxAiPercent = AUDIT_RULES.maxAiPricePercent || 40
+  if (aiPercent > maxAiPercent) {
+    log(`  ⚠ ${aiPercent.toFixed(0)}% de prix AI (seuil: ${maxAiPercent}%) — alerte envoyée`)
+    await discordAlert(`⚠️ Qualité prix: ${aiPercent.toFixed(0)}% des produits ont un prix AI non vérifié (${aiCount}/${catalogue.products.length}). Seuil: ${maxAiPercent}%.`)
+  }
+  checks.push({
+    name: 'aiPriceRatio',
+    passed: aiPercent <= maxAiPercent,
+    details: `${aiCount}/${catalogue.products.length} AI (${aiPercent.toFixed(0)}%)`,
+  })
+
   // ── Check 4: CPU whitelist ────────────────────────────────────
   // CPU whitelist — only applies to computers
   const NON_CPU_CATEGORIES = ['monitor', 'dock']
-  const computerProducts = products.filter(p => !NON_CPU_CATEGORIES.includes(p.category))
+  const computerProducts = catalogue.products.filter(p => !NON_CPU_CATEGORIES.includes(p.category))
   const badCpus = computerProducts.filter(p => !matchesCpuWhitelist(p.specs?.cpu || ''))
   if (badCpus.length > computerProducts.length * 0.2) {
     failures.push(`CPU: ${badCpus.length}/${computerProducts.length} hors whitelist (>20%)`)
@@ -122,7 +157,7 @@ export async function runAudit() {
     }
     // Remove bad products from catalogue instead of failing
     const badIds = new Set(badSpecs.map(p => p.id))
-    catalogue.products = products.filter(p => !badIds.has(p.id))
+    catalogue.products = catalogue.products.filter(p => !badIds.has(p.id))
     log(`  → ${badSpecs.length} produits retirés, ${catalogue.products.length} restants`)
   }
   checks.push({
@@ -161,7 +196,7 @@ export async function runAudit() {
   })
 
   // ── Check 7: URLs (échantillon — vérifier 10 URLs max) ───────
-  const urlSample = products.slice(0, Math.min(10, products.length))
+  const urlSample = catalogue.products.slice(0, Math.min(10, catalogue.products.length))
   let deadCount = 0
   await mapWithConcurrency(urlSample, async (p) => {
     const alive = await checkUrl(p.url)

@@ -74,7 +74,22 @@ export const AUDIT_RULES = {
   minPerCategory: { laptop: 10, desktop: 5, apple: 5, chromebook: 3, monitor: 5, dock: 5 },
   minTotalProducts: 35,
   maxDeadUrlPercent: 20, // si plus de 20% de liens morts, audit échoue
+  maxAiPricePercent: 40, // alerte Discord si plus de 40% prix AI
+  staleDaysPage: 14,     // auto-retirer si lastVerified > 14 jours (prix page)
+  staleDaysAi: 7,        // auto-retirer si lastVerified > 7 jours (prix AI)
 }
+
+// ── Price sanity rules — min/max par type de produit ────────────
+// Appliquées à TOUS les produits (page ET ai), auto-retire les outliers
+export const PRICE_SANITY_RULES = [
+  { match: /macbook air/i,                          min: 999,  max: 2200, label: 'MacBook Air' },
+  { match: /macbook pro/i,                          min: 1499, max: 4500, label: 'MacBook Pro' },
+  { match: /chromebook/i,                           min: 149,  max: 1200, label: 'Chromebook' },
+  { match: /dock|adapter|hub|station d.accueil|concentrateur/i, min: 20, max: 500, label: 'Dock/Adapter' },
+  { match: /monitor|écran|display|27"|32"|24"/i,    min: 80,   max: 2500, label: 'Monitor' },
+  { match: /desktop|bureau|tour|strix.*g1[0-9]/i,   min: 300,  max: 4000, label: 'Desktop' },
+  { match: /laptop|portable|notebook|zenbook|thinkpad|yoga|vivobook|pavilion|victus|legion|galaxy book|omnibook/i, min: 250, max: 4500, label: 'Laptop' },
+]
 
 // ── Discord webhook pour alertes audit ──────────────────────────
 export const DISCORD_WEBHOOK_URL = process.env.DISCORD_CATALOGUE_WEBHOOK || ''

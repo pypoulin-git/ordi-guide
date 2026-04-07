@@ -220,6 +220,11 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
                 {product.originalPrice.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en-CA')} $
               </span>
             )}
+            {product.priceSource === 'ai' && (
+              <span className="ml-2 text-[10px] font-medium px-2 py-0.5 rounded-full bg-[var(--bg-card)] text-[var(--text-muted)]">
+                ~{t.product.priceApprox}
+              </span>
+            )}
           </div>
           <span className="btn-primary shrink-0"
             style={{ padding: '0.625rem 1rem', fontSize: '0.8125rem', minHeight: '44px' }}>

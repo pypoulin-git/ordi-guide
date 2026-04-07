@@ -184,6 +184,9 @@ export default async function ProductPage({ params }: Props) {
           <div className="flex items-center gap-4 shrink-0">
             <span className="text-lg font-bold text-[var(--text)]">
               {product.price.toLocaleString('fr-CA')} $
+              {product.priceSource === 'ai' && (
+                <span className="ml-1.5 text-[10px] font-medium px-2 py-0.5 rounded-full bg-[var(--bg-subtle)] text-[var(--text-muted)]">~</span>
+              )}
             </span>
             <a
               href={buyUrl}
@@ -316,9 +319,19 @@ export default async function ProductPage({ params }: Props) {
                       {product.originalPrice.toLocaleString('fr-CA')} $
                     </span>
                   )}
+                  {product.priceSource === 'ai' && (
+                    <span className="ml-2 text-xs font-medium px-2.5 py-0.5 rounded-full bg-[var(--bg-card)] text-[var(--text-muted)]">
+                      ~{pt.priceApprox}
+                    </span>
+                  )}
                   <p className="text-sm mt-1 text-[var(--text-muted)]">
                     {BUDGET_LABELS[product.budgetTier]}
                   </p>
+                  {product.priceSource === 'ai' && (
+                    <p className="text-xs mt-2 leading-relaxed text-[var(--text-muted)]" style={{ opacity: 0.7 }}>
+                      {pt.priceDisclaimer}
+                    </p>
+                  )}
                 </div>
 
                 <a href={buyUrl}
