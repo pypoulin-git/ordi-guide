@@ -42,17 +42,33 @@ export async function POST(req: NextRequest) {
     // Send to Discord webhook if configured
     if (DISCORD_WEBHOOK) {
       try {
+        // Build mailto reply link with pre-filled subject + quoted message
+        const subjectLabels: Record<string, string> = {
+          general: 'Question générale',
+          partnership: 'Partenariat',
+          bug: 'Signalement de bug',
+          other: 'Autre',
+        }
+        const replySubject = `Re: [Shop Compy] ${subjectLabels[contactData.subject] || contactData.subject}`
+        const quotedBody = contactData.message
+          .split('\n')
+          .map(line => `> ${line}`)
+          .join('\n')
+        const replyBody = `\n\n\n---\nMessage original de ${contactData.name} :\n${quotedBody}`
+        const mailtoUrl = `mailto:${contactData.email}?subject=${encodeURIComponent(replySubject)}&body=${encodeURIComponent(replyBody)}`
+
         const embed = {
-          title: `📬 Nouveau message — ${contactData.subject}`,
+          title: `📬 Nouveau message — ${subjectLabels[contactData.subject] || contactData.subject}`,
+          description: `[📧 **Répondre à ${contactData.name}**](${mailtoUrl})`,
           color: 0x2563eb,
           fields: [
             { name: 'Nom', value: contactData.name, inline: true },
-            { name: 'Email', value: contactData.email, inline: true },
-            { name: 'Sujet', value: contactData.subject, inline: true },
+            { name: 'Email', value: `\`${contactData.email}\``, inline: true },
+            { name: 'Sujet', value: subjectLabels[contactData.subject] || contactData.subject, inline: true },
             { name: 'Message', value: contactData.message.slice(0, 1024) },
           ],
           timestamp: contactData.timestamp,
-          footer: { text: 'Shop Compy — Contact Form' },
+          footer: { text: 'Shop Compy — Contact Form · Clic sur « Répondre » pour ouvrir ton client mail' },
         }
         await fetch(DISCORD_WEBHOOK, {
           method: 'POST',
