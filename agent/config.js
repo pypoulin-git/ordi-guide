@@ -7,7 +7,7 @@ export const BUDGET_TIERS = ['under500', '500to900', '900to1500', 'over1500']
 // ── Sources actives ─────────────────────────────────────────────
 // Seules les sources avec prix vérifiables OU affiliate actif sont gardées.
 // BestBuy, Costco, Staples retirés : 80-94% prix AI, aucun affiliate payant.
-export const SOURCES = ['amazon', 'newegg', 'lenovo', 'dell', 'hp', 'walmart', 'canadacomputers', 'microsoft']
+export const SOURCES = ['amazon', 'newegg', 'lenovo', 'dell', 'hp', 'walmart', 'canadacomputers', 'microsoft', 'apple']
 
 // Sources retirées — ne pas scanner, ne pas garder dans le catalogue
 export const BLOCKED_SOURCES = ['bestbuy', 'costco', 'staples']

@@ -4,12 +4,16 @@ on:
   schedule:
     # Every day at 7:00 UTC (3:00 AM ET)
     - cron: '0 7 * * *'
+    # Weekly health check on Mondays at 12:00 UTC (8:00 AM ET)
+    - cron: '0 12 * * 1'
   workflow_dispatch: # Manual trigger
 
 jobs:
   catalogue-update:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    # Skip catalogue update on Monday health-check-only run
+    if: github.event.schedule != '0 12 * * 1'
 
     services:
       searxng:
@@ -29,10 +33,25 @@ jobs:
 
       - run: npm ci
 
+      - name: Wait for SearXNG to be ready
+        run: |
+          echo "Waiting for SearXNG..."
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8888/healthz > /dev/null 2>&1 || curl -sf http://localhost:8888/ > /dev/null 2>&1; then
+              echo "SearXNG is ready (attempt $i)"
+              exit 0
+            fi
+            echo "  Attempt $i/30 — waiting 5s..."
+            sleep 5
+          done
+          echo "SearXNG failed to start after 150s"
+          exit 1
+
       - name: Run Catalogue Agent
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           DISCORD_CATALOGUE_WEBHOOK: ${{ secrets.DISCORD_CATALOGUE_WEBHOOK }}
+          DISCORD_CONTACT_WEBHOOK: ${{ secrets.DISCORD_CONTACT_WEBHOOK }}
           SEARXNG_URL: http://localhost:8888
         run: node agent/catalogue-agent.js
 
@@ -45,14 +64,28 @@ jobs:
           git commit -m "catalogue: nightly update $(date -u +%Y-%m-%d)"
           git push
 
+      - name: Discord notification on failure
+        if: failure()
+        env:
+          DISCORD_CATALOGUE_WEBHOOK: ${{ secrets.DISCORD_CATALOGUE_WEBHOOK }}
+        run: |
+          if [ -n "$DISCORD_CATALOGUE_WEBHOOK" ]; then
+            curl -H "Content-Type: application/json" \
+              -d "{\"content\": \"❌ **Catalogue Cron Failed** — $(date -u +%Y-%m-%d %H:%M) UTC\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+              "$DISCORD_CATALOGUE_WEBHOOK" || true
+          fi
+
   health-check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    # Run only on Mondays
-    if: github.event.schedule == '0 7 * * 1' || github.event_name == 'workflow_dispatch'
+    # Run on Monday health-check schedule or manual trigger
+    if: github.event.schedule == '0 12 * * 1' || github.event_name == 'workflow_dispatch'
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Get latest changes (including any from catalogue-update)
+          ref: main
 
       - uses: actions/setup-node@v4
         with:

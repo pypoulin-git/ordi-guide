@@ -58,8 +58,8 @@ export default function CookieConsent() {
   const c = t.cookie
   const [visible, setVisible] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
-  const [analytics, setAnalytics] = useState(true)
-  const [advertising, setAdvertising] = useState(true)
+  const [analytics, setAnalytics] = useState(false)
+  const [advertising, setAdvertising] = useState(false)
 
   useEffect(() => {
     const existing = getConsent()

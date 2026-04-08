@@ -178,7 +178,7 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
             { key: 'cpu', label: 'CPU', value: product.specs.cpu },
             { key: 'ram', label: 'RAM', value: product.specs.ram },
             { key: 'storage', label: cat.storageLabel, value: product.specs.storage },
-            { key: 'gpu', label: 'GPU', value: product.specs.gpu?.toLowerCase().includes('intégré') ? undefined : product.specs.gpu },
+            { key: 'gpu', label: 'GPU', value: product.specs.gpu && /intégré|integrated/i.test(product.specs.gpu) ? undefined : product.specs.gpu },
             { key: 'display', label: cat.displayLabel, value: product.specs.display },
           ] as const).filter(s => s.value).map(s => (
             <div key={s.key} className="flex items-start gap-2 text-sm min-w-0">

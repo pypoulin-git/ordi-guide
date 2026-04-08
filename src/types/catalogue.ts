@@ -1,7 +1,7 @@
 export type ProfileTag = 'basic' | 'work' | 'student' | 'creative' | 'gaming'
 export type Category = 'laptop' | 'desktop' | 'apple' | 'chromebook' | 'monitor' | 'dock'
 export type BudgetTier = 'under500' | '500to900' | '900to1500' | 'over1500'
-export type Source = 'bestbuy' | 'amazon' | 'costco' | 'staples' | 'newegg' | 'lenovo' | 'dell' | 'hp' | 'walmart' | 'canadacomputers' | 'microsoft'
+export type Source = 'bestbuy' | 'amazon' | 'costco' | 'staples' | 'newegg' | 'lenovo' | 'dell' | 'hp' | 'walmart' | 'canadacomputers' | 'microsoft' | 'apple'
 
 export interface ProductSpecs {
   cpu: string
@@ -96,4 +96,5 @@ export const SOURCE_LABELS: Record<Source, { label: string; color: string }> = {
   walmart:         { label: 'Walmart',           color: '#0071dc' },
   canadacomputers: { label: 'Canada Computers',  color: '#1a1a1a' },
   microsoft:       { label: 'Microsoft',         color: '#737373' },
+  apple:           { label: 'Apple',             color: '#555555' },
 }

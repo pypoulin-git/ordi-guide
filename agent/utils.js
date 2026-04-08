@@ -377,6 +377,21 @@ export function extractPrice(html, source) {
     }
   }
 
+  if (source === 'apple') {
+    // Apple Store Canada uses structured data and "À partir de X $" / "Starting at $X" patterns
+    const appleFrom = html.match(/(?:À partir de|Starting at|From)\s*\$?\s*(\d[\d\s,]*\.?\d*)\s*\$?/i)
+    if (appleFrom) {
+      const p = parseFloat(appleFrom[1].replace(/[\s,]/g, ''))
+      if (p > 500 && p < 10000) candidates.push({ price: p, confidence: 8, source: 'apple-from' })
+    }
+    // Also check schema.org price
+    const appleSchema = html.match(/"price"\s*:\s*"?(\d[\d,]*\.?\d*)"?\s*,\s*"priceCurrency"\s*:\s*"CAD"/i)
+    if (appleSchema) {
+      const p = parseFloat(appleSchema[1].replace(/,/g, ''))
+      if (p > 500 && p < 10000) candidates.push({ price: p, confidence: 9, source: 'apple-schema' })
+    }
+  }
+
   // ── 3. Generic HTML patterns (lower confidence) ───────────
   const dataPrice = html.match(/data-price="(\d[\d,]*\.?\d*)"/i)
   if (dataPrice) {

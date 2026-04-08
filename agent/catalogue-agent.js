@@ -30,12 +30,14 @@ try {
   }
 } catch { /* .env.local not found — use system env */ }
 
+import { readFile } from 'fs/promises'
 import { runScanner } from './scanner.js'
 import { runCurator } from './curator.js'
 import { runAudit } from './auditor.js'
 import { runPriceVerifier } from './price-verifier.js'
 import { runImageFetcher } from './image-fetcher.js'
 import { log, discordAlert } from './utils.js'
+import { CATALOGUE_PATH, MIN_PER_CATEGORY, AUDIT_RULES } from './config.js'
 
 async function main() {
   const start = Date.now()
@@ -119,11 +121,60 @@ async function main() {
     for (const f of audit.failures) log(`    • ${f}`)
   }
 
-  // Record to Knowledge Store
+  // ── Post-pipeline health-check ─────────────────────────────
+  log('\n── Health Check ──')
   try {
-    var ks = require("/home/pypou/pclaw-discord/knowledge-store.js");
-    ks.recordCatalogueHealth({ total: curatorStats.kept, deadUrls: curatorStats.removedDead, newProducts: curatorStats.newAdded, categories: {} });
-  } catch(e) { /* knowledge store optional */ }
+    const raw = await readFile(CATALOGUE_PATH, 'utf-8')
+    const catalogue = JSON.parse(raw)
+    const products = catalogue.products || []
+    const issues = []
+
+    // Check 1: minimum total products
+    if (products.length < AUDIT_RULES.minTotalProducts) {
+      issues.push(`Catalogue trop petit : ${products.length} produits (min ${AUDIT_RULES.minTotalProducts})`)
+    }
+
+    // Check 2: category distribution
+    const byCat = {}
+    for (const p of products) {
+      byCat[p.category] = (byCat[p.category] || 0) + 1
+    }
+    for (const [cat, min] of Object.entries(MIN_PER_CATEGORY)) {
+      const count = byCat[cat] || 0
+      if (count < min) {
+        issues.push(`${cat}: ${count} produits (min ${min})`)
+      }
+    }
+
+    // Check 3: AI price ratio
+    const aiCount = products.filter(p => p.priceSource === 'ai').length
+    const aiPct = products.length > 0 ? Math.round(aiCount / products.length * 100) : 0
+    if (aiPct > AUDIT_RULES.maxAiPricePercent) {
+      issues.push(`${aiPct}% prix AI (max ${AUDIT_RULES.maxAiPricePercent}%)`)
+    }
+
+    // Check 4: images missing
+    const noImage = products.filter(p => !p.imageUrl).length
+    const imgPct = products.length > 0 ? Math.round(noImage / products.length * 100) : 0
+    if (imgPct > 30) {
+      issues.push(`${imgPct}% produits sans image (${noImage}/${products.length})`)
+    }
+
+    // Report
+    const catSummary = Object.entries(byCat).map(([c, n]) => `${c}:${n}`).join(', ')
+    log(`  Total : ${products.length} | Categories : ${catSummary}`)
+    log(`  Prix AI : ${aiPct}% | Images manquantes : ${imgPct}%`)
+
+    if (issues.length > 0) {
+      log(`  ⚠ ${issues.length} problème(s) détecté(s) :`)
+      for (const i of issues) log(`    • ${i}`)
+      await discordAlert(`⚠️ Health Check — ${issues.length} problème(s):\n${issues.map(i => `• ${i}`).join('\n')}`)
+    } else {
+      log('  ✅ Catalogue en bonne santé')
+    }
+  } catch (err) {
+    log(`  ⚠ Health check erreur: ${err.message}`)
+  }
 }
 
 // Run

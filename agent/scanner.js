@@ -14,6 +14,7 @@ import { fetchHp } from './sources/hp.js'
 import { fetchWalmart } from './sources/walmart.js'
 import { fetchCanadaComputers } from './sources/canadacomputers.js'
 import { fetchMicrosoft } from './sources/microsoft.js'
+import { fetchApple } from './sources/apple.js'
 
 export async function runScanner() {
   const startedAt = new Date().toISOString()
@@ -28,6 +29,7 @@ export async function runScanner() {
     { name: 'walmart', fn: fetchWalmart },
     { name: 'canadacomputers', fn: fetchCanadaComputers },
     { name: 'microsoft', fn: fetchMicrosoft },
+    { name: 'apple', fn: fetchApple },
   ]
 
   const allResults = []

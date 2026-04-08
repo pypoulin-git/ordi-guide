@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const VALID_SUBJECTS = ['general', 'partnership', 'bug', 'other']
+const DISCORD_WEBHOOK = process.env.DISCORD_CONTACT_WEBHOOK || ''
 
 export async function POST(req: NextRequest) {
   try {
@@ -24,14 +25,44 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid subject' }, { status: 400 })
     }
 
-    // Log for now (can add email sending later)
-    console.log('[Contact Form]', {
+    const contactData = {
       name: name.trim(),
       email: email.trim(),
       subject: subject || 'general',
-      message: message.trim().slice(0, 200) + (message.trim().length > 200 ? '...' : ''),
+      message: message.trim(),
       timestamp: new Date().toISOString(),
+    }
+
+    // Log locally
+    console.log('[Contact Form]', {
+      ...contactData,
+      message: contactData.message.slice(0, 200) + (contactData.message.length > 200 ? '...' : ''),
     })
+
+    // Send to Discord webhook if configured
+    if (DISCORD_WEBHOOK) {
+      try {
+        const embed = {
+          title: `📬 Nouveau message — ${contactData.subject}`,
+          color: 0x2563eb,
+          fields: [
+            { name: 'Nom', value: contactData.name, inline: true },
+            { name: 'Email', value: contactData.email, inline: true },
+            { name: 'Sujet', value: contactData.subject, inline: true },
+            { name: 'Message', value: contactData.message.slice(0, 1024) },
+          ],
+          timestamp: contactData.timestamp,
+          footer: { text: 'Shop Compy — Contact Form' },
+        }
+        await fetch(DISCORD_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ embeds: [embed] }),
+        })
+      } catch (webhookErr) {
+        console.error('[Contact Form] Discord webhook failed:', webhookErr)
+      }
+    }
 
     return NextResponse.json({ ok: true })
   } catch {
