@@ -785,6 +785,34 @@
       "addedAt": "2026-04-01T00:36:44.651Z",
       "lastVerified": "2026-04-01T00:36:44.660Z",
       "priceSource": "page"
+    },
+    {
+      "id": "anker-prime-14-in-1-station-accueil-160w",
+      "name": "Anker Prime Station d'accueil 14-en-1, Double affichage 4K, 160W GaN, 10Gbps",
+      "brand": "Anker",
+      "category": "dock",
+      "profiles": [
+        "work",
+        "creative"
+      ],
+      "budgetTier": "under500",
+      "price": 299.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "ports": "14 ports : 1x USB-C 10Gbps upstream (100W), 2x USB-C 10Gbps data, 1x USB-A 10Gbps, 3x USB-A 480Mbps, 2x HDMI 2.0 (4K@60Hz), 1x RJ45 Gigabit Ethernet, 1x audio 3.5mm, 2x USB-C charge (100W chacun), 1x USB-A charge (12W)",
+        "powerDelivery": "160W total GaN · 100W laptop max",
+        "display": "Dual 4K@60Hz via HDMI 2.0",
+        "dataTransfer": "10Gbps USB 3.2"
+      },
+      "aiScore": 90,
+      "aiRationale": "La station d'accueil ultime pour les professionnels exigeants. 14 ports dont un double affichage 4K@60Hz, une alimentation GaN 160W pour charger votre laptop à pleine vitesse et trois appareils simultanément, le tout avec des transferts de données à 10Gbps. Idéale pour MacBook, Dell XPS et ThinkPad.",
+      "url": "https://www.bestbuy.ca/en-ca/product/anker-prime-14-port-charging-docking-station-dual-4k-display-160w-max-output-10gbps-data-transfers-gan-power-supply-for-macbook-dell/19400170",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/A83B61A1_Richimage_TD01_US_2400x2400px_V1.png?v=1722304317",
+      "source": "bestbuy",
+      "addedAt": "2026-04-08T00:00:00.000Z",
+      "lastVerified": "2026-04-08T00:00:00.000Z",
+      "priceSource": "manual"
     }
   ]
 }
