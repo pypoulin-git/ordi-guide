@@ -603,6 +603,96 @@ const fr = {
     learnMore: 'En savoir plus',
     dismiss: 'Fermer',
   },
+
+  // ── Audit Loi 25 ────────────────────────────────────
+  auditLoi25: {
+    // Hero
+    heroBadge: 'Service spécialisé · PME du Québec',
+    heroTitle: 'Audit conformité Loi 25 pour ton site web',
+    heroSubtitle: 'Vérifie en quelques jours si ton site respecte la Loi 25, PIPEDA et CASL. Trois forfaits clairs, prix fixes, livrés sous 7 jours ouvrables.',
+
+    // Why
+    whyTitle: 'Pourquoi tu devrais t\u2019en soucier',
+    whyIntro: 'Depuis le 22 septembre 2023, toute organisation québécoise qui collecte des renseignements personnels doit respecter la Loi 25. Politique de confidentialité, consentement granulaire, droit à l\u2019effacement, déclaration d\u2019incident. La plupart des PME ne savent pas où elles en sont — et c\u2019est là que ça coûte cher.',
+    whyAmount: 'Amendes possibles : jusqu\u2019à 25 M$ ou 4 % du chiffre d\u2019affaires mondial.',
+
+    // Tiers section
+    tiersTitle: 'Trois forfaits, prix fixes, sans surprise',
+    tiersSubtitle: 'Choisis selon la taille de ton site et ce que tu collectes. Pas d\u2019abonnement, pas de facturation horaire.',
+
+    // Tier 1 — Express
+    tier1Name: 'Express',
+    tier1For: 'Site vitrine 1–5 pages, formulaire de contact simple, pas de e-commerce',
+    tier1Price: '499 $',
+    tier1PriceUnit: 'CAD · livré en 5 jours',
+    tier1Feat1: 'Scan automatisé des cookies et trackers tiers',
+    tier1Feat2: 'Vérification de la politique de confidentialité',
+    tier1Feat3: 'Audit du formulaire de consentement (cookie banner)',
+    tier1Feat4: 'En-têtes de sécurité (CSP, HSTS, X-Frame-Options)',
+    tier1Feat5: 'Rapport PDF : 10–15 items vérifiés + score /100',
+    tier1Feat6: 'Appel de restitution 30 minutes',
+    tier1Cta: 'Demander un audit Express',
+
+    // Tier 2 — Standard
+    tier2Name: 'Standard',
+    tier2For: 'E-commerce, blog avec collecte d\u2019emails, PME 5–25 employés',
+    tier2Price: '999 $',
+    tier2PriceUnit: 'CAD · livré en 7 jours',
+    tier2Badge: 'Le plus choisi',
+    tier2Feat1: 'Tout ce qui est dans Express',
+    tier2Feat2: 'Audit des intégrations tierces (Stripe, Mailchimp, HubSpot…)',
+    tier2Feat3: 'Conformité PIPEDA (clients hors Québec) et CASL (marketing courriel)',
+    tier2Feat4: 'Politique de confidentialité rédigée sur mesure (FR + EN)',
+    tier2Feat5: 'Bannière de cookies personnalisée (code prêt à intégrer)',
+    tier2Feat6: 'Rapport PDF : 25–30 items + plan de remédiation priorisé',
+    tier2Feat7: 'Deux appels de restitution (kick-off + livraison)',
+    tier2Cta: 'Demander un audit Standard',
+
+    // Tier 3 — Complet
+    tier3Name: 'Complet',
+    tier3For: 'Comptes utilisateurs, SaaS, données sensibles (santé, finance), > 25 employés',
+    tier3Price: '1 999 $',
+    tier3PriceUnit: 'CAD · livré en 7 jours',
+    tier3Feat1: 'Tout ce qui est dans Standard',
+    tier3Feat2: 'Audit du flux complet : inscription → stockage → suppression',
+    tier3Feat3: 'Vérification portabilité et droit à l\u2019effacement',
+    tier3Feat4: 'EFVP simplifiée (Évaluation des Facteurs relatifs à la Vie Privée)',
+    tier3Feat5: 'Procédure de gestion des incidents + modèle de notification CAI',
+    tier3Feat6: 'Template de registre des activités de traitement',
+    tier3Feat7: 'Roadmap 3 mois + 1 h de consultation de suivi à 30 jours',
+    tier3Cta: 'Demander un audit Complet',
+
+    // Process
+    processTitle: 'Comment ça se passe',
+    step1Day: 'Jour 0',
+    step1Title: 'Paiement 50 % et envoi du questionnaire de kick-off',
+    step2Day: 'Jour 1–5',
+    step2Title: 'Pipeline d\u2019audit automatisé + analyse manuelle',
+    step3Day: 'Jour 5–6',
+    step3Title: 'Rédaction des livrables (rapport, politique, bannière)',
+    step4Day: 'Jour 7',
+    step4Title: 'Appel de restitution + remise des livrables · paiement final',
+
+    // Differentiators
+    diffTitle: 'Pourquoi passer par moi',
+    diff1Title: 'Pipeline propriétaire',
+    diff1Desc: 'Le même moteur d\u2019audit qui scanne ce site (Shop Compy) chaque mercredi tourne pour ton audit. Score actuel de Shop Compy : au-dessus de 80/100.',
+    diff2Title: 'Rapide et garanti',
+    diff2Desc: 'Livraison en 5 à 7 jours ouvrables. Si je dépasse le délai, tu obtiens 20 % de rabais automatique.',
+    diff3Title: 'Bilingue natif',
+    diff3Desc: 'Tous les livrables sont fournis en français et en anglais, rédigés par un développeur québécois — pas traduits par une IA générique.',
+    diff4Title: 'Pas de piège',
+    diff4Desc: 'Prix fixe. Zéro abonnement mensuel. Zéro facturation horaire surprise. Tu sais exactement ce que tu paies et ce que tu reçois.',
+
+    // Final CTA
+    ctaTitle: 'Prêt à savoir où tu en es ?',
+    ctaSubtitle: 'Réponds à 3 questions, je te confirme le forfait qui te convient et on démarre.',
+    ctaButton: 'Démarrer mon audit',
+    ctaSecondary: 'Poser une question d\u2019abord',
+
+    // Disclaimer
+    disclaimer: 'Cet audit n\u2019est pas un avis juridique. Pour toute interprétation de la Loi 25, consulte un avocat spécialisé.',
+  },
 } satisfies Record<string, Record<string, string>>
 
 export default fr

@@ -605,6 +605,96 @@ const en: Dictionary = {
     learnMore: 'Learn more',
     dismiss: 'Dismiss',
   },
+
+  // ── Audit Loi 25 ────────────────────────────────────
+  auditLoi25: {
+    // Hero
+    heroBadge: 'Specialized service · Quebec SMBs',
+    heroTitle: 'Law 25 compliance audit for your website',
+    heroSubtitle: 'Find out in days whether your site complies with Quebec\u2019s Law 25, PIPEDA, and CASL. Three clear packages, fixed prices, delivered within 7 business days.',
+
+    // Why
+    whyTitle: 'Why this matters',
+    whyIntro: 'Since September 22, 2023, every Quebec organization that collects personal information must comply with Law 25. Privacy policy, granular consent, right to erasure, breach notification. Most SMBs have no idea where they stand — and that\u2019s exactly when it gets expensive.',
+    whyAmount: 'Possible fines: up to $25M CAD or 4% of worldwide annual revenue.',
+
+    // Tiers section
+    tiersTitle: 'Three packages, fixed prices, no surprises',
+    tiersSubtitle: 'Pick based on the size of your site and what you collect. No subscription, no hourly billing.',
+
+    // Tier 1 — Express
+    tier1Name: 'Express',
+    tier1For: 'Showcase site of 1–5 pages, simple contact form, no e-commerce',
+    tier1Price: '$499',
+    tier1PriceUnit: 'CAD · delivered in 5 days',
+    tier1Feat1: 'Automated scan of cookies and third-party trackers',
+    tier1Feat2: 'Privacy policy review',
+    tier1Feat3: 'Consent form audit (cookie banner)',
+    tier1Feat4: 'Security headers (CSP, HSTS, X-Frame-Options)',
+    tier1Feat5: 'PDF report: 10–15 items checked + score /100',
+    tier1Feat6: '30-minute debrief call',
+    tier1Cta: 'Book the Express audit',
+
+    // Tier 2 — Standard
+    tier2Name: 'Standard',
+    tier2For: 'E-commerce, blog with email collection, SMB 5–25 employees',
+    tier2Price: '$999',
+    tier2PriceUnit: 'CAD · delivered in 7 days',
+    tier2Badge: 'Most popular',
+    tier2Feat1: 'Everything in Express',
+    tier2Feat2: 'Audit of third-party integrations (Stripe, Mailchimp, HubSpot…)',
+    tier2Feat3: 'PIPEDA compliance (out-of-Quebec clients) and CASL (email marketing)',
+    tier2Feat4: 'Custom-written privacy policy (FR + EN)',
+    tier2Feat5: 'Custom cookie banner (code ready to integrate)',
+    tier2Feat6: 'PDF report: 25–30 items + prioritized remediation plan',
+    tier2Feat7: 'Two debrief calls (kick-off + delivery)',
+    tier2Cta: 'Book the Standard audit',
+
+    // Tier 3 — Complet
+    tier3Name: 'Complete',
+    tier3For: 'User accounts, SaaS, sensitive data (health, finance), 25+ employees',
+    tier3Price: '$1,999',
+    tier3PriceUnit: 'CAD · delivered in 7 days',
+    tier3Feat1: 'Everything in Standard',
+    tier3Feat2: 'Full data flow audit: signup → storage → deletion',
+    tier3Feat3: 'Data portability and right-to-erasure verification',
+    tier3Feat4: 'Simplified Privacy Impact Assessment (PIA / EFVP)',
+    tier3Feat5: 'Incident response procedure + CAI notification template',
+    tier3Feat6: 'Records of processing activities (template)',
+    tier3Feat7: '3-month roadmap + 1h follow-up consult at 30 days',
+    tier3Cta: 'Book the Complete audit',
+
+    // Process
+    processTitle: 'How it works',
+    step1Day: 'Day 0',
+    step1Title: '50% deposit and kick-off questionnaire',
+    step2Day: 'Day 1–5',
+    step2Title: 'Automated audit pipeline + manual analysis',
+    step3Day: 'Day 5–6',
+    step3Title: 'Deliverables drafted (report, policy, banner)',
+    step4Day: 'Day 7',
+    step4Title: 'Debrief call + delivery · final payment',
+
+    // Differentiators
+    diffTitle: 'Why work with me',
+    diff1Title: 'Proprietary pipeline',
+    diff1Desc: 'The same audit engine that scans this site (Shop Compy) every Wednesday runs against your audit. Shop Compy currently scores above 80/100.',
+    diff2Title: 'Fast and guaranteed',
+    diff2Desc: 'Delivery in 5 to 7 business days. If I miss the deadline, you get an automatic 20% discount.',
+    diff3Title: 'Native bilingual',
+    diff3Desc: 'All deliverables provided in French and English, written by a Quebec developer — not machine-translated.',
+    diff4Title: 'No traps',
+    diff4Desc: 'Fixed price. Zero monthly subscription. Zero surprise hourly billing. You know exactly what you pay and what you receive.',
+
+    // Final CTA
+    ctaTitle: 'Ready to find out where you stand?',
+    ctaSubtitle: 'Answer 3 questions, I\u2019ll confirm the right package, and we get started.',
+    ctaButton: 'Start my audit',
+    ctaSecondary: 'Ask a question first',
+
+    // Disclaimer
+    disclaimer: 'This audit is not legal advice. For any interpretation of Law 25, please consult a specialized lawyer.',
+  },
 }
 
 export default en
