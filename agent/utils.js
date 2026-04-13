@@ -4,7 +4,7 @@ import {
   SEARXNG_URL, GEMINI_API_URL, getGeminiApiKey,
   MAX_RETRIES, RETRY_DELAY_MS,
   CPU_WHITELIST, AFFILIATE_TAGS,
-  PAGE_FETCH_TIMEOUT, DISCORD_WEBHOOK_URL,
+  PAGE_FETCH_TIMEOUT, getDiscordWebhookUrl,
 } from './config.js'
 
 // ── SearXNG ─────────────────────────────────────────────────────
@@ -244,8 +244,8 @@ function checkAvailability(html) {
     /we\s+don['']t\s+know\s+when\s+or\s+if\s+this\s+item\s+will\s+be\s+back/i,
     // Generic product page markers (in prominent elements)
     /<(h[1-3]|div\s+class[^>]*(?:alert|notice|status|availability)[^>]*|span\s+class[^>]*(?:alert|notice|status|availability))[^>]*>[\s\S]{0,100}(out\s+of\s+stock|rupture\s+de\s+stock|actuellement\s+indisponible|currently\s+unavailable|produit\s+discontinu[ée])/i,
-    // "Add to cart" button disabled or missing with explicit unavailable text nearby
-    /class=["'][^"']*(?:sold-?out|unavailable|out-of-stock)[^"']*["']/i,
+    // Primary product status classes (not variant tooltips like Amazon's twister)
+    /class=["'](?:product-)?(?:sold-?out|out-of-stock)["']/i,
     // Structured data marking as out of stock
     /"availability"\s*:\s*"(?:https?:\/\/schema\.org\/)?(?:OutOfStock|Discontinued|SoldOut)"/i,
   ]
@@ -460,12 +460,13 @@ export function injectAffiliateTag(url, source) {
 // ── Discord alert ───────────────────────────────────────────────
 
 export async function discordAlert(message) {
-  if (!DISCORD_WEBHOOK_URL) {
+  const webhookUrl = getDiscordWebhookUrl()
+  if (!webhookUrl) {
     log('⚠ Discord webhook not configured — alert not sent')
     return
   }
   try {
-    await fetch(DISCORD_WEBHOOK_URL, {
+    await fetch(webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ content: `🤖 **Catalogue Agent**\n${message}` }),

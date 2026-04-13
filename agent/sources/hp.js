@@ -16,6 +16,8 @@ const SEARCH_QUERIES = [
   // Monitors
   'HP M27fd moniteur 27 QHD USB-C prix',
   'HP X27q moniteur gaming 27 QHD 165Hz',
+  // Chromebooks
+  'HP Chromebook 14 2025 prix',
 ]
 
 export async function fetchHp() {

@@ -13,6 +13,7 @@ const SEARCH_QUERIES = [
   // Desktops
   'desktop gaming pc rtx 4060 tour',
   'iMac M4 prix',
+  'mini pc Intel NUC ASUS 2025 prix',
   // Monitors
   'moniteur LG 27UK850 4K USB-C',
   // Chromebooks

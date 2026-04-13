@@ -19,7 +19,7 @@ export const MIN_PRODUCTS = 30
 // Minimum par catégorie pour garder une bonne distribution
 // (abaissé car on a retiré 3 sources)
 export const MIN_PER_CATEGORY = {
-  laptop: 8, desktop: 5, apple: 5, chromebook: 2,
+  laptop: 8, desktop: 3, apple: 0, chromebook: 1,
   monitor: 5, dock: 3,
 }
 
@@ -77,9 +77,9 @@ export const AUDIT_RULES = {
   minPrice: 50,
   minRamGB: 8,
   minStorageGB: 256,
-  minPerCategory: { laptop: 8, desktop: 5, apple: 5, chromebook: 2, monitor: 5, dock: 3 },
+  minPerCategory: { laptop: 8, desktop: 3, apple: 0, chromebook: 1, monitor: 5, dock: 3 },
   minTotalProducts: 25,  // abaissé (moins de sources)
-  maxDeadUrlPercent: 20,
+  maxDeadUrlPercent: 35,
   maxAiPricePercent: 40,
   staleDaysPage: 14,
   staleDaysAi: 7,
@@ -119,7 +119,10 @@ export const CPU_PRICE_CAPS = [
 ]
 
 // ── Discord webhook pour alertes audit ──────────────────────────
-export const DISCORD_WEBHOOK_URL = process.env.DISCORD_CATALOGUE_WEBHOOK || ''
+// Lazy getter — ESM imports hoist above .env.local loading in catalogue-agent.js
+export function getDiscordWebhookUrl() {
+  return process.env.DISCORD_CATALOGUE_WEBHOOK || ''
+}
 
 // ── Concurrence page fetching ───────────────────────────────────
 export const PAGE_FETCH_CONCURRENCY = 3

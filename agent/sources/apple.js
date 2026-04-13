@@ -7,16 +7,16 @@ import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
   // MacBook Air
-  'MacBook Air M4 site:apple.com/ca',
-  'MacBook Air M3 prix site:apple.com/ca',
+  'apple.com/ca MacBook Air M4 acheter',
+  'apple.com/ca MacBook Air M3 prix',
   // MacBook Pro
-  'MacBook Pro M4 site:apple.com/ca',
-  'MacBook Pro M4 Pro prix site:apple.com/ca',
+  'apple.com/ca MacBook Pro M4 acheter',
+  'apple.com/ca MacBook Pro M4 Pro prix',
   // iMac
-  'iMac M4 prix site:apple.com/ca',
+  'apple.com/ca iMac M4 acheter prix',
   // Mac Mini / Studio
-  'Mac Mini M4 site:apple.com/ca',
-  'Mac Studio M4 site:apple.com/ca',
+  'apple.com/ca Mac Mini M4 acheter',
+  'apple.com/ca Mac Studio M4 prix',
 ]
 
 export async function fetchApple() {

@@ -1,12 +1,11 @@
 name: Catalogue Agent — Nightly Update
 
 on:
-  schedule:
-    # Every day at 7:00 UTC (3:00 AM ET)
-    - cron: '0 7 * * *'
-    # Weekly health check on Mondays at 12:00 UTC (8:00 AM ET)
-    - cron: '0 12 * * 1'
-  workflow_dispatch: # Manual trigger
+  # Schedule disabled — catalogue runs via WSL crontab with custom SearXNG config
+  # schedule:
+  #   - cron: '0 7 * * *'    # Nightly at 3:00 AM ET
+  #   - cron: '0 12 * * 1'   # Weekly health check Monday 8:00 AM ET
+  workflow_dispatch: # Manual trigger only
 
 jobs:
   catalogue-update:

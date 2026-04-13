@@ -16,6 +16,8 @@ const SEARCH_QUERIES = [
   // Monitors
   'moniteur LG UltraGear 27GP850 gaming 165hz',
   'ecran Samsung Odyssey G5 32 QHD gaming',
+  // Chromebooks
+  'Chromebook ASUS HP Acer 2025 prix',
 ]
 
 export async function fetchNewegg() {
