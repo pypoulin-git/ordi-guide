@@ -1,17 +1,46 @@
 {
   "version": 2,
-  "lastUpdated": "2026-04-07T21:08:28.079Z",
+  "lastUpdated": "2026-04-14T12:40:49.343Z",
   "agentRun": {
-    "scannedAt": "2026-04-01T00:32:39.705Z",
-    "completedAt": "2026-04-01T00:36:44.660Z",
-    "totalScanned": 236,
-    "productsKept": 92,
-    "productsNew": 50,
+    "scannedAt": "2026-04-14T12:12:44.736Z",
+    "completedAt": "2026-04-14T12:40:49.343Z",
+    "totalScanned": 93,
+    "productsKept": 30,
+    "productsNew": 4,
     "productsReplaced": 0,
-    "deadUrlsRemoved": 6,
-    "productsDeduplicated": 0
+    "deadUrlsRemoved": 0,
+    "productsDeduplicated": 1
   },
   "products": [
+    {
+      "id": "walmart-hp-omnibook-5-16-ba1009ca-ordinateur-portable-16-wuxga-ips-i",
+      "name": "HP Omnibook 5 16‑ba1009ca Ordinateur Portable 16\" WUXGA IPS Intel Core i5-1334U, 16 Go de RAM, 512 Go SSD",
+      "brand": "HP",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "900to1500",
+      "price": 999.98,
+      "originalPrice": 1099,
+      "isOnSale": true,
+      "specs": {
+        "cpu": "Intel Core i5-1334U",
+        "display": "16\" WUXGA IPS",
+        "ram": "16 Go",
+        "storage": "512 Go SSD"
+      },
+      "aiScore": 92,
+      "aiRationale": "Un deal en or pour un portable polyvalent! Le Core i5 de 13e génération avec 16 Go de RAM et un SSD de 512 Go est parfait pour le travail, les études ou même un peu de création. L'écran WUXGA IPS est un atout majeur.",
+      "url": "https://www.walmart.ca/fr/ip/HP-Omnibook-5-16-ba1009ca-Ordinateur-Portable-16-WUXGA-IPS-Intel-Core-i5-1334U-16-Go-de-RAM-512-Go-SSD/37PH98MQ0HDW",
+      "imageUrl": "/images/products/walmart-hp-omnibook-5-16-ba1009ca-ordinateur-portable-16-wux.jpg",
+      "source": "walmart",
+      "addedAt": "2026-04-01T00:36:29.792Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
+      "priceSource": "manual"
+    },
     {
       "id": "newegg-msi-16-venture-16-ai-2k-120-hz-ordinateur-portable-oled-inte",
       "name": "MSI 16 \"Venture 16 AI 2K 120 Hz ordinateur portable OLED, Intel Core Ultra 7 155H",
@@ -39,353 +68,7 @@
       "imageUrl": "/images/products/newegg-msi-16-venture-16-ai-2k-120-hz-ordinateur-portable-ol.jpg",
       "source": "newegg",
       "addedAt": "2026-04-01T00:35:17.991Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "walmart-hp-omnibook-5-16-ba1009ca-ordinateur-portable-16-wuxga-ips-i",
-      "name": "HP Omnibook 5 16‑ba1009ca Ordinateur Portable 16\" WUXGA IPS Intel Core i5-1334U, 16 Go de RAM, 512 Go SSD",
-      "brand": "HP",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "900to1500",
-      "price": 999.98,
-      "originalPrice": 1099,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "Intel Core i5-1334U",
-        "display": "16\" WUXGA IPS",
-        "ram": "16 Go",
-        "storage": "512 Go SSD"
-      },
-      "aiScore": 92,
-      "aiRationale": "Un deal en or pour un portable polyvalent! Le Core i5 de 13e génération avec 16 Go de RAM et un SSD de 512 Go est parfait pour le travail, les études ou même un peu de création. L'écran WUXGA IPS est un atout majeur.",
-      "url": "https://www.walmart.ca/fr/ip/HP-Omnibook-5-16-ba1009ca-Ordinateur-Portable-16-WUXGA-IPS-Intel-Core-i5-1334U-16-Go-de-RAM-512-Go-SSD/37PH98MQ0HDW",
-      "imageUrl": "/images/products/walmart-hp-omnibook-5-16-ba1009ca-ordinateur-portable-16-wux.jpg",
-      "source": "walmart",
-      "addedAt": "2026-04-01T00:36:29.792Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "manual"
-    },
-    {
-      "id": "newegg-lenovo-legion-tower-5i-30ias10-gaming-desktop-pc",
-      "name": "Lenovo Legion Tower 5i 30IAS10 Gaming Desktop PC",
-      "brand": "Lenovo",
-      "category": "desktop",
-      "profiles": [
-        "gaming",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2399.99,
-      "originalPrice": 2899.99,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "Intel Core Ultra 7 265F",
-        "ram": "32GB DDR5 5600",
-        "storage": "1TB NVMe SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un excellent PC de gaming avec un processeur Intel Core Ultra 7 et une RTX 5070, parfait pour les jeux et la création de contenu. Le prix est compétitif pour les specs.",
-      "url": "https://www.newegg.ca/lenovo-legion-tower-5i-gaming-desktop-pc-geforce-rtx-5070-intel-core-ultra-7-265f-32gb-ddr5-1tb-pcie-ssd-90ya0015fz-eclipse-black/p/N82E16883370605?lang=fr&srsltid=AfmBOoqbRMWoQNiyAPCf4rc19UeA6MDmiAOlYAXQvpu9k917OARp0Ic1",
-      "imageUrl": "/images/products/newegg-lenovo-legion-tower-5i-30ias10-gaming-desktop-pc.jpg",
-      "source": "newegg",
-      "addedAt": "2026-04-01T00:35:20.770Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "walmart-acer-chromebook-plus-spin-714-ecran-tactile-ips-fhd-14-intel",
-      "name": "Acer Chromebook Plus Spin 714, écran tactile IPS FHD+ 14\", Intel Core Ultra 5 125U, 16 Go, 512 Go",
-      "brand": "Acer",
-      "category": "chromebook",
-      "profiles": [
-        "student",
-        "work",
-        "basic"
-      ],
-      "budgetTier": "900to1500",
-      "price": 1014.31,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 5 125U",
-        "ram": "16 Go",
-        "storage": "512 Go SSD"
-      },
-      "aiScore": 88,
-      "aiRationale": "Ce Chromebook est une bête! Avec un Intel Core Ultra 5 et 16 Go de RAM, il est super rapide et polyvalent. Idéal pour les étudiants ou les professionnels qui veulent de la performance et la flexibilité d'un 2-en-1.",
-      "url": "https://www.walmart.ca/fr/ip/Acer-Chromebook-Plus-Spin-714-cran-tactile-IPS-FHD-14-Intel-Core-Ultra-5-125U-16-Go-512-Go-CP714-1H-57U5/28P7FI45YYT7",
-      "imageUrl": "/images/products/walmart-acer-chromebook-plus-spin-714-ecran-tactile-ips-fhd-.jpg",
-      "source": "walmart",
-      "addedAt": "2026-03-28T19:40:30.192Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "newegg-lg-ultragear-27-qhd-2k-1440p-180hz-curved-gaming-computer-mo",
-      "name": "LG UltraGear 27\" QHD 2K 1440P 180Hz Curved Gaming Computer Monitor 27GS60QC-B",
-      "brand": "LG Electronics",
-      "category": "monitor",
-      "profiles": [
-        "gaming",
-        "work",
-        "student"
-      ],
-      "budgetTier": "under500",
-      "price": 238.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "VA",
-        "resolution": "2560x1440",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 92,
-      "aiRationale": "Un excellent moniteur de gaming incurvé avec un taux de rafraîchissement élevé à un prix imbattable pour la qualité offerte. C'est un deal en or!",
-      "url": "https://www.newegg.ca/avgpc-blizzard-gaming-desktop-pcs-nvidia-geforce-rtx-5070-ti-amd-ryzen-7-9700x-32gb-ddr5-2tb-nvme-ssd-av-ww-r7-5070ti-b-black/p/3D5-002N-000D5?lang=fr",
-      "imageUrl": "/images/products/newegg-lg-ultragear-27-qhd-2k-1440p-180hz-curved-gaming-comp.jpg",
-      "source": "newegg",
-      "addedAt": "2026-03-29T20:55:49.370Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "dell-moniteurs-4k-dell",
-      "name": "Moniteurs 4K Dell",
-      "brand": "Dell",
-      "category": "monitor",
-      "profiles": [
-        "basic",
-        "work",
-        "student"
-      ],
-      "budgetTier": "over1500",
-      "price": 1796.67,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "resolution": "3840x2160",
-        "storage": "N/A"
-      },
-      "aiScore": 92,
-      "aiRationale": "Un moniteur 4K à ce prix-là, c'est un deal en or! Parfait pour améliorer votre setup sans vider votre portefeuille.",
-      "url": "https://www.dell.com/fr-ca/shop/ordinateurs-de-bureau-et-stations-de-travail/nouveau-optiplex-3000-micro/spd/optiplex-3000-micro/s015do3000mffcavp",
-      "imageUrl": "/images/products/dell-moniteurs-4k-dell.jpg",
-      "source": "dell",
-      "addedAt": "2026-03-30T11:07:16.183Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "dell-moniteur-dell-ultrasharp-u2724d-de-27-po",
-      "name": "Moniteur Dell UltraSharp U2724D de 27 po",
-      "brand": "Dell",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative",
-        "student"
-      ],
-      "budgetTier": "500to900",
-      "price": 579.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "2560x1440",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 89,
-      "aiRationale": "Un excellent moniteur QHD de 27 pouces pour le travail et la création. La qualité Dell UltraSharp à un prix raisonnable, c'est un choix intelligent.",
-      "url": "https://www.dell.com/fr-ca/shop/moniteur-dell-ultrasharp-27-u2724d/apd/210-bksf/moniteurs-et-accessoires-des-moniteurs",
-      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2724d/pdp/ultrasharp-u2724d-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=504&fmt=jpg?fmt=png&wid=400&hei=400",
-      "source": "dell",
-      "addedAt": "2026-03-29T20:56:18.938Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "dell-moniteur-4k-concentrateur-thunderbolt-dell-ultrasharp-27-u27",
-      "name": "Moniteur 4K concentrateur Thunderbolt Dell UltraSharp 27 - U2725QE",
-      "brand": "Dell",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative"
-      ],
-      "budgetTier": "900to1500",
-      "price": 1029.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "3840x2160",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 89,
-      "aiRationale": "Un excellent moniteur 4K avec hub Thunderbolt, parfait pour les professionnels et créatifs. La qualité d'image est top et la connectivité est super pratique.",
-      "url": "https://www.dell.com/fr-ca/shop/moniteur-4k-concentrateur-thunderbolt-dell-ultrasharp-27-u2725qe/apd/210-bqhr/moniteurs-et-accessoires-des-moniteurs",
-      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2725qe/pdp/monitor-u2725qe-hero-image.psd?fmt=png-alpha&wid=5000&hei=4000",
-      "source": "dell",
-      "addedAt": "2026-03-30T11:07:16.183Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "walmart-lg-32-po-32ur550k-b-uhd-3840-x-2160-va-moniteur-noir",
-      "name": "LG 32 Po 32UR550K-B UHD (3840 X 2160) VA Moniteur Noir",
-      "brand": "LG",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "500to900",
-      "price": 337.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "VA",
-        "resolution": "3840x2160",
-        "size": "32\"",
-        "storage": "N/A"
-      },
-      "aiScore": 88,
-      "aiRationale": "Un moniteur 4K de 32 pouces avec dalle VA, c'est excellent pour la productivité et le divertissement. Le prix est compétitif pour cette taille et résolution.",
-      "url": "https://www.walmart.ca/fr/ip/LG-32-Po-32UR550K-B-UHD-3840-X-2160-VA-Moniteur-Noir/413MRKPCXF1E",
-      "imageUrl": "/images/products/walmart-lg-32-po-32ur550k-b-uhd-3840-x-2160-va-moniteur-noir.jpg",
-      "source": "walmart",
-      "addedAt": "2026-03-28T19:40:22.741Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "manual"
-    },
-    {
-      "id": "dell-moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de",
-      "name": "Moniteur central Thunderbolt™ Dell UltraSharp 27 - U2724DE",
-      "brand": "Dell",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative"
-      ],
-      "budgetTier": "900to1500",
-      "price": 879.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS Black",
-        "resolution": "2560x1440",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 87,
-      "aiRationale": "Un moniteur QHD avec Thunderbolt 4, parfait pour les professionnels qui cherchent une bonne résolution et une connectivité simplifiée. Le panneau IPS Black offre un excellent contraste.",
-      "url": "https://www.dell.com/fr-ca/shop/moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de/apd/210-bksj/moniteurs-et-accessoires-des-moniteurs",
-      "imageUrl": "/images/products/dell-moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de.png",
-      "source": "dell",
-      "addedAt": "2026-04-01T00:36:11.306Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "microsoft-station-d-accueil-surface-thunderbolt-4-dock",
-      "name": "Station d'accueil Surface Thunderbolt 4 Dock",
-      "brand": "Microsoft Surface",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "under500",
-      "price": 409.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "2x USB-C (avant), 2x USB-C (arrière), 2x 4K@60Hz display support",
-        "powerDelivery": "Oui",
-        "ram": "N/A",
-        "storage": "N/A"
-      },
-      "aiScore": 85,
-      "aiRationale": "Une station d'accueil Thunderbolt 4 polyvalente, parfaite pour étendre les capacités de votre Surface. Idéale pour brancher plusieurs écrans 4K et tous vos périphériques.",
-      "url": "https://www.microsoft.com/fr-ca/d/surface-thunderbolt-4-dock-pour-lentreprise/8svnb0c8j1qw",
-      "imageUrl": "/images/products/microsoft-station-d-accueil-surface-thunderbolt-4-dock.png",
-      "source": "microsoft",
-      "addedAt": "2026-03-29T20:57:03.964Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "walmart-startech-com-usb-c-multiport-adapter-4k-60hz-hdmi-3-port-usb",
-      "name": "StarTech.com USB-C Multiport Adapter, 4K 60Hz HDMI, 3-Port USB-A 3.2 Hub, 100W Power Delivery Passthrough, GbE",
-      "brand": "StarTech.com",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "student"
-      ],
-      "budgetTier": "under500",
-      "price": 119.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "1x HDMI 4K 60Hz, 3x USB-A 3.2 (5Gbps), 1x Gigabit Ethernet, 1x USB-C PD Passthrough",
-        "powerDelivery": "100W USB-C"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un excellent adaptateur multiport USB-C pour la productivité en déplacement. Offre une connectivité complète avec HDMI 4K, plusieurs ports USB et Ethernet, parfait pour les professionnels et étudiants.",
-      "url": "https://www.walmart.ca/fr/ip/StarTech-com-Adaptateur-Multiport-USB-C-Vid-o-HDMI-4K-60Hz-Hub-USB-A-3-2-3-Ports-5Gbps-100W-Power-Delivery-Passthrough-GbE-Type-C-Mini-Station-de-Voy/PRD3C1TBU116O25",
-      "imageUrl": "/images/products/walmart-startech-com-usb-c-multiport-adapter-4k-60hz-hdmi-3-.jpg",
-      "source": "walmart",
-      "addedAt": "2026-04-01T00:36:29.792Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "dell-moniteur-central-usb-c-dell-ultrasharp-24-u2424he",
-      "name": "Moniteur central USB-C® Dell UltraSharp 24 – U2424HE",
-      "brand": "Dell",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "student"
-      ],
-      "budgetTier": "500to900",
-      "price": 509.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "1920x1080",
-        "size": "24\"",
-        "storage": "N/A"
-      },
-      "aiScore": 85,
-      "aiRationale": "Ce moniteur Dell UltraSharp est un excellent choix pour la productivité avec son hub USB-C intégré et sa connectivité KVM. Un très bon rapport qualité-prix pour le bureau ou l'école.",
-      "url": "https://www.dell.com/fr-ca/shop/moniteur-central-usb-c-dell-ultrasharp-24-u2424he/apd/210-bkry/moniteurs-et-accessoires-des-moniteurs",
-      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2424he/pdp/ultrasharp-u2424he-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=540&fmt=jpg?fmt=png&wid=400&hei=400",
-      "source": "dell",
-      "addedAt": "2026-03-29T20:56:27.842Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
+      "lastVerified": "2026-04-14T12:40:49.601Z",
       "priceSource": "page"
     },
     {
@@ -413,93 +96,8 @@
       "imageUrl": "/images/products/walmart-hp-victus-15-fb2009ca-15-6-inch-gaming-laptop-16gb-r.jpg",
       "source": "walmart",
       "addedAt": "2026-03-28T19:40:22.741Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
       "priceSource": "ai"
-    },
-    {
-      "id": "walmart-acer-ed270-x0-fhd-moniteur-de-jeu-incurve-27-pouces-1080p-fh",
-      "name": "Acer ED270 X0 FHD – Moniteur de jeu incurvé 27 pouces 1080P FHD, taux de rafraîchissement 200 Hz",
-      "brand": "Acer",
-      "category": "monitor",
-      "profiles": [
-        "gaming"
-      ],
-      "budgetTier": "under500",
-      "price": 299.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "VA",
-        "resolution": "1920x1080",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 85,
-      "aiRationale": "Pour les gamers avec un budget serré, un moniteur 27 pouces incurvé avec un taux de rafraîchissement de 200 Hz, c'est un excellent deal. Parfait pour une expérience de jeu fluide.",
-      "url": "https://www.walmart.ca/fr/ip/Acer-ED270-X0-FHD-Moniteur-de-jeu-incurv-27-pouces-1080P-FHD-taux-de-rafra-chissement-200-Hz-cran-large-sans-cadre-Zeroframe/64FL8SOG50LI",
-      "imageUrl": "/images/products/walmart-acer-ed270-x0-fhd-moniteur-de-jeu-incurve-27-pouces-.jpg",
-      "source": "walmart",
-      "addedAt": "2026-03-29T20:56:48.201Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "microsoft-surface-laptop-copilot-pc-remise-a-neuf-certifiee",
-      "name": "Surface Laptop, Copilot+ PC (remise à neuf certifiée)",
-      "brand": "Microsoft Surface",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "900to1500",
-      "price": 1242,
-      "originalPrice": 2000,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "Snapdragon X Elite",
-        "ram": "16GB",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un Surface Laptop remis à neuf avec un processeur Snapdragon X Elite, c'est une excellente affaire pour un PC Copilot+. Performance et autonomie au rendez-vous!",
-      "url": "https://www.microsoft.com/fr-ca/d/surface-laptop-copilot-pc-remise-a-neuf-certifiee/8v7gkbzd5v58",
-      "imageUrl": "/images/products/microsoft-surface-laptop-copilot-pc-remise-a-neuf-certifiee.png",
-      "source": "microsoft",
-      "addedAt": "2026-03-28T19:41:01.925Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "microsoft-surface-laptop-copilot-pc-15-pouces",
-      "name": "Surface Laptop, Copilot+ PC, 15 pouces",
-      "brand": "Microsoft",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2399.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Snapdragon X Elite",
-        "display": "15 pouces",
-        "ram": "16GB",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un excellent choix pour la productivité et la créativité, avec le nouveau processeur Snapdragon X Elite et un grand écran de 15 pouces. C'est un investissement solide pour ceux qui cherchent la performance et l'autonomie.",
-      "url": "https://www.microsoft.com/fr-ca/store/configure/surface-laptop-15-inch/8mzbmmcjzqc4",
-      "imageUrl": "/images/products/microsoft-surface-laptop-copilot-pc-15-pouces.png",
-      "source": "microsoft",
-      "addedAt": "2026-03-29T20:57:05.395Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
     },
     {
       "id": "newegg-ordinateur-portable-asus-vivobook-15-x1502-15-6-intel-core-i",
@@ -512,7 +110,7 @@
         "basic"
       ],
       "budgetTier": "500to900",
-      "price": 749,
+      "price": 899,
       "originalPrice": 899,
       "isOnSale": true,
       "specs": {
@@ -527,7 +125,7 @@
       "imageUrl": "/images/products/newegg-ordinateur-portable-asus-vivobook-15-x1502-15-6-intel.png",
       "source": "newegg",
       "addedAt": "2026-04-01T00:35:17.991Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
+      "lastVerified": "2026-04-14T12:40:49.711Z",
       "priceSource": "page"
     },
     {
@@ -557,7 +155,439 @@
       "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
       "source": "microsoft",
       "addedAt": "2026-04-01T00:36:39.892Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "microsoft-surface-laptop-copilot-pc-15-pouces",
+      "name": "Surface Laptop, Copilot+ PC, 15 pouces",
+      "brand": "Microsoft",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 2399.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Snapdragon X Elite",
+        "display": "15 pouces",
+        "ram": "16GB",
+        "storage": "512GB SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un excellent choix pour la productivité et la créativité, avec le nouveau processeur Snapdragon X Elite et un grand écran de 15 pouces. C'est un investissement solide pour ceux qui cherchent la performance et l'autonomie.",
+      "url": "https://www.microsoft.com/fr-ca/store/configure/surface-laptop-15-inch/8mzbmmcjzqc4",
+      "imageUrl": "/images/products/microsoft-surface-laptop-copilot-pc-15-pouces.png",
+      "source": "microsoft",
+      "addedAt": "2026-03-29T20:57:05.395Z",
+      "lastVerified": "2026-04-14T12:40:50.332Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "newegg-lenovo-legion-tower-5i-30ias10-gaming-desktop-pc",
+      "name": "Lenovo Legion Tower 5i 30IAS10 Gaming Desktop PC",
+      "brand": "Lenovo",
+      "category": "desktop",
+      "profiles": [
+        "gaming",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 2399.99,
+      "originalPrice": 2899.99,
+      "isOnSale": true,
+      "specs": {
+        "cpu": "Intel Core Ultra 7 265F",
+        "ram": "32GB DDR5 5600",
+        "storage": "1TB NVMe SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un excellent PC de gaming avec un processeur Intel Core Ultra 7 et une RTX 5070, parfait pour les jeux et la création de contenu. Le prix est compétitif pour les specs.",
+      "url": "https://www.newegg.ca/lenovo-legion-tower-5i-gaming-desktop-pc-geforce-rtx-5070-intel-core-ultra-7-265f-32gb-ddr5-1tb-pcie-ssd-90ya0015fz-eclipse-black/p/N82E16883370605?lang=fr&srsltid=AfmBOoqbRMWoQNiyAPCf4rc19UeA6MDmiAOlYAXQvpu9k917OARp0Ic1",
+      "imageUrl": "/images/products/newegg-lenovo-legion-tower-5i-30ias10-gaming-desktop-pc.jpg",
+      "source": "newegg",
+      "addedAt": "2026-04-01T00:35:20.770Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "walmart-acer-chromebook-plus-spin-714-ecran-tactile-ips-fhd-14-intel",
+      "name": "Acer Chromebook Plus Spin 714, écran tactile IPS FHD+ 14\", Intel Core Ultra 5 125U, 16 Go, 512 Go",
+      "brand": "Acer",
+      "category": "chromebook",
+      "profiles": [
+        "student",
+        "work",
+        "basic"
+      ],
+      "budgetTier": "900to1500",
+      "price": 1014.31,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core Ultra 5 125U",
+        "ram": "16 Go",
+        "storage": "512 Go SSD"
+      },
+      "aiScore": 88,
+      "aiRationale": "Ce Chromebook est une bête! Avec un Intel Core Ultra 5 et 16 Go de RAM, il est super rapide et polyvalent. Idéal pour les étudiants ou les professionnels qui veulent de la performance et la flexibilité d'un 2-en-1.",
+      "url": "https://www.walmart.ca/fr/ip/Acer-Chromebook-Plus-Spin-714-cran-tactile-IPS-FHD-14-Intel-Core-Ultra-5-125U-16-Go-512-Go-CP714-1H-57U5/28P7FI45YYT7",
+      "imageUrl": "/images/products/walmart-acer-chromebook-plus-spin-714-ecran-tactile-ips-fhd-.jpg",
+      "source": "walmart",
+      "addedAt": "2026-03-28T19:40:30.192Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "newegg-lg-ultragear-27-qhd-2k-1440p-180hz-curved-gaming-computer-mo",
+      "name": "LG UltraGear 27\" QHD 2K 1440P 180Hz Curved Gaming Computer Monitor 27GS60QC-B",
+      "brand": "LG Electronics",
+      "category": "monitor",
+      "profiles": [
+        "gaming",
+        "work",
+        "student"
+      ],
+      "budgetTier": "under500",
+      "price": 238.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "VA",
+        "resolution": "2560x1440",
+        "size": "27\"",
+        "storage": "N/A"
+      },
+      "aiScore": 92,
+      "aiRationale": "Un excellent moniteur de gaming incurvé avec un taux de rafraîchissement élevé à un prix imbattable pour la qualité offerte. C'est un deal en or!",
+      "url": "https://www.newegg.ca/avgpc-blizzard-gaming-desktop-pcs-nvidia-geforce-rtx-5070-ti-amd-ryzen-7-9700x-32gb-ddr5-2tb-nvme-ssd-av-ww-r7-5070ti-b-black/p/3D5-002N-000D5?lang=fr",
+      "imageUrl": "/images/products/newegg-lg-ultragear-27-qhd-2k-1440p-180hz-curved-gaming-comp.jpg",
+      "source": "newegg",
+      "addedAt": "2026-03-29T20:55:49.370Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "dell-moniteurs-4k-dell",
+      "name": "Moniteurs 4K Dell",
+      "brand": "Dell",
+      "category": "monitor",
+      "profiles": [
+        "basic",
+        "work",
+        "student"
+      ],
+      "budgetTier": "over1500",
+      "price": 1796.67,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "resolution": "3840x2160",
+        "storage": "N/A"
+      },
+      "aiScore": 92,
+      "aiRationale": "Un moniteur 4K à ce prix-là, c'est un deal en or! Parfait pour améliorer votre setup sans vider votre portefeuille.",
+      "url": "https://www.dell.com/fr-ca/shop/ordinateurs-de-bureau-et-stations-de-travail/nouveau-optiplex-3000-micro/spd/optiplex-3000-micro/s015do3000mffcavp",
+      "imageUrl": "/images/products/dell-moniteurs-4k-dell.jpg",
+      "source": "dell",
+      "addedAt": "2026-03-30T11:07:16.183Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "dell-moniteur-dell-ultrasharp-u2724d-de-27-po",
+      "name": "Moniteur Dell UltraSharp U2724D de 27 po",
+      "brand": "Dell",
+      "category": "monitor",
+      "profiles": [
+        "work",
+        "creative",
+        "student"
+      ],
+      "budgetTier": "500to900",
+      "price": 579.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "IPS",
+        "resolution": "2560x1440",
+        "size": "27\"",
+        "storage": "N/A"
+      },
+      "aiScore": 89,
+      "aiRationale": "Un excellent moniteur QHD de 27 pouces pour le travail et la création. La qualité Dell UltraSharp à un prix raisonnable, c'est un choix intelligent.",
+      "url": "https://www.dell.com/fr-ca/shop/moniteur-dell-ultrasharp-27-u2724d/apd/210-bksf/moniteurs-et-accessoires-des-moniteurs",
+      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2724d/pdp/ultrasharp-u2724d-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=504&fmt=jpg?fmt=png&wid=400&hei=400",
+      "source": "dell",
+      "addedAt": "2026-03-29T20:56:18.938Z",
+      "lastVerified": "2026-04-14T12:40:50.847Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "walmart-lg-32-po-32ur550k-b-uhd-3840-x-2160-va-moniteur-noir",
+      "name": "LG 32 Po 32UR550K-B UHD (3840 X 2160) VA Moniteur Noir",
+      "brand": "LG",
+      "category": "monitor",
+      "profiles": [
+        "work",
+        "creative",
+        "gaming"
+      ],
+      "budgetTier": "500to900",
+      "price": 337.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "VA",
+        "resolution": "3840x2160",
+        "size": "32\"",
+        "storage": "N/A"
+      },
+      "aiScore": 88,
+      "aiRationale": "Un moniteur 4K de 32 pouces avec dalle VA, c'est excellent pour la productivité et le divertissement. Le prix est compétitif pour cette taille et résolution.",
+      "url": "https://www.walmart.ca/fr/ip/LG-32-Po-32UR550K-B-UHD-3840-X-2160-VA-Moniteur-Noir/413MRKPCXF1E",
+      "imageUrl": "/images/products/walmart-lg-32-po-32ur550k-b-uhd-3840-x-2160-va-moniteur-noir.jpg",
+      "source": "walmart",
+      "addedAt": "2026-03-28T19:40:22.741Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
+      "priceSource": "manual"
+    },
+    {
+      "id": "walmart-startech-com-usb-c-multiport-adapter-4k-60hz-hdmi-3-port-usb",
+      "name": "StarTech.com USB-C Multiport Adapter, 4K 60Hz HDMI, 3-Port USB-A 3.2 Hub, 100W Power Delivery Passthrough, GbE",
+      "brand": "StarTech.com",
+      "category": "dock",
+      "profiles": [
+        "work",
+        "student"
+      ],
+      "budgetTier": "under500",
+      "price": 119.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "ports": "1x HDMI 4K 60Hz, 3x USB-A 3.2 (5Gbps), 1x Gigabit Ethernet, 1x USB-C PD Passthrough",
+        "powerDelivery": "100W USB-C"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un excellent adaptateur multiport USB-C pour la productivité en déplacement. Offre une connectivité complète avec HDMI 4K, plusieurs ports USB et Ethernet, parfait pour les professionnels et étudiants.",
+      "url": "https://www.walmart.ca/fr/ip/StarTech-com-Adaptateur-Multiport-USB-C-Vid-o-HDMI-4K-60Hz-Hub-USB-A-3-2-3-Ports-5Gbps-100W-Power-Delivery-Passthrough-GbE-Type-C-Mini-Station-de-Voy/PRD3C1TBU116O25",
+      "imageUrl": "/images/products/walmart-startech-com-usb-c-multiport-adapter-4k-60hz-hdmi-3-.jpg",
+      "source": "walmart",
+      "addedAt": "2026-04-01T00:36:29.792Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "microsoft-station-d-accueil-surface-thunderbolt-4-dock",
+      "name": "Station d'accueil Surface Thunderbolt 4 Dock",
+      "brand": "Microsoft Surface",
+      "category": "dock",
+      "profiles": [
+        "work",
+        "creative",
+        "gaming"
+      ],
+      "budgetTier": "under500",
+      "price": 409.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "ports": "2x USB-C (avant), 2x USB-C (arrière), 2x 4K@60Hz display support",
+        "powerDelivery": "Oui",
+        "ram": "N/A",
+        "storage": "N/A"
+      },
+      "aiScore": 85,
+      "aiRationale": "Une station d'accueil Thunderbolt 4 polyvalente, parfaite pour étendre les capacités de votre Surface. Idéale pour brancher plusieurs écrans 4K et tous vos périphériques.",
+      "url": "https://www.microsoft.com/fr-ca/d/surface-thunderbolt-4-dock-pour-lentreprise/8svnb0c8j1qw",
+      "imageUrl": "/images/products/microsoft-station-d-accueil-surface-thunderbolt-4-dock.png",
+      "source": "microsoft",
+      "addedAt": "2026-03-29T20:57:03.964Z",
+      "lastVerified": "2026-04-14T12:40:51.135Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "microsoft-dock-surface-thunderbolt-4",
+      "name": "Dock Surface Thunderbolt 4",
+      "brand": "Microsoft Surface",
+      "category": "dock",
+      "profiles": [
+        "work",
+        "creative"
+      ],
+      "budgetTier": "under500",
+      "price": 365.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "ports": "Non spécifié",
+        "powerDelivery": "Non spécifié",
+        "ram": "N/A",
+        "storage": "N/A"
+      },
+      "aiScore": 82,
+      "aiRationale": "Un dock Thunderbolt 4 est essentiel pour étendre la connectivité de votre Surface. Un investissement solide pour un poste de travail complet et efficace.",
+      "url": "https://www.microsoft.com/fr-ca/d/station-daccueil-surface-2/8qd908364sg2",
+      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
+      "source": "microsoft",
+      "addedAt": "2026-04-14T12:40:49.341Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "dell-moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de",
+      "name": "Moniteur central Thunderbolt™ Dell UltraSharp 27 - U2724DE",
+      "brand": "Dell",
+      "category": "monitor",
+      "profiles": [
+        "work",
+        "creative"
+      ],
+      "budgetTier": "900to1500",
+      "price": 879.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "IPS Black",
+        "resolution": "2560x1440",
+        "size": "27\"",
+        "storage": "N/A"
+      },
+      "aiScore": 87,
+      "aiRationale": "Un moniteur QHD avec Thunderbolt 4, parfait pour les professionnels qui cherchent une bonne résolution et une connectivité simplifiée. Le panneau IPS Black offre un excellent contraste.",
+      "url": "https://www.dell.com/fr-ca/shop/moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de/apd/210-bksj/moniteurs-et-accessoires-des-moniteurs",
+      "imageUrl": "/images/products/dell-moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de.png",
+      "source": "dell",
+      "addedAt": "2026-04-01T00:36:11.306Z",
+      "lastVerified": "2026-04-14T12:40:51.324Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "walmart-acer-ed270-x0-fhd-moniteur-de-jeu-incurve-27-pouces-1080p-fh",
+      "name": "Acer ED270 X0 FHD – Moniteur de jeu incurvé 27 pouces 1080P FHD, taux de rafraîchissement 200 Hz",
+      "brand": "Acer",
+      "category": "monitor",
+      "profiles": [
+        "gaming"
+      ],
+      "budgetTier": "under500",
+      "price": 299.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "VA",
+        "resolution": "1920x1080",
+        "size": "27\"",
+        "storage": "N/A"
+      },
+      "aiScore": 85,
+      "aiRationale": "Pour les gamers avec un budget serré, un moniteur 27 pouces incurvé avec un taux de rafraîchissement de 200 Hz, c'est un excellent deal. Parfait pour une expérience de jeu fluide.",
+      "url": "https://www.walmart.ca/fr/ip/Acer-ED270-X0-FHD-Moniteur-de-jeu-incurv-27-pouces-1080P-FHD-taux-de-rafra-chissement-200-Hz-cran-large-sans-cadre-Zeroframe/64FL8SOG50LI",
+      "imageUrl": "/images/products/walmart-acer-ed270-x0-fhd-moniteur-de-jeu-incurve-27-pouces-.jpg",
+      "source": "walmart",
+      "addedAt": "2026-03-29T20:56:48.201Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "dell-moniteur-central-usb-c-dell-ultrasharp-24-u2424he",
+      "name": "Moniteur central USB-C® Dell UltraSharp 24 – U2424HE",
+      "brand": "Dell",
+      "category": "monitor",
+      "profiles": [
+        "work",
+        "student"
+      ],
+      "budgetTier": "500to900",
+      "price": 509.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "IPS",
+        "resolution": "1920x1080",
+        "size": "24\"",
+        "storage": "N/A"
+      },
+      "aiScore": 85,
+      "aiRationale": "Ce moniteur Dell UltraSharp est un excellent choix pour la productivité avec son hub USB-C intégré et sa connectivité KVM. Un très bon rapport qualité-prix pour le bureau ou l'école.",
+      "url": "https://www.dell.com/fr-ca/shop/moniteur-central-usb-c-dell-ultrasharp-24-u2424he/apd/210-bkry/moniteurs-et-accessoires-des-moniteurs",
+      "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2424he/pdp/ultrasharp-u2424he-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=540&fmt=jpg?fmt=png&wid=400&hei=400",
+      "source": "dell",
+      "addedAt": "2026-03-29T20:56:27.842Z",
+      "lastVerified": "2026-04-14T12:40:51.982Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "microsoft-surface-laptop-copilot-pc-remise-a-neuf-certifiee",
+      "name": "Surface Laptop, Copilot+ PC (remise à neuf certifiée)",
+      "brand": "Microsoft Surface",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "900to1500",
+      "price": 1242,
+      "originalPrice": 2000,
+      "isOnSale": true,
+      "specs": {
+        "cpu": "Snapdragon X Elite",
+        "ram": "16GB",
+        "storage": "512GB SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un Surface Laptop remis à neuf avec un processeur Snapdragon X Elite, c'est une excellente affaire pour un PC Copilot+. Performance et autonomie au rendez-vous!",
+      "url": "https://www.microsoft.com/fr-ca/d/surface-laptop-copilot-pc-remise-a-neuf-certifiee/8v7gkbzd5v58",
+      "imageUrl": "/images/products/microsoft-surface-laptop-copilot-pc-remise-a-neuf-certifiee.png",
+      "source": "microsoft",
+      "addedAt": "2026-03-28T19:41:01.925Z",
+      "lastVerified": "2026-04-14T12:40:51.775Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "newegg-lg-27-ultragear-27gp850-b-qhd-2560-x-1440-nano-ips-1ms-165hz",
+      "name": "LG 27\" UltraGear 27GP850-B QHD 2560 x 1440 Nano IPS 1ms 165Hz Gaming Monitor",
+      "brand": "LG",
+      "category": "monitor",
+      "profiles": [
+        "gaming",
+        "creative",
+        "work"
+      ],
+      "budgetTier": "500to900",
+      "price": 449.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "IPS",
+        "resolution": "2560x1440",
+        "size": "27\"",
+        "storage": "N/A"
+      },
+      "aiScore": 85,
+      "aiRationale": "Ce moniteur LG UltraGear offre une excellente résolution QHD et un taux de rafraîchissement élevé, parfait pour les gamers et les créatifs. Le panneau Nano IPS assure des couleurs vives et des angles de vision larges.",
+      "url": "https://www.newegg.ca/lg-27gp850-b-27-qhd-165-hz-ultragear-nano-ips/p/N82E16824026195",
+      "imageUrl": "https://c1.neweggimages.com/ProductImage/24-026-195-12.jpg",
+      "source": "newegg",
+      "addedAt": "2026-04-14T12:40:03.133Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
       "priceSource": "ai"
     },
     {
@@ -587,7 +617,7 @@
       "imageUrl": "https://dqd7cfpoijv93.cloudfront.net/media/products/product-attachments/m/o/monitor-s3225qs-c-gray-gallery-2.png",
       "source": "dell",
       "addedAt": "2026-04-01T00:36:11.306Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
+      "lastVerified": "2026-04-14T12:40:52.302Z",
       "priceSource": "page"
     },
     {
@@ -615,7 +645,7 @@
       "imageUrl": "/images/products/newegg-lenovo-thinkpad-e14-gen-7-21u20016us-14-copilote-pc-p.jpg",
       "source": "newegg",
       "addedAt": "2026-04-01T00:35:17.991Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
+      "lastVerified": "2026-04-14T12:40:49.343Z",
       "priceSource": "page"
     },
     {
@@ -644,90 +674,7 @@
       "imageUrl": "/images/products/dell-moniteur-6k-dell-ultrasharp-32-u3224kb.jpg",
       "source": "dell",
       "addedAt": "2026-04-01T00:36:11.306Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "lenovo-station-d-accueil-usb-c-universelle-thinkpad-40ay0090us",
-      "name": "Station d'accueil USB-C universelle ThinkPad | 40AY0090US",
-      "brand": "Lenovo",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "student",
-        "basic"
-      ],
-      "budgetTier": "under500",
-      "price": 220.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "Non spécifié, mais universel USB-C",
-        "powerDelivery": "Non spécifié"
-      },
-      "aiScore": 78,
-      "aiRationale": "Un dock USB-C universel ThinkPad offre une bonne compatibilité et des fonctionnalités de gestion, ce qui est un atout pour les environnements de travail. Le prix est correct pour un dock de cette catégorie.",
-      "url": "https://www.lenovo.com/ca/fr/p/accessories-and-software/docking/docking-usb-docks/40ay0090us?srsltid=AfmBOopdk7vxBQSPlcEH2Ye32d4eOUNKYeE2e6iqFRZqMAifl0Z1duxM",
-      "imageUrl": "https://p4-ofp.static.pub//fes/cms/2025/05/12/72tho7e37a6o9yofx8z0wli6q1n6yc997575.png",
-      "source": "lenovo",
-      "addedAt": "2026-04-01T00:35:40.988Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "lenovo-station-d-accueil-de-voyage-lenovo-usb-c-slim",
-      "name": "Station d'accueil de voyage Lenovo USB-C Slim",
-      "brand": "Lenovo",
-      "category": "dock",
-      "profiles": [
-        "basic",
-        "work",
-        "student"
-      ],
-      "budgetTier": "under500",
-      "price": 99.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "Non spécifié, mais typiquement USB-C, USB-A, HDMI",
-        "powerDelivery": "Non spécifié"
-      },
-      "aiScore": 75,
-      "aiRationale": "Une station d'accueil de voyage USB-C est pratique pour la mobilité, mais les spécifications complètes des ports et de la puissance ne sont pas claires. Le prix est raisonnable pour un dock de voyage.",
-      "url": "https://www.lenovo.com/ca/fr/p/accessories-and-software/docking/docking-usb-docks/4x11n40213?srsltid=AfmBOorZ0MYpzcoIdXLfAzQVHdK9kWWU8LWVjZEftHR73mkbn4tHSdVi",
-      "imageUrl": "https://p4-ofp.static.pub//fes/cms/2025/05/12/72tho7e37a6o9yofx8z0wli6q1n6yc997575.png",
-      "source": "lenovo",
-      "addedAt": "2026-04-01T00:35:40.987Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "microsoft-concentrateur-de-voyage-usb-c-surface",
-      "name": "Concentrateur de voyage USB-C Surface",
-      "brand": "Microsoft",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "student"
-      ],
-      "budgetTier": "under500",
-      "price": 149.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "1x USB-C, 1x USB-A, 1x HDMI, 1x VGA, 1x Ethernet",
-        "powerDelivery": "Non spécifié"
-      },
-      "aiScore": 75,
-      "aiRationale": "Un hub USB-C compact et pratique pour les déplacements. Idéal pour ajouter des ports essentiels à votre laptop en voyage.",
-      "url": "https://www.microsoft.com/fr-ca/d/concentrateur-de-voyage-usb-c-surface/91fbqwbvftw8",
-      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
-      "source": "microsoft",
-      "addedAt": "2026-04-01T00:36:39.892Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
+      "lastVerified": "2026-04-14T12:40:52.715Z",
       "priceSource": "page"
     },
     {
@@ -755,9 +702,63 @@
       "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
       "source": "microsoft",
       "addedAt": "2026-04-01T00:36:44.651Z",
-      "lastVerified": "2026-04-01T00:36:44.660Z",
+      "lastVerified": "2026-04-14T12:40:53.179Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "lenovo-station-d-accueil-de-voyage-lenovo-usb-c-slim",
+      "name": "Station d'accueil de voyage Lenovo USB-C Slim",
+      "brand": "Lenovo",
+      "category": "dock",
+      "profiles": [
+        "basic",
+        "work",
+        "student"
+      ],
+      "budgetTier": "under500",
+      "price": 99.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "ports": "Non spécifié, mais typiquement USB-C, USB-A, HDMI",
+        "powerDelivery": "Non spécifié"
+      },
+      "aiScore": 75,
+      "aiRationale": "Une station d'accueil de voyage USB-C est pratique pour la mobilité, mais les spécifications complètes des ports et de la puissance ne sont pas claires. Le prix est raisonnable pour un dock de voyage.",
+      "url": "https://www.lenovo.com/ca/fr/p/accessories-and-software/docking/docking-usb-docks/4x11n40213?srsltid=AfmBOorZ0MYpzcoIdXLfAzQVHdK9kWWU8LWVjZEftHR73mkbn4tHSdVi",
+      "imageUrl": "https://p4-ofp.static.pub//fes/cms/2025/05/12/72tho7e37a6o9yofx8z0wli6q1n6yc997575.png",
+      "source": "lenovo",
+      "addedAt": "2026-04-01T00:35:40.987Z",
+      "lastVerified": "2026-04-14T12:40:54.956Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "microsoft-concentrateur-de-voyage-usb-c-surface",
+      "name": "Concentrateur de voyage USB-C Surface",
+      "brand": "Microsoft",
+      "category": "dock",
+      "profiles": [
+        "work",
+        "student"
+      ],
+      "budgetTier": "under500",
+      "price": 149.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "ports": "1x USB-C, 1x USB-A, 1x HDMI, 1x VGA, 1x Ethernet",
+        "powerDelivery": "Non spécifié"
+      },
+      "aiScore": 75,
+      "aiRationale": "Un hub USB-C compact et pratique pour les déplacements. Idéal pour ajouter des ports essentiels à votre laptop en voyage.",
+      "url": "https://www.microsoft.com/fr-ca/d/concentrateur-de-voyage-usb-c-surface/91fbqwbvftw8",
+      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
+      "source": "microsoft",
+      "addedAt": "2026-04-01T00:36:39.892Z",
+      "lastVerified": "2026-04-14T12:40:53.452Z",
       "priceSource": "page"
     }
-  ],
-  "updatedAt": "2026-04-13T11:22:58.328Z"
+  ]
 }
