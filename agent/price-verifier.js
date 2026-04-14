@@ -6,7 +6,7 @@
 // Sends per-source report + alerts if too many unverifiable.
 
 import { readFile, writeFile } from 'fs/promises'
-import { CATALOGUE_PATH } from './config.js'
+import { CATALOGUE_PATH, UNSCRAPABLE_SOURCES } from './config.js'
 import { fetchPage, extractPrice, mapWithConcurrency, log, discordAlert } from './utils.js'
 
 export async function runPriceVerifier() {
@@ -19,13 +19,23 @@ export async function runPriceVerifier() {
   let verified = 0
   let corrected = 0
   let unverifiable = 0
+  let skipped = 0
 
   // Per-source tracking
   const sourceStats = {}
+  const unscrapableSet = new Set(UNSCRAPABLE_SOURCES || [])
 
   await mapWithConcurrency(products, async (product) => {
     const src = product.source || 'unknown'
-    if (!sourceStats[src]) sourceStats[src] = { page: 0, ai: 0, failed: 0 }
+    if (!sourceStats[src]) sourceStats[src] = { page: 0, ai: 0, failed: 0, skipped: 0 }
+
+    // Skip sources that block automated price extraction (bot detection)
+    if (unscrapableSet.has(src)) {
+      product.priceSource = product.priceSource || 'ai'
+      skipped++
+      sourceStats[src].skipped++
+      return
+    }
 
     const page = await fetchPage(product.url)
     if (!page || !page.html) {
@@ -73,25 +83,32 @@ export async function runPriceVerifier() {
   log(`\nPrix — Rapport par source :`)
   const sourceLines = []
   for (const [src, s] of Object.entries(sourceStats).sort((a, b) => a[0].localeCompare(b[0]))) {
-    const total = s.page + s.ai + s.failed
-    const failPct = total > 0 ? ((s.failed / total) * 100).toFixed(0) : '0'
-    const flag = s.failed > 0 && s.page === 0 ? ' ⚠ 100% échec' : ''
-    const line = `  ${src}: ${s.page} page, ${s.failed} échecs (${failPct}%)${flag}`
-    log(line)
-    sourceLines.push(line)
+    const total = s.page + s.ai + s.failed + (s.skipped || 0)
+    if (s.skipped > 0) {
+      const line = `  ${src}: ${s.skipped} skippés (source inscrappable)`
+      log(line)
+      sourceLines.push(line)
+    } else {
+      const failPct = total > 0 ? ((s.failed / total) * 100).toFixed(0) : '0'
+      const flag = s.failed > 0 && s.page === 0 ? ' ⚠ 100% échec' : ''
+      const line = `  ${src}: ${s.page} page, ${s.failed} échecs (${failPct}%)${flag}`
+      log(line)
+      sourceLines.push(line)
+    }
   }
 
-  log(`\nPrix — ${verified} confirmés, ${corrected} corrigés, ${unverifiable} non vérifiables`)
+  log(`\nPrix — ${verified} confirmés, ${corrected} corrigés, ${unverifiable} non vérifiables, ${skipped} skippés (inscrappables)`)
 
-  // ── Alert if too many unverifiable ─────────────────────────────
-  const unverifiablePct = products.length > 0 ? (unverifiable / products.length) * 100 : 0
+  // ── Alert if too many unverifiable (based on attempted, not total) ──
+  const attemptedCount = products.length - skipped
+  const unverifiablePct = attemptedCount > 0 ? (unverifiable / attemptedCount) * 100 : 0
   if (unverifiablePct > 30) {
-    const msg = `⚠️ Price Verifier: ${unverifiable}/${products.length} produits non vérifiables (${unverifiablePct.toFixed(0)}%)\n${sourceLines.join('\n')}`
+    const msg = `⚠️ Price Verifier: ${unverifiable}/${attemptedCount} produits non vérifiables (${unverifiablePct.toFixed(0)}%) [${skipped} skippés]\n${sourceLines.join('\n')}`
     await discordAlert(msg)
   }
 
   // Write updated catalogue
   await writeFile(CATALOGUE_PATH, JSON.stringify(catalogue, null, 2), 'utf-8')
 
-  return { verified, corrected, unverifiable, sourceStats }
+  return { verified, corrected, unverifiable, skipped, sourceStats }
 }

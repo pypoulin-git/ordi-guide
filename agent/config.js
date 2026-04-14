@@ -12,6 +12,10 @@ export const SOURCES = ['amazon', 'newegg', 'lenovo', 'dell', 'hp', 'walmart', '
 // Sources retirées — ne pas scanner, ne pas garder dans le catalogue
 export const BLOCKED_SOURCES = ['bestbuy', 'costco', 'staples']
 
+// Sources actives mais dont le prix ne peut pas être vérifié par fetch HTML
+// (bot detection, login walls). On garde leurs produits mais on skip la vérification prix.
+export const UNSCRAPABLE_SOURCES = ['amazon', 'walmart', 'hp']
+
 // Distribution cible : ~200 produits max
 export const MAX_PRODUCTS = 200
 export const MIN_PRODUCTS = 30
@@ -19,7 +23,7 @@ export const MIN_PRODUCTS = 30
 // Minimum par catégorie pour garder une bonne distribution
 // (abaissé car on a retiré 3 sources)
 export const MIN_PER_CATEGORY = {
-  laptop: 8, desktop: 3, apple: 0, chromebook: 1,
+  laptop: 8, desktop: 2, apple: 0, chromebook: 1,
   monitor: 5, dock: 3,
 }
 
@@ -77,12 +81,12 @@ export const AUDIT_RULES = {
   minPrice: 50,
   minRamGB: 8,
   minStorageGB: 256,
-  minPerCategory: { laptop: 8, desktop: 3, apple: 0, chromebook: 1, monitor: 5, dock: 3 },
-  minTotalProducts: 25,  // abaissé (moins de sources)
+  minPerCategory: { laptop: 8, desktop: 2, apple: 0, chromebook: 1, monitor: 5, dock: 3 },
+  minTotalProducts: 20,  // abaissé (moins de sources + staleness agressive)
   maxDeadUrlPercent: 35,
-  maxAiPricePercent: 40,
-  staleDaysPage: 14,
-  staleDaysAi: 7,
+  maxAiPricePercent: 60,  // 3/9 sources inscrappables = ~33% AI minimum
+  staleDaysPage: 21,
+  staleDaysAi: 14,  // aligné sur page staleness pour casser spirale d'éviction
 }
 
 // ── Price sanity rules — min/max par type de produit ────────────

@@ -13,6 +13,8 @@ const SEARCH_QUERIES = [
   // Desktops
   'Dell Inspiron 3030 desktop tour prix',
   'Alienware Aurora R16 gaming desktop rtx',
+  'Dell OptiPlex 7020 desktop professionnel prix',
+  'Dell XPS Desktop 8960 tour prix',
   // Monitors
   'Dell UltraSharp U2724D moniteur 27 QHD',
   'Dell S2722QC moniteur 27 4K USB-C',

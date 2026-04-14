@@ -30,14 +30,15 @@ try {
   }
 } catch { /* .env.local not found — use system env */ }
 
-import { readFile } from 'fs/promises'
+import { readFile, writeFile } from 'fs/promises'
+import { execSync } from 'child_process'
 import { runScanner } from './scanner.js'
 import { runCurator } from './curator.js'
 import { runAudit } from './auditor.js'
 import { runPriceVerifier } from './price-verifier.js'
 import { runImageFetcher } from './image-fetcher.js'
 import { log, discordAlert } from './utils.js'
-import { CATALOGUE_PATH, MIN_PER_CATEGORY, AUDIT_RULES } from './config.js'
+import { CATALOGUE_PATH, MIN_PER_CATEGORY, AUDIT_RULES, UNSCRAPABLE_SOURCES } from './config.js'
 
 async function main() {
   const start = Date.now()
@@ -75,6 +76,51 @@ async function main() {
     process.exit(1)
   }
 
+  // ── Phase 2b : Backfill catégoriel ─────────────────────────
+  // Si une catégorie est sous son minimum, injecter les produits
+  // de l'ancien catalogue (HEAD) pour cette catégorie.
+  log('\n── Phase 2b : Backfill catégoriel ──')
+  try {
+    const newRaw = await readFile(CATALOGUE_PATH, 'utf-8')
+    const newCatalogue = JSON.parse(newRaw)
+    const newByCat = {}
+    for (const p of newCatalogue.products) {
+      newByCat[p.category] = (newByCat[p.category] || 0) + 1
+    }
+
+    const deficits = Object.entries(MIN_PER_CATEGORY).filter(([cat, min]) => (newByCat[cat] || 0) < min)
+    if (deficits.length > 0) {
+      const gitDir = CATALOGUE_PATH.replace(/[\\/]data[\\/]catalogue\.json$/, '')
+      let oldProducts = []
+      try {
+        const oldRaw = execSync('git show HEAD:data/catalogue.json', { cwd: gitDir, encoding: 'utf-8', timeout: 10000 })
+        oldProducts = JSON.parse(oldRaw).products || []
+      } catch { /* no previous catalogue in git */ }
+
+      if (oldProducts.length > 0) {
+        const newUrls = new Set(newCatalogue.products.map(p => p.url))
+        let backfilled = 0
+        for (const [cat] of deficits) {
+          const oldCatProducts = oldProducts.filter(p => p.category === cat && !newUrls.has(p.url))
+          for (const p of oldCatProducts) {
+            newCatalogue.products.push(p)
+            newUrls.add(p.url)
+            backfilled++
+            log(`  ← Backfill ${cat}: "${p.name?.slice(0, 45)}" (ancien catalogue)`)
+          }
+        }
+        if (backfilled > 0) {
+          await writeFile(CATALOGUE_PATH, JSON.stringify(newCatalogue, null, 2), 'utf-8')
+          log(`  → ${backfilled} produits récupérés de l'ancien catalogue`)
+        }
+      }
+    } else {
+      log('  Aucun déficit catégoriel — backfill non nécessaire')
+    }
+  } catch (err) {
+    log(`  ⚠ Backfill erreur (non-fatal): ${err.message}`)
+  }
+
   // ── Phase 3 : Vérification prix ────────────────────────────
   log('\n── Phase 3 : Vérification prix ──')
   let priceStats = { verified: 0, corrected: 0, unverifiable: 0 }
@@ -106,16 +152,21 @@ async function main() {
 
   // ── Rapport final ──────────────────────────────────────────
   const elapsed = ((Date.now() - start) / 1000).toFixed(0)
+  const outcomeLabel = audit.outcome === 'PASS' ? '✅ DÉPLOYÉ' : audit.outcome === 'PARTIAL' ? '⚠️ DÉPLOYÉ (partiel)' : '❌ ROLLBACK'
   log(`\n═══ Cycle terminé en ${elapsed}s ═══`)
-  log(`Résultat : ${audit.passed ? '✅ DÉPLOYÉ' : '❌ ROLLBACK'}`)
+  log(`Résultat : ${outcomeLabel}`)
 
   if (audit.passed) {
     log(`  Produits : ${curatorStats.kept}`)
     log(`  Nouveaux : ${curatorStats.newAdded}`)
     log(`  Remplacés : ${curatorStats.replaced}`)
     log(`  URLs mortes retirées : ${curatorStats.removedDead}`)
-    log(`  Prix : ${priceStats.verified} confirmés, ${priceStats.corrected} corrigés`)
+    log(`  Prix : ${priceStats.verified} confirmés, ${priceStats.corrected} corrigés, ${priceStats.skipped || 0} skippés`)
     log(`  Images : ${imageStats.fetched} trouvées`)
+    if (audit.outcome === 'PARTIAL') {
+      log(`  Avertissements :`)
+      for (const f of audit.failures) log(`    • ${f}`)
+    }
   } else {
     log(`  Échecs audit :`)
     for (const f of audit.failures) log(`    • ${f}`)
@@ -146,11 +197,13 @@ async function main() {
       }
     }
 
-    // Check 3: AI price ratio
-    const aiCount = products.filter(p => p.priceSource === 'ai').length
-    const aiPct = products.length > 0 ? Math.round(aiCount / products.length * 100) : 0
+    // Check 3: AI price ratio (excluding unscrapable sources)
+    const unscrapableSet = new Set(UNSCRAPABLE_SOURCES || [])
+    const verifiable = products.filter(p => !unscrapableSet.has(p.source))
+    const aiCount = verifiable.filter(p => p.priceSource === 'ai').length
+    const aiPct = verifiable.length > 0 ? Math.round(aiCount / verifiable.length * 100) : 0
     if (aiPct > AUDIT_RULES.maxAiPricePercent) {
-      issues.push(`${aiPct}% prix AI (max ${AUDIT_RULES.maxAiPricePercent}%)`)
+      issues.push(`${aiPct}% prix AI sur sources vérifiables (max ${AUDIT_RULES.maxAiPricePercent}%)`)
     }
 
     // Check 4: images missing

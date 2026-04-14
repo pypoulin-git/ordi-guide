@@ -13,6 +13,9 @@ const SEARCH_QUERIES = [
   // Desktops
   'desktop gaming pc ASUS ROG Strix rtx 5070',
   'desktop CyberPowerPC gaming tour rtx',
+  'desktop HP ProDesk tour petit format Intel 2025 prix',
+  'desktop Lenovo IdeaCentre Tower 5i prix',
+  'mini pc Intel NUC 14 Pro prix',
   // Monitors
   'moniteur LG UltraGear 27GP850 gaming 165hz',
   'ecran Samsung Odyssey G5 32 QHD gaming',

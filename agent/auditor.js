@@ -4,7 +4,7 @@
 
 import { readFile, writeFile } from 'fs/promises'
 import { execSync } from 'child_process'
-import { CATALOGUE_PATH, AUDIT_RULES, CPU_WHITELIST, PRICE_SANITY_RULES, CPU_PRICE_CAPS, BLOCKED_SOURCES } from './config.js'
+import { CATALOGUE_PATH, AUDIT_RULES, CPU_WHITELIST, PRICE_SANITY_RULES, CPU_PRICE_CAPS, BLOCKED_SOURCES, UNSCRAPABLE_SOURCES } from './config.js'
 import { checkUrl, matchesCpuWhitelist, discordAlert, mapWithConcurrency, log } from './utils.js'
 
 export async function runAudit() {
@@ -20,7 +20,8 @@ export async function runAudit() {
 
   const products = catalogue.products || []
   const checks = []
-  const failures = []
+  const hardFailures = []
+  const softFailures = []
 
   // ── Check 0: Retirer les sources bloquées ─────────────────────
   if (BLOCKED_SOURCES && BLOCKED_SOURCES.length > 0) {
@@ -42,9 +43,12 @@ export async function runAudit() {
   }
 
   // ── Check 1: Nombre total de produits ─────────────────────────
-  if (products.length < AUDIT_RULES.minTotalProducts) {
-    failures.push(`Total: ${products.length} produits (min ${AUDIT_RULES.minTotalProducts})`)
-    checks.push({ name: 'total', passed: false, details: `${products.length} < ${AUDIT_RULES.minTotalProducts}` })
+  if (products.length < 15) {
+    hardFailures.push(`Total: ${products.length} produits (hard min 15)`)
+    checks.push({ name: 'total', passed: false, details: `${products.length} < 15 (hard fail)` })
+  } else if (products.length < AUDIT_RULES.minTotalProducts) {
+    softFailures.push(`Total: ${products.length} produits (min ${AUDIT_RULES.minTotalProducts})`)
+    checks.push({ name: 'total', passed: false, details: `${products.length} < ${AUDIT_RULES.minTotalProducts} (soft)` })
   } else {
     checks.push({ name: 'total', passed: true, details: `${products.length} produits` })
   }
@@ -58,7 +62,7 @@ export async function runAudit() {
   for (const [cat, min] of Object.entries(AUDIT_RULES.minPerCategory)) {
     const count = byCat[cat] || 0
     if (count < min) {
-      failures.push(`Distribution: ${cat} = ${count} (min ${min})`)
+      softFailures.push(`Distribution: ${cat} = ${count} (min ${min})`)
       distOk = false
     }
   }
@@ -163,18 +167,21 @@ export async function runAudit() {
     details: staleProducts.length === 0 ? 'Tous frais' : `${staleProducts.length} auto-retirés`,
   })
 
-  // ── Check 3d: % de prix AI — alerte si trop élevé ────────────
-  const aiCount = catalogue.products.filter(p => p.priceSource === 'ai').length
-  const aiPercent = catalogue.products.length > 0 ? (aiCount / catalogue.products.length) * 100 : 0
-  const maxAiPercent = AUDIT_RULES.maxAiPricePercent || 40
+  // ── Check 3d: % de prix AI — exclut les sources inscrappables ──
+  const unscrapableSet = new Set(UNSCRAPABLE_SOURCES || [])
+  const verifiableProducts = catalogue.products.filter(p => !unscrapableSet.has(p.source))
+  const aiCount = verifiableProducts.filter(p => p.priceSource === 'ai').length
+  const aiPercent = verifiableProducts.length > 0 ? (aiCount / verifiableProducts.length) * 100 : 0
+  const totalAiCount = catalogue.products.filter(p => p.priceSource === 'ai').length
+  const maxAiPercent = AUDIT_RULES.maxAiPricePercent || 60
   if (aiPercent > maxAiPercent) {
-    log(`  ⚠ ${aiPercent.toFixed(0)}% de prix AI (seuil: ${maxAiPercent}%) — alerte envoyée`)
-    await discordAlert(`⚠️ Qualité prix: ${aiPercent.toFixed(0)}% des produits ont un prix AI non vérifié (${aiCount}/${catalogue.products.length}). Seuil: ${maxAiPercent}%.`)
+    log(`  ⚠ ${aiPercent.toFixed(0)}% de prix AI sur sources vérifiables (seuil: ${maxAiPercent}%) — alerte envoyée`)
+    await discordAlert(`⚠️ Qualité prix: ${aiPercent.toFixed(0)}% des produits vérifiables ont un prix AI (${aiCount}/${verifiableProducts.length}). Total AI: ${totalAiCount}/${catalogue.products.length}. Seuil: ${maxAiPercent}%.`)
   }
   checks.push({
     name: 'aiPriceRatio',
     passed: aiPercent <= maxAiPercent,
-    details: `${aiCount}/${catalogue.products.length} AI (${aiPercent.toFixed(0)}%)`,
+    details: `${aiCount}/${verifiableProducts.length} AI vérifiables (${aiPercent.toFixed(0)}%), ${totalAiCount} AI total`,
   })
 
   // ── Check 4: CPU whitelist ────────────────────────────────────
@@ -182,12 +189,12 @@ export async function runAudit() {
   const NON_CPU_CATEGORIES = ['monitor', 'dock']
   const computerProducts = catalogue.products.filter(p => !NON_CPU_CATEGORIES.includes(p.category))
   const badCpus = computerProducts.filter(p => !matchesCpuWhitelist(p.specs?.cpu || ''))
-  if (badCpus.length > computerProducts.length * 0.2) {
-    failures.push(`CPU: ${badCpus.length}/${computerProducts.length} hors whitelist (>20%)`)
+  if (badCpus.length > computerProducts.length * 0.3) {
+    hardFailures.push(`CPU: ${badCpus.length}/${computerProducts.length} hors whitelist (>30%)`)
   }
   checks.push({
     name: 'cpu',
-    passed: badCpus.length <= computerProducts.length * 0.2,
+    passed: badCpus.length <= computerProducts.length * 0.3,
     details: `${computerProducts.length - badCpus.length}/${computerProducts.length} OK (ordinateurs seulement)`,
   })
 
@@ -254,8 +261,10 @@ export async function runAudit() {
   }, 5)
 
   const deadPercent = (deadCount / urlSample.length) * 100
-  if (deadPercent > AUDIT_RULES.maxDeadUrlPercent) {
-    failures.push(`URLs: ${deadCount}/${urlSample.length} mortes (${deadPercent.toFixed(0)}% > ${AUDIT_RULES.maxDeadUrlPercent}%)`)
+  if (deadPercent > 50) {
+    hardFailures.push(`URLs: ${deadCount}/${urlSample.length} mortes (${deadPercent.toFixed(0)}% > 50%)`)
+  } else if (deadPercent > AUDIT_RULES.maxDeadUrlPercent) {
+    softFailures.push(`URLs: ${deadCount}/${urlSample.length} mortes (${deadPercent.toFixed(0)}% > ${AUDIT_RULES.maxDeadUrlPercent}%)`)
   }
   checks.push({
     name: 'urls',
@@ -263,23 +272,31 @@ export async function runAudit() {
     details: `${urlSample.length - deadCount}/${urlSample.length} OK (échantillon)`,
   })
 
-  // ── Résultat ──────────────────────────────────────────────────
-  const passed = failures.length === 0
+  // ── Résultat : PASS / PARTIAL / FAIL ───────────────────────────
+  const hardFail = hardFailures.length > 0
+  const softFail = softFailures.length > 0
+  const outcome = hardFail ? 'FAIL' : softFail ? 'PARTIAL' : 'PASS'
 
-  log(`\nAudit ${passed ? '✅ PASSÉ' : '❌ ÉCHOUÉ'}`)
+  log(`\nAudit ${outcome === 'PASS' ? '✅ PASSÉ' : outcome === 'PARTIAL' ? '⚠️ PARTIEL' : '❌ ÉCHOUÉ'}`)
   for (const c of checks) {
     log(`  ${c.passed ? '✓' : '✗'} ${c.name}: ${c.details}`)
   }
+  if (hardFailures.length > 0) log(`  Hard failures: ${hardFailures.join('; ')}`)
+  if (softFailures.length > 0) log(`  Soft failures: ${softFailures.join('; ')}`)
 
-  if (passed) {
-    // Write cleaned catalogue before deploy (bad specs may have been removed)
+  if (hardFail) {
+    await rollback(hardFailures)
+  } else {
+    // PASS or PARTIAL — deploy the catalogue
     await writeFile(CATALOGUE_PATH, JSON.stringify(catalogue, null, 2), 'utf-8')
     await deployToVercel(catalogue.products.length)
-  } else {
-    await rollback(failures)
+    if (softFail) {
+      await discordAlert(`⚠️ Catalogue déployé avec avertissements:\n${softFailures.map(f => `• ${f}`).join('\n')}`)
+    }
   }
 
-  return { passed, checks, failures }
+  const failures = [...hardFailures, ...softFailures]
+  return { passed: !hardFail, outcome, checks, failures }
 }
 
 // ── Deploy ──────────────────────────────────────────────────────

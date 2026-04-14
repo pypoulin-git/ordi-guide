@@ -13,6 +13,9 @@ const SEARCH_QUERIES = [
   // Desktops
   'desktop gaming pc ASUS ROG Strix rtx 4070',
   'mini pc ASUS NUC Intel 2025 prix',
+  'desktop HP Pavilion tour ordinateur bureau prix',
+  'desktop Acer Aspire TC bureau tour prix 2025',
+  'mini pc Beelink SER7 AMD Ryzen prix',
   // Monitors
   'moniteur ASUS ProArt PA278QV 27 IPS prix',
   // Chromebooks

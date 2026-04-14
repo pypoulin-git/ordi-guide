@@ -13,6 +13,8 @@ const SEARCH_QUERIES = [
   // Desktops
   'Lenovo ThinkCentre M75q Tiny desktop prix',
   'Lenovo IdeaCentre AIO 27 tout-en-un 2025',
+  'Lenovo IdeaCentre Tower 5i desktop prix',
+  'Lenovo Legion Tower 7i gaming desktop rtx prix',
   // Monitors
   'Lenovo ThinkVision T27p-30 moniteur 27 4K',
   'Lenovo ThinkVision P27h-30 moniteur QHD USB-C',
