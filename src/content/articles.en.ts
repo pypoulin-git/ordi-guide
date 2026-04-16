@@ -967,4 +967,85 @@ export const articles: Article[] = [
     ],
     ctaText: 'Now that you know how we work, let us help you find your next computer.',
   },
+  {
+    slug: 'choisir-moniteur',
+    title: 'Choosing a monitor: resolution, Hz, panel — what actually matters',
+    description: 'IPS or VA, 1080p or 4K, 60 Hz or 144 Hz? A clear guide to picking a monitor that fits your needs — without paying for useless flash.',
+    date: '2026-04-16',
+    readTime: '8 min',
+    category: 'Comparatifs',
+    categoryColor: '#7c3aed',
+    icon: '🖥️',
+    tags: ['monitor', 'display', 'resolution', 'panel', 'gaming', 'office'],
+    coverGradient: 'linear-gradient(135deg, #3b0764 0%, #7c3aed 50%, #0891b2 100%)',
+    gist: 'A good monitor is one that matches how you use it. Office work: a 27" 1440p IPS at 75 Hz. Gaming: 24"-27" 1080p/1440p at 144 Hz minimum. Creative work: IPS with 99% sRGB. The rest — 240 Hz, HDR1000, 4K at 32" — is rarely worth the price. And yes, the ports matter as much as the panel.',
+    sections: [
+      {
+        title: 'Size and resolution: the pair everyone confuses',
+        paragraphs: [
+          'Size is the diagonal in inches. Resolution is the number of pixels (1920×1080 = Full HD, 2560×1440 = QHD, 3840×2160 = 4K). The two must be chosen together, because their ratio defines pixel density (how sharp the image looks).',
+          'The rule of thumb: 24" at 1080p, 27" at 1440p, 32" at 4K. Put 4K on a 24" display and you won\'t see the difference (your eyes can\'t resolve individual pixels at that density). Put 1080p on a 32" and you\'ll see every pixel like a Lego brick — the image will look soft.',
+          'Ultra-wide (21:9, usually 34") changes the game: one display replaces two side-by-side. Great for productivity and cinema. For gaming, careful — some titles don\'t handle this ratio well.',
+        ],
+      },
+      {
+        title: 'Refresh rate (Hz): 60, 75, 120, 144, 240?',
+        paragraphs: [
+          'Hz is the number of images shown per second. A 60 Hz monitor shows 60 images/sec. At 144 Hz, it\'s 144. The higher, the smoother motion feels — especially in gaming.',
+          'Office work, web, video: 60-75 Hz is plenty. You won\'t notice a difference reading email or watching Netflix.',
+          'Casual gaming (single-player, RPG, strategy): 120-144 Hz is a comfortable sweet spot. Beyond that, gains become marginal for most players.',
+          'Competitive gaming (FPS, esports): 144 Hz minimum, 240 Hz if your budget allows and your GPU can keep up. A 240 Hz screen driven by a PC pushing 60 fps is pointless.',
+        ],
+      },
+      {
+        title: 'Panel type: IPS, VA, or TN?',
+        paragraphs: [
+          'IPS (In-Plane Switching): best colors, best viewing angles. A bit pricier; response time historically slower (but modern IPS panels are excellent). Default pick for 90% of people — office, creative, mixed gaming.',
+          'VA (Vertical Alignment): best contrast (deep blacks), perfect for cinema and narrative games. Colors are less accurate than IPS, viewing angles weaker. Consider it if you watch a lot of movies in a dark room.',
+          'TN (Twisted Nematic): fastest response time, cheapest. But poor colors and atrocious viewing angles. Historically loved by competitive gamers for 1 ms response — today, fast IPS and VA panels have replaced them. Avoid unless your budget is very tight.',
+          'OLED: stunning colors, perfect blacks, instant response. But burn-in risk if you display static elements (taskbar, window borders) for hours — a real issue for a work monitor. Reserve it for entertainment.',
+        ],
+      },
+      {
+        title: 'HDR: marketing or real value?',
+        paragraphs: [
+          'HDR (High Dynamic Range), in theory, means a brighter image with more nuance in bright and dark zones. In practice, it depends entirely on implementation.',
+          'HDR400 (or "basic HDR"): marketing. The monitor isn\'t bright enough for real HDR. Ignore this badge.',
+          'HDR600: acceptable as an entry point. You\'ll get a slight contrast boost on well-mastered HDR content (4K Blu-ray films, HDR games).',
+          'HDR1000 and up: now it gets interesting. But these monitors start at $800. For most uses, HDR is a "nice to have", not a deciding factor.',
+        ],
+      },
+      {
+        title: 'Ports: the detail that ruins everything if you skip it',
+        paragraphs: [
+          'HDMI 2.0: supports 4K at 60 Hz. Perfect for 95% of uses. Most computers have it.',
+          'HDMI 2.1: required for 4K at 120 Hz or more. Essential if you\'re doing high-end gaming (RTX 4070+, Radeon RX 7800+) or using a new-gen console (PS5, Xbox Series X).',
+          'DisplayPort 1.4: equivalent to HDMI 2.1 on PC, often with fewer trade-offs. Standard on recent GPUs.',
+          'USB-C with Power Delivery: one cable does it all — display, data, laptop charging. Great for MacBooks and recent laptops. Check charging wattage (65 W minimum for a modern portable).',
+          'The trap: buying a 4K 144 Hz monitor, then realizing your PC only has HDMI 2.0 which caps at 60 Hz in 4K. Always check the ports on both sides before buying.',
+        ],
+      },
+      {
+        title: 'Common scenarios: the right pick per profile',
+        paragraphs: [
+          'Office and remote work ($400-600): 27" 1440p IPS at 75 Hz, with USB-C if you have a recent laptop. You gain space to tile windows, and text is razor-sharp all day.',
+          'Versatile gaming ($450-750): 27" 1440p IPS at 144-165 Hz, HDMI 2.1. Good balance of immersion and smoothness. FreeSync or G-Sync are a welcome bonus to eliminate tearing.',
+          'Competitive gaming ($400-700): 24"-27" 1080p or 1440p at 240 Hz, fast IPS or modern TN. Response time and refresh rate trump size and resolution.',
+          'Creative work (photo/video/design, $600-1200): 27" 1440p or 32" 4K, IPS with 99% sRGB minimum (90% DCI-P3 if you do pro photo/video). Color accuracy beats refresh rate.',
+          'Cinema/entertainment ($500-900): 32-34" ultra-wide VA or OLED, 120 Hz minimum, HDR600 or better. Contrast and immersion matter more than color accuracy.',
+        ],
+      },
+      {
+        title: 'Marketing traps to avoid',
+        paragraphs: [
+          '"1 ms response time" (GtG): nearly every monitor claims this today. Check independent tests (Rtings, TFT Central) for the real figure.',
+          '"Curved": on an ultra-wide, it improves immersion. On a 24" or 27" flat-ratio display, it\'s a gimmick.',
+          '"Gaming monitor": not a technical label. Check real specs (Hz, panel type, response time).',
+          '"4K" without HDMI 2.1 or a recent DisplayPort: you\'ll be capped at 60 Hz. Fine for office, not for smooth gaming.',
+          'No-name monitors 40% cheaper than brand names: often recycled panels with minimal QC. You save $150 but you\'re playing the lottery. Stick with LG, Dell, ASUS, MSI, AOC, or Samsung.',
+        ],
+      },
+    ],
+    ctaText: 'Clearer picture now? We can suggest actual monitors tuned to your budget and use case.',
+  },
 ]

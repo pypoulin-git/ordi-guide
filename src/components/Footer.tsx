@@ -9,22 +9,35 @@ export default function Footer() {
   const isFr = locale === 'fr'
 
   const [email, setEmail] = useState('')
+  const [consent, setConsent] = useState(false)
+  const [consentError, setConsentError] = useState(false)
   const [subscribed, setSubscribed] = useState(false)
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault()
     if (!email) return
+    if (!consent) {
+      setConsentError(true)
+      return
+    }
+    const timestamp = new Date().toISOString()
     try {
       const existing = JSON.parse(localStorage.getItem('newsletter_emails') || '[]')
-      if (!existing.includes(email)) {
-        existing.push(email)
-        localStorage.setItem('newsletter_emails', JSON.stringify(existing))
+      // Normalize legacy shape: entries may have been stored as plain strings
+      const normalized = existing.map((e: unknown) =>
+        typeof e === 'string' ? { email: e, consentAt: null } : e
+      )
+      if (!normalized.some((entry: { email: string }) => entry.email === email)) {
+        normalized.push({ email, consentAt: timestamp })
+        localStorage.setItem('newsletter_emails', JSON.stringify(normalized))
       }
     } catch {
-      localStorage.setItem('newsletter_emails', JSON.stringify([email]))
+      localStorage.setItem('newsletter_emails', JSON.stringify([{ email, consentAt: timestamp }]))
     }
     setSubscribed(true)
     setEmail('')
+    setConsent(false)
+    setConsentError(false)
   }
 
   const navLinks = [
@@ -160,21 +173,43 @@ export default function Footer() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} className="flex gap-2 max-w-sm">
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    placeholder={t.footer.newsletterPlaceholder}
-                    className="flex-1 px-3 py-2 rounded-lg text-sm bg-white dark:bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-                  />
-                  <button
-                    type="submit"
-                    className="px-4 py-2 rounded-lg text-sm font-semibold bg-[var(--accent)] text-white hover:opacity-90 transition-opacity shrink-0"
-                  >
-                    {t.footer.newsletterButton}
-                  </button>
+                <form onSubmit={handleSubscribe} className="max-w-sm" noValidate>
+                  <div className="flex gap-2">
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      placeholder={t.footer.newsletterPlaceholder}
+                      className="flex-1 px-3 py-2 rounded-lg text-sm bg-white dark:bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+                    />
+                    <button
+                      type="submit"
+                      className="px-4 py-2 rounded-lg text-sm font-semibold bg-[var(--accent)] text-white hover:opacity-90 transition-opacity shrink-0"
+                    >
+                      {t.footer.newsletterButton}
+                    </button>
+                  </div>
+                  <label className="flex items-start gap-2 mt-3 text-xs text-[var(--text-muted)] cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={consent}
+                      onChange={e => {
+                        setConsent(e.target.checked)
+                        if (e.target.checked) setConsentError(false)
+                      }}
+                      aria-required="true"
+                      aria-invalid={consentError}
+                      aria-describedby={consentError ? 'newsletter-consent-err' : undefined}
+                      className="mt-0.5 shrink-0 h-4 w-4 rounded border-[var(--border)] accent-[var(--accent)]"
+                    />
+                    <span>{t.footer.newsletterConsent}</span>
+                  </label>
+                  {consentError && (
+                    <p id="newsletter-consent-err" className="text-xs mt-1" style={{ color: '#ea580c' }} role="alert">
+                      {t.footer.newsletterConsentRequired}
+                    </p>
+                  )}
                 </form>
               )}
             </div>

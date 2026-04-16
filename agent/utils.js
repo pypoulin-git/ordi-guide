@@ -1,13 +1,32 @@
 // ─── Catalogue Agent — Utilitaires ───────────────────────────────
 
 import {
-  SEARXNG_URL, GEMINI_API_URL, getGeminiApiKey,
+  SEARXNG_URL, PUBLIC_SEARXNG_URLS, GEMINI_API_URL, getGeminiApiKey,
   MAX_RETRIES, RETRY_DELAY_MS,
   CPU_WHITELIST, AFFILIATE_TAGS,
   PAGE_FETCH_TIMEOUT, getDiscordWebhookUrl,
 } from './config.js'
 
 // ── SearXNG ─────────────────────────────────────────────────────
+
+// Once the local instance is known unreachable during a run, skip it for the
+// rest of the process so we don't pay the timeout on every query.
+let localSearxAvailable = true
+
+async function tryOneSearxInstance(baseUrl, params, timeoutMs) {
+  const res = await fetch(`${baseUrl}/search?${params}`, {
+    signal: AbortSignal.timeout(timeoutMs),
+    headers: { 'Accept': 'application/json', 'User-Agent': 'shopcompy-catalogue-agent/1.0' },
+  })
+  if (!res.ok) throw new Error(`SearXNG ${res.status} @ ${baseUrl}`)
+  // Some public instances disable JSON format and return HTML — detect it.
+  const contentType = res.headers.get('content-type') || ''
+  if (!contentType.includes('application/json')) {
+    throw new Error(`SearXNG @ ${baseUrl} did not return JSON (format=json disabled)`)
+  }
+  const data = await res.json()
+  return data.results || []
+}
 
 export async function searxSearch(query, options = {}) {
   const params = new URLSearchParams({
@@ -19,12 +38,29 @@ export async function searxSearch(query, options = {}) {
     pageno: String(options.page || 1),
   })
 
-  const res = await fetch(`${SEARXNG_URL}/search?${params}`, {
-    signal: AbortSignal.timeout(15000),
-  })
-  if (!res.ok) throw new Error(`SearXNG ${res.status}: ${res.statusText}`)
-  const data = await res.json()
-  return data.results || []
+  // 1. Try local WSL instance first (fastest, no rate limit)
+  if (localSearxAvailable) {
+    try {
+      return await tryOneSearxInstance(SEARXNG_URL, params, 15000)
+    } catch (err) {
+      // Network error or non-2xx — disable local for this run and fall back
+      localSearxAvailable = false
+      log(`⚠ Local SearXNG unreachable (${err.message}). Falling back to public instances.`)
+    }
+  }
+
+  // 2. Rotate through public instances, randomized to spread load
+  const fallbacks = [...PUBLIC_SEARXNG_URLS].sort(() => Math.random() - 0.5)
+  let lastErr = new Error('No SearXNG instance available')
+  for (const baseUrl of fallbacks) {
+    try {
+      return await tryOneSearxInstance(baseUrl, params, 12000)
+    } catch (err) {
+      lastErr = err
+      // Try next instance
+    }
+  }
+  throw lastErr
 }
 
 /**

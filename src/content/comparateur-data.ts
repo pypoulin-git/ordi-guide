@@ -17,6 +17,12 @@ export type ArchetypeInfo = {
   label: string
   desc: string
   color: string
+  /**
+   * Optional humorous tooltip shown in the UI to signal the label
+   * is meant as a wink, not a judgement. Only populated on
+   * tongue-in-cheek archetypes (e.g. `douchebag`).
+   */
+  humorHint?: string
 }
 
 export type Recommendation = {
@@ -222,14 +228,24 @@ const archetypesFr: Record<Archetype, ArchetypeInfo> = {
   minimalist: { label: 'Le Minimaliste', desc: 'Léger et efficace pour les tâches de base', color: '#7c3aed' },
   athlete: { label: 'Le Performant', desc: 'Équilibre parfait entre puissance et polyvalence', color: '#0891b2' },
   geek: { label: 'Le Passionné', desc: 'Puissance de calcul brute pour les pros', color: '#1e40af' },
-  douchebag: { label: 'Le Frimeur', desc: 'Specs déséquilibrées — gros GPU mais le reste ne suit pas', color: '#d97706' },
+  douchebag: {
+    label: 'Le Frimeur',
+    desc: 'Specs déséquilibrées — gros GPU mais le reste ne suit pas',
+    color: '#d97706',
+    humorHint: 'Clin d\'œil 😄 — on t\'a vu venir. Pas de jugement, juste une config à rééquilibrer.',
+  },
 }
 
 const archetypesEn: Record<Archetype, ArchetypeInfo> = {
   minimalist: { label: 'The Minimalist', desc: 'Light and efficient for everyday tasks', color: '#7c3aed' },
   athlete: { label: 'The Performer', desc: 'Perfect balance of power and versatility', color: '#0891b2' },
   geek: { label: 'The Enthusiast', desc: 'Raw computing power for the pros', color: '#1e40af' },
-  douchebag: { label: 'The Show-Off', desc: 'Unbalanced specs — big GPU but the rest can\'t keep up', color: '#d97706' },
+  douchebag: {
+    label: 'The Show-Off',
+    desc: 'Unbalanced specs — big GPU but the rest can\'t keep up',
+    color: '#d97706',
+    humorHint: 'Just a wink 😄 — no judgement, just a build that needs rebalancing.',
+  },
 }
 
 export function getArchetypeInfo(locale: string): Record<Archetype, ArchetypeInfo> {

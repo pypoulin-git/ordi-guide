@@ -985,4 +985,85 @@ export const articles: Article[] = [
     ],
     ctaText: 'Maintenant que tu sais comment on fonctionne, laisse-nous t\'aider à trouver ton prochain ordi.',
   },
+  {
+    slug: 'choisir-moniteur',
+    title: 'Choisir son moniteur : résolution, Hz, panneau — ce qui compte vraiment',
+    description: 'IPS ou VA, 1080p ou 4K, 60 Hz ou 144 Hz ? Un guide clair pour choisir un écran qui te convient, sans payer pour du flash inutile.',
+    date: '2026-04-16',
+    readTime: '8 min',
+    category: 'Comparatifs',
+    categoryColor: '#7c3aed',
+    icon: '🖥️',
+    tags: ['moniteur', 'écran', 'résolution', 'panneau', 'gaming', 'bureautique'],
+    coverGradient: 'linear-gradient(135deg, #3b0764 0%, #7c3aed 50%, #0891b2 100%)',
+    gist: 'Un bon moniteur, c\'est celui qui correspond à ton usage. Pour la bureautique : un 27" 1440p IPS à 75 Hz. Pour le gaming : 24"-27" 1080p/1440p avec 144 Hz minimum. Pour la création : IPS avec sRGB 99 %. Le reste — 240 Hz, HDR1000, 4K à 32" — c\'est rarement justifié. Et oui, la connectique compte autant que le panneau.',
+    sections: [
+      {
+        title: 'Taille et résolution : le duo qu\'on confond tout le temps',
+        paragraphs: [
+          'La taille, c\'est la diagonale de l\'écran en pouces. La résolution, c\'est le nombre de pixels (ex. 1920×1080 = Full HD, 2560×1440 = QHD, 3840×2160 = 4K). Les deux doivent être choisies ensemble, parce que c\'est leur rapport qui donne la densité de pixels (le "piqué" de l\'image).',
+          'La bonne règle : 24" en 1080p, 27" en 1440p, 32" en 4K. Si tu mets du 4K sur un 24", tu ne verras pas la différence (tes yeux ne distinguent plus les pixels individuels à cette densité). Si tu mets du 1080p sur un 32", tu verras chaque pixel comme une petite brique Lego — l\'image sera floue.',
+          'Les ultra-wide (21:9, souvent 34") changent la donne : ils remplacent deux moniteurs côte à côte par un seul. Pour la productivité et le cinéma, c\'est un vrai plus. Pour le gaming, attention — certains jeux ne supportent pas bien ce ratio.',
+        ],
+      },
+      {
+        title: 'Taux de rafraîchissement (Hz) : 60, 75, 120, 144, 240 ?',
+        paragraphs: [
+          'Le Hz, c\'est le nombre d\'images affichées par seconde. Un moniteur à 60 Hz affiche 60 images/seconde. À 144 Hz, c\'est 144. Plus c\'est élevé, plus le mouvement est fluide — surtout en gaming.',
+          'Pour la bureautique, le web et la vidéo : 60-75 Hz suffisent largement. Tu ne verras pas de différence notable en lisant des courriels ou en regardant Netflix.',
+          'Pour le gaming casual (jeux solo, RPG, stratégie) : 120-144 Hz est un cap confortable. Au-delà, la différence devient marginale pour la majorité des joueurs.',
+          'Pour le gaming compétitif (FPS, esports) : 144 Hz minimum, 240 Hz si ton budget le permet et que ta carte graphique peut suivre. Un écran à 240 Hz piloté par un PC qui pousse 60 fps, ça ne sert à rien.',
+        ],
+      },
+      {
+        title: 'Type de panneau : IPS, VA ou TN ?',
+        paragraphs: [
+          'IPS (In-Plane Switching) : les meilleures couleurs, les meilleurs angles de vision. Un peu plus cher, temps de réponse historiquement plus lent (mais les IPS récents sont excellents). C\'est le choix par défaut pour 90 % des gens — bureautique, création, gaming mixte.',
+          'VA (Vertical Alignment) : les meilleurs contrastes (noirs profonds), parfait pour le cinéma et les jeux narratifs. Les couleurs sont moins précises qu\'un IPS, et les angles de vision moins bons. À considérer si tu regardes beaucoup de films dans un salon sombre.',
+          'TN (Twisted Nematic) : le temps de réponse le plus rapide, le moins cher. Mais couleurs médiocres et angles de vision catastrophiques. Historiquement prisé par les joueurs compétitifs pour le 1 ms — aujourd\'hui, les IPS et VA rapides l\'ont remplacé. À éviter sauf budget très serré.',
+          'OLED : couleurs sublimes, noirs parfaits, temps de réponse instantané. Par contre, risque de brûlure d\'image si tu affiches des éléments statiques (barre des tâches, bords de fenêtres) pendant des heures — un vrai enjeu pour le moniteur bureautique. À réserver au divertissement.',
+        ],
+      },
+      {
+        title: 'HDR : marketing ou vraie valeur ajoutée ?',
+        paragraphs: [
+          'HDR (High Dynamic Range), en théorie, c\'est une image plus lumineuse et avec plus de nuances dans les zones claires et sombres. En pratique, ça dépend complètement de l\'implémentation.',
+          'HDR400 (ou "HDR basique") : c\'est du marketing. Le moniteur n\'est pas assez lumineux pour faire du vrai HDR. Ignore ce logo.',
+          'HDR600 : c\'est acceptable pour commencer. Tu auras un léger gain de contraste sur les contenus HDR bien mastérisés (films 4K Blu-ray, jeux HDR).',
+          'HDR1000 et plus : c\'est là que ça devient intéressant. Mais ces moniteurs coûtent 800 $ et plus. Pour la majorité des usages, le HDR est un "nice to have", pas un critère décisif.',
+        ],
+      },
+      {
+        title: 'Connectique : le détail qui gâche tout si on l\'oublie',
+        paragraphs: [
+          'HDMI 2.0 : supporte 4K à 60 Hz. Parfait pour 95 % des usages. La plupart des ordinateurs en sont équipés.',
+          'HDMI 2.1 : requis pour 4K à 120 Hz ou plus. Essentiel si tu vises du gaming haut de gamme (RTX 4070+, Radeon RX 7800+) ou une console nouvelle génération (PS5, Xbox Series X).',
+          'DisplayPort 1.4 : équivalent à HDMI 2.1 pour le PC, souvent avec moins de compromis. Standard sur les cartes graphiques récentes.',
+          'USB-C avec Power Delivery : un seul câble qui fait tout — image, données, charge de ton laptop. Génial pour les MacBook et les PC portables récents. Vérifie la puissance de charge (65 W minimum pour un portable moderne).',
+          'Le piège : acheter un écran 4K 144 Hz puis réaliser que ton PC n\'a qu\'un HDMI 2.0 qui plafonne à 60 Hz en 4K. Vérifie toujours les ports des deux côtés avant d\'acheter.',
+        ],
+      },
+      {
+        title: 'Scénarios courants : le bon choix par profil',
+        paragraphs: [
+          'Bureautique et télétravail (400-600 $) : 27" 1440p IPS à 75 Hz, avec USB-C si tu as un portable récent. Tu gagnes de la place pour ouvrir plusieurs fenêtres côte à côte, et le piqué est impeccable pour lire du texte toute la journée.',
+          'Gaming polyvalent (450-750 $) : 27" 1440p IPS à 144-165 Hz, HDMI 2.1. Bon équilibre entre immersion et fluidité. FreeSync ou G-Sync sont un bonus bienvenu pour éliminer les déchirures d\'image.',
+          'Gaming compétitif (400-700 $) : 24"-27" 1080p ou 1440p à 240 Hz, IPS rapide ou TN moderne. Priorité au temps de réponse et au taux de rafraîchissement, au détriment de la taille et de la résolution.',
+          'Création (photo/vidéo/design, 600-1200 $) : 27" 1440p ou 32" 4K, IPS avec couverture sRGB 99 % minimum (DCI-P3 90 % si tu fais de la photo/vidéo pro). La précision des couleurs prime sur la fréquence.',
+          'Cinéma/divertissement (500-900 $) : 32-34" ultra-wide VA ou OLED, 120 Hz minimum, HDR600 ou +. Le contraste et l\'immersion comptent plus que la précision des couleurs.',
+        ],
+      },
+      {
+        title: 'Les pièges marketing à éviter',
+        paragraphs: [
+          '"1 ms de temps de réponse" (GtG) : presque tous les moniteurs annoncent ça aujourd\'hui. Regarde plutôt les tests indépendants (Rtings, TFT Central) pour voir le temps réel.',
+          '"Curved" (incurvé) : pour un ultra-wide, ça améliore l\'immersion. Pour un 24" ou 27" plat, c\'est un gadget qui n\'apporte rien.',
+          '"Gaming monitor" : ce n\'est pas un label technique. Vérifie les vraies specs (Hz, type de panneau, temps de réponse).',
+          '"4K" sans HDMI 2.1 ni DisplayPort récent : tu seras limité à 60 Hz. Parfait pour bureau, mais pas pour le gaming fluide.',
+          'Les moniteurs "no-name" à 40 % moins cher que la marque : souvent des panneaux recyclés avec contrôle qualité minimal. Tu économises 150 $ mais tu joues à la loterie. Reste sur LG, Dell, ASUS, MSI, AOC ou Samsung.',
+        ],
+      },
+    ],
+    ctaText: 'Tu as une idée plus claire de ce que tu cherches ? On peut te proposer des moniteurs concrets adaptés à ton budget et ton usage.',
+  },
 ]

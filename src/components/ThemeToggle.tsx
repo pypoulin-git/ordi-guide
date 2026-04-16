@@ -52,7 +52,7 @@ export default function ThemeToggle() {
     setDark(next)
     try {
       localStorage.setItem('theme', next ? 'dark' : 'light')
-    } catch {}
+    } catch { /* localStorage unavailable */ }
     // Remove transition class after animation completes
     setTimeout(() => html.classList.remove('theme-transition'), 350)
   }

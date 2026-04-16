@@ -179,6 +179,7 @@ function getSpecExplanation(specLine: string, locale: string): { label: string; 
 /* ── Best match from catalogue ─────────────────────────────────────── */
 function useBestMatch(answers: Answers, done: boolean) {
   const [match, setMatch] = useState<CatalogueProduct | null>(null)
+  const [alternatives, setAlternatives] = useState<CatalogueProduct[]>([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -242,11 +243,22 @@ function useBestMatch(answers: Answers, done: boolean) {
           .sort((a, b) => b.score - a.score)
 
         setMatch(scored[0]?.p || null)
+        // Next best 4 alternatives with brand de-duplication for variety
+        const seenBrands = new Set<string>()
+        if (scored[0]?.p.brand) seenBrands.add(scored[0].p.brand)
+        const alts: CatalogueProduct[] = []
+        for (let i = 1; i < scored.length && alts.length < 4; i++) {
+          const candidate = scored[i].p
+          if (seenBrands.has(candidate.brand) && alts.length >= 2) continue
+          seenBrands.add(candidate.brand)
+          alts.push(candidate)
+        }
+        setAlternatives(alts)
         setLoading(false)
       })
   }, [done, answers])
 
-  return { match, loading }
+  return { match, alternatives, loading }
 }
 
 const SESSION_KEY = 'comparateur_progress'
@@ -280,7 +292,7 @@ export default function ComparateurClient() {
   const isFr = locale === 'fr'
   const allSteps = getSteps(locale)
   const ARCHETYPE_INFO = getArchetypeInfo(locale)
-  const { match, loading } = useBestMatch(answers, done)
+  const { match, alternatives, loading } = useBestMatch(answers, done)
 
   // Restore progress from sessionStorage on mount
   useEffect(() => {
@@ -366,6 +378,12 @@ export default function ComparateurClient() {
                   {c.profile} : {arch.label}
                 </span>
                 <p className="text-sm mt-1.5" style={{ color: arch.color + 'cc' }}>{arch.desc}</p>
+                {arch.humorHint && (
+                  <p className="text-xs mt-1.5 italic text-[var(--text-muted)]"
+                    style={{ maxWidth: '42ch', margin: '0.375rem auto 0' }}>
+                    {arch.humorHint}
+                  </p>
+                )}
               </div>
             )
           })()}
@@ -478,6 +496,53 @@ export default function ComparateurClient() {
                   ? (isFr ? 'Trouvaille Compy — cette référence est offerte sans revenu pour nous' : 'Compy Find — this referral earns us no revenue')
                   : (isFr ? 'Lien affilié — sans frais pour toi' : 'Affiliate link — no extra cost for you')}
               </p>
+            </div>
+          )}
+
+          {/* ── Alternatives (2-4 autres produits filtrés par archetype) ── */}
+          {alternatives.length > 0 && !loading && (
+            <div className="mb-6">
+              <h2 className="text-base font-bold mb-3 text-[var(--text)]">
+                {isFr ? 'Autres options qui correspondent à ton profil' : 'Other picks matching your profile'}
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {alternatives.map(alt => (
+                  <Link
+                    key={alt.id}
+                    href={`/${locale}/catalogue/${alt.id}`}
+                    className="card hover:border-[var(--accent)] transition-colors"
+                    style={{ padding: '1rem', display: 'block' }}
+                  >
+                    <div className="flex items-start justify-between gap-3 mb-1">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs text-[var(--text-muted)]">{alt.brand}</p>
+                        <p className="font-semibold text-sm text-[var(--text)] leading-tight line-clamp-2">{alt.name}</p>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <p className="font-bold text-[var(--text)]">{alt.price.toLocaleString(isFr ? 'fr-CA' : 'en-CA')} $</p>
+                        {alt.isOnSale && alt.originalPrice ? (
+                          <p className="text-xs line-through text-[var(--text-muted)]">{alt.originalPrice.toLocaleString(isFr ? 'fr-CA' : 'en-CA')} $</p>
+                        ) : null}
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                      {alt.specs.cpu && alt.specs.cpu !== 'N/A' && (
+                        <span className="text-[11px] px-1.5 py-0.5 rounded bg-[var(--bg-subtle)] text-[var(--text-subtle)]">
+                          {alt.specs.cpu}
+                        </span>
+                      )}
+                      {alt.specs.ram && alt.specs.ram !== 'N/A' && (
+                        <span className="text-[11px] px-1.5 py-0.5 rounded bg-[var(--bg-subtle)] text-[var(--text-subtle)]">
+                          {alt.specs.ram}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-[var(--accent)] mt-2 font-medium">
+                      {isFr ? 'Voir la fiche →' : 'See details →'}
+                    </p>
+                  </Link>
+                ))}
+              </div>
             </div>
           )}
 

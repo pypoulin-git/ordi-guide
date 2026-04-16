@@ -125,7 +125,6 @@ export default function AnalogyToggle({ variant = 'pill' }: Props) {
     if (timerRef.current) clearTimeout(timerRef.current)
     timerRef.current = setTimeout(() => setToast(null), 2000)
     return () => { if (timerRef.current) clearTimeout(timerRef.current) }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode])
 
   if (variant === 'card') {

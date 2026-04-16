@@ -52,7 +52,6 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
     return () => {
       observerRef.current?.disconnect()
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Callback ref — registers/unregisters elements

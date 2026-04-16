@@ -30,8 +30,19 @@ export const MIN_PER_CATEGORY = {
 // Score IA minimum pour garder un produit
 export const MIN_AI_SCORE = 65
 
-// SearXNG (WSL)
+// SearXNG (WSL local — primary)
 export const SEARXNG_URL = 'http://localhost:8888'
+
+// Public SearXNG fallback list — tried in order if local is unreachable/5xx.
+// Best effort: public instances often rate-limit aggressively and may return HTML-only
+// (no JSON). Keep this list small and rotate over time if instances disappear.
+// Status page: https://searx.space
+export const PUBLIC_SEARXNG_URLS = [
+  'https://searx.be',
+  'https://search.rhscz.eu',
+  'https://baresearch.org',
+  'https://priv.au',
+]
 
 // Gemini 2.5 Flash — via API directe
 export const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent'

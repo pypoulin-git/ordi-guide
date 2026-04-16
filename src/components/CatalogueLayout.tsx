@@ -634,7 +634,8 @@ function parseSearchQuery(query: string, isFr: boolean): SearchIntent {
     if (re.test(q)) {
       category = cat
       feedbackParts.push(isFr ? `Catégorie : ${labelFr}` : `Category: ${labelEn}`)
-      q.match(re)?.[0] && usedWords.add(q.match(re)![0])
+      const matched = q.match(re)?.[0]
+      if (matched) usedWords.add(matched)
       break
     }
   }

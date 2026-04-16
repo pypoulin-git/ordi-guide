@@ -6,7 +6,7 @@ const DISCORD_WEBHOOK = process.env.DISCORD_CONTACT_WEBHOOK || ''
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { name, email, subject, message } = body
+    const { name, email, subject, message, consent, consentAt } = body
 
     // Validate required fields
     if (!name || typeof name !== 'string' || !name.trim()) {
@@ -24,12 +24,17 @@ export async function POST(req: NextRequest) {
     if (subject && !VALID_SUBJECTS.includes(subject)) {
       return NextResponse.json({ error: 'Invalid subject' }, { status: 400 })
     }
+    // CASL — explicit consent is required (Canada's Anti-Spam Legislation)
+    if (consent !== true) {
+      return NextResponse.json({ error: 'Consent is required' }, { status: 400 })
+    }
 
     const contactData = {
       name: name.trim(),
       email: email.trim(),
       subject: subject || 'general',
       message: message.trim(),
+      consentAt: typeof consentAt === 'string' ? consentAt : new Date().toISOString(),
       timestamp: new Date().toISOString(),
     }
 
@@ -66,6 +71,7 @@ export async function POST(req: NextRequest) {
             { name: 'Email', value: `\`${contactData.email}\``, inline: true },
             { name: 'Sujet', value: subjectLabels[contactData.subject] || contactData.subject, inline: true },
             { name: 'Message', value: contactData.message.slice(0, 1024) },
+            { name: 'CASL', value: `✓ Consentement : ${contactData.consentAt}`, inline: false },
           ],
           timestamp: contactData.timestamp,
           footer: { text: 'Shop Compy — Contact Form · Clic sur « Répondre » pour ouvrir ton client mail' },

@@ -13,6 +13,7 @@ export default function ContactClient() {
     email: '',
     subject: 'general',
     message: '',
+    consent: false,
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
@@ -26,6 +27,7 @@ export default function ContactClient() {
       errs.email = c.emailInvalid
     }
     if (!form.message.trim()) errs.message = c.required
+    if (!form.consent) errs.consent = c.consentRequired
     return errs
   }
 
@@ -45,6 +47,8 @@ export default function ContactClient() {
           email: form.email.trim(),
           subject: form.subject,
           message: form.message.trim(),
+          consent: form.consent,
+          consentAt: new Date().toISOString(),
         }),
       })
       if (!res.ok) throw new Error('Failed')
@@ -184,6 +188,38 @@ export default function ContactClient() {
                   {errors.message && (
                     <p id="err-message" className="text-sm mt-1" style={{ color: '#ea580c' }} role="alert">
                       {errors.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* CASL consent */}
+                <div className="mb-6">
+                  <label className="flex items-start gap-2 cursor-pointer">
+                    <input
+                      id="contact-consent"
+                      type="checkbox"
+                      checked={form.consent}
+                      onChange={e => {
+                        setForm(f => ({ ...f, consent: e.target.checked }))
+                        if (e.target.checked) setErrors(prev => {
+                          if (!prev.consent) return prev
+                          const next = { ...prev }
+                          delete next.consent
+                          return next
+                        })
+                      }}
+                      aria-required="true"
+                      aria-invalid={!!errors.consent}
+                      aria-describedby={errors.consent ? 'err-consent' : undefined}
+                      className="mt-0.5 shrink-0 h-4 w-4 rounded border-[var(--border)] accent-[var(--accent)]"
+                    />
+                    <span className="text-sm text-[var(--text-subtle)]">
+                      {c.consentLabel} <span aria-hidden="true" className="text-[var(--text-muted)]">*</span>
+                    </span>
+                  </label>
+                  {errors.consent && (
+                    <p id="err-consent" className="text-sm mt-1 ml-6" style={{ color: '#ea580c' }} role="alert">
+                      {errors.consent}
                     </p>
                   )}
                 </div>

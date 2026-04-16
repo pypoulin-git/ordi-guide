@@ -24,9 +24,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params
   const article = getArticleBySlug(slug, locale as Locale)
   if (!article) return {}
+  const fullTitle = `${article.title} | ${locale === 'fr' ? 'Le Décodeur' : 'The Decoder'} — Shop Compy`
+  const url = `${BASE_URL}/${locale}/blog/${article.slug}`
+  // Note: og:image tags are auto-injected by src/app/[locale]/blog/[slug]/opengraph-image.tsx
   return {
-    title: `${article.title} | ${locale === 'fr' ? 'Le Décodeur' : 'The Decoder'} — Shop Compy`,
+    title: fullTitle,
     description: article.description,
+    alternates: {
+      canonical: url,
+      languages: {
+        'fr-CA': `${BASE_URL}/fr/blog/${article.slug}`,
+        'en-CA': `${BASE_URL}/en/blog/${article.slug}`,
+      },
+    },
+    openGraph: {
+      type: 'article',
+      locale: locale === 'fr' ? 'fr_CA' : 'en_CA',
+      url,
+      siteName: 'Shop Compy',
+      title: article.title,
+      description: article.description,
+      publishedTime: article.date,
+      authors: ['Shop Compy'],
+      section: article.category,
+      tags: article.tags,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.description,
+    },
   }
 }
 
