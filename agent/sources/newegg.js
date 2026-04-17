@@ -5,22 +5,32 @@ import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrenc
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  // Laptops
+  // Laptops — gaming
   'laptop ASUS ROG Strix G16 2025 prix',
   'laptop MSI Katana 15 rtx 4060 prix',
   'laptop Lenovo Legion 5 rtx 4070 prix',
   'laptop Acer Predator Helios Neo 16 2025',
+  'laptop gaming ASUS TUF A15 rtx 4060 prix',
+  'laptop gaming Razer Blade 16 rtx 4080',
+  // Laptops — workstation / productivité
+  'laptop MSI Creator Z17 workstation prix',
+  'laptop ASUS ProArt Studiobook OLED',
   // Desktops
   'desktop gaming pc ASUS ROG Strix rtx 5070',
   'desktop CyberPowerPC gaming tour rtx',
-  'desktop HP ProDesk tour petit format Intel 2025 prix',
-  'desktop Lenovo IdeaCentre Tower 5i prix',
-  'mini pc Intel NUC 14 Pro prix',
+  'desktop gaming Skytech Shiva rtx 4060 prix',
+  'desktop gaming iBUYPOWER rtx 4070 tour',
+  'mini pc Intel NUC 13 Pro prix',
+  'mini pc MINISFORUM Ryzen 9 prix',
   // Monitors
   'moniteur LG UltraGear 27GP850 gaming 165hz',
   'ecran Samsung Odyssey G5 32 QHD gaming',
-  // Chromebooks
-  'Chromebook ASUS HP Acer 2025 prix',
+  'moniteur Gigabyte M27Q 27 QHD gaming',
+  'moniteur ASUS TUF Gaming VG27AQ prix',
+  'moniteur Dell UltraSharp U2724DE 27 QHD',
+  // Docks
+  'station accueil USB-C Thunderbolt 4 prix',
+  'docking station Dell WD19 Thunderbolt',
 ]
 
 export async function fetchNewegg() {

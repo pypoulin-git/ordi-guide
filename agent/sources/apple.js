@@ -7,16 +7,25 @@ import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
   // MacBook Air
-  'apple.com/ca MacBook Air M4 acheter',
-  'apple.com/ca MacBook Air M3 prix',
+  'MacBook Air M4 13 pouces site:apple.com/ca',
+  'MacBook Air M4 15 pouces site:apple.com/ca',
+  'MacBook Air M3 prix site:apple.com/ca',
   // MacBook Pro
-  'apple.com/ca MacBook Pro M4 acheter',
-  'apple.com/ca MacBook Pro M4 Pro prix',
+  'MacBook Pro M4 14 pouces site:apple.com/ca',
+  'MacBook Pro M4 16 pouces site:apple.com/ca',
+  'MacBook Pro M4 Pro prix site:apple.com/ca',
+  'MacBook Pro M4 Max site:apple.com/ca',
   // iMac
-  'apple.com/ca iMac M4 acheter prix',
+  'iMac M4 24 pouces site:apple.com/ca',
+  'iMac M4 prix site:apple.com/ca',
   // Mac Mini / Studio
-  'apple.com/ca Mac Mini M4 acheter',
-  'apple.com/ca Mac Studio M4 prix',
+  'Mac Mini M4 site:apple.com/ca',
+  'Mac Mini M4 Pro site:apple.com/ca',
+  'Mac Studio M4 Max site:apple.com/ca',
+  'Mac Pro M2 Ultra site:apple.com/ca',
+  // Studio Display
+  'Apple Studio Display site:apple.com/ca',
+  'Apple Pro Display XDR site:apple.com/ca',
 ]
 
 export async function fetchApple() {

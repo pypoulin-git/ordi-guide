@@ -5,21 +5,34 @@ import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrenc
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  // Laptops
+  // Laptops — gaming
   'laptop ASUS ROG Zephyrus G14 2025 prix',
-  'laptop Lenovo ThinkPad E16 2025 prix',
+  'laptop Lenovo Legion Pro 7i rtx 4080',
+  'laptop MSI Vector 16 rtx 4070 prix',
   'laptop Acer Nitro V 15 gaming rtx 4060',
+  'laptop Razer Blade 14 rtx 4070 prix',
+  // Laptops — pro / étudiants
+  'laptop Lenovo ThinkPad E16 2025 prix',
   'laptop HP Pavilion Plus 14 2025 prix',
+  'laptop ASUS Zenbook Duo 14 2025 prix',
+  'laptop Dell Latitude 7450 Intel Ultra',
   // Desktops
   'desktop gaming pc ASUS ROG Strix rtx 4070',
+  'desktop gaming MSI MAG Infinite rtx 4070',
+  'desktop Dell XPS 8960 tour Intel',
   'mini pc ASUS NUC Intel 2025 prix',
-  'desktop HP Pavilion tour ordinateur bureau prix',
-  'desktop Acer Aspire TC bureau tour prix 2025',
-  'mini pc Beelink SER7 AMD Ryzen prix',
+  'mini pc ASUS PN64 Intel Core Ultra',
   // Monitors
   'moniteur ASUS ProArt PA278QV 27 IPS prix',
+  'moniteur BenQ PD2705U 27 4K designer',
+  'moniteur MSI MAG 274QPF 27 QHD 170Hz',
+  'moniteur LG 27GP950 UltraGear 4K prix',
+  // Docks
+  'station accueil Thunderbolt 4 CalDigit TS4',
+  'station accueil Anker 675 USB-C dock',
   // Chromebooks
   'Chromebook ASUS 14 pouces 2025 prix',
+  'Chromebook Lenovo IdeaPad Duet 3 prix',
 ]
 
 export async function fetchCanadaComputers() {

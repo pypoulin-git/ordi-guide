@@ -5,18 +5,34 @@ import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrenc
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  // Laptops
+  // Laptops — mainstream
   'laptop HP Pavilion 15 2025 prix',
   'laptop Acer Aspire 5 A515 2025 prix',
-  'MacBook Air M4 prix',
+  'laptop Lenovo IdeaPad Slim 3 Ryzen 5',
+  'laptop ASUS Vivobook 15 OLED 2025',
+  'laptop Dell Inspiron 15 3530 2025',
+  // Apple
+  'MacBook Air M4 13 pouces prix',
+  'MacBook Air M3 15 pouces prix',
+  'Mac Mini M4 prix',
+  // Gaming
   'laptop gaming ASUS TUF Gaming A15 rtx',
+  'laptop gaming HP Victus 16 rtx 4060',
+  'laptop gaming Acer Nitro V 15 prix',
   // Desktops
   'desktop gaming pc tour rtx 4060 prix',
   'ordinateur bureau HP Slim Desktop 2025',
+  'desktop Dell Inspiron 3030 tour prix',
+  'tout-en-un HP 24 AIO prix',
+  'mini pc GMKTec NucBox Ryzen 2025',
   // Monitors
   'moniteur Samsung 27 pouces 4K prix',
+  'moniteur LG 32 pouces UHD prix',
+  'moniteur HP Series 7 Pro 27 prix',
   // Chromebooks
   'Chromebook Acer 315 prix',
+  'Chromebook HP 14 pouces prix',
+  'Chromebook Lenovo Flex 5 prix',
 ]
 
 export async function fetchWalmart() {

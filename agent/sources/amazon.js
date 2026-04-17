@@ -5,19 +5,39 @@ import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrenc
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  // Laptops
+  // Laptops — ultraportables
   'laptop ASUS ZenBook 14 2025 prix',
   'laptop HP Spectre x360 14 2025 prix',
-  'MacBook Air M4 prix',
+  'laptop Lenovo ThinkPad X1 Carbon 2025',
+  'laptop Dell XPS 13 Plus 2025',
+  'laptop ASUS Vivobook S 14 OLED',
+  // Laptops — mainstream
+  'laptop HP Pavilion 15 2025 Intel Core',
+  'laptop Acer Swift Go 14 prix',
+  'laptop Lenovo IdeaPad 5 Ryzen 7 2025',
+  // Laptops — gaming
   'laptop gaming ASUS ROG Zephyrus G14 2025',
+  'laptop gaming Lenovo Legion 5i Pro rtx 4070',
+  'laptop gaming MSI Stealth 16 rtx 4080',
+  'laptop gaming Acer Predator Helios 2025',
+  // Apple
+  'MacBook Air M4 13 pouces prix',
+  'MacBook Pro M4 14 pouces prix',
+  'Mac Mini M4 prix',
+  'iMac M4 24 pouces prix',
   // Desktops
   'desktop gaming pc rtx 4060 tour',
-  'iMac M4 prix',
-  'mini pc Intel NUC ASUS 2025 prix',
+  'desktop gaming pc rtx 4070 tour 2025',
+  'HP Pavilion desktop tour 2025 prix',
+  'mini pc Beelink SER Ryzen 2025',
   // Monitors
   'moniteur LG 27UK850 4K USB-C',
+  'moniteur Dell S2722QC 27 4K USB-C',
+  'moniteur Samsung Odyssey G7 32 pouces',
   // Chromebooks
   'Chromebook Acer 314 2025 prix',
+  'Chromebook Lenovo Duet 5 prix',
+  'Chromebook HP x360 14 prix',
 ]
 
 export async function fetchAmazon() {

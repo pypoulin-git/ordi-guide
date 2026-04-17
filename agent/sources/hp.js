@@ -5,19 +5,34 @@ import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrenc
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  // Laptops
+  // Laptops — Spectre / EliteBook (premium / pro)
   'HP Spectre x360 14 OLED laptop prix',
-  'HP Pavilion 15 laptop 2025 prix',
+  'HP Spectre x360 16 laptop 2025 prix',
   'HP EliteBook 840 G11 laptop professionnel prix',
+  'HP EliteBook 1040 G11 Intel Ultra prix',
+  'HP EliteBook Ultra G1q Snapdragon prix',
+  'HP ZBook Firefly 14 G11 workstation',
+  // Laptops — Pavilion / Envy (grand public)
+  'HP Pavilion 15 laptop 2025 prix',
+  'HP Pavilion Plus 14 2025 OLED prix',
+  'HP Envy x360 14 2-en-1 2025 prix',
+  'HP Envy 16 laptop rtx 4060 prix',
+  // Laptops — OMEN / Victus (gaming)
   'HP OMEN 16 gaming laptop rtx 4070 prix',
+  'HP OMEN Transcend 14 gaming rtx 4060',
+  'HP Victus 15 gaming laptop rtx 4050',
+  'HP Victus 16 gaming rtx 4060 prix',
   // Desktops
   'HP Pavilion Desktop TP01 tour 2025 prix',
+  'HP OMEN 25L desktop gaming rtx 4060',
+  'HP OMEN 45L desktop gaming rtx 4080',
   'HP All-in-One 27 tout-en-un 2025 prix',
+  'HP EliteDesk 800 G9 tour pro prix',
   // Monitors
   'HP M27fd moniteur 27 QHD USB-C prix',
+  'HP Series 7 Pro moniteur 27 4K USB-C',
+  'HP OMEN 27qs moniteur gaming 240Hz QHD',
   'HP X27q moniteur gaming 27 QHD 165Hz',
-  // Chromebooks
-  'HP Chromebook 14 2025 prix',
 ]
 
 export async function fetchHp() {

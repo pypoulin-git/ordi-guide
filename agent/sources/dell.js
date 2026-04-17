@@ -5,19 +5,34 @@ import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrenc
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  // Laptops
+  // Laptops — XPS (premium)
   'Dell XPS 14 9440 laptop prix',
+  'Dell XPS 16 9640 OLED laptop prix',
+  'Dell XPS 13 9350 Intel Core Ultra prix',
+  // Laptops — Inspiron (grand public)
   'Dell Inspiron 16 7640 laptop 2025',
+  'Dell Inspiron 15 3530 laptop prix',
+  'Dell Inspiron 14 Plus 7440 Intel Ultra',
+  // Laptops — Latitude (pro)
   'Dell Latitude 5550 laptop professionnel prix',
+  'Dell Latitude 7450 Intel Core Ultra',
+  'Dell Pro 14 Premium laptop prix',
+  // Laptops — Alienware (gaming)
   'Dell Alienware m16 R2 gaming laptop rtx',
+  'Dell Alienware x16 R2 gaming rtx 4080',
+  'Dell G16 7630 gaming laptop rtx 4060',
   // Desktops
   'Dell Inspiron 3030 desktop tour prix',
+  'Dell XPS 8960 desktop Intel Core',
+  'Dell OptiPlex 7020 desktop pro 2025',
   'Alienware Aurora R16 gaming desktop rtx',
-  'Dell OptiPlex 7020 desktop professionnel prix',
-  'Dell XPS Desktop 8960 tour prix',
+  'Alienware Aurora R16 RTX 4080 desktop',
   // Monitors
   'Dell UltraSharp U2724D moniteur 27 QHD',
+  'Dell UltraSharp U3225QE 32 4K USB-C',
   'Dell S2722QC moniteur 27 4K USB-C',
+  'Dell P2725H moniteur 27 FHD pro prix',
+  'Dell Alienware AW2725QF moniteur gaming 4K',
 ]
 
 export async function fetchDell() {

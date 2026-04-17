@@ -5,19 +5,30 @@ import { searxSearchMulti, fetchPage, extractPrice, withRetry, mapWithConcurrenc
 import { PAGE_FETCH_CONCURRENCY } from '../config.js'
 
 const SEARCH_QUERIES = [
-  // Laptops
+  // Laptops — ThinkPad (business)
   'Lenovo ThinkPad X1 Carbon Gen 12 prix',
+  'Lenovo ThinkPad T14 Gen 5 Intel Ultra',
+  'Lenovo ThinkPad P1 Gen 7 workstation',
+  'Lenovo ThinkPad E14 Gen 6 Ryzen prix',
+  // Laptops — IdeaPad / Yoga (grand public)
   'Lenovo IdeaPad Slim 5 14 2025 prix',
+  'Lenovo IdeaPad Pro 5i 16 Intel Ultra',
   'Lenovo Yoga 9i 14 2025 OLED prix',
+  'Lenovo Yoga Slim 7i Aura Edition prix',
+  // Laptops — Legion (gaming)
   'Lenovo Legion Pro 5 16 rtx 4070 prix',
+  'Lenovo Legion Pro 7i 16 rtx 4080 prix',
+  'Lenovo Legion Slim 5 16 rtx 4060 prix',
+  'Lenovo LOQ 15 gaming rtx 4050 prix',
   // Desktops
   'Lenovo ThinkCentre M75q Tiny desktop prix',
+  'Lenovo ThinkCentre Neo 50s tour 2025',
   'Lenovo IdeaCentre AIO 27 tout-en-un 2025',
-  'Lenovo IdeaCentre Tower 5i desktop prix',
-  'Lenovo Legion Tower 7i gaming desktop rtx prix',
+  'Lenovo Legion Tower 5i gaming rtx 4060',
   // Monitors
   'Lenovo ThinkVision T27p-30 moniteur 27 4K',
   'Lenovo ThinkVision P27h-30 moniteur QHD USB-C',
+  'Lenovo Legion Y27q-30 moniteur gaming 180Hz',
 ]
 
 export async function fetchLenovo() {
