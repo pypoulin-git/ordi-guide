@@ -1,46 +1,17 @@
 {
   "version": 2,
-  "lastUpdated": "2026-04-20T11:35:04.202Z",
+  "lastUpdated": "2026-04-21T11:42:37.360Z",
   "agentRun": {
-    "scannedAt": "2026-04-20T11:00:23.703Z",
-    "completedAt": "2026-04-20T11:35:04.202Z",
-    "totalScanned": 446,
-    "productsKept": 156,
-    "productsNew": 54,
+    "scannedAt": "2026-04-21T11:00:02.623Z",
+    "completedAt": "2026-04-21T11:42:37.360Z",
+    "totalScanned": 309,
+    "productsKept": 98,
+    "productsNew": 0,
     "productsReplaced": 0,
-    "deadUrlsRemoved": 4,
-    "productsDeduplicated": 2
+    "deadUrlsRemoved": 31,
+    "productsDeduplicated": 0
   },
   "products": [
-    {
-      "id": "amazon-lenovo-legion-5-16iax10-ordinateur-portable-de-jeu-2025-16-i",
-      "name": "Lenovo Legion 5 16IAX10 Ordinateur portable de jeu 2025 16\", Intel Core Ultra 9 275HX NVIDIA GeForce RTX 5060 8 Go GDDR7 64 Go DDR5 4 To SSD",
-      "brand": "Lenovo",
-      "category": "laptop",
-      "profiles": [
-        "gaming",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2999.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 9 275HX",
-        "display": "16\"",
-        "gpu": "NVIDIA GeForce RTX 5060 8 Go GDDR7",
-        "ram": "64 Go DDR5",
-        "storage": "4 To SSD"
-      },
-      "aiScore": 95,
-      "aiRationale": "Un monstre de puissance pour le gaming et la création de contenu avec un Core Ultra 9 et une RTX 5060. Le prix est élevé, mais les specs sont top-notch!",
-      "url": "https://www.amazon.ca/dp/B0FQCF4K3N?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-lenovo-legion-5-16iax10-ordinateur-portable-de-jeu-20.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-19T11:39:20.795Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
-    },
     {
       "id": "newegg-asus-proart-studiobook-16-oled-120hz-3-2k-16-10-touch-displa",
       "name": "ASUS ProArt Studiobook 16 OLED 120Hz 3.2K 16:10 Touch Display Laptop",
@@ -67,36 +38,7 @@
       "imageUrl": "/images/products/newegg-asus-proart-studiobook-16-oled-120hz-3-2k-16-10-touch.jpg",
       "source": "newegg",
       "addedAt": "2026-04-19T11:40:38.973Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-asus-zenbook-s-16-ordinateur-portable-ultra-fin-de-16-pc-asu",
-      "name": "ASUS Zenbook S 16, Ordinateur portable ultra fin de 16\", PC Asus Next-Level AI, écran tactile OLED 3K 120 Hz, AMD Ryzen AI 9 365, mémoire 24 Go, SSD 1 To",
-      "brand": "ASUS",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 2499.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "AMD Ryzen AI 9 365",
-        "display": "Écran tactile OLED 3K 120 Hz",
-        "ram": "24 Go",
-        "storage": "1 To SSD"
-      },
-      "aiScore": 92,
-      "aiRationale": "Un portable ultra-mince avec un écran OLED magnifique et un processeur Ryzen AI 9, c'est un deal incroyable pour les créatifs et les pros. Le prix est élevé, mais la performance est au rendez-vous.",
-      "url": "https://www.amazon.ca/dp/B0DHLSF3PT?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-asus-zenbook-s-16-ordinateur-portable-ultra-fin-de-16.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-19T11:39:20.795Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -126,91 +68,183 @@
       "imageUrl": "/images/products/newegg-msi-16-venture-16-ai-2k-120-hz-ordinateur-portable-ol.jpg",
       "source": "newegg",
       "addedAt": "2026-04-01T00:35:17.991Z",
-      "lastVerified": "2026-04-20T11:35:04.527Z",
+      "lastVerified": "2026-04-21T11:42:37.507Z",
       "priceSource": "page"
     },
     {
-      "id": "amazon-lenovo-thinkpad-x1-carbon-gen-12-14-wuxga-touchscreen-laptop",
-      "name": "Lenovo ThinkPad X1 Carbon Gen 12 14\" WUXGA Touchscreen Laptop",
-      "brand": "Lenovo",
+      "id": "walmart-acer-ordinateur-portable-16-pouces-aspire-lite-ecran-wuxga-i",
+      "name": "Acer Ordinateur Portable 16 Pouces Aspire Lite - Écran Wuxga/ Intel I5-1334u/ 16G Ddr5/ 1 To Ssd/ W11 Excellent Reconditionné",
+      "brand": "Acer",
       "category": "laptop",
       "profiles": [
         "work",
+        "student",
         "creative"
       ],
-      "budgetTier": "over1500",
-      "price": 1549.99,
+      "budgetTier": "900to1500",
+      "price": 999.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "Intel Core Ultra 7 155U",
-        "display": "14\" WUXGA Touchscreen",
-        "ram": "32GB RAM",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 92,
-      "aiRationale": "Un super deal pour un ThinkPad X1 Carbon Gen 12 avec un Core Ultra 7 et 32 Go de RAM! C'est une machine ultra-performante pour les pros à un prix très compétitif.",
-      "url": "https://www.amazon.ca/dp/B0FCZLZYTZ?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-lenovo-thinkpad-x1-carbon-gen-12-14-wuxga-touchscreen.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:27:32.818Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-lenovo-legion-5-ordinateur-portable-de-jeu-15-1-165-hz-wqxga",
-      "name": "Lenovo Legion 5 Ordinateur portable de jeu 15,1\" 165 Hz WQXGA",
-      "brand": "Lenovo",
-      "category": "laptop",
-      "profiles": [
-        "gaming",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2799.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "AMD Ryzen AI 7 350",
-        "gpu": "NVIDIA GeForce RTX 5070 8 Go GDDR7",
+        "cpu": "Intel Core i5-1334U",
+        "display": "16\" WUXGA",
         "ram": "16 Go DDR5",
         "storage": "1 To SSD"
       },
-      "aiScore": 90,
-      "aiRationale": "Un excellent portable de jeu avec un écran WQXGA de 165 Hz et une RTX 5070. Le processeur Ryzen AI 7 est très performant. Un choix de premier ordre pour les gamers.",
-      "url": "https://www.amazon.ca/dp/B0FT32F1YH?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-lenovo-legion-5-ordinateur-portable-de-jeu-15-1-165-h.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-18T11:38:12.865Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "aiScore": 89,
+      "aiRationale": "Un portable reconditionné de qualité avec un i5 de 13e génération, 16 Go de DDR5 et un SSD de 1 To. C'est une machine puissante pour le travail et les tâches exigeantes.",
+      "url": "https://www.walmart.ca/fr/ip/Acer-Ordinateur-Portable-16-Pouces-Aspire-Lite-cran-Wuxga-Intel-I5-1334u-16G-Ddr5-1-To-Ssd-W11-Excellent-Reconditionn-avec-An-de-Garantie-Fabricant/3MJ98NY4ZGDB",
+      "imageUrl": "/images/products/walmart-acer-ordinateur-portable-16-pouces-aspire-lite-ecran.jpg",
+      "source": "walmart",
+      "addedAt": "2026-04-19T11:42:05.392Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
-      "id": "amazon-beelink-ser8-mini-pc-amd-ryzen-7-8745hs",
-      "name": "Beelink SER8 Mini PC, AMD Ryzen 7 8745HS",
-      "brand": "Beelink",
-      "category": "desktop",
+      "id": "dell-ordinateur-portable-ou-2-en-1-dell-pro-14-plus",
+      "name": "Ordinateur portable ou 2-en-1 Dell Pro 14 Plus",
+      "brand": "Dell",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student"
+      ],
+      "budgetTier": "over1500",
+      "price": 2078.75,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core Ultra 5 236V vPro",
+        "ram": "16Go LPDDR5X",
+        "storage": "256Go Disque SSD"
+      },
+      "aiScore": 89,
+      "aiRationale": "Ce Dell Pro 14 Plus est un excellent 2-en-1 avec un processeur Intel Core Ultra 5 et 16Go de RAM, idéal pour les professionnels et les étudiants qui recherchent performance et polyvalence.",
+      "url": "https://www.dell.com/fr-ca/shop/ordinateurs-portables-dell/ordinateur-portable-ou-2-en-1-dell-pro-14-plus/spd/dell-pro-pb14250-2-in-1-laptop",
+      "imageUrl": "/images/products/dell-ordinateur-portable-ou-2-en-1-dell-pro-14-plus.jpg",
+      "source": "dell",
+      "addedAt": "2026-04-18T11:39:37.010Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "walmart-ordinateur-portable-hp-15-6-fhd-ips-amd-ryzen-5-7520u-16-gb-",
+      "name": "Ordinateur portable HP 15.6\" FHD IPS, AMD Ryzen 5 7520U, 16 GB DDR5, 1TB SSD",
+      "brand": "HP",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "basic"
+      ],
+      "budgetTier": "500to900",
+      "price": 799.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "AMD Ryzen 5 7520U",
+        "display": "15.6\" FHD IPS",
+        "ram": "16 GB DDR5",
+        "storage": "1 TB SSD"
+      },
+      "aiScore": 88,
+      "aiRationale": "Ce portable HP offre un excellent rapport qualité-prix avec un Ryzen 5 de série 7000, 16 Go de DDR5 et un SSD de 1 To. Idéal pour la productivité et le multitâche.",
+      "url": "https://www.walmart.ca/fr/ip/Ordinateur-portable-HP-15-6-FHD-IPS-AMD-Ryzen-5-7520U-16-GB-DDR5-1TB-SSD/6000206482158",
+      "imageUrl": "/images/products/walmart-ordinateur-portable-hp-15-6-fhd-ips-amd-ryzen-5-7520.jpg",
+      "source": "walmart",
+      "addedAt": "2026-04-19T11:42:05.392Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "lenovo-lenovo-ideapad-pro-5i-16-inch-intel-laptop",
+      "name": "Lenovo IdeaPad Pro 5i (16 inch Intel) Laptop",
+      "brand": "Lenovo",
+      "category": "laptop",
       "profiles": [
         "work",
         "creative",
         "gaming"
       ],
       "budgetTier": "over1500",
-      "price": 1600,
+      "price": 3399.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "AMD Ryzen 7 8745HS",
-        "ram": "32GB DDR5",
-        "storage": "1TB NVMe M.2 SSD"
+        "cpu": "Intel Core Ultra",
+        "ram": "32 GB DDR5",
+        "storage": "1 TB SSD"
       },
-      "aiScore": 92,
-      "aiRationale": "Ce mini PC est une bête de performance avec un Ryzen 7 de la série 8000, parfait pour le travail, la création et même le gaming léger. Un excellent rapport qualité-prix pour sa taille et sa puissance!",
-      "url": "https://www.amazon.ca/dp/B0GWQFQV21?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-beelink-ser8-mini-pc-amd-ryzen-7-8745hs.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-19T11:40:21.114Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "aiScore": 88,
+      "aiRationale": "Un portable ultra-puissant avec les nouveaux processeurs Intel Core Ultra et des capacités IA avancées, parfait pour les professionnels exigeants et la création de contenu. Le prix est élevé, mais justifié par la performance.",
+      "url": "https://www.lenovo.com/ca/en/p/laptops/ideapad/ideapad-pro-series/ideapad-pro-5i-gen-11-16-inch-intel/len101i0129?srsltid=AfmBOop-rDiMWDCIHcnH-qvrJ105o0qYN3e0BYty2VRl9AEF1kynJ2cI",
+      "imageUrl": "https://p3-ofp.static.pub/fes/cms/2022/03/29/fxq8k26aghm6xril1qzikh2in7osfc415110.png",
+      "source": "lenovo",
+      "addedAt": "2026-04-20T11:29:58.349Z",
+      "lastVerified": "2026-04-21T11:42:37.908Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "walmart-hp-omnibook-5-16-ba1009ca-ordinateur-portable-16-wuxga-ips-i",
+      "name": "HP Omnibook 5 16‑ba1009ca Ordinateur Portable 16\" WUXGA IPS, Intel Core i5‑1334U, 16 Go de RAM, 512 Go SSD",
+      "brand": "HP",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "900to1500",
+      "price": 949.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core i5-1334U",
+        "display": "16\" WUXGA IPS",
+        "ram": "16 Go",
+        "storage": "512 Go SSD"
+      },
+      "aiScore": 87,
+      "aiRationale": "Un excellent portable avec un écran WUXGA de 16 pouces et un processeur Intel de 13e génération. Idéal pour le travail et le divertissement avec une bonne quantité de RAM.",
+      "url": "https://www.walmart.ca/fr/ip/HP-Omnibook-5-16-ba1009ca-Ordinateur-Portable-16-WUXGA-IPS-Intel-Core-i5-1334U-16-Go-de-RAM-512-Go-SSD/37PH98MQ0HDW",
+      "imageUrl": "/images/products/walmart-hp-omnibook-5-16-ba1009ca-ordinateur-portable-16-wux.jpg",
+      "source": "walmart",
+      "addedAt": "2026-04-19T11:42:05.392Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "walmart-acer-nitro-v-anv15-41-r68f-15-6-fhd-ips-144hz-gaming-laptop-",
+      "name": "Acer Nitro V ANV15-41-R68F 15.6\" FHD IPS 144Hz Gaming Laptop AMD Ryzen 7 7735HS RTX 3050 16GB RAM 512GB SSD, WIN 11",
+      "brand": "Acer",
+      "category": "laptop",
+      "profiles": [
+        "gaming",
+        "creative",
+        "work"
+      ],
+      "budgetTier": "900to1500",
+      "price": 1199.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "AMD Ryzen 7 7735HS",
+        "display": "15.6\" FHD IPS 144Hz",
+        "gpu": "RTX 3050",
+        "panelType": "IPS",
+        "ram": "16GB",
+        "refreshRate": "144Hz",
+        "resolution": "1920x1080",
+        "size": "15.6\"",
+        "storage": "512GB SSD"
+      },
+      "aiScore": 87,
+      "aiRationale": "Ce Nitro V avec un Ryzen 7 7735HS et une RTX 3050 est une excellente option pour le gaming et les tâches exigeantes. L'écran 144Hz est parfait pour une expérience fluide.",
+      "url": "https://www.walmart.ca/en/reviews/product/6000207936325",
+      "imageUrl": "/images/products/walmart-acer-nitro-v-anv15-41-r68f-15-6-fhd-ips-144hz-gaming.jpg",
+      "source": "walmart",
+      "addedAt": "2026-04-17T15:48:02.754Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -237,7 +271,35 @@
       "imageUrl": "/images/products/newegg-msi-aegis-zs-tour-bureau-de-jeu-amd-r9-9900x-geforce-.jpg",
       "source": "newegg",
       "addedAt": "2026-04-19T11:40:45.706Z",
-      "lastVerified": "2026-04-20T11:35:04.595Z",
+      "lastVerified": "2026-04-21T11:42:37.916Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "newegg-minisforum-ai-x1-pro-370-mini-pc-amd-ryzen-ai-9-hx-370",
+      "name": "MINISFORUM AI X1 Pro-370 Mini PC AMD Ryzen AI 9 HX 370",
+      "brand": "MINISFORUM",
+      "category": "desktop",
+      "profiles": [
+        "creative",
+        "gaming",
+        "work"
+      ],
+      "budgetTier": "over1500",
+      "price": 1578.44,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "AMD Ryzen AI 9 HX 370",
+        "ram": "32GB DDR5",
+        "storage": "1TB SSD"
+      },
+      "aiScore": 92,
+      "aiRationale": "Un mini PC ultra-performant avec le nouveau Ryzen AI 9 HX 370 et une Radeon 890M. C'est un excellent choix pour la création de contenu et le gaming, même si le prix est élevé.",
+      "url": "https://www.newegg.ca/minisforum-barebone-systems-mini-pc/p/2SW-002G-000T2?srsltid=AfmBOopBWnNpTAZ_dKRn8PHUwvAncqN1E7D8IIlSHObvn2qlctDaku1l",
+      "imageUrl": "/images/products/newegg-minisforum-ai-x1-pro-370-mini-pc-amd-ryzen-ai-9-hx-37.jpg",
+      "source": "newegg",
+      "addedAt": "2026-04-20T11:29:30.658Z",
+      "lastVerified": "2026-04-21T11:42:38.044Z",
       "priceSource": "page"
     },
     {
@@ -265,7 +327,7 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
       "source": "apple",
       "addedAt": "2026-04-18T11:40:33.947Z",
-      "lastVerified": "2026-04-20T11:35:04.709Z",
+      "lastVerified": "2026-04-21T11:42:38.172Z",
       "priceSource": "page"
     },
     {
@@ -293,7 +355,7 @@
       "imageUrl": "/images/products/walmart-acer-chromebook-plus-spin-714-ecran-tactile-ips-fhd-.jpg",
       "source": "walmart",
       "addedAt": "2026-03-28T19:40:30.192Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -322,7 +384,7 @@
       "imageUrl": "/images/products/newegg-gigabyte-27-qhd-2k-1440p-300hz-oc-320hz-ips-gaming-mo.jpg",
       "source": "newegg",
       "addedAt": "2026-04-20T11:29:41.502Z",
-      "lastVerified": "2026-04-20T11:35:04.622Z",
+      "lastVerified": "2026-04-21T11:42:38.266Z",
       "priceSource": "page"
     },
     {
@@ -350,7 +412,7 @@
       "imageUrl": "/images/products/dell-moniteurs-4k-dell.jpg",
       "source": "dell",
       "addedAt": "2026-03-30T11:07:16.183Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "page"
     },
     {
@@ -380,7 +442,7 @@
       "imageUrl": "/images/products/newegg-lg-ultragear-27-qhd-2k-1440p-180hz-curved-gaming-comp.jpg",
       "source": "newegg",
       "addedAt": "2026-03-29T20:55:49.370Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -409,8 +471,37 @@
       "imageUrl": "/images/products/newegg-asus-tuf-gaming-27-inch-qhd-2k-1440p-180hz-ips-gaming.jpg",
       "source": "newegg",
       "addedAt": "2026-04-20T11:29:41.502Z",
-      "lastVerified": "2026-04-20T11:35:05.068Z",
+      "lastVerified": "2026-04-21T11:42:38.591Z",
       "priceSource": "page"
+    },
+    {
+      "id": "walmart-msi-24-5-pouces-mag-255xf-fhd-300hz-0-5ms-gtg-rapid-ips-moni",
+      "name": "MSI 24,5 Pouces MAG 255XF FHD 300Hz 0,5ms GtG Rapid IPS Moniteur de Jeu",
+      "brand": "MSI",
+      "category": "monitor",
+      "profiles": [
+        "gaming"
+      ],
+      "budgetTier": "500to900",
+      "price": 499.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "IPS",
+        "refreshRate": "300Hz",
+        "resolution": "1920x1080",
+        "size": "24.5\"",
+        "storage": "N/A"
+      },
+      "aiScore": 91,
+      "aiRationale": "Pour les gamers, ce moniteur MSI est un deal de fou! Un IPS rapide de 24,5 pouces avec 300Hz et 0,5ms, c'est parfait pour l'e-sport et les jeux compétitifs.",
+      "url": "https://www.walmart.ca/fr/ip/MSI-24-5-Pouces-MAG-255XF-FHD-300Hz-0-5ms-GtG-Rapid-IPS-Moniteur-de-Jeu-MAG255XF/7KY3H5YY66F8",
+      "imageUrl": "/images/products/walmart-msi-24-5-pouces-mag-255xf-fhd-300hz-0-5ms-gtg-rapid-.jpg",
+      "source": "walmart",
+      "addedAt": "2026-04-18T11:40:14.668Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
+      "priceSource": "ai"
     },
     {
       "id": "walmart-startech-com-usb-c-multiport-adapter-4k-60hz-hdmi-3-port-usb",
@@ -436,7 +527,7 @@
       "imageUrl": "/images/products/walmart-startech-com-usb-c-multiport-adapter-4k-60hz-hdmi-3-.jpg",
       "source": "walmart",
       "addedAt": "2026-04-01T00:36:29.792Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -463,7 +554,7 @@
       "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
       "source": "microsoft",
       "addedAt": "2026-04-17T15:48:32.781Z",
-      "lastVerified": "2026-04-20T11:35:05.849Z",
+      "lastVerified": "2026-04-21T11:42:38.911Z",
       "priceSource": "page"
     },
     {
@@ -493,7 +584,7 @@
       "imageUrl": "/images/products/microsoft-station-d-accueil-surface-thunderbolt-4-dock.png",
       "source": "microsoft",
       "addedAt": "2026-03-29T20:57:03.964Z",
-      "lastVerified": "2026-04-20T11:35:06.054Z",
+      "lastVerified": "2026-04-21T11:42:39.108Z",
       "priceSource": "page"
     },
     {
@@ -528,37 +619,8 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
       "source": "apple",
       "addedAt": "2026-04-19T11:42:59.607Z",
-      "lastVerified": "2026-04-20T11:35:05.541Z",
+      "lastVerified": "2026-04-21T11:42:39.114Z",
       "priceSource": "page"
-    },
-    {
-      "id": "amazon-apple-macbook-pro-2024-avec-puce-m4-pro-16-2-pouces-24-go-ra",
-      "name": "Apple MacBook Pro 2024 avec puce M4 Pro (16,2 pouces, 24 Go RAM, 512 Go SSD)",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "creative",
-        "work",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 3599,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Pro (CPU 14 cœurs, GPU 20 cœurs)",
-        "display": "Écran de 16,2 pouces",
-        "ram": "24 Go",
-        "storage": "512 Go SSD"
-      },
-      "aiScore": 93,
-      "aiRationale": "Ce MacBook Pro M4 Pro est une machine de guerre avec 24 Go de RAM, parfaite pour les créateurs de contenu et les développeurs. La performance est inégalée pour les tâches lourdes.",
-      "url": "https://www.amazon.ca/dp/B0CX241FJ7?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-apple-macbook-pro-2024-avec-puce-m4-pro-16-2-pouces-2.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-17T15:43:22.271Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
     },
     {
       "id": "apple-refurbished-mac-studio-apple-m4-max-chip-with-14-core-cpu-an",
@@ -593,7 +655,7 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
       "source": "apple",
       "addedAt": "2026-04-19T11:42:59.607Z",
-      "lastVerified": "2026-04-20T11:35:06.416Z",
+      "lastVerified": "2026-04-21T11:42:38.978Z",
       "priceSource": "page"
     },
     {
@@ -621,7 +683,7 @@
       "imageUrl": "/images/products/walmart-apple-macbook-air-avec-touch-id-2025-13-6-pouces-ord.jpg",
       "source": "walmart",
       "addedAt": "2026-04-18T11:40:05.290Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -649,7 +711,7 @@
       "imageUrl": "/images/products/walmart-apple-macbook-air-m4-13-6-pouces-ips.jpg",
       "source": "walmart",
       "addedAt": "2026-04-17T15:47:48.045Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -677,7 +739,7 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
       "source": "apple",
       "addedAt": "2026-04-18T11:40:33.947Z",
-      "lastVerified": "2026-04-20T11:35:06.084Z",
+      "lastVerified": "2026-04-21T11:42:39.466Z",
       "priceSource": "page"
     },
     {
@@ -707,65 +769,8 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
       "source": "apple",
       "addedAt": "2026-04-18T11:40:49.454Z",
-      "lastVerified": "2026-04-20T11:35:09.928Z",
+      "lastVerified": "2026-04-21T11:42:42.164Z",
       "priceSource": "page"
-    },
-    {
-      "id": "newegg-minisforum-ai-x1-pro-370-mini-pc-amd-ryzen-ai-9-hx-370",
-      "name": "MINISFORUM AI X1 Pro-370 Mini PC AMD Ryzen AI 9 HX 370",
-      "brand": "MINISFORUM",
-      "category": "desktop",
-      "profiles": [
-        "creative",
-        "gaming",
-        "work"
-      ],
-      "budgetTier": "over1500",
-      "price": 1578.44,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "AMD Ryzen AI 9 HX 370",
-        "ram": "32GB DDR5",
-        "storage": "1TB SSD"
-      },
-      "aiScore": 92,
-      "aiRationale": "Un mini PC ultra-performant avec le nouveau Ryzen AI 9 HX 370 et une Radeon 890M. C'est un excellent choix pour la création de contenu et le gaming, même si le prix est élevé.",
-      "url": "https://www.newegg.ca/minisforum-barebone-systems-mini-pc/p/2SW-002G-000T2?srsltid=AfmBOopBWnNpTAZ_dKRn8PHUwvAncqN1E7D8IIlSHObvn2qlctDaku1l",
-      "imageUrl": "/images/products/newegg-minisforum-ai-x1-pro-370-mini-pc-amd-ryzen-ai-9-hx-37.jpg",
-      "source": "newegg",
-      "addedAt": "2026-04-20T11:29:30.658Z",
-      "lastVerified": "2026-04-20T11:35:06.172Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "walmart-msi-24-5-pouces-mag-255xf-fhd-300hz-0-5ms-gtg-rapid-ips-moni",
-      "name": "MSI 24,5 Pouces MAG 255XF FHD 300Hz 0,5ms GtG Rapid IPS Moniteur de Jeu",
-      "brand": "MSI",
-      "category": "monitor",
-      "profiles": [
-        "gaming"
-      ],
-      "budgetTier": "500to900",
-      "price": 499.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "refreshRate": "300Hz",
-        "resolution": "1920x1080",
-        "size": "24.5\"",
-        "storage": "N/A"
-      },
-      "aiScore": 91,
-      "aiRationale": "Pour les gamers, ce moniteur MSI est un deal de fou! Un IPS rapide de 24,5 pouces avec 300Hz et 0,5ms, c'est parfait pour l'e-sport et les jeux compétitifs.",
-      "url": "https://www.walmart.ca/fr/ip/MSI-24-5-Pouces-MAG-255XF-FHD-300Hz-0-5ms-GtG-Rapid-IPS-Moniteur-de-Jeu-MAG255XF/7KY3H5YY66F8",
-      "imageUrl": "/images/products/walmart-msi-24-5-pouces-mag-255xf-fhd-300hz-0-5ms-gtg-rapid-.jpg",
-      "source": "walmart",
-      "addedAt": "2026-04-18T11:40:14.668Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
     },
     {
       "id": "walmart-apple-mac-mini-apple-m4-chip-with-10-core-cpu",
@@ -791,7 +796,7 @@
       "imageUrl": "/images/products/walmart-apple-mac-mini-apple-m4-chip-with-10-core-cpu.png",
       "source": "walmart",
       "addedAt": "2026-04-17T15:47:48.046Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -820,65 +825,7 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
       "source": "apple",
       "addedAt": "2026-04-19T11:42:39.749Z",
-      "lastVerified": "2026-04-20T11:35:06.358Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "amazon-samsung-ecran-de-jeu-incurve-odyssey-g7-wuhd-de-40-po-avec-t",
-      "name": "Samsung Écran de jeu incurvé Odyssey G7 WUHD de 40 po avec taux de rafraîchissement de 180 Hz",
-      "brand": "Samsung",
-      "category": "monitor",
-      "profiles": [
-        "gaming",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1800,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "VA",
-        "resolution": "5120x1440",
-        "size": "40\"",
-        "storage": "N/A"
-      },
-      "aiScore": 90,
-      "aiRationale": "Un écran ultrawide WUHD de 40 pouces avec 180 Hz, c'est le rêve pour les gamers et les créateurs de contenu. Une expérience immersive garantie, mais ça vient avec un prix!",
-      "url": "https://www.amazon.ca/dp/B0FJZYWYK7?tag=shopcompy-20",
-      "imageUrl": "https://img.global.news.samsung.com/co/wp-content/uploads/2020/06/Odyssey-G7_dl2.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-19T11:40:32.983Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "apple-15-inch-macbook-air-m4-chip",
-      "name": "15-inch MacBook Air M4 Chip",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1499,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "32GB memory",
-        "storage": "2TB storage"
-      },
-      "aiScore": 90,
-      "aiRationale": "Ce MacBook Air 15 pouces avec M4, 32 Go de RAM et 2 To de stockage à ce prix, c'est un deal incroyable pour les pros et les créatifs qui cherchent la performance ultime.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:39.749Z",
-      "lastVerified": "2026-04-20T11:35:06.420Z",
+      "lastVerified": "2026-04-21T11:42:41.285Z",
       "priceSource": "page"
     },
     {
@@ -914,7 +861,7 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
       "source": "apple",
       "addedAt": "2026-04-19T11:42:59.607Z",
-      "lastVerified": "2026-04-20T11:35:06.439Z",
+      "lastVerified": "2026-04-21T11:42:39.497Z",
       "priceSource": "page"
     },
     {
@@ -943,7 +890,7 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
       "source": "apple",
       "addedAt": "2026-04-19T11:42:39.749Z",
-      "lastVerified": "2026-04-20T11:35:06.446Z",
+      "lastVerified": "2026-04-21T11:42:41.637Z",
       "priceSource": "page"
     },
     {
@@ -971,7 +918,36 @@
       "imageUrl": "https://p3-ofp.static.pub/fes/cms/2022/03/29/fxq8k26aghm6xril1qzikh2in7osfc415110.png",
       "source": "lenovo",
       "addedAt": "2026-04-20T11:30:43.270Z",
-      "lastVerified": "2026-04-20T11:35:06.676Z",
+      "lastVerified": "2026-04-21T11:42:41.881Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "apple-15-inch-macbook-air-m4-chip",
+      "name": "15-inch MacBook Air M4 Chip",
+      "brand": "Apple",
+      "category": "apple",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 1499,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Apple M4 Chip, 10-core CPU",
+        "gpu": "10-core GPU",
+        "ram": "32GB memory",
+        "storage": "2TB storage"
+      },
+      "aiScore": 90,
+      "aiRationale": "Ce MacBook Air 15 pouces avec M4, 32 Go de RAM et 2 To de stockage à ce prix, c'est un deal incroyable pour les pros et les créatifs qui cherchent la performance ultime.",
+      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch",
+      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
+      "source": "apple",
+      "addedAt": "2026-04-19T11:42:39.749Z",
+      "lastVerified": "2026-04-21T11:42:41.785Z",
       "priceSource": "page"
     },
     {
@@ -1001,120 +977,8 @@
       "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2724d/pdp/ultrasharp-u2724d-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=504&fmt=jpg?fmt=png&wid=400&hei=400",
       "source": "dell",
       "addedAt": "2026-03-29T20:56:18.938Z",
-      "lastVerified": "2026-04-20T11:35:07.389Z",
+      "lastVerified": "2026-04-21T11:42:42.245Z",
       "priceSource": "page"
-    },
-    {
-      "id": "walmart-acer-ordinateur-portable-16-pouces-aspire-lite-ecran-wuxga-i",
-      "name": "Acer Ordinateur Portable 16 Pouces Aspire Lite - Écran Wuxga/ Intel I5-1334u/ 16G Ddr5/ 1 To Ssd/ W11 Excellent Reconditionné",
-      "brand": "Acer",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "900to1500",
-      "price": 999.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core i5-1334U",
-        "display": "16\" WUXGA",
-        "ram": "16 Go DDR5",
-        "storage": "1 To SSD"
-      },
-      "aiScore": 89,
-      "aiRationale": "Un portable reconditionné de qualité avec un i5 de 13e génération, 16 Go de DDR5 et un SSD de 1 To. C'est une machine puissante pour le travail et les tâches exigeantes.",
-      "url": "https://www.walmart.ca/fr/ip/Acer-Ordinateur-Portable-16-Pouces-Aspire-Lite-cran-Wuxga-Intel-I5-1334u-16G-Ddr5-1-To-Ssd-W11-Excellent-Reconditionn-avec-An-de-Garantie-Fabricant/3MJ98NY4ZGDB",
-      "imageUrl": "/images/products/walmart-acer-ordinateur-portable-16-pouces-aspire-lite-ecran.jpg",
-      "source": "walmart",
-      "addedAt": "2026-04-19T11:42:05.392Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "apple-macbook-pro-14-inch-m5-10-core-cpu-10-core-gpu-silver-32gb-m",
-      "name": "MacBook Pro 14-inch (M5, 10-core CPU, 10-core GPU, Silver, 32GB memory, 1TB storage)",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "creative",
-        "work"
-      ],
-      "budgetTier": "over1500",
-      "price": 2399,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M5 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "32GB",
-        "storage": "1TB"
-      },
-      "aiScore": 89,
-      "aiRationale": "Un MacBook Pro M5 avec 32 Go de RAM est une machine très capable pour les tâches exigeantes. Un excellent équilibre entre performance et portabilité.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-silver-standard-display-apple-m4-pro-chip-12-core-cpu-16-core-gpu-48gb-memory-512gb-storage",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-18T11:40:33.947Z",
-      "lastVerified": "2026-04-20T11:35:07.116Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "amazon-beelink-ser5-max-mini-pc-amd-ryzen-7-7735hs",
-      "name": "Beelink SER5 MAX Mini PC, AMD Ryzen 7 7735HS",
-      "brand": "Beelink",
-      "category": "desktop",
-      "profiles": [
-        "work",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "900to1500",
-      "price": 1200,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "AMD Ryzen 7 7735HS",
-        "ram": "16 Go DDR5",
-        "storage": "500 Go NVMe SSD"
-      },
-      "aiScore": 89,
-      "aiRationale": "Un mini PC très performant avec un Ryzen 7 de la série 7000, idéal pour les professionnels et les créatifs. Il offre une excellente puissance dans un format compact.",
-      "url": "https://www.amazon.ca/dp/B09SYR619R?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-beelink-ser5-max-mini-pc-amd-ryzen-7-7735hs.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-19T11:40:21.114Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "dell-ordinateur-portable-ou-2-en-1-dell-pro-14-plus",
-      "name": "Ordinateur portable ou 2-en-1 Dell Pro 14 Plus",
-      "brand": "Dell",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student"
-      ],
-      "budgetTier": "over1500",
-      "price": 2078.75,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 5 236V vPro",
-        "ram": "16Go LPDDR5X",
-        "storage": "256Go Disque SSD"
-      },
-      "aiScore": 89,
-      "aiRationale": "Ce Dell Pro 14 Plus est un excellent 2-en-1 avec un processeur Intel Core Ultra 5 et 16Go de RAM, idéal pour les professionnels et les étudiants qui recherchent performance et polyvalence.",
-      "url": "https://www.dell.com/fr-ca/shop/ordinateurs-portables-dell/ordinateur-portable-ou-2-en-1-dell-pro-14-plus/spd/dell-pro-pb14250-2-in-1-laptop",
-      "imageUrl": "/images/products/dell-ordinateur-portable-ou-2-en-1-dell-pro-14-plus.jpg",
-      "source": "dell",
-      "addedAt": "2026-04-18T11:39:37.010Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
     },
     {
       "id": "apple-refurbished-mac-mini-apple-m4-pro-chip-with-14-core-cpu-and-",
@@ -1149,7 +1013,7 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
       "source": "apple",
       "addedAt": "2026-04-19T11:42:59.607Z",
-      "lastVerified": "2026-04-20T11:35:07.922Z",
+      "lastVerified": "2026-04-21T11:42:42.234Z",
       "priceSource": "page"
     },
     {
@@ -1178,37 +1042,36 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/imac/select&pageResource=mac-2&feature=step1evolution",
       "source": "apple",
       "addedAt": "2026-04-18T11:40:39.656Z",
-      "lastVerified": "2026-04-20T11:35:09.240Z",
+      "lastVerified": "2026-04-21T11:42:42.263Z",
       "priceSource": "page"
     },
     {
-      "id": "amazon-samsung-curved-qled-monitor-odyssey-neo-g7-s32bg750np-80-cm-",
-      "name": "Samsung Curved QLED-Monitor Odyssey Neo G7 S32BG750NP - 80 cm (32\") - 3840 x 2160 4K UHD",
-      "brand": "Samsung",
-      "category": "monitor",
+      "id": "apple-macbook-pro-14-inch-m5-10-core-cpu-10-core-gpu-silver-32gb-m",
+      "name": "MacBook Pro 14-inch (M5, 10-core CPU, 10-core GPU, Silver, 32GB memory, 1TB storage)",
+      "brand": "Apple",
+      "category": "apple",
       "profiles": [
-        "gaming",
-        "creative"
+        "creative",
+        "work"
       ],
-      "budgetTier": "900to1500",
-      "price": 1130.69,
+      "budgetTier": "over1500",
+      "price": 2399,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "N/A",
-        "panelType": "QLED",
-        "resolution": "3840x2160",
-        "size": "32\"",
-        "storage": "N/A"
+        "cpu": "Apple M5 Chip, 10-core CPU",
+        "gpu": "10-core GPU",
+        "ram": "32GB",
+        "storage": "1TB"
       },
       "aiScore": 89,
-      "aiRationale": "Ce moniteur incurvé QLED 4K de 32 pouces offre une qualité d'image exceptionnelle pour le gaming et le travail créatif, une expérience immersive garantie.",
-      "url": "https://www.amazon.ca/dp/B0BRL9FZZ2?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-samsung-curved-qled-monitor-odyssey-neo-g7-s32bg750np.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:28:36.419Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
+      "aiRationale": "Un MacBook Pro M5 avec 32 Go de RAM est une machine très capable pour les tâches exigeantes. Un excellent équilibre entre performance et portabilité.",
+      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-silver-standard-display-apple-m4-pro-chip-12-core-cpu-16-core-gpu-48gb-memory-512gb-storage",
+      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
+      "source": "apple",
+      "addedAt": "2026-04-18T11:40:33.947Z",
+      "lastVerified": "2026-04-21T11:42:42.396Z",
+      "priceSource": "page"
     },
     {
       "id": "walmart-lg-32-po-32ur550k-b-uhd-3840-x-2160-va-moniteur-noir",
@@ -1237,7 +1100,7 @@
       "imageUrl": "/images/products/walmart-lg-32-po-32ur550k-b-uhd-3840-x-2160-va-moniteur-noir.jpg",
       "source": "walmart",
       "addedAt": "2026-03-28T19:40:22.741Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "manual"
     },
     {
@@ -1270,36 +1133,8 @@
       "imageUrl": "/images/products/dell-moniteur-central-thunderbolt-dell-ultrasharp-27-u2724de.png",
       "source": "dell",
       "addedAt": "2026-04-18T11:39:40.837Z",
-      "lastVerified": "2026-04-20T11:35:08.167Z",
+      "lastVerified": "2026-04-21T11:42:42.614Z",
       "priceSource": "page"
-    },
-    {
-      "id": "amazon-acer-swift-go-sfg14-73-70pt-ordinateur-portable-oled-14-pouc",
-      "name": "Acer Swift Go SFG14-73-70PT Ordinateur portable OLED 14 pouces",
-      "brand": "Acer",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1699.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 7 155H",
-        "ram": "16 Go DDR5",
-        "storage": "1024 Go PCIe SSD"
-      },
-      "aiScore": 88,
-      "aiRationale": "Un excellent portable avec un écran OLED magnifique et un processeur Core Ultra puissant. Parfait pour la productivité et la création de contenu.",
-      "url": "https://www.amazon.ca/dp/B0DB2YH2Y5?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-acer-swift-go-sfg14-73-70pt-ordinateur-portable-oled-.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-18T11:38:12.865Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
     },
     {
       "id": "walmart-apple-macbook-air-m4-apple-m4-8-c-urs-16-go-ram-256-go-ssd",
@@ -1326,95 +1161,67 @@
       "imageUrl": "/images/products/walmart-apple-macbook-air-m4-apple-m4-8-c-urs-16-go-ram-256-.png",
       "source": "walmart",
       "addedAt": "2026-04-18T11:40:05.290Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
-      "id": "amazon-samsung-ecran-de-jeu-odyssey-g7-32-lc32g75tqsnxza",
-      "name": "Samsung Écran de jeu Odyssey G7 32\" - LC32G75TQSNXZA",
-      "brand": "Samsung",
+      "id": "apple-mac-mini-m4-chip-10-core-cpu-10-core-gpu-16gb-memory-256gb-s",
+      "name": "Mac mini, M4 Chip, 10-core CPU, 10-core GPU, 16GB memory, 256GB storage",
+      "brand": "Apple",
+      "category": "apple",
+      "profiles": [
+        "basic",
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "500to900",
+      "price": 1099,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Apple M4 Chip with 10-core CPU",
+        "gpu": "10-core GPU",
+        "ram": "16GB",
+        "storage": "256GB"
+      },
+      "aiScore": 88,
+      "aiRationale": "Le Mac mini M4 est une machine compacte et puissante, idéale pour le travail et les tâches créatives, offrant un excellent rapport qualité-prix.",
+      "url": "https://www.apple.com/ca/shop/product/fcyt4ll/a/Refurbished-Mac-mini-Apple-M4-Chip-with-10-Core-CPU-and-10-Core-GPU-Gigabit-Ethernet-",
+      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
+      "source": "apple",
+      "addedAt": "2026-04-18T11:40:49.454Z",
+      "lastVerified": "2026-04-21T11:42:42.291Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "newegg-samsung-odyssey-g5-34-uwqhd-2k-1440p-165hz-curved-gaming-mon",
+      "name": "SAMSUNG Odyssey G5 34\" UWQHD 2K 1440P 165Hz Curved Gaming Monitor",
+      "brand": "SAMSUNG",
       "category": "monitor",
       "profiles": [
         "gaming",
-        "creative"
+        "work"
       ],
-      "budgetTier": "over1500",
-      "price": 1600,
+      "budgetTier": "under500",
+      "price": 499.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
         "cpu": "N/A",
         "panelType": "VA",
-        "resolution": "2560x1440",
-        "size": "32\"",
+        "resolution": "3440x1440",
+        "size": "34\"",
         "storage": "N/A"
       },
       "aiScore": 88,
-      "aiRationale": "Un écran de jeu incurvé de 32 pouces avec un taux de rafraîchissement de 240 Hz et un temps de réponse de 1 ms. C'est un monstre pour les gamers exigeants!",
-      "url": "https://www.amazon.ca/dp/B088HHZBGJ?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-samsung-ecran-de-jeu-odyssey-g7-32-lc32g75tqsnxza.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-19T11:40:32.983Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "apple-13-inch-macbook-air",
-      "name": "13-inch MacBook Air",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1499,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M5 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "16GB memory",
-        "storage": "1TB storage"
-      },
-      "aiScore": 88,
-      "aiRationale": "Le MacBook Air 13 pouces avec la puce M5 est un excellent choix pour la productivité et la créativité, offrant une performance et une autonomie exceptionnelles.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:39.748Z",
-      "lastVerified": "2026-04-20T11:35:08.195Z",
+      "aiRationale": "Un excellent moniteur ultra-large pour le gaming et la productivité à un prix très compétitif. L'immersion est garantie avec la courbure et la haute résolution.",
+      "url": "https://www.newegg.ca/samsung-c34g55t-34-ultra-wqhd-165-hz-odyssey-g5-va-black/p/N82E16824022912?srsltid=AfmBOopUtneGVS3srOZYdCJird6GfFYWVbLSpxLlwy-iQtxx6i1bkuN7",
+      "imageUrl": "/images/products/newegg-samsung-odyssey-g5-34-uwqhd-2k-1440p-165hz-curved-gam.jpg",
+      "source": "newegg",
+      "addedAt": "2026-04-20T11:29:30.658Z",
+      "lastVerified": "2026-04-21T11:42:42.695Z",
       "priceSource": "page"
-    },
-    {
-      "id": "walmart-ordinateur-portable-hp-15-6-fhd-ips-amd-ryzen-5-7520u-16-gb-",
-      "name": "Ordinateur portable HP 15.6\" FHD IPS, AMD Ryzen 5 7520U, 16 GB DDR5, 1TB SSD",
-      "brand": "HP",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "basic"
-      ],
-      "budgetTier": "500to900",
-      "price": 799.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "AMD Ryzen 5 7520U",
-        "display": "15.6\" FHD IPS",
-        "ram": "16 GB DDR5",
-        "storage": "1 TB SSD"
-      },
-      "aiScore": 88,
-      "aiRationale": "Ce portable HP offre un excellent rapport qualité-prix avec un Ryzen 5 de série 7000, 16 Go de DDR5 et un SSD de 1 To. Idéal pour la productivité et le multitâche.",
-      "url": "https://www.walmart.ca/fr/ip/Ordinateur-portable-HP-15-6-FHD-IPS-AMD-Ryzen-5-7520U-16-GB-DDR5-1TB-SSD/6000206482158",
-      "imageUrl": "/images/products/walmart-ordinateur-portable-hp-15-6-fhd-ips-amd-ryzen-5-7520.jpg",
-      "source": "walmart",
-      "addedAt": "2026-04-19T11:42:05.392Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
     },
     {
       "id": "apple-mac-mini-m4-pro-chip-12-core-cpu-16-core-gpu-24gb-memory-512",
@@ -1450,124 +1257,36 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
       "source": "apple",
       "addedAt": "2026-04-19T11:42:59.607Z",
-      "lastVerified": "2026-04-20T11:35:08.217Z",
+      "lastVerified": "2026-04-21T11:42:42.429Z",
       "priceSource": "page"
     },
     {
-      "id": "apple-mac-mini-m4-chip-10-core-cpu-10-core-gpu-16gb-memory-256gb-s",
-      "name": "Mac mini, M4 Chip, 10-core CPU, 10-core GPU, 16GB memory, 256GB storage",
+      "id": "apple-13-inch-macbook-air",
+      "name": "13-inch MacBook Air",
       "brand": "Apple",
       "category": "apple",
       "profiles": [
-        "basic",
         "work",
         "student",
         "creative"
-      ],
-      "budgetTier": "500to900",
-      "price": 1099,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Chip with 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "16GB",
-        "storage": "256GB"
-      },
-      "aiScore": 88,
-      "aiRationale": "Le Mac mini M4 est une machine compacte et puissante, idéale pour le travail et les tâches créatives, offrant un excellent rapport qualité-prix.",
-      "url": "https://www.apple.com/ca/shop/product/fcyt4ll/a/Refurbished-Mac-mini-Apple-M4-Chip-with-10-Core-CPU-and-10-Core-GPU-Gigabit-Ethernet-",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
-      "source": "apple",
-      "addedAt": "2026-04-18T11:40:49.454Z",
-      "lastVerified": "2026-04-20T11:35:08.238Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "amazon-asus-vivobook-s-14-laptop-2024",
-      "name": "ASUS Vivobook S 14 Laptop 2024",
-      "brand": "ASUS",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "creative",
-        "student"
       ],
       "budgetTier": "over1500",
       "price": 1499,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "Intel 16-Core Ultra 9 Processor 185H",
-        "display": "14” WUXGA 1920 x 1200",
-        "gpu": "Intel ARC Graphics",
-        "ram": "16GB LPDDR5",
-        "storage": "1TB SSD"
+        "cpu": "Apple M5 Chip, 10-core CPU",
+        "gpu": "10-core GPU",
+        "ram": "16GB memory",
+        "storage": "1TB storage"
       },
       "aiScore": 88,
-      "aiRationale": "Un Vivobook S 14 avec un Core Ultra 9 et 1 To de SSD, c'est une machine puissante pour le multitâche et les tâches exigeantes. Le prix est très intéressant pour cette configuration.",
-      "url": "https://www.amazon.ca/dp/B09YZ17QXJ?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-asus-vivobook-s-14-laptop-2024.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:27:32.819Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-lenovo-2025-ideapad-slim-5-laptop-16-wuxga-1920-x-1200-amd-r",
-      "name": "Lenovo 2025 IdeaPad Slim 5 Laptop 16\" WUXGA 1920 x 1200 AMD Ryzen AI 7 350",
-      "brand": "Lenovo",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "creative",
-        "student"
-      ],
-      "budgetTier": "over1500",
-      "price": 1720.6,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "AMD Ryzen AI 7 350",
-        "ram": "32GB DDR5",
-        "storage": "1TB SSD"
-      },
-      "aiScore": 88,
-      "aiRationale": "Ce portable offre une performance solide avec le nouveau Ryzen AI 7, 32 Go de RAM et 1 To de stockage. Excellent pour le multitâche et les tâches exigeantes.",
-      "url": "https://www.amazon.ca/dp/B0FKH1MMK3?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-lenovo-2025-ideapad-slim-5-laptop-16-wuxga-1920-x-120.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:28:25.350Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "newegg-samsung-odyssey-g5-34-uwqhd-2k-1440p-165hz-curved-gaming-mon",
-      "name": "SAMSUNG Odyssey G5 34\" UWQHD 2K 1440P 165Hz Curved Gaming Monitor",
-      "brand": "SAMSUNG",
-      "category": "monitor",
-      "profiles": [
-        "gaming",
-        "work"
-      ],
-      "budgetTier": "under500",
-      "price": 499.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "VA",
-        "resolution": "3440x1440",
-        "size": "34\"",
-        "storage": "N/A"
-      },
-      "aiScore": 88,
-      "aiRationale": "Un excellent moniteur ultra-large pour le gaming et la productivité à un prix très compétitif. L'immersion est garantie avec la courbure et la haute résolution.",
-      "url": "https://www.newegg.ca/samsung-c34g55t-34-ultra-wqhd-165-hz-odyssey-g5-va-black/p/N82E16824022912?srsltid=AfmBOopUtneGVS3srOZYdCJird6GfFYWVbLSpxLlwy-iQtxx6i1bkuN7",
-      "imageUrl": "/images/products/newegg-samsung-odyssey-g5-34-uwqhd-2k-1440p-165hz-curved-gam.jpg",
-      "source": "newegg",
-      "addedAt": "2026-04-20T11:29:30.658Z",
-      "lastVerified": "2026-04-20T11:35:08.340Z",
+      "aiRationale": "Le MacBook Air 13 pouces avec la puce M5 est un excellent choix pour la productivité et la créativité, offrant une performance et une autonomie exceptionnelles.",
+      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch",
+      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
+      "source": "apple",
+      "addedAt": "2026-04-19T11:42:39.748Z",
+      "lastVerified": "2026-04-21T11:42:42.459Z",
       "priceSource": "page"
     },
     {
@@ -1596,184 +1315,7 @@
       "imageUrl": "/images/products/newegg-gigabyte-m27q-pro-27-165hz-1440p-kvm-gaming-monitor.jpg",
       "source": "newegg",
       "addedAt": "2026-04-20T11:29:41.502Z",
-      "lastVerified": "2026-04-20T11:35:08.432Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "lenovo-lenovo-ideapad-pro-5i-16-inch-intel-laptop",
-      "name": "Lenovo IdeaPad Pro 5i (16 inch Intel) Laptop",
-      "brand": "Lenovo",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 3399.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra",
-        "ram": "32 GB DDR5",
-        "storage": "1 TB SSD"
-      },
-      "aiScore": 88,
-      "aiRationale": "Un portable ultra-puissant avec les nouveaux processeurs Intel Core Ultra et des capacités IA avancées, parfait pour les professionnels exigeants et la création de contenu. Le prix est élevé, mais justifié par la performance.",
-      "url": "https://www.lenovo.com/ca/en/p/laptops/ideapad/ideapad-pro-series/ideapad-pro-5i-gen-11-16-inch-intel/len101i0129?srsltid=AfmBOop-rDiMWDCIHcnH-qvrJ105o0qYN3e0BYty2VRl9AEF1kynJ2cI",
-      "imageUrl": "https://p3-ofp.static.pub/fes/cms/2022/03/29/fxq8k26aghm6xril1qzikh2in7osfc415110.png",
-      "source": "lenovo",
-      "addedAt": "2026-04-20T11:29:58.349Z",
-      "lastVerified": "2026-04-20T11:35:09.231Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "walmart-hp-omnibook-5-16-ba1009ca-ordinateur-portable-16-wuxga-ips-i",
-      "name": "HP Omnibook 5 16‑ba1009ca Ordinateur Portable 16\" WUXGA IPS, Intel Core i5‑1334U, 16 Go de RAM, 512 Go SSD",
-      "brand": "HP",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "900to1500",
-      "price": 949.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core i5-1334U",
-        "display": "16\" WUXGA IPS",
-        "ram": "16 Go",
-        "storage": "512 Go SSD"
-      },
-      "aiScore": 87,
-      "aiRationale": "Un excellent portable avec un écran WUXGA de 16 pouces et un processeur Intel de 13e génération. Idéal pour le travail et le divertissement avec une bonne quantité de RAM.",
-      "url": "https://www.walmart.ca/fr/ip/HP-Omnibook-5-16-ba1009ca-Ordinateur-Portable-16-WUXGA-IPS-Intel-Core-i5-1334U-16-Go-de-RAM-512-Go-SSD/37PH98MQ0HDW",
-      "imageUrl": "/images/products/walmart-hp-omnibook-5-16-ba1009ca-ordinateur-portable-16-wux.jpg",
-      "source": "walmart",
-      "addedAt": "2026-04-19T11:42:05.392Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "walmart-acer-nitro-v-anv15-41-r68f-15-6-fhd-ips-144hz-gaming-laptop-",
-      "name": "Acer Nitro V ANV15-41-R68F 15.6\" FHD IPS 144Hz Gaming Laptop AMD Ryzen 7 7735HS RTX 3050 16GB RAM 512GB SSD, WIN 11",
-      "brand": "Acer",
-      "category": "laptop",
-      "profiles": [
-        "gaming",
-        "creative",
-        "work"
-      ],
-      "budgetTier": "900to1500",
-      "price": 1199.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "AMD Ryzen 7 7735HS",
-        "display": "15.6\" FHD IPS 144Hz",
-        "gpu": "RTX 3050",
-        "panelType": "IPS",
-        "ram": "16GB",
-        "refreshRate": "144Hz",
-        "resolution": "1920x1080",
-        "size": "15.6\"",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 87,
-      "aiRationale": "Ce Nitro V avec un Ryzen 7 7735HS et une RTX 3050 est une excellente option pour le gaming et les tâches exigeantes. L'écran 144Hz est parfait pour une expérience fluide.",
-      "url": "https://www.walmart.ca/en/reviews/product/6000207936325",
-      "imageUrl": "/images/products/walmart-acer-nitro-v-anv15-41-r68f-15-6-fhd-ips-144hz-gaming.jpg",
-      "source": "walmart",
-      "addedAt": "2026-04-17T15:48:02.754Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "apple-15-inch-macbook-air",
-      "name": "15-inch MacBook Air",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1499,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M5 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "24GB memory",
-        "storage": "1TB storage"
-      },
-      "aiScore": 87,
-      "aiRationale": "Le MacBook Air 15 pouces avec la puce M5 offre un grand écran et une performance solide pour le travail et le divertissement, idéal pour ceux qui ont besoin de plus d'espace visuel.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:39.748Z",
-      "lastVerified": "2026-04-20T11:35:09.542Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "apple-macbook-air-15-inch-m5-10-core-cpu-10-core-gpu-silver-24gb-m",
-      "name": "MacBook Air 15-inch (M5, 10-core CPU, 10-core GPU, Silver, 24GB memory, 1TB storage)",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1499,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M5 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "24GB",
-        "storage": "1TB"
-      },
-      "aiScore": 87,
-      "aiRationale": "Le MacBook Air 15 pouces avec M5 offre un grand écran et une excellente autonomie, parfait pour le travail et le divertissement. Un très bon investissement.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch-starlight-m4-chip-10-core-cpu-10-core-gpu-24gb-memory-1tb-storage",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-18T11:40:33.947Z",
-      "lastVerified": "2026-04-20T11:35:09.753Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "apple-macbook-pro-14-inch-m4-max-chip-16-core-cpu-40-core-gpu",
-      "name": "MacBook Pro, 14-inch, M4 Max Chip, 16-core CPU, 40-core GPU",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "creative",
-        "work",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 2399,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Max Chip, 16-core CPU",
-        "ram": "48GB",
-        "storage": "8TB SSD"
-      },
-      "aiScore": 87,
-      "aiRationale": "Le MacBook Pro 14 pouces avec M4 Max, 48 Go de RAM et 8 To de stockage est une machine de guerre pour les créatifs. Un investissement conséquent, mais la performance est inégalée.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/16-inch-space-black-standard-display-apple-m4-max-chip-16-core-cpu-40-core-gpu-64gb-memory-4tb-storage",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:46.571Z",
-      "lastVerified": "2026-04-20T11:35:09.820Z",
+      "lastVerified": "2026-04-21T11:42:42.851Z",
       "priceSource": "page"
     },
     {
@@ -1802,64 +1344,94 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/imac/select&pageResource=mac-2&feature=step1evolution",
       "source": "apple",
       "addedAt": "2026-04-18T11:40:39.656Z",
-      "lastVerified": "2026-04-20T11:35:09.779Z",
+      "lastVerified": "2026-04-21T11:42:42.645Z",
       "priceSource": "page"
     },
     {
-      "id": "amazon-lenovo-2025-laptop-thinkpad-x1-carbon-gen-12",
-      "name": "Lenovo 2025 Laptop | ThinkPad X1 Carbon Gen 12",
-      "brand": "Lenovo",
-      "category": "laptop",
+      "id": "apple-macbook-air-15-inch-m5-10-core-cpu-10-core-gpu-silver-24gb-m",
+      "name": "MacBook Air 15-inch (M5, 10-core CPU, 10-core GPU, Silver, 24GB memory, 1TB storage)",
+      "brand": "Apple",
+      "category": "apple",
       "profiles": [
         "work",
+        "student",
         "creative"
       ],
       "budgetTier": "over1500",
-      "price": 2510.18,
+      "price": 1499,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "Intel Core Ultra 7 155U",
-        "display": "14\" 1920x1200 Touch IPS",
-        "ram": "32GB DDR5",
-        "storage": "1TB SSD"
+        "cpu": "Apple M5 Chip, 10-core CPU",
+        "gpu": "10-core GPU",
+        "ram": "24GB",
+        "storage": "1TB"
       },
       "aiScore": 87,
-      "aiRationale": "Ce ThinkPad X1 Carbon Gen 12 avec 1 To de SSD et un Core Ultra 7 est une bête de course pour les pros. C'est un investissement, mais la performance et la fiabilité sont au rendez-vous.",
-      "url": "https://www.amazon.ca/dp/B0FLPXXK12?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-lenovo-2025-laptop-thinkpad-x1-carbon-gen-12.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:27:32.818Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
+      "aiRationale": "Le MacBook Air 15 pouces avec M5 offre un grand écran et une excellente autonomie, parfait pour le travail et le divertissement. Un très bon investissement.",
+      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch-starlight-m4-chip-10-core-cpu-10-core-gpu-24gb-memory-1tb-storage",
+      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
+      "source": "apple",
+      "addedAt": "2026-04-18T11:40:33.947Z",
+      "lastVerified": "2026-04-21T11:42:42.846Z",
+      "priceSource": "page"
     },
     {
-      "id": "amazon-acer-predator-neo-phn16-73-704r-16-gaming-laptop",
-      "name": "Acer Predator Neo PHN16-73-704R 16\" Gaming Laptop",
-      "brand": "Acer",
-      "category": "laptop",
+      "id": "apple-15-inch-macbook-air",
+      "name": "15-inch MacBook Air",
+      "brand": "Apple",
+      "category": "apple",
       "profiles": [
-        "gaming",
+        "work",
+        "student",
         "creative"
       ],
       "budgetTier": "over1500",
-      "price": 2599.99,
+      "price": 1499,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
-        "cpu": "Intel Core Ultra 7 255HX",
-        "gpu": "NVIDIA GeForce RTX 5070",
-        "ram": "16GB DDR5 RAM",
-        "storage": "1TB SSD"
+        "cpu": "Apple M5 Chip, 10-core CPU",
+        "gpu": "10-core GPU",
+        "ram": "24GB memory",
+        "storage": "1TB storage"
       },
       "aiScore": 87,
-      "aiRationale": "Ce Predator Neo offre un excellent rapport qualité-prix avec le Core Ultra 7 et une RTX 5070. Parfait pour les jeux exigeants et le travail créatif.",
-      "url": "https://www.amazon.ca/dp/B0B8241V9W?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-acer-predator-neo-phn16-73-704r-16-gaming-laptop.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:28:25.350Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
-      "priceSource": "ai"
+      "aiRationale": "Le MacBook Air 15 pouces avec la puce M5 offre un grand écran et une performance solide pour le travail et le divertissement, idéal pour ceux qui ont besoin de plus d'espace visuel.",
+      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch",
+      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
+      "source": "apple",
+      "addedAt": "2026-04-19T11:42:39.748Z",
+      "lastVerified": "2026-04-21T11:42:42.726Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "apple-macbook-pro-14-inch-m4-max-chip-16-core-cpu-40-core-gpu",
+      "name": "MacBook Pro, 14-inch, M4 Max Chip, 16-core CPU, 40-core GPU",
+      "brand": "Apple",
+      "category": "apple",
+      "profiles": [
+        "creative",
+        "work",
+        "gaming"
+      ],
+      "budgetTier": "over1500",
+      "price": 2399,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Apple M4 Max Chip, 16-core CPU",
+        "ram": "48GB",
+        "storage": "8TB SSD"
+      },
+      "aiScore": 87,
+      "aiRationale": "Le MacBook Pro 14 pouces avec M4 Max, 48 Go de RAM et 8 To de stockage est une machine de guerre pour les créatifs. Un investissement conséquent, mais la performance est inégalée.",
+      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/16-inch-space-black-standard-display-apple-m4-max-chip-16-core-cpu-40-core-gpu-64gb-memory-4tb-storage",
+      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
+      "source": "apple",
+      "addedAt": "2026-04-19T11:42:46.571Z",
+      "lastVerified": "2026-04-21T11:42:42.826Z",
+      "priceSource": "page"
     },
     {
       "id": "walmart-lenovo-ideapad-slim-3-ordinateur-portable-a-ecran-tactile-15",
@@ -1887,7 +1459,7 @@
       "imageUrl": "/images/products/walmart-lenovo-ideapad-slim-3-ordinateur-portable-a-ecran-ta.jpg",
       "source": "walmart",
       "addedAt": "2026-04-19T11:42:05.392Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -1915,7 +1487,7 @@
       "imageUrl": "/images/products/walmart-hp-victus-15-fb2009ca-15-6-inch-gaming-laptop-16gb-r.jpg",
       "source": "walmart",
       "addedAt": "2026-03-28T19:40:22.741Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -1945,7 +1517,62 @@
       "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
       "source": "microsoft",
       "addedAt": "2026-04-01T00:36:39.892Z",
-      "lastVerified": "2026-04-20T11:35:04.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "newegg-lenovo-legion-tower-5i-30ias10-gaming-desktop-pc",
+      "name": "Lenovo Legion Tower 5i 30IAS10 Gaming Desktop PC",
+      "brand": "Lenovo",
+      "category": "desktop",
+      "profiles": [
+        "gaming",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 2399.99,
+      "originalPrice": 2899.99,
+      "isOnSale": true,
+      "specs": {
+        "cpu": "Intel Core Ultra 7 265F",
+        "ram": "32GB DDR5 5600",
+        "storage": "1TB NVMe SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un excellent PC de gaming avec un processeur Intel Core Ultra 7 et une RTX 5070, parfait pour les jeux et la création de contenu. Le prix est compétitif pour les specs.",
+      "url": "https://www.newegg.ca/lenovo-legion-tower-5i-gaming-desktop-pc-geforce-rtx-5070-intel-core-ultra-7-265f-32gb-ddr5-1tb-pcie-ssd-90ya0015fz-eclipse-black/p/N82E16883370605?lang=fr&srsltid=AfmBOoqbRMWoQNiyAPCf4rc19UeA6MDmiAOlYAXQvpu9k917OARp0Ic1",
+      "imageUrl": "/images/products/newegg-lenovo-legion-tower-5i-30ias10-gaming-desktop-pc.jpg",
+      "source": "newegg",
+      "addedAt": "2026-04-01T00:35:20.770Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "walmart-acer-ed270-x0-fhd-moniteur-de-jeu-incurve-27-pouces-1080p-fh",
+      "name": "Acer ED270 X0 FHD – Moniteur de jeu incurvé 27 pouces 1080P FHD, taux de rafraîchissement 200 Hz",
+      "brand": "Acer",
+      "category": "monitor",
+      "profiles": [
+        "gaming"
+      ],
+      "budgetTier": "under500",
+      "price": 299.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "VA",
+        "resolution": "1920x1080",
+        "size": "27\"",
+        "storage": "N/A"
+      },
+      "aiScore": 85,
+      "aiRationale": "Pour les gamers avec un budget serré, un moniteur 27 pouces incurvé avec un taux de rafraîchissement de 200 Hz, c'est un excellent deal. Parfait pour une expérience de jeu fluide.",
+      "url": "https://www.walmart.ca/fr/ip/Acer-ED270-X0-FHD-Moniteur-de-jeu-incurv-27-pouces-1080P-FHD-taux-de-rafra-chissement-200-Hz-cran-large-sans-cadre-Zeroframe/64FL8SOG50LI",
+      "imageUrl": "/images/products/walmart-acer-ed270-x0-fhd-moniteur-de-jeu-incurve-27-pouces-.jpg",
+      "source": "walmart",
+      "addedAt": "2026-03-29T20:56:48.201Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -1974,91 +1601,8 @@
       "imageUrl": "/images/products/newegg-ordinateur-portable-asus-vivobook-15-x1502-15-6-intel.png",
       "source": "newegg",
       "addedAt": "2026-04-01T00:35:17.991Z",
-      "lastVerified": "2026-04-20T11:35:10.011Z",
+      "lastVerified": "2026-04-21T11:42:43.183Z",
       "priceSource": "page"
-    },
-    {
-      "id": "newegg-lenovo-legion-tower-5i-30ias10-gaming-desktop-pc",
-      "name": "Lenovo Legion Tower 5i 30IAS10 Gaming Desktop PC",
-      "brand": "Lenovo",
-      "category": "desktop",
-      "profiles": [
-        "gaming",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2399.99,
-      "originalPrice": 2899.99,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "Intel Core Ultra 7 265F",
-        "ram": "32GB DDR5 5600",
-        "storage": "1TB NVMe SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un excellent PC de gaming avec un processeur Intel Core Ultra 7 et une RTX 5070, parfait pour les jeux et la création de contenu. Le prix est compétitif pour les specs.",
-      "url": "https://www.newegg.ca/lenovo-legion-tower-5i-gaming-desktop-pc-geforce-rtx-5070-intel-core-ultra-7-265f-32gb-ddr5-1tb-pcie-ssd-90ya0015fz-eclipse-black/p/N82E16883370605?lang=fr&srsltid=AfmBOoqbRMWoQNiyAPCf4rc19UeA6MDmiAOlYAXQvpu9k917OARp0Ic1",
-      "imageUrl": "/images/products/newegg-lenovo-legion-tower-5i-30ias10-gaming-desktop-pc.jpg",
-      "source": "newegg",
-      "addedAt": "2026-04-01T00:35:20.770Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "walmart-acer-ed270-x0-fhd-moniteur-de-jeu-incurve-27-pouces-1080p-fh",
-      "name": "Acer ED270 X0 FHD – Moniteur de jeu incurvé 27 pouces 1080P FHD, taux de rafraîchissement 200 Hz",
-      "brand": "Acer",
-      "category": "monitor",
-      "profiles": [
-        "gaming"
-      ],
-      "budgetTier": "under500",
-      "price": 299.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "VA",
-        "resolution": "1920x1080",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 85,
-      "aiRationale": "Pour les gamers avec un budget serré, un moniteur 27 pouces incurvé avec un taux de rafraîchissement de 200 Hz, c'est un excellent deal. Parfait pour une expérience de jeu fluide.",
-      "url": "https://www.walmart.ca/fr/ip/Acer-ED270-X0-FHD-Moniteur-de-jeu-incurv-27-pouces-1080P-FHD-taux-de-rafra-chissement-200-Hz-cran-large-sans-cadre-Zeroframe/64FL8SOG50LI",
-      "imageUrl": "/images/products/walmart-acer-ed270-x0-fhd-moniteur-de-jeu-incurve-27-pouces-.jpg",
-      "source": "walmart",
-      "addedAt": "2026-03-29T20:56:48.201Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-hp-omnibook-5-flip-x360-ordinateur-portable-tactile-2-en-1-1",
-      "name": "HP OmniBook 5 Flip x360 Ordinateur portable tactile 2 en 1, 14 pouces 2K IPS, Intel Core 7 150U, 16 Go de RAM, 1 To SSD, Copilot AI, caméra infrarouge",
-      "brand": "HP",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1699.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core 7 150U",
-        "ram": "16 Go",
-        "storage": "1 To SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Ce portable 2-en-1 avec un Intel Core 7 récent et 1 To de SSD est excellent pour la productivité et la création, même si le prix est un peu élevé.",
-      "url": "https://www.amazon.ca/dp/B0FLPVVTJW?tag=shopcompy-20",
-      "imageUrl": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bb4d1fb6-67e8-4007-bfd6-62cfd821ef27/dfayllo-9e48cb3f-6c74-43b9-bb06-3b4a7504c736.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODk1IiwicGF0aCI6Ii9mL2JiNGQxZmI2LTY3ZTgtNDAwNy1iZmQ2LTYyY2ZkODIxZWYyNy9kZmF5bGxvLTllNDhjYjNmLTZjNzQtNDNiOS1iYjA2LTNiNGE3NTA0YzczNi5qcGciLCJ3aWR0aCI6Ijw9MTI4MCIsImJsdXIiOiI-PTEwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.eTKJLdAS4mtZN6BOL2qazHfLA-myM5BR3wUHglJeQ8A",
-      "source": "amazon",
-      "addedAt": "2026-04-17T15:43:55.472Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
     },
     {
       "id": "walmart-dell-inspiron-15-3530-15-6-fhd-touchscreen-laptop",
@@ -2085,37 +1629,7 @@
       "imageUrl": "/images/products/walmart-dell-inspiron-15-3530-15-6-fhd-touchscreen-laptop.jpg",
       "source": "walmart",
       "addedAt": "2026-04-17T15:47:48.045Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "newegg-lg-27-ultragear-27gp850-b-qhd-2560-x-1440-nano-ips-1ms-165hz",
-      "name": "LG 27\" UltraGear 27GP850-B QHD 2560 x 1440 Nano IPS 1ms 165Hz Gaming Monitor",
-      "brand": "LG",
-      "category": "monitor",
-      "profiles": [
-        "gaming",
-        "creative",
-        "work"
-      ],
-      "budgetTier": "500to900",
-      "price": 449.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "2560x1440",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 85,
-      "aiRationale": "Ce moniteur LG UltraGear offre une excellente résolution QHD et un taux de rafraîchissement élevé, parfait pour les gamers et les créatifs. Le panneau Nano IPS assure des couleurs vives et des angles de vision larges.",
-      "url": "https://www.newegg.ca/lg-27gp850-b-27-qhd-165-hz-ultragear-nano-ips/p/N82E16824026195",
-      "imageUrl": "/images/products/newegg-lg-27-ultragear-27gp850-b-qhd-2560-x-1440-nano-ips-1m.jpg",
-      "source": "newegg",
-      "addedAt": "2026-04-14T12:40:03.133Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -2144,64 +1658,7 @@
       "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2424he/pdp/ultrasharp-u2424he-pdp-hero.psd?qlt=95&fit=constrain,1&hei=350&wid=540&fmt=jpg?fmt=png&wid=400&hei=400",
       "source": "dell",
       "addedAt": "2026-03-29T20:56:27.842Z",
-      "lastVerified": "2026-04-20T11:35:10.495Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "amazon-hp-15-6-inch-laptop-pc-amd-ryzen-7-7730u-16gb-ram-1tb",
-      "name": "HP 15.6 inch Laptop PC, AMD Ryzen 7 7730U, 16GB RAM, 1TB",
-      "brand": "HP",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "basic"
-      ],
-      "budgetTier": "900to1500",
-      "price": 1099.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "AMD Ryzen 7 7730U",
-        "ram": "16GB",
-        "storage": "1TB SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un bon portable pour la productivité avec un Ryzen 7 récent et beaucoup de RAM/stockage. Idéal pour le travail et les études.",
-      "url": "https://www.amazon.ca/dp/B0F1MRPW86?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-hp-15-6-inch-laptop-pc-amd-ryzen-7-7730u-16gb-ram-1tb.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-18T11:38:12.862Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "apple-macbook-air-13-inch-m5-10-core-cpu-10-core-gpu-starlight-24g",
-      "name": "MacBook Air 13-inch (M5, 10-core CPU, 10-core GPU, Starlight, 24GB memory, 1TB storage)",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1499,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M5 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "24GB",
-        "storage": "1TB"
-      },
-      "aiScore": 85,
-      "aiRationale": "Ce MacBook Air avec la puce M5 est un excellent choix pour la productivité et la création, offrant une performance solide et une bonne autonomie. Le prix est compétitif pour les specs.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch-starlight-m4-chip-10-core-cpu-10-core-gpu-24gb-memory-1tb-storage",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-18T11:40:33.947Z",
-      "lastVerified": "2026-04-20T11:35:10.454Z",
+      "lastVerified": "2026-04-21T11:42:43.462Z",
       "priceSource": "page"
     },
     {
@@ -2230,67 +1687,38 @@
       "imageUrl": "https://p3-ofp.static.pub/fes/cms/2022/03/29/fxq8k26aghm6xril1qzikh2in7osfc415110.png",
       "source": "lenovo",
       "addedAt": "2026-04-18T11:39:24.042Z",
-      "lastVerified": "2026-04-20T11:35:12.752Z",
+      "lastVerified": "2026-04-21T11:42:43.178Z",
       "priceSource": "page"
     },
     {
-      "id": "amazon-dell-27-plus-4k-usb-c-monitor-s2725qc",
-      "name": "Dell 27 Plus 4K USB-C Monitor - S2725QC",
-      "brand": "Dell",
+      "id": "newegg-lg-27-ultragear-27gp850-b-qhd-2560-x-1440-nano-ips-1ms-165hz",
+      "name": "LG 27\" UltraGear 27GP850-B QHD 2560 x 1440 Nano IPS 1ms 165Hz Gaming Monitor",
+      "brand": "LG",
       "category": "monitor",
       "profiles": [
-        "work",
+        "gaming",
         "creative",
-        "basic"
+        "work"
       ],
       "budgetTier": "500to900",
-      "price": 600,
+      "price": 449.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
         "cpu": "N/A",
         "panelType": "IPS",
-        "resolution": "3840x2160",
+        "resolution": "2560x1440",
         "size": "27\"",
         "storage": "N/A"
       },
       "aiScore": 85,
-      "aiRationale": "Un moniteur 4K Dell amélioré, idéal pour le travail et le divertissement avec un confort oculaire certifié. Un choix solide pour la polyvalence.",
-      "url": "https://www.amazon.ca/dp/B0F1GFD44G?tag=shopcompy-20",
-      "imageUrl": "https://i.pinimg.com/originals/24/27/97/242797df50e6365ead6f9de6a4d7ae82.png",
-      "source": "amazon",
-      "addedAt": "2026-04-19T11:40:32.983Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "aiRationale": "Ce moniteur LG UltraGear offre une excellente résolution QHD et un taux de rafraîchissement élevé, parfait pour les gamers et les créatifs. Le panneau Nano IPS assure des couleurs vives et des angles de vision larges.",
+      "url": "https://www.newegg.ca/lg-27gp850-b-27-qhd-165-hz-ultragear-nano-ips/p/N82E16824026195",
+      "imageUrl": "/images/products/newegg-lg-27-ultragear-27gp850-b-qhd-2560-x-1440-nano-ips-1m.jpg",
+      "source": "newegg",
+      "addedAt": "2026-04-14T12:40:03.133Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
-    },
-    {
-      "id": "microsoft-surface-laptop-copilot-pc-15-pouces",
-      "name": "Surface Laptop, Copilot+ PC, 15 pouces",
-      "brand": "Microsoft",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2399.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Snapdragon X Elite",
-        "display": "15 pouces",
-        "ram": "16GB",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un excellent choix pour la productivité et la créativité, avec le nouveau processeur Snapdragon X Elite et un grand écran de 15 pouces. C'est un investissement solide pour ceux qui cherchent la performance et l'autonomie.",
-      "url": "https://www.microsoft.com/fr-ca/store/configure/surface-laptop-15-inch/8mzbmmcjzqc4",
-      "imageUrl": "/images/products/microsoft-surface-laptop-copilot-pc-15-pouces.png",
-      "source": "microsoft",
-      "addedAt": "2026-03-29T20:57:05.395Z",
-      "lastVerified": "2026-04-20T11:35:10.976Z",
-      "priceSource": "page"
     },
     {
       "id": "hp-omen-27qs-g2-qhd-280-hz-27-pouces-gaming-monitor",
@@ -2318,8 +1746,37 @@
       "imageUrl": "/images/products/hp-omen-27qs-g2-qhd-280-hz-27-pouces-gaming-monitor.png",
       "source": "hp",
       "addedAt": "2026-04-19T11:41:54.315Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
+    },
+    {
+      "id": "apple-macbook-air-13-inch-m5-10-core-cpu-10-core-gpu-starlight-24g",
+      "name": "MacBook Air 13-inch (M5, 10-core CPU, 10-core GPU, Starlight, 24GB memory, 1TB storage)",
+      "brand": "Apple",
+      "category": "apple",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 1499,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Apple M5 Chip, 10-core CPU",
+        "gpu": "10-core GPU",
+        "ram": "24GB",
+        "storage": "1TB"
+      },
+      "aiScore": 85,
+      "aiRationale": "Ce MacBook Air avec la puce M5 est un excellent choix pour la productivité et la création, offrant une performance solide et une bonne autonomie. Le prix est compétitif pour les specs.",
+      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch-starlight-m4-chip-10-core-cpu-10-core-gpu-24gb-memory-1tb-storage",
+      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
+      "source": "apple",
+      "addedAt": "2026-04-18T11:40:33.947Z",
+      "lastVerified": "2026-04-21T11:42:43.339Z",
+      "priceSource": "page"
     },
     {
       "id": "dell-ecran-dell-ultrasharp-27-pouces-u2724d",
@@ -2347,7 +1804,7 @@
       "imageUrl": "/images/products/dell-ecran-dell-ultrasharp-27-pouces-u2724d.png",
       "source": "dell",
       "addedAt": "2026-04-19T11:41:41.671Z",
-      "lastVerified": "2026-04-20T11:35:11.002Z",
+      "lastVerified": "2026-04-21T11:42:43.593Z",
       "priceSource": "page"
     },
     {
@@ -2376,7 +1833,7 @@
       "imageUrl": "/images/products/walmart-hp-portable-a-ecran-tactile-15-6-po-fhd-1920x1080-in.jpg",
       "source": "walmart",
       "addedAt": "2026-04-19T11:42:05.392Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -2406,7 +1863,178 @@
       "imageUrl": "/images/products/walmart-g-story-moniteur-portable-15-6-pouces-ips-4k-60hz.jpg",
       "source": "walmart",
       "addedAt": "2026-04-19T11:42:17.901Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "microsoft-surface-laptop-copilot-pc-15-pouces",
+      "name": "Surface Laptop, Copilot+ PC, 15 pouces",
+      "brand": "Microsoft",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 2399.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Snapdragon X Elite",
+        "display": "15 pouces",
+        "ram": "16GB",
+        "storage": "512GB SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un excellent choix pour la productivité et la créativité, avec le nouveau processeur Snapdragon X Elite et un grand écran de 15 pouces. C'est un investissement solide pour ceux qui cherchent la performance et l'autonomie.",
+      "url": "https://www.microsoft.com/fr-ca/store/configure/surface-laptop-15-inch/8mzbmmcjzqc4",
+      "imageUrl": "/images/products/microsoft-surface-laptop-copilot-pc-15-pouces.png",
+      "source": "microsoft",
+      "addedAt": "2026-03-29T20:57:05.395Z",
+      "lastVerified": "2026-04-21T11:42:43.888Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "newegg-gigabyte-m27q-x-27-ips-gaming-monitor-qhd-2560x1440",
+      "name": "GIGABYTE M27Q X - 27\" IPS Gaming Monitor - QHD 2560x1440",
+      "brand": "GIGABYTE",
+      "category": "monitor",
+      "profiles": [
+        "gaming",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 1600,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "IPS",
+        "resolution": "2560x1440",
+        "size": "27\"",
+        "storage": "N/A"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un excellent moniteur de jeu avec un taux de rafraîchissement élevé et une résolution QHD, parfait pour les gamers exigeants. Le panneau IPS assure de belles couleurs.",
+      "url": "https://www.newegg.ca/gigabyte-m27q-x-27-qhd-240-hz-super-speed-ips/p/N82E16824012048?srsltid=AfmBOooUVGlsXd1xyif-VQhym3jssws9_8Ga7mMrtzGI87pimgQSlVBG",
+      "imageUrl": "/images/products/newegg-gigabyte-m27q-x-27-ips-gaming-monitor-qhd-2560x1440.jpg",
+      "source": "newegg",
+      "addedAt": "2026-04-20T11:29:41.501Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "newegg-dell-ultrasharp-u2724d-27-class-wqhd-led-monitor",
+      "name": "Dell UltraSharp U2724D 27\" Class WQHD LED Monitor",
+      "brand": "Dell",
+      "category": "monitor",
+      "profiles": [
+        "work",
+        "creative"
+      ],
+      "budgetTier": "500to900",
+      "price": 563.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "IPS",
+        "resolution": "2560x1440",
+        "size": "27\"",
+        "storage": "N/A"
+      },
+      "aiScore": 85,
+      "aiRationale": "Une option plus abordable que le modèle DE, ce Dell UltraSharp offre une excellente qualité d'image pour le travail et la productivité. Un choix intelligent pour un bureau moderne.",
+      "url": "https://www.newegg.ca/dell-27/p/0JC-0004-00V98?srsltid=AfmBOopyL1bFdN3JIvXyKgowL7BUNsVwoan2n8XA53i35h7k7YxemOgC",
+      "imageUrl": "/images/products/newegg-dell-ultrasharp-u2724d-27-class-wqhd-led-monitor.jpg",
+      "source": "newegg",
+      "addedAt": "2026-04-20T11:29:41.502Z",
+      "lastVerified": "2026-04-21T11:42:43.671Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "microsoft-surface-laptop-copilot-pc-remise-a-neuf-certifiee",
+      "name": "Surface Laptop, Copilot+ PC (remise à neuf certifiée)",
+      "brand": "Microsoft Surface",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "900to1500",
+      "price": 1242,
+      "originalPrice": 2000,
+      "isOnSale": true,
+      "specs": {
+        "cpu": "Snapdragon X Elite",
+        "ram": "16GB",
+        "storage": "512GB SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un Surface Laptop remis à neuf avec un processeur Snapdragon X Elite, c'est une excellente affaire pour un PC Copilot+. Performance et autonomie au rendez-vous!",
+      "url": "https://www.microsoft.com/fr-ca/d/surface-laptop-copilot-pc-remise-a-neuf-certifiee/8v7gkbzd5v58",
+      "imageUrl": "/images/products/microsoft-surface-laptop-copilot-pc-remise-a-neuf-certifiee.png",
+      "source": "microsoft",
+      "addedAt": "2026-03-28T19:41:01.925Z",
+      "lastVerified": "2026-04-21T11:42:44.231Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "lenovo-ideapad-pro-5i-16-intel-83jm001gus",
+      "name": "IdeaPad Pro 5i (16” Intel) | 83JM001GUS",
+      "brand": "Lenovo",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "creative",
+        "gaming"
+      ],
+      "budgetTier": "over1500",
+      "price": 2649.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core Ultra H Series",
+        "ram": "16 GB DDR5",
+        "storage": "512 GB SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un excellent portable IA avec un processeur Intel Core Ultra H Series, offrant une performance solide pour les tâches créatives et professionnelles. Le rapport qualité-prix est très bon pour cette technologie.",
+      "url": "https://www.lenovo.com/ca/en/p/laptops/ideapad/ideapad-pro-series/lenovo-ideapad-pro-5i-gen-10-16-inch-intel/83jm001gus?srsltid=AfmBOooGBmMqWzWd4nYuotRyO_93cc6HotSuY4M7c2t5y9UNlqOp4fZp",
+      "imageUrl": "/images/products/lenovo-ideapad-pro-5i-16-intel-83jm001gus.png",
+      "source": "lenovo",
+      "addedAt": "2026-04-20T11:29:58.349Z",
+      "lastVerified": "2026-04-21T11:42:48.071Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "walmart-lenovo-ideapad-flex-5-14-pouces-2-en-1-ordinateur-portable-c",
+      "name": "Lenovo IdeaPad Flex 5 14 Pouces 2 en 1 Ordinateur Portable - Core i5-1235U, 8 Go RAM, 256 SSD, Chrome OS",
+      "brand": "Lenovo",
+      "category": "chromebook",
+      "profiles": [
+        "student",
+        "work"
+      ],
+      "budgetTier": "500to900",
+      "price": 699.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core i5-1235U",
+        "display": "14 pouces 2 en 1 tactile",
+        "ram": "8 Go",
+        "storage": "256 Go SSD"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un Chromebook 2-en-1 avec un Core i5 de 12e génération et un SSD de 256 Go, c'est un excellent rapport qualité-prix pour la productivité et la polyvalence.",
+      "url": "https://www.walmart.ca/fr/ip/Remis-Neuf-Excellent-Lenovo-IdeaPad-Flex-5-14-Pouces-2-en-1-Ordinateur-Portable-Core-i5-1235U-8-Go-RAM-256-SSD-Chrome-OS-comme/4LPWZZ9FENGK",
+      "imageUrl": "/images/products/walmart-lenovo-ideapad-flex-5-14-pouces-2-en-1-ordinateur-po.jpg",
+      "source": "walmart",
+      "addedAt": "2026-04-20T11:33:53.923Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -2434,7 +2062,37 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
       "source": "apple",
       "addedAt": "2026-04-19T11:42:46.570Z",
-      "lastVerified": "2026-04-20T11:35:11.116Z",
+      "lastVerified": "2026-04-21T11:42:43.982Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "apple-orange-imac",
+      "name": "Orange iMac",
+      "brand": "Apple",
+      "category": "apple",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "over1500",
+      "price": 1699,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Apple M4 chip with 10-core CPU",
+        "display": "24-inch Standard glass",
+        "gpu": "10-core GPU",
+        "ram": "16GB",
+        "storage": "256GB"
+      },
+      "aiScore": 85,
+      "aiRationale": "Un iMac M4 performant et stylé, parfait pour les professionnels et les étudiants qui veulent un ordinateur tout-en-un puissant et fiable.",
+      "url": "https://www.apple.com/ca/shop/buy-mac/imac/orange-24-inch-standard-glass-apple-m4-chip-with-10-core-cpu-and-10-core-gpu-16gb-memory-256gb",
+      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/imac/select&pageResource=mac-2&feature=step1evolution",
+      "source": "apple",
+      "addedAt": "2026-04-18T11:40:49.454Z",
+      "lastVerified": "2026-04-21T11:42:44.357Z",
       "priceSource": "page"
     },
     {
@@ -2471,382 +2129,8 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
       "source": "apple",
       "addedAt": "2026-04-19T11:42:59.607Z",
-      "lastVerified": "2026-04-20T11:35:11.025Z",
+      "lastVerified": "2026-04-21T11:42:44.260Z",
       "priceSource": "page"
-    },
-    {
-      "id": "microsoft-surface-laptop-copilot-pc-remise-a-neuf-certifiee",
-      "name": "Surface Laptop, Copilot+ PC (remise à neuf certifiée)",
-      "brand": "Microsoft Surface",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "900to1500",
-      "price": 1242,
-      "originalPrice": 2000,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "Snapdragon X Elite",
-        "ram": "16GB",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un Surface Laptop remis à neuf avec un processeur Snapdragon X Elite, c'est une excellente affaire pour un PC Copilot+. Performance et autonomie au rendez-vous!",
-      "url": "https://www.microsoft.com/fr-ca/d/surface-laptop-copilot-pc-remise-a-neuf-certifiee/8v7gkbzd5v58",
-      "imageUrl": "/images/products/microsoft-surface-laptop-copilot-pc-remise-a-neuf-certifiee.png",
-      "source": "microsoft",
-      "addedAt": "2026-03-28T19:41:01.925Z",
-      "lastVerified": "2026-04-20T11:35:12.436Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "apple-orange-imac",
-      "name": "Orange iMac",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1699,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 chip with 10-core CPU",
-        "display": "24-inch Standard glass",
-        "gpu": "10-core GPU",
-        "ram": "16GB",
-        "storage": "256GB"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un iMac M4 performant et stylé, parfait pour les professionnels et les étudiants qui veulent un ordinateur tout-en-un puissant et fiable.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/imac/orange-24-inch-standard-glass-apple-m4-chip-with-10-core-cpu-and-10-core-gpu-16gb-memory-256gb",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/imac/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-18T11:40:49.454Z",
-      "lastVerified": "2026-04-20T11:35:11.385Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "amazon-acer-predator-neo-phn16-73-92el-16-gaming-laptop",
-      "name": "Acer Predator Neo PHN16-73-92EL 16\" Gaming Laptop",
-      "brand": "Acer",
-      "category": "laptop",
-      "profiles": [
-        "gaming",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2499.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 9 275HX",
-        "gpu": "NVIDIA GeForce RTX 5060",
-        "ram": "16GB DDR5 RAM",
-        "storage": "1TB SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un portable gaming puissant avec le Core Ultra 9 et une RTX 5060. Idéal pour les gamers qui veulent de bonnes performances sans se ruiner complètement.",
-      "url": "https://www.amazon.ca/dp/B0FMB4PBRS?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-acer-predator-neo-phn16-73-92el-16-gaming-laptop.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:28:25.350Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-apple-macbook-air-13-2025-avec-puce-m4-concu-pour-apple-inte",
-      "name": "Apple MacBook Air 13\" 2025 avec puce M4 : Conçu pour Apple Intelligence, mémoire unifiée de 24 Go, stockage SSD de 512 Go",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "student",
-        "work",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1999,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4",
-        "ram": "24 Go de mémoire unifiée",
-        "storage": "512 Go de stockage SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Cette configuration du MacBook Air M4 est parfaite pour les professionnels et les étudiants exigeants, offrant une excellente performance et une bonne capacité de stockage.",
-      "url": "https://www.amazon.ca/dp/B0DZDCLHF2?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-apple-macbook-air-13-2025-avec-puce-m4-concu-pour-app.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:28:25.350Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-lg-ultrafine-27-inch-4k-uhd-3840x2160-ips-monitor-usb-c-pd-9",
-      "name": "LG Ultrafine 27 inch 4K UHD (3840x2160) IPS Monitor, USB-C PD 90W, DisplayPort, Hardware Calibration, Tilt/Height/Pivot Adjustment, 95% DCI-P3 HDR 400, 27UP850K, White",
-      "brand": "LG",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative"
-      ],
-      "budgetTier": "under500",
-      "price": 399.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "3840x2160",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un excellent moniteur 4K IPS de 27 pouces avec 90W de Power Delivery via USB-C, idéal pour les créatifs et les professionnels à un prix très compétitif.",
-      "url": "https://www.amazon.ca/dp/B0DQFF7FBS?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-lg-ultrafine-27-inch-4k-uhd-3840x2160-ips-monitor-usb.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:28:36.418Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "newegg-gigabyte-m27q-x-27-ips-gaming-monitor-qhd-2560x1440",
-      "name": "GIGABYTE M27Q X - 27\" IPS Gaming Monitor - QHD 2560x1440",
-      "brand": "GIGABYTE",
-      "category": "monitor",
-      "profiles": [
-        "gaming",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1600,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "2560x1440",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un excellent moniteur de jeu avec un taux de rafraîchissement élevé et une résolution QHD, parfait pour les gamers exigeants. Le panneau IPS assure de belles couleurs.",
-      "url": "https://www.newegg.ca/gigabyte-m27q-x-27-qhd-240-hz-super-speed-ips/p/N82E16824012048?srsltid=AfmBOooUVGlsXd1xyif-VQhym3jssws9_8Ga7mMrtzGI87pimgQSlVBG",
-      "imageUrl": "/images/products/newegg-gigabyte-m27q-x-27-ips-gaming-monitor-qhd-2560x1440.jpg",
-      "source": "newegg",
-      "addedAt": "2026-04-20T11:29:41.501Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "newegg-dell-ultrasharp-u2724d-27-class-wqhd-led-monitor",
-      "name": "Dell UltraSharp U2724D 27\" Class WQHD LED Monitor",
-      "brand": "Dell",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative"
-      ],
-      "budgetTier": "500to900",
-      "price": 563.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "2560x1440",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 85,
-      "aiRationale": "Une option plus abordable que le modèle DE, ce Dell UltraSharp offre une excellente qualité d'image pour le travail et la productivité. Un choix intelligent pour un bureau moderne.",
-      "url": "https://www.newegg.ca/dell-27/p/0JC-0004-00V98?srsltid=AfmBOopyL1bFdN3JIvXyKgowL7BUNsVwoan2n8XA53i35h7k7YxemOgC",
-      "imageUrl": "/images/products/newegg-dell-ultrasharp-u2724d-27-class-wqhd-led-monitor.jpg",
-      "source": "newegg",
-      "addedAt": "2026-04-20T11:29:41.502Z",
-      "lastVerified": "2026-04-20T11:35:11.561Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "lenovo-ideapad-pro-5i-16-intel-83jm001gus",
-      "name": "IdeaPad Pro 5i (16” Intel) | 83JM001GUS",
-      "brand": "Lenovo",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 2649.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra H Series",
-        "ram": "16 GB DDR5",
-        "storage": "512 GB SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un excellent portable IA avec un processeur Intel Core Ultra H Series, offrant une performance solide pour les tâches créatives et professionnelles. Le rapport qualité-prix est très bon pour cette technologie.",
-      "url": "https://www.lenovo.com/ca/en/p/laptops/ideapad/ideapad-pro-series/lenovo-ideapad-pro-5i-gen-10-16-inch-intel/83jm001gus?srsltid=AfmBOooGBmMqWzWd4nYuotRyO_93cc6HotSuY4M7c2t5y9UNlqOp4fZp",
-      "imageUrl": "/images/products/lenovo-ideapad-pro-5i-16-intel-83jm001gus.png",
-      "source": "lenovo",
-      "addedAt": "2026-04-20T11:29:58.349Z",
-      "lastVerified": "2026-04-20T11:35:12.710Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "walmart-lenovo-ideapad-flex-5-14-pouces-2-en-1-ordinateur-portable-c",
-      "name": "Lenovo IdeaPad Flex 5 14 Pouces 2 en 1 Ordinateur Portable - Core i5-1235U, 8 Go RAM, 256 SSD, Chrome OS",
-      "brand": "Lenovo",
-      "category": "chromebook",
-      "profiles": [
-        "student",
-        "work"
-      ],
-      "budgetTier": "500to900",
-      "price": 699.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core i5-1235U",
-        "display": "14 pouces 2 en 1 tactile",
-        "ram": "8 Go",
-        "storage": "256 Go SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Un Chromebook 2-en-1 avec un Core i5 de 12e génération et un SSD de 256 Go, c'est un excellent rapport qualité-prix pour la productivité et la polyvalence.",
-      "url": "https://www.walmart.ca/fr/ip/Remis-Neuf-Excellent-Lenovo-IdeaPad-Flex-5-14-Pouces-2-en-1-Ordinateur-Portable-Core-i5-1235U-8-Go-RAM-256-SSD-Chrome-OS-comme/4LPWZZ9FENGK",
-      "imageUrl": "/images/products/walmart-lenovo-ideapad-flex-5-14-pouces-2-en-1-ordinateur-po.jpg",
-      "source": "walmart",
-      "addedAt": "2026-04-20T11:33:53.923Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-2025-lenovo-thinkpad-x1-carbon-gen-12-14-wuxga-ips-touch-lap",
-      "name": "2025 Lenovo ThinkPad X1 Carbon Gen 12 14” WUXGA IPS Touch Laptop",
-      "brand": "Lenovo",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 2430.54,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 7 155U",
-        "display": "14” WUXGA IPS Touch",
-        "ram": "32GB LPDDR5",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 84,
-      "aiRationale": "Ce ThinkPad X1 Carbon Gen 12 est une excellente machine pour les professionnels avec son Core Ultra 7 et 32 Go de RAM. Le prix est élevé, mais la qualité est au rendez-vous.",
-      "url": "https://www.amazon.ca/dp/B0FLJW7XW1?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-2025-lenovo-thinkpad-x1-carbon-gen-12-14-wuxga-ips-to.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:27:32.818Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-dell-s2722qc-27-inch-4k-uhd-3840-x-2160-60hz-monitor-8ms",
-      "name": "Dell S2722QC 27-inch 4K UHD 3840 x 2160 60Hz Monitor, 8MS",
-      "brand": "Dell",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "student",
-        "basic"
-      ],
-      "budgetTier": "500to900",
-      "price": 570,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "3840x2160",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 83,
-      "aiRationale": "Ce moniteur Dell offre une connectivité USB-C avec 65W de Power Delivery, parfait pour charger votre portable et réduire l'encombrement des câbles.",
-      "url": "https://www.amazon.ca/dp/B09JMPVQY3?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-dell-s2722qc-27-inch-4k-uhd-3840-x-2160-60hz-monitor-.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-19T11:40:32.983Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "microsoft-dock-surface-thunderbolt-4",
-      "name": "Dock Surface Thunderbolt 4",
-      "brand": "Microsoft Surface",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "creative"
-      ],
-      "budgetTier": "under500",
-      "price": 365.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "Non spécifié",
-        "powerDelivery": "Non spécifié",
-        "ram": "N/A",
-        "storage": "N/A"
-      },
-      "aiScore": 82,
-      "aiRationale": "Un dock Thunderbolt 4 est essentiel pour étendre la connectivité de votre Surface. Un investissement solide pour un poste de travail complet et efficace.",
-      "url": "https://www.microsoft.com/fr-ca/d/station-daccueil-surface-2/8qd908364sg2",
-      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
-      "source": "microsoft",
-      "addedAt": "2026-04-14T12:40:49.341Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-lenovo-ordinateur-portable-ideapad-slim-3-15amn8-2024-4-c-ur",
-      "name": "Lenovo Ordinateur portable IdeaPad Slim 3 15AMN8 2024, 4 cœurs AMD Ryzen 5 7520U, écran FHD IPS de 15,6\", carte graphique AMD Radeon, 8 Go LPDDR5 512 Go SSD",
-      "brand": "Lenovo",
-      "category": "laptop",
-      "profiles": [
-        "student",
-        "basic",
-        "work"
-      ],
-      "budgetTier": "500to900",
-      "price": 799.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "AMD Ryzen 5 7520U",
-        "display": "FHD IPS de 15,6\"",
-        "gpu": "AMD Radeon",
-        "ram": "8 Go LPDDR5",
-        "storage": "512 Go SSD"
-      },
-      "aiScore": 82,
-      "aiRationale": "Un bon rapport qualité-prix pour un usage quotidien et les études, avec un écran IPS et un Ryzen 5 récent.",
-      "url": "https://www.amazon.ca/dp/B0D9LBJRVC?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-lenovo-ordinateur-portable-ideapad-slim-3-15amn8-2024.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-19T11:39:20.795Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
     },
     {
       "id": "dell-moniteur-4k-dell-32-plus-s3225qs",
@@ -2875,7 +2159,7 @@
       "imageUrl": "https://dqd7cfpoijv93.cloudfront.net/media/products/product-attachments/m/o/monitor-s3225qs-c-gray-gallery-2.png",
       "source": "dell",
       "addedAt": "2026-04-01T00:36:11.306Z",
-      "lastVerified": "2026-04-20T11:35:13.263Z",
+      "lastVerified": "2026-04-21T11:42:44.714Z",
       "priceSource": "page"
     },
     {
@@ -2905,37 +2189,36 @@
       "imageUrl": "/images/products/walmart-hp-series-5-moniteur-fhd-27-pouces-ecran-full-hd-192.png",
       "source": "walmart",
       "addedAt": "2026-04-18T11:40:14.668Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
-      "id": "amazon-dell-27-4k-uhd-usb-c-monitor-s2722qc",
-      "name": "Dell 27 4K UHD USB-C Monitor - S2722QC",
-      "brand": "Dell",
-      "category": "monitor",
+      "id": "microsoft-dock-surface-thunderbolt-4",
+      "name": "Dock Surface Thunderbolt 4",
+      "brand": "Microsoft Surface",
+      "category": "dock",
       "profiles": [
         "work",
-        "student",
-        "basic"
+        "creative"
       ],
-      "budgetTier": "500to900",
-      "price": 550,
+      "budgetTier": "under500",
+      "price": 365.99,
       "originalPrice": 0,
       "isOnSale": false,
       "specs": {
         "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "3840x2160",
-        "size": "27\"",
+        "ports": "Non spécifié",
+        "powerDelivery": "Non spécifié",
+        "ram": "N/A",
         "storage": "N/A"
       },
       "aiScore": 82,
-      "aiRationale": "Un moniteur 4K de Dell avec USB-C à un prix compétitif. Parfait pour le télétravail ou les études, offrant une belle qualité d'image.",
-      "url": "https://www.amazon.ca/dp/B09DTDRJWP?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-dell-27-4k-uhd-usb-c-monitor-s2722qc.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-19T11:40:32.983Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "aiRationale": "Un dock Thunderbolt 4 est essentiel pour étendre la connectivité de votre Surface. Un investissement solide pour un poste de travail complet et efficace.",
+      "url": "https://www.microsoft.com/fr-ca/d/station-daccueil-surface-2/8qd908364sg2",
+      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
+      "source": "microsoft",
+      "addedAt": "2026-04-14T12:40:49.341Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -2963,7 +2246,36 @@
       "imageUrl": "/images/products/walmart-dell-inspiron-3030-sff-core-i5-12400.jpg",
       "source": "walmart",
       "addedAt": "2026-04-19T11:42:17.901Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "newegg-asus-tuf-27-qhd-2k-1440p-165hz-ips-adaptive-sync-gaming-moni",
+      "name": "ASUS TUF 27\" QHD 2K 1440P 165Hz IPS Adaptive Sync Gaming Monitor",
+      "brand": "ASUS",
+      "category": "monitor",
+      "profiles": [
+        "gaming",
+        "work"
+      ],
+      "budgetTier": "500to900",
+      "price": 609.4,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "IPS",
+        "resolution": "2560x1440",
+        "size": "27\"",
+        "storage": "N/A"
+      },
+      "aiScore": 82,
+      "aiRationale": "Identique au précédent, c'est un bon moniteur gaming 1440p avec un taux de rafraîchissement de 165Hz. Un choix équilibré pour le jeu et le travail.",
+      "url": "https://www.newegg.ca/asus-vg27aq-27-qhd-165-hz-tuf-gaming-ips-black/p/N82E16824236987R?srsltid=AfmBOopqqmksANpyiL1dOGank2gRrnd6vBzo_nx-6E9ZyngLXXSMkpQ5",
+      "imageUrl": "/images/products/newegg-asus-tuf-27-qhd-2k-1440p-165hz-ips-adaptive-sync-gami.jpg",
+      "source": "newegg",
+      "addedAt": "2026-04-20T11:29:41.502Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -2992,67 +2304,8 @@
       "imageUrl": "/images/products/newegg-asus-tuf-gaming-vg27aq-27-165hz-ips-gaming-monitor.jpg",
       "source": "newegg",
       "addedAt": "2026-04-20T11:29:41.502Z",
-      "lastVerified": "2026-04-20T11:35:13.320Z",
+      "lastVerified": "2026-04-21T11:42:45.235Z",
       "priceSource": "page"
-    },
-    {
-      "id": "newegg-asus-tuf-27-qhd-2k-1440p-165hz-ips-adaptive-sync-gaming-moni",
-      "name": "ASUS TUF 27\" QHD 2K 1440P 165Hz IPS Adaptive Sync Gaming Monitor",
-      "brand": "ASUS",
-      "category": "monitor",
-      "profiles": [
-        "gaming",
-        "work"
-      ],
-      "budgetTier": "500to900",
-      "price": 609.4,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "2560x1440",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 82,
-      "aiRationale": "Identique au précédent, c'est un bon moniteur gaming 1440p avec un taux de rafraîchissement de 165Hz. Un choix équilibré pour le jeu et le travail.",
-      "url": "https://www.newegg.ca/asus-vg27aq-27-qhd-165-hz-tuf-gaming-ips-black/p/N82E16824236987R?srsltid=AfmBOopqqmksANpyiL1dOGank2gRrnd6vBzo_nx-6E9ZyngLXXSMkpQ5",
-      "imageUrl": "/images/products/newegg-asus-tuf-27-qhd-2k-1440p-165hz-ips-adaptive-sync-gami.jpg",
-      "source": "newegg",
-      "addedAt": "2026-04-20T11:29:41.502Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-lg-27uk850-w-moniteur-ips-4k-uhd-de-27-pouces-avec-hdr10-ave",
-      "name": "LG 27UK850-W Moniteur IPS 4K UHD de 27 pouces avec HDR10 avec connectivité USB Type-C et FreeSync (renouvelé)",
-      "brand": "LG",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "500to900",
-      "price": 550,
-      "originalPrice": 650,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "3840x2160",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 80,
-      "aiRationale": "Une excellente option pour un moniteur 4K IPS avec USB-C et FreeSync, surtout si vous êtes à l'aise avec un produit remis à neuf. Bon rapport qualité-prix.",
-      "url": "https://www.amazon.ca/dp/B07WC9LNZ5?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-lg-27uk850-w-moniteur-ips-4k-uhd-de-27-pouces-avec-hd.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-17T15:43:29.445Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
     },
     {
       "id": "hp-hp-x27q-qhd-gaming-monitor",
@@ -3081,34 +2334,7 @@
       "imageUrl": "https://www.artic.edu/iiif/2//4ae352f3-8a51-30cd-6e91-60683d21d12a/full/843,/0/default.jpg",
       "source": "hp",
       "addedAt": "2026-04-18T11:39:51.611Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "walmart-satechi-mac-mini-m4-hub-stand-avec-boitier-ssd-nvme",
-      "name": "Satechi Mac mini M4 Hub & Stand avec Boîtier SSD NVMe",
-      "brand": "Satechi",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "creative"
-      ],
-      "budgetTier": "under500",
-      "price": 129.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "2x USB-A jusqu'à 10Gbps, 1x Port de Données USB-A, 1x Lecteur de Carte SD",
-        "powerDelivery": "N/A"
-      },
-      "aiScore": 80,
-      "aiRationale": "Ce hub Satechi est un excellent ajout pour les utilisateurs de Mac mini M4, offrant des ports supplémentaires et un boîtier SSD NVMe pour étendre le stockage.",
-      "url": "https://www.walmart.ca/en/ip/Satechi-Mac-mini-M4-Hub-Stand-with-NVMe-SSD-Enclosure-Mac-mini-M4-Dock-with-2xUSB-A-Up-to-10Gbps-USB-A-Data-Port-SD-Card-Reader-for-Mac-mini-M4/6AY61OL6FH29",
-      "imageUrl": "https://www.artic.edu/iiif/2//fa74552f-53c3-28bd-dc81-5c2f2b8143a1/full/843,/0/default.jpg",
-      "source": "walmart",
-      "addedAt": "2026-04-17T15:47:48.046Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -3136,65 +2362,8 @@
       "imageUrl": "/images/products/walmart-apple-2022-macbook-air-13-6-pouces-avec-puce-m2.jpg",
       "source": "walmart",
       "addedAt": "2026-04-18T11:40:05.290Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
-    },
-    {
-      "id": "amazon-samsung-moniteur-de-jeu-odyssey-g5-wqhd-2560-x-1440-144",
-      "name": "SAMSUNG Moniteur de jeu Odyssey G5, WQHD (2560 x 1440), 144",
-      "brand": "Samsung",
-      "category": "monitor",
-      "profiles": [
-        "gaming",
-        "work"
-      ],
-      "budgetTier": "500to900",
-      "price": 680,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "VA",
-        "resolution": "2560x1440",
-        "size": "32\"",
-        "storage": "N/A"
-      },
-      "aiScore": 80,
-      "aiRationale": "Un bon équilibre entre taille, résolution QHD et taux de rafraîchissement de 144 Hz. Idéal pour le gaming et le travail avec un budget raisonnable.",
-      "url": "https://www.amazon.ca/dp/B08FF3HDW5?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-samsung-moniteur-de-jeu-odyssey-g5-wqhd-2560-x-1440-1.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-19T11:40:32.983Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "newegg-lenovo-thinkpad-e14-gen-7-21u20016us-14-copilote-pc-portable",
-      "name": "Lenovo ThinkPad E14 Gen 7 21U20016US 14 \"Copilote + PC portable",
-      "brand": "Lenovo",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student"
-      ],
-      "budgetTier": "over1500",
-      "price": 1584.1,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Intel Core Ultra 5 2nd Gen 226V",
-        "display": "14\" WUXGA 60Hz",
-        "ram": "16 GB",
-        "storage": "512 GB SSD"
-      },
-      "aiScore": 80,
-      "aiRationale": "Un ThinkPad solide avec un processeur Core Ultra de nouvelle génération, idéal pour le travail et les études. La qualité de construction et la fiabilité sont au rendez-vous.",
-      "url": "https://www.newegg.ca/lenovo-14-0-arc-graphics/p/1TS-000E-1DDW8?lang=fr&srsltid=AfmBOoq7hUBQkXm6bS5DbexjzI-WL-5uU8y_1qpkik5aKlM_xf5av2r2",
-      "imageUrl": "/images/products/newegg-lenovo-thinkpad-e14-gen-7-21u20016us-14-copilote-pc-p.jpg",
-      "source": "newegg",
-      "addedAt": "2026-04-01T00:35:17.991Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "page"
     },
     {
       "id": "lenovo-ecran-lenovo-legion-y27-30-fhd-pro-gaming-27",
@@ -3224,7 +2393,91 @@
       "imageUrl": "https://p3-ofp.static.pub/fes/cms/2022/03/29/fxq8k26aghm6xril1qzikh2in7osfc415110.png",
       "source": "lenovo",
       "addedAt": "2026-04-19T11:41:26.355Z",
-      "lastVerified": "2026-04-20T11:35:16.942Z",
+      "lastVerified": "2026-04-21T11:42:45.215Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "walmart-satechi-mac-mini-m4-hub-stand-avec-boitier-ssd-nvme",
+      "name": "Satechi Mac mini M4 Hub & Stand avec Boîtier SSD NVMe",
+      "brand": "Satechi",
+      "category": "dock",
+      "profiles": [
+        "work",
+        "creative"
+      ],
+      "budgetTier": "under500",
+      "price": 129.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "ports": "2x USB-A jusqu'à 10Gbps, 1x Port de Données USB-A, 1x Lecteur de Carte SD",
+        "powerDelivery": "N/A"
+      },
+      "aiScore": 80,
+      "aiRationale": "Ce hub Satechi est un excellent ajout pour les utilisateurs de Mac mini M4, offrant des ports supplémentaires et un boîtier SSD NVMe pour étendre le stockage.",
+      "url": "https://www.walmart.ca/en/ip/Satechi-Mac-mini-M4-Hub-Stand-with-NVMe-SSD-Enclosure-Mac-mini-M4-Dock-with-2xUSB-A-Up-to-10Gbps-USB-A-Data-Port-SD-Card-Reader-for-Mac-mini-M4/6AY61OL6FH29",
+      "imageUrl": "https://www.artic.edu/iiif/2//fa74552f-53c3-28bd-dc81-5c2f2b8143a1/full/843,/0/default.jpg",
+      "source": "walmart",
+      "addedAt": "2026-04-17T15:47:48.046Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
+      "priceSource": "ai"
+    },
+    {
+      "id": "newegg-lenovo-thinkpad-e14-gen-7-21u20016us-14-copilote-pc-portable",
+      "name": "Lenovo ThinkPad E14 Gen 7 21U20016US 14 \"Copilote + PC portable",
+      "brand": "Lenovo",
+      "category": "laptop",
+      "profiles": [
+        "work",
+        "student"
+      ],
+      "budgetTier": "over1500",
+      "price": 1584.1,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "Intel Core Ultra 5 2nd Gen 226V",
+        "display": "14\" WUXGA 60Hz",
+        "ram": "16 GB",
+        "storage": "512 GB SSD"
+      },
+      "aiScore": 80,
+      "aiRationale": "Un ThinkPad solide avec un processeur Core Ultra de nouvelle génération, idéal pour le travail et les études. La qualité de construction et la fiabilité sont au rendez-vous.",
+      "url": "https://www.newegg.ca/lenovo-14-0-arc-graphics/p/1TS-000E-1DDW8?lang=fr&srsltid=AfmBOoq7hUBQkXm6bS5DbexjzI-WL-5uU8y_1qpkik5aKlM_xf5av2r2",
+      "imageUrl": "/images/products/newegg-lenovo-thinkpad-e14-gen-7-21u20016us-14-copilote-pc-p.jpg",
+      "source": "newegg",
+      "addedAt": "2026-04-01T00:35:17.991Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "lenovo-ecran-thinkvision-t27p-30-27-uhd-usb-c",
+      "name": "Écran ThinkVision T27p-30 27\" UHD (USB-C)",
+      "brand": "Lenovo",
+      "category": "monitor",
+      "profiles": [
+        "work",
+        "creative"
+      ],
+      "budgetTier": "500to900",
+      "price": 499.01,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "panelType": "IPS",
+        "resolution": "3840x2160",
+        "size": "27\"",
+        "storage": "N/A"
+      },
+      "aiScore": 80,
+      "aiRationale": "Un excellent moniteur 4K de 27 pouces avec connectivité USB-C, parfait pour les professionnels et les créatifs. L'écran IPS offre une qualité d'image impeccable.",
+      "url": "https://www.lenovo.com/fr/fr/p/accessories-and-software/monitors/office/63a9gat1eu?srsltid=AfmBOop2CFjMtER0l78KiUB2aHC--ibyT5FclO72ZD3Sm1--6hCU36SJ",
+      "imageUrl": "https://p3-ofp.static.pub/fes/cms/2022/03/29/fxq8k26aghm6xril1qzikh2in7osfc415110.png",
+      "source": "lenovo",
+      "addedAt": "2026-04-20T11:30:43.270Z",
+      "lastVerified": "2026-04-21T11:42:45.464Z",
       "priceSource": "page"
     },
     {
@@ -3253,7 +2506,7 @@
       "imageUrl": "/images/products/dell-moniteur-6k-dell-ultrasharp-32-u3224kb.jpg",
       "source": "dell",
       "addedAt": "2026-04-01T00:36:11.306Z",
-      "lastVerified": "2026-04-20T11:35:14.379Z",
+      "lastVerified": "2026-04-21T11:42:45.756Z",
       "priceSource": "page"
     },
     {
@@ -3283,64 +2536,7 @@
       "imageUrl": "/images/products/newegg-msi-laptop-creator-z17.jpg",
       "source": "newegg",
       "addedAt": "2026-04-18T11:38:56.743Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "lenovo-ecran-thinkvision-t27p-30-27-uhd-usb-c",
-      "name": "Écran ThinkVision T27p-30 27\" UHD (USB-C)",
-      "brand": "Lenovo",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative"
-      ],
-      "budgetTier": "500to900",
-      "price": 499.01,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "3840x2160",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 80,
-      "aiRationale": "Un excellent moniteur 4K de 27 pouces avec connectivité USB-C, parfait pour les professionnels et les créatifs. L'écran IPS offre une qualité d'image impeccable.",
-      "url": "https://www.lenovo.com/fr/fr/p/accessories-and-software/monitors/office/63a9gat1eu?srsltid=AfmBOop2CFjMtER0l78KiUB2aHC--ibyT5FclO72ZD3Sm1--6hCU36SJ",
-      "imageUrl": "https://p3-ofp.static.pub/fes/cms/2022/03/29/fxq8k26aghm6xril1qzikh2in7osfc415110.png",
-      "source": "lenovo",
-      "addedAt": "2026-04-20T11:30:43.270Z",
-      "lastVerified": "2026-04-20T11:35:14.362Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "amazon-apple-ordinateur-portable-macbook-air-13-2025-avec-puce-m4",
-      "name": "Apple Ordinateur portable MacBook Air 13\" 2025 avec puce M4",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "student",
-        "work",
-        "basic"
-      ],
-      "budgetTier": "over1500",
-      "price": 1499,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4",
-        "ram": "16 Go de mémoire unifiée",
-        "storage": "256 Go de stockage SSD"
-      },
-      "aiScore": 80,
-      "aiRationale": "Le MacBook Air M4 est un excellent choix pour la productivité et les étudiants. La puce M4 offre une performance incroyable pour un portable si fin.",
-      "url": "https://www.amazon.ca/dp/B0DZD9S5GC?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-apple-ordinateur-portable-macbook-air-13-2025-avec-pu.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:28:25.350Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
     },
     {
@@ -3369,96 +2565,8 @@
       "imageUrl": "/images/products/newegg-dell-ultrasharp-u2724de-27-class-wqhd-led-monitor.jpg",
       "source": "newegg",
       "addedAt": "2026-04-20T11:29:41.502Z",
-      "lastVerified": "2026-04-20T11:35:14.445Z",
+      "lastVerified": "2026-04-21T11:42:45.857Z",
       "priceSource": "page"
-    },
-    {
-      "id": "amazon-lg-ultrafine-27up850-w-27-inch-5ms-60hz-uhd-4k-monitor-usb-t",
-      "name": "LG Ultrafine 27UP850-W 27 Inch 5ms 60Hz UHD 4k Monitor, USB Type-C, Silver",
-      "brand": "LG",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "500to900",
-      "price": 399.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "3840x2160",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 79,
-      "aiRationale": "Ce moniteur 4K UHD de 27 pouces avec USB-C est idéal pour la productivité et le travail créatif, offrant une belle qualité d'image.",
-      "url": "https://www.amazon.ca/dp/B0DQFF7FBS?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-lg-ultrafine-27up850-w-27-inch-5ms-60hz-uhd-4k-monito.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:28:36.418Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-lg-27uk850-w-27-4k-uhd-ips-monitor-with-hdr10-and-usb-c",
-      "name": "LG 27UK850-W 27\" 4K UHD IPS Monitor with HDR10 and USB-C",
-      "brand": "LG",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "500to900",
-      "price": 650,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "3840x2160",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 78,
-      "aiRationale": "Un bon moniteur 4K IPS avec HDR10 et USB-C, idéal pour la productivité et la création de contenu. Le prix est raisonnable pour les fonctionnalités.",
-      "url": "https://www.amazon.ca/dp/B078GVTD9N?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-lg-27uk850-w-27-4k-uhd-ips-monitor-with-hdr10-and-usb.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-17T15:43:29.445Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
-      "id": "amazon-hp-ordinateur-portable-15-6-hd-a-ecran-tactile-amd-ryzen-5-7",
-      "name": "HP Ordinateur portable 15,6\" HD à écran tactile - AMD Ryzen 5 7520U, 8 Go de RAM, 512 Go SSD",
-      "brand": "HP",
-      "category": "laptop",
-      "profiles": [
-        "work",
-        "student",
-        "basic"
-      ],
-      "budgetTier": "500to900",
-      "price": 749.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "AMD Ryzen 5 7520U",
-        "ram": "8 Go",
-        "storage": "512 Go SSD"
-      },
-      "aiScore": 78,
-      "aiRationale": "Un bon équilibre pour le prix avec un Ryzen 5 récent et un SSD de 512 Go. L'écran tactile est un plus pour certains usages.",
-      "url": "https://www.amazon.ca/dp/B0DB5B5WWS?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-hp-ordinateur-portable-15-6-hd-a-ecran-tactile-amd-ry.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-18T11:38:12.865Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
     },
     {
       "id": "apple-studio-display",
@@ -3486,7 +2594,7 @@
       "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/studio_display/select&pageResource=rs-buyflow-1&feature=step1flagship",
       "source": "apple",
       "addedAt": "2026-04-18T11:40:54.118Z",
-      "lastVerified": "2026-04-20T11:35:14.699Z",
+      "lastVerified": "2026-04-21T11:42:46.284Z",
       "priceSource": "page"
     },
     {
@@ -3516,38 +2624,8 @@
       "imageUrl": "https://www.artic.edu/iiif/2//10c9f0c4-4dd7-05f3-6d98-1aa75317195c/full/843,/0/default.jpg",
       "source": "walmart",
       "addedAt": "2026-04-18T11:40:14.668Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
-    },
-    {
-      "id": "microsoft-microsoft-surface-dock-2",
-      "name": "Microsoft Surface Dock 2",
-      "brand": "Microsoft",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "under500",
-      "price": 104.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "USB-C, USB",
-        "powerDelivery": "199W",
-        "ram": "N/A",
-        "storage": "N/A"
-      },
-      "aiScore": 78,
-      "aiRationale": "Une station d'accueil solide pour les appareils Surface, offrant une bonne puissance de charge et des ports USB-C de nouvelle génération. Le prix est raisonnable pour les fonctionnalités offertes.",
-      "url": "https://www.microsoft.com/en-ca/d/surface-dock-2/8qd908364sg2",
-      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
-      "source": "microsoft",
-      "addedAt": "2026-04-20T11:34:28.512Z",
-      "lastVerified": "2026-04-20T11:35:15.398Z",
-      "priceSource": "page"
     },
     {
       "id": "newegg-samsung-odyssey-g5-32-qhd-2k-1440p-165hz-curved-gaming-monit",
@@ -3574,7 +2652,7 @@
       "imageUrl": "/images/products/newegg-samsung-odyssey-g5-32-qhd-2k-1440p-165hz-curved-gamin.png",
       "source": "newegg",
       "addedAt": "2026-04-20T11:29:30.658Z",
-      "lastVerified": "2026-04-20T11:35:15.200Z",
+      "lastVerified": "2026-04-21T11:42:45.961Z",
       "priceSource": "page"
     },
     {
@@ -3604,7 +2682,37 @@
       "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
       "source": "microsoft",
       "addedAt": "2026-04-20T11:34:28.512Z",
-      "lastVerified": "2026-04-20T11:35:15.948Z",
+      "lastVerified": "2026-04-21T11:42:46.236Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "microsoft-microsoft-surface-dock-2",
+      "name": "Microsoft Surface Dock 2",
+      "brand": "Microsoft",
+      "category": "dock",
+      "profiles": [
+        "work",
+        "student",
+        "creative"
+      ],
+      "budgetTier": "under500",
+      "price": 104.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "ports": "USB-C, USB",
+        "powerDelivery": "199W",
+        "ram": "N/A",
+        "storage": "N/A"
+      },
+      "aiScore": 78,
+      "aiRationale": "Une station d'accueil solide pour les appareils Surface, offrant une bonne puissance de charge et des ports USB-C de nouvelle génération. Le prix est raisonnable pour les fonctionnalités offertes.",
+      "url": "https://www.microsoft.com/en-ca/d/surface-dock-2/8qd908364sg2",
+      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
+      "source": "microsoft",
+      "addedAt": "2026-04-20T11:34:28.512Z",
+      "lastVerified": "2026-04-21T11:42:46.473Z",
       "priceSource": "page"
     },
     {
@@ -3634,63 +2742,8 @@
       "imageUrl": "https://www.artic.edu/iiif/2//31f7e03c-8f3f-7cbf-3df8-164d85d09d48/full/843,/0/default.jpg",
       "source": "walmart",
       "addedAt": "2026-04-18T11:40:14.668Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
+      "lastVerified": "2026-04-21T11:42:37.360Z",
       "priceSource": "ai"
-    },
-    {
-      "id": "microsoft-concentrateur-de-voyage-usb-c-surface",
-      "name": "Concentrateur de voyage USB-C Surface",
-      "brand": "Microsoft",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "student"
-      ],
-      "budgetTier": "under500",
-      "price": 149.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "1x USB-C, 1x USB-A, 1x HDMI, 1x VGA, 1x Ethernet",
-        "powerDelivery": "Non spécifié"
-      },
-      "aiScore": 75,
-      "aiRationale": "Un hub USB-C compact et pratique pour les déplacements. Idéal pour ajouter des ports essentiels à votre laptop en voyage.",
-      "url": "https://www.microsoft.com/fr-ca/d/concentrateur-de-voyage-usb-c-surface/91fbqwbvftw8",
-      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
-      "source": "microsoft",
-      "addedAt": "2026-04-01T00:36:39.892Z",
-      "lastVerified": "2026-04-20T11:35:16.972Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "microsoft-adaptateur-de-voyage-usb-c-surface-pour-l-entreprise",
-      "name": "Adaptateur de voyage USB-C Surface pour l'entreprise",
-      "brand": "Microsoft Surface",
-      "category": "dock",
-      "profiles": [
-        "basic",
-        "work",
-        "student"
-      ],
-      "budgetTier": "under500",
-      "price": 149.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "USB-C",
-        "powerDelivery": "N/A"
-      },
-      "aiScore": 75,
-      "aiRationale": "Un hub USB-C pratique pour les déplacements, parfait pour brancher vos périphériques essentiels. Le prix est correct pour la qualité Microsoft.",
-      "url": "https://www.microsoft.com/fr-ca/d/adaptateur-de-voyage-usb-c-surface-pour-lentreprise/8x8mcqdzljr8",
-      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
-      "source": "microsoft",
-      "addedAt": "2026-04-01T00:36:44.651Z",
-      "lastVerified": "2026-04-20T11:35:16.967Z",
-      "priceSource": "page"
     },
     {
       "id": "microsoft-surface-dock",
@@ -3719,7 +2772,62 @@
       "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
       "source": "microsoft",
       "addedAt": "2026-04-20T11:34:28.512Z",
-      "lastVerified": "2026-04-20T11:35:17.602Z",
+      "lastVerified": "2026-04-21T11:42:47.482Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "microsoft-concentrateur-de-voyage-usb-c-surface",
+      "name": "Concentrateur de voyage USB-C Surface",
+      "brand": "Microsoft",
+      "category": "dock",
+      "profiles": [
+        "work",
+        "student"
+      ],
+      "budgetTier": "under500",
+      "price": 149.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "ports": "1x USB-C, 1x USB-A, 1x HDMI, 1x VGA, 1x Ethernet",
+        "powerDelivery": "Non spécifié"
+      },
+      "aiScore": 75,
+      "aiRationale": "Un hub USB-C compact et pratique pour les déplacements. Idéal pour ajouter des ports essentiels à votre laptop en voyage.",
+      "url": "https://www.microsoft.com/fr-ca/d/concentrateur-de-voyage-usb-c-surface/91fbqwbvftw8",
+      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
+      "source": "microsoft",
+      "addedAt": "2026-04-01T00:36:39.892Z",
+      "lastVerified": "2026-04-21T11:42:47.164Z",
+      "priceSource": "page"
+    },
+    {
+      "id": "microsoft-adaptateur-de-voyage-usb-c-surface-pour-l-entreprise",
+      "name": "Adaptateur de voyage USB-C Surface pour l'entreprise",
+      "brand": "Microsoft Surface",
+      "category": "dock",
+      "profiles": [
+        "basic",
+        "work",
+        "student"
+      ],
+      "budgetTier": "under500",
+      "price": 149.99,
+      "originalPrice": 0,
+      "isOnSale": false,
+      "specs": {
+        "cpu": "N/A",
+        "ports": "USB-C",
+        "powerDelivery": "N/A"
+      },
+      "aiScore": 75,
+      "aiRationale": "Un hub USB-C pratique pour les déplacements, parfait pour brancher vos périphériques essentiels. Le prix est correct pour la qualité Microsoft.",
+      "url": "https://www.microsoft.com/fr-ca/d/adaptateur-de-voyage-usb-c-surface-pour-lentreprise/8x8mcqdzljr8",
+      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
+      "source": "microsoft",
+      "addedAt": "2026-04-01T00:36:44.651Z",
+      "lastVerified": "2026-04-21T11:42:47.648Z",
       "priceSource": "page"
     },
     {
@@ -3748,7 +2856,7 @@
       "imageUrl": "https://p3-ofp.static.pub/fes/cms/2022/03/29/fxq8k26aghm6xril1qzikh2in7osfc415110.png",
       "source": "lenovo",
       "addedAt": "2026-04-18T11:39:24.042Z",
-      "lastVerified": "2026-04-20T11:35:18.145Z",
+      "lastVerified": "2026-04-21T11:42:47.749Z",
       "priceSource": "page"
     },
     {
@@ -3776,7 +2884,7 @@
       "imageUrl": "/images/products/apple-mac-pro-tower-m2-ultra-chip-24-core-cpu-60-core-gpu-19.png",
       "source": "apple",
       "addedAt": "2026-04-19T11:43:04.864Z",
-      "lastVerified": "2026-04-20T11:35:17.665Z",
+      "lastVerified": "2026-04-21T11:42:47.883Z",
       "priceSource": "page"
     }
   ]
