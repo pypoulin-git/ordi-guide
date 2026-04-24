@@ -1,11 +1,10 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import { headers } from 'next/headers'
 import './globals.css'
 import JsonLd from '@/components/JsonLd'
 import AdSenseScript from '@/components/AdSenseScript'
+import AnalyticsGate from '@/components/AnalyticsGate'
 import { BASE_URL, SITE_NAME } from '@/lib/constants'
 
 const inter = Inter({
@@ -16,9 +15,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-    ],
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
     apple: '/favicon.svg',
   },
   manifest: '/manifest.json',
@@ -46,31 +43,35 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
           }}
         />
-        <JsonLd data={{
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: SITE_NAME,
-          url: BASE_URL,
-          description: isFr
-            ? 'Guide simple pour choisir ton ordinateur. Recommandations accessibles et honnêtes.'
-            : 'Simple guide to choose your computer. Accessible and honest recommendations.',
-          inLanguage: isFr ? 'fr-CA' : 'en-CA',
-          potentialAction: {
-            '@type': 'SearchAction',
-            target: { '@type': 'EntryPoint', urlTemplate: `${BASE_URL}/?q={search_term_string}` },
-            'query-input': 'required name=search_term_string',
-          },
-        }} />
-        <JsonLd data={{
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          name: SITE_NAME,
-          url: BASE_URL,
-          logo: `${BASE_URL}/compy-icon.svg`,
-          description: isFr
-            ? 'Plateforme québécoise d\'aide à l\'achat informatique.'
-            : 'Quebec-based computer buying guide platform.',
-        }} />
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: SITE_NAME,
+            url: BASE_URL,
+            description: isFr
+              ? 'Guide simple pour choisir ton ordinateur. Recommandations accessibles et honnêtes.'
+              : 'Simple guide to choose your computer. Accessible and honest recommendations.',
+            inLanguage: isFr ? 'fr-CA' : 'en-CA',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: { '@type': 'EntryPoint', urlTemplate: `${BASE_URL}/?q={search_term_string}` },
+              'query-input': 'required name=search_term_string',
+            },
+          }}
+        />
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: SITE_NAME,
+            url: BASE_URL,
+            logo: `${BASE_URL}/compy-icon.svg`,
+            description: isFr
+              ? "Plateforme québécoise d'aide à l'achat informatique."
+              : 'Quebec-based computer buying guide platform.',
+          }}
+        />
         <AdSenseScript />
       </head>
       <body className="min-h-full flex flex-col bg-[var(--bg)] text-[var(--text)]">
@@ -81,8 +82,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {isFr ? 'Aller au contenu' : 'Skip to content'}
         </a>
         {children}
-        <Analytics />
-        <SpeedInsights />
+        <AnalyticsGate />
       </body>
     </html>
   )

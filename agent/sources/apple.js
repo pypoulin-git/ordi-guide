@@ -77,10 +77,24 @@ export async function fetchApple() {
 }
 
 function isProductUrl(url) {
-  // Accept Apple Store product/buy pages and main product pages
-  if (/apple\.com\/ca\/(shop\/buy|shop\/product)/i.test(url)) return true
-  // Accept main product pages like /ca/macbook-air, /ca/imac
-  if (/apple\.com\/ca\/(macbook|imac|mac-mini|mac-studio|mac-pro)\/?/i.test(url)) return true
+  // Apple Store — only accept URLs that identify a specific SKU/configuration.
+  // Generic landing pages like /shop/buy-mac/macbook-pro/14-inch land on a picker
+  // and expose no price — they cannot be verified, so we reject them.
+
+  // Refurbished product pages always have a unique SKU in the path
+  if (/apple\.com\/ca\/shop\/product\/[a-z0-9]+\//i.test(url)) return true
+
+  // Standalone display products (single SKU)
+  if (/apple\.com\/ca\/shop\/buy-mac\/(studio-display|pro-display-xdr)(\/|$|\?)/i.test(url)) return true
+
+  // Configured Mac buy URLs must carry at least one config marker in the slug.
+  // Real product URLs look like:
+  //   /shop/buy-mac/macbook-pro/14-inch-silver-standard-display-apple-m4-pro-chip-12-core-cpu...
+  // Generic landings look like:
+  //   /shop/buy-mac/macbook-pro/14-inch   (rejected)
+  const CONFIG_MARKERS = /(chip|memory|storage|gpu|cpu|ultra|-max-|apple-m[1-9])/i
+  if (/apple\.com\/ca\/shop\/buy-mac\//i.test(url) && CONFIG_MARKERS.test(url)) return true
+
   return false
 }
 

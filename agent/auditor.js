@@ -249,6 +249,93 @@ export async function runAudit() {
     details: dupeIds.size === 0 ? 'Aucun doublon' : `${dupeIds.size} auto-retirés`,
   })
 
+  // ── Check 5b: Cohérence catégorie / nom — auto-recatégorise ──
+  // Ex: produit nommé "OptiPlex 7010 Desktop" avec category "monitor" → desktop
+  const DESKTOP_KW = /\b(optiplex|thinkcentre|beelink|minisforum|nuc|mini[- ]?pc|tower|desktop|aurora r\d+|imac|mac ?studio|mac ?mini|mac ?pro)\b/i
+  const MONITOR_KW = /\b(monitor|moniteur|display|ultrasharp|ultragear|odyssey|prodisplay|pro ?display|studio ?display|ecran|écran)\b/i
+  const LAPTOP_KW = /\b(laptop|notebook|portable|ordinateur portable|chromebook|macbook|thinkpad|xps|zenbook|vivobook|pavilion laptop|ideapad|yoga|legion (slim|pro|5|7)|inspiron \d+\s+(laptop|portable))\b/i
+  let recategorized = 0
+  for (const p of catalogue.products) {
+    const name = p.name || ''
+    const isDesk = DESKTOP_KW.test(name) && !MONITOR_KW.test(name)
+    const isMon = MONITOR_KW.test(name) && !DESKTOP_KW.test(name) && !LAPTOP_KW.test(name)
+    let newCat = null
+    if (isDesk && p.category === 'monitor') newCat = 'desktop'
+    else if (isDesk && p.category === 'laptop') newCat = 'desktop'
+    else if (isMon && p.category !== 'monitor' && p.category !== 'dock') newCat = 'monitor'
+    if (newCat && newCat !== p.category) {
+      log(`  ⚠ Catégorie corrigée: "${name.slice(0, 45)}" ${p.category} → ${newCat}`)
+      p.category = newCat
+      recategorized++
+    }
+  }
+  checks.push({
+    name: 'categoryConsistency',
+    passed: true,
+    details: recategorized === 0 ? 'Toutes OK' : `${recategorized} auto-corrigées`,
+  })
+
+  // ── Check 6a: Apple URLs génériques (vue picker, pas SKU) ────
+  // Reject Apple /shop/buy-mac URLs without config markers — they land
+  // on a picker page with no price. Must match the logic in sources/apple.js.
+  const appleGenericIds = new Set()
+  const APPLE_CONFIG = /(chip|memory|storage|gpu|cpu|ultra|-max-|apple-m[1-9])/i
+  for (const p of catalogue.products) {
+    if (!p.url || !/apple\.com\/ca/i.test(p.url)) continue
+    // Always accept /shop/product/{sku}/ and standalone displays
+    if (/apple\.com\/ca\/shop\/product\/[a-z0-9]+\//i.test(p.url)) continue
+    if (/apple\.com\/ca\/shop\/buy-mac\/(studio-display|pro-display-xdr)(\/|$|\?)/i.test(p.url)) continue
+    // /shop/buy-mac/* without config markers = generic picker → reject
+    if (/apple\.com\/ca\/shop\/buy-mac\//i.test(p.url) && !APPLE_CONFIG.test(p.url)) {
+      appleGenericIds.add(p.id)
+      log(`  ⚠ URL Apple générique (auto-retiré): "${p.name?.slice(0, 45)}" → ${p.url.slice(0, 80)}`)
+    }
+  }
+  if (appleGenericIds.size > 0) {
+    catalogue.products = catalogue.products.filter(p => !appleGenericIds.has(p.id))
+    log(`  → ${appleGenericIds.size} URLs Apple génériques retirées, ${catalogue.products.length} restants`)
+  }
+  checks.push({
+    name: 'appleGenericUrls',
+    passed: true,
+    details: appleGenericIds.size === 0 ? 'Aucune' : `${appleGenericIds.size} auto-retirées`,
+  })
+
+  // ── Check 6b: URLs dupliquées entre produits ─────────────────
+  // Deux produits différents qui pointent vers la même URL = ambiguïté
+  // Ex: 3 variantes MacBook Pro pointant vers la même page liste Apple
+  const urlGroups = new Map()
+  for (const p of catalogue.products) {
+    const key = canonicalizeUrl(p.url)
+    if (!key) continue
+    if (!urlGroups.has(key)) urlGroups.set(key, [])
+    urlGroups.get(key).push(p)
+  }
+  const urlDupeIds = new Set()
+  for (const [key, group] of urlGroups) {
+    if (group.length <= 1) continue
+    // Keep the "best" product: priceSource "page" > "manual" > "ai", then highest aiScore
+    const rank = (p) => {
+      const srcRank = p.priceSource === 'page' ? 2 : p.priceSource === 'manual' ? 1 : 0
+      return srcRank * 1000 + (p.aiScore || 0)
+    }
+    const sorted = [...group].sort((a, b) => rank(b) - rank(a))
+    const keeper = sorted[0]
+    for (const p of sorted.slice(1)) {
+      urlDupeIds.add(p.id)
+      log(`  ⚠ URL dupliquée (auto-retiré): "${p.name?.slice(0, 45)}" partage URL avec "${keeper.name?.slice(0, 35)}"`)
+    }
+  }
+  if (urlDupeIds.size > 0) {
+    catalogue.products = catalogue.products.filter(p => !urlDupeIds.has(p.id))
+    log(`  → ${urlDupeIds.size} duplicatas URL retirés, ${catalogue.products.length} restants`)
+  }
+  checks.push({
+    name: 'urlDuplicates',
+    passed: true, // auto-cleaned
+    details: urlDupeIds.size === 0 ? 'Aucune URL partagée' : `${urlDupeIds.size} auto-retirés`,
+  })
+
   // ── Check 7: URLs (échantillon — vérifier 10 URLs max) ───────
   const urlSample = catalogue.products.slice(0, Math.min(10, catalogue.products.length))
   let deadCount = 0
@@ -342,6 +429,27 @@ async function rollback(failures) {
 }
 
 // ── Helpers ─────────────────────────────────────────────────────
+
+function canonicalizeUrl(url) {
+  if (!url || typeof url !== 'string') return null
+  try {
+    const u = new URL(url)
+    // Strip tracking/affiliate params — only the product identity matters for dedup
+    const stripParams = [
+      'tag', 'ascsubtag', 'linkCode', 'linkId', 'ref', 'ref_', 'refRID',
+      'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
+      'dgc', 'cid', 'lid', 'jumpid', 'clickid', 'afid', 'aosid', 'mtid',
+    ]
+    for (const p of stripParams) u.searchParams.delete(p)
+    // Normalize host + strip trailing slash on path
+    const host = u.host.toLowerCase().replace(/^www\./, '')
+    const path = u.pathname.replace(/\/+$/, '').toLowerCase()
+    const qs = u.searchParams.toString()
+    return `${host}${path}${qs ? '?' + qs : ''}`
+  } catch {
+    return url.toLowerCase().split('?')[0].replace(/\/+$/, '')
+  }
+}
 
 function parseGB(str) {
   if (!str) return 0
