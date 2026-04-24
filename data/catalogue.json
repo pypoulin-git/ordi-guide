@@ -467,36 +467,6 @@
       "priceSource": "page"
     },
     {
-      "id": "microsoft-station-d-accueil-surface-thunderbolt-4-dock",
-      "name": "Station d'accueil Surface Thunderbolt 4 Dock",
-      "brand": "Microsoft Surface",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "under500",
-      "price": 409.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "2x USB-C (avant), 2x USB-C (arrière), 2x 4K@60Hz display support",
-        "powerDelivery": "Oui",
-        "ram": "N/A",
-        "storage": "N/A"
-      },
-      "aiScore": 85,
-      "aiRationale": "Une station d'accueil Thunderbolt 4 polyvalente, parfaite pour étendre les capacités de votre Surface. Idéale pour brancher plusieurs écrans 4K et tous vos périphériques.",
-      "url": "https://www.microsoft.com/fr-ca/d/surface-thunderbolt-4-dock-pour-lentreprise/8svnb0c8j1qw",
-      "imageUrl": "/images/products/microsoft-station-d-accueil-surface-thunderbolt-4-dock.png",
-      "source": "microsoft",
-      "addedAt": "2026-03-29T20:57:03.964Z",
-      "lastVerified": "2026-04-20T11:35:06.054Z",
-      "priceSource": "page"
-    },
-    {
       "id": "apple-mac-studio-m3-ultra-chip-28-core-cpu-60-core-gpu-96gb-memory",
       "name": "Mac Studio, M3 Ultra Chip, 28-core CPU, 60-core GPU, 96GB memory, 1TB storage",
       "brand": "Apple",
@@ -651,34 +621,6 @@
       "addedAt": "2026-04-17T15:47:48.045Z",
       "lastVerified": "2026-04-20T11:35:04.201Z",
       "priceSource": "ai"
-    },
-    {
-      "id": "apple-macbook-pro-14-inch-m5-pro-12-core-cpu-16-core-gpu-48gb-memo",
-      "name": "MacBook Pro 14-inch (M5 Pro, 12-core CPU, 16-core GPU, 48GB memory, 512GB storage)",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "creative",
-        "work"
-      ],
-      "budgetTier": "over1500",
-      "price": 2399,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M5 Pro Chip, 12-core CPU",
-        "gpu": "16-core GPU",
-        "ram": "48GB",
-        "storage": "512GB"
-      },
-      "aiScore": 92,
-      "aiRationale": "Ce MacBook Pro avec la puce M5 Pro et 48 Go de RAM est une bête de course pour les professionnels de la création. Le rapport qualité-prix est exceptionnel pour cette puissance.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-silver-standard-display-apple-m4-pro-chip-12-core-cpu-16-core-gpu-48gb-memory-512gb-storage",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-18T11:40:33.947Z",
-      "lastVerified": "2026-04-20T11:35:06.084Z",
-      "priceSource": "page"
     },
     {
       "id": "apple-refurbished-24-inch-imac-apple-m4-chip-with-8-core-cpu-and-8",
@@ -882,71 +824,6 @@
       "priceSource": "page"
     },
     {
-      "id": "apple-mac-studio-m4-max-chip-14-core-cpu-32-core-gpu-36gb-memory-5",
-      "name": "Mac Studio, M4 Max Chip, 14-core CPU, 32-core GPU, 36GB memory, 512GB storage",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 1099,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Max chip",
-        "battery": "N/A",
-        "display": "N/A",
-        "gpu": "32-core GPU",
-        "panelType": "N/A",
-        "ports": "N/A",
-        "powerDelivery": "N/A",
-        "ram": "36GB",
-        "refreshRate": "N/A",
-        "resolution": "N/A",
-        "size": "N/A",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 90,
-      "aiRationale": "Le Mac Studio M4 Max offre une performance exceptionnelle pour la création et le gaming. Un excellent choix pour ceux qui ont besoin de beaucoup de puissance.",
-      "url": "https://www.apple.com/ca/shop/product/fcyt4ll/a/Refurbished-Mac-mini-Apple-M4-Chip-with-10-Core-CPU-and-10-Core-GPU-Gigabit-Ethernet-",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:59.607Z",
-      "lastVerified": "2026-04-20T11:35:06.439Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "apple-14-inch-macbook-pro",
-      "name": "14-inch MacBook Pro",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "creative",
-        "work",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 2399,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M5 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "32GB memory",
-        "storage": "1TB storage"
-      },
-      "aiScore": 90,
-      "aiRationale": "Le MacBook Pro 14 pouces avec la puce M5 est un choix puissant pour les créateurs et les professionnels qui ont besoin de performance et d'une autonomie exceptionnelle.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:39.749Z",
-      "lastVerified": "2026-04-20T11:35:06.446Z",
-      "priceSource": "page"
-    },
-    {
       "id": "lenovo-ecran-lenovo-legion-y27q-30-2k-qhd-pro-gaming-27",
       "name": "Écran Lenovo Legion Y27q-30 2K QHD Pro Gaming (27\")",
       "brand": "Lenovo",
@@ -1032,34 +909,6 @@
       "addedAt": "2026-04-19T11:42:05.392Z",
       "lastVerified": "2026-04-20T11:35:04.201Z",
       "priceSource": "ai"
-    },
-    {
-      "id": "apple-macbook-pro-14-inch-m5-10-core-cpu-10-core-gpu-silver-32gb-m",
-      "name": "MacBook Pro 14-inch (M5, 10-core CPU, 10-core GPU, Silver, 32GB memory, 1TB storage)",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "creative",
-        "work"
-      ],
-      "budgetTier": "over1500",
-      "price": 2399,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M5 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "32GB",
-        "storage": "1TB"
-      },
-      "aiScore": 89,
-      "aiRationale": "Un MacBook Pro M5 avec 32 Go de RAM est une machine très capable pour les tâches exigeantes. Un excellent équilibre entre performance et portabilité.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-silver-standard-display-apple-m4-pro-chip-12-core-cpu-16-core-gpu-48gb-memory-512gb-storage",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-18T11:40:33.947Z",
-      "lastVerified": "2026-04-20T11:35:07.116Z",
-      "priceSource": "page"
     },
     {
       "id": "amazon-beelink-ser5-max-mini-pc-amd-ryzen-7-7735hs",
@@ -1359,35 +1208,6 @@
       "priceSource": "ai"
     },
     {
-      "id": "apple-13-inch-macbook-air",
-      "name": "13-inch MacBook Air",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1499,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M5 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "16GB memory",
-        "storage": "1TB storage"
-      },
-      "aiScore": 88,
-      "aiRationale": "Le MacBook Air 13 pouces avec la puce M5 est un excellent choix pour la productivité et la créativité, offrant une performance et une autonomie exceptionnelles.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:39.748Z",
-      "lastVerified": "2026-04-20T11:35:08.195Z",
-      "priceSource": "page"
-    },
-    {
       "id": "walmart-ordinateur-portable-hp-15-6-fhd-ips-amd-ryzen-5-7520u-16-gb-",
       "name": "Ordinateur portable HP 15.6\" FHD IPS, AMD Ryzen 5 7520U, 16 GB DDR5, 1TB SSD",
       "brand": "HP",
@@ -1415,73 +1235,6 @@
       "addedAt": "2026-04-19T11:42:05.392Z",
       "lastVerified": "2026-04-20T11:35:04.201Z",
       "priceSource": "ai"
-    },
-    {
-      "id": "apple-mac-mini-m4-pro-chip-12-core-cpu-16-core-gpu-24gb-memory-512",
-      "name": "Mac mini, M4 Pro Chip, 12-core CPU, 16-core GPU, 24GB memory, 512GB storage",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "creative",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 3649,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Pro chip",
-        "battery": "N/A",
-        "display": "N/A",
-        "gpu": "16-core GPU",
-        "panelType": "N/A",
-        "ports": "N/A",
-        "powerDelivery": "N/A",
-        "ram": "24GB",
-        "refreshRate": "N/A",
-        "resolution": "N/A",
-        "size": "N/A",
-        "storage": "512GB SSD"
-      },
-      "aiScore": 88,
-      "aiRationale": "Le Mac mini M4 Pro offre une puissance incroyable pour son format compact, idéal pour les professionnels et les créatifs exigeants. Un excellent rapport qualité-prix pour cette configuration.",
-      "url": "https://www.apple.com/ca/shop/product/g1jvxll/a/Refurbished-Mac-mini-Apple-M4-Pro-Chip-with-14-Core-CPU-and-20-Core-GPU-Gigabit-Ethernet-",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:59.607Z",
-      "lastVerified": "2026-04-20T11:35:08.217Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "apple-mac-mini-m4-chip-10-core-cpu-10-core-gpu-16gb-memory-256gb-s",
-      "name": "Mac mini, M4 Chip, 10-core CPU, 10-core GPU, 16GB memory, 256GB storage",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "basic",
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "500to900",
-      "price": 1099,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Chip with 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "16GB",
-        "storage": "256GB"
-      },
-      "aiScore": 88,
-      "aiRationale": "Le Mac mini M4 est une machine compacte et puissante, idéale pour le travail et les tâches créatives, offrant un excellent rapport qualité-prix.",
-      "url": "https://www.apple.com/ca/shop/product/fcyt4ll/a/Refurbished-Mac-mini-Apple-M4-Chip-with-10-Core-CPU-and-10-Core-GPU-Gigabit-Ethernet-",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
-      "source": "apple",
-      "addedAt": "2026-04-18T11:40:49.454Z",
-      "lastVerified": "2026-04-20T11:35:08.238Z",
-      "priceSource": "page"
     },
     {
       "id": "amazon-asus-vivobook-s-14-laptop-2024",
@@ -1691,35 +1444,6 @@
       "priceSource": "ai"
     },
     {
-      "id": "apple-15-inch-macbook-air",
-      "name": "15-inch MacBook Air",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1499,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M5 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "24GB memory",
-        "storage": "1TB storage"
-      },
-      "aiScore": 87,
-      "aiRationale": "Le MacBook Air 15 pouces avec la puce M5 offre un grand écran et une performance solide pour le travail et le divertissement, idéal pour ceux qui ont besoin de plus d'espace visuel.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:39.748Z",
-      "lastVerified": "2026-04-20T11:35:09.542Z",
-      "priceSource": "page"
-    },
-    {
       "id": "apple-macbook-air-15-inch-m5-10-core-cpu-10-core-gpu-silver-24gb-m",
       "name": "MacBook Air 15-inch (M5, 10-core CPU, 10-core GPU, Silver, 24GB memory, 1TB storage)",
       "brand": "Apple",
@@ -1774,35 +1498,6 @@
       "source": "apple",
       "addedAt": "2026-04-19T11:42:46.571Z",
       "lastVerified": "2026-04-20T11:35:09.820Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "apple-imac-24-m4-chip-8-core-cpu-8-core-gpu-blue-stand-16gb-memory",
-      "name": "iMac, 24″, M4 Chip, 8-core CPU, 8-core GPU, Blue, Stand, 16GB memory, 512GB storage",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1999,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Chip, 8-core CPU",
-        "gpu": "8-core GPU",
-        "ram": "16GB",
-        "storage": "512GB"
-      },
-      "aiScore": 87,
-      "aiRationale": "Cet iMac avec la puce M4 est un excellent choix pour le travail et la création, offrant une belle performance dans un design élégant. Le 16GB de RAM est un plus.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/imac/24-inch-blue-m4-chip-8-core-cpu-8-core-gpu-16gb-memory-512gb-storage-stand",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/imac/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-18T11:40:39.656Z",
-      "lastVerified": "2026-04-20T11:35:09.779Z",
       "priceSource": "page"
     },
     {
@@ -2176,35 +1871,6 @@
       "priceSource": "ai"
     },
     {
-      "id": "apple-macbook-air-13-inch-m5-10-core-cpu-10-core-gpu-starlight-24g",
-      "name": "MacBook Air 13-inch (M5, 10-core CPU, 10-core GPU, Starlight, 24GB memory, 1TB storage)",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1499,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M5 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "24GB",
-        "storage": "1TB"
-      },
-      "aiScore": 85,
-      "aiRationale": "Ce MacBook Air avec la puce M5 est un excellent choix pour la productivité et la création, offrant une performance solide et une bonne autonomie. Le prix est compétitif pour les specs.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch-starlight-m4-chip-10-core-cpu-10-core-gpu-24gb-memory-1tb-storage",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-18T11:40:33.947Z",
-      "lastVerified": "2026-04-20T11:35:10.454Z",
-      "priceSource": "page"
-    },
-    {
       "id": "lenovo-moniteur-thinkvision-27-qhd-en-chaine-x2-pack",
       "name": "Moniteur ThinkVision 27\" QHD en chaîne x2 Pack",
       "brand": "Lenovo",
@@ -2408,71 +2074,6 @@
       "addedAt": "2026-04-19T11:42:17.901Z",
       "lastVerified": "2026-04-20T11:35:04.202Z",
       "priceSource": "ai"
-    },
-    {
-      "id": "apple-macbook-pro-16-inch-m4-max-chip-16-core-cpu-40-core-gpu",
-      "name": "MacBook Pro, 16-inch, M4 Max Chip, 16-core CPU, 40-core GPU",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "creative",
-        "work",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 2399,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Max Chip, 16-core CPU",
-        "ram": "64GB",
-        "storage": "4TB SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "Ce MacBook Pro est une bête de performance avec le M4 Max et 64 Go de RAM, parfait pour les pros de la création. Le prix est élevé, mais la puissance est au rendez-vous.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/16-inch-space-black-standard-display-apple-m4-max-chip-16-core-cpu-40-core-gpu-64gb-memory-4tb-storage",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:46.570Z",
-      "lastVerified": "2026-04-20T11:35:11.116Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "apple-orange-imac-24-inch-m4-chip-10-core-cpu-10-core-gpu-16gb-mem",
-      "name": "Orange iMac - 24-inch, M4 Chip, 10-core CPU, 10-core GPU, 16GB memory, 256GB storage",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1439,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 chip",
-        "battery": "N/A",
-        "display": "24-inch Retina 4.5K",
-        "gpu": "10-core GPU",
-        "panelType": "IPS",
-        "ports": "N/A",
-        "powerDelivery": "N/A",
-        "ram": "16GB",
-        "refreshRate": "N/A",
-        "resolution": "4480x2520",
-        "size": "24\"",
-        "storage": "256GB SSD"
-      },
-      "aiScore": 85,
-      "aiRationale": "L'iMac M4 est une machine puissante et élégante, parfaite pour la création de contenu et le travail. Le prix est élevé, mais la performance est au rendez-vous.",
-      "url": "https://www.apple.com/ca/shop/product/fwue3ll/a/Refurbished-24-inch-iMac-Apple-M4-Chip-with-8-Core-CPU-and-8-Core-GPU-Green",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/product/ProductDetailsApple/Refurbished&pageResource=rs-pdp-1&feature=product-details",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:59.607Z",
-      "lastVerified": "2026-04-20T11:35:11.025Z",
-      "priceSource": "page"
     },
     {
       "id": "microsoft-surface-laptop-copilot-pc-remise-a-neuf-certifiee",
@@ -3112,34 +2713,6 @@
       "priceSource": "ai"
     },
     {
-      "id": "walmart-apple-2022-macbook-air-13-6-pouces-avec-puce-m2",
-      "name": "Apple 2022 MacBook Air 13,6 Pouces avec Puce M2",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "basic"
-      ],
-      "budgetTier": "over1500",
-      "price": 1399,
-      "originalPrice": 0,
-      "isOnSale": true,
-      "specs": {
-        "cpu": "Apple M2",
-        "ram": "8 Go RAM",
-        "storage": "256 Go SSD"
-      },
-      "aiScore": 80,
-      "aiRationale": "Le MacBook Air M2 reste un excellent choix pour la plupart des utilisateurs, offrant une performance solide et une autonomie impressionnante. Le prix est intéressant pour un modèle Apple.",
-      "url": "https://www.walmart.ca/fr/ip/Apple-2022-MacBook-Air-13-6-Pouces-avec-Puce-M2-8-Go-RAM-256-Go-SSD-Minuit/5FTLI512X5XU",
-      "imageUrl": "/images/products/walmart-apple-2022-macbook-air-13-6-pouces-avec-puce-m2.jpg",
-      "source": "walmart",
-      "addedAt": "2026-04-18T11:40:05.290Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
-    },
-    {
       "id": "amazon-samsung-moniteur-de-jeu-odyssey-g5-wqhd-2560-x-1440-144",
       "name": "SAMSUNG Moniteur de jeu Odyssey G5, WQHD (2560 x 1440), 144",
       "brand": "Samsung",
@@ -3371,36 +2944,6 @@
       "addedAt": "2026-04-20T11:29:41.502Z",
       "lastVerified": "2026-04-20T11:35:14.445Z",
       "priceSource": "page"
-    },
-    {
-      "id": "amazon-lg-ultrafine-27up850-w-27-inch-5ms-60hz-uhd-4k-monitor-usb-t",
-      "name": "LG Ultrafine 27UP850-W 27 Inch 5ms 60Hz UHD 4k Monitor, USB Type-C, Silver",
-      "brand": "LG",
-      "category": "monitor",
-      "profiles": [
-        "work",
-        "creative",
-        "basic"
-      ],
-      "budgetTier": "500to900",
-      "price": 399.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "panelType": "IPS",
-        "resolution": "3840x2160",
-        "size": "27\"",
-        "storage": "N/A"
-      },
-      "aiScore": 79,
-      "aiRationale": "Ce moniteur 4K UHD de 27 pouces avec USB-C est idéal pour la productivité et le travail créatif, offrant une belle qualité d'image.",
-      "url": "https://www.amazon.ca/dp/B0DQFF7FBS?tag=shopcompy-20",
-      "imageUrl": "/images/products/amazon-lg-ultrafine-27up850-w-27-inch-5ms-60hz-uhd-4k-monito.jpg",
-      "source": "amazon",
-      "addedAt": "2026-04-20T11:28:36.418Z",
-      "lastVerified": "2026-04-20T11:35:04.202Z",
-      "priceSource": "ai"
     },
     {
       "id": "amazon-lg-27uk850-w-27-4k-uhd-ips-monitor-with-hdr10-and-usb-c",
@@ -3690,36 +3233,6 @@
       "source": "microsoft",
       "addedAt": "2026-04-01T00:36:44.651Z",
       "lastVerified": "2026-04-20T11:35:16.967Z",
-      "priceSource": "page"
-    },
-    {
-      "id": "microsoft-surface-dock",
-      "name": "Surface Dock",
-      "brand": "Microsoft",
-      "category": "dock",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "under500",
-      "price": 104.99,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "N/A",
-        "ports": "Non spécifié",
-        "powerDelivery": "Non spécifié",
-        "ram": "N/A",
-        "storage": "N/A"
-      },
-      "aiScore": 75,
-      "aiRationale": "Une station d'accueil Surface de base, offrant une connectivité essentielle pour transformer votre portable en poste de travail. Le prix est correct pour les fonctionnalités de base.",
-      "url": "https://www.microsoft.com/en-ca/d/surface-dock-2/8qd908364sg2",
-      "imageUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
-      "source": "microsoft",
-      "addedAt": "2026-04-20T11:34:28.512Z",
-      "lastVerified": "2026-04-20T11:35:17.602Z",
       "priceSource": "page"
     },
     {
