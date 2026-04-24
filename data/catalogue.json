@@ -737,35 +737,6 @@
       "priceSource": "ai"
     },
     {
-      "id": "apple-14-inch-macbook-pro-m4-pro-chip",
-      "name": "14-inch MacBook Pro M4 Pro Chip",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "creative",
-        "work",
-        "gaming"
-      ],
-      "budgetTier": "over1500",
-      "price": 2399,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Pro Chip, 12-core CPU",
-        "gpu": "16-core GPU",
-        "ram": "48GB memory",
-        "storage": "512GB storage"
-      },
-      "aiScore": 91,
-      "aiRationale": "Ce MacBook Pro 14 pouces avec M4 Pro et 48 Go de RAM est une machine de guerre pour les professionnels qui exigent le maximum de performance pour la création de contenu et le développement.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_pro/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:39.749Z",
-      "lastVerified": "2026-04-20T11:35:06.358Z",
-      "priceSource": "page"
-    },
-    {
       "id": "amazon-samsung-ecran-de-jeu-incurve-odyssey-g7-wuhd-de-40-po-avec-t",
       "name": "Samsung Écran de jeu incurvé Odyssey G7 WUHD de 40 po avec taux de rafraîchissement de 180 Hz",
       "brand": "Samsung",
@@ -793,35 +764,6 @@
       "addedAt": "2026-04-19T11:40:32.983Z",
       "lastVerified": "2026-04-20T11:35:04.201Z",
       "priceSource": "ai"
-    },
-    {
-      "id": "apple-15-inch-macbook-air-m4-chip",
-      "name": "15-inch MacBook Air M4 Chip",
-      "brand": "Apple",
-      "category": "apple",
-      "profiles": [
-        "work",
-        "student",
-        "creative"
-      ],
-      "budgetTier": "over1500",
-      "price": 1499,
-      "originalPrice": 0,
-      "isOnSale": false,
-      "specs": {
-        "cpu": "Apple M4 Chip, 10-core CPU",
-        "gpu": "10-core GPU",
-        "ram": "32GB memory",
-        "storage": "2TB storage"
-      },
-      "aiScore": 90,
-      "aiRationale": "Ce MacBook Air 15 pouces avec M4, 32 Go de RAM et 2 To de stockage à ce prix, c'est un deal incroyable pour les pros et les créatifs qui cherchent la performance ultime.",
-      "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch",
-      "imageUrl": "https://www.apple.com/shop/mdp/echo/echo.png?app=com.apple.www.Store&pageViewId=no-js&recordTime=no-js&referrer=no-js&referer=no-js&host=no-js&pageHostname=no-js&pageUrl=no-js&pagePathname=no-js&pageShopPath=no-js&eventType=pageview&environment=&format=common&region=amr&country=CA&sf=Consumer&segment=Consumer&locale=en-ca&node=standard/home/shop_mac/family/macbook_air/select&pageResource=mac-2&feature=step1evolution",
-      "source": "apple",
-      "addedAt": "2026-04-19T11:42:39.749Z",
-      "lastVerified": "2026-04-20T11:35:06.420Z",
-      "priceSource": "page"
     },
     {
       "id": "lenovo-ecran-lenovo-legion-y27q-30-2k-qhd-pro-gaming-27",
