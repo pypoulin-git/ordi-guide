@@ -2,26 +2,28 @@ const fr = {
   // ── Nav & Layout ─────────────────────────────────────────
   nav: {
     guide: 'Le guide',
-    comparator: 'M\'aider à choisir',
+    comparator: "M'aider à choisir",
     blog: 'Le Décodeur',
     catalogue: 'Catalogue',
     about: 'À propos',
     start: 'Commencer →',
-    explanationMode: 'Mode d\'explication',
+    explanationMode: "Mode d'explication",
     backToTop: 'Retour en haut',
     home: 'Accueil',
     themeDark: 'Mode sombre',
     themeLight: 'Mode clair',
-    analogyHelp: 'Choisissez l\'analogie utilisée pour expliquer les composants sur le site',
+    analogyHelp: "Choisissez l'analogie utilisée pour expliquer les composants sur le site",
   },
 
   // ── Footer ───────────────────────────────────────────────
   footer: {
-    tagline: 'Un guide simple et honnête pour t\'aider à choisir ton prochain ordinateur, sans jargon inutile.',
+    tagline:
+      "Un guide simple et honnête pour t'aider à choisir ton prochain ordinateur, sans jargon inutile.",
     explore: 'Explorer',
     guideComplete: 'Le guide complet',
     aboutTitle: 'À propos',
-    affiliateDisclosure: 'Certains liens vers des détaillants sont des liens affiliés : si tu achètes via ces liens, on reçoit une petite commission, sans frais supplémentaires pour toi. On affiche aussi un seul espace publicitaire clairement identifié sur les pages produit. Nos recommandations restent basées sur la qualité et tes besoins, jamais sur les commissions.',
+    affiliateDisclosure:
+      'Certains liens vers des détaillants sont des liens affiliés : si tu achètes via ces liens, on reçoit une petite commission, sans frais supplémentaires pour toi. On affiche aussi un seul espace publicitaire clairement identifié sur les pages produit. Nos recommandations restent basées sur la qualité et tes besoins, jamais sur les commissions.',
     privacy: 'Confidentialité',
     terms: 'Conditions d\u2019utilisation',
     support: 'Support expert',
@@ -33,51 +35,57 @@ const fr = {
     newsletter: 'Infolettre',
     newsletterDesc: 'Recevez nos offres et conseils mensuels',
     newsletterPlaceholder: 'Votre courriel',
-    newsletterButton: 'S\'abonner',
-    newsletterSuccess: 'Merci pour l\'intérêt ! On n\'envoie pas encore de newsletter — on te contactera dès qu\'elle sera lancée.',
+    newsletterButton: "S'abonner",
+    newsletterSuccess:
+      "Merci pour l'intérêt ! On n'envoie pas encore de newsletter — on te contactera dès qu'elle sera lancée.",
     newsletterLocalNote: '(Ton courriel est conservé uniquement sur cet appareil)',
-    newsletterConsent: 'Je consens à recevoir les courriels de Shop Compy. Je peux me désabonner à tout moment.',
+    newsletterConsent:
+      'Je consens à recevoir les courriels de Shop Compy. Je peux me désabonner à tout moment.',
     newsletterConsentRequired: 'Coche la case pour confirmer ton consentement.',
-    manageCookies: 'Gerer les temoins',
+    manageCookies: 'Gérer les témoins',
     socialGithub: 'GitHub',
   },
 
   // ── Home ─────────────────────────────────────────────────
   home: {
-    heroTitle: 'Besoin d\'aide pour choisir\nton prochain ordinateur ?',
-    heroSubtitle: 'On t\'explique tout sans jargon et sans pression.\nUn guide honnête pour magasiner en confiance, que tu sois débutant ou pas.',
-    heroCta: 'M\'aider à choisir',
+    heroTitle: "Besoin d'aide pour choisir\nton prochain ordinateur ?",
+    heroSubtitle:
+      "On t'explique tout sans jargon et sans pression.\nUn guide honnête pour magasiner en confiance, que tu sois débutant ou pas.",
+    heroCta: "M'aider à choisir",
     heroCtaGuide: 'Lire le guide',
 
-    searchTitle: 'Décris ton besoin, on s\'occupe du reste',
+    searchTitle: "Décris ton besoin, on s'occupe du reste",
     searchSubtitle: 'Notre assistant analyse ta demande et te donne une recommandation instantanée',
 
-    analogyTitle: 'Ou tu veux qu\'on t\'explique ?',
-    analogySubtitle: 'Choisis comment les explications s\'adaptent à toi sur tout le site',
-    analogyStyle: 'Ton style d\'analogies',
+    analogyTitle: "Ou tu veux qu'on t'explique ?",
+    analogySubtitle: "Choisis comment les explications s'adaptent à toi sur tout le site",
+    analogyStyle: "Ton style d'analogies",
     analogyDesc: 'Chaque composante sera expliquée selon ton univers préféré',
     analogyChangeAnytime: 'Modifiable en tout temps dans le menu',
     analogyMode: 'Mode',
 
     featuresTitle: 'Par où commencer ?',
-    featuresSubtitle: 'Trois outils simples pour t\'accompagner dans ton achat',
+    featuresSubtitle: "Trois outils simples pour t'accompagner dans ton achat",
 
     featureGuideTitle: 'Le guide complet',
-    featureGuideDesc: 'Comprends les bases en 10 minutes. Processeur, mémoire, stockage, expliqués sans jargon.',
+    featureGuideDesc:
+      'Comprends les bases en 10 minutes. Processeur, mémoire, stockage, expliqués sans jargon.',
     featureGuideCta: 'Lire le guide →',
 
-    featureComparatorTitle: 'M\'aider à choisir',
-    featureComparatorDesc: 'Réponds à 5 questions simples et reçois une recommandation personnalisée selon ton usage et ton budget.',
+    featureComparatorTitle: "M'aider à choisir",
+    featureComparatorDesc:
+      'Réponds à 5 questions simples et reçois une recommandation personnalisée selon ton usage et ton budget.',
     featureComparatorCta: 'Commencer →',
 
     featureGlossaryTitle: 'Lexique des termes',
-    featureGlossaryDesc: 'Tu as vu "SSD NVMe" ou "RAM DDR5" et tu ne sais pas ce que ça veut dire ? On t\'explique.',
+    featureGlossaryDesc:
+      'Tu as vu "SSD NVMe" ou "RAM DDR5" et tu ne sais pas ce que ça veut dire ? On t\'explique.',
     featureGlossaryCta: 'Explorer le lexique →',
 
     reassurance1: 'Explications simples',
     reassurance1Desc: 'Pas de jargon, pas de condescendance',
     reassurance2: 'Rapide à lire',
-    reassurance2Desc: 'L\'essentiel en moins de 10 min',
+    reassurance2Desc: "L'essentiel en moins de 10 min",
     reassurance3: 'Transparent',
     reassurance3Desc: 'Liens affiliés et espace partenaire identifiés, conseils impartiaux',
     reassurance4: 'Pour tous',
@@ -87,16 +95,20 @@ const fr = {
     faqSubtitle: 'Les vraies questions que tout le monde se pose',
 
     faq1Q: 'Combien dois-je dépenser pour un bon ordinateur ?',
-    faq1A: 'Pour la plupart des usages courants (navigation, courriels, photos, vidéos), un budget de 500 à 800 $ suffit amplement. Il n\'est pas nécessaire de dépenser 1 500 $ sauf si tu fais de la vidéo 4K, du jeu vidéo exigeant, ou du travail professionnel spécialisé.',
+    faq1A:
+      "Pour la plupart des usages courants (navigation, courriels, photos, vidéos), un budget de 500 à 800 $ suffit amplement. Il n'est pas nécessaire de dépenser 1 500 $ sauf si tu fais de la vidéo 4K, du jeu vidéo exigeant, ou du travail professionnel spécialisé.",
 
     faq2Q: 'Portable ou ordinateur de bureau ?',
-    faq2A: 'Un portable te suit partout mais coûte un peu plus cher pour les mêmes performances. Un ordinateur de bureau est plus puissant pour le même prix et plus facile à réparer, mais reste à la maison. Si tu te déplaces souvent ou travailles dans différentes pièces, le portable est idéal.',
+    faq2A:
+      'Un portable te suit partout mais coûte un peu plus cher pour les mêmes performances. Un ordinateur de bureau est plus puissant pour le même prix et plus facile à réparer, mais reste à la maison. Si tu te déplaces souvent ou travailles dans différentes pièces, le portable est idéal.',
 
     faq3Q: 'Mac ou Windows ?',
-    faq3A: 'Les deux font très bien le travail. Windows offre plus de choix de modèles et de prix. Mac est apprécié pour sa simplicité, sa durabilité et son intégration avec iPhone/iPad. Le choix se fait souvent selon l\'habitude et l\'usage, notre guide t\'aide à y voir plus clair.',
+    faq3A:
+      "Les deux font très bien le travail. Windows offre plus de choix de modèles et de prix. Mac est apprécié pour sa simplicité, sa durabilité et son intégration avec iPhone/iPad. Le choix se fait souvent selon l'habitude et l'usage, notre guide t'aide à y voir plus clair.",
 
-    faq4Q: 'C\'est quoi la différence entre RAM et stockage ?',
-    faq4A: 'La RAM, c\'est comme le bureau de travail : plus elle est grande, plus tu peux avoir de choses ouvertes en même temps. Le stockage (disque dur / SSD), c\'est l\'armoire où tu ranges tout. Un bureau encombré ralentit, une grande armoire bien rangée ne ralentit pas.',
+    faq4Q: "C'est quoi la différence entre RAM et stockage ?",
+    faq4A:
+      "La RAM, c'est comme le bureau de travail : plus elle est grande, plus tu peux avoir de choses ouvertes en même temps. Le stockage (disque dur / SSD), c'est l'armoire où tu ranges tout. Un bureau encombré ralentit, une grande armoire bien rangée ne ralentit pas.",
 
     faqGlossaryHint: 'Perdu dans le jargon ? Consulte notre',
     faqGlossaryLink: 'lexique des termes informatiques',
@@ -104,10 +116,14 @@ const fr = {
 
     // ── Getting Started ───────────────────────────────────
     gettingStartedTitle: 'Par où commencer quand on magasine un ordinateur ?',
-    gettingStartedP1: 'Avant de regarder les prix ou les marques, la première étape est de te poser une question simple : à quoi va servir cet ordinateur ? Naviguer sur le web et écrire des courriels, c\'est très différent de monter des vidéos ou de jouer à des jeux en ligne. Un étudiant qui prend des notes en classe n\'a pas les mêmes besoins qu\'un travailleur autonome qui gère sa comptabilité. En identifiant tes besoins réels, tu évites de payer pour des fonctionnalités que tu n\'utiliseras jamais — et tu t\'assures d\'avoir un ordinateur qui fait exactement ce que tu lui demandes.',
-    gettingStartedP2: 'Au Canada, les fourchettes de prix sont assez prévisibles. Pour un usage de base (web, courriel, documents), un budget de 500 à 800 $ est suffisant. Si tu as besoin de plus de puissance — par exemple pour du multitâche intensif, de la retouche photo ou des applications professionnelles — vise entre 800 et 1 200 $. Les ordinateurs à 1 200 $ et plus sont conçus pour les usages exigeants comme le montage vidéo, la création 3D ou le jeu haute performance. N\'oublie pas que les promotions et les périodes de soldes (rentrée scolaire, Vendredi fou) peuvent te faire économiser 15 à 30 % sur le prix régulier.',
-    gettingStartedP3: 'Quand tu compares des modèles, concentre-toi sur trois composants clés. Le processeur (CPU), c\'est le cerveau de l\'ordinateur : il détermine la vitesse à laquelle les tâches sont exécutées. La mémoire vive (RAM) contrôle combien de choses tu peux faire en même temps — 8 Go est le minimum recommandé en 2025, et 16 Go offre un confort durable. Le stockage (SSD) détermine l\'espace pour tes fichiers et la vitesse de démarrage : un SSD de 256 Go convient si tu utilises le nuage, mais 512 Go est plus confortable.',
-    gettingStartedP4: 'La bonne nouvelle ? Tu n\'as presque jamais besoin du modèle le plus cher. Les fabricants mettent en valeur les options haut de gamme, mais un ordinateur milieu de gamme bien choisi couvrira les besoins de 80 % des utilisateurs pendant 4 à 6 ans. L\'important, c\'est de choisir un appareil adapté à tes besoins, pas le plus impressionnant sur papier. Notre guide complet t\'explique chaque composant en détail pour t\'aider à faire le bon choix.',
+    gettingStartedP1:
+      "Avant de regarder les prix ou les marques, la première étape est de te poser une question simple : à quoi va servir cet ordinateur ? Naviguer sur le web et écrire des courriels, c'est très différent de monter des vidéos ou de jouer à des jeux en ligne. Un étudiant qui prend des notes en classe n'a pas les mêmes besoins qu'un travailleur autonome qui gère sa comptabilité. En identifiant tes besoins réels, tu évites de payer pour des fonctionnalités que tu n'utiliseras jamais — et tu t'assures d'avoir un ordinateur qui fait exactement ce que tu lui demandes.",
+    gettingStartedP2:
+      "Au Canada, les fourchettes de prix sont assez prévisibles. Pour un usage de base (web, courriel, documents), un budget de 500 à 800 $ est suffisant. Si tu as besoin de plus de puissance — par exemple pour du multitâche intensif, de la retouche photo ou des applications professionnelles — vise entre 800 et 1 200 $. Les ordinateurs à 1 200 $ et plus sont conçus pour les usages exigeants comme le montage vidéo, la création 3D ou le jeu haute performance. N'oublie pas que les promotions et les périodes de soldes (rentrée scolaire, Vendredi fou) peuvent te faire économiser 15 à 30 % sur le prix régulier.",
+    gettingStartedP3:
+      "Quand tu compares des modèles, concentre-toi sur trois composants clés. Le processeur (CPU), c'est le cerveau de l'ordinateur : il détermine la vitesse à laquelle les tâches sont exécutées. La mémoire vive (RAM) contrôle combien de choses tu peux faire en même temps — 8 Go est le minimum recommandé en 2025, et 16 Go offre un confort durable. Le stockage (SSD) détermine l'espace pour tes fichiers et la vitesse de démarrage : un SSD de 256 Go convient si tu utilises le nuage, mais 512 Go est plus confortable.",
+    gettingStartedP4:
+      "La bonne nouvelle ? Tu n'as presque jamais besoin du modèle le plus cher. Les fabricants mettent en valeur les options haut de gamme, mais un ordinateur milieu de gamme bien choisi couvrira les besoins de 80 % des utilisateurs pendant 4 à 6 ans. L'important, c'est de choisir un appareil adapté à tes besoins, pas le plus impressionnant sur papier. Notre guide complet t'explique chaque composant en détail pour t'aider à faire le bon choix.",
     gettingStartedGuideLink: 'Lire le guide complet →',
 
     // ── Trust Stats ───────────────────────────────────────
@@ -122,13 +138,14 @@ const fr = {
 
     // ── Latest Blog ───────────────────────────────────────
     latestTitle: 'Derniers articles',
-    latestSubtitle: 'Nos guides les plus récents pour t\'aider à comprendre la tech sans te casser la tête.',
+    latestSubtitle:
+      "Nos guides les plus récents pour t'aider à comprendre la tech sans te casser la tête.",
     latestReadMore: 'Voir tous les articles →',
     latestReadTime: 'min de lecture',
 
     bottomCtaTitle: 'Prêt à trouver ton ordi idéal ?',
     bottomCtaSubtitle: 'Réponds à 5 questions et reçois une recommandation personnalisée gratuite.',
-    bottomCtaButton: 'Commencer, c\'est gratuit →',
+    bottomCtaButton: "Commencer, c'est gratuit →",
   },
 
   // ── Components ───────────────────────────────────────────
@@ -169,11 +186,11 @@ const fr = {
     gpuBody: 'Le cortex visuel',
     gpuCar: 'Le turbo',
     gpuBodyShort: 'les réflexes visuels',
-    gpuCarShort: 'l\'accélération brute',
-    batteryBody: 'L\'endurance physique',
+    gpuCarShort: "l'accélération brute",
+    batteryBody: "L'endurance physique",
     batteryCar: 'Le réservoir',
     batteryBodyShort: 'combien de temps tu tiens',
-    batteryCarShort: 'l\'autonomie en route',
+    batteryCarShort: "l'autonomie en route",
     screenBody: 'Les yeux',
     screenCar: 'Le pare-brise',
     screenBodyShort: 'ce que tu vois',
@@ -183,7 +200,8 @@ const fr = {
   // ── Guide page ───────────────────────────────────────────
   guide: {
     heroTitle: 'Les bases pour bien choisir ton ordinateur',
-    heroSubtitle: 'Pas de jargon inutile. On t\'explique chaque composante en langage simple, avec des exemples concrets pour que tu saches exactement quoi regarder.',
+    heroSubtitle:
+      "Pas de jargon inutile. On t'explique chaque composante en langage simple, avec des exemples concrets pour que tu saches exactement quoi regarder.",
     heroBadge: 'Guide complet · Lecture 10 min',
     tocTitle: 'Dans ce guide :',
     modeLabel: 'Mode',
@@ -193,12 +211,12 @@ const fr = {
     conclusionLabel: 'Pour conclure',
     ctaTitle: 'Maintenant, trouvons ton ordi idéal',
     ctaSubtitle: 'Réponds à 5 questions et reçois une recommandation personnalisée.',
-    ctaButton: 'M\'aider à choisir →',
+    ctaButton: "M'aider à choisir →",
   },
 
   // ── Comparator page ──────────────────────────────────────
   comparator: {
-    pageTitle: 'M\'aider à choisir',
+    pageTitle: "M'aider à choisir",
     pageSubtitle: 'Réponds à {count} questions pour recevoir ta recommandation personnalisée',
     questionOf: 'Question {current} sur {total}',
     back: '← Revenir à la question précédente',
@@ -208,19 +226,22 @@ const fr = {
     noteLabel: 'À savoir',
     learnMore: 'En savoir plus dans le guide',
     restart: 'Recommencer',
-    disclaimer: 'Nos recommandations sont basées sur tes besoins. Certains liens sont affiliés — tu ne payes rien de plus.',
+    disclaimer:
+      'Nos recommandations sont basées sur tes besoins. Certains liens sont affiliés — tu ne payes rien de plus.',
   },
 
   // ── Glossary page ────────────────────────────────────────
   glossary: {
     heroTitle: 'Lexique informatique',
-    heroSubtitle: 'Tous les termes techniques que tu vas croiser en cherchant un ordinateur — expliqués en langage de tous les jours.',
+    heroSubtitle:
+      'Tous les termes techniques que tu vas croiser en cherchant un ordinateur — expliqués en langage de tous les jours.',
     heroBadge: '{count} termes expliqués',
     exLabel: 'Ex :',
     ctaTitle: 'Prêt à choisir ton ordinateur ?',
-    ctaSubtitle: 'Utilise notre outil d\'aide au choix pour obtenir une recommandation personnalisée.',
-    ctaButton: 'M\'aider à choisir →',
-    faqPrefix: 'Qu\'est-ce que',
+    ctaSubtitle:
+      "Utilise notre outil d'aide au choix pour obtenir une recommandation personnalisée.",
+    ctaButton: "M'aider à choisir →",
+    faqPrefix: "Qu'est-ce que",
     filterAll: 'Tout',
     filterProcessor: 'Processeurs',
     filterMemory: 'Mémoire',
@@ -233,44 +254,60 @@ const fr = {
 
   // ── About page ───────────────────────────────────────────
   about: {
-    heroTitle: 'L\'humain derrière la machine',
-    heroSubtitle: 'Shop Compy n\'est pas une grande entreprise. C\'est une idée née derrière un comptoir, avec des gens ordinaires qui méritaient de meilleures explications.',
+    heroTitle: "L'humain derrière la machine",
+    heroSubtitle:
+      "Shop Compy n'est pas une grande entreprise. C'est une idée née derrière un comptoir, avec des gens ordinaires qui méritaient de meilleures explications.",
     origin: 'Le point de départ',
-    originQuote: 'Il y a quelques années, j\'ai passé deux ans comme conseiller chez Dell. Ma partie préférée du travail ? Ce n\'était pas de réciter des fiches techniques, c\'était de voir le visage de « monsieur et madame tout le monde » s\'éclairer quand ils comprenaient enfin ce qu\'ils achetaient.',
-    originP1: 'C\'est là qu\'est née ma fameuse analogie du corps humain. Expliquer qu\'un processeur est un cerveau, que la RAM est un poumon, ça change tout. Soudainement, l\'informatique n\'est plus une langue étrangère — c\'est une question de bon sens.',
-    originP2: 'Les clients partaient avec un ordinateur qui leur ressemblait vraiment, pas avec celui que le vendeur avait intérêt à écouler. Ce détail faisait toute la différence.',
-    today: 'Aujourd\'hui',
-    todayQuote: 'Ma carrière m\'a amené ailleurs, mais je reste « le gars de service » pour mes parents, mes cousins et mes voisins. Soyons honnêtes : le marché informatique en 2026 est une jungle. À peine commence-t-on à maîtriser un concept qu\'une nouvelle puce IA vient tout révolutionner.',
-    todayP1: 'Il est devenu impossible pour une personne ordinaire de suivre la cadence sans y passer ses nuits. Pourtant, les décisions à prendre restent les mêmes : quel ordinateur acheter, pour quel budget, pour quel usage. Les questions n\'ont pas changé. Ce qui a changé, c\'est la complexité de trouver une réponse claire.',
-    missionTitle: 'La solution : l\'IA au service de la simplicité',
-    missionIntro: 'C\'est pour cette raison que j\'ai créé ce site. L\'idée était de combiner l\'intelligence artificielle — capable d\'analyser les milliers de specs qui changent chaque jour — avec une approche humaine, accessible et sans condescendance.',
+    originQuote:
+      "Il y a quelques années, j'ai passé deux ans comme conseiller chez Dell. Ma partie préférée du travail ? Ce n'était pas de réciter des fiches techniques, c'était de voir le visage de « monsieur et madame tout le monde » s'éclairer quand ils comprenaient enfin ce qu'ils achetaient.",
+    originP1:
+      "C'est là qu'est née ma fameuse analogie du corps humain. Expliquer qu'un processeur est un cerveau, que la RAM est un poumon, ça change tout. Soudainement, l'informatique n'est plus une langue étrangère — c'est une question de bon sens.",
+    originP2:
+      'Les clients partaient avec un ordinateur qui leur ressemblait vraiment, pas avec celui que le vendeur avait intérêt à écouler. Ce détail faisait toute la différence.',
+    today: "Aujourd'hui",
+    todayQuote:
+      "Ma carrière m'a amené ailleurs, mais je reste « le gars de service » pour mes parents, mes cousins et mes voisins. Soyons honnêtes : le marché informatique en 2026 est une jungle. À peine commence-t-on à maîtriser un concept qu'une nouvelle puce IA vient tout révolutionner.",
+    todayP1:
+      "Il est devenu impossible pour une personne ordinaire de suivre la cadence sans y passer ses nuits. Pourtant, les décisions à prendre restent les mêmes : quel ordinateur acheter, pour quel budget, pour quel usage. Les questions n'ont pas changé. Ce qui a changé, c'est la complexité de trouver une réponse claire.",
+    missionTitle: "La solution : l'IA au service de la simplicité",
+    missionIntro:
+      "C'est pour cette raison que j'ai créé ce site. L'idée était de combiner l'intelligence artificielle — capable d'analyser les milliers de specs qui changent chaque jour — avec une approche humaine, accessible et sans condescendance.",
     step1Title: 'Vulgariser',
-    step1Desc: 'Vous expliquer la technologie avec des mots et des analogies — corps humain ou automobile — que vous comprenez vraiment, sans jargon inutile.',
+    step1Desc:
+      'Vous expliquer la technologie avec des mots et des analogies — corps humain ou automobile — que vous comprenez vraiment, sans jargon inutile.',
     step2Title: 'Sécuriser',
-    step2Desc: 'Vous diriger vers des commerces reconnus et fiables au Canada pour que votre achat se fasse en toute confiance.',
+    step2Desc:
+      'Vous diriger vers des commerces reconnus et fiables au Canada pour que votre achat se fasse en toute confiance.',
     step3Title: 'Simplifier',
-    step3Desc: 'Vous aider à trouver le compagnon numérique parfait pour vos besoins réels — pas pour ceux du vendeur.',
-    finalQuote: 'L\'informatique ne devrait pas être une langue étrangère. Pour tout le monde, elle devrait être une question de bon sens.',
+    step3Desc:
+      'Vous aider à trouver le compagnon numérique parfait pour vos besoins réels — pas pour ceux du vendeur.',
+    finalQuote:
+      "L'informatique ne devrait pas être une langue étrangère. Pour tout le monde, elle devrait être une question de bon sens.",
     founder: 'Le fondateur de Shop Compy',
     ctaTitle: 'Prêt à commencer ?',
-    ctaSubtitle: 'Laisse-nous t\'aider à faire le bon choix — simplement, honnêtement.',
-    ctaChoose: 'M\'aider à choisir →',
+    ctaSubtitle: "Laisse-nous t'aider à faire le bon choix — simplement, honnêtement.",
+    ctaChoose: "M'aider à choisir →",
     ctaGuide: 'Lire le guide',
     methodTitle: 'Comment on recommande',
     methodSubtitle: 'Notre processus est transparent, automatisé et indépendant.',
     method1Title: 'Analyse IA',
-    method1Desc: 'Notre IA analyse des centaines de produits chez les détaillants canadiens chaque semaine.',
+    method1Desc:
+      'Notre IA analyse des centaines de produits chez les détaillants canadiens chaque semaine.',
     method2Title: 'Prix vérifiés',
     method2Desc: 'Les prix sont extraits directement des pages détaillants, pas estimés.',
     method3Title: 'Aucun passe-droit',
-    method3Desc: 'Les commissions d\'affiliation n\'influencent jamais nos recommandations.',
+    method3Desc: "Les commissions d'affiliation n'influencent jamais nos recommandations.",
     method4Title: 'Mis à jour chaque semaine',
     method4Desc: 'Le catalogue est rafraîchi automatiquement pour refléter le marché actuel.',
     privacyTitle: 'Confidentialité et gestion de vos données',
-    privacyIntro: 'Votre vie privée est une priorité. Voici comment nous traitons vos données — en toute transparence.',
-    privacyP1: 'Nous collectons uniquement des données anonymes de navigation via Vercel Analytics (pages visitées, durée). Aucun compte utilisateur n\'est requis, aucune donnée personnelle n\'est stockée.',
-    privacyP2: 'Ce qui n\'est PAS collecté : nom, courriel, adresse IP, historique de recherche, données de paiement. Nous n\'utilisons aucun pixel de suivi tiers (Facebook, Google Analytics, etc.).',
-    privacyP3: 'Notre bannière de cookies vous offre un contrôle granulaire : vous choisissez exactement quels cookies accepter. Ce mécanisme est conforme à la Loi 25 du Québec et aux normes canadiennes PIPEDA.',
+    privacyIntro:
+      'Votre vie privée est une priorité. Voici comment nous traitons vos données — en toute transparence.',
+    privacyP1:
+      "Nous collectons uniquement des données anonymes de navigation via Vercel Analytics (pages visitées, durée). Aucun compte utilisateur n'est requis, aucune donnée personnelle n'est stockée.",
+    privacyP2:
+      "Ce qui n'est PAS collecté : nom, courriel, adresse IP, historique de recherche, données de paiement. Nous n'utilisons aucun pixel de suivi tiers (Facebook, Google Analytics, etc.).",
+    privacyP3:
+      'Notre bannière de cookies vous offre un contrôle granulaire : vous choisissez exactement quels cookies accepter. Ce mécanisme est conforme à la Loi 25 du Québec et aux normes canadiennes PIPEDA.',
     privacyManageCookies: 'Gérer mes cookies',
     privacyFullPolicy: 'Lire la politique de confidentialité complète',
     contactTitle: 'Nous joindre',
@@ -284,7 +321,8 @@ const fr = {
   blog: {
     articleCount: '{count} articles · Shop Compy',
     heroTitle: 'Le Décodeur',
-    heroSubtitle: 'La tech expliquée simplement. Des articles courts pour comprendre sans diplôme en informatique.',
+    heroSubtitle:
+      'La tech expliquée simplement. Des articles courts pour comprendre sans diplôme en informatique.',
     tags: 'Tags :',
     found: '{count} article{plural} trouvé{plural}',
     reset: 'Réinitialiser',
@@ -295,10 +333,10 @@ const fr = {
     otherArticles: 'Autres articles',
     paginationOf: '{current} / {total}',
     comingSoon: 'À venir',
-    comingSoonText: 'D\'autres articles arrivent bientôt…',
-    ctaTitle: 'Prêt à passer à l\'action ?',
-    ctaSubtitle: 'Maintenant que tu comprends les bases, trouvons l\'ordinateur qui te correspond.',
-    ctaButton: 'M\'aider à choisir →',
+    comingSoonText: "D'autres articles arrivent bientôt…",
+    ctaTitle: "Prêt à passer à l'action ?",
+    ctaSubtitle: "Maintenant que tu comprends les bases, trouvons l'ordinateur qui te correspond.",
+    ctaButton: "M'aider à choisir →",
     catAll: 'Tout',
     catBasics: 'Les bases',
     catComparisons: 'Comparatifs',
@@ -311,21 +349,23 @@ const fr = {
   compy: {
     title: 'Demande à Compy',
     subtitle: 'Ton assistant tech, prêt à répondre à tes questions',
-    placeholder: 'Ex: C\'est quoi la différence entre SSD et disque dur ?',
+    placeholder: "Ex: C'est quoi la différence entre SSD et disque dur ?",
     askButton: 'Demander',
     thinking: 'Compy réfléchit…',
     relatedArticles: 'Articles reliés',
-    improvisedNote: 'Aucun article ne couvre ce sujet pour l\'instant — on l\'a noté pour un prochain article.',
-    errorGeneric: 'Oups, quelque chose n\'a pas fonctionné. Réessaie.',
-    example1: 'C\'est quoi un processeur ?',
-    example2: 'Combien de RAM j\'ai besoin ?',
+    improvisedNote:
+      "Aucun article ne couvre ce sujet pour l'instant — on l'a noté pour un prochain article.",
+    errorGeneric: "Oups, quelque chose n'a pas fonctionné. Réessaie.",
+    example1: "C'est quoi un processeur ?",
+    example2: "Combien de RAM j'ai besoin ?",
     example3: 'SSD ou disque dur ?',
   },
 
   // ── Catalogue page ───────────────────────────────────────
   catalogue: {
     heroTitle: 'Nos recommandations',
-    heroSubtitleTemplate: '{count} ordinateurs sélectionnés et notés par notre IA. Filtre par profil, budget ou catégorie pour trouver le tien.',
+    heroSubtitleTemplate:
+      '{count} ordinateurs sélectionnés et notés par notre IA. Filtre par profil, budget ou catégorie pour trouver le tien.',
     profileLabel: 'Profil',
     budgetLabel: 'Budget',
     categoryLabel: 'Catégorie',
@@ -337,12 +377,14 @@ const fr = {
     total: 'au total',
     noProducts: 'Aucun produit trouvé',
     noProductsHint: 'Pas de souci! Essaie de retirer un filtre ou deux.',
-    noProductsSuggestion: 'Parfois, le meilleur choix apparait quand on elargit un peu la recherche.',
+    noProductsSuggestion:
+      'Parfois, le meilleur choix apparait quand on elargit un peu la recherche.',
     viewAll: 'Tout afficher',
     viewDetails: 'Voir détails →',
     storageLabel: 'Stockage',
     displayLabel: 'Écran',
-    aiScoreTooltip: 'Score de pertinence calculé par notre IA — basé sur le rapport qualité/prix, la fiabilité et le profil d\'usage.',
+    aiScoreTooltip:
+      "Score de pertinence calculé par notre IA — basé sur le rapport qualité/prix, la fiabilité et le profil d'usage.",
   },
 
   // ── Product detail page ─────────────────────────────────
@@ -363,7 +405,8 @@ const fr = {
     affiliateNote: 'Lien affilié — tu ne payes rien de plus',
     priceApprox: 'Prix approximatif',
     priceStale: 'Prix non vérifié récemment',
-    priceDisclaimer: 'Ce prix est une estimation IA et peut différer du prix réel. Vérifie sur le site du détaillant.',
+    priceDisclaimer:
+      'Ce prix est une estimation IA et peut différer du prix réel. Vérifie sur le site du détaillant.',
     notSure: 'Pas sûr ? Fais le questionnaire',
     similarProducts: 'Produits similaires',
     giftPickNote: 'Trouvaille Compy — cette référence est offerte sans revenu pour nous',
@@ -375,7 +418,7 @@ const fr = {
     description: 'Reçois un courriel si le prix de ce produit diminue.',
     placeholder: 'ton@courriel.com',
     button: 'Me prévenir',
-    subscribed: 'C\'est noté ! On te prévient dès que le prix baisse.',
+    subscribed: "C'est noté ! On te prévient dès que le prix baisse.",
     alreadySubscribed: 'Tu es déjà inscrit pour ce produit.',
     error: 'Une erreur est survenue. Réessaie.',
     privacy: 'Ton courriel sert uniquement aux alertes prix. Aucun spam.',
@@ -388,9 +431,9 @@ const fr = {
     submit: 'Chercher',
     tryLabel: 'Essaie :',
     example1: 'Un ordi pour ma mère qui fait du Zoom et du courriel',
-    example2: 'Je veux un portable léger pour l\'université',
+    example2: "Je veux un portable léger pour l'université",
     example3: 'Un PC pour jouer à des jeux récents sans me ruiner',
-    example4: 'Je fais du montage vidéo 4K, qu\'est-ce qu\'il me faut ?',
+    example4: "Je fais du montage vidéo 4K, qu'est-ce qu'il me faut ?",
     loading: 'Notre assistant analyse ta demande…',
     connectionError: 'Erreur de connexion. Réessaie dans un instant.',
     profileLabel: 'Profil',
@@ -420,9 +463,9 @@ const fr = {
   // ── Blog article page ───────────────────────────────────
   blogArticle: {
     backToBlog: '← Retour au Décodeur',
-    tldr: 'L\'essentiel en 30 secondes',
-    helpChoose: 'M\'aider à choisir →',
-    readMore: 'Lire d\'autres articles',
+    tldr: "L'essentiel en 30 secondes",
+    helpChoose: "M'aider à choisir →",
+    readMore: "Lire d'autres articles",
     breadcrumbHome: 'Accueil',
     breadcrumbBlog: 'Le Décodeur',
   },
@@ -435,24 +478,30 @@ const fr = {
   // ── 404 Not Found ─────────────────────────────────────
   notFound: {
     title: 'Page introuvable',
-    subtitle: 'On dirait que cette page n\'existe pas ou a été déplacée.',
-    goHome: 'Retour à l\'accueil',
+    subtitle: "On dirait que cette page n'existe pas ou a été déplacée.",
+    goHome: "Retour à l'accueil",
     goGuide: 'Lire le guide',
-    goComparator: 'M\'aider à choisir',
+    goComparator: "M'aider à choisir",
   },
   // ── Funding (About page transparency) ────────────────
   funding: {
     fundingTitle: 'Comment on finance ce site',
-    fundingIntro: 'Shop Compy est gratuit et le restera. Voici comment on couvre nos coûts pour garder le site en vie, à jour, et réellement utile.',
+    fundingIntro:
+      'Shop Compy est gratuit et le restera. Voici comment on couvre nos coûts pour garder le site en vie, à jour, et réellement utile.',
     fundingAffiliateTitle: 'Liens affiliés',
-    fundingAffiliateDesc: 'Quand tu achètes via un de nos liens, on reçoit une petite commission du détaillant. Ça ne te coûte rien de plus et ça n\'influence jamais nos recommandations.',
+    fundingAffiliateDesc:
+      "Quand tu achètes via un de nos liens, on reçoit une petite commission du détaillant. Ça ne te coûte rien de plus et ça n'influence jamais nos recommandations.",
     fundingPartnerTitle: 'Un espace partenaire',
-    fundingPartnerDesc: 'Un seul placement publicitaire, clairement identifié, sur les pages produit seulement. Le reste du site est 100 % sans pub.',
+    fundingPartnerDesc:
+      'Un seul placement publicitaire, clairement identifié, sur les pages produit seulement. Le reste du site est 100 % sans pub.',
     fundingGiftTitle: 'Trouvailles Compy',
-    fundingGiftDesc: 'Certains deals exceptionnels sont référencés sans commission pour nous. Un don volontaire est proposé — tu gardes le reste de tes économies.',
+    fundingGiftDesc:
+      'Certains deals exceptionnels sont référencés sans commission pour nous. Un don volontaire est proposé — tu gardes le reste de tes économies.',
     fundingSupportTitle: 'Support expert',
-    fundingSupportDesc: 'Une question à un humain pour seulement 10 $. Réponse garantie en 24h par courriel. Abordable et personnalisé.',
-    fundingWhy: 'Ces revenus financent l\'IA qui analyse les produits, l\'hébergement du site, et le développement continu. Sans ça, le site n\'existerait pas — ou il serait payant.',
+    fundingSupportDesc:
+      'Une question à un humain pour seulement 10 $. Réponse garantie en 24h par courriel. Abordable et personnalisé.',
+    fundingWhy:
+      "Ces revenus financent l'IA qui analyse les produits, l'hébergement du site, et le développement continu. Sans ça, le site n'existerait pas — ou il serait payant.",
     fundingBadge1: 'Pas de paywall',
     fundingBadge2: 'Pas de cookies de tracking',
     fundingBadge3: 'Recommandations basées sur la qualité',
@@ -477,14 +526,15 @@ const fr = {
     cookieAnalytics: 'Analytiques',
     cookieAnalyticsDesc: 'Nous aident à comprendre comment le site est utilisé.',
     cookieAdvertising: 'Publicitaires',
-    cookieAdvertisingDesc: 'Permettent d\'afficher des annonces pertinentes.',
+    cookieAdvertisingDesc: "Permettent d'afficher des annonces pertinentes.",
   },
 
   // ── Support expert ──────────────────────────────────
   support: {
     supportHeroTitle: 'Un expert, une réponse',
     supportHeroSubtitle: 'Pose ta question à un vrai humain. Réponse garantie en 24h.',
-    supportIntro: 'L\'IA de Compy est super, mais parfois tu as besoin d\'un avis personnalisé. Nos experts connaissent le marché canadien et répondent en langage simple.',
+    supportIntro:
+      "L'IA de Compy est super, mais parfois tu as besoin d'un avis personnalisé. Nos experts connaissent le marché canadien et répondent en langage simple.",
     supportTier1Title: '1 question',
     supportTier1Price: '5 $',
     supportTier1Desc: 'Un avis rapide et clair sur ta question.',
@@ -497,21 +547,24 @@ const fr = {
     supportEmailLabel: 'Ton courriel',
     supportEmailPlaceholder: 'ton@courriel.com',
     supportQuestionLabel: 'Ta question',
-    supportQuestionPlaceholder: 'Ex: Mon ordinateur a 5 ans, est-ce qu\'il vaut la peine d\'être upgradé ?',
+    supportQuestionPlaceholder:
+      "Ex: Mon ordinateur a 5 ans, est-ce qu'il vaut la peine d'être upgradé ?",
     supportCta: 'Payer et envoyer',
     supportExamples: 'Exemples de questions',
-    supportEx1: 'Mon ordi a 5 ans, est-ce qu\'il vaut la peine d\'être upgradé ?',
-    supportEx2: 'J\'hésite entre le MacBook Air M4 et le Lenovo Yoga.',
+    supportEx1: "Mon ordi a 5 ans, est-ce qu'il vaut la peine d'être upgradé ?",
+    supportEx2: "J'hésite entre le MacBook Air M4 et le Lenovo Yoga.",
     supportEx3: 'Est-ce que mon PC peut supporter Windows 11 ?',
-    supportEx4: 'J\'ai trouvé un deal, est-ce que c\'est un bon achat ?',
+    supportEx4: "J'ai trouvé un deal, est-ce que c'est un bon achat ?",
     supportMerciTitle: 'Merci !',
-    supportMerciMessage: 'Ta question a été reçue. On te répond dans les 24 prochaines heures à l\'adresse courriel indiquée.',
+    supportMerciMessage:
+      "Ta question a été reçue. On te répond dans les 24 prochaines heures à l'adresse courriel indiquée.",
   },
 
   // ── Donation ────────────────────────────────────────
   donation: {
-    donationTitle: 'Ce deal t\'a aidé ?',
-    donationSubtitle: 'Cette référence est offerte sans revenu pour nous. Si tu veux nous soutenir :',
+    donationTitle: "Ce deal t'a aidé ?",
+    donationSubtitle:
+      'Cette référence est offerte sans revenu pour nous. Si tu veux nous soutenir :',
     donationCta5: '5 $',
     donationCta10: '10 $',
     donationCta20: '20 $',
@@ -557,7 +610,8 @@ const fr = {
   // ── Contact ──────────────────────────────────────────
   contact: {
     heroTitle: 'Nous joindre',
-    heroSubtitle: 'Une question, une suggestion ou une demande de partenariat ? On est la pour t\'aider.',
+    heroSubtitle:
+      "Une question, une suggestion ou une demande de partenariat ? On est la pour t'aider.",
     formTitle: 'Envoyer un message',
     nameLabel: 'Nom',
     namePlaceholder: 'Ton nom',
@@ -570,7 +624,8 @@ const fr = {
     subjectOther: 'Autre',
     messageLabel: 'Message',
     messagePlaceholder: 'Ecris ton message ici...',
-    consentLabel: 'Je consens à ce que Shop Compy utilise mes coordonnées pour répondre à ce message. Je peux demander leur suppression en tout temps.',
+    consentLabel:
+      'Je consens à ce que Shop Compy utilise mes coordonnées pour répondre à ce message. Je peux demander leur suppression en tout temps.',
     consentRequired: 'Coche la case pour confirmer ton consentement.',
     submit: 'Envoyer',
     sending: 'Envoi en cours...',
@@ -586,9 +641,11 @@ const fr = {
     altResponseValue: '48 heures',
     faqTitle: 'Questions frequentes',
     faqQ1: 'Le site est vraiment gratuit ?',
-    faqA1: 'Oui ! Shop Compy est finance par des liens affilies et un seul espace publicitaire. Tu ne paies rien pour utiliser le site.',
+    faqA1:
+      'Oui ! Shop Compy est finance par des liens affilies et un seul espace publicitaire. Tu ne paies rien pour utiliser le site.',
     faqQ2: 'Comment les recommandations sont-elles faites ?',
-    faqA2: 'Nos recommandations sont basees sur une analyse IA combinee a des prix verifies aupres de detaillants canadiens. Consulte notre page A propos pour en savoir plus.',
+    faqA2:
+      'Nos recommandations sont basees sur une analyse IA combinee a des prix verifies aupres de detaillants canadiens. Consulte notre page A propos pour en savoir plus.',
     faqQ3: 'Puis-je suggerer un produit ?',
     faqA3: 'Bien sur ! Utilise le formulaire ci-dessus pour nous envoyer ta suggestion.',
     faqQ4: 'Est-ce que vous vendez des ordinateurs ?',
@@ -603,7 +660,8 @@ const fr = {
 
   // ── Affiliate Disclosure ─────────────────────────────
   affiliate: {
-    disclosure: 'Certains liens sont des liens affiliés. Si tu achètes via ces liens, on reçoit une petite commission sans frais pour toi.',
+    disclosure:
+      'Certains liens sont des liens affiliés. Si tu achètes via ces liens, on reçoit une petite commission sans frais pour toi.',
     learnMore: 'En savoir plus',
     dismiss: 'Fermer',
   },
@@ -613,16 +671,19 @@ const fr = {
     // Hero
     heroBadge: 'Service spécialisé · PME du Québec',
     heroTitle: 'Audit conformité Loi 25 pour ton site web',
-    heroSubtitle: 'Vérifie en quelques jours si ton site respecte la Loi 25, PIPEDA et CASL. Trois forfaits clairs, prix fixes, livrés sous 7 jours ouvrables.',
+    heroSubtitle:
+      'Vérifie en quelques jours si ton site respecte la Loi 25, PIPEDA et CASL. Trois forfaits clairs, prix fixes, livrés sous 7 jours ouvrables.',
 
     // Why
     whyTitle: 'Pourquoi tu devrais t\u2019en soucier',
-    whyIntro: 'Depuis le 22 septembre 2023, toute organisation québécoise qui collecte des renseignements personnels doit respecter la Loi 25. Politique de confidentialité, consentement granulaire, droit à l\u2019effacement, déclaration d\u2019incident. La plupart des PME ne savent pas où elles en sont — et c\u2019est là que ça coûte cher.',
+    whyIntro:
+      'Depuis le 22 septembre 2023, toute organisation québécoise qui collecte des renseignements personnels doit respecter la Loi 25. Politique de confidentialité, consentement granulaire, droit à l\u2019effacement, déclaration d\u2019incident. La plupart des PME ne savent pas où elles en sont — et c\u2019est là que ça coûte cher.',
     whyAmount: 'Amendes possibles : jusqu\u2019à 25 M$ ou 4 % du chiffre d\u2019affaires mondial.',
 
     // Tiers section
     tiersTitle: 'Trois forfaits, prix fixes, sans surprise',
-    tiersSubtitle: 'Choisis selon la taille de ton site et ce que tu collectes. Pas d\u2019abonnement, pas de facturation horaire.',
+    tiersSubtitle:
+      'Choisis selon la taille de ton site et ce que tu collectes. Pas d\u2019abonnement, pas de facturation horaire.',
 
     // Tier 1 — Express
     tier1Name: 'Express',
@@ -680,13 +741,17 @@ const fr = {
     // Differentiators
     diffTitle: 'Pourquoi passer par moi',
     diff1Title: 'Pipeline propriétaire',
-    diff1Desc: 'Le même moteur d\u2019audit qui scanne ce site (Shop Compy) chaque mercredi tourne pour ton audit. Score actuel de Shop Compy : au-dessus de 80/100.',
+    diff1Desc:
+      'Le même moteur d\u2019audit qui scanne ce site (Shop Compy) chaque mercredi tourne pour ton audit. Score actuel de Shop Compy : au-dessus de 80/100.',
     diff2Title: 'Rapide et garanti',
-    diff2Desc: 'Livraison en 5 à 7 jours ouvrables. Si je dépasse le délai, tu obtiens 20 % de rabais automatique.',
+    diff2Desc:
+      'Livraison en 5 à 7 jours ouvrables. Si je dépasse le délai, tu obtiens 20 % de rabais automatique.',
     diff3Title: 'Bilingue natif',
-    diff3Desc: 'Tous les livrables sont fournis en français et en anglais, rédigés par un développeur québécois — pas traduits par une IA générique.',
+    diff3Desc:
+      'Tous les livrables sont fournis en français et en anglais, rédigés par un développeur québécois — pas traduits par une IA générique.',
     diff4Title: 'Pas de piège',
-    diff4Desc: 'Prix fixe. Zéro abonnement mensuel. Zéro facturation horaire surprise. Tu sais exactement ce que tu paies et ce que tu reçois.',
+    diff4Desc:
+      'Prix fixe. Zéro abonnement mensuel. Zéro facturation horaire surprise. Tu sais exactement ce que tu paies et ce que tu reçois.',
 
     // Final CTA
     ctaTitle: 'Prêt à savoir où tu en es ?',
@@ -695,7 +760,8 @@ const fr = {
     ctaSecondary: 'Poser une question d\u2019abord',
 
     // Disclaimer
-    disclaimer: 'Cet audit n\u2019est pas un avis juridique. Pour toute interprétation de la Loi 25, consulte un avocat spécialisé.',
+    disclaimer:
+      'Cet audit n\u2019est pas un avis juridique. Pour toute interprétation de la Loi 25, consulte un avocat spécialisé.',
   },
 } satisfies Record<string, Record<string, string>>
 

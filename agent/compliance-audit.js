@@ -179,10 +179,19 @@ async function checkCookieConsent() {
       'Aucun mécanisme de consentement cookie trouvé (peut utiliser un script JS externe)')
   }
 
-  // Vérifier que le consentement n'est pas pré-coché
-  const preChecked = /checked.*cookie|cookie.*checked|default.*accept|auto.*accept/i.test(html)
+  // Vérifier que le consentement n'est pas pré-coché.
+  // On cherche des patterns *précis* plutôt qu'un regex glouton qui faisait des faux positifs :
+  //   1. <input type="checkbox" checked> proche d'un mot cookie/consent/analytics/ad
+  //   2. Un toggle switch (role="switch" aria-checked="true") ciblant analytics/advertising
+  //      (le toggle "essential" peut légitimement rester aria-checked="true")
+  const checkboxPreChecked = /<input[^>]*type=["']checkbox["'][^>]*\schecked(?![a-z-])[^>]*>[\s\S]{0,800}(?:cookie|consent|analytic|advertis|tracking)/i.test(html)
+    || /(?:cookie|consent|analytic|advertis|tracking)[\s\S]{0,800}<input[^>]*type=["']checkbox["'][^>]*\schecked(?![a-z-])/i.test(html)
+  const switchPreChecked = /id=["']toggle-(analytics|advertising|ads?|tracking)["'][\s\S]{0,400}aria-checked=["']true["']/i.test(html)
+    || /aria-checked=["']true["'][\s\S]{0,400}id=["']toggle-(analytics|advertising|ads?|tracking)["']/i.test(html)
+  const preChecked = checkboxPreChecked || switchPreChecked
   if (preChecked) {
-    addResult('cookie-optin', 'cookies', 'Consentement cookies pré-coché', 'fail', 'critical', 'Le consentement doit être opt-in (non pré-coché)')
+    const reason = checkboxPreChecked ? 'input checkbox pré-coché' : 'switch analytics/pub aria-checked=true'
+    addResult('cookie-optin', 'cookies', 'Consentement cookies pré-coché', 'fail', 'critical', `Le consentement doit être opt-in (non pré-coché). Détecté: ${reason}`)
   } else {
     addResult('cookie-optin', 'cookies', 'Consentement cookies opt-in', 'pass', 'high', 'Pas de consentement pré-coché détecté')
   }
