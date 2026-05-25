@@ -1,24 +1,35 @@
-import React from 'react'
+﻿import React from 'react'
 import { render, screen } from '@/__mocks__/test-utils'
 import userEvent from '@testing-library/user-event'
 import CatalogueFilters from '../CatalogueFilters'
 import type { CatalogueProduct } from '@/types/catalogue'
 
-jest.mock('next/link', () => ({
+vi.mock('next/link', () => ({
   __esModule: true,
-  default: ({ children, href, ...rest }: { children: React.ReactNode; href: string; [k: string]: unknown }) => (
-    <a href={href} {...rest}>{children}</a>
+  default: ({
+    children,
+    href,
+    ...rest
+  }: {
+    children: React.ReactNode
+    href: string
+    [k: string]: unknown
+  }) => (
+    <a href={href} {...rest}>
+      {children}
+    </a>
   ),
 }))
 
-jest.mock('next/image', () => ({
+vi.mock('next/image', () => ({
   __esModule: true,
+  // eslint-disable-next-line jsx-a11y/alt-text
   default: (props: Record<string, unknown>) => <img {...props} />,
 }))
 
 beforeAll(() => {
   Object.defineProperty(window, 'localStorage', {
-    value: { getItem: jest.fn(() => null), setItem: jest.fn(), removeItem: jest.fn(), clear: jest.fn() },
+    value: { getItem: vi.fn(() => null), setItem: vi.fn(), removeItem: vi.fn(), clear: vi.fn() },
     writable: true,
   })
 })
@@ -45,9 +56,27 @@ function makeProduct(overrides: Partial<CatalogueProduct> = {}): CatalogueProduc
 }
 
 const products = [
-  makeProduct({ id: 'p1', name: 'Budget Basic', profiles: ['basic'], budgetTier: 'under500', category: 'laptop' }),
-  makeProduct({ id: 'p2', name: 'Pro Workstation', profiles: ['work'], budgetTier: '900to1500', category: 'desktop' }),
-  makeProduct({ id: 'p3', name: 'Gaming Beast', profiles: ['gaming'], budgetTier: 'over1500', category: 'laptop' }),
+  makeProduct({
+    id: 'p1',
+    name: 'Budget Basic',
+    profiles: ['basic'],
+    budgetTier: 'under500',
+    category: 'laptop',
+  }),
+  makeProduct({
+    id: 'p2',
+    name: 'Pro Workstation',
+    profiles: ['work'],
+    budgetTier: '900to1500',
+    category: 'desktop',
+  }),
+  makeProduct({
+    id: 'p3',
+    name: 'Gaming Beast',
+    profiles: ['gaming'],
+    budgetTier: 'over1500',
+    category: 'laptop',
+  }),
 ]
 
 describe('CatalogueFilters', () => {
@@ -70,7 +99,7 @@ describe('CatalogueFilters', () => {
 
     // Click "Pour jouer" filter button (not the badge span in ProductCard)
     const gamingButtons = screen.getAllByText('Pour jouer')
-    const gamingButton = gamingButtons.find(el => el.tagName === 'BUTTON')!
+    const gamingButton = gamingButtons.find((el) => el.tagName === 'BUTTON')!
     await user.click(gamingButton)
 
     // Should show 1 product matching
@@ -84,12 +113,14 @@ describe('CatalogueFilters', () => {
     const user = userEvent.setup()
     render(<CatalogueFilters products={products} />)
 
-    const gamingButton = screen.getAllByText('Pour jouer').find(el => el.tagName === 'BUTTON')!
+    const gamingButton = screen.getAllByText('Pour jouer').find((el) => el.tagName === 'BUTTON')!
     await user.click(gamingButton) // activate
     expect(screen.getByText(/1 produit/)).toBeInTheDocument()
 
     // After filtering, the button is still there — click it again
-    const gamingButtonAfter = screen.getAllByText('Pour jouer').find(el => el.tagName === 'BUTTON')!
+    const gamingButtonAfter = screen
+      .getAllByText('Pour jouer')
+      .find((el) => el.tagName === 'BUTTON')!
     await user.click(gamingButtonAfter) // deactivate
     expect(screen.getByText(/3 produits/)).toBeInTheDocument()
   })
@@ -101,7 +132,7 @@ describe('CatalogueFilters', () => {
     // No clear button initially
     expect(screen.queryByText('Effacer les filtres')).not.toBeInTheDocument()
 
-    const gamingButton = screen.getAllByText('Pour jouer').find(el => el.tagName === 'BUTTON')!
+    const gamingButton = screen.getAllByText('Pour jouer').find((el) => el.tagName === 'BUTTON')!
     await user.click(gamingButton)
     expect(screen.getByText('Effacer les filtres')).toBeInTheDocument()
   })

@@ -1,10 +1,10 @@
-export const useRouter = () => ({
-  push: jest.fn(),
-  replace: jest.fn(),
-  prefetch: jest.fn(),
-  back: jest.fn(),
-  forward: jest.fn(),
-  refresh: jest.fn(),
+﻿export const useRouter = () => ({
+  push: vi.fn(),
+  replace: vi.fn(),
+  prefetch: vi.fn(),
+  back: vi.fn(),
+  forward: vi.fn(),
+  refresh: vi.fn(),
 })
 
 export const usePathname = () => '/fr'

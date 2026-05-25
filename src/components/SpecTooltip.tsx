@@ -26,7 +26,9 @@ function TooltipBubble({ label, tip }: { label: string; tip: string }) {
   const [mounted, setMounted] = useState(false)
   const { t, locale } = useTranslation()
 
-  useEffect(() => { setMounted(true) }, [])
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const updatePosition = useCallback(() => {
     if (!triggerRef.current) return
@@ -54,11 +56,6 @@ function TooltipBubble({ label, tip }: { label: string; tip: string }) {
       className="inline-flex items-center"
       onMouseEnter={handleOpen}
       onMouseLeave={handleClose}
-      onClick={() => { if (open) handleClose(); else handleOpen() }}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (open) handleClose(); else handleOpen() }
-        if (e.key === 'Escape' && open) { e.preventDefault(); handleClose() }
-      }}
     >
       <span
         className="inline-flex items-center justify-center rounded-full cursor-help transition-colors hover:bg-[var(--accent-bg)] hover:text-[var(--accent)]"
@@ -76,64 +73,96 @@ function TooltipBubble({ label, tip }: { label: string; tip: string }) {
         tabIndex={0}
         aria-label={`Info : ${label}`}
         aria-expanded={open}
+        onClick={() => {
+          if (open) handleClose()
+          else handleOpen()
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            if (open) handleClose()
+            else handleOpen()
+          }
+          if (e.key === 'Escape' && open) {
+            e.preventDefault()
+            handleClose()
+          }
+        }}
       >
         ?
       </span>
 
-      {open && coords && mounted && createPortal(
-        <div
-          className="fixed z-[9999]"
-          style={{
-            left: coords.left,
-            top: coords.above ? coords.top : coords.top,
-            transform: coords.above
-              ? 'translate(-50%, -100%)'
-              : 'translate(-50%, 0)',
-            pointerEvents: 'auto',
-          }}
-          onMouseEnter={handleOpen}
-          onMouseLeave={handleClose}
-        >
+      {open &&
+        coords &&
+        mounted &&
+        createPortal(
           <div
-            className="rounded-xl shadow-xl text-left"
+            className="fixed z-[9999]"
             style={{
-              width: '18rem',
-              padding: '0.875rem 1rem',
-              background: 'var(--bg)',
-              border: '1px solid var(--border)',
-              boxShadow: '0 8px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)',
-              animation: 'tooltipIn 0.15s ease-out',
+              left: coords.left,
+              top: coords.above ? coords.top : coords.top,
+              transform: coords.above ? 'translate(-50%, -100%)' : 'translate(-50%, 0)',
+              pointerEvents: 'auto',
             }}
+            onMouseEnter={handleOpen}
+            onMouseLeave={handleClose}
           >
-            {/* Arrow */}
             <div
+              className="rounded-xl shadow-xl text-left"
               style={{
-                position: 'absolute',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                ...(coords.above
-                  ? { bottom: '-5px', borderLeft: '6px solid transparent', borderRight: '6px solid transparent', borderTop: '6px solid var(--bg)' }
-                  : { top: '-5px', borderLeft: '6px solid transparent', borderRight: '6px solid transparent', borderBottom: '6px solid var(--bg)' }),
-                width: 0,
-                height: 0,
-                filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.08))',
+                width: '18rem',
+                padding: '0.875rem 1rem',
+                background: 'var(--bg)',
+                border: '1px solid var(--border)',
+                boxShadow: '0 8px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)',
+                animation: 'tooltipIn 0.15s ease-out',
               }}
-            />
-            <span className="block text-xs font-bold mb-1" style={{ color: 'var(--accent)' }}>
-              {label}
-            </span>
-            <span className="block text-xs leading-relaxed" style={{ color: 'var(--text-subtle)' }}>
-              {tip}
-            </span>
-            <span className="block text-xs mt-1.5">
-              <a href={`/${locale}/glossaire`} style={{ color: 'var(--accent)', textDecoration: 'underline' }}>
-                {t.tooltip.glossaryLink}
-              </a>
-            </span>
-          </div>
-        </div>,
-        document.body
-      )}
+            >
+              {/* Arrow */}
+              <div
+                style={{
+                  position: 'absolute',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  ...(coords.above
+                    ? {
+                        bottom: '-5px',
+                        borderLeft: '6px solid transparent',
+                        borderRight: '6px solid transparent',
+                        borderTop: '6px solid var(--bg)',
+                      }
+                    : {
+                        top: '-5px',
+                        borderLeft: '6px solid transparent',
+                        borderRight: '6px solid transparent',
+                        borderBottom: '6px solid var(--bg)',
+                      }),
+                  width: 0,
+                  height: 0,
+                  filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.08))',
+                }}
+              />
+              <span className="block text-xs font-bold mb-1" style={{ color: 'var(--accent)' }}>
+                {label}
+              </span>
+              <span
+                className="block text-xs leading-relaxed"
+                style={{ color: 'var(--text-subtle)' }}
+              >
+                {tip}
+              </span>
+              <span className="block text-xs mt-1.5">
+                <a
+                  href={`/${locale}/glossaire`}
+                  style={{ color: 'var(--accent)', textDecoration: 'underline' }}
+                >
+                  {t.tooltip.glossaryLink}
+                </a>
+              </span>
+            </div>
+          </div>,
+          document.body,
+        )}
     </span>
   )
 }

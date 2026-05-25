@@ -69,7 +69,7 @@ async function main() {
         try {
           log('Build Next.js via PowerShell...')
           const buildResult = execSync(
-            'powershell.exe -Command "cd \'C:\\Users\\pypou\\OneDrive\\Bureau\\NemoClaw\\ordi-guide\' ; node_modules\\.bin\\next build 2>&1 | Select-Object -Last 5"',
+            'powershell.exe -Command "cd \'C:\\dev\\NemoClaw\\ordi-guide\' ; node_modules\\.bin\\next build 2>&1 | Select-Object -Last 5"',
             { timeout: 120000, encoding: 'utf8' }
           )
           log('Build: ' + buildResult.trim())
@@ -79,9 +79,9 @@ async function main() {
 
           // Git commit + push → Vercel auto-deploy
           try {
-            execSync('git -C "/mnt/c/Users/pypou/OneDrive/Bureau/NemoClaw/ordi-guide" add -A', { encoding: 'utf8' })
-            execSync('git -C "/mnt/c/Users/pypou/OneDrive/Bureau/NemoClaw/ordi-guide" commit -m "blog: auto-publish weekly article"', { encoding: 'utf8' })
-            execSync('git -C "/mnt/c/Users/pypou/OneDrive/Bureau/NemoClaw/ordi-guide" push origin main', { encoding: 'utf8', timeout: 30000 })
+            execSync('git -C "/mnt/c/dev/NemoClaw/ordi-guide" add -A', { encoding: 'utf8' })
+            execSync('git -C "/mnt/c/dev/NemoClaw/ordi-guide" commit -m "blog: auto-publish weekly article"', { encoding: 'utf8' })
+            execSync('git -C "/mnt/c/dev/NemoClaw/ordi-guide" push origin main', { encoding: 'utf8', timeout: 30000 })
             log('Deploy: git push -> Vercel auto-deploy')
             deployed = true
           } catch (e) {

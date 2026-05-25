@@ -1,31 +1,56 @@
-import React from 'react'
+﻿import React from 'react'
 import { render, screen } from '@/__mocks__/test-utils'
 import userEvent from '@testing-library/user-event'
 import Header from '../Header'
 
 // Mock next modules
-jest.mock('next/link', () => {
+vi.mock('next/link', () => {
   return {
     __esModule: true,
-    default: ({ children, href, ...rest }: { children: React.ReactNode; href: string; [k: string]: unknown }) => (
-      <a href={href} {...rest}>{children}</a>
+    default: ({
+      children,
+      href,
+      ...rest
+    }: {
+      children: React.ReactNode
+      href: string
+      [k: string]: unknown
+    }) => (
+      <a href={href} {...rest}>
+        {children}
+      </a>
     ),
   }
 })
 
-jest.mock('next/image', () => ({
+vi.mock('next/image', () => ({
   __esModule: true,
+  // eslint-disable-next-line jsx-a11y/alt-text
   default: (props: Record<string, unknown>) => <img {...props} />,
+}))
+
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({
+    push: vi.fn(),
+    replace: vi.fn(),
+    prefetch: vi.fn(),
+    back: vi.fn(),
+    forward: vi.fn(),
+    refresh: vi.fn(),
+  }),
+  usePathname: () => '/fr',
+  useSearchParams: () => new URLSearchParams(),
+  useParams: () => ({ locale: 'fr' }),
 }))
 
 // Mock localStorage for AnalogyProvider
 beforeAll(() => {
   Object.defineProperty(window, 'localStorage', {
     value: {
-      getItem: jest.fn(() => null),
-      setItem: jest.fn(),
-      removeItem: jest.fn(),
-      clear: jest.fn(),
+      getItem: vi.fn(() => null),
+      setItem: vi.fn(),
+      removeItem: vi.fn(),
+      clear: vi.fn(),
     },
     writable: true,
   })

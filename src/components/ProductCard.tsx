@@ -12,28 +12,94 @@ import type { ReactNode } from 'react'
 
 const CATEGORY_ICONS: Record<string, ReactNode> = {
   laptop: (
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30" aria-hidden="true">
-      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="2" y1="20" x2="22" y2="20" /><line x1="12" y1="17" x2="12" y2="20" />
+    <svg
+      width="48"
+      height="48"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="opacity-30"
+      aria-hidden="true"
+    >
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+      <line x1="2" y1="20" x2="22" y2="20" />
+      <line x1="12" y1="17" x2="12" y2="20" />
     </svg>
   ),
   desktop: (
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30" aria-hidden="true">
-      <rect x="2" y="2" width="20" height="14" rx="2" /><line x1="8" y1="20" x2="16" y2="20" /><line x1="12" y1="16" x2="12" y2="20" />
+    <svg
+      width="48"
+      height="48"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="opacity-30"
+      aria-hidden="true"
+    >
+      <rect x="2" y="2" width="20" height="14" rx="2" />
+      <line x1="8" y1="20" x2="16" y2="20" />
+      <line x1="12" y1="16" x2="12" y2="20" />
     </svg>
   ),
   monitor: (
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30" aria-hidden="true">
-      <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
+    <svg
+      width="48"
+      height="48"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="opacity-30"
+      aria-hidden="true"
+    >
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <line x1="8" y1="21" x2="16" y2="21" />
+      <line x1="12" y1="17" x2="12" y2="21" />
     </svg>
   ),
   dock: (
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30" aria-hidden="true">
-      <rect x="3" y="8" width="18" height="8" rx="2" /><circle cx="8" cy="12" r="1" /><circle cx="12" cy="12" r="1" /><line x1="16" y1="10" x2="18" y2="10" />
+    <svg
+      width="48"
+      height="48"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="opacity-30"
+      aria-hidden="true"
+    >
+      <rect x="3" y="8" width="18" height="8" rx="2" />
+      <circle cx="8" cy="12" r="1" />
+      <circle cx="12" cy="12" r="1" />
+      <line x1="16" y1="10" x2="18" y2="10" />
     </svg>
   ),
   apple: (
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-30" aria-hidden="true">
-      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="2" y1="20" x2="22" y2="20" /><line x1="12" y1="17" x2="12" y2="20" />
+    <svg
+      width="48"
+      height="48"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="opacity-30"
+      aria-hidden="true"
+    >
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+      <line x1="2" y1="20" x2="22" y2="20" />
+      <line x1="12" y1="17" x2="12" y2="20" />
     </svg>
   ),
 }
@@ -51,11 +117,23 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
   const inCompare = isInCompare(product.id)
 
   return (
-    <Link href={`/${locale}/catalogue/${product.id}`} className="card card-interactive flex flex-col group" style={{ padding: 0, overflow: 'hidden', textDecoration: 'none', color: 'inherit', minWidth: 0 }}>
-
+    <Link
+      href={`/${locale}/catalogue/${product.id}`}
+      className="card card-interactive flex flex-col group"
+      style={{
+        padding: 0,
+        overflow: 'hidden',
+        textDecoration: 'none',
+        color: 'inherit',
+        minWidth: 0,
+      }}
+    >
       {/* Product image */}
       {product.imageUrl ? (
-        <div className="relative bg-[var(--bg-subtle)] overflow-hidden" style={{ aspectRatio: '16 / 10' }}>
+        <div
+          className="relative bg-[var(--bg-subtle)] overflow-hidden"
+          style={{ aspectRatio: '16 / 10' }}
+        >
           {/* Compare toggle */}
           <button
             onClick={(e) => {
@@ -76,9 +154,34 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
             aria-label={inCompare ? cmp.added : cmp.add}
           >
             {inCompare ? (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 12 2 2 4-4" /></svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="m9 12 2 2 4-4" />
+              </svg>
             ) : (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+              </svg>
             )}
           </button>
           <Image
@@ -94,15 +197,22 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
               el.parentElement?.querySelector('.img-placeholder')?.classList.remove('hidden')
             }}
           />
-          <div className="img-placeholder hidden absolute inset-0 flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]"
-            role="img" aria-label={`${product.brand} ${product.name}`}>
+          <div
+            className="img-placeholder hidden absolute inset-0 flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]"
+            role="img"
+            aria-label={`${product.brand} ${product.name}`}
+          >
             <CategoryIcon category={product.category} />
             <span className="text-xs opacity-40">{product.brand}</span>
           </div>
         </div>
       ) : (
-        <div className="relative bg-[var(--bg-subtle)] flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]"
-          style={{ aspectRatio: '16 / 10' }} role="img" aria-label={`${product.brand} ${product.name}`}>
+        <div
+          className="relative bg-[var(--bg-subtle)] flex flex-col items-center justify-center gap-2 text-[var(--text-muted)]"
+          style={{ aspectRatio: '16 / 10' }}
+          role="img"
+          aria-label={`${product.brand} ${product.name}`}
+        >
           {/* Compare toggle */}
           <button
             onClick={(e) => {
@@ -123,9 +233,34 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
             aria-label={inCompare ? cmp.added : cmp.add}
           >
             {inCompare ? (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 12 2 2 4-4" /></svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="m9 12 2 2 4-4" />
+              </svg>
             ) : (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+              </svg>
             )}
           </button>
           <CategoryIcon category={product.category} />
@@ -138,25 +273,56 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
         <div className="flex items-center gap-2 min-w-0 flex-wrap">
           {product.isOnSale && product.originalPrice && (
             <span className="text-sm font-bold px-2.5 py-0.5 rounded-full text-white bg-blue-600">
-              -{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)} %
+              -{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}{' '}
+              %
             </span>
           )}
-          <span className="text-sm font-semibold px-2.5 py-0.5 rounded-full"
-            style={{ background: source.color + '15', color: source.color }}>
+          <span
+            className="text-sm font-semibold px-2.5 py-0.5 rounded-full"
+            style={{ background: source.color + '15', color: source.color }}
+          >
             {source.label}
           </span>
         </div>
         <GlassTooltip label={cat.aiScoreTooltip} position="top">
-          <div className="flex items-center gap-2 min-w-[100px]" tabIndex={0} aria-label={`${t.product.aiScore} : ${product.aiScore}/100. ${cat.aiScoreTooltip}`}>
+          <div
+            className="flex items-center gap-2 min-w-[100px]"
+            role="progressbar"
+            aria-valuenow={product.aiScore}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            tabIndex={0}
+            aria-label={`${t.product.aiScore} : ${product.aiScore}/100. ${cat.aiScoreTooltip}`}
+          >
             <div className="flex-1 h-1.5 rounded-full bg-[var(--border)] overflow-hidden">
-              <div className="score-bar h-full rounded-full" style={{
-                width: `${product.aiScore}%`,
-                background: product.aiScore >= 81 ? '#0891b2' : product.aiScore >= 61 ? '#2563eb' : product.aiScore >= 41 ? '#d97706' : '#94a3b8',
-              }} />
+              <div
+                className="score-bar h-full rounded-full"
+                style={{
+                  width: `${product.aiScore}%`,
+                  background:
+                    product.aiScore >= 81
+                      ? '#0891b2'
+                      : product.aiScore >= 61
+                        ? '#2563eb'
+                        : product.aiScore >= 41
+                          ? '#d97706'
+                          : '#94a3b8',
+                }}
+              />
             </div>
-            <span className="text-sm font-semibold" style={{
-              color: product.aiScore >= 81 ? '#0891b2' : product.aiScore >= 61 ? '#2563eb' : product.aiScore >= 41 ? '#d97706' : '#94a3b8',
-            }}>
+            <span
+              className="text-sm font-semibold"
+              style={{
+                color:
+                  product.aiScore >= 81
+                    ? '#0891b2'
+                    : product.aiScore >= 61
+                      ? '#2563eb'
+                      : product.aiScore >= 41
+                        ? '#d97706'
+                        : '#94a3b8',
+              }}
+            >
               {product.aiScore}
             </span>
           </div>
@@ -165,42 +331,62 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
 
       {/* Corps */}
       <div className="px-5 sm:px-6 pt-4 pb-5 flex-1 flex flex-col min-w-0">
-
         {/* Nom et marque */}
         <p className="text-sm font-medium mb-1 text-[var(--text-muted)]">{product.brand}</p>
-        <h3 className="font-bold mb-4 text-[var(--text)] break-words" style={{ fontSize: '1.125rem', lineHeight: 1.35 }}>
+        <h3
+          className="font-bold mb-4 text-[var(--text)] break-words"
+          style={{ fontSize: '1.125rem', lineHeight: 1.35 }}
+        >
           {product.name}
         </h3>
 
         {/* Specs */}
         <div className="space-y-2 mb-5">
-          {([
-            { key: 'cpu', label: 'CPU', value: product.specs.cpu },
-            { key: 'ram', label: 'RAM', value: product.specs.ram },
-            { key: 'storage', label: cat.storageLabel, value: product.specs.storage },
-            { key: 'gpu', label: 'GPU', value: product.specs.gpu && /intégré|integrated/i.test(product.specs.gpu) ? undefined : product.specs.gpu },
-            { key: 'display', label: cat.displayLabel, value: product.specs.display },
-          ] as const).filter(s => s.value).map(s => (
-            <div key={s.key} className="flex items-start gap-2 text-sm min-w-0">
-              <span className="shrink-0 font-medium inline-flex items-center gap-1 text-[var(--text)]" style={{ minWidth: '3.5rem' }}>
-                {s.label} <SpecTooltip specKey={s.key} />
-              </span>
-              <span className="text-[var(--text-muted)] break-words min-w-0">{s.value}</span>
-            </div>
-          ))}
+          {(
+            [
+              { key: 'cpu', label: 'CPU', value: product.specs.cpu },
+              { key: 'ram', label: 'RAM', value: product.specs.ram },
+              { key: 'storage', label: cat.storageLabel, value: product.specs.storage },
+              {
+                key: 'gpu',
+                label: 'GPU',
+                value:
+                  product.specs.gpu && /intégré|integrated/i.test(product.specs.gpu)
+                    ? undefined
+                    : product.specs.gpu,
+              },
+              { key: 'display', label: cat.displayLabel, value: product.specs.display },
+            ] as const
+          )
+            .filter((s) => s.value)
+            .map((s) => (
+              <div key={s.key} className="flex items-start gap-2 text-sm min-w-0">
+                <span
+                  className="shrink-0 font-medium inline-flex items-center gap-1 text-[var(--text)]"
+                  style={{ minWidth: '3.5rem' }}
+                >
+                  {s.label} <SpecTooltip specKey={s.key} />
+                </span>
+                <span className="text-[var(--text-muted)] break-words min-w-0">{s.value}</span>
+              </div>
+            ))}
         </div>
 
         {/* Avis IA */}
-        <div className="p-4 rounded-lg mb-5 bg-[var(--bg-subtle)]" style={{ borderLeft: '3px solid var(--accent)' }}>
-          <p className="text-sm leading-relaxed text-[var(--text-subtle)]">
-            {product.aiRationale}
-          </p>
+        <div
+          className="p-4 rounded-lg mb-5 bg-[var(--bg-subtle)]"
+          style={{ borderLeft: '3px solid var(--accent)' }}
+        >
+          <p className="text-sm leading-relaxed text-[var(--text-subtle)]">{product.aiRationale}</p>
         </div>
 
         {/* Profils */}
         <div className="flex flex-wrap gap-2 mb-5">
-          {product.profiles.map(p => (
-            <span key={p} className="text-sm px-2.5 py-1 rounded-full bg-[var(--accent-bg)] text-[var(--accent)]">
+          {product.profiles.map((p) => (
+            <span
+              key={p}
+              className="text-sm px-2.5 py-1 rounded-full bg-[var(--accent-bg)] text-[var(--accent)]"
+            >
               {PROFILE_LABELS[p].label}
             </span>
           ))}
@@ -226,8 +412,10 @@ export default function ProductCard({ product }: { product: CatalogueProduct }) 
               </span>
             )}
           </div>
-          <span className="btn-primary shrink-0"
-            style={{ padding: '0.625rem 1rem', fontSize: '0.8125rem', minHeight: '44px' }}>
+          <span
+            className="btn-primary shrink-0"
+            style={{ padding: '0.625rem 1rem', fontSize: '0.8125rem', minHeight: '44px' }}
+          >
             {cat.viewDetails}
           </span>
         </div>

@@ -1,23 +1,34 @@
-import React from 'react'
+﻿import React from 'react'
 import { render, screen } from '@/__mocks__/test-utils'
 import ProductCard from '../ProductCard'
 import type { CatalogueProduct } from '@/types/catalogue'
 
-jest.mock('next/link', () => ({
+vi.mock('next/link', () => ({
   __esModule: true,
-  default: ({ children, href, ...rest }: { children: React.ReactNode; href: string; [k: string]: unknown }) => (
-    <a href={href} {...rest}>{children}</a>
+  default: ({
+    children,
+    href,
+    ...rest
+  }: {
+    children: React.ReactNode
+    href: string
+    [k: string]: unknown
+  }) => (
+    <a href={href} {...rest}>
+      {children}
+    </a>
   ),
 }))
 
-jest.mock('next/image', () => ({
+vi.mock('next/image', () => ({
   __esModule: true,
+  // eslint-disable-next-line jsx-a11y/alt-text
   default: (props: Record<string, unknown>) => <img {...props} />,
 }))
 
 beforeAll(() => {
   Object.defineProperty(window, 'localStorage', {
-    value: { getItem: jest.fn(() => null), setItem: jest.fn(), removeItem: jest.fn(), clear: jest.fn() },
+    value: { getItem: vi.fn(() => null), setItem: vi.fn(), removeItem: vi.fn(), clear: vi.fn() },
     writable: true,
   })
 })
@@ -51,7 +62,7 @@ describe('ProductCard', () => {
   it('renders the product name and brand', () => {
     render(<ProductCard product={mockProduct} />)
     expect(screen.getByText('Lenovo IdeaPad 3')).toBeInTheDocument()
-    expect(screen.getByText('Lenovo')).toBeInTheDocument()
+    expect(screen.getByText('Lenovo', { selector: 'p' })).toBeInTheDocument()
   })
 
   it('renders the price and original price when on sale', () => {
@@ -66,7 +77,7 @@ describe('ProductCard', () => {
 
   it('renders the AI score', () => {
     render(<ProductCard product={mockProduct} />)
-    expect(screen.getByText('82/100')).toBeInTheDocument()
+    expect(screen.getByText('82')).toBeInTheDocument()
   })
 
   it('renders spec lines for CPU and RAM', () => {
