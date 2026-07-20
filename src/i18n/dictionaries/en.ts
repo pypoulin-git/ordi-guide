@@ -19,26 +19,31 @@ const en: Dictionary = {
 
   // ── Footer ───────────────────────────────────────────────
   footer: {
-    tagline: 'A simple and honest guide to help you choose your next computer, without unnecessary jargon.',
+    tagline:
+      'A simple and honest guide to help you choose your next computer, without unnecessary jargon.',
     explore: 'Explore',
     guideComplete: 'The full guide',
     aboutTitle: 'About',
-    affiliateDisclosure: 'Some retailer links are affiliate links: if you buy through these links, we receive a small commission at no extra cost to you. We also display a single clearly labelled ad spot on product pages only. Our recommendations are always based on quality and your needs, never on commissions.',
+    affiliateDisclosure:
+      'Some retailer links are affiliate links: if you buy through these links, we receive a small commission at no extra cost to you. We also display a single clearly labelled ad spot on product pages only. Our recommendations are always based on quality and your needs, never on commissions.',
     privacy: 'Privacy',
     terms: 'Terms of Service',
+    cookies: 'Cookies',
     support: 'Expert support',
     contact: 'Contact',
     rights: 'All rights reserved.',
-    helpTitle: 'Can\'t find what you\'re looking for?',
+    helpTitle: "Can't find what you're looking for?",
     helpComparator: 'Take the questionnaire',
     helpGuide: 'Read the full guide',
     newsletter: 'Newsletter',
     newsletterDesc: 'Get monthly deals and tips',
     newsletterPlaceholder: 'Your email',
     newsletterButton: 'Subscribe',
-    newsletterSuccess: 'Thanks for your interest! No newsletter just yet — we\'ll reach out once it launches.',
+    newsletterSuccess:
+      "Thanks for your interest! No newsletter just yet — we'll reach out once it launches.",
     newsletterLocalNote: '(Your email is stored locally on this device only)',
-    newsletterConsent: 'I consent to receive emails from Shop Compy. I can unsubscribe at any time.',
+    newsletterConsent:
+      'I consent to receive emails from Shop Compy. I can unsubscribe at any time.',
     newsletterConsentRequired: 'Please check the box to confirm your consent.',
     manageCookies: 'Manage cookies',
     socialGithub: 'GitHub',
@@ -47,11 +52,12 @@ const en: Dictionary = {
   // ── Home ─────────────────────────────────────────────────
   home: {
     heroTitle: 'Need help choosing\nyour next computer?',
-    heroSubtitle: 'We explain everything without jargon or pressure.\nAn honest guide to shop with confidence, whether you\'re a beginner or not.',
+    heroSubtitle:
+      "We explain everything without jargon or pressure.\nAn honest guide to shop with confidence, whether you're a beginner or not.",
     heroCta: 'Help Me Choose',
     heroCtaGuide: 'Read the Guide',
 
-    searchTitle: 'Describe what you need, we\'ll handle the rest',
+    searchTitle: "Describe what you need, we'll handle the rest",
     searchSubtitle: 'Our assistant analyzes your request and gives you an instant recommendation',
 
     analogyTitle: 'Want us to explain it to you?',
@@ -65,15 +71,18 @@ const en: Dictionary = {
     featuresSubtitle: 'Three simple tools to help you with your purchase',
 
     featureGuideTitle: 'The Full Guide',
-    featureGuideDesc: 'Understand the basics in 10 minutes. Processor, memory, storage — explained without jargon.',
+    featureGuideDesc:
+      'Understand the basics in 10 minutes. Processor, memory, storage — explained without jargon.',
     featureGuideCta: 'Read the guide →',
 
     featureComparatorTitle: 'Help Me Choose',
-    featureComparatorDesc: 'Answer 5 simple questions and get a personalized recommendation based on your usage and budget.',
+    featureComparatorDesc:
+      'Answer 5 simple questions and get a personalized recommendation based on your usage and budget.',
     featureComparatorCta: 'Get started →',
 
     featureGlossaryTitle: 'Glossary',
-    featureGlossaryDesc: 'Seen "SSD NVMe" or "DDR5 RAM" and don\'t know what it means? We\'ll explain.',
+    featureGlossaryDesc:
+      'Seen "SSD NVMe" or "DDR5 RAM" and don\'t know what it means? We\'ll explain.',
     featureGlossaryCta: 'Explore the glossary →',
 
     reassurance1: 'Simple explanations',
@@ -83,22 +92,26 @@ const en: Dictionary = {
     reassurance3: 'Transparent',
     reassurance3Desc: 'Affiliate links and partner spot disclosed, unbiased advice',
     reassurance4: 'For everyone',
-    reassurance4Desc: 'Whether you\'re 15 or 75',
+    reassurance4Desc: "Whether you're 15 or 75",
 
     faqTitle: 'Frequently Asked Questions',
     faqSubtitle: 'The real questions everyone asks',
 
     faq1Q: 'How much should I spend on a good computer?',
-    faq1A: 'For most everyday uses (browsing, email, photos, videos), a budget of $500 to $800 is more than enough. You don\'t need to spend $1,500 unless you\'re editing 4K video, playing demanding games, or doing specialized professional work.',
+    faq1A:
+      "For most everyday uses (browsing, email, photos, videos), a budget of $500 to $800 is more than enough. You don't need to spend $1,500 unless you're editing 4K video, playing demanding games, or doing specialized professional work.",
 
     faq2Q: 'Laptop or desktop?',
-    faq2A: 'A laptop goes everywhere with you but costs a bit more for the same performance. A desktop is more powerful for the same price and easier to repair, but stays at home. If you move around often or work in different rooms, a laptop is ideal.',
+    faq2A:
+      'A laptop goes everywhere with you but costs a bit more for the same performance. A desktop is more powerful for the same price and easier to repair, but stays at home. If you move around often or work in different rooms, a laptop is ideal.',
 
     faq3Q: 'Mac or Windows?',
-    faq3A: 'Both do an excellent job. Windows offers more model and price choices. Mac is appreciated for its simplicity, durability, and integration with iPhone/iPad. The choice often comes down to habit and use — our guide helps you see more clearly.',
+    faq3A:
+      'Both do an excellent job. Windows offers more model and price choices. Mac is appreciated for its simplicity, durability, and integration with iPhone/iPad. The choice often comes down to habit and use — our guide helps you see more clearly.',
 
-    faq4Q: 'What\'s the difference between RAM and storage?',
-    faq4A: 'RAM is like your desk: the bigger it is, the more things you can have open at the same time. Storage (hard drive / SSD) is the cabinet where you keep everything. A cluttered desk slows you down; a big, organized cabinet doesn\'t.',
+    faq4Q: "What's the difference between RAM and storage?",
+    faq4A:
+      "RAM is like your desk: the bigger it is, the more things you can have open at the same time. Storage (hard drive / SSD) is the cabinet where you keep everything. A cluttered desk slows you down; a big, organized cabinet doesn't.",
 
     faqGlossaryHint: 'Lost in the jargon? Check out our',
     faqGlossaryLink: 'computer terms glossary',
@@ -106,10 +119,14 @@ const en: Dictionary = {
 
     // ── Getting Started ───────────────────────────────────
     gettingStartedTitle: 'Where to start when shopping for a computer?',
-    gettingStartedP1: 'Before looking at prices or brands, the first step is to ask yourself a simple question: what will this computer be used for? Browsing the web and writing emails is very different from editing videos or playing online games. A student taking notes in class doesn\'t have the same needs as a freelancer managing their accounting. By identifying your real needs, you avoid paying for features you\'ll never use — and you make sure you get a computer that does exactly what you need it to do.',
-    gettingStartedP2: 'In Canada, price ranges are fairly predictable. For basic use (web, email, documents), a budget of $500 to $800 is sufficient. If you need more power — for example, for heavy multitasking, photo editing, or professional applications — aim for $800 to $1,200. Computers at $1,200 and above are designed for demanding tasks like video editing, 3D creation, or high-performance gaming. Keep in mind that sales events (back-to-school, Black Friday) can save you 15 to 30% off the regular price.',
-    gettingStartedP3: 'When comparing models, focus on three key components. The processor (CPU) is the brain of the computer: it determines how fast tasks are completed. RAM controls how many things you can do at once — 8 GB is the recommended minimum in 2025, and 16 GB provides lasting comfort. Storage (SSD) determines how much space you have for files and how fast your computer boots: a 256 GB SSD is fine if you use cloud storage, but 512 GB is more comfortable.',
-    gettingStartedP4: 'The good news? You almost never need the most expensive model. Manufacturers highlight premium options, but a well-chosen mid-range computer will meet the needs of 80% of users for 4 to 6 years. What matters is choosing a device that fits your needs, not the most impressive one on paper. Our full guide breaks down every component in detail to help you make the right choice.',
+    gettingStartedP1:
+      "Before looking at prices or brands, the first step is to ask yourself a simple question: what will this computer be used for? Browsing the web and writing emails is very different from editing videos or playing online games. A student taking notes in class doesn't have the same needs as a freelancer managing their accounting. By identifying your real needs, you avoid paying for features you'll never use — and you make sure you get a computer that does exactly what you need it to do.",
+    gettingStartedP2:
+      'In Canada, price ranges are fairly predictable. For basic use (web, email, documents), a budget of $500 to $800 is sufficient. If you need more power — for example, for heavy multitasking, photo editing, or professional applications — aim for $800 to $1,200. Computers at $1,200 and above are designed for demanding tasks like video editing, 3D creation, or high-performance gaming. Keep in mind that sales events (back-to-school, Black Friday) can save you 15 to 30% off the regular price.',
+    gettingStartedP3:
+      'When comparing models, focus on three key components. The processor (CPU) is the brain of the computer: it determines how fast tasks are completed. RAM controls how many things you can do at once — 8 GB is the recommended minimum in 2025, and 16 GB provides lasting comfort. Storage (SSD) determines how much space you have for files and how fast your computer boots: a 256 GB SSD is fine if you use cloud storage, but 512 GB is more comfortable.',
+    gettingStartedP4:
+      'The good news? You almost never need the most expensive model. Manufacturers highlight premium options, but a well-chosen mid-range computer will meet the needs of 80% of users for 4 to 6 years. What matters is choosing a device that fits your needs, not the most impressive one on paper. Our full guide breaks down every component in detail to help you make the right choice.',
     gettingStartedGuideLink: 'Read the full guide →',
 
     // ── Trust Stats ───────────────────────────────────────
@@ -130,7 +147,7 @@ const en: Dictionary = {
 
     bottomCtaTitle: 'Ready to find your ideal computer?',
     bottomCtaSubtitle: 'Answer 5 questions and get a free personalized recommendation.',
-    bottomCtaButton: 'Get started, it\'s free →',
+    bottomCtaButton: "Get started, it's free →",
   },
 
   // ── Components ───────────────────────────────────────────
@@ -185,7 +202,8 @@ const en: Dictionary = {
   // ── Guide page ───────────────────────────────────────────
   guide: {
     heroTitle: 'The basics for choosing your computer',
-    heroSubtitle: 'No unnecessary jargon. We explain each component in plain language, with concrete examples so you know exactly what to look for.',
+    heroSubtitle:
+      'No unnecessary jargon. We explain each component in plain language, with concrete examples so you know exactly what to look for.',
     heroBadge: 'Complete guide · 10 min read',
     tocTitle: 'In this guide:',
     modeLabel: 'Mode',
@@ -193,7 +211,7 @@ const en: Dictionary = {
     introLabel: 'Before we start',
     analogyLabel: 'Components explained',
     conclusionLabel: 'Wrapping up',
-    ctaTitle: 'Now, let\'s find your ideal computer',
+    ctaTitle: "Now, let's find your ideal computer",
     ctaSubtitle: 'Answer 5 questions and get a personalized recommendation.',
     ctaButton: 'Help me choose →',
   },
@@ -205,18 +223,20 @@ const en: Dictionary = {
     questionOf: 'Question {current} of {total}',
     back: '← Go back to the previous question',
     resultTitle: 'Your recommendation',
-    resultSubtitle: 'Based on your answers, here\'s what fits you best.',
+    resultSubtitle: "Based on your answers, here's what fits you best.",
     profile: 'Profile',
     noteLabel: 'Good to know',
     learnMore: 'Learn more in the guide',
     restart: 'Start over',
-    disclaimer: 'Our recommendations are based on your needs. Some links are affiliate links — you pay nothing extra.',
+    disclaimer:
+      'Our recommendations are based on your needs. Some links are affiliate links — you pay nothing extra.',
   },
 
   // ── Glossary page ────────────────────────────────────────
   glossary: {
     heroTitle: 'Computer glossary',
-    heroSubtitle: 'All the technical terms you\'ll come across when shopping for a computer — explained in everyday language.',
+    heroSubtitle:
+      "All the technical terms you'll come across when shopping for a computer — explained in everyday language.",
     heroBadge: '{count} terms explained',
     exLabel: 'Ex:',
     ctaTitle: 'Ready to choose your computer?',
@@ -236,23 +256,34 @@ const en: Dictionary = {
   // ── About page ───────────────────────────────────────────
   about: {
     heroTitle: 'The human behind the machine',
-    heroSubtitle: 'Shop Compy isn\'t a big corporation. It\'s an idea born behind a counter, with ordinary people who deserved better explanations.',
+    heroSubtitle:
+      "Shop Compy isn't a big corporation. It's an idea born behind a counter, with ordinary people who deserved better explanations.",
     origin: 'The starting point',
-    originQuote: 'A few years ago, I spent two years as a Dell advisor. My favorite part of the job? It wasn\'t reciting spec sheets — it was seeing regular people\'s faces light up when they finally understood what they were buying.',
-    originP1: 'That\'s where my famous human body analogy was born. Explaining that a processor is a brain, that RAM is like lungs — it changes everything. Suddenly, technology isn\'t a foreign language — it\'s common sense.',
-    originP2: 'Customers would leave with a computer that truly fit them, not the one the salesperson wanted to push. That detail made all the difference.',
+    originQuote:
+      "A few years ago, I spent two years as a Dell advisor. My favorite part of the job? It wasn't reciting spec sheets — it was seeing regular people's faces light up when they finally understood what they were buying.",
+    originP1:
+      "That's where my famous human body analogy was born. Explaining that a processor is a brain, that RAM is like lungs — it changes everything. Suddenly, technology isn't a foreign language — it's common sense.",
+    originP2:
+      'Customers would leave with a computer that truly fit them, not the one the salesperson wanted to push. That detail made all the difference.',
     today: 'Today',
-    todayQuote: 'My career took me elsewhere, but I\'m still "the computer guy" for my parents, cousins, and neighbors. Let\'s be honest: the computer market in 2026 is a jungle. You barely master one concept before a new AI chip comes along and changes everything.',
-    todayP1: 'It\'s become impossible for an ordinary person to keep up without staying up all night. Yet the decisions remain the same: which computer to buy, for what budget, for what use. The questions haven\'t changed. What\'s changed is how hard it is to find a clear answer.',
+    todayQuote:
+      'My career took me elsewhere, but I\'m still "the computer guy" for my parents, cousins, and neighbors. Let\'s be honest: the computer market in 2026 is a jungle. You barely master one concept before a new AI chip comes along and changes everything.',
+    todayP1:
+      "It's become impossible for an ordinary person to keep up without staying up all night. Yet the decisions remain the same: which computer to buy, for what budget, for what use. The questions haven't changed. What's changed is how hard it is to find a clear answer.",
     missionTitle: 'The solution: AI at the service of simplicity',
-    missionIntro: 'That\'s why I created this site. The idea was to combine artificial intelligence — capable of analyzing the thousands of specs that change every day — with a human, accessible, non-condescending approach.',
+    missionIntro:
+      "That's why I created this site. The idea was to combine artificial intelligence — capable of analyzing the thousands of specs that change every day — with a human, accessible, non-condescending approach.",
     step1Title: 'Simplify',
-    step1Desc: 'Explain technology with words and analogies — human body or automobile — that you truly understand, without unnecessary jargon.',
+    step1Desc:
+      'Explain technology with words and analogies — human body or automobile — that you truly understand, without unnecessary jargon.',
     step2Title: 'Secure',
-    step2Desc: 'Direct you to recognized and reliable retailers in Canada so your purchase is made with confidence.',
+    step2Desc:
+      'Direct you to recognized and reliable retailers in Canada so your purchase is made with confidence.',
     step3Title: 'Guide',
-    step3Desc: 'Help you find the perfect digital companion for your real needs — not the salesperson\'s.',
-    finalQuote: 'Technology shouldn\'t be a foreign language. For everyone, it should be a matter of common sense.',
+    step3Desc:
+      "Help you find the perfect digital companion for your real needs — not the salesperson's.",
+    finalQuote:
+      "Technology shouldn't be a foreign language. For everyone, it should be a matter of common sense.",
     founder: 'The founder of Shop Compy',
     ctaTitle: 'Ready to get started?',
     ctaSubtitle: 'Let us help you make the right choice — simply, honestly.',
@@ -269,14 +300,18 @@ const en: Dictionary = {
     method4Title: 'Updated Weekly',
     method4Desc: 'Our catalogue is refreshed automatically to reflect the current market.',
     privacyTitle: 'Privacy & data management',
-    privacyIntro: 'Your privacy is a priority. Here\'s how we handle your data — in full transparency.',
-    privacyP1: 'We only collect anonymous browsing data via Vercel Analytics (pages visited, duration). No user account is required, no personal data is stored.',
-    privacyP2: 'What is NOT collected: name, email, IP address, search history, payment data. We don\'t use any third-party tracking pixels (Facebook, Google Analytics, etc.).',
-    privacyP3: 'Our cookie banner gives you granular control: you choose exactly which cookies to accept. This mechanism complies with Quebec\'s Law 25 and Canadian PIPEDA standards.',
+    privacyIntro:
+      "Your privacy is a priority. Here's how we handle your data — in full transparency.",
+    privacyP1:
+      'We only collect anonymous browsing data via Vercel Analytics (pages visited, duration). No user account is required, no personal data is stored.',
+    privacyP2:
+      "What is NOT collected: name, email, IP address, search history, payment data. We don't use any third-party tracking pixels (Facebook, Google Analytics, etc.).",
+    privacyP3:
+      "Our cookie banner gives you granular control: you choose exactly which cookies to accept. This mechanism complies with Quebec's Law 25 and Canadian PIPEDA standards.",
     privacyManageCookies: 'Manage my cookies',
     privacyFullPolicy: 'Read the full privacy policy',
     contactTitle: 'Get in touch',
-    contactIntro: 'Have a question, suggestion, or partnership inquiry? We\'re here.',
+    contactIntro: "Have a question, suggestion, or partnership inquiry? We're here.",
     contactEmail: 'info@shopcompy.ca',
     contactResponse: 'Response time: 48 h',
     contactCta: 'Write via the contact form',
@@ -286,7 +321,8 @@ const en: Dictionary = {
   blog: {
     articleCount: '{count} articles · Shop Compy',
     heroTitle: 'The Decoder',
-    heroSubtitle: 'Tech explained simply. Short articles to understand without a computer science degree.',
+    heroSubtitle:
+      'Tech explained simply. Short articles to understand without a computer science degree.',
     tags: 'Tags:',
     found: '{count} article{plural} found',
     reset: 'Reset',
@@ -299,7 +335,7 @@ const en: Dictionary = {
     comingSoon: 'Coming soon',
     comingSoonText: 'More articles coming soon…',
     ctaTitle: 'Ready to take action?',
-    ctaSubtitle: 'Now that you understand the basics, let\'s find the computer that fits you.',
+    ctaSubtitle: "Now that you understand the basics, let's find the computer that fits you.",
     ctaButton: 'Help me choose →',
     catAll: 'All',
     catBasics: 'Basics',
@@ -313,11 +349,11 @@ const en: Dictionary = {
   compy: {
     title: 'Ask Compy',
     subtitle: 'Your tech assistant, ready to answer your questions',
-    placeholder: 'Ex: What\'s the difference between SSD and hard drive?',
+    placeholder: "Ex: What's the difference between SSD and hard drive?",
     askButton: 'Ask',
     thinking: 'Compy is thinking…',
     relatedArticles: 'Related articles',
-    improvisedNote: 'No article covers this topic yet — we\'ve noted it for an upcoming article.',
+    improvisedNote: "No article covers this topic yet — we've noted it for an upcoming article.",
     errorGeneric: 'Oops, something went wrong. Try again.',
     example1: 'What is a processor?',
     example2: 'How much RAM do I need?',
@@ -327,7 +363,8 @@ const en: Dictionary = {
   // ── Catalogue page ───────────────────────────────────────
   catalogue: {
     heroTitle: 'Our recommendations',
-    heroSubtitleTemplate: '{count} computers selected and rated by our AI. Filter by profile, budget, or category to find yours.',
+    heroSubtitleTemplate:
+      '{count} computers selected and rated by our AI. Filter by profile, budget, or category to find yours.',
     profileLabel: 'Profile',
     budgetLabel: 'Budget',
     categoryLabel: 'Category',
@@ -344,7 +381,8 @@ const en: Dictionary = {
     viewDetails: 'View details →',
     storageLabel: 'Storage',
     displayLabel: 'Display',
-    aiScoreTooltip: 'Relevance score calculated by our AI — based on value for money, reliability, and usage fit.',
+    aiScoreTooltip:
+      'Relevance score calculated by our AI — based on value for money, reliability, and usage fit.',
   },
 
   // ── Product detail page ─────────────────────────────────
@@ -365,7 +403,8 @@ const en: Dictionary = {
     affiliateNote: 'Affiliate link — you pay nothing extra',
     priceApprox: 'Estimated price',
     priceStale: 'Price not recently verified',
-    priceDisclaimer: 'This price is an AI estimate and may differ from the actual price. Please verify on the retailer\u2019s website.',
+    priceDisclaimer:
+      'This price is an AI estimate and may differ from the actual price. Please verify on the retailer\u2019s website.',
     notSure: 'Not sure? Take the quiz',
     similarProducts: 'Similar products',
     giftPickNote: 'Compy find — this recommendation generates no revenue for us',
@@ -374,11 +413,11 @@ const en: Dictionary = {
   // ── Price alerts ────────────────────────────────────────
   priceAlert: {
     title: 'Price drop alert',
-    description: 'Get an email if this product\'s price goes down.',
+    description: "Get an email if this product's price goes down.",
     placeholder: 'your@email.com',
     button: 'Notify me',
-    subscribed: 'You\'re set! We\'ll email you when the price drops.',
-    alreadySubscribed: 'You\'re already subscribed for this product.',
+    subscribed: "You're set! We'll email you when the price drops.",
+    alreadySubscribed: "You're already subscribed for this product.",
     error: 'Something went wrong. Try again.',
     privacy: 'Your email is only used for price alerts. No spam.',
   },
@@ -414,7 +453,7 @@ const en: Dictionary = {
     archetypeGeek: 'The Enthusiast',
     archetypeGeekDesc: 'Raw computing power for pros',
     archetypeDouchebag: 'The Show-Off',
-    archetypeDouchebagDesc: 'Warning: unbalanced specs — big GPU but the rest doesn\'t keep up',
+    archetypeDouchebagDesc: "Warning: unbalanced specs — big GPU but the rest doesn't keep up",
     recentSearches: 'Recent searches',
     clearHistory: 'Clear',
   },
@@ -437,7 +476,7 @@ const en: Dictionary = {
   // ── 404 Not Found ─────────────────────────────────────
   notFound: {
     title: 'Page not found',
-    subtitle: 'It looks like this page doesn\'t exist or has been moved.',
+    subtitle: "It looks like this page doesn't exist or has been moved.",
     goHome: 'Back to home',
     goGuide: 'Read the guide',
     goComparator: 'Help me choose',
@@ -445,16 +484,22 @@ const en: Dictionary = {
   // ── Funding (About page transparency) ────────────────
   funding: {
     fundingTitle: 'How we fund this site',
-    fundingIntro: 'Shop Compy is free and always will be. Here\'s how we cover our costs to keep the site alive, up to date, and genuinely useful.',
+    fundingIntro:
+      "Shop Compy is free and always will be. Here's how we cover our costs to keep the site alive, up to date, and genuinely useful.",
     fundingAffiliateTitle: 'Affiliate links',
-    fundingAffiliateDesc: 'When you buy through one of our links, we receive a small commission from the retailer. It costs you nothing extra and never influences our recommendations.',
+    fundingAffiliateDesc:
+      'When you buy through one of our links, we receive a small commission from the retailer. It costs you nothing extra and never influences our recommendations.',
     fundingPartnerTitle: 'A partner spot',
-    fundingPartnerDesc: 'A single ad placement, clearly labelled, on product pages only. The rest of the site is 100% ad-free.',
+    fundingPartnerDesc:
+      'A single ad placement, clearly labelled, on product pages only. The rest of the site is 100% ad-free.',
     fundingGiftTitle: 'Compy Finds',
-    fundingGiftDesc: 'Some exceptional deals are listed with no commission for us. A voluntary donation is offered — you keep the rest of your savings.',
+    fundingGiftDesc:
+      'Some exceptional deals are listed with no commission for us. A voluntary donation is offered — you keep the rest of your savings.',
     fundingSupportTitle: 'Expert support',
-    fundingSupportDesc: 'Ask a human a question for just $10. Guaranteed reply within 24 hours by email. Affordable and personalized.',
-    fundingWhy: 'This revenue funds the AI that analyzes products, the site hosting, and ongoing development. Without it, the site wouldn\'t exist — or it would be behind a paywall.',
+    fundingSupportDesc:
+      'Ask a human a question for just $10. Guaranteed reply within 24 hours by email. Affordable and personalized.',
+    fundingWhy:
+      "This revenue funds the AI that analyzes products, the site hosting, and ongoing development. Without it, the site wouldn't exist — or it would be behind a paywall.",
     fundingBadge1: 'No paywall',
     fundingBadge2: 'No tracking cookies',
     fundingBadge3: 'Recommendations based on quality',
@@ -486,7 +531,8 @@ const en: Dictionary = {
   support: {
     supportHeroTitle: 'One expert, one answer',
     supportHeroSubtitle: 'Ask a real human your question. Guaranteed reply within 24 hours.',
-    supportIntro: 'Compy\'s AI is great, but sometimes you need a personalized opinion. Our experts know the Canadian market and answer in plain language.',
+    supportIntro:
+      "Compy's AI is great, but sometimes you need a personalized opinion. Our experts know the Canadian market and answer in plain language.",
     supportTier1Title: '1 question',
     supportTier1Price: '$5',
     supportTier1Desc: 'A quick, clear opinion on your question.',
@@ -503,17 +549,19 @@ const en: Dictionary = {
     supportCta: 'Pay and send',
     supportExamples: 'Example questions',
     supportEx1: 'My computer is 5 years old, is it worth upgrading?',
-    supportEx2: 'I\'m torn between the MacBook Air M4 and the Lenovo Yoga.',
+    supportEx2: "I'm torn between the MacBook Air M4 and the Lenovo Yoga.",
     supportEx3: 'Can my PC run Windows 11?',
     supportEx4: 'I found a deal, is it a good buy?',
     supportMerciTitle: 'Thank you!',
-    supportMerciMessage: 'Your question has been received. We\'ll reply within 24 hours to the email address you provided.',
+    supportMerciMessage:
+      "Your question has been received. We'll reply within 24 hours to the email address you provided.",
   },
 
   // ── Donation ────────────────────────────────────────
   donation: {
     donationTitle: 'Did this deal help you?',
-    donationSubtitle: 'This recommendation is offered at no revenue to us. If you\'d like to support us:',
+    donationSubtitle:
+      "This recommendation is offered at no revenue to us. If you'd like to support us:",
     donationCta5: '$5',
     donationCta10: '$10',
     donationCta20: '$20',
@@ -523,7 +571,13 @@ const en: Dictionary = {
   // ── Privacy ─────────────────────────────────────────
   privacy: {
     privacyTitle: 'Privacy Policy',
-    privacyLastUpdated: 'Last updated: March 2026',
+    privacyLastUpdated: 'Last updated: July 2026',
+  },
+
+  // ── Cookies ─────────────────────────────────────────
+  cookies: {
+    cookiesTitle: 'Cookie Policy',
+    cookiesLastUpdated: 'Last updated: July 2026',
   },
 
   // ── Terms of Service ──────────────────────────────
@@ -559,7 +613,7 @@ const en: Dictionary = {
   // ── Contact ──────────────────────────────────────────
   contact: {
     heroTitle: 'Get in touch',
-    heroSubtitle: 'Have a question, suggestion, or partnership inquiry? We\'re here to help.',
+    heroSubtitle: "Have a question, suggestion, or partnership inquiry? We're here to help.",
     formTitle: 'Send a message',
     nameLabel: 'Name',
     namePlaceholder: 'Your name',
@@ -572,12 +626,13 @@ const en: Dictionary = {
     subjectOther: 'Other',
     messageLabel: 'Message',
     messagePlaceholder: 'Write your message here...',
-    consentLabel: 'I consent to Shop Compy using my contact information to reply to this message. I can request its removal at any time.',
+    consentLabel:
+      'I consent to Shop Compy using my contact information to reply to this message. I can request its removal at any time.',
     consentRequired: 'Please check the box to confirm your consent.',
     submit: 'Send',
     sending: 'Sending...',
     successTitle: 'Message sent!',
-    successMessage: 'Thanks for your message. We\'ll get back to you within 48 hours.',
+    successMessage: "Thanks for your message. We'll get back to you within 48 hours.",
     errorMessage: 'Something went wrong. Please try again later.',
     emailInvalid: 'Invalid email address.',
     required: 'This field is required.',
@@ -588,13 +643,15 @@ const en: Dictionary = {
     altResponseValue: '48 hours',
     faqTitle: 'Frequently asked questions',
     faqQ1: 'Is the site really free?',
-    faqA1: 'Yes! Shop Compy is funded by affiliate links and a single ad spot. You never pay anything to use the site.',
+    faqA1:
+      'Yes! Shop Compy is funded by affiliate links and a single ad spot. You never pay anything to use the site.',
     faqQ2: 'How are recommendations made?',
-    faqA2: 'Our recommendations are based on AI analysis combined with verified prices from Canadian retailers. Check our About page to learn more.',
+    faqA2:
+      'Our recommendations are based on AI analysis combined with verified prices from Canadian retailers. Check our About page to learn more.',
     faqQ3: 'Can I suggest a product?',
     faqA3: 'Of course! Use the form above to send us your suggestion.',
     faqQ4: 'Do you sell computers?',
-    faqA4: 'No, we don\'t sell anything. We redirect you to trusted Canadian retailers.',
+    faqA4: "No, we don't sell anything. We redirect you to trusted Canadian retailers.",
   },
 
   // ── Ads ────────────────────────────────────────────
@@ -605,7 +662,8 @@ const en: Dictionary = {
 
   // ── Affiliate Disclosure ─────────────────────────────
   affiliate: {
-    disclosure: 'Some links are affiliate links. If you buy through them, we earn a small commission at no cost to you.',
+    disclosure:
+      'Some links are affiliate links. If you buy through them, we earn a small commission at no cost to you.',
     learnMore: 'Learn more',
     dismiss: 'Dismiss',
   },
@@ -615,16 +673,19 @@ const en: Dictionary = {
     // Hero
     heroBadge: 'Specialized service · Quebec SMBs',
     heroTitle: 'Law 25 compliance audit for your website',
-    heroSubtitle: 'Find out in days whether your site complies with Quebec\u2019s Law 25, PIPEDA, and CASL. Three clear packages, fixed prices, delivered within 7 business days.',
+    heroSubtitle:
+      'Find out in days whether your site complies with Quebec\u2019s Law 25, PIPEDA, and CASL. Three clear packages, fixed prices, delivered within 7 business days.',
 
     // Why
     whyTitle: 'Why this matters',
-    whyIntro: 'Since September 22, 2023, every Quebec organization that collects personal information must comply with Law 25. Privacy policy, granular consent, right to erasure, breach notification. Most SMBs have no idea where they stand — and that\u2019s exactly when it gets expensive.',
+    whyIntro:
+      'Since September 22, 2023, every Quebec organization that collects personal information must comply with Law 25. Privacy policy, granular consent, right to erasure, breach notification. Most SMBs have no idea where they stand — and that\u2019s exactly when it gets expensive.',
     whyAmount: 'Possible fines: up to $25M CAD or 4% of worldwide annual revenue.',
 
     // Tiers section
     tiersTitle: 'Three packages, fixed prices, no surprises',
-    tiersSubtitle: 'Pick based on the size of your site and what you collect. No subscription, no hourly billing.',
+    tiersSubtitle:
+      'Pick based on the size of your site and what you collect. No subscription, no hourly billing.',
 
     // Tier 1 — Express
     tier1Name: 'Express',
@@ -682,13 +743,17 @@ const en: Dictionary = {
     // Differentiators
     diffTitle: 'Why work with me',
     diff1Title: 'Proprietary pipeline',
-    diff1Desc: 'The same audit engine that scans this site (Shop Compy) every Wednesday runs against your audit. Shop Compy currently scores above 80/100.',
+    diff1Desc:
+      'The same audit engine that scans this site (Shop Compy) every Wednesday runs against your audit. Shop Compy currently scores above 80/100.',
     diff2Title: 'Fast and guaranteed',
-    diff2Desc: 'Delivery in 5 to 7 business days. If I miss the deadline, you get an automatic 20% discount.',
+    diff2Desc:
+      'Delivery in 5 to 7 business days. If I miss the deadline, you get an automatic 20% discount.',
     diff3Title: 'Native bilingual',
-    diff3Desc: 'All deliverables provided in French and English, written by a Quebec developer — not machine-translated.',
+    diff3Desc:
+      'All deliverables provided in French and English, written by a Quebec developer — not machine-translated.',
     diff4Title: 'No traps',
-    diff4Desc: 'Fixed price. Zero monthly subscription. Zero surprise hourly billing. You know exactly what you pay and what you receive.',
+    diff4Desc:
+      'Fixed price. Zero monthly subscription. Zero surprise hourly billing. You know exactly what you pay and what you receive.',
 
     // Final CTA
     ctaTitle: 'Ready to find out where you stand?',
@@ -697,7 +762,8 @@ const en: Dictionary = {
     ctaSecondary: 'Ask a question first',
 
     // Disclaimer
-    disclaimer: 'This audit is not legal advice. For any interpretation of Law 25, please consult a specialized lawyer.',
+    disclaimer:
+      'This audit is not legal advice. For any interpretation of Law 25, please consult a specialized lawyer.',
   },
 }
 
